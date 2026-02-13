@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 58" width="90" height="58">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap');
+    </style>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#bf953f"/>
+      <stop offset="18%" stop-color="#fcf6ba"/>
+      <stop offset="40%" stop-color="#b38728"/>
+      <stop offset="65%" stop-color="#fbf5b7"/>
+      <stop offset="85%" stop-color="#daa520"/>
+      <stop offset="100%" stop-color="#aa771c"/>
+    </linearGradient>
+    <filter id="glow">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <text x="45" y="48" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="52" fill="url(#gold)" filter="url(#glow)">JP</text>
+</svg>
