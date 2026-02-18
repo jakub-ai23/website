@@ -28,5 +28,20 @@ Building a personal brand website that combines the best elements from five anal
 - `website-crossover-concept-v1.md` — V1 crossover concept combining all five (CURRENT WORKING DRAFT)
 
 ## Status
-- V1 crossover concept is drafted and ready for review/refinement
-- Next steps: refine concept, choose brand name/domain, accent color, framework name, then design and build
+- **Snap-scroll landing page shipped** (single-file HTML/CSS/JS at `index.html`)
+- **6-slide full-screen snap-scrolling** (TikTok/Instagram Stories style, 100vh per slide)
+- Slides: Hero+Trust → About → Transformation → Services (1:1 only) → Proof (metrics+testimonials) → CTA+Footer
+- Cut: Blog section, Videos section, training cards grid (3 cards)
+- Merged: Trust Bar into Hero bottom, Use Cases + Testimonials into Proof, CTA + Footer into final slide
+- Accent color: Amber/Gold (#d4a017), dark charcoal, German (Sie-Form), Great Vibes + Montserrat + Inter fonts
+- SVG logo (Dirk Kreuter style): `images/logos/jakub-popluhar-logo.svg` + `.png` variants
+- Features: CSS snap scroll, custom wheel/touch/keyboard handlers, IntersectionObserver, gold nav dots, prefers-reduced-motion fallback
+- Next: production build (Next.js), bilingual (EN), domain/hosting, booking integration
+
+## Future Expansion
+- **"Über mich" subpage**: Full bio with personal stories (scuba diving, saving best friend's life, sports background), detailed credentials, hobbies, philosophy. The "Mehr über mich" button on the landing page should link here once built.
+- **Use Cases subpage**: Dedicated page with detailed case studies for B2B managers
+- **Newsletter**: Once established
+- **English version**: Bilingual site
+- **Blog**: Real content replacing placeholder cards
+- **Booking integration**: Calendly or similar for "Erstgespräch buchen"

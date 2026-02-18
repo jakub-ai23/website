@@ -17,15 +17,14 @@
       --gold-light: #e8b84a;
       --gold-dark: #b8890f;
       --charcoal: #141414;
-      --charcoal-light: #1e1e1e;
-      --charcoal-lighter: #2a2a2a;
+      --charcoal-light: #141414;
+      --charcoal-lighter: #1a1a1a;
       --white: #f5f5f5;
       --white-muted: #b0b0b0;
       --font-heading: 'Montserrat', sans-serif;
       --font-body: 'Inter', sans-serif;
+      --nav-height: 70px;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font-body);
@@ -33,17 +32,40 @@
       color: var(--white);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+      height: 100vh;
     }
 
     a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
     a:hover { color: var(--gold-light); }
-
     img { max-width: 100%; display: block; }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
+    }
+
+    /* ========== SNAP CONTAINER ========== */
+    .snap-container {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      overscroll-behavior-y: contain;
+      scroll-padding-top: var(--nav-height);
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .snap-container::-webkit-scrollbar { display: none; }
+
+    .slide {
+      height: 100vh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
     }
 
     /* ========== NAVIGATION ========== */
@@ -53,21 +75,20 @@
       left: 0;
       right: 0;
       z-index: 100;
-      padding: 20px 0;
-      transition: background 0.3s, padding 0.3s, backdrop-filter 0.3s;
-    }
-
-    .nav.scrolled {
-      background: rgba(20, 20, 20, 0.9);
+      padding: 16px 0;
+      background: rgba(20, 20, 20, 0.85);
       backdrop-filter: blur(20px);
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(212, 160, 23, 0.1);
+      border-bottom: 1px solid rgba(212, 160, 23, 0.08);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
     }
 
     .nav .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      width: 100%;
     }
 
     .nav-logo {
@@ -79,9 +100,7 @@
     }
 
     .nav-logo span { color: var(--gold); }
-
     .nav-logo svg { display: inline-block; vertical-align: middle; }
-    .logo-svg-footer { display: block; margin-bottom: 8px; }
 
     .nav-links {
       display: flex;
@@ -97,7 +116,8 @@
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--white); }
 
     .nav-cta {
       background: var(--gold);
@@ -106,12 +126,14 @@
       border-radius: 6px;
       font-weight: 600;
       font-size: 0.9rem;
-      transition: background 0.2s, transform 0.2s;
+      border: 2px solid var(--gold);
+      transition: all 0.2s;
     }
 
     .nav-cta:hover {
-      background: var(--gold-light);
-      color: var(--charcoal) !important;
+      background: transparent;
+      color: var(--gold) !important;
+      border-color: var(--gold);
       transform: translateY(-1px);
     }
 
@@ -132,17 +154,47 @@
       transition: transform 0.3s, opacity 0.3s;
     }
 
-    /* ========== HERO ========== */
-    .hero {
-      position: relative;
-      min-height: 100vh;
+    /* ========== NAV DOTS ========== */
+    .nav-dots {
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 99;
       display: flex;
-      align-items: center;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--charcoal) 0%, #0a0a0a 50%, var(--charcoal) 100%);
+      flex-direction: column;
+      gap: 12px;
     }
 
-    .hero::before {
+    .nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
+    }
+
+    .nav-dot.active {
+      background: var(--gold);
+      box-shadow: 0 0 8px rgba(212, 160, 23, 0.5);
+      transform: scale(1.3);
+    }
+
+    .nav-dot:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ========== SLIDE 1: HERO + TRUST ========== */
+    .slide-hero {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #0a0a0a 50%, var(--charcoal) 100%);
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slide-hero::before {
       content: '';
       position: absolute;
       top: -50%;
@@ -154,27 +206,19 @@
       pointer-events: none;
     }
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -30%;
-      left: -10%;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(212, 160, 23, 0.04) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero .container {
+    .hero-main {
       position: relative;
       z-index: 2;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: 60px;
       align-items: center;
-      padding-top: 100px;
-      padding-bottom: 60px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      padding-top: var(--nav-height);
+      flex: 1;
     }
 
     .hero-content { max-width: 560px; }
@@ -192,7 +236,7 @@
       color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .hero-badge::before {
@@ -209,27 +253,26 @@
       50% { opacity: 0.4; }
     }
 
-    .hero h1 {
+    .slide-hero h1 {
       font-family: var(--font-heading);
-      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
       font-weight: 800;
       line-height: 1.05;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       letter-spacing: -1.5px;
       font-style: italic;
     }
 
-    .hero h1 .highlight {
+    .slide-hero h1 .highlight {
       color: var(--gold);
-      position: relative;
       font-style: italic;
     }
 
     .hero-sub {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       color: var(--white-muted);
       line-height: 1.7;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
       max-width: 520px;
     }
 
@@ -243,7 +286,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 16px 32px;
+      padding: 14px 28px;
       border-radius: 8px;
       font-family: var(--font-body);
       font-size: 1rem;
@@ -256,10 +299,13 @@
     .btn-primary {
       background: var(--gold);
       color: var(--charcoal);
+      border: 2px solid var(--gold);
     }
 
     .btn-primary:hover {
-      background: var(--gold-light);
+      background: transparent;
+      color: var(--gold);
+      border-color: var(--gold);
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(212, 160, 23, 0.3);
     }
@@ -276,7 +322,6 @@
       transform: translateY(-2px);
     }
 
-    /* Hero right — profile image */
     .hero-image {
       display: flex;
       justify-content: center;
@@ -285,7 +330,7 @@
     }
 
     .hero-image img {
-      max-height: 520px;
+      max-height: 460px;
       width: auto;
       filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
       position: relative;
@@ -298,29 +343,33 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 350px;
-      height: 350px;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(212, 160, 23, 0.12) 0%, transparent 70%);
       z-index: 1;
     }
 
-    /* ========== TRUST BAR ========== */
-    .trust-bar {
-      padding: 48px 0;
+    /* Trust bar inside hero */
+    .hero-trust {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      padding: 20px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.04);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.4);
       overflow: hidden;
     }
 
     .trust-bar-label {
       text-align: center;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 3px;
-      color: #555;
-      margin-bottom: 32px;
+      color: #444;
+      margin-bottom: 14px;
       font-weight: 600;
     }
 
@@ -335,14 +384,13 @@
       display: flex;
       align-items: center;
       gap: 80px;
-      animation: marquee 20s linear infinite;
+      animation: marquee 25s linear infinite;
       flex-shrink: 0;
+      min-width: max-content;
       padding-right: 80px;
     }
 
-    .trust-marquee:hover .trust-track {
-      animation-play-state: paused;
-    }
+    .trust-marquee:hover .trust-track { animation-play-state: paused; }
 
     @keyframes marquee {
       0% { transform: translateX(0); }
@@ -351,178 +399,144 @@
 
     .trust-logo {
       font-family: var(--font-heading);
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: #555;
+      color: #444;
       white-space: nowrap;
       letter-spacing: 1px;
-      transition: color 0.3s;
       flex-shrink: 0;
     }
 
-    .trust-logo:hover { color: #999; }
-
     .trust-logo-img {
-      height: 40px;
+      height: 32px;
       width: auto;
       flex-shrink: 0;
-      opacity: 0.5;
-      transition: opacity 0.3s, filter 0.3s;
+      opacity: 0.4;
       filter: grayscale(100%) brightness(0.7);
     }
 
-    .trust-logo-img:hover {
-      opacity: 1;
-      filter: grayscale(0%) brightness(1);
+    /* ========== SLIDE 2: ABOUT ========== */
+    .slide-about {
+      background: var(--charcoal);
     }
 
-    /* ========== ABOUT / WER BIN ICH ========== */
-    .about {
-      padding: 120px 0;
-      position: relative;
-    }
-
-    .about .container {
+    .slide-about .container {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 80px;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 60px;
       align-items: center;
+      padding-top: var(--nav-height);
     }
 
-    .about-image-wrapper {
-      position: relative;
-    }
+    .about-image-wrapper { position: relative; }
 
     .about-image {
       width: 100%;
-      max-width: 420px;
+      max-width: 360px;
       aspect-ratio: 3 / 4;
       border-radius: 16px;
       background: linear-gradient(180deg, rgba(212, 160, 23, 0.08) 0%, var(--charcoal-light) 100%);
       border: 1px solid rgba(255, 255, 255, 0.06);
-      position: relative;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    .about-image .placeholder-text {
-      color: #444;
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .about-image::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      right: -8px;
-      width: 120px;
-      height: 120px;
-      border: 3px solid var(--gold);
-      border-radius: 16px;
-      opacity: 0.3;
-    }
 
     .about-stats {
       display: flex;
-      gap: 24px;
-      margin-top: 32px;
+      gap: 10px;
+      margin-top: 16px;
+      max-width: 360px;
     }
 
     .about-stat {
       background: var(--charcoal-light);
       border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 20px 24px;
-      border-radius: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
       text-align: center;
       flex: 1;
     }
 
     .about-stat .number {
       font-family: var(--font-heading);
-      font-size: 1.8rem;
+      font-size: 1.1rem;
       font-weight: 800;
       color: var(--gold);
       display: block;
     }
 
     .about-stat .label {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       color: var(--white-muted);
-      margin-top: 4px;
+      margin-top: 1px;
       display: block;
     }
 
     .section-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 3px;
       color: var(--gold);
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .about-content h2 {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
       font-weight: 800;
       line-height: 1.15;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
       letter-spacing: -0.5px;
     }
 
     .about-text {
       color: var(--white-muted);
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-bottom: 20px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 14px;
     }
 
     .about-quote {
       background: rgba(212, 160, 23, 0.05);
       border-left: 3px solid var(--gold);
-      padding: 20px 24px;
-      margin: 32px 0;
+      padding: 14px 18px;
+      margin: 18px 0;
       border-radius: 0 8px 8px 0;
     }
 
     .about-quote p {
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       font-style: italic;
       color: var(--white);
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     .about-credentials {
       list-style: none;
-      margin: 28px 0;
+      margin: 16px 0;
     }
 
     .about-credentials li {
-      padding: 8px 0;
+      padding: 5px 0;
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 0.95rem;
+      gap: 10px;
+      font-size: 0.85rem;
       color: var(--white-muted);
     }
 
     .about-credentials li .check {
       color: var(--gold);
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
 
-    /* ========== TRANSFORMATION ========== */
-    .transformation {
-      padding: 120px 0;
+    /* ========== SLIDE 3: TRANSFORMATION ========== */
+    .slide-transformation {
       background: var(--charcoal-light);
-      position: relative;
     }
 
-    .transformation::before {
+    .slide-transformation::before {
       content: '';
       position: absolute;
       top: 0;
@@ -532,315 +546,111 @@
       background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.2), transparent);
     }
 
-    .transformation .section-header {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 64px;
+    .slide-transformation .container {
+      padding-top: var(--nav-height);
     }
 
-    .transformation .section-header h2 {
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 40px;
+    }
+
+    .section-header h2 {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
       font-weight: 800;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       letter-spacing: -0.5px;
     }
 
-    .transformation .section-header p {
+    .section-header p {
       color: var(--white-muted);
-      font-size: 1.05rem;
+      font-size: 0.95rem;
     }
 
     .transform-grid {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
-      gap: 40px;
-      align-items: start;
+      gap: 24px;
+      align-items: stretch;
     }
+
+    .transform-col {
+      background: var(--charcoal-lighter);
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    .transform-before { border: 1px solid rgba(231, 76, 60, 0.2); }
+    .transform-after { border: 1px solid rgba(46, 204, 113, 0.2); }
 
     .transform-col h3 {
       font-family: var(--font-heading);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
       margin-bottom: 24px;
-      padding-bottom: 16px;
     }
 
-    .transform-before h3 {
-      color: #e74c3c;
-      border-bottom: 2px solid rgba(231, 76, 60, 0.3);
-    }
+    .transform-before h3 { color: #e74c3c; }
+    .transform-after h3 { color: #2ecc71; }
 
-    .transform-after h3 {
-      color: #2ecc71;
-      border-bottom: 2px solid rgba(46, 204, 113, 0.3);
-    }
+    .transform-col table { width: 100%; border-collapse: collapse; }
 
-    .transform-col ul {
-      list-style: none;
-    }
-
-    .transform-col li {
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      font-size: 0.95rem;
+    .transform-col table td {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.88rem;
       color: var(--white-muted);
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
       line-height: 1.5;
+      vertical-align: top;
     }
 
-    .transform-col li:last-child { border-bottom: none; }
+    .transform-col table tr:last-child td { border-bottom: none; }
 
-    .transform-before li .icon { color: #e74c3c; }
-    .transform-after li .icon { color: #2ecc71; }
+    .transform-col table td.icon-cell {
+      width: 28px;
+      padding-right: 10px;
+    }
+
+    .transform-before table td.icon-cell { color: #e74c3c; }
+    .transform-after table td.icon-cell { color: #2ecc71; }
 
     .transform-arrow {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 80px;
     }
 
     .transform-arrow-icon {
       width: 56px;
       height: 56px;
       border-radius: 50%;
-      background: rgba(212, 160, 23, 0.1);
-      border: 1px solid rgba(212, 160, 23, 0.2);
+      background: linear-gradient(135deg, #9B741D, #BC9844, #E9C072, #FBE894, #C99E44);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold);
-      font-size: 1.5rem;
-    }
-
-    /* ========== VIDEOS ========== */
-    .videos {
-      padding: 120px 0;
-      position: relative;
-    }
-
-    .videos .section-header {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 64px;
-    }
-
-    .videos .section-header h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-
-    .videos .section-header p {
-      color: var(--white-muted);
-      font-size: 1.05rem;
-    }
-
-    .video-grid {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .video-card {
-      background: var(--charcoal-light);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s, border-color 0.3s;
-      width: 320px;
-      flex-shrink: 0;
-    }
-
-    .video-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(212, 160, 23, 0.2);
-    }
-
-    .video-card video {
-      width: 100%;
-      aspect-ratio: 9 / 16;
-      object-fit: cover;
-      display: block;
-      background: #000;
-    }
-
-    .video-card .video-placeholder {
-      width: 100%;
-      aspect-ratio: 9 / 16;
-      background: linear-gradient(135deg, var(--charcoal-lighter), #111);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #444;
-      font-size: 0.9rem;
-    }
-
-    .video-card-info {
-      padding: 20px;
-    }
-
-    .video-card-info h4 {
-      font-family: var(--font-heading);
-      font-size: 1.05rem;
+      color: var(--charcoal);
+      font-size: 1.4rem;
       font-weight: 700;
-      margin-bottom: 6px;
+      box-shadow: 0 4px 20px rgba(212, 160, 23, 0.3);
     }
 
-    .video-card-info p {
-      color: var(--white-muted);
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-
-    /* ========== BLOG ========== */
-    .blog {
-      padding: 120px 0;
-      background: var(--charcoal-light);
-      position: relative;
-    }
-
-    .blog::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.2), transparent);
-    }
-
-    .blog .section-header {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 64px;
-    }
-
-    .blog .section-header h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-
-    .blog .section-header p {
-      color: var(--white-muted);
-      font-size: 1.05rem;
-    }
-
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-
-    .blog-card {
+    /* ========== SLIDE 4: SERVICES ========== */
+    .slide-services {
       background: var(--charcoal);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s, border-color 0.3s;
     }
 
-    .blog-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(212, 160, 23, 0.2);
+    .slide-services .container {
+      padding-top: var(--nav-height);
     }
 
-    .blog-card-thumb {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: linear-gradient(135deg, var(--charcoal-lighter), #111);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .blog-card-thumb .tag {
-      background: rgba(212, 160, 23, 0.15);
-      color: var(--gold);
-      padding: 6px 14px;
-      border-radius: 100px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .blog-card-body {
-      padding: 24px;
-    }
-
-    .blog-card-body .date {
-      font-size: 0.75rem;
-      color: #555;
-      margin-bottom: 8px;
-    }
-
-    .blog-card-body h4 {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 10px;
-    }
-
-    .blog-card-body p {
-      color: var(--white-muted);
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .blog-card-body .read-more {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gold);
-    }
-
-    .blog-card-body .read-more:hover { color: var(--gold-light); }
-
-    /* ========== SERVICES ========== */
-    .services {
-      padding: 120px 0;
-      position: relative;
-    }
-
-    .services .section-header {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 64px;
-    }
-
-    .services .section-header h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-
-    .services .section-header p {
-      color: var(--white-muted);
-      font-size: 1.05rem;
-    }
-
-    /* Featured service — 1:1 Executive */
     .service-featured {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 50px;
       align-items: center;
-      margin-bottom: 64px;
+      margin-bottom: 28px;
     }
 
     .service-featured-image {
@@ -850,7 +660,7 @@
     }
 
     .service-featured-image img {
-      max-height: 480px;
+      max-height: 420px;
       width: auto;
       filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
       position: relative;
@@ -863,8 +673,8 @@
       bottom: 10%;
       left: 50%;
       transform: translateX(-50%);
-      width: 300px;
-      height: 300px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(212, 160, 23, 0.1) 0%, transparent 70%);
       z-index: 1;
@@ -875,121 +685,68 @@
       background: rgba(212, 160, 23, 0.12);
       border: 1px solid rgba(212, 160, 23, 0.25);
       color: var(--gold);
-      padding: 6px 16px;
+      padding: 5px 14px;
       border-radius: 100px;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .service-featured-content h3 {
       font-family: var(--font-heading);
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
       font-weight: 800;
       line-height: 1.2;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .service-featured-content .desc {
       color: var(--white-muted);
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-bottom: 28px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 22px;
     }
 
     .service-points {
       list-style: none;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
 
     .service-points li {
-      padding: 10px 0;
+      padding: 7px 0;
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 0.95rem;
+      gap: 10px;
+      font-size: 0.88rem;
       color: var(--white-muted);
     }
 
     .service-points li .icon {
       color: var(--gold);
-      font-size: 1.1rem;
+      font-size: 1rem;
       flex-shrink: 0;
     }
 
-    /* Training cards grid */
-    .training-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .training-card {
-      background: var(--charcoal-light);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 12px;
-      padding: 32px;
-      transition: transform 0.3s, border-color 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .training-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gold);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .training-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(212, 160, 23, 0.2);
-    }
-
-    .training-card:hover::before { opacity: 1; }
-
-    .training-card .card-icon {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    .training-card h4 {
-      font-family: var(--font-heading);
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .training-card p {
+    .service-team-line {
+      text-align: center;
       color: var(--white-muted);
       font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .training-card .card-link {
-      font-size: 0.85rem;
+    .service-team-line a {
       font-weight: 600;
-      color: var(--gold);
     }
 
-    .training-card .card-link:hover { color: var(--gold-light); }
-
-    /* ========== USE CASES ========== */
-    .use-cases {
-      padding: 120px 0;
+    /* ========== SLIDE 5: PROOF ========== */
+    .slide-proof {
       background: var(--charcoal-light);
-      position: relative;
     }
 
-    .use-cases::before {
+    .slide-proof::before {
       content: '';
       position: absolute;
       top: 0;
@@ -999,166 +756,130 @@
       background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.2), transparent);
     }
 
-    .use-cases .section-header {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 64px;
+    .slide-proof .container {
+      padding-top: var(--nav-height);
     }
 
-    .use-cases .section-header h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-
-    .use-cases .section-header p {
-      color: var(--white-muted);
-      font-size: 1.05rem;
-    }
-
-    .usecase-grid {
+    .proof-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
     }
 
-    .usecase-card {
+    /* Use case metrics side */
+    .proof-metrics h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+
+    .metric-card {
       background: var(--charcoal);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 12px;
-      padding: 32px;
+      padding: 24px;
+      margin-bottom: 16px;
       transition: transform 0.3s, border-color 0.3s;
-      position: relative;
     }
 
-    .usecase-card:hover {
-      transform: translateY(-4px);
+    .metric-card:hover {
+      transform: translateY(-2px);
       border-color: rgba(212, 160, 23, 0.2);
     }
 
-    .usecase-card .uc-industry {
+    .metric-card .uc-industry {
       display: inline-block;
       background: rgba(212, 160, 23, 0.12);
       color: var(--gold);
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 100px;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 16px;
+      margin-bottom: 10px;
     }
 
-    .usecase-card h4 {
+    .metric-card h4 {
       font-family: var(--font-heading);
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       line-height: 1.3;
     }
 
-    .usecase-card .uc-desc {
-      color: var(--white-muted);
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .usecase-card .uc-metric {
+    .metric-card .uc-metric {
       display: flex;
       align-items: baseline;
       gap: 8px;
-      padding-top: 16px;
+      padding-top: 10px;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .usecase-card .uc-metric .number {
+    .metric-card .uc-metric .number {
       font-family: var(--font-heading);
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: var(--gold);
     }
 
-    .usecase-card .uc-metric .metric-label {
-      font-size: 0.8rem;
+    .metric-card .uc-metric .metric-label {
+      font-size: 0.75rem;
       color: var(--white-muted);
     }
 
-    /* ========== TESTIMONIALS ========== */
-    .testimonials {
-      padding: 120px 0;
-      position: relative;
-    }
-
-    .testimonials .section-header {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 64px;
-    }
-
-    .testimonials .section-header h2 {
+    /* Testimonials side */
+    .proof-testimonials h3 {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-
-    .testimonials .section-header p {
-      color: var(--white-muted);
-      font-size: 1.05rem;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--white);
     }
 
     .testimonial-card {
-      background: var(--charcoal-light);
+      background: var(--charcoal);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 12px;
-      padding: 32px;
+      padding: 22px;
+      margin-bottom: 16px;
       transition: transform 0.3s, border-color 0.3s;
-      display: flex;
-      flex-direction: column;
     }
 
     .testimonial-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-2px);
       border-color: rgba(212, 160, 23, 0.2);
     }
 
     .testimonial-card .stars {
       color: var(--gold);
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       letter-spacing: 2px;
-      margin-bottom: 16px;
+      margin-bottom: 10px;
     }
 
     .testimonial-card blockquote {
       color: var(--white);
-      font-size: 0.95rem;
-      line-height: 1.7;
+      font-size: 0.88rem;
+      line-height: 1.6;
       font-style: italic;
-      flex: 1;
-      margin-bottom: 24px;
+      margin-bottom: 14px;
     }
 
     .testimonial-author {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding-top: 16px;
+      gap: 10px;
+      padding-top: 12px;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .testimonial-author .avatar {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: var(--charcoal-lighter);
       display: flex;
@@ -1166,31 +887,31 @@
       justify-content: center;
       font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--gold);
       flex-shrink: 0;
     }
 
     .testimonial-author .author-info .name {
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       display: block;
     }
 
     .testimonial-author .author-info .role {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: var(--white-muted);
       display: block;
     }
 
-    /* ========== CTA SECTION ========== */
-    .cta-section {
-      padding: 120px 0;
-      position: relative;
-      overflow: hidden;
+    /* ========== SLIDE 6: CTA + FOOTER ========== */
+    .slide-cta {
+      background: var(--charcoal);
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .cta-section::before {
+    .slide-cta::before {
       content: '';
       position: absolute;
       top: 50%;
@@ -1203,13 +924,28 @@
       pointer-events: none;
     }
 
-    .cta-card {
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: center;
+    .cta-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding-top: var(--nav-height);
       position: relative;
       z-index: 2;
     }
+
+    .cta-with-image {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .cta-card { text-align: left; }
 
     .cta-card h2 {
       font-family: var(--font-heading);
@@ -1221,34 +957,65 @@
 
     .cta-card .subtitle {
       color: var(--white-muted);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.7;
-      margin-bottom: 40px;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-with-image {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 40px;
-      align-items: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .cta-image {
-      position: relative;
+      margin-bottom: 32px;
+      max-width: 480px;
     }
 
     .cta-image img {
-      max-height: 400px;
+      max-height: 360px;
       width: auto;
       filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.4));
     }
 
-    /* ========== LINKEDIN ICON ========== */
+    /* Footer inside CTA slide */
+    .slide-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .slide-footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--white-muted);
+    }
+
+    .footer-brand span { color: var(--gold); }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: #555;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white-muted); }
+
+    .footer-copy {
+      color: #444;
+      font-size: 0.75rem;
+    }
+
+    /* ========== SOCIAL LINK ========== */
     .social-link {
       display: inline-flex;
       align-items: center;
@@ -1274,76 +1041,45 @@
 
     .social-link:hover svg { fill: var(--gold); }
 
-    /* ========== FOOTER ========== */
-    .footer {
-      padding: 48px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .footer .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .footer-brand {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--white-muted);
-    }
-
-    .footer-brand span { color: var(--gold); }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .footer-links a {
-      color: #555;
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--white-muted); }
-
-    .footer-copy {
-      color: #444;
-      font-size: 0.8rem;
-    }
-
-    /* ========== SCROLL ANIMATIONS ========== */
-    .fade-up {
+    /* ========== SLIDE ANIMATIONS ========== */
+    .slide-content {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .fade-up.visible {
+    .slide.active .slide-content {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* ========== RESPONSIVE ========== */
+    /* First slide starts visible */
+    .slide-hero .slide-content,
+    .slide-hero .hero-main,
+    .slide-hero .hero-trust {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ========== RESPONSIVE: TABLET ========== */
     @media (max-width: 968px) {
       .logo-svg-nav { height: 36px; }
+      .nav-dots { right: 12px; }
 
-      .hero .container {
+      .hero-main {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 32px;
         text-align: center;
-        padding-top: 120px;
       }
 
       .hero-content { max-width: 100%; }
       .hero-sub { max-width: 100%; }
       .hero-ctas { justify-content: center; }
+      .hero-image img { max-height: 300px; }
 
-      .about .container {
+      .slide-about .container {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 32px;
         text-align: center;
       }
 
@@ -1353,50 +1089,46 @@
         align-items: center;
       }
 
-      .about-image { max-width: 320px; }
-
+      .about-image { max-width: 240px; }
       .about-quote { text-align: left; }
       .about-credentials { text-align: left; }
 
       .transform-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 16px;
       }
 
       .transform-arrow { display: none; }
+      .transform-col { padding: 24px; }
 
       .service-featured {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
         text-align: center;
       }
 
       .service-featured-image { order: -1; }
-      .service-featured-image img { max-height: 360px; }
+      .service-featured-image img { max-height: 280px; }
       .service-points { text-align: left; }
 
-      .training-grid { grid-template-columns: 1fr; }
+      .proof-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
 
       .cta-with-image {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 1fr;
         text-align: center;
       }
 
       .cta-image { display: none; }
-
-      .video-grid { justify-content: center; }
-      .video-card { width: 280px; }
-
-      .blog-grid { grid-template-columns: 1fr; }
-
-      .usecase-grid { grid-template-columns: 1fr; }
-
-      .testimonial-grid { grid-template-columns: 1fr; }
     }
 
+    /* ========== RESPONSIVE: MOBILE ========== */
     @media (max-width: 640px) {
       .nav-links { display: none; }
       .nav-toggle { display: block; }
+      .nav-dots { display: none; }
 
       .nav-links.open {
         display: flex;
@@ -1412,19 +1144,71 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
 
-      .hero h1 { font-size: 2.2rem; }
+      .slide-hero h1 { font-size: 2rem; }
+      .hero-sub { font-size: 1rem; }
+      .hero-image img { max-height: 220px; }
 
-      .about-stats { flex-direction: column; gap: 12px; }
+      .about-content h2 { font-size: 1.4rem; }
+      .about-text { font-size: 0.85rem; }
+      .about-stats { flex-direction: column; gap: 8px; }
 
-      .trust-logos { gap: 32px; }
+      .section-header h2 { font-size: 1.5rem; }
 
-      .blog-grid { grid-template-columns: 1fr; }
+      .transform-col { padding: 20px; }
+      .transform-col table td { font-size: 0.82rem; padding: 8px 0; }
 
-      .footer .container {
+      .service-featured-content h3 { font-size: 1.3rem; }
+
+      .footer-brand svg { height: 40px; }
+
+      .slide-footer .container {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
         text-align: center;
       }
+    }
+
+    /* Very short screens */
+    @media (max-height: 700px) {
+      .hero-image img { max-height: 280px; }
+      .about-image { max-width: 200px; }
+      .about-quote { padding: 10px 14px; margin: 10px 0; }
+      .about-credentials li { padding: 3px 0; font-size: 0.8rem; }
+      .section-header { margin-bottom: 24px; }
+      .transform-col { padding: 20px; }
+      .transform-col table td { padding: 7px 0; font-size: 0.82rem; }
+      .service-featured { gap: 30px; }
+      .metric-card { padding: 18px; margin-bottom: 10px; }
+      .testimonial-card { padding: 16px; margin-bottom: 10px; }
+    }
+
+    /* ========== REDUCED MOTION ========== */
+    @media (prefers-reduced-motion: reduce) {
+      body { overflow: auto; height: auto; }
+
+      .snap-container {
+        height: auto;
+        overflow: visible;
+        scroll-snap-type: none;
+      }
+
+      .slide {
+        height: auto;
+        min-height: 100vh;
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
+        overflow: visible;
+      }
+
+      .slide-content {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .nav-dots { display: none; }
+
+      .trust-track { animation: none; }
     }
   </style>
 </head>
@@ -1457,12 +1241,11 @@
         </svg>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#services">Angebote</a></li>
-        <li><a href="#usecases">Use Cases</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#about">Über mich</a></li>
+        <li><a href="#about" data-slide="1">Über mich</a></li>
+        <li><a href="#services" data-slide="3">Angebote</a></li>
+        <li><a href="#proof" data-slide="4">Ergebnisse</a></li>
+        <li><a href="#" class="nav-cta" data-slide="5">Erstgespräch buchen</a></li>
         <li><a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
-        <li><a href="#" class="nav-cta">Erstgespräch buchen</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1470,416 +1253,441 @@
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">KI-Stratege & Konsumentenpsychologe</div>
-        <h1>„Sie wissen nicht, was Sie <span class="highlight">nicht wissen."</span></h1>
-        <p class="hero-sub">Die Möglichkeiten von KI sind beispiellos. Lassen Sie mich Ihnen zeigen, wie Sie sich damit einen unfairen Vorteil verschaffen.</p>
-        <div class="hero-ctas">
-          <a href="#" class="btn btn-primary">Erstgespräch buchen &rarr;</a>
-          <a href="#about" class="btn btn-secondary">Mehr erfahren</a>
-        </div>
-      </div>
+  <!-- ===== NAV DOTS ===== -->
+  <div class="nav-dots" id="navDots">
+    <button class="nav-dot active" data-slide="0" aria-label="Slide 1"></button>
+    <button class="nav-dot" data-slide="1" aria-label="Slide 2"></button>
+    <button class="nav-dot" data-slide="2" aria-label="Slide 3"></button>
+    <button class="nav-dot" data-slide="3" aria-label="Slide 4"></button>
+    <button class="nav-dot" data-slide="4" aria-label="Slide 5"></button>
+    <button class="nav-dot" data-slide="5" aria-label="Slide 6"></button>
+  </div>
 
-      <div class="hero-image">
-        <img src="images/profile/14.png" alt="Jakub Popluhar">
-      </div>
-    </div>
-  </section>
+  <!-- ===== SNAP CONTAINER ===== -->
+  <main class="snap-container" id="snapContainer">
 
-  <!-- ===== TRUST BAR ===== -->
-  <section class="trust-bar">
-    <div class="container">
-      <p class="trust-bar-label">Vertraut von</p>
-      <div class="trust-marquee">
-        <div class="trust-track">
-          <img src="images/logos/became ai - Icon dark.png" alt="became ai" class="trust-logo-img">
-          <span class="trust-logo">LAMASSU KI LAB</span>
-          <span class="trust-logo">REAL TEAM</span>
-          <span class="trust-logo">PARTNER 4</span>
-          <span class="trust-logo">PARTNER 5</span>
-        </div>
-        <div class="trust-track" aria-hidden="true">
-          <img src="images/logos/became ai - Icon dark.png" alt="" class="trust-logo-img">
-          <span class="trust-logo">LAMASSU KI LAB</span>
-          <span class="trust-logo">REAL TEAM</span>
-          <span class="trust-logo">PARTNER 4</span>
-          <span class="trust-logo">PARTNER 5</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT ===== -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-image-wrapper fade-up">
-        <div class="about-image">
-          <img src="images/profile/7.png" alt="Jakub Popluhar" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
-        </div>
-        <div class="about-stats">
-          <div class="about-stat">
-            <span class="number">TU&nbsp;München</span>
-            <span class="label">Alumni</span>
-          </div>
-          <div class="about-stat">
-            <span class="number">ARS</span>
-            <span class="label">Trainer</span>
+    <!-- SLIDE 1: HERO + TRUST -->
+    <section class="slide slide-hero active" id="hero" data-index="0">
+      <div class="hero-main">
+        <div class="hero-content slide-content">
+          <div class="hero-badge">KI-Stratege & Konsumentenpsychologe</div>
+          <h1>„Sie wissen nicht, was Sie <span class="highlight">nicht wissen."</span></h1>
+          <p class="hero-sub">Die Möglichkeiten von KI sind beispiellos. Lassen Sie mich Ihnen zeigen, wie Sie sich damit einen unfairen Vorteil verschaffen.</p>
+          <div class="hero-ctas">
+            <a href="#" class="btn btn-primary" data-slide="5">Erstgespräch buchen &rarr;</a>
+            <a href="#about" class="btn btn-secondary" data-slide="1">Mehr erfahren</a>
           </div>
         </div>
-      </div>
-
-      <div class="about-content fade-up">
-        <p class="section-label">Wer bin ich</p>
-        <h2>Ich teste alles an mir selbst, bevor ich es Ihnen zeige.</h2>
-        <p class="about-text">Ich bin Jakub Popluhar: staatlich geprüfter Lehrer, Alumni der TU München, LMU München und University of Sunshine Coast (Australien). Lizenzierter Konsumentenpsychologie-Trainer bei Mindworx Consulting, prämierter B2C-Verkaufsstratege und KI-Spezialist mit Fokus auf pragmatische Prozessoptimierung.</p>
-        <p class="about-text">Mein Studium der Sprachwissenschaft und englischen Literatur gibt mir ein tiefes Verständnis für Semantik. Genau das ist die Grundlage für effektives Prompt Engineering und KI-Kommunikation. Mit fünf Sprachen, internationalen Workshops und einem Hintergrund als Leistungssportler teste ich jeden KI-Workflow zuerst an mir selbst. Radikal praxisnah.</p>
-
-        <div class="about-quote">
-          <p>„In meinen Sessions lernen Sie nicht nur Tools kennen, sondern übernehmen die Denkweise eines Architekten."</p>
-        </div>
-
-        <ul class="about-credentials">
-          <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
-          <li><span class="check">&#10003;</span> Lizenzierter Trainer bei Mindworx Consulting</li>
-          <li><span class="check">&#10003;</span> KI-Trainer bei ARS (größter Seminaranbieter AT)</li>
-          <li><span class="check">&#10003;</span> 5 Sprachen · Skydiver · Dive Master · BJJ · Semi-Pro Athlet</li>
-        </ul>
-
-        <a href="#" class="btn btn-primary">Mehr über mich &rarr;</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TRANSFORMATION ===== -->
-  <section class="transformation" id="transformation">
-    <div class="container">
-      <div class="section-header fade-up">
-        <p class="section-label">Transformation</p>
-        <h2>Vorher vs. Nachher</h2>
-        <p>Der Unterschied, wenn KI nicht nur installiert, sondern strategisch implementiert wird.</p>
-      </div>
-
-      <div class="transform-grid fade-up">
-        <div class="transform-col transform-before">
-          <h3>&#10007; Vorher</h3>
-          <ul>
-            <li><span class="icon">&#10007;</span> Überfordert von KI-Tools und Hype</li>
-            <li><span class="icon">&#10007;</span> Keine Strategie, wahllos Tools ausprobiert</li>
-            <li><span class="icon">&#10007;</span> Mitarbeiter skeptisch oder überfordert</li>
-            <li><span class="icon">&#10007;</span> Geld für Tools ausgegeben, die niemand nutzt</li>
-            <li><span class="icon">&#10007;</span> Konkurrenz zieht davon</li>
-          </ul>
-        </div>
-
-        <div class="transform-arrow">
-          <div class="transform-arrow-icon">&rarr;</div>
-        </div>
-
-        <div class="transform-col transform-after">
-          <h3>&#10003; Nachher</h3>
-          <ul>
-            <li><span class="icon">&#10003;</span> Klare KI-Strategie mit messbarem ROI</li>
-            <li><span class="icon">&#10003;</span> Die richtigen Tools für Ihr Business</li>
-            <li><span class="icon">&#10003;</span> Team nutzt KI selbstbewusst und produktiv</li>
-            <li><span class="icon">&#10003;</span> Zeit- und Kostenersparnis ab Woche 1</li>
-            <li><span class="icon">&#10003;</span> Wettbewerbsvorteil durch Psychologie + KI</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SERVICES ===== -->
-  <section class="services" id="services">
-    <div class="container">
-      <div class="section-header fade-up">
-        <p class="section-label">Angebote</p>
-        <h2>Wie ich mit Ihnen arbeite</h2>
-        <p>Von 1:1 Executive-Training bis hin zu Team-Workshops, maßgeschneidert für Ihr Business.</p>
-      </div>
-
-      <!-- Featured: 1:1 Executive Training -->
-      <div class="service-featured fade-up">
-        <div class="service-featured-image">
-          <img src="images/profile/15.png" alt="Jakub Popluhar">
-        </div>
-        <div class="service-featured-content">
-          <span class="service-badge">Premium</span>
-          <h3>1:1 Executive Training</h3>
-          <p class="desc">Persönliches KI-Training für Geschäftsführer und Führungskräfte. Kein Gruppenseminar. Nur Sie, Ihre Fragen und eine maßgeschneiderte Strategie für Ihr Unternehmen.</p>
-          <ul class="service-points">
-            <li><span class="icon">&#10003;</span> Individuelle KI-Strategie für Ihr Business</li>
-            <li><span class="icon">&#10003;</span> Hands-on Training mit den richtigen Tools</li>
-            <li><span class="icon">&#10003;</span> Psychologie der Entscheidungsfindung mit KI</li>
-            <li><span class="icon">&#10003;</span> Vertraulich, direkt, auf Augenhöhe</li>
-          </ul>
-          <a href="#" class="btn btn-primary">Erstgespräch buchen &rarr;</a>
+        <div class="hero-image slide-content">
+          <img src="images/profile/14.png" alt="Jakub Popluhar">
         </div>
       </div>
 
-      <!-- Training offerings grid -->
-      <div class="training-grid fade-up">
-        <div class="training-card">
-          <div class="card-icon">&#127891;</div>
-          <h4>Team-Training</h4>
-          <p>KI-Workshops für Ihr Team: von Grundlagen bis zur fortgeschrittenen Anwendung. Ihr Team lernt, KI selbstbewusst und produktiv einzusetzen.</p>
-          <a href="#" class="card-link">Mehr erfahren &rarr;</a>
-        </div>
-
-        <div class="training-card">
-          <div class="card-icon">&#127970;</div>
-          <h4>Corporate Training</h4>
-          <p>Maßgeschneiderte KI-Transformation für Unternehmen. Strategie, Implementierung und Change Management. Alles aus einer Hand.</p>
-          <a href="#" class="card-link">Mehr erfahren &rarr;</a>
-        </div>
-
-        <div class="training-card">
-          <div class="card-icon">&#127908;</div>
-          <h4>Keynotes & Vorträge</h4>
-          <p>Impulsvorträge zu KI und Konsumentenpsychologie für Konferenzen, Firmenevents und Branchentreffen.</p>
-          <a href="#" class="card-link">Anfrage senden &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== USE CASES ===== -->
-  <section class="use-cases" id="usecases">
-    <div class="container">
-      <div class="section-header fade-up">
-        <p class="section-label">Use Cases</p>
-        <h2>Wo KI + Psychologie wirkt</h2>
-        <p>Echte Anwendungsfälle, nicht theoretisch, sondern aus der Praxis mit Unternehmen im DACH-Raum.</p>
-      </div>
-
-      <div class="usecase-grid fade-up">
-        <div class="usecase-card">
-          <span class="uc-industry">Marketing & E-Commerce</span>
-          <h4>KI-gestützte Content-Produktion mit Team-Adoption</h4>
-          <p class="uc-desc">Ein E-Commerce-Unternehmen wollte KI für Content nutzen, aber das Team weigerte sich. Durch psychologisch fundiertes Change Management und gezieltes Tool-Training wurde KI in 4 Wochen zum festen Bestandteil des Workflows.</p>
-          <div class="uc-metric">
-            <span class="number">3x</span>
-            <span class="metric-label">Content-Output bei gleicher Teamgröße</span>
+      <div class="hero-trust">
+        <p class="trust-bar-label">Vertraut von</p>
+        <div class="trust-marquee">
+          <div class="trust-track">
+            <img src="images/logos/became ai - Icon dark.png" alt="became ai" class="trust-logo-img">
+            <span class="trust-logo">LAMASSU KI LAB</span>
+            <span class="trust-logo">REAL TEAM</span>
+            <span class="trust-logo">PARTNER 4</span>
+            <span class="trust-logo">PARTNER 5</span>
+            <img src="images/logos/became ai - Icon dark.png" alt="became ai" class="trust-logo-img">
+            <span class="trust-logo">LAMASSU KI LAB</span>
+            <span class="trust-logo">REAL TEAM</span>
+            <span class="trust-logo">PARTNER 4</span>
+            <span class="trust-logo">PARTNER 5</span>
           </div>
-        </div>
-
-        <div class="usecase-card">
-          <span class="uc-industry">Beratung & Coaching</span>
-          <h4>Executive-Training: KI-Strategie für Geschäftsführer</h4>
-          <p class="uc-desc">Ein Geschäftsführer mit wenig Tech-Affinität brauchte Klarheit: Welche KI-Tools bringen echten ROI? In 3 Sessions entstand eine priorisierte Strategie. Ohne Tool-Chaos, ohne Hype.</p>
-          <div class="uc-metric">
-            <span class="number">47%</span>
-            <span class="metric-label">Zeitersparnis bei Routineaufgaben</span>
-          </div>
-        </div>
-
-        <div class="usecase-card">
-          <span class="uc-industry">Corporate / Enterprise</span>
-          <h4>KI-Transformation für 50+ Mitarbeiter</h4>
-          <p class="uc-desc">Ein mittelständisches Unternehmen rollte KI-Tools aus. Die Skepsis im Team war hoch. Durch ein Programm aus Training, Psychologie und iterativer Begleitung stieg die Adoptionsrate innerhalb von 3 Monaten drastisch.</p>
-          <div class="uc-metric">
-            <span class="number">89%</span>
-            <span class="metric-label">Team-Adoptionsrate nach 3 Monaten</span>
+          <div class="trust-track" aria-hidden="true">
+            <img src="images/logos/became ai - Icon dark.png" alt="" class="trust-logo-img">
+            <span class="trust-logo">LAMASSU KI LAB</span>
+            <span class="trust-logo">REAL TEAM</span>
+            <span class="trust-logo">PARTNER 4</span>
+            <span class="trust-logo">PARTNER 5</span>
+            <img src="images/logos/became ai - Icon dark.png" alt="" class="trust-logo-img">
+            <span class="trust-logo">LAMASSU KI LAB</span>
+            <span class="trust-logo">REAL TEAM</span>
+            <span class="trust-logo">PARTNER 4</span>
+            <span class="trust-logo">PARTNER 5</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== TESTIMONIALS ===== -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header fade-up">
-        <p class="section-label">Stimmen</p>
-        <h2>Was meine Kunden sagen</h2>
-        <p>Feedback von Führungskräften und Teams, die mit mir gearbeitet haben.</p>
-      </div>
-
-      <div class="testimonial-grid fade-up">
-        <div class="testimonial-card">
-          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>„Herr Popluhar hat mir in einer einzigen Session mehr Klarheit gebracht als Wochen eigener Recherche. Er versteht nicht nur die Tools, er versteht, wie ich als Unternehmer denke."</blockquote>
-          <div class="testimonial-author">
-            <div class="avatar">MK</div>
-            <div class="author-info">
-              <span class="name">Geschäftsführer</span>
-              <span class="role">E-Commerce, Wien</span>
+    <!-- SLIDE 2: ABOUT -->
+    <section class="slide slide-about" id="about" data-index="1">
+      <div class="container slide-content">
+        <div class="about-image-wrapper">
+          <div class="about-image">
+            <img src="images/profile/7.png" alt="Jakub Popluhar" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+          </div>
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="number">TU&nbsp;München</span>
+              <span class="label">Alumni</span>
+            </div>
+            <div class="about-stat">
+              <span class="number">ARS</span>
+              <span class="label">Trainer</span>
             </div>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>„Das Training war der Gamechanger für unser Team. Vorher herrschte Skepsis gegenüber KI, jetzt nutzen wir sie täglich. Der psychologische Ansatz hat den Unterschied gemacht."</blockquote>
-          <div class="testimonial-author">
-            <div class="avatar">LS</div>
-            <div class="author-info">
-              <span class="name">Head of Marketing</span>
-              <span class="role">Agentur, München</span>
+        <div class="about-content">
+          <p class="section-label">Wer bin ich</p>
+          <h2>Ich teste alles an mir selbst, bevor ich es Ihnen zeige.</h2>
+          <p class="about-text">Ich bin Jakub Popluhar: staatlich geprüfter Lehrer, Alumni der TU München, LMU München und University of Sunshine Coast (Australien). Lizenzierter Konsumentenpsychologie-Trainer bei Mindworx Consulting, prämierter B2C-Verkaufsstratege und KI-Spezialist mit Fokus auf pragmatische Prozessoptimierung.</p>
+          <p class="about-text">Mein Studium der Sprachwissenschaft und englischen Literatur gibt mir ein tiefes Verständnis für Semantik — die Grundlage für effektives Prompt Engineering und KI-Kommunikation. Mit fünf Sprachen, internationalen Workshops und einem Hintergrund als Leistungssportler teste ich jeden KI-Workflow zuerst an mir selbst. Radikal praxisnah.</p>
+
+          <div class="about-quote">
+            <p>„In meinen Sessions lernen Sie nicht nur Tools kennen, sondern übernehmen die Denkweise eines Architekten."</p>
+          </div>
+
+          <ul class="about-credentials">
+            <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
+            <li><span class="check">&#10003;</span> Lizenzierter Trainer bei Mindworx Consulting</li>
+            <li><span class="check">&#10003;</span> KI-Trainer bei ARS (größter Seminaranbieter AT)</li>
+            <li><span class="check">&#10003;</span> 5 Sprachen · Skydiver · Dive Master · BJJ</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: TRANSFORMATION -->
+    <section class="slide slide-transformation" id="transformation" data-index="2">
+      <div class="container slide-content">
+        <div class="section-header">
+          <p class="section-label">Transformation</p>
+          <h2>Vorher vs. Nachher</h2>
+          <p>Der Unterschied, wenn KI nicht nur installiert, sondern strategisch implementiert wird.</p>
+        </div>
+
+        <div class="transform-grid">
+          <div class="transform-col transform-before">
+            <h3>Dauerstress ohne Strategie</h3>
+            <table>
+              <tr><td class="icon-cell">&#10007;</td><td>Überfordert von KI-Tools und Hype</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Keine Strategie, wahllos Tools ausprobiert</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Mitarbeiter skeptisch oder überfordert</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Geld für Tools ausgegeben, die niemand nutzt</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Konkurrenz zieht davon</td></tr>
+            </table>
+          </div>
+
+          <div class="transform-arrow">
+            <div class="transform-arrow-icon">&rarr;</div>
+          </div>
+
+          <div class="transform-col transform-after">
+            <h3>KI mit System und Ergebnis</h3>
+            <table>
+              <tr><td class="icon-cell">&#10003;</td><td>Klare KI-Strategie mit messbarem ROI</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Die richtigen Tools für Ihr Business</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Team nutzt KI selbstbewusst und produktiv</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Zeit- und Kostenersparnis ab Woche 1</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Wettbewerbsvorteil durch Psychologie + KI</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: SERVICES -->
+    <section class="slide slide-services" id="services" data-index="3">
+      <div class="container slide-content">
+        <div class="section-header">
+          <p class="section-label">Angebote</p>
+          <h2>Wie ich mit Ihnen arbeite</h2>
+        </div>
+
+        <div class="service-featured">
+          <div class="service-featured-image">
+            <img src="images/profile/15.png" alt="Jakub Popluhar">
+          </div>
+          <div class="service-featured-content">
+            <span class="service-badge">Premium</span>
+            <h3>1:1 Executive Training</h3>
+            <p class="desc">Persönliches KI-Training für Geschäftsführer und Führungskräfte. Kein Gruppenseminar. Nur Sie, Ihre Fragen und eine maßgeschneiderte Strategie.</p>
+            <ul class="service-points">
+              <li><span class="icon">&#10003;</span> Individuelle KI-Strategie für Ihr Business</li>
+              <li><span class="icon">&#10003;</span> Hands-on Training mit den richtigen Tools</li>
+              <li><span class="icon">&#10003;</span> Psychologie der Entscheidungsfindung mit KI</li>
+              <li><span class="icon">&#10003;</span> Vertraulich, direkt, auf Augenhöhe</li>
+            </ul>
+            <a href="#" class="btn btn-primary" data-slide="5">Erstgespräch buchen &rarr;</a>
+          </div>
+        </div>
+
+        <p class="service-team-line">Auch als Inhouse-Training für Ihr Team — <a href="#" data-slide="5">Kontakt aufnehmen</a></p>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: PROOF -->
+    <section class="slide slide-proof" id="proof" data-index="4">
+      <div class="container slide-content">
+        <div class="section-header">
+          <p class="section-label">Ergebnisse</p>
+          <h2>Es funktioniert.</h2>
+        </div>
+
+        <div class="proof-grid">
+          <div class="proof-metrics">
+            <h3>Use Cases</h3>
+
+            <div class="metric-card">
+              <span class="uc-industry">Marketing & E-Commerce</span>
+              <h4>KI-gestützte Content-Produktion</h4>
+              <div class="uc-metric">
+                <span class="number">3x</span>
+                <span class="metric-label">Content-Output bei gleicher Teamgröße</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <span class="uc-industry">Beratung & Coaching</span>
+              <h4>Executive-Training: KI-Strategie</h4>
+              <div class="uc-metric">
+                <span class="number">47%</span>
+                <span class="metric-label">Zeitersparnis bei Routineaufgaben</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <span class="uc-industry">Corporate / Enterprise</span>
+              <h4>KI-Transformation für 50+ Mitarbeiter</h4>
+              <div class="uc-metric">
+                <span class="number">89%</span>
+                <span class="metric-label">Team-Adoptionsrate nach 3 Monaten</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="proof-testimonials">
+            <h3>Stimmen</h3>
+
+            <div class="testimonial-card">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>„Herr Popluhar hat mir in einer einzigen Session mehr Klarheit gebracht als Wochen eigener Recherche. Er versteht nicht nur die Tools, er versteht, wie ich als Unternehmer denke."</blockquote>
+              <div class="testimonial-author">
+                <div class="avatar">MK</div>
+                <div class="author-info">
+                  <span class="name">Geschäftsführer</span>
+                  <span class="role">E-Commerce, Wien</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>„Das Training war der Gamechanger für unser Team. Vorher herrschte Skepsis gegenüber KI, jetzt nutzen wir sie täglich."</blockquote>
+              <div class="testimonial-author">
+                <div class="avatar">LS</div>
+                <div class="author-info">
+                  <span class="name">Head of Marketing</span>
+                  <span class="role">Agentur, München</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>„Kein Hype, keine leeren Versprechen. Erfrischend ehrlich."</blockquote>
+              <div class="testimonial-author">
+                <div class="avatar">TH</div>
+                <div class="author-info">
+                  <span class="name">Gründer & CEO</span>
+                  <span class="role">SaaS-Startup, Zürich</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="testimonial-card">
-          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>„Kein Hype, keine leeren Versprechen. Herr Popluhar zeigt Ihnen genau, wo KI in Ihrem Business Sinn macht und wo Sie sich das Geld sparen können. Erfrischend ehrlich."</blockquote>
-          <div class="testimonial-author">
-            <div class="avatar">TH</div>
-            <div class="author-info">
-              <span class="name">Gründer & CEO</span>
-              <span class="role">SaaS-Startup, Zürich</span>
-            </div>
+    <!-- SLIDE 6: CTA + FOOTER -->
+    <section class="slide slide-cta" id="contact" data-index="5">
+      <div class="cta-main">
+        <div class="cta-with-image">
+          <div class="cta-card">
+            <p class="section-label">Nächster Schritt</p>
+            <h2>Bereit, KI strategisch einzusetzen?</h2>
+            <p class="subtitle">Lassen Sie uns in einem kostenlosen Erstgespräch herausfinden, wo KI in Ihrem Business den größten Impact hat.</p>
+            <a href="#" class="btn btn-primary">Erstgespräch buchen &rarr;</a>
+          </div>
+          <div class="cta-image">
+            <img src="images/profile/9.png" alt="Jakub Popluhar">
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== VIDEOS ===== -->
-  <section class="videos" id="videos">
-    <div class="container">
-      <div class="section-header fade-up">
-        <p class="section-label">Videos</p>
-        <h2>Einblicke & Impulse</h2>
-        <p>Kurze Videos rund um KI-Strategie, Psychologie und praktische Umsetzung.</p>
-      </div>
-
-      <div class="video-grid fade-up">
-        <div class="video-card">
-          <video controls preload="metadata" playsinline>
-            <source src="images/video/IMG_0268.mp4" type="video/mp4">
-            <source src="images/video/IMG_0268.mov" type="video/quicktime">
-          </video>
-          <div class="video-card-info">
-            <h4>Video Titel</h4>
-            <p>Kurze Beschreibung des Videos.</p>
+      <footer class="slide-footer">
+        <div class="container">
+          <div class="footer-brand">
+            <svg class="logo-svg-footer" viewBox="0 0 380 125" height="48" aria-label="Jakub Popluhar">
+              <text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text>
+              <text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text>
+            </svg>
           </div>
+          <ul class="footer-links">
+            <li><a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="#555" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutz</a></li>
+            <li><a href="#">AGB</a></li>
+          </ul>
+          <p class="footer-copy">&copy; 2026 Jakub Popluhar</p>
         </div>
-        <div class="video-card">
-          <div class="video-placeholder">Weitere Videos folgen</div>
-          <div class="video-card-info">
-            <h4>Demnächst</h4>
-            <p>Weitere Einblicke und Impulse rund um KI-Strategie.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      </footer>
+    </section>
 
-  <!-- ===== BLOG ===== -->
-  <section class="blog" id="blog">
-    <div class="container">
-      <div class="section-header fade-up">
-        <p class="section-label">Blog</p>
-        <h2>Artikel & Insights</h2>
-        <p>Praxiswissen zu KI, Konsumentenpsychologie und strategischer Implementierung.</p>
-      </div>
-
-      <div class="blog-grid fade-up">
-        <div class="blog-card">
-          <div class="blog-card-thumb"><span class="tag">KI-Strategie</span></div>
-          <div class="blog-card-body">
-            <p class="date">Bald verfügbar</p>
-            <h4>Warum 80% der KI-Implementierungen scheitern</h4>
-            <p>Es liegt selten an der Technologie, sondern an der Psychologie dahinter.</p>
-            <a href="#" class="read-more">Weiterlesen &rarr;</a>
-          </div>
-        </div>
-
-        <div class="blog-card">
-          <div class="blog-card-thumb"><span class="tag">Psychologie</span></div>
-          <div class="blog-card-body">
-            <p class="date">Bald verfügbar</p>
-            <h4>Change Management meets AI: Was Unternehmen falsch machen</h4>
-            <p>Wie Sie Ihr Team für KI gewinnen, statt es zu überfordern.</p>
-            <a href="#" class="read-more">Weiterlesen &rarr;</a>
-          </div>
-        </div>
-
-        <div class="blog-card">
-          <div class="blog-card-thumb"><span class="tag">Praxis</span></div>
-          <div class="blog-card-body">
-            <p class="date">Bald verfügbar</p>
-            <h4>Die 5 KI-Tools, die 2026 wirklich relevant sind</h4>
-            <p>Kein Hype, nur Tools mit echtem Business-Impact.</p>
-            <a href="#" class="read-more">Weiterlesen &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA ===== -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-with-image fade-up">
-        <div class="cta-card" style="text-align: left;">
-          <p class="section-label">Nächster Schritt</p>
-          <h2>Bereit, KI strategisch einzusetzen?</h2>
-          <p class="subtitle" style="margin-left: 0;">Lassen Sie uns in einem kostenlosen Erstgespräch herausfinden, wo KI in Ihrem Business den größten Impact hat.</p>
-          <a href="#" class="btn btn-primary">Erstgespräch buchen &rarr;</a>
-        </div>
-        <div class="cta-image">
-          <img src="images/profile/9.png" alt="Jakub Popluhar">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-brand">
-        <svg class="logo-svg-footer" viewBox="0 0 380 125" height="60" aria-label="Jakub Popluhar">
-          <text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text>
-          <text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text>
-        </svg>
-      </div>
-      <ul class="footer-links">
-        <li><a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="#555" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
-        <li><a href="#">Impressum</a></li>
-        <li><a href="#">Datenschutz</a></li>
-        <li><a href="#">AGB</a></li>
-      </ul>
-      <p class="footer-copy">&copy; 2026 Jakub Popluhar. Alle Rechte vorbehalten.</p>
-    </div>
-  </footer>
+  </main>
 
   <!-- ===== SCRIPTS ===== -->
   <script>
-    // Navbar scroll effect
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
+    (function() {
+      const container = document.getElementById('snapContainer');
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.nav-dot');
+      const navLinks = document.getElementById('navLinks');
+      const navToggle = document.getElementById('navToggle');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Mobile nav toggle
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
+      let currentSlide = 0;
+      let isScrolling = false;
+      const DEBOUNCE_MS = 800;
 
-    // Close mobile nav on link click
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
+      // ---- Navigate to slide ----
+      function goToSlide(index) {
+        if (index < 0 || index >= slides.length) return;
+        currentSlide = index;
+        slides[index].scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+        updateActive(index);
+      }
 
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+      // ---- Update active state ----
+      function updateActive(index) {
+        // Dots
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+        // Slides
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+        // Nav links
+        document.querySelectorAll('.nav-links a[data-slide]').forEach(link => {
+          const slideIndex = parseInt(link.dataset.slide);
+          link.classList.toggle('active', slideIndex === index);
+        });
+      }
+
+      // ---- IntersectionObserver for active tracking ----
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.index);
+            currentSlide = index;
+            updateActive(index);
+          }
+        });
+      }, {
+        root: reducedMotion ? null : container,
+        threshold: 0.6
+      });
+
+      slides.forEach(slide => observer.observe(slide));
+
+      // ---- Custom wheel handler (desktop) ----
+      if (!reducedMotion) {
+        container.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          if (isScrolling) return;
+
+          const direction = e.deltaY > 0 ? 1 : -1;
+          const nextSlide = currentSlide + direction;
+
+          if (nextSlide >= 0 && nextSlide < slides.length) {
+            isScrolling = true;
+            goToSlide(nextSlide);
+            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
+          }
+        }, { passive: false });
+      }
+
+      // ---- Touch handler (mobile) ----
+      let touchStartY = 0;
+      container.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      container.addEventListener('touchend', (e) => {
+        if (reducedMotion || isScrolling) return;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diff = touchStartY - touchEndY;
+
+        if (Math.abs(diff) > 50) {
+          const direction = diff > 0 ? 1 : -1;
+          const nextSlide = currentSlide + direction;
+          if (nextSlide >= 0 && nextSlide < slides.length) {
+            isScrolling = true;
+            goToSlide(nextSlide);
+            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
+          }
+        }
+      }, { passive: true });
+
+      // ---- Keyboard support ----
+      document.addEventListener('keydown', (e) => {
+        if (reducedMotion) return;
+        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+          e.preventDefault();
+          if (!isScrolling && currentSlide < slides.length - 1) {
+            isScrolling = true;
+            goToSlide(currentSlide + 1);
+            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
+          }
+        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+          e.preventDefault();
+          if (!isScrolling && currentSlide > 0) {
+            isScrolling = true;
+            goToSlide(currentSlide - 1);
+            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
+          }
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+      // ---- Dot clicks ----
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          goToSlide(parseInt(dot.dataset.slide));
+        });
+      });
 
+      // ---- Nav link clicks ----
+      document.querySelectorAll('[data-slide]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const slideIndex = parseInt(link.dataset.slide);
+          if (!isNaN(slideIndex)) {
+            e.preventDefault();
+            goToSlide(slideIndex);
+            navLinks.classList.remove('open');
+          }
+        });
+      });
 
+      // ---- Mobile nav toggle ----
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+
+      // Close mobile nav on any link click
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+      });
+
+      // ---- Initialize first slide as active ----
+      updateActive(0);
+    })();
   </script>
 </body>
 </html>
