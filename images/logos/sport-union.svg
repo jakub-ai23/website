@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" fill="none">
+  <!-- Text -->
+  <text x="10" y="24" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#333333" letter-spacing="2">SPORT</text>
+  <text x="10" y="48" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#333333" letter-spacing="2">UNION</text>
+  <!-- Orange circle with U -->
+  <circle cx="120" cy="30" r="22" fill="#E8501A"/>
+  <text x="120" y="38" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">U</text>
+</svg>

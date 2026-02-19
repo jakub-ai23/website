@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jakub Popluhar | KI-Stratege & Konsumentenpsychologe</title>
-  <meta name="description" content="Ich helfe Unternehmen, KI gewinnbringend einzusetzen, ohne dem Hype zu verfallen.">
+  <title>Jakub Popluhar | KI-Trainer & Konsumentenpsychologe</title>
+  <meta name="description" content="Sie wissen, dass KI Ihr Business verändern wird - aber nicht, wo Sie anfangen sollen. Dafür bin ich da.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600&family=Montserrat:wght@300;600;700;800&display=swap" rel="stylesheet">
@@ -218,6 +218,7 @@
       margin: 0 auto;
       padding: 0 24px;
       padding-top: var(--nav-height);
+      padding-bottom: 90px;
       flex: 1;
     }
 
@@ -383,11 +384,11 @@
     .trust-track {
       display: flex;
       align-items: center;
-      gap: 80px;
-      animation: marquee 25s linear infinite;
+      gap: 100px;
+      animation: marquee 20s linear infinite;
       flex-shrink: 0;
       min-width: max-content;
-      padding-right: 80px;
+      padding-right: 100px;
     }
 
     .trust-marquee:hover .trust-track { animation-play-state: paused; }
@@ -408,11 +409,36 @@
     }
 
     .trust-logo-img {
-      height: 32px;
+      height: 40px;
       width: auto;
       flex-shrink: 0;
-      opacity: 0.4;
-      filter: grayscale(100%) brightness(0.7);
+      opacity: 0.35;
+      filter: grayscale(100%) brightness(2) contrast(0.5);
+      transition: opacity 0.3s, filter 0.3s;
+    }
+
+    .trust-marquee:hover .trust-logo-img {
+      opacity: 0.5;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .trust-item .trust-logo-img {
+      height: 40px;
+    }
+
+    .trust-name {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #555;
+      letter-spacing: 1px;
     }
 
     /* ========== SLIDE 2: ABOUT ========== */
@@ -428,8 +454,6 @@
       padding-top: var(--nav-height);
     }
 
-    .about-image-wrapper { position: relative; }
-
     .about-image {
       width: 100%;
       max-width: 360px;
@@ -440,6 +464,26 @@
       overflow: hidden;
     }
 
+
+    .about-image-wrapper {
+      position: relative;
+    }
+
+    .surf-badge-overlay {
+      position: absolute;
+      bottom: 70px;
+      right: 64px;
+      width: 120px;
+      height: 120px;
+      z-index: 3;
+      filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.6));
+    }
+
+    .surf-badge-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
     .about-stats {
       display: flex;
@@ -634,6 +678,13 @@
       font-size: 1.4rem;
       font-weight: 700;
       box-shadow: 0 4px 20px rgba(212, 160, 23, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .transform-arrow-icon:hover {
+      transform: translateX(6px);
+      box-shadow: 0 4px 30px rgba(212, 160, 23, 0.5);
     }
 
     /* ========== SLIDE 4: SERVICES ========== */
@@ -889,6 +940,14 @@
       font-weight: 700;
       font-size: 0.75rem;
       color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .testimonial-author .avatar-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
       flex-shrink: 0;
     }
 
@@ -1151,6 +1210,7 @@
       .about-content h2 { font-size: 1.4rem; }
       .about-text { font-size: 0.85rem; }
       .about-stats { flex-direction: column; gap: 8px; }
+      .surf-badge-overlay { bottom: 20px; right: -10px; width: 90px; height: 90px; }
 
       .section-header h2 { font-size: 1.5rem; }
 
@@ -1270,9 +1330,9 @@
     <section class="slide slide-hero active" id="hero" data-index="0">
       <div class="hero-main">
         <div class="hero-content slide-content">
-          <div class="hero-badge">KI-Stratege & Konsumentenpsychologe</div>
+          <div class="hero-badge">KI-Trainer & Konsumentenpsychologe</div>
           <h1>„Sie wissen nicht, was Sie <span class="highlight">nicht wissen."</span></h1>
-          <p class="hero-sub">Die Möglichkeiten von KI sind beispiellos. Lassen Sie mich Ihnen zeigen, wie Sie sich damit einen unfairen Vorteil verschaffen.</p>
+          <p class="hero-sub">Sie wissen, dass KI Ihr Business verändern wird. Sie wissen nur nicht, wo Sie anfangen sollen. Dafür bin ich da.</p>
           <div class="hero-ctas">
             <a href="#" class="btn btn-primary" data-slide="5">Erstgespräch buchen &rarr;</a>
             <a href="#about" class="btn btn-secondary" data-slide="1">Mehr erfahren</a>
@@ -1287,28 +1347,22 @@
         <p class="trust-bar-label">Vertraut von</p>
         <div class="trust-marquee">
           <div class="trust-track">
-            <img src="images/logos/became ai - Icon dark.png" alt="became ai" class="trust-logo-img">
-            <span class="trust-logo">LAMASSU KI LAB</span>
-            <span class="trust-logo">REAL TEAM</span>
-            <span class="trust-logo">PARTNER 4</span>
-            <span class="trust-logo">PARTNER 5</span>
-            <img src="images/logos/became ai - Icon dark.png" alt="became ai" class="trust-logo-img">
-            <span class="trust-logo">LAMASSU KI LAB</span>
-            <span class="trust-logo">REAL TEAM</span>
-            <span class="trust-logo">PARTNER 4</span>
-            <span class="trust-logo">PARTNER 5</span>
+            <img src="images/logos/ars-akademie.svg" alt="ARS Akademie" class="trust-logo-img">
+            <img src="images/logos/innovatic-group.svg" alt="Innovatic Group" class="trust-logo-img">
+            <div class="trust-item"><img src="images/logos/became-ai-icon.svg" alt="became ai" class="trust-logo-img"><span class="trust-name">became ai</span></div>
+            <img src="images/logos/sport-union.svg" alt="Sport Union" class="trust-logo-img">
+            <img src="images/logos/youknowmebest.svg" alt="YouKnowMeBest" class="trust-logo-img">
+            <img src="images/logos/fitrock.svg" alt="FitRock" class="trust-logo-img">
+            <div class="trust-item"><img src="images/logos/zr-bjj.svg" alt="ZR Team Vienna" class="trust-logo-img"><span class="trust-name">ZR Team Vienna</span></div>
           </div>
           <div class="trust-track" aria-hidden="true">
-            <img src="images/logos/became ai - Icon dark.png" alt="" class="trust-logo-img">
-            <span class="trust-logo">LAMASSU KI LAB</span>
-            <span class="trust-logo">REAL TEAM</span>
-            <span class="trust-logo">PARTNER 4</span>
-            <span class="trust-logo">PARTNER 5</span>
-            <img src="images/logos/became ai - Icon dark.png" alt="" class="trust-logo-img">
-            <span class="trust-logo">LAMASSU KI LAB</span>
-            <span class="trust-logo">REAL TEAM</span>
-            <span class="trust-logo">PARTNER 4</span>
-            <span class="trust-logo">PARTNER 5</span>
+            <img src="images/logos/ars-akademie.svg" alt="" class="trust-logo-img">
+            <img src="images/logos/innovatic-group.svg" alt="" class="trust-logo-img">
+            <div class="trust-item"><img src="images/logos/became-ai-icon.svg" alt="" class="trust-logo-img"><span class="trust-name">became ai</span></div>
+            <img src="images/logos/sport-union.svg" alt="" class="trust-logo-img">
+            <img src="images/logos/youknowmebest.svg" alt="" class="trust-logo-img">
+            <img src="images/logos/fitrock.svg" alt="" class="trust-logo-img">
+            <img src="images/logos/zr-bjj.svg" alt="" class="trust-logo-img">
           </div>
         </div>
       </div>
@@ -1320,6 +1374,9 @@
         <div class="about-image-wrapper">
           <div class="about-image">
             <img src="images/profile/7.png" alt="Jakub Popluhar" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+          </div>
+          <div class="surf-badge-overlay">
+            <img src="images/logos/surf-badge-color.svg" alt="SURF™ Method - Licensed Trainer & Coach, mindworx 2025">
           </div>
           <div class="about-stats">
             <div class="about-stat">
@@ -1337,7 +1394,7 @@
           <p class="section-label">Wer bin ich</p>
           <h2>Ich teste alles an mir selbst, bevor ich es Ihnen zeige.</h2>
           <p class="about-text">Ich bin Jakub Popluhar: staatlich geprüfter Lehrer, Alumni der TU München, LMU München und University of Sunshine Coast (Australien). Lizenzierter Konsumentenpsychologie-Trainer bei Mindworx Consulting, prämierter B2C-Verkaufsstratege und KI-Spezialist mit Fokus auf pragmatische Prozessoptimierung.</p>
-          <p class="about-text">Mein Studium der Sprachwissenschaft und englischen Literatur gibt mir ein tiefes Verständnis für Semantik — die Grundlage für effektives Prompt Engineering und KI-Kommunikation. Mit fünf Sprachen, internationalen Workshops und einem Hintergrund als Leistungssportler teste ich jeden KI-Workflow zuerst an mir selbst. Radikal praxisnah.</p>
+          <p class="about-text">Mein Studium der Sprachwissenschaft und englischen Literatur gibt mir ein tiefes Verständnis für Semantik - die Grundlage für effektives Prompt Engineering und KI-Kommunikation. Mit fünf Sprachen, internationalen Workshops und einem Hintergrund als Leistungssportler teste ich jeden KI-Workflow zuerst an mir selbst. Radikal praxisnah.</p>
 
           <div class="about-quote">
             <p>„In meinen Sessions lernen Sie nicht nur Tools kennen, sondern übernehmen die Denkweise eines Architekten."</p>
@@ -1345,7 +1402,7 @@
 
           <ul class="about-credentials">
             <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
-            <li><span class="check">&#10003;</span> Lizenzierter Trainer bei Mindworx Consulting</li>
+            <li><span class="check">&#10003;</span> Lizenzierter SURF™ Method Trainer - Mindworx</li>
             <li><span class="check">&#10003;</span> KI-Trainer bei ARS (größter Seminaranbieter AT)</li>
             <li><span class="check">&#10003;</span> 5 Sprachen · Skydiver · Dive Master · BJJ</li>
           </ul>
@@ -1381,11 +1438,11 @@
           <div class="transform-col transform-after">
             <h3>KI mit System und Ergebnis</h3>
             <table>
+              <tr><td class="icon-cell">&#10003;</td><td>Wettbewerbsvorteil durch Psychologie + KI</td></tr>
               <tr><td class="icon-cell">&#10003;</td><td>Klare KI-Strategie mit messbarem ROI</td></tr>
               <tr><td class="icon-cell">&#10003;</td><td>Die richtigen Tools für Ihr Business</td></tr>
               <tr><td class="icon-cell">&#10003;</td><td>Team nutzt KI selbstbewusst und produktiv</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Zeit- und Kostenersparnis ab Woche 1</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Wettbewerbsvorteil durch Psychologie + KI</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Hands-on: Ergebnisse ab der ersten Session</td></tr>
             </table>
           </div>
         </div>
@@ -1407,18 +1464,18 @@
           <div class="service-featured-content">
             <span class="service-badge">Premium</span>
             <h3>1:1 Executive Training</h3>
-            <p class="desc">Persönliches KI-Training für Geschäftsführer und Führungskräfte. Kein Gruppenseminar. Nur Sie, Ihre Fragen und eine maßgeschneiderte Strategie.</p>
+            <p class="desc">Kein Frontalunterricht. Kein Standardprogramm. Wir arbeiten an genau Ihren Use Cases - und jede Session hat einen konkreten Output, den Sie sofort einsetzen können.</p>
             <ul class="service-points">
-              <li><span class="icon">&#10003;</span> Individuelle KI-Strategie für Ihr Business</li>
-              <li><span class="icon">&#10003;</span> Hands-on Training mit den richtigen Tools</li>
-              <li><span class="icon">&#10003;</span> Psychologie der Entscheidungsfindung mit KI</li>
-              <li><span class="icon">&#10003;</span> Vertraulich, direkt, auf Augenhöhe</li>
+              <li><span class="icon">&#10003;</span> Höchst personalisiert - Ihre Fragen, Ihre Prozesse, Ihre Branche</li>
+              <li><span class="icon">&#10003;</span> Jede Session = ein fertiges Ergebnis zum Mitnehmen</li>
+              <li><span class="icon">&#10003;</span> Hands-on mit den richtigen Tools für Ihr Business</li>
+              <li><span class="icon">&#10003;</span> Psychologie + KI: verstehen, warum Teams KI ablehnen - und wie Sie das ändern</li>
             </ul>
             <a href="#" class="btn btn-primary" data-slide="5">Erstgespräch buchen &rarr;</a>
           </div>
         </div>
 
-        <p class="service-team-line">Auch als Inhouse-Training für Ihr Team — <a href="#" data-slide="5">Kontakt aufnehmen</a></p>
+        <p class="service-team-line">Auch als Inhouse-Training für Ihr Team - <a href="#" data-slide="5">Kontakt aufnehmen</a></p>
       </div>
     </section>
 
@@ -1467,12 +1524,12 @@
 
             <div class="testimonial-card">
               <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>„Herr Popluhar hat mir in einer einzigen Session mehr Klarheit gebracht als Wochen eigener Recherche. Er versteht nicht nur die Tools, er versteht, wie ich als Unternehmer denke."</blockquote>
+              <blockquote>„It was freaking great! I changed my view on business and how we should do business. Thank you."</blockquote>
               <div class="testimonial-author">
-                <div class="avatar">MK</div>
+                <img class="avatar-img" src="images/testimonials/katarzyna-pichler.jpg" alt="Katarzyna Renata Pichler">
                 <div class="author-info">
-                  <span class="name">Geschäftsführer</span>
-                  <span class="role">E-Commerce, Wien</span>
+                  <span class="name">Katarzyna Renata Pichler</span>
+                  <span class="role">Co-Founder & Managing Partner, Innovatic Group</span>
                 </div>
               </div>
             </div>

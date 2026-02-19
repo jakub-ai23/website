@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" fill="none">
+  <!-- Eagle silhouette -->
+  <g transform="translate(10, 5) scale(0.55)">
+    <path d="M95 195c-5-15-15-30-30-45 10-5 25-15 35-35 5 10 15 20 30 25-10 10-15 25-15 40 0 5-5 10-10 15h-10z" fill="#F5A623"/>
+    <path d="M50 100c15-20 40-50 70-65-5 15-5 30 0 45-15 5-30 15-40 30l-30-10z" fill="#F5A623"/>
+    <path d="M30 80c10-25 30-55 60-75 5 5 10 15 10 25-20 10-40 25-55 45L30 80z" fill="#F5A623"/>
+    <path d="M120 55c-15 15-25 35-30 55l-5 5c5-25 15-45 35-60z" fill="#F5A623"/>
+    <path d="M80 160c5-5 5-10 5-20 5-15 15-30 30-40-5 20-15 40-25 55l-10 5z" fill="#F5A623"/>
+    <!-- Beak / head detail -->
+    <path d="M90 115l15-10 5 5-15 10z" fill="#ffffff"/>
+  </g>
+  <!-- Text -->
+  <text x="145" y="62" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="800" fill="#1B2A4A" letter-spacing="-1">ARS</text>
+  <text x="145" y="100" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="400" fill="#1B2A4A">Akademie</text>
+</svg>
