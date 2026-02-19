@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jakub Popluhar | KI-Trainer & Konsumentenpsychologe</title>
   <meta name="description" content="Sie wissen, dass KI Ihr Business verändern wird - aber nicht, wo Sie anfangen sollen. Dafür bin ich da.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600&family=Montserrat:wght@300;600;700;800&display=swap" rel="stylesheet">
   <style>
+    /* Self-hosted fonts (no Google connection) */
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(fonts/montserrat.woff2) format('woff2'); }
+
     /* ========== RESET & BASE ========== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -105,7 +109,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 24px;
       list-style: none;
     }
 
@@ -313,13 +317,13 @@
 
     .btn-secondary {
       background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--gold);
+      border: 2px solid rgba(212, 160, 23, 0.4);
     }
 
     .btn-secondary:hover {
+      background: rgba(212, 160, 23, 0.1);
       border-color: var(--gold);
-      color: var(--gold);
       transform: translateY(-2px);
     }
 
@@ -575,7 +579,148 @@
       font-size: 1rem;
     }
 
-    /* ========== SLIDE 3: TRANSFORMATION ========== */
+    /* ========== SLIDE 3: SPEAKING ========== */
+    .slide-speaking {
+      background: var(--charcoal);
+    }
+
+    .slide-speaking .slide-content {
+      justify-content: center;
+    }
+
+    /* === OPTION A: Split layout === */
+    .speaking-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .speaking-text {
+      text-align: left;
+    }
+
+    .speaking-text .section-label {
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .speaking-text h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+
+    .speaking-event-a {
+      margin-bottom: 24px;
+    }
+
+    .speaking-event-a h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .speaking-subtitle {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+    }
+
+    .podium-list {
+      list-style: none;
+      margin-bottom: 0;
+    }
+
+    .podium-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .podium-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--white);
+    }
+
+    .podium-title {
+      font-size: 0.72rem;
+      color: var(--white-muted);
+    }
+
+    .speaking-eval-a {
+      background: var(--charcoal-lighter);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 12px;
+      padding: 20px 32px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .speaking-eval-a blockquote {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .speaking-eval-a .eval-source {
+      font-size: 0.75rem;
+      color: var(--white-muted);
+    }
+
+    .speaking-photo-a {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .speaking-photo-a img {
+      max-height: 420px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .photo-caption {
+      font-size: 0.72rem;
+      color: var(--white-muted);
+      margin-top: 10px;
+      font-style: italic;
+      text-align: center;
+    }
+
+
+    .speaking-evaluation blockquote {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .eval-source {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+    }
+
+    .eval-source strong {
+      color: var(--gold);
+    }
+
+    /* ========== SLIDE 4: TRANSFORMATION ========== */
     .slide-transformation {
       background: var(--charcoal-light);
     }
@@ -594,23 +739,9 @@
       padding-top: var(--nav-height);
     }
 
-    .section-header {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 40px;
-    }
-
-    .section-header h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 800;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-
-    .section-header p {
-      color: var(--white-muted);
-      font-size: 0.95rem;
+    .slide-transformation .slide-content {
+      justify-content: flex-start;
+      padding-top: 20px;
     }
 
     .transform-grid {
@@ -678,14 +809,99 @@
       font-size: 1.4rem;
       font-weight: 700;
       box-shadow: 0 4px 20px rgba(212, 160, 23, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
     }
 
-    .transform-arrow-icon:hover {
-      transform: translateX(6px);
-      box-shadow: 0 4px 30px rgba(212, 160, 23, 0.5);
+    /* ========== SLIDE 4: HERO TESTIMONIAL ========== */
+    .slide-hero-testimonial {
+      background: var(--charcoal-light);
     }
+
+    .slide-hero-testimonial::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.2), transparent);
+    }
+
+    .hero-testimonial-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .hero-testimonial-quote blockquote {
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      line-height: 1.7;
+      font-style: italic;
+      color: var(--white);
+      margin-bottom: 40px;
+    }
+
+    .hero-testimonial-author {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-testimonial-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(212, 160, 23, 0.4);
+    }
+
+    .hero-testimonial-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-testimonial-info .name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+
+    .hero-testimonial-info .role {
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .hero-testimonial-info .company {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 40px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-header p {
+      color: var(--white-muted);
+      font-size: 0.95rem;
+    }
+
 
     /* ========== SLIDE 4: SERVICES ========== */
     .slide-services {
@@ -693,7 +909,7 @@
     }
 
     .slide-services .container {
-      padding-top: var(--nav-height);
+      padding-top: calc(var(--nav-height) - 16px);
     }
 
     .service-featured {
@@ -813,161 +1029,91 @@
 
     .proof-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
       align-items: start;
-    }
-
-    /* Use case metrics side */
-    .proof-metrics h3 {
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: var(--white);
-    }
-
-    .metric-card {
-      background: var(--charcoal);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 16px;
-      transition: transform 0.3s, border-color 0.3s;
-    }
-
-    .metric-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(212, 160, 23, 0.2);
-    }
-
-    .metric-card .uc-industry {
-      display: inline-block;
-      background: rgba(212, 160, 23, 0.12);
-      color: var(--gold);
-      padding: 3px 10px;
-      border-radius: 100px;
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .metric-card h4 {
-      font-family: var(--font-heading);
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .metric-card .uc-metric {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .metric-card .uc-metric .number {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--gold);
-    }
-
-    .metric-card .uc-metric .metric-label {
-      font-size: 0.75rem;
-      color: var(--white-muted);
-    }
-
-    /* Testimonials side */
-    .proof-testimonials h3 {
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: var(--white);
     }
 
     .testimonial-card {
       background: var(--charcoal);
       border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 12px;
-      padding: 22px;
-      margin-bottom: 16px;
+      border-radius: 16px;
+      padding: 32px 28px;
       transition: transform 0.3s, border-color 0.3s;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
     }
 
     .testimonial-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(212, 160, 23, 0.2);
+      transform: translateY(-4px);
+      border-color: rgba(212, 160, 23, 0.3);
     }
+
 
     .testimonial-card .stars {
       color: var(--gold);
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
+      font-size: 1rem;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
     }
 
     .testimonial-card blockquote {
       color: var(--white);
-      font-size: 0.88rem;
-      line-height: 1.6;
+      font-size: 1rem;
+      line-height: 1.7;
       font-style: italic;
-      margin-bottom: 14px;
+      margin-bottom: 24px;
+      flex-grow: 1;
     }
 
     .testimonial-author {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
-      padding-top: 12px;
+      gap: 12px;
+      padding-top: 20px;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .testimonial-author .avatar {
-      width: 36px;
-      height: 36px;
+    .testimonial-author .avatar-img {
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      background: var(--charcoal-lighter);
+      object-fit: cover;
+      border: 2px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .testimonial-author .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #b8860b);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-heading);
       font-weight: 700;
-      font-size: 0.75rem;
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .testimonial-author .avatar-img {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
+      font-size: 1rem;
+      color: var(--charcoal);
       flex-shrink: 0;
     }
 
     .testimonial-author .author-info .name {
-      font-weight: 600;
-      font-size: 0.8rem;
+      font-weight: 700;
+      font-size: 0.9rem;
       display: block;
     }
 
     .testimonial-author .author-info .role {
-      font-size: 0.7rem;
-      color: var(--white-muted);
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 500;
       display: block;
     }
 
-    /* ========== SLIDE 6: CTA + FOOTER ========== */
+    /* ========== SLIDE 7: CTA + FOOTER ========== */
     .slide-cta {
       background: var(--charcoal);
-      flex-direction: column;
-      justify-content: center;
     }
 
     .slide-cta::before {
@@ -983,49 +1129,106 @@
       pointer-events: none;
     }
 
-    .cta-main {
-      flex: 1;
-      display: flex;
-      align-items: center;
+    .slide-cta .slide-content {
       justify-content: center;
-      width: 100%;
-      padding-top: var(--nav-height);
-      position: relative;
-      z-index: 2;
     }
 
-    .cta-with-image {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 40px;
-      align-items: center;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 24px;
+    .cta-main-new {
+      text-align: center;
+      margin-bottom: 48px;
     }
 
-    .cta-card { text-align: left; }
-
-    .cta-card h2 {
+    .cta-main-new h2 {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 800;
-      margin-bottom: 16px;
+      max-width: 700px;
+      margin: 0 auto 32px;
+      line-height: 1.4;
       letter-spacing: -0.5px;
     }
 
-    .cta-card .subtitle {
-      color: var(--white-muted);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 32px;
-      max-width: 480px;
+    .btn-large {
+      padding: 18px 48px;
+      font-size: 1.1rem;
     }
 
-    .cta-image img {
-      max-height: 360px;
-      width: auto;
-      filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.4));
+    .cta-offers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .cta-offer-card {
+      background: var(--charcoal-lighter);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cta-offer-card:hover {
+      border-color: rgba(212, 160, 23, 0.3);
+      box-shadow: 0 0 30px rgba(212, 160, 23, 0.1);
+    }
+
+    .cta-offer-featured {
+      border-color: rgba(212, 160, 23, 0.25);
+    }
+
+    .cta-offer-card .btn {
+      padding: 12px 28px;
+      font-size: 0.85rem;
+      margin-top: auto;
+    }
+
+    .offer-badge {
+      display: inline-block;
+      background: rgba(212, 160, 23, 0.12);
+      color: var(--gold);
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+    }
+
+    .cta-offer-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta-offer-card p {
+      color: var(--white-muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .cta-offer-card .btn-secondary {
+      display: inline-block;
+      padding: 12px 28px;
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      color: var(--gold);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .cta-offer-card .btn-secondary:hover {
+      background: rgba(212, 160, 23, 0.1);
+      border-color: var(--gold);
     }
 
     /* Footer inside CTA slide */
@@ -1045,14 +1248,25 @@
       justify-content: space-between;
     }
 
-    .footer-brand {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--white-muted);
+    .footer-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .footer-brand span { color: var(--gold); }
+    .footer-contact a {
+      color: #555;
+      font-size: 0.75rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover { color: var(--gold); }
+
+    .footer-sep {
+      color: #333;
+      font-size: 0.75rem;
+    }
 
     .footer-links {
       display: flex;
@@ -1152,11 +1366,17 @@
       .about-quote { text-align: left; }
       .about-credentials { text-align: left; }
 
+      .speaking-split {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .speaking-text { text-align: center; }
+      .podium-list li { justify-content: center; gap: 12px; }
+
       .transform-grid {
         grid-template-columns: 1fr;
         gap: 16px;
       }
-
       .transform-arrow { display: none; }
       .transform-col { padding: 24px; }
 
@@ -1172,15 +1392,18 @@
 
       .proof-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 16px;
       }
 
-      .cta-with-image {
+      .testimonial-card { padding: 24px 20px; }
+      .testimonial-card blockquote { font-size: 0.9rem; }
+
+      .hero-testimonial-quote blockquote { font-size: 1.2rem; }
+
+      .cta-offers {
         grid-template-columns: 1fr;
-        text-align: center;
+        gap: 20px;
       }
-
-      .cta-image { display: none; }
     }
 
     /* ========== RESPONSIVE: MOBILE ========== */
@@ -1214,12 +1437,8 @@
 
       .section-header h2 { font-size: 1.5rem; }
 
-      .transform-col { padding: 20px; }
-      .transform-col table td { font-size: 0.82rem; padding: 8px 0; }
 
       .service-featured-content h3 { font-size: 1.3rem; }
-
-      .footer-brand svg { height: 40px; }
 
       .slide-footer .container {
         flex-direction: column;
@@ -1235,11 +1454,10 @@
       .about-quote { padding: 10px 14px; margin: 10px 0; }
       .about-credentials li { padding: 3px 0; font-size: 0.8rem; }
       .section-header { margin-bottom: 24px; }
-      .transform-col { padding: 20px; }
-      .transform-col table td { padding: 7px 0; font-size: 0.82rem; }
       .service-featured { gap: 30px; }
-      .metric-card { padding: 18px; margin-bottom: 10px; }
-      .testimonial-card { padding: 16px; margin-bottom: 10px; }
+      .testimonial-card { padding: 20px 16px; }
+      .testimonial-card blockquote { font-size: 0.88rem; margin-bottom: 16px; }
+      .testimonial-author .avatar-img { width: 44px; height: 44px; }
     }
 
     /* ========== REDUCED MOTION ========== */
@@ -1302,10 +1520,9 @@
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about" data-slide="1">Über mich</a></li>
-        <li><a href="#services" data-slide="3">Angebote</a></li>
-        <li><a href="#proof" data-slide="4">Ergebnisse</a></li>
-        <li><a href="#" class="nav-cta" data-slide="5">Erstgespräch buchen</a></li>
-        <li><a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+        <li><a href="#services" data-slide="5">Angebote</a></li>
+        <li><a href="#proof" data-slide="6">Ergebnisse</a></li>
+        <li><a href="#" class="nav-cta" data-slide="7">Session buchen</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1321,6 +1538,8 @@
     <button class="nav-dot" data-slide="3" aria-label="Slide 4"></button>
     <button class="nav-dot" data-slide="4" aria-label="Slide 5"></button>
     <button class="nav-dot" data-slide="5" aria-label="Slide 6"></button>
+    <button class="nav-dot" data-slide="6" aria-label="Slide 7"></button>
+    <button class="nav-dot" data-slide="7" aria-label="Slide 8"></button>
   </div>
 
   <!-- ===== SNAP CONTAINER ===== -->
@@ -1332,9 +1551,9 @@
         <div class="hero-content slide-content">
           <div class="hero-badge">KI-Trainer & Konsumentenpsychologe</div>
           <h1>„Sie wissen nicht, was Sie <span class="highlight">nicht wissen."</span></h1>
-          <p class="hero-sub">Sie wissen, dass KI Ihr Business verändern wird. Sie wissen nur nicht, wo Sie anfangen sollen. Dafür bin ich da.</p>
+          <p class="hero-sub">Sie wissen, dass KI Ihr Business verändert. Sie wissen nur nicht, wo Sie anfangen sollen. Dafür bin ich da.</p>
           <div class="hero-ctas">
-            <a href="#" class="btn btn-primary" data-slide="5">Erstgespräch buchen &rarr;</a>
+            <a href="#" class="btn btn-primary" data-slide="7">Session buchen &rarr;</a>
             <a href="#about" class="btn btn-secondary" data-slide="1">Mehr erfahren</a>
           </div>
         </div>
@@ -1380,8 +1599,8 @@
           </div>
           <div class="about-stats">
             <div class="about-stat">
-              <span class="number">TU&nbsp;München</span>
-              <span class="label">Alumni</span>
+              <span class="number">5</span>
+              <span class="label">Sprachen</span>
             </div>
             <div class="about-stat">
               <span class="number">ARS</span>
@@ -1393,41 +1612,75 @@
         <div class="about-content">
           <p class="section-label">Wer bin ich</p>
           <h2>Ich teste alles an mir selbst, bevor ich es Ihnen zeige.</h2>
-          <p class="about-text">Ich bin Jakub Popluhar: staatlich geprüfter Lehrer, Alumni der TU München, LMU München und University of Sunshine Coast (Australien). Lizenzierter Konsumentenpsychologie-Trainer bei Mindworx Consulting, prämierter B2C-Verkaufsstratege und KI-Spezialist mit Fokus auf pragmatische Prozessoptimierung.</p>
-          <p class="about-text">Mein Studium der Sprachwissenschaft und englischen Literatur gibt mir ein tiefes Verständnis für Semantik - die Grundlage für effektives Prompt Engineering und KI-Kommunikation. Mit fünf Sprachen, internationalen Workshops und einem Hintergrund als Leistungssportler teste ich jeden KI-Workflow zuerst an mir selbst. Radikal praxisnah.</p>
-
-          <div class="about-quote">
-            <p>„In meinen Sessions lernen Sie nicht nur Tools kennen, sondern übernehmen die Denkweise eines Architekten."</p>
-          </div>
+          <p class="about-text">Nicht noch ein KI-Berater. Ich kombiniere KI-Expertise mit Konsumentenpsychologie - ich verstehe die Technologie UND warum Menschen sie ablehnen. Jeder Workflow, den ich Ihnen zeige, läuft zuerst auf meinem eigenen Rechner.</p>
 
           <ul class="about-credentials">
-            <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
+            <li><span class="check">&#10003;</span> Sprachwissenschaft & Amerikanistik - Semantik ist die Grundlage jeder KI-Kommunikation</li>
             <li><span class="check">&#10003;</span> Lizenzierter SURF™ Method Trainer - Mindworx</li>
             <li><span class="check">&#10003;</span> KI-Trainer bei ARS (größter Seminaranbieter AT)</li>
-            <li><span class="check">&#10003;</span> 5 Sprachen · Skydiver · Dive Master · BJJ</li>
+            <li><span class="check">&#10003;</span> Speaker, President Ivanov's School for Young Leaders</li>
+            <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
+            <li><span class="check">&#10003;</span> Leistungssportler · Skydiver · Dive Master · Kampfsportler</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 3: TRANSFORMATION -->
-    <section class="slide slide-transformation" id="transformation" data-index="2">
+    <!-- SLIDE 3: SPEAKING (Option A — Split) -->
+    <section class="slide slide-speaking" id="speaking" data-index="2">
+      <div class="container slide-content">
+        <div class="speaking-split">
+          <div class="speaking-text">
+            <p class="section-label">International Speaker</p>
+            <h2>Auf einer Bühne mit Staatspräsidenten</h2>
+
+            <div class="speaking-event-a">
+              <h3>President Ivanov's School for Young Leaders</h3>
+              <p class="speaking-subtitle">16. Jahrgang · Ohrid, Nordmazedonien · November 2025</p>
+            </div>
+
+            <p class="podium-label" style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--white-muted); margin-bottom: 12px;">Shared Podium With</p>
+            <ul class="podium-list">
+              <li><span class="podium-name">Katalin Novák</span><span class="podium-title">Ehem. Präsidentin Ungarns</span></li>
+              <li><span class="podium-name">Prof. Dr. Jeffrey Sachs</span><span class="podium-title">Columbia University</span></li>
+              <li><span class="podium-name">Lt. Gen. Michael Dubie</span><span class="podium-title">Strategic Leadership</span></li>
+              <li><span class="podium-name">Prof. Djordjija Petkoski</span><span class="podium-title">Wharton School · AI & Sustainability</span></li>
+            </ul>
+          </div>
+
+          <div class="speaking-photo-a">
+            <div>
+              <img src="images/speaking/ivanov-certificate.jpg" alt="Jakub Popluhar mit Präsident Dr. Gjorge Ivanov">
+              <p class="photo-caption">Präsident Dr. Gjorge Ivanov überreicht das Zertifikat</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="speaking-eval-a">
+          <blockquote>„Creative, interactive methods and practical insights into consumer psychology."</blockquote>
+          <p class="eval-source">- Teilnehmer-Evaluation · Bewertet als <strong>„among the most transformative sessions"</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: TRANSFORMATION -->
+    <section class="slide slide-transformation" id="transformation" data-index="3">
       <div class="container slide-content">
         <div class="section-header">
           <p class="section-label">Transformation</p>
           <h2>Vorher vs. Nachher</h2>
-          <p>Der Unterschied, wenn KI nicht nur installiert, sondern strategisch implementiert wird.</p>
+          <p>Der Unterschied nach einer einzigen Session.</p>
         </div>
 
         <div class="transform-grid">
           <div class="transform-col transform-before">
-            <h3>Dauerstress ohne Strategie</h3>
+            <h3>Ohne Training</h3>
             <table>
-              <tr><td class="icon-cell">&#10007;</td><td>Überfordert von KI-Tools und Hype</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Keine Strategie, wahllos Tools ausprobiert</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Mitarbeiter skeptisch oder überfordert</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Geld für Tools ausgegeben, die niemand nutzt</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Konkurrenz zieht davon</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Weiß nicht mal, wo die App ist - klickt auf falsche Links</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Nutzt KI wie Google - keine Struktur, kein Kontext</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Chats überall verstreut, jeden Tag Zeit verschwendet</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Screenshots hochladen und hoffen, dass es funktioniert</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Keine Ahnung, was die KI kann - und was nicht</td></tr>
             </table>
           </div>
 
@@ -1436,21 +1689,41 @@
           </div>
 
           <div class="transform-col transform-after">
-            <h3>KI mit System und Ergebnis</h3>
+            <h3>Nach einer Session</h3>
             <table>
-              <tr><td class="icon-cell">&#10003;</td><td>Wettbewerbsvorteil durch Psychologie + KI</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Klare KI-Strategie mit messbarem ROI</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Die richtigen Tools für Ihr Business</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Team nutzt KI selbstbewusst und produktiv</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Hands-on: Ergebnisse ab der ersten Session</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Eigene Projekte mit System Prompts - KI kennt dein Business</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Masterdokument: KI versteht Kontext, Ziele und Sprache</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Workspace organisiert - 40 Minuten pro Tag gespart</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Weiß, welches Format funktioniert und welches nicht</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Nutzt die KI selbst, um bessere Prompts zu schreiben</td></tr>
             </table>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 4: SERVICES -->
-    <section class="slide slide-services" id="services" data-index="3">
+    <!-- SLIDE 5: HERO TESTIMONIAL -->
+    <section class="slide slide-hero-testimonial" id="hero-testimonial" data-index="4">
+      <div class="container slide-content">
+        <div class="hero-testimonial-wrapper">
+          <div class="hero-testimonial-quote">
+            <div class="stars" style="font-size: 1.2rem; letter-spacing: 4px; margin-bottom: 24px; color: var(--gold);">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>„Es war unglaublich! Ich habe meinen Blick auf Business komplett verändert - und darauf, wie wir Business machen sollten. Ich habe sofort die zweite Session gebucht."</blockquote>
+          </div>
+          <div class="hero-testimonial-author">
+            <img class="hero-testimonial-img" src="images/testimonials/katarzyna-pichler.jpg" alt="Katarzyna Renata Pichler">
+            <div class="hero-testimonial-info">
+              <span class="name">Katarzyna Renata Pichler</span>
+              <span class="role">Angel Investor des Jahres 2025</span>
+              <span class="company">Innovatic Group</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: SERVICES -->
+    <section class="slide slide-services" id="services" data-index="5">
       <div class="container slide-content">
         <div class="section-header">
           <p class="section-label">Angebote</p>
@@ -1464,23 +1737,22 @@
           <div class="service-featured-content">
             <span class="service-badge">Premium</span>
             <h3>1:1 Executive Training</h3>
-            <p class="desc">Kein Frontalunterricht. Kein Standardprogramm. Wir arbeiten an genau Ihren Use Cases - und jede Session hat einen konkreten Output, den Sie sofort einsetzen können.</p>
+            <p class="desc">Kein Frontalunterricht. Kein Standardprogramm. Wir arbeiten live und gemeinsam an genau Ihren Use Cases - ich komme zu Ihnen. Jede Session hat einen konkreten Output, den Sie sofort einsetzen können.</p>
             <ul class="service-points">
+              <li><span class="icon">&#10003;</span> Live vor Ort - Ihr Büro, Ihr Rechner, Ihre Datensicherheit</li>
               <li><span class="icon">&#10003;</span> Höchst personalisiert - Ihre Fragen, Ihre Prozesse, Ihre Branche</li>
-              <li><span class="icon">&#10003;</span> Jede Session = ein fertiges Ergebnis zum Mitnehmen</li>
               <li><span class="icon">&#10003;</span> Hands-on mit den richtigen Tools für Ihr Business</li>
               <li><span class="icon">&#10003;</span> Psychologie + KI: verstehen, warum Teams KI ablehnen - und wie Sie das ändern</li>
             </ul>
-            <a href="#" class="btn btn-primary" data-slide="5">Erstgespräch buchen &rarr;</a>
+            <a href="#" class="btn btn-primary" data-slide="7">Session buchen &rarr;</a>
           </div>
         </div>
 
-        <p class="service-team-line">Auch als Inhouse-Training für Ihr Team - <a href="#" data-slide="5">Kontakt aufnehmen</a></p>
       </div>
     </section>
 
-    <!-- SLIDE 5: PROOF -->
-    <section class="slide slide-proof" id="proof" data-index="4">
+    <!-- SLIDE 7: PROOF -->
+    <section class="slide slide-proof" id="proof" data-index="6">
       <div class="container slide-content">
         <div class="section-header">
           <p class="section-label">Ergebnisse</p>
@@ -1488,52 +1760,6 @@
         </div>
 
         <div class="proof-grid">
-          <div class="proof-metrics">
-            <h3>Use Cases</h3>
-
-            <div class="metric-card">
-              <span class="uc-industry">Marketing & E-Commerce</span>
-              <h4>KI-gestützte Content-Produktion</h4>
-              <div class="uc-metric">
-                <span class="number">3x</span>
-                <span class="metric-label">Content-Output bei gleicher Teamgröße</span>
-              </div>
-            </div>
-
-            <div class="metric-card">
-              <span class="uc-industry">Beratung & Coaching</span>
-              <h4>Executive-Training: KI-Strategie</h4>
-              <div class="uc-metric">
-                <span class="number">47%</span>
-                <span class="metric-label">Zeitersparnis bei Routineaufgaben</span>
-              </div>
-            </div>
-
-            <div class="metric-card">
-              <span class="uc-industry">Corporate / Enterprise</span>
-              <h4>KI-Transformation für 50+ Mitarbeiter</h4>
-              <div class="uc-metric">
-                <span class="number">89%</span>
-                <span class="metric-label">Team-Adoptionsrate nach 3 Monaten</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="proof-testimonials">
-            <h3>Stimmen</h3>
-
-            <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>„Es war unglaublich! Ich habe meinen Blick auf Business komplett verändert - und darauf, wie wir Business machen sollten. Danke."</blockquote>
-              <div class="testimonial-author">
-                <img class="avatar-img" src="images/testimonials/katarzyna-pichler.jpg" alt="Katarzyna Renata Pichler">
-                <div class="author-info">
-                  <span class="name">Katarzyna Renata Pichler</span>
-                  <span class="role">Co-Founder & Managing Partner, Innovatic Group</span>
-                </div>
-              </div>
-            </div>
-
             <div class="testimonial-card">
               <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <blockquote>„Vorher hatte ich meine Chats überall verstreut und unorganisiert. Jetzt habe ich alles sortiert - Marketing, Training, SOPs, Strategie. Wir haben mein LLM organisiert und personalisiert, sodass ich nicht jedes Mal einen Prompt schreiben muss. Das alleine spart mir 40 Minuten am Tag."</blockquote>
@@ -1541,49 +1767,85 @@
                 <img class="avatar-img" src="images/testimonials/patrik-hubek.png" alt="Patrik Hubek">
                 <div class="author-info">
                   <span class="name">Patrik Hubek</span>
-                  <span class="role">FitRock</span>
+                  <span class="role">FitRock | Health & Fitness</span>
                 </div>
               </div>
             </div>
-          </div>
+
+            <div class="testimonial-card">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>„Ich dachte, ich kann ChatGPT bedienen - bis mir Jakub gezeigt hat, was wirklich möglich ist. Keine Theorie, sondern: selber machen, ausprobieren, verstehen. Nach einer Session wusste ich mehr als nach Monaten alleine."</blockquote>
+              <div class="testimonial-author">
+                <img class="avatar-img" src="images/testimonials/tea-shashaj.png" alt="Tea Shashaj">
+                <div class="author-info">
+                  <span class="name">Tea Shashaj</span>
+                  <span class="role">YouKnowMeBest | E-Commerce</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>„Ich betreibe ein Kampfsport-Studio - Technik ist nicht meine Welt. Ich wusste nicht mal, wo die App ist. 45 Minuten später hatte ich ein KI-Projekt für Mitgliedergewinnung - und das Verrückte: die KI hat mir selbst geholfen, die richtigen Fragen zu stellen. Alleine wäre ich nie draufgekommen."</blockquote>
+              <div class="testimonial-author">
+                <img class="avatar-img" src="images/testimonials/petar-pecija.png" alt="Petar Pecija">
+                <div class="author-info">
+                  <span class="name">Petar Pecija</span>
+                  <span class="role">ZR Team Vienna | Sport</span>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 6: CTA + FOOTER -->
-    <section class="slide slide-cta" id="contact" data-index="5">
-      <div class="cta-main">
-        <div class="cta-with-image">
-          <div class="cta-card">
-            <p class="section-label">Nächster Schritt</p>
-            <h2>Bereit, KI strategisch einzusetzen?</h2>
-            <p class="subtitle">Lassen Sie uns in einem kostenlosen Erstgespräch herausfinden, wo KI in Ihrem Business den größten Impact hat.</p>
-            <a href="#" class="btn btn-primary">Erstgespräch buchen &rarr;</a>
+    <!-- SLIDE 8: CTA -->
+    <section class="slide slide-cta" id="contact" data-index="7">
+      <div class="container slide-content">
+        <div class="cta-main-new">
+          <h2>Wie soll Ihr Unternehmen KI adaptieren, wenn Sie es nicht persönlich tun?</h2>
+        </div>
+
+        <div class="cta-offers">
+          <div class="cta-offer-card">
+            <span class="offer-badge">Keynote</span>
+            <h3>„Sie wissen nicht, was Sie nicht wissen"</h3>
+            <p>Impulsvortrag über KI, Wandel und was sich jetzt verändert. Für Konferenzen und Events.</p>
+            <a href="mailto:jakub@popluhar.at" class="btn btn-secondary">Anfrage senden &rarr;</a>
           </div>
-          <div class="cta-image">
-            <img src="images/profile/9.png" alt="Jakub Popluhar">
+
+          <div class="cta-offer-card cta-offer-featured">
+            <span class="offer-badge">1:1</span>
+            <h3>Executive Session</h3>
+            <p>Persönliches KI-Training an Ihren Use Cases. Jede Session hat einen konkreten Output.</p>
+            <a href="#" class="btn btn-primary">Session buchen &rarr;</a>
+          </div>
+
+          <div class="cta-offer-card">
+            <span class="offer-badge">Team</span>
+            <h3>Inhouse-Training</h3>
+            <p>KI-Kompetenz + Konsumentenpsychologie für Ihr Team. Inklusive AI Literacy gem. EU AI Act Art. 4.</p>
+            <a href="mailto:jakub@popluhar.at" class="btn btn-secondary">Anfrage senden &rarr;</a>
           </div>
         </div>
       </div>
 
       <footer class="slide-footer">
         <div class="container">
-          <div class="footer-brand">
-            <svg class="logo-svg-footer" viewBox="0 0 380 125" height="48" aria-label="Jakub Popluhar">
-              <text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text>
-              <text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text>
-            </svg>
+          <div class="footer-contact">
+            <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+            <span class="footer-sep">|</span>
+            <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank">LinkedIn</a>
           </div>
           <ul class="footer-links">
-            <li><a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="#555" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
-            <li><a href="#">Impressum</a></li>
-            <li><a href="#">Datenschutz</a></li>
-            <li><a href="#">AGB</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
           </ul>
           <p class="footer-copy">&copy; 2026 Jakub Popluhar</p>
         </div>
       </footer>
     </section>
+
 
   </main>
 
