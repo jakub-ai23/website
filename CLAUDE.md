@@ -15,9 +15,10 @@ Building a personal brand website that combines the best elements from five anal
 - **Mark Manson** (markmanson.net) — anti-BS voice, newsletter-first funnel, affordable membership, AI-powered product (Purpose app), dark mode, topic-organized content
 
 ## Brand Positioning
-- "KI-Stratege & Konsumentenpsychologe" / "AI Strategist & Consumer Psychologist"
+- "KI-Trainer & Konsumentenpsychologe" / "AI Trainer & Consumer Psychologist"
 - Anti-hype, science-backed, practical, direct
 - Differentiator: combines AI expertise with consumer psychology — understands both the technology AND the human side of adoption
+- Target audience: Führungskräfte who know AI will change their business but don't know where to start
 
 ## Key Files in This Project
 - `website-analysis-dirkkreuter.md` — Full analysis of dirkkreuter.com
@@ -27,16 +28,31 @@ Building a personal brand website that combines the best elements from five anal
 - `website-analysis-markmanson.md` — Full analysis of markmanson.net
 - `website-crossover-concept-v1.md` — V1 crossover concept combining all five (CURRENT WORKING DRAFT)
 
-## Status
-- **Snap-scroll landing page shipped** (single-file HTML/CSS/JS at `index.html`)
+## Status (Updated Feb 19, 2026)
+- **MVP nearly ready** — single-file HTML/CSS/JS at `index.html`, needs booking link + legal pages before publishing
 - **6-slide full-screen snap-scrolling** (TikTok/Instagram Stories style, 100vh per slide)
 - Slides: Hero+Trust → About → Transformation → Services (1:1 only) → Proof (metrics+testimonials) → CTA+Footer
-- Cut: Blog section, Videos section, training cards grid (3 cards)
-- Merged: Trust Bar into Hero bottom, Use Cases + Testimonials into Proof, CTA + Footer into final slide
 - Accent color: Amber/Gold (#d4a017), dark charcoal, German (Sie-Form), Great Vibes + Montserrat + Inter fonts
-- SVG logo (Dirk Kreuter style): `images/logos/jakub-popluhar-logo.svg` + `.png` variants
 - Features: CSS snap scroll, custom wheel/touch/keyboard handlers, IntersectionObserver, gold nav dots, prefers-reduced-motion fallback
-- Next: production build (Next.js), bilingual (EN), domain/hosting, booking integration
+
+### What's Done
+- **Trust bar**: 7 real logos (SVG, grayscale filter) — became ai (with text), REAL TEAM, ZR Team Vienna (with text), ARS Akademie, Innovatic Group, Sport Union, YouKnowMeBest, FitRock. Marquee animation, duplicated tracks.
+- **SURF Method badge**: Color SVG overlay on About photo (`bottom: 70px; right: 64px; 120x120px`)
+- **Hero copy**: Badge says "KI-Trainer & Konsumentenpsychologe". Subtitle: "Sie wissen, dass KI Ihr Business verändern wird. Sie wissen nur nicht, wo Sie anfangen sollen. Dafür bin ich da."
+- **Services copy**: "Kein Frontalunterricht. Kein Standardprogramm." — emphasizes personalization and tangible outputs per session
+- **Real testimonials (German)**: Katarzyna Pichler (Innovatic Group) and Patrik Hubek (FitRock) with headshot photos
+- **Austrian syntax**: All em dashes replaced with " - "
+- LAMASSU KI LAB logo removed from trust bar
+
+### What's Still Needed
+- **Booking link**: All "Erstgespräch buchen" buttons link to `#` — needs Calendly or similar
+- **Legal pages**: Impressum, Datenschutz, AGB all link to `#` — required by Austrian law
+- **Use case metrics**: Proof slide numbers are still placeholder (3x, 47%, 89%)
+- **Domain + hosting**: No decision yet (GitHub Pages, Vercel, Netlify)
+- **English version**: Future task
+- **More testimonials**: Only 2 real ones
+- **Overall text review**: User wants to review all copy together
+- **Push to remote**: 2 commits made locally, not yet pushed
 
 ## Future Expansion
 - **"Über mich" subpage**: Full bio with personal stories (scuba diving, saving best friend's life, sports background), detailed credentials, hobbies, philosophy. The "Mehr über mich" button on the landing page should link here once built.
