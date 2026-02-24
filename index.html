@@ -70,6 +70,7 @@
       position: relative;
       display: flex;
       align-items: center;
+      padding-top: calc(var(--nav-height) / 8);
     }
 
     /* ========== NAVIGATION ========== */
@@ -221,7 +222,6 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
-      padding-top: var(--nav-height);
       padding-bottom: 90px;
       flex: 1;
     }
@@ -455,7 +455,6 @@
       grid-template-columns: 0.8fr 1.2fr;
       gap: 60px;
       align-items: center;
-      padding-top: var(--nav-height);
     }
 
     .about-image {
@@ -736,12 +735,9 @@
     }
 
     .slide-transformation .container {
-      padding-top: var(--nav-height);
     }
 
     .slide-transformation .slide-content {
-      justify-content: flex-start;
-      padding-top: 20px;
     }
 
     .transform-grid {
@@ -909,7 +905,6 @@
     }
 
     .slide-services .container {
-      padding-top: calc(var(--nav-height) - 16px);
     }
 
     .service-featured {
@@ -1014,7 +1009,6 @@
     }
 
     .slide-trainings .container {
-      padding-top: var(--nav-height);
     }
 
     .open-trainings-header {
@@ -1151,7 +1145,6 @@
     }
 
     .slide-proof .container {
-      padding-top: var(--nav-height);
     }
 
     .proof-grid {
@@ -1463,8 +1456,35 @@
 
     /* ========== RESPONSIVE: TABLET ========== */
     @media (max-width: 968px) {
+      body { overflow: auto; height: auto; }
+
+      .snap-container {
+        height: auto;
+        overflow: visible;
+        scroll-snap-type: none;
+      }
+
+      .slide {
+        height: auto;
+        min-height: auto;
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
+        overflow: visible;
+        padding-top: 0;
+        padding-bottom: 60px;
+      }
+
+      .slide-hero { min-height: 100vh; padding-top: calc(var(--nav-height) / 8); }
+
+      .slide-content {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .nav-dots { display: none; }
+
       .logo-svg-nav { height: 36px; }
-      .nav-dots { right: 12px; }
 
       .hero-main {
         grid-template-columns: 1fr;
@@ -1646,7 +1666,7 @@
   <!-- ===== NAVIGATION ===== -->
   <nav class="nav" id="nav">
     <div class="container">
-      <a href="#" class="nav-logo">
+      <a href="#" class="nav-logo" data-slide="0">
         <svg class="logo-svg-nav" viewBox="0 0 380 125" height="52" aria-label="Jakub Popluhar">
           <text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text>
           <text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text>
@@ -1656,7 +1676,7 @@
         <li><a href="#about" data-slide="1">Über mich</a></li>
         <li><a href="#services" data-slide="5">Angebote</a></li>
         <li><a href="#proof" data-slide="7">Ergebnisse</a></li>
-        <li><a href="#" class="nav-cta" data-slide="8">Session buchen</a></li>
+        <li><a href="mailto:jakub@popluhar.at?subject=Erstgespr%C3%A4ch%20buchen&amp;body=Hallo%20Jakub%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%201%3A1%20Executive%20Session.%0A%0AIch%20w%C3%A4re%20verf%C3%BCgbar%20am%3A%20__________.%0A%0ABitte%20senden%20Sie%20mir%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="nav-cta">Session buchen</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1688,7 +1708,7 @@
           <h1>„Sie wissen nicht, was Sie <span class="highlight">nicht wissen."</span></h1>
           <p class="hero-sub">Sie wissen, dass KI Ihr Business verändert. Sie wissen nur nicht, wo Sie anfangen sollen. Dafür bin ich da.</p>
           <div class="hero-ctas">
-            <a href="#" class="btn btn-primary" data-slide="8">Session buchen &rarr;</a>
+            <a href="mailto:jakub@popluhar.at?subject=Erstgespr%C3%A4ch%20buchen&amp;body=Hallo%20Jakub%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%201%3A1%20Executive%20Session.%0A%0AIch%20w%C3%A4re%20verf%C3%BCgbar%20am%3A%20__________.%0A%0ABitte%20senden%20Sie%20mir%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn btn-primary">Session buchen &rarr;</a>
             <a href="#about" class="btn btn-secondary" data-slide="1">Mehr erfahren</a>
           </div>
         </div>
@@ -1879,7 +1899,7 @@
               <li><span class="icon">&#10003;</span> Hands-on mit den richtigen Tools für Ihr Business</li>
               <li><span class="icon">&#10003;</span> Psychologie + KI: verstehen, warum Teams KI ablehnen - und wie Sie das ändern</li>
             </ul>
-            <a href="#" class="btn btn-primary" data-slide="8">Session buchen &rarr;</a>
+            <a href="mailto:jakub@popluhar.at?subject=Erstgespr%C3%A4ch%20buchen&amp;body=Hallo%20Jakub%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%201%3A1%20Executive%20Session.%0A%0AIch%20w%C3%A4re%20verf%C3%BCgbar%20am%3A%20__________.%0A%0ABitte%20senden%20Sie%20mir%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn btn-primary">Session buchen &rarr;</a>
           </div>
         </div>
 
@@ -1910,7 +1930,7 @@
               <span class="training-date">N&auml;chster Termin: 14.04.2026</span>
               <span class="training-tag">Halber Tag</span>
             </div>
-            <a href="https://www.ars.at/" class="btn-training" target="_blank" rel="noopener">Details & Anmeldung &rarr;</a>
+            <a href="https://ars.at/referenten/jakub-popluhar/" class="btn-training" target="_blank" rel="noopener">Details & Anmeldung &rarr;</a>
           </div>
           <div class="training-card">
             <span class="training-tag">Modul 2</span>
@@ -1920,7 +1940,7 @@
               <span class="training-date">N&auml;chster Termin: 14.04.2026</span>
               <span class="training-tag">Halber Tag</span>
             </div>
-            <a href="https://www.ars.at/" class="btn-training" target="_blank" rel="noopener">Details & Anmeldung &rarr;</a>
+            <a href="https://ars.at/referenten/jakub-popluhar/" class="btn-training" target="_blank" rel="noopener">Details & Anmeldung &rarr;</a>
           </div>
           <div class="training-card">
             <span class="training-tag">Spezial</span>
@@ -1930,7 +1950,7 @@
               <span class="training-date">N&auml;chster Termin: 12.05.2026</span>
               <span class="training-tag">Halber Tag</span>
             </div>
-            <a href="https://www.ars.at/" class="btn-training" target="_blank" rel="noopener">Details & Anmeldung &rarr;</a>
+            <a href="https://ars.at/referenten/jakub-popluhar/" class="btn-training" target="_blank" rel="noopener">Details & Anmeldung &rarr;</a>
           </div>
         </div>
       </div>
@@ -1996,21 +2016,21 @@
             <span class="offer-badge">Keynote</span>
             <h3>„Sie wissen nicht, was Sie nicht wissen"</h3>
             <p>Impulsvortrag über KI, Wandel und was sich jetzt verändert. Für Konferenzen und Events.</p>
-            <a href="mailto:jakub@popluhar.at" class="btn btn-secondary">Anfrage senden &rarr;</a>
+            <a href="mailto:jakub@popluhar.at?subject=Keynote%20Anfrage&amp;body=Hallo%20Jakub%2C%0A%0Awir%20interessieren%20uns%20f%C3%BCr%20eine%20Keynote%20zum%20Thema%20KI.%0A%0AVeranstaltung%3A%20__________%0ADatum%3A%20__________%0ATeilnehmerzahl%3A%20__________%0A%0ABitte%20senden%20Sie%20uns%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn btn-secondary">Preis anfragen &rarr;</a>
           </div>
 
           <div class="cta-offer-card cta-offer-featured">
             <span class="offer-badge">1:1</span>
             <h3>Executive Session</h3>
             <p>Persönliches KI-Training an Ihren Use Cases. Jede Session hat einen konkreten Output.</p>
-            <a href="#" class="btn btn-primary">Session buchen &rarr;</a>
+            <a href="mailto:jakub@popluhar.at?subject=Erstgespr%C3%A4ch%20buchen&amp;body=Hallo%20Jakub%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%201%3A1%20Executive%20Session.%0A%0AIch%20w%C3%A4re%20verf%C3%BCgbar%20am%3A%20__________.%0A%0ABitte%20senden%20Sie%20mir%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn btn-primary">Session buchen &rarr;</a>
           </div>
 
           <div class="cta-offer-card">
             <span class="offer-badge">Team</span>
             <h3>Inhouse-Training</h3>
             <p>KI-Kompetenz + Konsumentenpsychologie für Ihr Team. Inklusive AI Literacy gem. EU AI Act Art. 4.</p>
-            <a href="mailto:jakub@popluhar.at" class="btn btn-secondary">Anfrage senden &rarr;</a>
+            <a href="mailto:jakub@popluhar.at?subject=Inhouse-Training%20Anfrage&amp;body=Hallo%20Jakub%2C%0A%0Awir%20interessieren%20uns%20f%C3%BCr%20ein%20Inhouse-Training%20(KI%20%2B%20Konsumentenpsychologie).%0A%0ATeamgr%C3%B6%C3%9Fe%3A%20__________%0AGew%C3%BCnschter%20Zeitraum%3A%20__________%0A%0ABitte%20senden%20Sie%20uns%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn btn-secondary">Preis anfragen &rarr;</a>
           </div>
         </div>
       </div>
