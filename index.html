@@ -36,8 +36,6 @@
       color: var(--white);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      overflow: hidden;
-      height: 100vh;
     }
 
     a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
@@ -50,23 +48,14 @@
       padding: 0 24px;
     }
 
-    /* ========== SNAP CONTAINER ========== */
+    /* ========== SCROLL CONTAINER ========== */
     .snap-container {
-      height: 100vh;
-      overflow-y: scroll;
-      scroll-snap-type: y mandatory;
-      overscroll-behavior-y: contain;
-      scroll-padding-top: var(--nav-height);
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+      scroll-behavior: smooth;
     }
-    .snap-container::-webkit-scrollbar { display: none; }
 
     .slide {
-      height: 100vh;
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
-      overflow: hidden;
+      min-height: 100vh;
+      overflow: visible;
       position: relative;
       display: flex;
       align-items: center;
@@ -1463,13 +1452,10 @@
 
     /* Footer inside CTA slide */
     .slide-footer {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 3;
+      width: 100%;
       padding: 20px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: auto;
     }
 
     .slide-footer .container {
@@ -1566,20 +1552,8 @@
 
     /* ========== RESPONSIVE: TABLET ========== */
     @media (max-width: 968px) {
-      body { overflow: auto; height: auto; }
-
-      .snap-container {
-        height: auto;
-        overflow: visible;
-        scroll-snap-type: none;
-      }
-
       .slide {
-        height: auto;
         min-height: auto;
-        scroll-snap-align: none;
-        scroll-snap-stop: normal;
-        overflow: visible;
         padding-top: 0;
         padding-bottom: 60px;
       }
@@ -1726,20 +1700,8 @@
 
     /* ========== REDUCED MOTION ========== */
     @media (prefers-reduced-motion: reduce) {
-      body { overflow: auto; height: auto; }
-
       .snap-container {
-        height: auto;
-        overflow: visible;
-        scroll-snap-type: none;
-      }
-
-      .slide {
-        height: auto;
-        min-height: 100vh;
-        scroll-snap-align: none;
-        scroll-snap-stop: normal;
-        overflow: visible;
+        scroll-behavior: auto;
       }
 
       .slide-content {
@@ -2166,65 +2128,57 @@
             <button type="submit" class="btn-submit">Nachricht senden &rarr;</button>
           </form>
           <div class="form-success" id="formSuccess">Vielen Dank! Ich melde mich bei Ihnen.</div>
-          <p style="text-align:center; margin-top:16px; color:var(--white-muted); font-size:0.85rem;">
+          <p style="text-align:center; margin-top:16px; margin-bottom:80px; color:var(--white-muted); font-size:0.85rem;">
             Oder direkt auf
             <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" style="color:var(--gold); font-weight:600;">LinkedIn</a>
           </p>
         </div>
       </div>
-
-      <footer class="slide-footer">
-        <div class="container">
-          <div class="footer-contact">
-            <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
-            <span class="footer-sep">|</span>
-            <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank">LinkedIn</a>
-          </div>
-          <ul class="footer-links">
-            <li><a href="impressum.html">Impressum</a></li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
-          </ul>
-          <p class="footer-copy">&copy; 2026 Jakub Popluhar</p>
-        </div>
-      </footer>
     </section>
 
-
   </main>
+
+  <footer class="slide-footer">
+    <div class="container">
+      <div class="footer-contact">
+        <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+        <span class="footer-sep">|</span>
+        <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank">LinkedIn</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Jakub Popluhar</p>
+    </div>
+  </footer>
 
   <!-- ===== SCRIPTS ===== -->
   <script>
     (function() {
-      const container = document.getElementById('snapContainer');
       const slides = document.querySelectorAll('.slide');
       const dots = document.querySelectorAll('.nav-dot');
       const navLinks = document.getElementById('navLinks');
       const navToggle = document.getElementById('navToggle');
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       let currentSlide = 0;
-      let isScrolling = false;
-      const DEBOUNCE_MS = 800;
 
       // ---- Navigate to slide ----
       function goToSlide(index) {
         if (index < 0 || index >= slides.length) return;
         currentSlide = index;
-        slides[index].scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+        slides[index].scrollIntoView({ behavior: 'smooth' });
         updateActive(index);
       }
 
       // ---- Update active state ----
       function updateActive(index) {
-        // Dots
         dots.forEach((dot, i) => {
           dot.classList.toggle('active', i === index);
         });
-        // Slides
         slides.forEach((slide, i) => {
           slide.classList.toggle('active', i === index);
         });
-        // Nav links
         document.querySelectorAll('.nav-links a[data-slide]').forEach(link => {
           const slideIndex = parseInt(link.dataset.slide);
           link.classList.toggle('active', slideIndex === index);
@@ -2241,70 +2195,10 @@
           }
         });
       }, {
-        root: reducedMotion ? null : container,
-        threshold: 0.6
+        threshold: 0.3
       });
 
       slides.forEach(slide => observer.observe(slide));
-
-      // ---- Custom wheel handler (desktop) ----
-      if (!reducedMotion) {
-        container.addEventListener('wheel', (e) => {
-          e.preventDefault();
-          if (isScrolling) return;
-
-          const direction = e.deltaY > 0 ? 1 : -1;
-          const nextSlide = currentSlide + direction;
-
-          if (nextSlide >= 0 && nextSlide < slides.length) {
-            isScrolling = true;
-            goToSlide(nextSlide);
-            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
-          }
-        }, { passive: false });
-      }
-
-      // ---- Touch handler (mobile) ----
-      let touchStartY = 0;
-      container.addEventListener('touchstart', (e) => {
-        touchStartY = e.touches[0].clientY;
-      }, { passive: true });
-
-      container.addEventListener('touchend', (e) => {
-        if (reducedMotion || isScrolling) return;
-        const touchEndY = e.changedTouches[0].clientY;
-        const diff = touchStartY - touchEndY;
-
-        if (Math.abs(diff) > 50) {
-          const direction = diff > 0 ? 1 : -1;
-          const nextSlide = currentSlide + direction;
-          if (nextSlide >= 0 && nextSlide < slides.length) {
-            isScrolling = true;
-            goToSlide(nextSlide);
-            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
-          }
-        }
-      }, { passive: true });
-
-      // ---- Keyboard support ----
-      document.addEventListener('keydown', (e) => {
-        if (reducedMotion) return;
-        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-          e.preventDefault();
-          if (!isScrolling && currentSlide < slides.length - 1) {
-            isScrolling = true;
-            goToSlide(currentSlide + 1);
-            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
-          }
-        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-          e.preventDefault();
-          if (!isScrolling && currentSlide > 0) {
-            isScrolling = true;
-            goToSlide(currentSlide - 1);
-            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
-          }
-        }
-      });
 
       // ---- Dot clicks ----
       dots.forEach(dot => {
