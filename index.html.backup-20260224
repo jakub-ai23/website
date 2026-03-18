@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jakub Popluhar | KI-Trainer & Konsumentenpsychologe</title>
+  <meta name="description" content="Sie wissen, dass KI Ihr Business verändern wird - aber nicht, wo Sie anfangen sollen. Dafür bin ich da.">
+  <style>
+    /* Self-hosted fonts (no Google connection) */
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(fonts/montserrat.woff2) format('woff2'); }
+
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #141414;
+      --charcoal-lighter: #1a1a1a;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --nav-height: 70px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-light); }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== SNAP CONTAINER ========== */
+    .snap-container {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      overscroll-behavior-y: contain;
+      scroll-padding-top: var(--nav-height);
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .snap-container::-webkit-scrollbar { display: none; }
+
+    .slide {
+      height: 100vh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-top: calc(var(--nav-height) / 8);
+    }
+
+    /* ========== NAVIGATION ========== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      background: rgba(20, 20, 20, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 160, 23, 0.08);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--gold); }
+    .nav-logo svg { display: inline-block; vertical-align: middle; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--white-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--white); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--charcoal) !important;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 2px solid var(--gold);
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: transparent;
+      color: var(--gold) !important;
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      margin: 6px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* ========== NAV DOTS ========== */
+    .nav-dots {
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
+    }
+
+    .nav-dot.active {
+      background: var(--gold);
+      box-shadow: 0 0 8px rgba(212, 160, 23, 0.5);
+      transform: scale(1.3);
+    }
+
+    .nav-dot:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ========== SLIDE 1: HERO + TRUST ========== */
+    .slide-hero {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #0a0a0a 50%, var(--charcoal) 100%);
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slide-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 160, 23, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-main {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      padding-bottom: 90px;
+      flex: 1;
+    }
+
+    .hero-content { max-width: 560px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 160, 23, 0.1);
+      border: 1px solid rgba(212, 160, 23, 0.2);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .slide-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      letter-spacing: -1.5px;
+      font-style: italic;
+    }
+
+    .slide-hero h1 .highlight {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--white-muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--charcoal);
+      border: 2px solid var(--gold);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 160, 23, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid rgba(212, 160, 23, 0.4);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(212, 160, 23, 0.1);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      position: relative;
+    }
+
+    .hero-image img {
+      max-height: 460px;
+      width: auto;
+      filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 160, 23, 0.12) 0%, transparent 70%);
+      z-index: 1;
+    }
+
+    /* Trust bar inside hero */
+    .hero-trust {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      background: rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+    }
+
+    .trust-bar-label {
+      text-align: center;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #444;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .trust-marquee {
+      display: flex;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .trust-track {
+      display: flex;
+      align-items: center;
+      gap: 100px;
+      animation: marquee 20s linear infinite;
+      flex-shrink: 0;
+      min-width: max-content;
+      padding-right: 100px;
+    }
+
+    .trust-marquee:hover .trust-track { animation-play-state: paused; }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .trust-logo {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #444;
+      white-space: nowrap;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+
+    .trust-logo-img {
+      height: 40px;
+      width: auto;
+      flex-shrink: 0;
+      opacity: 0.35;
+      filter: grayscale(100%) brightness(2) contrast(0.5);
+      transition: opacity 0.3s, filter 0.3s;
+    }
+
+    .trust-marquee:hover .trust-logo-img {
+      opacity: 0.5;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .trust-item .trust-logo-img {
+      height: 40px;
+    }
+
+    .trust-name {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    /* ========== SLIDE 2: ABOUT ========== */
+    .slide-about {
+      background: var(--charcoal);
+    }
+
+    .slide-about .container {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 3 / 4;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(212, 160, 23, 0.08) 0%, var(--charcoal-light) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+
+    .about-image-wrapper {
+      position: relative;
+    }
+
+    .surf-badge-overlay {
+      position: absolute;
+      bottom: 70px;
+      right: 64px;
+      width: 120px;
+      height: 120px;
+      z-index: 3;
+      filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.6));
+    }
+
+    .surf-badge-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      max-width: 360px;
+    }
+
+    .about-stat {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-align: center;
+      flex: 1;
+    }
+
+    .about-stat .number {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--gold);
+      display: block;
+    }
+
+    .about-stat .label {
+      font-size: 0.65rem;
+      color: var(--white-muted);
+      margin-top: 1px;
+      display: block;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .about-content h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .about-text {
+      color: var(--white-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .about-quote {
+      background: rgba(212, 160, 23, 0.05);
+      border-left: 3px solid var(--gold);
+      padding: 14px 18px;
+      margin: 18px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .about-quote p {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    .about-credentials {
+      list-style: none;
+      margin: 16px 0;
+    }
+
+    .about-credentials li {
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+    }
+
+    .about-credentials li .check {
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    /* ========== SLIDE 3: SPEAKING ========== */
+    .slide-speaking {
+      background: var(--charcoal);
+    }
+
+    .slide-speaking .slide-content {
+      justify-content: center;
+    }
+
+    /* === OPTION A: Split layout === */
+    .speaking-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .speaking-text {
+      text-align: left;
+    }
+
+    .speaking-text .section-label {
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .speaking-text h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+
+    .speaking-event-a {
+      margin-bottom: 24px;
+    }
+
+    .speaking-event-a h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .speaking-subtitle {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+    }
+
+    .podium-list {
+      list-style: none;
+      margin-bottom: 0;
+    }
+
+    .podium-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .podium-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--white);
+    }
+
+    .podium-title {
+      font-size: 0.72rem;
+      color: var(--white-muted);
+    }
+
+    .speaking-eval-a {
+      background: var(--charcoal-lighter);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 12px;
+      padding: 20px 32px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .speaking-eval-a blockquote {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .speaking-eval-a .eval-source {
+      font-size: 0.75rem;
+      color: var(--white-muted);
+    }
+
+    .speaking-photo-a {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .speaking-photo-a img {
+      max-height: 420px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .photo-caption {
+      font-size: 0.72rem;
+      color: var(--white-muted);
+      margin-top: 10px;
+      font-style: italic;
+      text-align: center;
+    }
+
+
+    .speaking-evaluation blockquote {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .eval-source {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+    }
+
+    .eval-source strong {
+      color: var(--gold);
+    }
+
+    /* ========== SLIDE 4: TRANSFORMATION ========== */
+    .slide-transformation {
+      background: var(--charcoal-light);
+    }
+
+    .slide-transformation::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.2), transparent);
+    }
+
+    .slide-transformation .container {
+    }
+
+    .slide-transformation .slide-content {
+    }
+
+    .transform-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .transform-col {
+      background: var(--charcoal-lighter);
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    .transform-before { border: 1px solid rgba(231, 76, 60, 0.2); }
+    .transform-after { border: 1px solid rgba(46, 204, 113, 0.2); }
+
+    .transform-col h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .transform-before h3 { color: #e74c3c; }
+    .transform-after h3 { color: #2ecc71; }
+
+    .transform-col table { width: 100%; border-collapse: collapse; }
+
+    .transform-col table td {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.88rem;
+      color: var(--white-muted);
+      line-height: 1.5;
+      vertical-align: top;
+    }
+
+    .transform-col table tr:last-child td { border-bottom: none; }
+
+    .transform-col table td.icon-cell {
+      width: 28px;
+      padding-right: 10px;
+    }
+
+    .transform-before table td.icon-cell { color: #e74c3c; }
+    .transform-after table td.icon-cell { color: #2ecc71; }
+
+    .transform-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .transform-arrow-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #9B741D, #BC9844, #E9C072, #FBE894, #C99E44);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--charcoal);
+      font-size: 1.4rem;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(212, 160, 23, 0.3);
+    }
+
+    /* ========== SLIDE 4: HERO TESTIMONIAL ========== */
+    .slide-hero-testimonial {
+      background: var(--charcoal-light);
+    }
+
+    .slide-hero-testimonial::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.2), transparent);
+    }
+
+    .hero-testimonial-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .hero-testimonial-quote blockquote {
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      line-height: 1.7;
+      font-style: italic;
+      color: var(--white);
+      margin-bottom: 40px;
+    }
+
+    .hero-testimonial-author {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-testimonial-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(212, 160, 23, 0.4);
+    }
+
+    .hero-testimonial-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-testimonial-info .name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+
+    .hero-testimonial-info .role {
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .hero-testimonial-info .company {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 40px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-header p {
+      color: var(--white-muted);
+      font-size: 0.95rem;
+    }
+
+
+    /* ========== SLIDE 4: SERVICES ========== */
+    .slide-services {
+      background: var(--charcoal);
+    }
+
+    .slide-services .container {
+    }
+
+    .service-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .service-featured-image {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .service-featured-image img {
+      max-height: 420px;
+      width: auto;
+      filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-featured-image::before {
+      content: '';
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 160, 23, 0.1) 0%, transparent 70%);
+      z-index: 1;
+    }
+
+    .service-featured-content .service-badge {
+      display: inline-block;
+      background: rgba(212, 160, 23, 0.12);
+      border: 1px solid rgba(212, 160, 23, 0.25);
+      color: var(--gold);
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+    }
+
+    .service-featured-content h3 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .service-featured-content .desc {
+      color: var(--white-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .service-points {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .service-points li {
+      padding: 7px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--white-muted);
+    }
+
+    .service-points li .icon {
+      color: var(--gold);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .service-team-line {
+      text-align: center;
+      color: var(--white-muted);
+      font-size: 0.9rem;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .service-team-line a {
+      font-weight: 600;
+    }
+
+    /* ========== SLIDE: OPEN TRAININGS (ARS) ========== */
+    .slide-trainings {
+      background: var(--charcoal-light);
+    }
+
+    .slide-trainings .container {
+    }
+
+    .open-trainings-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .open-trainings-header span {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--white-muted);
+    }
+
+    .ars-logo-badge {
+      display: inline-flex;
+      align-items: center;
+      background: #ffffff;
+      padding: 8px 20px;
+      border-radius: 10px;
+    }
+
+    .ars-logo-badge img {
+      height: 44px;
+      width: auto;
+    }
+
+    .training-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .training-card {
+      background: var(--charcoal-lighter);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .training-card:hover {
+      border-color: rgba(212, 160, 23, 0.25);
+      box-shadow: 0 0 30px rgba(212, 160, 23, 0.08);
+    }
+
+    .training-card .training-tag {
+      display: inline-block;
+      align-self: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.12);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .training-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .training-card .training-sub {
+      color: var(--white-muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .training-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .training-date {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .training-meta .training-tag {
+      font-size: 0.6rem;
+      margin-bottom: 0;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--white-muted);
+    }
+
+    .training-card .btn-training {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold);
+      transition: color 0.2s;
+    }
+
+    .training-card .btn-training:hover {
+      color: var(--gold-light);
+    }
+
+    /* ========== SLIDE 5: PROOF ========== */
+    .slide-proof {
+      background: var(--charcoal-light);
+    }
+
+    .slide-proof::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.2), transparent);
+    }
+
+    .slide-proof .container {
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .testimonial-card {
+      background: var(--charcoal);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: transform 0.3s, border-color 0.3s;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 160, 23, 0.3);
+    }
+
+
+    .testimonial-card .stars {
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card blockquote {
+      color: var(--white);
+      font-size: 1rem;
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .testimonial-author .avatar-img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .testimonial-author .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #b8860b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--charcoal);
+      flex-shrink: 0;
+    }
+
+    .testimonial-author .author-info .name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: block;
+    }
+
+    .testimonial-author .author-info .role {
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 500;
+      display: block;
+    }
+
+    /* ========== SLIDE 7: CTA + FOOTER ========== */
+    .slide-cta {
+      background: var(--charcoal);
+    }
+
+    .slide-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 160, 23, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .slide-cta .slide-content {
+      justify-content: center;
+    }
+
+    .cta-main-new {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .cta-main-new h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      max-width: 700px;
+      margin: 0 auto 32px;
+      line-height: 1.4;
+      letter-spacing: -0.5px;
+    }
+
+    .btn-large {
+      padding: 18px 48px;
+      font-size: 1.1rem;
+    }
+
+    .cta-offers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .cta-offer-card {
+      background: var(--charcoal-lighter);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cta-offer-card:hover {
+      border-color: rgba(212, 160, 23, 0.3);
+      box-shadow: 0 0 30px rgba(212, 160, 23, 0.1);
+    }
+
+    .cta-offer-featured {
+      border-color: rgba(212, 160, 23, 0.25);
+    }
+
+    .cta-offer-card .btn {
+      padding: 12px 28px;
+      font-size: 0.85rem;
+      margin-top: auto;
+    }
+
+    /* ========== CONTACT FORM ========== */
+    .contact-form-wrapper {
+      max-width: 560px;
+      margin: 40px auto 0;
+      text-align: center;
+    }
+
+    .contact-form-wrapper h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .contact-form-wrapper .form-sub {
+      color: var(--white-muted);
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #666;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .contact-form select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+
+    .contact-form select option {
+      background: #1a1a1a;
+      color: var(--white);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .contact-form .btn-submit {
+      background: var(--gold);
+      color: var(--charcoal);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      border: 2px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+    }
+
+    .contact-form .btn-submit:hover {
+      background: transparent;
+      color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 160, 23, 0.3);
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 24px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .offer-badge {
+      display: inline-block;
+      background: rgba(212, 160, 23, 0.12);
+      color: var(--gold);
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+    }
+
+    .cta-offer-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta-offer-card p {
+      color: var(--white-muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .cta-offer-card .btn-secondary {
+      display: inline-block;
+      padding: 12px 28px;
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      color: var(--gold);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .cta-offer-card .btn-secondary:hover {
+      background: rgba(212, 160, 23, 0.1);
+      border-color: var(--gold);
+    }
+
+    /* Footer inside CTA slide */
+    .slide-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .slide-footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-contact a {
+      color: #555;
+      font-size: 0.75rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover { color: var(--gold); }
+
+    .footer-sep {
+      color: #333;
+      font-size: 0.75rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: #555;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white-muted); }
+
+    .footer-copy {
+      color: #444;
+      font-size: 0.75rem;
+    }
+
+    /* ========== SOCIAL LINK ========== */
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--gold);
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--white-muted);
+      transition: fill 0.2s;
+    }
+
+    .social-link:hover svg { fill: var(--gold); }
+
+    /* ========== SLIDE ANIMATIONS ========== */
+    .slide-content {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .slide.active .slide-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* First slide starts visible */
+    .slide-hero .slide-content,
+    .slide-hero .hero-main,
+    .slide-hero .hero-trust {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ========== RESPONSIVE: TABLET ========== */
+    @media (max-width: 968px) {
+      body { overflow: auto; height: auto; }
+
+      .snap-container {
+        height: auto;
+        overflow: visible;
+        scroll-snap-type: none;
+      }
+
+      .slide {
+        height: auto;
+        min-height: auto;
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
+        overflow: visible;
+        padding-top: 0;
+        padding-bottom: 60px;
+      }
+
+      .slide-hero { min-height: 100vh; padding-top: calc(var(--nav-height) / 8); }
+
+      .slide-content {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .nav-dots { display: none; }
+
+      .logo-svg-nav { height: 36px; }
+
+      .hero-main {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .hero-content { max-width: 100%; }
+      .hero-sub { max-width: 100%; }
+      .hero-ctas { justify-content: center; }
+      .hero-image img { max-height: 300px; }
+
+      .slide-about .container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .about-image-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .about-image { max-width: 240px; }
+      .about-quote { text-align: left; }
+      .about-credentials { text-align: left; }
+
+      .speaking-split {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .speaking-text { text-align: center; }
+      .podium-list li { justify-content: center; gap: 12px; }
+
+      .transform-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .transform-arrow { display: none; }
+      .transform-col { padding: 24px; }
+
+      .service-featured {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .service-featured-image { order: -1; }
+      .service-featured-image img { max-height: 280px; }
+      .service-points { text-align: left; }
+
+      .training-cards {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .training-card { padding: 20px 18px; }
+
+      .proof-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .testimonial-card { padding: 24px 20px; }
+      .testimonial-card blockquote { font-size: 0.9rem; }
+
+      .hero-testimonial-quote blockquote { font-size: 1.2rem; }
+
+      .cta-offers {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    /* ========== RESPONSIVE: MOBILE ========== */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-dots { display: none; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(20, 20, 20, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 24px;
+        gap: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .slide-hero h1 { font-size: 2rem; }
+      .hero-sub { font-size: 1rem; }
+      .hero-image img { max-height: 220px; }
+
+      .about-content h2 { font-size: 1.4rem; }
+      .about-text { font-size: 0.85rem; }
+      .about-stats { flex-direction: column; gap: 8px; }
+      .surf-badge-overlay { bottom: 20px; right: -10px; width: 90px; height: 90px; }
+
+      .section-header h2 { font-size: 1.5rem; }
+
+
+      .service-featured-content h3 { font-size: 1.3rem; }
+
+      .slide-footer .container {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+
+    /* Very short screens */
+    @media (max-height: 700px) {
+      .hero-image img { max-height: 280px; }
+      .about-image { max-width: 200px; }
+      .about-quote { padding: 10px 14px; margin: 10px 0; }
+      .about-credentials li { padding: 3px 0; font-size: 0.8rem; }
+      .section-header { margin-bottom: 24px; }
+      .service-featured { gap: 30px; }
+      .testimonial-card { padding: 20px 16px; }
+      .testimonial-card blockquote { font-size: 0.88rem; margin-bottom: 16px; }
+      .testimonial-author .avatar-img { width: 44px; height: 44px; }
+    }
+
+    /* ========== REDUCED MOTION ========== */
+    @media (prefers-reduced-motion: reduce) {
+      body { overflow: auto; height: auto; }
+
+      .snap-container {
+        height: auto;
+        overflow: visible;
+        scroll-snap-type: none;
+      }
+
+      .slide {
+        height: auto;
+        min-height: 100vh;
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
+        overflow: visible;
+      }
+
+      .slide-content {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .nav-dots { display: none; }
+
+      .trust-track { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hidden SVG for shared gradient definitions -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#bf953f"/>
+        <stop offset="18%" stop-color="#fcf6ba"/>
+        <stop offset="40%" stop-color="#b38728"/>
+        <stop offset="65%" stop-color="#fbf5b7"/>
+        <stop offset="85%" stop-color="#daa520"/>
+        <stop offset="100%" stop-color="#aa771c"/>
+      </linearGradient>
+      <filter id="goldGlow">
+        <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="#" class="nav-logo" data-slide="0">
+        <svg class="logo-svg-nav" viewBox="0 0 380 125" height="52" aria-label="Jakub Popluhar">
+          <text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text>
+          <text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text>
+        </svg>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" data-slide="1">Über mich</a></li>
+        <li><a href="#services" data-slide="5">Angebote</a></li>
+        <li><a href="#proof" data-slide="7">Ergebnisse</a></li>
+        <li><a href="mailto:jakub@popluhar.at?subject=Erstgespr%C3%A4ch%20buchen&amp;body=Hallo%20Jakub%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%201%3A1%20Executive%20Session.%0A%0AIch%20w%C3%A4re%20verf%C3%BCgbar%20am%3A%20__________.%0A%0ABitte%20senden%20Sie%20mir%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="nav-cta">Session buchen</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== NAV DOTS ===== -->
+  <div class="nav-dots" id="navDots">
+    <button class="nav-dot active" data-slide="0" aria-label="Slide 1"></button>
+    <button class="nav-dot" data-slide="1" aria-label="Slide 2"></button>
+    <button class="nav-dot" data-slide="2" aria-label="Slide 3"></button>
+    <button class="nav-dot" data-slide="3" aria-label="Slide 4"></button>
+    <button class="nav-dot" data-slide="4" aria-label="Slide 5"></button>
+    <button class="nav-dot" data-slide="5" aria-label="Slide 6"></button>
+    <button class="nav-dot" data-slide="6" aria-label="Slide 7"></button>
+    <button class="nav-dot" data-slide="7" aria-label="Slide 8"></button>
+    <button class="nav-dot" data-slide="8" aria-label="Slide 9"></button>
+  </div>
+
+  <!-- ===== SNAP CONTAINER ===== -->
+  <main class="snap-container" id="snapContainer">
+
+    <!-- SLIDE 1: HERO + TRUST -->
+    <section class="slide slide-hero active" id="hero" data-index="0">
+      <div class="hero-main">
+        <div class="hero-content slide-content">
+          <div class="hero-badge">KI-Trainer & Konsumentenpsychologe</div>
+          <h1>„Sie wissen nicht, was Sie <span class="highlight">nicht wissen."</span></h1>
+          <p class="hero-sub">Sie wissen, dass KI Ihr Business verändert. Sie wissen nur nicht, wo Sie anfangen sollen. Dafür bin ich da.</p>
+          <div class="hero-ctas">
+            <a href="mailto:jakub@popluhar.at?subject=Erstgespr%C3%A4ch%20buchen&amp;body=Hallo%20Jakub%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%201%3A1%20Executive%20Session.%0A%0AIch%20w%C3%A4re%20verf%C3%BCgbar%20am%3A%20__________.%0A%0ABitte%20senden%20Sie%20mir%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn btn-primary">Session buchen &rarr;</a>
+            <a href="#about" class="btn btn-secondary" data-slide="1">Mehr erfahren</a>
+          </div>
+        </div>
+        <div class="hero-image slide-content">
+          <img src="images/profile/14.png" alt="Jakub Popluhar">
+        </div>
+      </div>
+
+      <div class="hero-trust">
+        <p class="trust-bar-label">Vertraut von</p>
+        <div class="trust-marquee">
+          <div class="trust-track">
+            <img src="images/logos/ars-akademie.svg" alt="ARS Akademie" class="trust-logo-img">
+            <img src="images/logos/innovatic-group.svg" alt="Innovatic Group" class="trust-logo-img">
+            <div class="trust-item"><img src="images/logos/became-ai-icon.svg" alt="became ai" class="trust-logo-img"><span class="trust-name">became ai</span></div>
+            <img src="images/logos/sport-union.svg" alt="Sport Union" class="trust-logo-img">
+            <img src="images/logos/youknowmebest.svg" alt="YouKnowMeBest" class="trust-logo-img">
+            <img src="images/logos/fitrock.svg" alt="FitRock" class="trust-logo-img">
+            <div class="trust-item"><img src="images/logos/zr-bjj.svg" alt="ZR Team Vienna" class="trust-logo-img"><span class="trust-name">ZR Team Vienna</span></div>
+          </div>
+          <div class="trust-track" aria-hidden="true">
+            <img src="images/logos/ars-akademie.svg" alt="" class="trust-logo-img">
+            <img src="images/logos/innovatic-group.svg" alt="" class="trust-logo-img">
+            <div class="trust-item"><img src="images/logos/became-ai-icon.svg" alt="" class="trust-logo-img"><span class="trust-name">became ai</span></div>
+            <img src="images/logos/sport-union.svg" alt="" class="trust-logo-img">
+            <img src="images/logos/youknowmebest.svg" alt="" class="trust-logo-img">
+            <img src="images/logos/fitrock.svg" alt="" class="trust-logo-img">
+            <img src="images/logos/zr-bjj.svg" alt="" class="trust-logo-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: ABOUT -->
+    <section class="slide slide-about" id="about" data-index="1">
+      <div class="container slide-content">
+        <div class="about-image-wrapper">
+          <div class="about-image">
+            <img src="images/profile/7.png" alt="Jakub Popluhar" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+          </div>
+          <div class="surf-badge-overlay">
+            <img src="images/logos/surf-badge-color.svg" alt="SURF™ Method - Licensed Trainer & Coach, mindworx 2025">
+          </div>
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="number">5</span>
+              <span class="label">Sprachen</span>
+            </div>
+            <div class="about-stat">
+              <span class="number">ARS</span>
+              <span class="label">Trainer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="section-label">Wer bin ich</p>
+          <h2>Ich teste alles an mir selbst, bevor ich es Ihnen zeige.</h2>
+          <p class="about-text">Nicht noch ein KI-Berater. Ich kombiniere KI-Expertise mit Konsumentenpsychologie - ich verstehe die Technologie UND warum Menschen sie ablehnen. Jeder Workflow, den ich Ihnen zeige, läuft zuerst auf meinem eigenen Rechner.</p>
+
+          <ul class="about-credentials">
+            <li><span class="check">&#10003;</span> Sprachwissenschaft & Amerikanistik - Semantik ist die Grundlage jeder KI-Kommunikation</li>
+            <li><span class="check">&#10003;</span> Lizenzierter SURF™ Method Trainer - Mindworx</li>
+            <li><span class="check">&#10003;</span> KI-Trainer bei ARS (größter Seminaranbieter AT)</li>
+            <li><span class="check">&#10003;</span> Speaker, President Ivanov's School for Young Leaders</li>
+            <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
+            <li><span class="check">&#10003;</span> Leistungssportler · Skydiver · Dive Master · Kampfsportler</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: SPEAKING (Option A — Split) -->
+    <section class="slide slide-speaking" id="speaking" data-index="2">
+      <div class="container slide-content">
+        <div class="speaking-split">
+          <div class="speaking-text">
+            <p class="section-label">International Speaker</p>
+            <h2>Auf einer Bühne mit Staatspräsidenten</h2>
+
+            <div class="speaking-event-a">
+              <h3>President Ivanov's School for Young Leaders</h3>
+              <p class="speaking-subtitle">16. Jahrgang · Ohrid, Nordmazedonien · November 2025</p>
+            </div>
+
+            <p class="podium-label" style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--white-muted); margin-bottom: 12px;">Shared Podium With</p>
+            <ul class="podium-list">
+              <li><span class="podium-name">Katalin Novák</span><span class="podium-title">Ehem. Präsidentin Ungarns</span></li>
+              <li><span class="podium-name">Prof. Dr. Jeffrey Sachs</span><span class="podium-title">Columbia University</span></li>
+              <li><span class="podium-name">Lt. Gen. Michael Dubie</span><span class="podium-title">Strategic Leadership</span></li>
+              <li><span class="podium-name">Prof. Djordjija Petkoski</span><span class="podium-title">Wharton School · AI & Sustainability</span></li>
+            </ul>
+          </div>
+
+          <div class="speaking-photo-a">
+            <div>
+              <img src="images/speaking/ivanov-certificate.jpg" alt="Jakub Popluhar mit Präsident Dr. Gjorge Ivanov">
+              <p class="photo-caption">Präsident Dr. Gjorge Ivanov überreicht das Zertifikat</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="speaking-eval-a">
+          <blockquote>„Creative, interactive methods and practical insights into consumer psychology."</blockquote>
+          <p class="eval-source">- Teilnehmer-Evaluation · Bewertet als <strong>„among the most transformative sessions"</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: TRANSFORMATION -->
+    <section class="slide slide-transformation" id="transformation" data-index="3">
+      <div class="container slide-content">
+        <div class="section-header">
+          <p class="section-label">Transformation</p>
+          <h2>Vorher vs. Nachher</h2>
+          <p>Der Unterschied nach einer einzigen Session.</p>
+        </div>
+
+        <div class="transform-grid">
+          <div class="transform-col transform-before">
+            <h3>Ohne Training</h3>
+            <table>
+              <tr><td class="icon-cell">&#10007;</td><td>Weiß nicht mal, wo die App ist - klickt auf falsche Links</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Nutzt KI wie Google - keine Struktur, kein Kontext</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Chats überall verstreut, jeden Tag Zeit verschwendet</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Screenshots hochladen und hoffen, dass es funktioniert</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Keine Ahnung, was die KI kann - und was nicht</td></tr>
+            </table>
+          </div>
+
+          <div class="transform-arrow">
+            <div class="transform-arrow-icon">&rarr;</div>
+          </div>
+
+          <div class="transform-col transform-after">
+            <h3>Nach einer Session</h3>
+            <table>
+              <tr><td class="icon-cell">&#10003;</td><td>Eigene Projekte mit System Prompts - KI kennt dein Business</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Masterdokument: KI versteht Kontext, Ziele und Sprache</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Workspace organisiert - 40 Minuten pro Tag gespart</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Weiß, welches Format funktioniert und welches nicht</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Nutzt die KI selbst, um bessere Prompts zu schreiben</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: HERO TESTIMONIAL -->
+    <section class="slide slide-hero-testimonial" id="hero-testimonial" data-index="4">
+      <div class="container slide-content">
+        <div class="hero-testimonial-wrapper">
+          <div class="hero-testimonial-quote">
+            <div class="stars" style="font-size: 1.2rem; letter-spacing: 4px; margin-bottom: 24px; color: var(--gold);">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>„Es war unglaublich! Ich habe meinen Blick auf Business komplett verändert - und darauf, wie wir Business machen sollten. Ich habe sofort die zweite Session gebucht."</blockquote>
+          </div>
+          <div class="hero-testimonial-author">
+            <img class="hero-testimonial-img" src="images/testimonials/katarzyna-pichler.jpg" alt="Katarzyna Renata Pichler">
+            <div class="hero-testimonial-info">
+              <span class="name">Katarzyna Renata Pichler</span>
+              <span class="role">Angel Investor des Jahres 2025</span>
+              <span class="company">Innovatic Group</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: SERVICES -->
+    <section class="slide slide-services" id="services" data-index="5">
+      <div class="container slide-content">
+        <div class="section-header">
+          <p class="section-label">Angebote</p>
+          <h2>Wie ich mit Ihnen arbeite</h2>
+        </div>
+
+        <div class="service-featured">
+          <div class="service-featured-image">
+            <img src="images/profile/15.png" alt="Jakub Popluhar">
+          </div>
+          <div class="service-featured-content">
+            <span class="service-badge">Premium</span>
+            <h3>1:1 Executive Training</h3>
+            <p class="desc">Kein Frontalunterricht. Kein Standardprogramm. Wir arbeiten live und gemeinsam an genau Ihren Use Cases - ich komme zu Ihnen. Jede Session hat einen konkreten Output, den Sie sofort einsetzen können.</p>
+            <ul class="service-points">
+              <li><span class="icon">&#10003;</span> Live vor Ort - Ihr Büro, Ihr Rechner, Ihre Datensicherheit</li>
+              <li><span class="icon">&#10003;</span> Höchst personalisiert - Ihre Fragen, Ihre Prozesse, Ihre Branche</li>
+              <li><span class="icon">&#10003;</span> Hands-on mit den richtigen Tools für Ihr Business</li>
+              <li><span class="icon">&#10003;</span> Psychologie + KI: verstehen, warum Teams KI ablehnen - und wie Sie das ändern</li>
+            </ul>
+            <a href="mailto:jakub@popluhar.at?subject=Erstgespr%C3%A4ch%20buchen&amp;body=Hallo%20Jakub%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%201%3A1%20Executive%20Session.%0A%0AIch%20w%C3%A4re%20verf%C3%BCgbar%20am%3A%20__________.%0A%0ABitte%20senden%20Sie%20mir%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn btn-primary">Session buchen &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SLIDE 7: OPEN TRAININGS (ARS) -->
+    <section class="slide slide-trainings" id="trainings" data-index="6">
+      <div class="container slide-content">
+        <div class="section-header">
+          <p class="section-label">Offene Seminare</p>
+          <h2>Lernen Sie KI in einer Gruppe</h2>
+        </div>
+
+        <div class="open-trainings-header">
+          <span>In Kooperation mit</span>
+          <div class="ars-logo-badge">
+            <img src="images/logos/ars-akademie.svg" alt="ARS Akademie">
+          </div>
+        </div>
+
+        <div class="training-cards">
+          <div class="training-card">
+            <span class="training-tag">Modul 1</span>
+            <h4>Der erste Schritt zum Prompt Profi</h4>
+            <p class="training-sub">Mit ChatGPT, Copilot & Co produktiv arbeiten</p>
+            <div class="training-meta">
+              <span class="training-date">N&auml;chster Termin: 14.04.2026</span>
+              <span class="training-tag">Halber Tag</span>
+            </div>
+            <a href="https://ars.at/referenten/jakub-popluhar/" class="btn-training" target="_blank" rel="noopener">Details & Anmeldung &rarr;</a>
+          </div>
+          <div class="training-card">
+            <span class="training-tag">Modul 2</span>
+            <h4>Mit KI-Assistenten die Produktivit&auml;t steigern</h4>
+            <p class="training-sub">Routineaufgaben durch KI-gest&uuml;tzte Tools effizienter erledigen</p>
+            <div class="training-meta">
+              <span class="training-date">N&auml;chster Termin: 14.04.2026</span>
+              <span class="training-tag">Halber Tag</span>
+            </div>
+            <a href="https://ars.at/referenten/jakub-popluhar/" class="btn-training" target="_blank" rel="noopener">Details & Anmeldung &rarr;</a>
+          </div>
+          <div class="training-card">
+            <span class="training-tag">Spezial</span>
+            <h4>Konsumentenpsychologie im KI-Zeitalter</h4>
+            <p class="training-sub">Wie Menschen entscheiden und wie Sie dieses Wissen im Marketing einsetzen</p>
+            <div class="training-meta">
+              <span class="training-date">N&auml;chster Termin: 12.05.2026</span>
+              <span class="training-tag">Halber Tag</span>
+            </div>
+            <a href="https://ars.at/referenten/jakub-popluhar/" class="btn-training" target="_blank" rel="noopener">Details & Anmeldung &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: PROOF -->
+    <section class="slide slide-proof" id="proof" data-index="7">
+      <div class="container slide-content">
+        <div class="section-header">
+          <p class="section-label">Ergebnisse</p>
+          <h2>Es funktioniert.</h2>
+        </div>
+
+        <div class="proof-grid">
+            <div class="testimonial-card">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>„Vorher hatte ich meine Chats überall verstreut und unorganisiert. Jetzt habe ich alles sortiert - Marketing, Training, SOPs, Strategie. Wir haben mein LLM organisiert und personalisiert, sodass ich nicht jedes Mal einen Prompt schreiben muss. Das alleine spart mir 40 Minuten am Tag."</blockquote>
+              <div class="testimonial-author">
+                <img class="avatar-img" src="images/testimonials/patrik-hubek.png" alt="Patrik Hubek">
+                <div class="author-info">
+                  <span class="name">Patrik Hubek</span>
+                  <span class="role">FitRock | Health & Fitness</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>„Ich dachte, ich kann ChatGPT bedienen - bis mir Jakub gezeigt hat, was wirklich möglich ist. Keine Theorie, sondern: selber machen, ausprobieren, verstehen. Nach einer Session wusste ich mehr als nach Monaten alleine."</blockquote>
+              <div class="testimonial-author">
+                <img class="avatar-img" src="images/testimonials/tea-shashaj.png" alt="Tea Shashaj">
+                <div class="author-info">
+                  <span class="name">Tea Shashaj</span>
+                  <span class="role">YouKnowMeBest | E-Commerce</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>„Ich betreibe ein Kampfsport-Studio - Technik ist nicht meine Welt. Ich wusste nicht mal, wo die App ist. 45 Minuten später hatte ich ein KI-Projekt für Mitgliedergewinnung - und das Verrückte: die KI hat mir selbst geholfen, die richtigen Fragen zu stellen. Alleine wäre ich nie draufgekommen."</blockquote>
+              <div class="testimonial-author">
+                <img class="avatar-img" src="images/testimonials/petar-pecija.png" alt="Petar Pecija">
+                <div class="author-info">
+                  <span class="name">Petar Pecija</span>
+                  <span class="role">ZR Team Vienna | Sport</span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: CTA -->
+    <section class="slide slide-cta" id="contact" data-index="8">
+      <div class="container slide-content">
+        <div class="cta-main-new">
+          <h2>Wie soll Ihr Unternehmen KI einsetzen, wenn Sie es nicht persönlich tun?</h2>
+        </div>
+
+        <div class="cta-offers">
+          <div class="cta-offer-card">
+            <span class="offer-badge">Keynote</span>
+            <h3>„Sie wissen nicht, was Sie nicht wissen"</h3>
+            <p>Impulsvortrag über KI, Wandel und was sich jetzt verändert. Für Konferenzen und Events.</p>
+            <a href="mailto:jakub@popluhar.at?subject=Keynote%20Anfrage&amp;body=Hallo%20Jakub%2C%0A%0Awir%20interessieren%20uns%20f%C3%BCr%20eine%20Keynote%20zum%20Thema%20KI.%0A%0AVeranstaltung%3A%20__________%0ADatum%3A%20__________%0ATeilnehmerzahl%3A%20__________%0A%0ABitte%20senden%20Sie%20uns%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn btn-secondary">Preis anfragen &rarr;</a>
+          </div>
+
+          <div class="cta-offer-card cta-offer-featured">
+            <span class="offer-badge">1:1</span>
+            <h3>Executive Session</h3>
+            <p>Persönliches KI-Training an Ihren Use Cases. Jede Session hat einen konkreten Output.</p>
+            <a href="mailto:jakub@popluhar.at?subject=Erstgespr%C3%A4ch%20buchen&amp;body=Hallo%20Jakub%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%201%3A1%20Executive%20Session.%0A%0AIch%20w%C3%A4re%20verf%C3%BCgbar%20am%3A%20__________.%0A%0ABitte%20senden%20Sie%20mir%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn btn-primary">Session buchen &rarr;</a>
+          </div>
+
+          <div class="cta-offer-card">
+            <span class="offer-badge">Team</span>
+            <h3>Inhouse-Training</h3>
+            <p>KI-Kompetenz + Konsumentenpsychologie für Ihr Team. Inklusive AI Literacy gem. EU AI Act Art. 4.</p>
+            <a href="mailto:jakub@popluhar.at?subject=Inhouse-Training%20Anfrage&amp;body=Hallo%20Jakub%2C%0A%0Awir%20interessieren%20uns%20f%C3%BCr%20ein%20Inhouse-Training%20(KI%20%2B%20Konsumentenpsychologie).%0A%0ATeamgr%C3%B6%C3%9Fe%3A%20__________%0AGew%C3%BCnschter%20Zeitraum%3A%20__________%0A%0ABitte%20senden%20Sie%20uns%20ein%20Angebot.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn btn-secondary">Preis anfragen &rarr;</a>
+          </div>
+        </div>
+
+        <p style="text-align:center; margin-top:32px; color:var(--white-muted); font-size:0.95rem;">
+          Oder schreiben Sie mir direkt auf
+          <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" style="color:var(--gold); font-weight:600;">LinkedIn</a>
+        </p>
+      </div>
+
+      <footer class="slide-footer">
+        <div class="container">
+          <div class="footer-contact">
+            <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+            <span class="footer-sep">|</span>
+            <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank">LinkedIn</a>
+          </div>
+          <ul class="footer-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+          <p class="footer-copy">&copy; 2026 Jakub Popluhar</p>
+        </div>
+      </footer>
+    </section>
+
+
+  </main>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    (function() {
+      const container = document.getElementById('snapContainer');
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.nav-dot');
+      const navLinks = document.getElementById('navLinks');
+      const navToggle = document.getElementById('navToggle');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let currentSlide = 0;
+      let isScrolling = false;
+      const DEBOUNCE_MS = 800;
+
+      // ---- Navigate to slide ----
+      function goToSlide(index) {
+        if (index < 0 || index >= slides.length) return;
+        currentSlide = index;
+        slides[index].scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+        updateActive(index);
+      }
+
+      // ---- Update active state ----
+      function updateActive(index) {
+        // Dots
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+        // Slides
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+        // Nav links
+        document.querySelectorAll('.nav-links a[data-slide]').forEach(link => {
+          const slideIndex = parseInt(link.dataset.slide);
+          link.classList.toggle('active', slideIndex === index);
+        });
+      }
+
+      // ---- IntersectionObserver for active tracking ----
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.index);
+            currentSlide = index;
+            updateActive(index);
+          }
+        });
+      }, {
+        root: reducedMotion ? null : container,
+        threshold: 0.6
+      });
+
+      slides.forEach(slide => observer.observe(slide));
+
+      // ---- Custom wheel handler (desktop) ----
+      if (!reducedMotion) {
+        container.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          if (isScrolling) return;
+
+          const direction = e.deltaY > 0 ? 1 : -1;
+          const nextSlide = currentSlide + direction;
+
+          if (nextSlide >= 0 && nextSlide < slides.length) {
+            isScrolling = true;
+            goToSlide(nextSlide);
+            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
+          }
+        }, { passive: false });
+      }
+
+      // ---- Touch handler (mobile) ----
+      let touchStartY = 0;
+      container.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      container.addEventListener('touchend', (e) => {
+        if (reducedMotion || isScrolling) return;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diff = touchStartY - touchEndY;
+
+        if (Math.abs(diff) > 50) {
+          const direction = diff > 0 ? 1 : -1;
+          const nextSlide = currentSlide + direction;
+          if (nextSlide >= 0 && nextSlide < slides.length) {
+            isScrolling = true;
+            goToSlide(nextSlide);
+            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
+          }
+        }
+      }, { passive: true });
+
+      // ---- Keyboard support ----
+      document.addEventListener('keydown', (e) => {
+        if (reducedMotion) return;
+        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+          e.preventDefault();
+          if (!isScrolling && currentSlide < slides.length - 1) {
+            isScrolling = true;
+            goToSlide(currentSlide + 1);
+            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
+          }
+        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+          e.preventDefault();
+          if (!isScrolling && currentSlide > 0) {
+            isScrolling = true;
+            goToSlide(currentSlide - 1);
+            setTimeout(() => { isScrolling = false; }, DEBOUNCE_MS);
+          }
+        }
+      });
+
+      // ---- Dot clicks ----
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          goToSlide(parseInt(dot.dataset.slide));
+        });
+      });
+
+      // ---- Nav link clicks ----
+      document.querySelectorAll('[data-slide]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const slideIndex = parseInt(link.dataset.slide);
+          if (!isNaN(slideIndex)) {
+            e.preventDefault();
+            goToSlide(slideIndex);
+            navLinks.classList.remove('open');
+          }
+        });
+      });
+
+      // ---- Mobile nav toggle ----
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+
+      // Close mobile nav on any link click
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+      });
+
+      // ---- Initialize first slide as active ----
+      updateActive(0);
+    })();
+  </script>
+</body>
+</html>
