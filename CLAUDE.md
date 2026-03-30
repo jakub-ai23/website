@@ -54,6 +54,10 @@ Building a personal brand website that combines the best elements from five anal
 - **Overall text review**: User wants to review all copy together
 - **Push to remote**: 2 commits made locally, not yet pushed
 
+## Skills & Patterns Reference
+- **`PORYGON_SKILLS.md`** — Porygon's training manual. Modern CSS, vanilla JS, design tokens, accessibility, SEO, image optimization. Read before any design/code task.
+- **Zack Kass (zackkass.com)** — closest competitor comp. Dark premium, AI speaker, anti-hype. Client logos in first viewport, collapsing hero on scroll.
+
 ## Future Expansion
 - **"Über mich" subpage**: Full bio with personal stories (scuba diving, saving best friend's life, sports background), detailed credentials, hobbies, philosophy. The "Mehr über mich" button on the landing page should link here once built.
 - **Use Cases subpage**: Dedicated page with detailed case studies for B2B managers
