@@ -4,7 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jakub Popluhar | KI-Trainer & Konsumentenpsychologe</title>
-  <meta name="description" content="Sie wissen, dass KI Ihr Business verändern wird - aber nicht, wo Sie anfangen sollen. Dafür bin ich da.">
+  <meta name="description" content="KI-Trainer & Konsumentenpsychologe in Wien. Praxisnahes KI-Training für Führungskräfte, Teams und Unternehmen. 1:1 Executive Sessions, Inhouse-Trainings, Keynotes.">
+  <meta name="theme-color" content="#141414">
+  <meta property="og:title" content="Jakub Popluhar | KI-Trainer & Konsumentenpsychologe">
+  <meta property="og:description" content="Praxisnahes KI-Training für Führungskräfte. Ich kombiniere KI-Expertise mit Konsumentenpsychologie.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jakubpopluhar.com">
+  <meta property="og:image" content="https://jakubpopluhar.com/images/profile/14.png">
+  <meta property="og:locale" content="de_AT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jakub Popluhar | KI-Trainer & Konsumentenpsychologe">
+  <meta name="twitter:description" content="Praxisnahes KI-Training für Führungskräfte. KI-Expertise + Konsumentenpsychologie.">
+  <meta name="twitter:image" content="https://jakubpopluhar.com/images/profile/14.png">
+  <link rel="canonical" href="https://jakubpopluhar.com">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -24,8 +36,8 @@
       --gold-light: #e8b84a;
       --gold-dark: #b8890f;
       --charcoal: #141414;
-      --charcoal-light: #141414;
-      --charcoal-lighter: #1a1a1a;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
       --white: #f5f5f5;
       --white-muted: #b0b0b0;
       --font-heading: 'Montserrat', sans-serif;
@@ -115,6 +127,26 @@
 
     .nav-links a:hover,
     .nav-links a.active { color: var(--white); }
+
+    .nav-links a:not(.nav-cta) {
+      position: relative;
+    }
+
+    .nav-links a:not(.nav-cta)::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:not(.nav-cta):hover::after,
+    .nav-links a:not(.nav-cta).active::after {
+      width: 100%;
+    }
 
     .nav-cta {
       background: var(--gold);
@@ -250,19 +282,23 @@
       50% { opacity: 0.4; }
     }
 
+    @keyframes arrowPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(212, 160, 23, 0.3); }
+      50% { transform: scale(1.08); box-shadow: 0 6px 28px rgba(212, 160, 23, 0.5); }
+    }
+
     .slide-hero h1 {
       font-family: var(--font-heading);
       font-size: clamp(2.4rem, 4.5vw, 3.8rem);
       font-weight: 800;
-      line-height: 1.05;
+      line-height: 1.15;
       margin-bottom: 24px;
       letter-spacing: -1.5px;
-      font-style: italic;
+      min-height: 2.3em;
     }
 
     .slide-hero h1 .highlight {
       color: var(--gold);
-      font-style: italic;
     }
 
     .hero-sub {
@@ -271,6 +307,16 @@
       line-height: 1.7;
       margin-bottom: 32px;
       max-width: 520px;
+    }
+
+    .typewriter-cursor {
+      color: var(--gold);
+      font-weight: 300;
+      animation: blink 0.7s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
     }
 
     .hero-ctas {
@@ -408,13 +454,13 @@
       height: 40px;
       width: auto;
       flex-shrink: 0;
-      opacity: 0.35;
+      opacity: 0.45;
       filter: grayscale(100%) brightness(2) contrast(0.5);
-      transition: opacity 0.3s, filter 0.3s;
+      transition: opacity 0.4s, filter 0.4s;
     }
 
     .trust-marquee:hover .trust-logo-img {
-      opacity: 0.5;
+      opacity: 0.65;
     }
 
     .trust-item {
@@ -654,10 +700,11 @@
       background: var(--charcoal-lighter);
       border: 1px solid rgba(212, 160, 23, 0.15);
       border-radius: 12px;
-      padding: 20px 32px;
+      padding: 24px 36px;
       text-align: center;
       max-width: 700px;
       margin: 0 auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 
     .speaking-eval-a blockquote {
@@ -726,11 +773,6 @@
       background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.2), transparent);
     }
 
-    .slide-transformation .container {
-    }
-
-    .slide-transformation .slide-content {
-    }
 
     .transform-grid {
       display: grid;
@@ -795,6 +837,7 @@
       justify-content: center;
       color: var(--charcoal);
       font-size: 1.4rem;
+      animation: arrowPulse 2.5s ease-in-out infinite;
       font-weight: 700;
       box-shadow: 0 4px 20px rgba(212, 160, 23, 0.3);
     }
@@ -896,8 +939,6 @@
       background: var(--charcoal);
     }
 
-    .slide-services .container {
-    }
 
     .service-featured {
       display: grid;
@@ -1000,8 +1041,6 @@
       background: var(--charcoal-light);
     }
 
-    .slide-trainings .container {
-    }
 
     .open-trainings-header {
       display: flex;
@@ -1046,7 +1085,7 @@
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 16px;
       padding: 28px 24px;
-      transition: border-color 0.3s, box-shadow 0.3s;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
       display: flex;
       flex-direction: column;
       text-align: center;
@@ -1054,7 +1093,8 @@
 
     .training-card:hover {
       border-color: rgba(212, 160, 23, 0.25);
-      box-shadow: 0 0 30px rgba(212, 160, 23, 0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(212, 160, 23, 0.08);
+      transform: translateY(-4px);
     }
 
     .training-card .training-tag {
@@ -1136,8 +1176,6 @@
       background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.2), transparent);
     }
 
-    .slide-proof .container {
-    }
 
     .proof-grid {
       display: grid;
@@ -1158,8 +1196,9 @@
     }
 
     .testimonial-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
       border-color: rgba(212, 160, 23, 0.3);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(212, 160, 23, 0.06);
     }
 
 
@@ -1279,18 +1318,21 @@
       border-radius: 16px;
       padding: 32px;
       text-align: center;
-      transition: border-color 0.3s, box-shadow 0.3s;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
       display: flex;
       flex-direction: column;
     }
 
     .cta-offer-card:hover {
       border-color: rgba(212, 160, 23, 0.3);
-      box-shadow: 0 0 30px rgba(212, 160, 23, 0.1);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(212, 160, 23, 0.1);
+      transform: translateY(-4px);
     }
 
     .cta-offer-featured {
-      border-color: rgba(212, 160, 23, 0.25);
+      border-color: rgba(212, 160, 23, 0.4);
+      box-shadow: 0 0 30px rgba(212, 160, 23, 0.08);
+      position: relative;
     }
 
     .cta-offer-card .btn {
@@ -1356,6 +1398,7 @@
     .contact-form select:focus,
     .contact-form textarea:focus {
       border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.12);
     }
 
     .contact-form select {
@@ -1667,7 +1710,7 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
 
-      .slide-hero h1 { font-size: 2rem; }
+      .slide-hero h1 { font-size: 1.8rem; min-height: 4.1em; }
       .hero-sub { font-size: 1rem; }
       .hero-image img { max-height: 220px; }
 
@@ -1718,6 +1761,39 @@
       .trust-track { animation: none; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Jakub Popluhar - KI-Training & Konsumentenpsychologie",
+    "url": "https://jakubpopluhar.com",
+    "description": "Praxisnahes KI-Training für Führungskräfte und Teams. 1:1 Executive Sessions, Inhouse-Trainings und Keynotes.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Wien",
+      "addressCountry": "AT"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Jakub Popluhar",
+      "honorificSuffix": "M.Ed.",
+      "jobTitle": "KI-Trainer & Konsumentenpsychologe",
+      "sameAs": [
+        "https://www.linkedin.com/in/jakubpopluhar/"
+      ]
+    },
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.2082,
+        "longitude": 16.3738
+      },
+      "description": "DACH Region (Deutschland, Österreich, Schweiz)"
+    },
+    "serviceType": ["KI-Training", "Executive Coaching", "Keynote Speaking", "Inhouse-Training", "Konsumentenpsychologie"]
+  }
+  </script>
 </head>
 <body>
 
@@ -1780,7 +1856,7 @@
       <div class="hero-main">
         <div class="hero-content slide-content">
           <div class="hero-badge">KI-Trainer & Konsumentenpsychologe</div>
-          <h1>„Sie wissen nicht, was Sie <span class="highlight">nicht wissen."</span></h1>
+          <h1>„Sie wissen nicht,&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
           <p class="hero-sub">Sie wissen, dass KI Ihr Business verändert. Sie wissen nur nicht, wo Sie anfangen sollen. Dafür bin ich da.</p>
           <div class="hero-ctas">
             <a href="#contact" class="btn btn-primary" onclick="selectInterest('1:1 Executive Session')">Session buchen &rarr;</a>
@@ -1822,7 +1898,7 @@
       <div class="container slide-content">
         <div class="about-image-wrapper">
           <div class="about-image">
-            <img src="images/profile/7.png" alt="Jakub Popluhar" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+            <img src="images/profile/7.png" alt="Jakub Popluhar" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
           </div>
           <div class="surf-badge-overlay">
             <img src="images/logos/surf-badge-color.svg" alt="SURF™ Method - Licensed Trainer & Coach, mindworx 2025">
@@ -1835,6 +1911,10 @@
             <div class="about-stat">
               <span class="number">ARS</span>
               <span class="label">Trainer</span>
+            </div>
+            <div class="about-stat">
+              <span class="number">SURF</span>
+              <span class="label">Lizenziert</span>
             </div>
           </div>
         </div>
@@ -1880,7 +1960,7 @@
 
           <div class="speaking-photo-a">
             <div>
-              <img src="images/speaking/ivanov-certificate.jpg" alt="Jakub Popluhar mit Präsident Dr. Gjorge Ivanov">
+              <img src="images/speaking/ivanov-certificate.jpg" alt="Jakub Popluhar mit Präsident Dr. Gjorge Ivanov" loading="lazy">
               <p class="photo-caption">Präsident Dr. Gjorge Ivanov überreicht das Zertifikat</p>
             </div>
           </div>
@@ -1941,7 +2021,7 @@
             <blockquote>„Es war unglaublich! Ich habe meinen Blick auf Business komplett verändert - und darauf, wie wir Business machen sollten. Ich habe sofort die zweite Session gebucht."</blockquote>
           </div>
           <div class="hero-testimonial-author">
-            <img class="hero-testimonial-img" src="images/testimonials/katarzyna-pichler.jpg" alt="Katarzyna Renata Pichler">
+            <img class="hero-testimonial-img" src="images/testimonials/katarzyna-pichler.jpg" alt="Katarzyna Renata Pichler" loading="lazy">
             <div class="hero-testimonial-info">
               <span class="name">Katarzyna Renata Pichler</span>
               <span class="role">Angel Investor des Jahres 2025</span>
@@ -1962,7 +2042,7 @@
 
         <div class="service-featured">
           <div class="service-featured-image">
-            <img src="images/profile/15.png" alt="Jakub Popluhar">
+            <img src="images/profile/15.png" alt="Jakub Popluhar" loading="lazy">
           </div>
           <div class="service-featured-content">
             <span class="service-badge">Premium</span>
@@ -2044,7 +2124,7 @@
               <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <blockquote>„Vorher hatte ich meine Chats überall verstreut und unorganisiert. Jetzt habe ich alles sortiert - Marketing, Training, SOPs, Strategie. Wir haben mein LLM organisiert und personalisiert, sodass ich nicht jedes Mal einen Prompt schreiben muss. Das alleine spart mir 40 Minuten am Tag."</blockquote>
               <div class="testimonial-author">
-                <img class="avatar-img" src="images/testimonials/patrik-hubek.png" alt="Patrik Hubek">
+                <img class="avatar-img" src="images/testimonials/patrik-hubek.png" alt="Patrik Hubek" loading="lazy">
                 <div class="author-info">
                   <span class="name">Patrik Hubek</span>
                   <span class="role">FitRock | Health & Fitness</span>
@@ -2056,7 +2136,7 @@
               <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <blockquote>„Ich dachte, ich kann ChatGPT bedienen - bis mir Jakub gezeigt hat, was wirklich möglich ist. Keine Theorie, sondern: selber machen, ausprobieren, verstehen. Nach einer Session wusste ich mehr als nach Monaten alleine."</blockquote>
               <div class="testimonial-author">
-                <img class="avatar-img" src="images/testimonials/tea-shashaj.png" alt="Tea Shashaj">
+                <img class="avatar-img" src="images/testimonials/tea-shashaj.png" alt="Tea Shashaj" loading="lazy">
                 <div class="author-info">
                   <span class="name">Tea Shashaj</span>
                   <span class="role">YouKnowMeBest | E-Commerce</span>
@@ -2068,7 +2148,7 @@
               <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <blockquote>„Ich betreibe ein Kampfsport-Studio - Technik ist nicht meine Welt. Ich wusste nicht mal, wo die App ist. 45 Minuten später hatte ich ein KI-Projekt für Mitgliedergewinnung - und das Verrückte: die KI hat mir selbst geholfen, die richtigen Fragen zu stellen. Alleine wäre ich nie draufgekommen."</blockquote>
               <div class="testimonial-author">
-                <img class="avatar-img" src="images/testimonials/petar-pecija.png" alt="Petar Pecija">
+                <img class="avatar-img" src="images/testimonials/petar-pecija.png" alt="Petar Pecija" loading="lazy">
                 <div class="author-info">
                   <span class="name">Petar Pecija</span>
                   <span class="role">ZR Team Vienna | Sport</span>
@@ -2133,7 +2213,7 @@
           <div class="form-success" id="formSuccess">Vielen Dank! Ich melde mich bei Ihnen.</div>
           <p style="text-align:center; margin-top:16px; margin-bottom:80px; color:var(--white-muted); font-size:0.85rem;">
             Oder direkt auf
-            <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" style="color:var(--gold); font-weight:600;">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener noreferrer" style="color:var(--gold); font-weight:600;">LinkedIn</a>
           </p>
         </div>
       </div>
@@ -2146,7 +2226,7 @@
       <div class="footer-contact">
         <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
         <span class="footer-sep">|</span>
-        <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
       <ul class="footer-links">
         <li><a href="impressum.html">Impressum</a></li>
@@ -2159,6 +2239,79 @@
   <!-- ===== SCRIPTS ===== -->
   <script>
     (function() {
+      // ---- Rotating typewriter on hero h1 ----
+      (function typewriter() {
+        const phrases = [
+          [
+            { text: 'was Sie ', hl: false },
+            { text: 'nicht wissen."', hl: true }
+          ],
+          [
+            { text: 'wo Sie ', hl: false },
+            { text: 'anfangen sollen."', hl: true }
+          ],
+          [
+            { text: 'was Ihre Konkurrenz ', hl: false },
+            { text: 'schon nutzt."', hl: true }
+          ]
+        ];
+        const el = document.getElementById('typewriter');
+        if (!el) return;
+
+        const typeSpeed = 55;
+        const deleteSpeed = 30;
+        const pauseAfterType = 2500;
+        const pauseAfterDelete = 400;
+        let phraseIdx = 0;
+
+        function typePhrase(parts, cb) {
+          let pIdx = 0, cIdx = 0, span = null;
+          function step() {
+            if (pIdx >= parts.length) { cb(); return; }
+            if (cIdx === 0) {
+              span = document.createElement('span');
+              if (parts[pIdx].hl) span.className = 'highlight';
+              el.appendChild(span);
+            }
+            span.textContent += parts[pIdx].text.charAt(cIdx);
+            cIdx++;
+            if (cIdx >= parts[pIdx].text.length) { pIdx++; cIdx = 0; }
+            setTimeout(step, typeSpeed);
+          }
+          step();
+        }
+
+        function deleteText(cb) {
+          function step() {
+            const last = el.lastChild;
+            if (!last) { cb(); return; }
+            if (last.textContent.length > 0) {
+              last.textContent = last.textContent.slice(0, -1);
+            }
+            if (last.textContent.length === 0) {
+              el.removeChild(last);
+            }
+            setTimeout(step, deleteSpeed);
+          }
+          step();
+        }
+
+        function loop() {
+          typePhrase(phrases[phraseIdx], () => {
+            setTimeout(() => {
+              deleteText(() => {
+                setTimeout(() => {
+                  phraseIdx = (phraseIdx + 1) % phrases.length;
+                  loop();
+                }, pauseAfterDelete);
+              });
+            }, pauseAfterType);
+          });
+        }
+
+        setTimeout(loop, 1000);
+      })();
+
       const slides = document.querySelectorAll('.slide');
       const dots = document.querySelectorAll('.nav-dot');
       const navLinks = document.getElementById('navLinks');
