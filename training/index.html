@@ -190,6 +190,7 @@
       max-width: 300px;
       border-radius: 16px;
       object-fit: cover;
+      object-position: center 15%;
       display: block;
       margin: 0 auto;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
@@ -211,6 +212,92 @@
       height: 1px;
       background: linear-gradient(90deg, transparent 0%, rgba(212, 160, 23, 0.4) 30%, rgba(212, 160, 23, 0.4) 70%, transparent 100%);
       margin: 8px 0 40px;
+    }
+
+    /* ========== PROVOCATION ANIMATION ========== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+
+    @keyframes formReveal {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .provocation {
+      text-align: center;
+      padding: 40px 0 32px;
+    }
+
+    .provocation-line {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--white);
+      opacity: 0;
+      margin-bottom: 12px;
+      /* each line animates in, holds, then fades out */
+      animation-fill-mode: both;
+      animation-timing-function: ease;
+    }
+
+    /* Line 1: "Nichts." — fades in at 0.2s, fades out at 3.8s */
+    .provocation-line:nth-child(1) {
+      animation:
+        fadeInUp 0.6s 0.2s forwards,
+        fadeOut  0.5s 3.8s forwards;
+    }
+
+    /* Line 2: "Alles vergessen." — fades in at 1.2s, fades out at 3.9s */
+    .provocation-line:nth-child(2) {
+      animation:
+        fadeInUp 0.6s 1.2s forwards,
+        fadeOut  0.5s 3.9s forwards;
+    }
+
+    /* Line 3: "Was für ein Training?" — fades in at 2.2s, fades out at 4.0s */
+    .provocation-line:nth-child(3) {
+      animation:
+        fadeInUp 0.6s 2.2s forwards,
+        fadeOut  0.5s 4.0s forwards;
+    }
+
+    /* Line 1 gets white-muted color — it's the punchline setup */
+    .provocation-line:nth-child(1),
+    .provocation-line:nth-child(2) {
+      color: var(--white-muted);
+    }
+
+    /* Line 3 is the twist — slightly gold tint */
+    .provocation-line:nth-child(3) {
+      color: var(--white);
+      font-style: italic;
+    }
+
+    /* The form section answer line fades in after provocation */
+    .form-answer-line {
+      font-family: var(--font-heading);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: -0.3px;
+      text-align: center;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: formReveal 0.8s 4.8s ease both;
+    }
+
+    /* Form section itself fades in after provocation clears */
+    .form-section {
+      opacity: 0;
+      animation: formReveal 0.8s 4.6s ease both;
     }
 
     /* ========== FORM SECTION ========== */
@@ -616,19 +703,19 @@
                 <div class="action-icon">
                   <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </div>
-                <span>Trainingsunterlagen und Ressourcen per E-Mail</span>
+                <span>Mein KI-Stack &amp; Ressourcen per E-Mail</span>
               </div>
               <div class="action-item">
                 <div class="action-icon">
                   <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
                 </div>
-                <span>Direkte Antworten auf Ihre Fragen</span>
+                <span>In-House Training (über ARS Akademie)</span>
               </div>
               <div class="action-item">
                 <div class="action-icon">
                   <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
                 </div>
-                <span>Meine persönliche Tool-Sammlung</span>
+                <span>KI Executive Coaching 1:1</span>
               </div>
             </div>
           </div>
@@ -641,11 +728,18 @@
 
       <div class="gold-divider"></div>
 
+      <!-- PROVOCATION -->
+      <div class="provocation" aria-hidden="true">
+        <p class="provocation-line">Nichts.</p>
+        <p class="provocation-line">Alles vergessen.</p>
+        <p class="provocation-line">Was für ein Training?</p>
+      </div>
+
       <!-- FORM -->
       <section class="form-section">
         <div class="form-intro">
           <h2>Jetzt eintragen</h2>
-          <p>Ein Formular, 2 Minuten, und Sie verpassen nichts.</p>
+          <p class="form-answer-line">Oder: Sie bleiben dran.</p>
         </div>
 
         <div class="form-card">
@@ -680,18 +774,18 @@
                   <span class="checkbox-label">Mein KI-Stack &amp; Ressourcen per E-Mail</span>
                 </label>
                 <label class="checkbox-item">
-                  <input type="checkbox" name="interesse" value="In-House Training für mein Team">
+                  <input type="checkbox" name="interesse" value="In-House Training (über ARS Akademie)">
                   <span class="checkbox-box">
                     <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                   </span>
-                  <span class="checkbox-label">In-House Training für mein Team</span>
+                  <span class="checkbox-label">In-House Training (über ARS Akademie)</span>
                 </label>
                 <label class="checkbox-item">
-                  <input type="checkbox" name="interesse" value="1:1 Executive KI-Coaching">
+                  <input type="checkbox" name="interesse" value="KI Executive Coaching 1:1">
                   <span class="checkbox-box">
                     <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                   </span>
-                  <span class="checkbox-label">1:1 Executive KI-Coaching</span>
+                  <span class="checkbox-label">KI Executive Coaching 1:1</span>
                 </label>
               </div>
             </div>
