@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Classroom — Jakub Popluhar</title>
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --charcoal-card: #1e1e1e;
+      --border: rgba(255,255,255,0.07);
+      --border-gold: rgba(212,160,23,0.25);
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --white-dim: #888888;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --nav-height: 64px;
+      --max-width: 860px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-light); }
+
+    /* ====== NAV ====== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background: rgba(20,20,20,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.6rem;
+      color: var(--white);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 4px;
+    }
+
+    .nav-tab {
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--white-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .nav-tab:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+
+    .nav-tab.active {
+      color: var(--charcoal);
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .nav-tab.active:hover { color: var(--charcoal); background: var(--gold-light); }
+
+    /* ====== LAYOUT ====== */
+    .page-body {
+      padding-top: calc(var(--nav-height) + 40px);
+      padding-bottom: 60px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    /* ====== HEADER ====== */
+    .classroom-header {
+      margin-bottom: 32px;
+    }
+
+    .classroom-eyebrow {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .classroom-title {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .classroom-subtitle {
+      font-size: 0.95rem;
+      color: var(--white-muted);
+      max-width: 540px;
+    }
+
+    /* ====== OVERALL PROGRESS ====== */
+    .overall-progress {
+      background: var(--charcoal-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .overall-stat {
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .overall-stat-num {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .overall-stat-label {
+      font-size: 0.72rem;
+      color: var(--white-dim);
+      margin-top: 4px;
+    }
+
+    .overall-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .overall-bar-wrap { flex: 1; }
+
+    .overall-bar-label {
+      font-size: 0.78rem;
+      color: var(--white-muted);
+      margin-bottom: 8px;
+    }
+
+    .progress-bar-track {
+      height: 8px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      border-radius: 99px;
+      transition: width 0.5s ease;
+    }
+
+    /* ====== MODULE CARDS ====== */
+    .module-card {
+      background: var(--charcoal-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+
+    .module-card:hover { border-color: rgba(255,255,255,0.12); }
+    .module-card.locked { opacity: 0.7; }
+    .module-card.locked:hover { border-color: rgba(212,160,23,0.2); }
+
+    .module-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 22px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .module-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(212,160,23,0.12), rgba(212,160,23,0.06));
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .module-icon.locked-icon {
+      background: rgba(255,255,255,0.03);
+      border-color: var(--border);
+    }
+
+    .module-info { flex: 1; min-width: 0; }
+
+    .module-num {
+      font-family: var(--font-heading);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+
+    .module-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .module-meta {
+      font-size: 0.78rem;
+      color: var(--white-dim);
+      margin-top: 4px;
+    }
+
+    .module-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .module-progress-text {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--white-muted);
+    }
+
+    .module-mini-bar {
+      width: 80px;
+      height: 5px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .module-mini-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      border-radius: 99px;
+    }
+
+    .lock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      background: rgba(212,160,23,0.08);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .chevron {
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+      color: var(--white-dim);
+    }
+
+    .module-card.open .chevron { transform: rotate(180deg); }
+
+    /* ====== LESSONS ====== */
+    .lessons-panel {
+      border-top: 1px solid var(--border);
+      display: none;
+    }
+
+    .lessons-panel.open { display: block; }
+
+    .lesson-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.15s;
+    }
+
+    .lesson-row:last-child { border-bottom: none; }
+    .lesson-row:hover { background: rgba(255,255,255,0.025); }
+    .lesson-row.locked-lesson { opacity: 0.5; cursor: not-allowed; }
+
+    .lesson-checkbox {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.15);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lesson-checkbox.done {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .lesson-checkbox:not(.done):hover {
+      border-color: var(--gold);
+    }
+
+    .lesson-checkbox svg { display: none; }
+    .lesson-checkbox.done svg { display: block; }
+
+    .lesson-info { flex: 1; min-width: 0; }
+
+    .lesson-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .lesson-sub {
+      font-size: 0.75rem;
+      color: var(--white-dim);
+    }
+
+    .lesson-tag {
+      font-size: 0.7rem;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    .tag-video { background: rgba(100,100,255,0.12); color: #8888ff; }
+    .tag-exercise { background: rgba(212,160,23,0.1); color: var(--gold); }
+    .tag-reading { background: rgba(100,200,100,0.1); color: #7dd87d; }
+
+    /* ====== FOOTER ====== */
+    .page-footer {
+      text-align: center;
+      padding: 40px 24px 24px;
+      font-size: 0.78rem;
+      color: var(--white-dim);
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+    }
+
+    .page-footer a { color: var(--white-dim); }
+    .page-footer a:hover { color: var(--gold); }
+
+    /* ====== TOAST ====== */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--charcoal-lighter);
+      border: 1px solid var(--border-gold);
+      color: var(--white);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      z-index: 200;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 600px) {
+      .classroom-title { font-size: 1.4rem; }
+      .overall-progress { flex-wrap: wrap; }
+      .module-header { padding: 16px; }
+      .lesson-row { padding: 12px 16px; }
+      .module-mini-bar { width: 56px; }
+      .nav-logo { font-size: 1.35rem; }
+      .nav-tab { padding: 7px 14px; font-size: 0.8rem; }
+      .page-body { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <span class="nav-logo">Jakub Popluhar</span>
+      <div class="nav-tabs">
+        <a href="index.html" class="nav-tab">Community</a>
+        <a href="classroom.html" class="nav-tab active">Classroom</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BODY -->
+  <div class="page-body">
+
+    <!-- HEADER -->
+    <div class="classroom-header">
+      <div class="classroom-eyebrow">Ihre Lernreise</div>
+      <h1 class="classroom-title">KI-Training — Inhalte</h1>
+      <p class="classroom-subtitle">Drei Module. Vom Grundverständnis bis zum professionellen Prompt Engineering. Absolvieren Sie die Lektionen in Ihrem eigenen Tempo.</p>
+    </div>
+
+    <!-- OVERALL PROGRESS -->
+    <div class="overall-progress" id="overall-progress-bar">
+      <div class="overall-stat">
+        <div class="overall-stat-num" id="stat-done">0</div>
+        <div class="overall-stat-label">Abgeschlossen</div>
+      </div>
+      <div class="overall-divider"></div>
+      <div class="overall-stat">
+        <div class="overall-stat-num" id="stat-total">11</div>
+        <div class="overall-stat-label">Lektionen gesamt</div>
+      </div>
+      <div class="overall-divider"></div>
+      <div class="overall-bar-wrap">
+        <div class="overall-bar-label" id="overall-bar-label">Fortschritt</div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="overall-fill" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULES -->
+    <div id="modules-container"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    Jakub Popluhar, M.Ed. &nbsp;&middot;&nbsp;
+    <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a> &nbsp;&middot;&nbsp;
+    <a href="tel:+436641386498">+43 664 138 64 98</a>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ===== COURSE DATA =====
+    const MODULES = [
+      {
+        id: 'mod-1',
+        num: 'Modul 1',
+        title: 'Die Psychologie der Maschine',
+        icon: '🧠',
+        locked: false,
+        lessons: [
+          { id: 'l-1-1', title: 'Wie denkt eine KI wirklich?', sub: 'Noch nicht verfügbar', tag: 'video' },
+          { id: 'l-1-2', title: 'Large Language Models verstehen', sub: 'Noch nicht verfügbar', tag: 'reading' },
+          { id: 'l-1-3', title: 'Die 5 Missverständnisse über KI', sub: 'Noch nicht verfügbar', tag: 'video' },
+          { id: 'l-1-4', title: 'Übung: Ihr erstes KI-Gespräch auswerten', sub: 'Noch nicht verfügbar', tag: 'exercise' },
+        ],
+      },
+      {
+        id: 'mod-2',
+        num: 'Modul 2',
+        title: 'Das digitale Team',
+        icon: '⚡',
+        locked: false,
+        lessons: [
+          { id: 'l-2-1', title: 'KI als Werkzeug vs. KI als Mitarbeiter', sub: 'Noch nicht verfügbar', tag: 'video' },
+          { id: 'l-2-2', title: 'Das CITE-Framework in der Praxis', sub: 'Noch nicht verfügbar', tag: 'exercise' },
+          { id: 'l-2-3', title: 'Welche Tasks Sie delegieren sollten', sub: 'Noch nicht verfügbar', tag: 'reading' },
+        ],
+      },
+      {
+        id: 'mod-3',
+        num: 'Modul 3',
+        title: 'Advanced: Prompt Engineering Masterclass',
+        icon: '🔒',
+        locked: true,
+        lockLabel: 'Level 3 erforderlich',
+        lessons: [
+          { id: 'l-3-1', title: 'Chain-of-Thought Prompting', sub: 'Noch nicht verfügbar', tag: 'video' },
+          { id: 'l-3-2', title: 'Few-Shot Learning: Beispiele geben', sub: 'Noch nicht verfügbar', tag: 'video' },
+          { id: 'l-3-3', title: 'System Prompts und Personas bauen', sub: 'Noch nicht verfügbar', tag: 'exercise' },
+          { id: 'l-3-4', title: 'Fortgeschrittene Techniken im Überblick', sub: 'Noch nicht verfügbar', tag: 'reading' },
+        ],
+      },
+    ];
+
+    const TOTAL_LESSONS = MODULES.reduce((s, m) => s + m.lessons.length, 0);
+
+    // ===== STATE =====
+    let completedLessons = {};
+    let openModules = {};
+
+    // ===== STORAGE =====
+    function saveProgress() {
+      localStorage.setItem('jp_classroom_progress', JSON.stringify(completedLessons));
+    }
+
+    function loadProgress() {
+      const data = localStorage.getItem('jp_classroom_progress');
+      completedLessons = data ? JSON.parse(data) : {};
+    }
+
+    // ===== HELPERS =====
+    function countDone() {
+      return Object.values(completedLessons).filter(Boolean).length;
+    }
+
+    function moduleDone(mod) {
+      return mod.lessons.filter(l => completedLessons[l.id]).length;
+    }
+
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 2200);
+    }
+
+    // ===== RENDER =====
+    function renderOverall() {
+      const done = countDone();
+      const pct = Math.round((done / TOTAL_LESSONS) * 100);
+      document.getElementById('stat-done').textContent = done;
+      document.getElementById('stat-total').textContent = TOTAL_LESSONS;
+      document.getElementById('overall-fill').style.width = pct + '%';
+      document.getElementById('overall-bar-label').textContent = `Fortschritt: ${pct}%`;
+    }
+
+    function renderModules() {
+      const container = document.getElementById('modules-container');
+
+      container.innerHTML = MODULES.map(mod => {
+        const done = moduleDone(mod);
+        const total = mod.lessons.length;
+        const pct = Math.round((done / total) * 100);
+        const isOpen = openModules[mod.id];
+
+        const lessonsHTML = mod.lessons.map(lesson => {
+          const isDone = !!completedLessons[lesson.id];
+          const isLocked = mod.locked;
+          return `
+            <div class="lesson-row ${isLocked ? 'locked-lesson' : ''}" onclick="${isLocked ? '' : `toggleLesson('${lesson.id}')`}">
+              <div class="lesson-checkbox ${isDone ? 'done' : ''}" id="cb-${lesson.id}">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="${'var(--charcoal)'}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="lesson-info">
+                <div class="lesson-title" style="${isDone ? 'text-decoration:line-through;opacity:0.5' : ''}">${escHtml(lesson.title)}</div>
+                <div class="lesson-sub">${escHtml(lesson.sub)}</div>
+              </div>
+              <span class="lesson-tag tag-${lesson.tag}">${tagLabel(lesson.tag)}</span>
+            </div>`;
+        }).join('');
+
+        return `
+          <div class="module-card ${isOpen ? 'open' : ''} ${mod.locked ? 'locked' : ''}" id="mod-card-${mod.id}">
+            <div class="module-header" onclick="toggleModule('${mod.id}')">
+              <div class="module-icon ${mod.locked ? 'locked-icon' : ''}">
+                ${mod.locked
+                  ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`
+                  : mod.icon}
+              </div>
+              <div class="module-info">
+                <div class="module-num">${mod.num}</div>
+                <div class="module-title">${escHtml(mod.title)}</div>
+                <div class="module-meta">${total} Lektionen</div>
+              </div>
+              <div class="module-right">
+                ${mod.locked
+                  ? `<span class="lock-badge">
+                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                       ${escHtml(mod.lockLabel)}
+                     </span>`
+                  : `<div class="module-progress-text">${done}/${total}</div>
+                     <div class="module-mini-bar"><div class="module-mini-fill" style="width:${pct}%"></div></div>`}
+                <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </div>
+            </div>
+            <div class="lessons-panel ${isOpen ? 'open' : ''}" id="lessons-${mod.id}">
+              ${lessonsHTML}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function tagLabel(tag) {
+      if (tag === 'video') return 'Video';
+      if (tag === 'exercise') return 'Übung';
+      if (tag === 'reading') return 'Lesung';
+      return tag;
+    }
+
+    function escHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // ===== ACTIONS =====
+    function toggleModule(modId) {
+      openModules[modId] = !openModules[modId];
+      renderModules();
+    }
+
+    function toggleLesson(lessonId) {
+      const mod = MODULES.find(m => m.lessons.some(l => l.id === lessonId));
+      if (!mod || mod.locked) return;
+
+      const wasDone = !!completedLessons[lessonId];
+      completedLessons[lessonId] = !wasDone;
+      saveProgress();
+      renderModules();
+      renderOverall();
+
+      if (!wasDone) {
+        toast('Lektion als abgeschlossen markiert.');
+      }
+    }
+
+    // ===== INIT =====
+    loadProgress();
+    renderModules();
+    renderOverall();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Community — Jakub Popluhar</title>
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --charcoal-card: #1e1e1e;
+      --border: rgba(255,255,255,0.07);
+      --border-gold: rgba(212,160,23,0.25);
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --white-dim: #888888;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --nav-height: 64px;
+      --sidebar-width: 280px;
+      --max-width: 1160px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-light); }
+
+    /* ====== NAV ====== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background: rgba(20,20,20,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.6rem;
+      color: var(--white);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 4px;
+    }
+
+    .nav-tab {
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--white-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .nav-tab:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+
+    .nav-tab.active {
+      color: var(--charcoal);
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .nav-tab.active:hover { color: var(--charcoal); background: var(--gold-light); }
+
+    /* ====== LAYOUT ====== */
+    .page-body {
+      padding-top: calc(var(--nav-height) + 32px);
+      padding-bottom: 60px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+      display: grid;
+      grid-template-columns: 1fr var(--sidebar-width);
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* ====== FEED ====== */
+    .feed { min-width: 0; }
+
+    /* ====== NEW POST ====== */
+    .new-post-card {
+      background: var(--charcoal-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .new-post-card h3 {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .post-form-title {
+      width: 100%;
+      background: var(--charcoal-lighter);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .post-form-title::placeholder { color: var(--white-dim); }
+    .post-form-title:focus { border-color: var(--border-gold); }
+
+    .post-form-body {
+      width: 100%;
+      background: var(--charcoal-lighter);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      resize: vertical;
+      min-height: 88px;
+      outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 14px;
+    }
+
+    .post-form-body::placeholder { color: var(--white-dim); }
+    .post-form-body:focus { border-color: var(--border-gold); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--charcoal);
+      border-color: var(--gold);
+    }
+
+    .btn-gold:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white-muted);
+      border-color: var(--border);
+      padding: 7px 14px;
+      font-size: 0.8rem;
+    }
+
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.2); color: var(--white); }
+
+    /* ====== POSTS ====== */
+    .post-card {
+      background: var(--charcoal-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .post-card:hover { border-color: rgba(255,255,255,0.12); }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .post-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      flex-shrink: 0;
+    }
+
+    .post-author-info { flex: 1; min-width: 0; }
+
+    .post-author-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .level-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .level-1 { background: rgba(176,176,176,0.15); color: #b0b0b0; border: 1px solid rgba(176,176,176,0.25); }
+    .level-2 { background: rgba(100,200,100,0.1); color: #6dc86d; border: 1px solid rgba(109,200,109,0.3); }
+    .level-3 { background: rgba(100,160,255,0.1); color: #74a8ff; border: 1px solid rgba(116,168,255,0.3); }
+    .level-4 { background: rgba(212,160,23,0.12); color: var(--gold-light); border: 1px solid var(--border-gold); }
+    .level-5 { background: rgba(212,100,23,0.12); color: #e87c3e; border: 1px solid rgba(232,124,62,0.3); }
+
+    .post-timestamp {
+      font-size: 0.78rem;
+      color: var(--white-dim);
+      margin-top: 1px;
+    }
+
+    .post-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+
+    .post-title:hover { color: var(--gold-light); }
+
+    .post-content {
+      font-size: 0.9rem;
+      color: rgba(245,245,245,0.82);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .post-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.82rem;
+      color: var(--white-dim);
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: all 0.2s;
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+    }
+
+    .action-btn:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+
+    .action-btn.liked { color: #e05c5c; }
+    .action-btn.liked:hover { color: #ff7070; }
+
+    .action-btn svg { flex-shrink: 0; }
+
+    /* ====== COMMENTS ====== */
+    .comments-section {
+      margin-top: 16px;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      display: none;
+    }
+
+    .comments-section.open { display: block; }
+
+    .comment {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .comment-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #333, #555);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--white-muted);
+      flex-shrink: 0;
+    }
+
+    .comment-body { flex: 1; min-width: 0; }
+
+    .comment-author {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 2px;
+      flex-wrap: wrap;
+    }
+
+    .comment-time { font-size: 0.72rem; color: var(--white-dim); font-weight: 400; }
+
+    .comment-text {
+      font-size: 0.85rem;
+      color: rgba(245,245,245,0.78);
+      line-height: 1.55;
+    }
+
+    .add-comment-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .comment-input {
+      flex: 1;
+      background: var(--charcoal-lighter);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 14px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .comment-input::placeholder { color: var(--white-dim); }
+    .comment-input:focus { border-color: var(--border-gold); }
+
+    /* ====== SIDEBAR ====== */
+    .sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px);
+    }
+
+    .sidebar-card {
+      background: var(--charcoal-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-card-title {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .member-card-inner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .member-avatar-lg {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      flex-shrink: 0;
+    }
+
+    .member-name {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .member-meta {
+      font-size: 0.78rem;
+      color: var(--white-dim);
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--white-muted);
+      margin-bottom: 6px;
+    }
+
+    .progress-bar-track {
+      height: 6px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+
+    .points-label {
+      font-size: 0.74rem;
+      color: var(--white-dim);
+      text-align: right;
+      margin-top: 5px;
+    }
+
+    /* ====== LEADERBOARD ====== */
+    .leaderboard-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .leaderboard-row:last-child { border-bottom: none; }
+
+    .lb-rank {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--white-dim);
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .lb-rank.top { color: var(--gold); }
+
+    .lb-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2a2a2a, #444);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--white-muted);
+      flex-shrink: 0;
+    }
+
+    .lb-name {
+      flex: 1;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--white);
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lb-points {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold);
+      font-family: var(--font-heading);
+    }
+
+    /* ====== FOOTER ====== */
+    .page-footer {
+      text-align: center;
+      padding: 40px 24px 24px;
+      font-size: 0.78rem;
+      color: var(--white-dim);
+      border-top: 1px solid var(--border);
+      margin-top: 16px;
+    }
+
+    .page-footer a { color: var(--white-dim); }
+    .page-footer a:hover { color: var(--gold); }
+
+    /* ====== EMPTY STATE ====== */
+    .empty-state {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--white-dim);
+      font-size: 0.9rem;
+    }
+
+    /* ====== SEPARATOR ====== */
+    .section-sep {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.2;
+      margin: 8px 0 20px;
+    }
+
+    /* ====== TOAST ====== */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--charcoal-lighter);
+      border: 1px solid var(--border-gold);
+      color: var(--white);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      z-index: 200;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      .page-body {
+        grid-template-columns: 1fr;
+        padding-top: calc(var(--nav-height) + 20px);
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 20px;
+      }
+
+      .sidebar {
+        position: static;
+        order: -1;
+      }
+
+      .sidebar-card {
+        padding: 16px;
+      }
+
+      .nav-logo { font-size: 1.35rem; }
+      .nav-tab { padding: 7px 14px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <span class="nav-logo">Jakub Popluhar</span>
+      <div class="nav-tabs">
+        <a href="index.html" class="nav-tab active">Community</a>
+        <a href="classroom.html" class="nav-tab">Classroom</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BODY -->
+  <div class="page-body">
+
+    <!-- FEED -->
+    <main class="feed">
+      <!-- NEW POST -->
+      <div class="new-post-card">
+        <h3>Neuer Beitrag</h3>
+        <input type="text" class="post-form-title" id="new-post-title" placeholder="Titel Ihres Beitrags..." maxlength="120">
+        <textarea class="post-form-body" id="new-post-body" placeholder="Was beschäftigt Sie gerade? Teilen Sie eine Erkenntnis, ein Ergebnis oder eine Frage..."></textarea>
+        <button class="btn btn-gold" onclick="submitPost()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Beitrag veröffentlichen
+        </button>
+      </div>
+
+      <div class="section-sep"></div>
+
+      <!-- POSTS FEED -->
+      <div id="posts-feed"></div>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <!-- MEMBER CARD -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Mein Profil</div>
+        <div class="member-card-inner">
+          <div class="member-avatar-lg" id="sidebar-avatar">?</div>
+          <div>
+            <div class="member-name" id="sidebar-name">Sie sind neu hier</div>
+            <div class="member-meta" id="sidebar-level-name">Noch kein Beitrag</div>
+          </div>
+        </div>
+        <div class="progress-label">
+          <span id="sidebar-level-label">Level 1 — Einsteiger</span>
+          <span id="sidebar-next-label"></span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="sidebar-progress" style="width:0%"></div>
+        </div>
+        <div class="points-label" id="sidebar-points">0 Punkte</div>
+      </div>
+
+      <!-- LEADERBOARD -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Bestenliste</div>
+        <div id="leaderboard-list"></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    Jakub Popluhar, M.Ed. &nbsp;&middot;&nbsp;
+    <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a> &nbsp;&middot;&nbsp;
+    <a href="tel:+436641386498">+43 664 138 64 98</a>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ===== DATA =====
+    const LEVELS = [
+      { level: 1, name: 'Einsteiger',    min: 0   },
+      { level: 2, name: 'Anwender',      min: 5   },
+      { level: 3, name: 'Fortgeschritten', min: 20 },
+      { level: 4, name: 'Experte',       min: 65  },
+      { level: 5, name: 'Meister',       min: 155 },
+    ];
+
+    const DEMO_POSTS = [
+      {
+        id: 'demo-1',
+        author: 'Jakub Popluhar',
+        authorInitials: 'JP',
+        authorGold: true,
+        timestamp: Date.now() - 1000 * 60 * 60 * 48,
+        title: 'Willkommen in der Community!',
+        content: 'Herzlich willkommen! Dieses ist ein Ort, an dem wir gemeinsam weiterlernen. Teilen Sie Ihre Ergebnisse aus dem Training, stellen Sie Fragen, helfen Sie anderen. Je aktiver Sie sich einbringen, desto mehr bekommen Sie raus. Ich freue mich auf den Austausch mit Ihnen.',
+        likes: [],
+        comments: [],
+        demo: true,
+      },
+      {
+        id: 'demo-2',
+        author: 'Maria K.',
+        authorInitials: 'MK',
+        authorGold: false,
+        timestamp: Date.now() - 1000 * 60 * 60 * 24,
+        title: 'Mein erstes CITE-Prompt Ergebnis',
+        content: 'Ich habe heute das CITE-Framework aus dem Training ausprobiert. Kontext, Instruktion, Tonalität, Erwartung. Das Ergebnis war deutlich besser als meine bisherigen Prompts. ChatGPT hat mir auf Anhieb eine Zusammenfassung geliefert, die ich direkt in mein Reporting übernehmen konnte. Danke für das Handwerkszeug!',
+        likes: ['demo-user-1'],
+        comments: [
+          {
+            id: 'c-demo-1',
+            author: 'Thomas R.',
+            authorInitials: 'TR',
+            timestamp: Date.now() - 1000 * 60 * 60 * 20,
+            text: 'Das kenne ich. Der Schritt "Tonalität" ist oft unterschätzt. Seitdem ich den immer mitdenke, sind meine Outputs viel konsistenter.',
+          }
+        ],
+        demo: true,
+      },
+      {
+        id: 'demo-3',
+        author: 'Stefan H.',
+        authorInitials: 'SH',
+        authorGold: false,
+        timestamp: Date.now() - 1000 * 60 * 60 * 8,
+        title: 'Welche Tools nutzt ihr am meisten?',
+        content: 'Ich bin neugierig: Was hat sich bei Ihnen nach dem Training wirklich etabliert? Ich selbst nutze jetzt täglich ChatGPT für E-Mails und Perplexity für schnelle Recherchen. Aber ich frage mich, ob ich Potenzial liegen lasse. Was sind Ihre Lieblingstools?',
+        likes: ['demo-user-2', 'demo-user-3'],
+        comments: [],
+        demo: true,
+      }
+    ];
+
+    // ===== STATE =====
+    let state = {
+      posts: [],
+      currentUser: { name: '', initials: '' },
+      expandedPost: null,
+    };
+
+    // ===== HELPERS =====
+    function getLevel(points) {
+      let lvl = LEVELS[0];
+      for (const l of LEVELS) { if (points >= l.min) lvl = l; }
+      return lvl;
+    }
+
+    function getNextLevel(points) {
+      const idx = LEVELS.findIndex(l => points < l.min);
+      return idx === -1 ? null : LEVELS[idx];
+    }
+
+    function getLevelProgress(points) {
+      const cur = getLevel(points);
+      const next = getNextLevel(points);
+      if (!next) return 100;
+      const range = next.min - cur.min;
+      const done = points - cur.min;
+      return Math.round((done / range) * 100);
+    }
+
+    function initials(name) {
+      return name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+    }
+
+    function relativeTime(ts) {
+      const diff = Date.now() - ts;
+      const m = Math.floor(diff / 60000);
+      if (m < 1) return 'Gerade eben';
+      if (m < 60) return `vor ${m} Min.`;
+      const h = Math.floor(m / 60);
+      if (h < 24) return `vor ${h} Std.`;
+      const d = Math.floor(h / 24);
+      return `vor ${d} Tag${d > 1 ? 'en' : ''}`;
+    }
+
+    function getUserPoints(userName) {
+      let pts = 0;
+      for (const p of state.posts) {
+        if (p.author === userName) pts += p.likes.length;
+      }
+      return pts;
+    }
+
+    function getAllUsers() {
+      const users = {};
+      for (const p of state.posts) {
+        if (!users[p.author]) users[p.author] = { name: p.author, initials: initials(p.author), points: 0, gold: !!p.authorGold };
+        users[p.author].points += p.likes.length;
+      }
+      return Object.values(users).sort((a, b) => b.points - a.points);
+    }
+
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 2200);
+    }
+
+    // ===== STORAGE =====
+    function save() {
+      localStorage.setItem('jp_community_posts', JSON.stringify(state.posts));
+      localStorage.setItem('jp_community_user', JSON.stringify(state.currentUser));
+    }
+
+    function load() {
+      const posts = localStorage.getItem('jp_community_posts');
+      const user = localStorage.getItem('jp_community_user');
+      state.posts = posts ? JSON.parse(posts) : [...DEMO_POSTS];
+      state.currentUser = user ? JSON.parse(user) : { name: '', initials: '' };
+      // Merge demo posts if they aren't present
+      for (const demo of DEMO_POSTS) {
+        if (!state.posts.find(p => p.id === demo.id)) {
+          state.posts.unshift(demo);
+        }
+      }
+    }
+
+    // ===== RENDER =====
+    function levelBadgeHTML(points) {
+      const lvl = getLevel(points);
+      return `<span class="level-badge level-${lvl.level}">Lv.${lvl.level} ${lvl.name}</span>`;
+    }
+
+    function renderPosts() {
+      const feed = document.getElementById('posts-feed');
+      const sorted = [...state.posts].sort((a, b) => b.timestamp - a.timestamp);
+
+      if (sorted.length === 0) {
+        feed.innerHTML = '<div class="empty-state">Noch keine Beiträge. Seien Sie der Erste!</div>';
+        return;
+      }
+
+      feed.innerHTML = sorted.map(p => {
+        const userPts = getUserPoints(p.author);
+        const liked = state.currentUser.name && p.likes.includes(state.currentUser.name);
+        const isExpanded = state.expandedPost === p.id;
+
+        const commentsHTML = p.comments.map(c => {
+          const cPts = getUserPoints(c.author);
+          return `
+            <div class="comment">
+              <div class="comment-avatar">${c.authorInitials || initials(c.author)}</div>
+              <div class="comment-body">
+                <div class="comment-author">
+                  ${c.author}
+                  ${levelBadgeHTML(cPts)}
+                  <span class="comment-time">${relativeTime(c.timestamp)}</span>
+                </div>
+                <div class="comment-text">${escHtml(c.text)}</div>
+              </div>
+            </div>`;
+        }).join('');
+
+        return `
+          <div class="post-card" id="post-${p.id}">
+            <div class="post-meta">
+              <div class="post-avatar" style="${p.authorGold ? 'background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--charcoal)' : 'background:linear-gradient(135deg,#2a3a3a,#3a5a5a);color:#aacccc'}">${p.authorInitials || initials(p.author)}</div>
+              <div class="post-author-info">
+                <div class="post-author-name">
+                  ${escHtml(p.author)}
+                  ${levelBadgeHTML(userPts)}
+                </div>
+                <div class="post-timestamp">${relativeTime(p.timestamp)}</div>
+              </div>
+            </div>
+            <div class="post-title" onclick="togglePost('${p.id}')">${escHtml(p.title)}</div>
+            <div class="post-content">${escHtml(p.content)}</div>
+            <div class="post-actions">
+              <button class="action-btn ${liked ? 'liked' : ''}" onclick="toggleLike('${p.id}')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="${liked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                ${p.likes.length} ${p.likes.length === 1 ? 'Like' : 'Likes'}
+              </button>
+              <button class="action-btn" onclick="togglePost('${p.id}')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                ${p.comments.length} Kommentar${p.comments.length !== 1 ? 'e' : ''}
+              </button>
+            </div>
+            <div class="comments-section ${isExpanded ? 'open' : ''}" id="comments-${p.id}">
+              ${commentsHTML}
+              <div class="add-comment-form">
+                <input type="text" class="comment-input" id="comment-input-${p.id}" placeholder="Kommentar schreiben..." maxlength="500" onkeydown="if(event.key==='Enter')submitComment('${p.id}')">
+                <button class="btn btn-ghost" onclick="submitComment('${p.id}')">Senden</button>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderSidebar() {
+      const name = state.currentUser.name;
+      const pts = name ? getUserPoints(name) : 0;
+      const lvl = getLevel(pts);
+      const nextLvl = getNextLevel(pts);
+      const progress = getLevelProgress(pts);
+
+      const avatarEl = document.getElementById('sidebar-avatar');
+      const nameEl = document.getElementById('sidebar-name');
+      const lvlNameEl = document.getElementById('sidebar-level-name');
+      const lvlLabelEl = document.getElementById('sidebar-level-label');
+      const nextLabelEl = document.getElementById('sidebar-next-label');
+      const progressEl = document.getElementById('sidebar-progress');
+      const ptsEl = document.getElementById('sidebar-points');
+
+      if (name) {
+        avatarEl.textContent = initials(name);
+        nameEl.textContent = name;
+        lvlNameEl.textContent = lvl.name;
+        lvlLabelEl.textContent = `Level ${lvl.level} — ${lvl.name}`;
+        nextLabelEl.textContent = nextLvl ? `${pts}/${nextLvl.min} Pkt.` : 'MAX';
+        progressEl.style.width = progress + '%';
+        ptsEl.textContent = `${pts} Punkt${pts !== 1 ? 'e' : ''}`;
+      } else {
+        avatarEl.textContent = '?';
+        nameEl.textContent = 'Kein Name gesetzt';
+        lvlNameEl.textContent = 'Veröffentlichen Sie Ihren ersten Beitrag';
+        lvlLabelEl.textContent = 'Level 1 — Einsteiger';
+        nextLabelEl.textContent = '0/5 Pkt.';
+        progressEl.style.width = '0%';
+        ptsEl.textContent = '0 Punkte';
+      }
+
+      renderLeaderboard();
+    }
+
+    function renderLeaderboard() {
+      const users = getAllUsers().slice(0, 5);
+      const el = document.getElementById('leaderboard-list');
+      if (users.length === 0) {
+        el.innerHTML = '<div style="font-size:0.82rem;color:var(--white-dim);text-align:center;padding:8px 0">Noch keine Beiträge</div>';
+        return;
+      }
+      el.innerHTML = users.map((u, i) => {
+        const lvl = getLevel(u.points);
+        return `
+          <div class="leaderboard-row">
+            <div class="lb-rank ${i < 3 ? 'top' : ''}">${i + 1}</div>
+            <div class="lb-avatar">${u.initials}</div>
+            <div class="lb-name">${escHtml(u.name)}</div>
+            <span class="level-badge level-${lvl.level}" style="margin-right:4px">Lv.${lvl.level}</span>
+            <div class="lb-points">${u.points}</div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderAll() {
+      renderPosts();
+      renderSidebar();
+    }
+
+    // ===== ACTIONS =====
+    function getUserName() {
+      if (state.currentUser.name) return state.currentUser.name;
+      const name = prompt('Wie heißen Sie? (Wird nur lokal gespeichert)');
+      if (!name || !name.trim()) return null;
+      state.currentUser = { name: name.trim(), initials: initials(name.trim()) };
+      save();
+      return state.currentUser.name;
+    }
+
+    function submitPost() {
+      const title = document.getElementById('new-post-title').value.trim();
+      const body = document.getElementById('new-post-body').value.trim();
+      if (!title || !body) { toast('Bitte Titel und Text ausfüllen.'); return; }
+      const name = getUserName();
+      if (!name) return;
+
+      const post = {
+        id: 'post-' + Date.now(),
+        author: name,
+        authorInitials: initials(name),
+        authorGold: false,
+        timestamp: Date.now(),
+        title,
+        content: body,
+        likes: [],
+        comments: [],
+      };
+
+      state.posts.unshift(post);
+      save();
+      document.getElementById('new-post-title').value = '';
+      document.getElementById('new-post-body').value = '';
+      renderAll();
+      toast('Beitrag veröffentlicht!');
+    }
+
+    function toggleLike(postId) {
+      const name = getUserName();
+      if (!name) return;
+
+      const post = state.posts.find(p => p.id === postId);
+      if (!post) return;
+      if (post.author === name) { toast('Sie können Ihren eigenen Beitrag nicht liken.'); return; }
+
+      const idx = post.likes.indexOf(name);
+      if (idx === -1) {
+        post.likes.push(name);
+        toast('+1 Punkt für ' + post.author + '!');
+      } else {
+        post.likes.splice(idx, 1);
+      }
+
+      save();
+      renderAll();
+    }
+
+    function togglePost(postId) {
+      state.expandedPost = state.expandedPost === postId ? null : postId;
+      renderPosts();
+      if (state.expandedPost) {
+        const input = document.getElementById('comment-input-' + postId);
+        if (input) setTimeout(() => input.focus(), 50);
+      }
+    }
+
+    function submitComment(postId) {
+      const name = getUserName();
+      if (!name) return;
+      const input = document.getElementById('comment-input-' + postId);
+      const text = input ? input.value.trim() : '';
+      if (!text) return;
+
+      const post = state.posts.find(p => p.id === postId);
+      if (!post) return;
+
+      post.comments.push({
+        id: 'c-' + Date.now(),
+        author: name,
+        authorInitials: initials(name),
+        timestamp: Date.now(),
+        text,
+      });
+
+      save();
+      renderAll();
+      state.expandedPost = postId;
+      renderPosts();
+      toast('Kommentar gespeichert.');
+    }
+
+    function escHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/\n/g, '<br>');
+    }
+
+    // ===== INIT =====
+    load();
+    renderAll();
+  </script>
+</body>
+</html>
