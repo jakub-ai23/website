@@ -341,7 +341,7 @@
 
     .lesson-row {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 14px;
       padding: 14px 22px;
       border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -351,6 +351,7 @@
     .lesson-row:last-child { border-bottom: none; }
     .lesson-row:hover { background: rgba(255,255,255,0.025); }
     .lesson-row.locked-lesson { opacity: 0.5; cursor: not-allowed; }
+    .lesson-row.has-detail { cursor: pointer; }
 
     .lesson-checkbox {
       width: 20px;
@@ -363,6 +364,7 @@
       justify-content: center;
       cursor: pointer;
       transition: all 0.2s;
+      margin-top: 2px;
     }
 
     .lesson-checkbox.done {
@@ -379,16 +381,51 @@
 
     .lesson-info { flex: 1; min-width: 0; }
 
+    .lesson-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     .lesson-title {
       font-size: 0.88rem;
       font-weight: 600;
       color: var(--white);
-      margin-bottom: 2px;
+    }
+
+    .lesson-title.done-text {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .lesson-title.has-detail-link {
+      color: var(--white);
+      transition: color 0.15s;
+    }
+
+    .lesson-row.has-detail:hover .lesson-title.has-detail-link {
+      color: var(--gold-light);
+    }
+
+    .badge-coming {
+      display: inline-block;
+      padding: 2px 7px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--white-dim);
+      white-space: nowrap;
     }
 
     .lesson-sub {
       font-size: 0.75rem;
       color: var(--white-dim);
+      margin-top: 2px;
     }
 
     .lesson-desc {
@@ -409,11 +446,361 @@
       padding: 3px 8px;
       border-radius: 4px;
       flex-shrink: 0;
+      margin-top: 2px;
     }
 
     .tag-video { background: rgba(100,100,255,0.12); color: #8888ff; }
     .tag-exercise { background: rgba(212,160,23,0.1); color: var(--gold); }
     .tag-reading { background: rgba(100,200,100,0.1); color: #7dd87d; }
+
+    /* ====== LESSON DETAIL VIEW ====== */
+    #lesson-view { display: none; }
+    #lesson-view.active { display: block; }
+    #course-view.hidden { display: none; }
+
+    .lesson-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      font-family: var(--font-heading);
+      color: var(--white-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 28px;
+    }
+
+    .lesson-back-btn:hover {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .lesson-detail-module {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .lesson-detail-title {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .lesson-detail-sub {
+      font-size: 0.9rem;
+      color: var(--white-muted);
+      margin-bottom: 28px;
+    }
+
+    /* Video embed */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      margin-bottom: 28px;
+      background: #000;
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* Text content */
+    .lesson-content-block {
+      background: var(--charcoal-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      font-size: 0.92rem;
+      color: var(--white-muted);
+      line-height: 1.75;
+    }
+
+    .lesson-content-block p {
+      margin-bottom: 14px;
+    }
+
+    .lesson-content-block p:last-child { margin-bottom: 0; }
+
+    .lesson-content-block ul {
+      margin: 10px 0 14px 0;
+      padding-left: 20px;
+    }
+
+    .lesson-content-block li {
+      margin-bottom: 6px;
+    }
+
+    .lesson-content-block strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .lesson-content-block .key-takeaway {
+      margin-top: 20px;
+      padding: 14px 18px;
+      background: rgba(212,160,23,0.06);
+      border: 1px solid var(--border-gold);
+      border-radius: 8px;
+      font-size: 0.88rem;
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    .lesson-content-block .key-takeaway strong {
+      color: var(--gold);
+    }
+
+    /* Materialien */
+    .materialien-section {
+      background: var(--charcoal-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+
+    .materialien-title {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--white-muted);
+      margin-bottom: 14px;
+    }
+
+    .material-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .material-item:hover {
+      background: rgba(212,160,23,0.06);
+      border-color: var(--border-gold);
+    }
+
+    .material-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 7px;
+      background: rgba(212,160,23,0.1);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .material-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .material-type {
+      font-size: 0.72rem;
+      color: var(--white-dim);
+      margin-top: 2px;
+    }
+
+    /* Mark complete button */
+    .mark-complete-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 24px;
+      border-radius: 8px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid var(--gold);
+      background: var(--gold);
+      color: var(--charcoal);
+      margin-bottom: 36px;
+    }
+
+    .mark-complete-btn:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .mark-complete-btn.is-done {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .mark-complete-btn.is-done:hover {
+      background: rgba(212,160,23,0.08);
+    }
+
+    /* ====== COMMENT SECTION ====== */
+    .comments-section {
+      margin-top: 4px;
+    }
+
+    .comments-heading {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--white-muted);
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Write comment form */
+    .comment-form {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      align-items: flex-start;
+    }
+
+    .comment-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      flex-shrink: 0;
+    }
+
+    .comment-input-wrap { flex: 1; }
+
+    .comment-textarea {
+      width: 100%;
+      background: var(--charcoal-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--white);
+      resize: none;
+      min-height: 80px;
+      transition: border-color 0.2s;
+      line-height: 1.6;
+    }
+
+    .comment-textarea::placeholder { color: var(--white-dim); }
+    .comment-textarea:focus {
+      outline: none;
+      border-color: var(--border-gold);
+    }
+
+    .comment-form-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 8px;
+    }
+
+    .comment-submit-btn {
+      padding: 9px 20px;
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 7px;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .comment-submit-btn:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    /* Comment list */
+    .comments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .comment-body { flex: 1; min-width: 0; }
+
+    .comment-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .comment-author {
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .comment-time {
+      font-size: 0.72rem;
+      color: var(--white-dim);
+    }
+
+    .comment-text {
+      font-size: 0.86rem;
+      color: var(--white-muted);
+      line-height: 1.6;
+    }
+
+    .comments-empty {
+      text-align: center;
+      padding: 24px 0;
+      font-size: 0.84rem;
+      color: var(--white-dim);
+    }
 
     /* ====== FOOTER ====== */
     .page-footer {
@@ -458,6 +845,9 @@
       .nav-logo { font-size: 1.35rem; }
       .nav-tab { padding: 7px 14px; font-size: 0.8rem; }
       .page-body { padding-left: 16px; padding-right: 16px; }
+      .lesson-detail-title { font-size: 1.3rem; }
+      .lesson-content-block { padding: 18px 20px; }
+      .materialien-section { padding: 16px 18px; }
     }
   </style>
 </head>
@@ -477,37 +867,47 @@
   <!-- BODY -->
   <div class="page-body">
 
-    <!-- HEADER -->
-    <div class="classroom-header">
-      <div class="classroom-eyebrow">Ihre Lernreise</div>
-      <h1 class="classroom-title">KI-Training — Inhalte</h1>
-      <p class="classroom-subtitle">Drei Module. Vom Grundverständnis bis zum professionellen Prompt Engineering. Absolvieren Sie die Lektionen in Ihrem eigenen Tempo.</p>
-    </div>
+    <!-- ===== COURSE VIEW ===== -->
+    <div id="course-view">
 
-    <!-- OVERALL PROGRESS -->
-    <div class="overall-progress" id="overall-progress-bar">
-      <div class="overall-stat">
-        <div class="overall-stat-num" id="stat-done">0</div>
-        <div class="overall-stat-label">Abgeschlossen</div>
+      <!-- HEADER -->
+      <div class="classroom-header">
+        <div class="classroom-eyebrow">Ihre Lernreise</div>
+        <h1 class="classroom-title">KI-Training — Inhalte</h1>
+        <p class="classroom-subtitle">Drei Module. Vom Grundverständnis bis zum professionellen Prompt Engineering. Absolvieren Sie die Lektionen in Ihrem eigenen Tempo.</p>
       </div>
-      <div class="overall-divider"></div>
-      <div class="overall-stat">
-        <div class="overall-stat-num" id="stat-total">15</div>
-        <div class="overall-stat-label">Lektionen gesamt</div>
-      </div>
-      <div class="overall-divider"></div>
-      <div class="overall-bar-wrap">
-        <div class="overall-bar-label" id="overall-bar-label">Fortschritt</div>
-        <div class="progress-bar-track">
-          <div class="progress-bar-fill" id="overall-fill" style="width:0%"></div>
+
+      <!-- OVERALL PROGRESS -->
+      <div class="overall-progress" id="overall-progress-bar">
+        <div class="overall-stat">
+          <div class="overall-stat-num" id="stat-done">0</div>
+          <div class="overall-stat-label">Abgeschlossen</div>
+        </div>
+        <div class="overall-divider"></div>
+        <div class="overall-stat">
+          <div class="overall-stat-num" id="stat-total">15</div>
+          <div class="overall-stat-label">Lektionen gesamt</div>
+        </div>
+        <div class="overall-divider"></div>
+        <div class="overall-bar-wrap">
+          <div class="overall-bar-label" id="overall-bar-label">Fortschritt</div>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="overall-fill" style="width:0%"></div>
+          </div>
         </div>
       </div>
+
+      <!-- MODULES -->
+      <div id="modules-container"></div>
+
+    </div><!-- /#course-view -->
+
+    <!-- ===== LESSON DETAIL VIEW ===== -->
+    <div id="lesson-view">
+      <!-- Dynamically rendered by openLesson() -->
     </div>
 
-    <!-- MODULES -->
-    <div id="modules-container"></div>
-
-  </div>
+  </div><!-- /.page-body -->
 
   <!-- FOOTER -->
   <footer class="page-footer">
@@ -520,6 +920,56 @@
   <div class="toast" id="toast"></div>
 
   <script>
+    // ===== LESSON CONTENT (full detail) =====
+    // Only lessons with detail content get a detail view.
+    const LESSON_DETAIL = {
+      'l-1-1': {
+        youtubeId: 'WXRBK5XCyQw',
+        content: `
+          <p>Wir degradieren eine Denkmaschine zur Suchmaschine. Das ist keine Produktivität — das ist Bequemlichkeit.</p>
+          <p>In dieser Lektion lernen Sie:</p>
+          <ul>
+            <li>Warum die meisten Menschen KI wie Google nutzen — und was sie dadurch verpassen</li>
+            <li>Der Unterschied zwischen "Fakten angeln" und echtes Denken delegieren</li>
+            <li>Wie Sie vom passiven Nutzer zum aktiven Systemdenker werden</li>
+          </ul>
+          <div class="key-takeaway">
+            <strong>Key Takeaway:</strong> ChatGPT wie Google zu nutzen ist wie einen Sportwagen im ersten Gang zu fahren. Sie kommen vorwärts, aber Sie nutzen 5% der Leistung.
+          </div>
+        `,
+        materialien: [
+          { label: 'Präsentationsfolien (PDF)', type: 'PDF', href: '#' }
+        ]
+      },
+      'l-1-2': {
+        youtubeId: null,
+        content: `
+          <p>Ein LLM errechnet das wahrscheinlichste nächste Wort (Token), basierend auf dem bisher Gesagten, gesteuert durch statistische Muster, trainiert an großen Datenmengen. Es besitzt kein Bewusstsein, kein Verständnis, keinen Kontext.</p>
+          <p>In dieser Lektion lernen Sie:</p>
+          <ul>
+            <li>Wie Token-Prediction funktioniert (Schritt für Schritt)</li>
+            <li>Warum Sprachfluss wichtiger als Genauigkeit ist für LLMs</li>
+            <li>Die wichtigsten Grenzen: Halluzinationen, begrenztes Context Window, keine Erinnerung</li>
+            <li>Warum KI "gehorsam" ist — nicht automatisch richtig</li>
+          </ul>
+          <p><strong>Die wichtigsten Fakten:</strong></p>
+          <ul>
+            <li>LLMs sind inkonsistent — Fehler sind systemisch, nicht zufällig</li>
+            <li>Begrenzter Output (4-8K Token) und begrenztes Context Window (128K)</li>
+            <li>Sie halluzinieren — und merken es nicht</li>
+            <li>Für Entscheidungen sind sie nicht geeignet</li>
+            <li>Sie brauchen menschliche Aufsicht — immer</li>
+          </ul>
+          <div class="key-takeaway">
+            <strong>Key Takeaway:</strong> Behandeln Sie die KI wie einen brillanten Praktikanten: schnell, fleißig, manchmal komplett falsch. Kontrolle ist nicht optional.
+          </div>
+        `,
+        materialien: [
+          { label: 'Präsentationsfolien (PDF)', type: 'PDF', href: '#' }
+        ]
+      }
+    };
+
     // ===== COURSE DATA =====
     const MODULES = [
       {
@@ -665,6 +1115,7 @@
     // ===== STATE =====
     let completedLessons = {};
     let openModules = {};
+    let currentLessonId = null;
 
     // ===== STORAGE =====
     function saveProgress() {
@@ -674,6 +1125,15 @@
     function loadProgress() {
       const data = localStorage.getItem('jp_classroom_progress');
       completedLessons = data ? JSON.parse(data) : {};
+    }
+
+    function loadComments(lessonId) {
+      const data = localStorage.getItem('jp_lesson_comments_' + lessonId);
+      return data ? JSON.parse(data) : [];
+    }
+
+    function saveComments(lessonId, comments) {
+      localStorage.setItem('jp_lesson_comments_' + lessonId, JSON.stringify(comments));
     }
 
     // ===== HELPERS =====
@@ -692,7 +1152,37 @@
       setTimeout(() => el.classList.remove('show'), 2200);
     }
 
-    // ===== RENDER =====
+    function escHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function tagLabel(tag) {
+      if (tag === 'video') return 'Video';
+      if (tag === 'exercise') return 'Übung';
+      if (tag === 'reading') return 'Lesung';
+      return tag;
+    }
+
+    function getInitials(name) {
+      return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+    }
+
+    function formatTime(ts) {
+      const d = new Date(ts);
+      const now = new Date();
+      const diffMin = Math.floor((now - d) / 60000);
+      if (diffMin < 1) return 'gerade eben';
+      if (diffMin < 60) return `vor ${diffMin} Min.`;
+      const diffH = Math.floor(diffMin / 60);
+      if (diffH < 24) return `vor ${diffH} Std.`;
+      return d.toLocaleDateString('de-AT', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    }
+
+    // ===== RENDER COURSE VIEW =====
     function renderOverall() {
       const done = countDone();
       const pct = Math.round((done / TOTAL_LESSONS) * 100);
@@ -704,6 +1194,7 @@
 
     function renderModules() {
       const container = document.getElementById('modules-container');
+      const hasDetail = (lessonId) => !!LESSON_DETAIL[lessonId];
 
       container.innerHTML = MODULES.map(mod => {
         const done = moduleDone(mod);
@@ -714,17 +1205,31 @@
         const lessonsHTML = mod.lessons.map(lesson => {
           const isDone = !!completedLessons[lesson.id];
           const isLocked = mod.locked;
+          const hasDetailView = !isLocked && hasDetail(lesson.id);
+          const showComing = !isLocked && !hasDetail(lesson.id);
+
+          const clickHandler = isLocked
+            ? ''
+            : hasDetailView
+              ? `openLesson('${lesson.id}')`
+              : `toggleLessonDone('${lesson.id}', event)`;
+
           return `
-            <div class="lesson-row ${isLocked ? 'locked-lesson' : ''}" onclick="${isLocked ? '' : `toggleLesson('${lesson.id}')`}">
-              <div class="lesson-checkbox ${isDone ? 'done' : ''}" id="cb-${lesson.id}">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="${'var(--charcoal)'}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+            <div class="lesson-row ${isLocked ? 'locked-lesson' : ''} ${hasDetailView ? 'has-detail' : ''}"
+                 onclick="${clickHandler}">
+              <div class="lesson-checkbox ${isDone ? 'done' : ''}" id="cb-${lesson.id}"
+                   ${hasDetailView ? `onclick="event.stopPropagation(); toggleLessonDone('${lesson.id}', event)"` : ''}>
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--charcoal)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
               </div>
               <div class="lesson-info">
-                <div class="lesson-title" style="${isDone ? 'text-decoration:line-through;opacity:0.5' : ''}">${escHtml(lesson.title)}</div>
+                <div class="lesson-title-row">
+                  <span class="lesson-title ${isDone ? 'done-text' : ''} ${hasDetailView ? 'has-detail-link' : ''}">${escHtml(lesson.title)}</span>
+                  ${showComing ? '<span class="badge-coming">Inhalt folgt</span>' : ''}
+                </div>
                 <div class="lesson-sub">${escHtml(lesson.sub)}</div>
-                ${lesson.desc ? `<div class="lesson-desc">${escHtml(lesson.desc)}</div>` : ''}
+                ${(!hasDetailView && lesson.desc) ? `<div class="lesson-desc">${escHtml(lesson.desc)}</div>` : ''}
               </div>
               <span class="lesson-tag tag-${lesson.tag}">${tagLabel(lesson.tag)}</span>
             </div>`;
@@ -764,19 +1269,123 @@
       }).join('');
     }
 
-    function tagLabel(tag) {
-      if (tag === 'video') return 'Video';
-      if (tag === 'exercise') return 'Übung';
-      if (tag === 'reading') return 'Lesung';
-      return tag;
+    // ===== RENDER LESSON DETAIL =====
+    function renderLessonDetail(lessonId) {
+      const detail = LESSON_DETAIL[lessonId];
+      if (!detail) return;
+
+      // Find lesson + module
+      let lesson = null;
+      let mod = null;
+      for (const m of MODULES) {
+        const l = m.lessons.find(x => x.id === lessonId);
+        if (l) { lesson = l; mod = m; break; }
+      }
+      if (!lesson) return;
+
+      const isDone = !!completedLessons[lessonId];
+      const comments = loadComments(lessonId);
+
+      const videoHTML = detail.youtubeId
+        ? `<div class="video-wrap">
+             <iframe
+               src="https://www.youtube.com/embed/${detail.youtubeId}?rel=0&modestbranding=1"
+               title="${escHtml(lesson.title)}"
+               allowfullscreen
+               loading="lazy"
+             ></iframe>
+           </div>`
+        : '';
+
+      const materialienHTML = detail.materialien && detail.materialien.length
+        ? `<div class="materialien-section">
+             <div class="materialien-title">Materialien</div>
+             ${detail.materialien.map(m => `
+               <a href="${escHtml(m.href)}" class="material-item" target="_blank" rel="noopener noreferrer">
+                 <div class="material-icon">
+                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                     <polyline points="14 2 14 8 20 8"/>
+                   </svg>
+                 </div>
+                 <div>
+                   <div class="material-label">${escHtml(m.label)}</div>
+                   <div class="material-type">${escHtml(m.type)}</div>
+                 </div>
+               </a>`).join('')}
+           </div>`
+        : '';
+
+      const commentsListHTML = renderCommentsList(comments);
+
+      document.getElementById('lesson-view').innerHTML = `
+        <button class="lesson-back-btn" onclick="backToCourse()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          Zurück zum Kurs
+        </button>
+
+        <div class="lesson-detail-module">${escHtml(mod.num)} &mdash; ${escHtml(mod.title)}</div>
+        <h1 class="lesson-detail-title">${escHtml(lesson.title)}</h1>
+        <p class="lesson-detail-sub">${escHtml(lesson.sub)}</p>
+
+        ${videoHTML}
+
+        <div class="lesson-content-block">
+          ${detail.content}
+        </div>
+
+        ${materialienHTML}
+
+        <button class="mark-complete-btn ${isDone ? 'is-done' : ''}" id="mark-complete-btn" onclick="toggleLessonFromDetail('${lessonId}')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          ${isDone ? 'Als abgeschlossen markiert' : 'Als abgeschlossen markieren'}
+        </button>
+
+        <!-- COMMENT SECTION -->
+        <div class="comments-section">
+          <div class="comments-heading">Kommentare</div>
+
+          <div class="comment-form">
+            <div class="comment-avatar">Du</div>
+            <div class="comment-input-wrap">
+              <textarea
+                class="comment-textarea"
+                id="comment-input"
+                placeholder="Kommentar schreiben..."
+                rows="3"
+              ></textarea>
+              <div class="comment-form-actions">
+                <button class="comment-submit-btn" onclick="submitComment('${lessonId}')">Kommentieren</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="comments-list" id="comments-list">
+            ${commentsListHTML}
+          </div>
+        </div>
+      `;
     }
 
-    function escHtml(str) {
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+    function renderCommentsList(comments) {
+      if (!comments.length) {
+        return `<div class="comments-empty">Noch keine Kommentare. Stellen Sie die erste Frage.</div>`;
+      }
+      return comments.map(c => `
+        <div class="comment-item">
+          <div class="comment-avatar" style="background: linear-gradient(135deg, #444, #666); color: var(--white-muted);">${escHtml(getInitials(c.author))}</div>
+          <div class="comment-body">
+            <div class="comment-meta">
+              <span class="comment-author">${escHtml(c.author)}</span>
+              <span class="comment-time">${formatTime(c.ts)}</span>
+            </div>
+            <div class="comment-text">${escHtml(c.text)}</div>
+          </div>
+        </div>`).join('');
     }
 
     // ===== ACTIONS =====
@@ -785,7 +1394,8 @@
       renderModules();
     }
 
-    function toggleLesson(lessonId) {
+    function toggleLessonDone(lessonId, evt) {
+      if (evt) evt.stopPropagation();
       const mod = MODULES.find(m => m.lessons.some(l => l.id === lessonId));
       if (!mod || mod.locked) return;
 
@@ -795,9 +1405,78 @@
       renderModules();
       renderOverall();
 
-      if (!wasDone) {
-        toast('Lektion als abgeschlossen markiert.');
+      if (!wasDone) toast('Lektion als abgeschlossen markiert.');
+    }
+
+    // Legacy: clicking lesson row when no detail view = toggle done
+    function toggleLesson(lessonId) {
+      toggleLessonDone(lessonId, null);
+    }
+
+    function openLesson(lessonId) {
+      currentLessonId = lessonId;
+      renderLessonDetail(lessonId);
+
+      document.getElementById('course-view').classList.add('hidden');
+      document.getElementById('lesson-view').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function backToCourse() {
+      document.getElementById('lesson-view').classList.remove('active');
+      document.getElementById('course-view').classList.remove('hidden');
+      currentLessonId = null;
+      // Re-render to reflect any completion changes
+      renderModules();
+      renderOverall();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleLessonFromDetail(lessonId) {
+      const mod = MODULES.find(m => m.lessons.some(l => l.id === lessonId));
+      if (!mod || mod.locked) return;
+
+      const wasDone = !!completedLessons[lessonId];
+      completedLessons[lessonId] = !wasDone;
+      saveProgress();
+
+      // Update button in detail view without full re-render
+      const btn = document.getElementById('mark-complete-btn');
+      if (btn) {
+        if (!wasDone) {
+          btn.classList.add('is-done');
+          btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Als abgeschlossen markiert`;
+          toast('Lektion als abgeschlossen markiert.');
+        } else {
+          btn.classList.remove('is-done');
+          btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Als abgeschlossen markieren`;
+        }
       }
+
+      // Update checkbox in background (course view will re-render when going back)
+      const cb = document.getElementById('cb-' + lessonId);
+      if (cb) {
+        cb.classList.toggle('done', !wasDone);
+      }
+    }
+
+    function submitComment(lessonId) {
+      const input = document.getElementById('comment-input');
+      const text = (input ? input.value : '').trim();
+      if (!text) return;
+
+      const comments = loadComments(lessonId);
+      comments.push({
+        author: 'Sie',
+        ts: Date.now(),
+        text
+      });
+      saveComments(lessonId, comments);
+
+      // Re-render comments list
+      const list = document.getElementById('comments-list');
+      if (list) list.innerHTML = renderCommentsList(comments);
+      if (input) input.value = '';
     }
 
     // ===== INIT =====
