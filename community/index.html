@@ -597,6 +597,311 @@
 
     .toast.show { opacity: 1; transform: translateY(0); }
 
+    /* ====== LEADERBOARD PAGE ====== */
+    .lb-page {
+      display: none;
+      padding-top: calc(var(--nav-height) + 32px);
+      padding-bottom: 60px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .lb-page.active { display: block; }
+
+    .lb-page-header {
+      margin-bottom: 28px;
+    }
+
+    .lb-page-eyebrow {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .lb-page-title {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .lb-page-subtitle {
+      font-size: 0.9rem;
+      color: var(--white-muted);
+    }
+
+    /* Profile card (Skool-style) */
+    .lb-profile-card {
+      background: var(--charcoal-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+    }
+
+    .lb-profile-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      flex-shrink: 0;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 16px rgba(212,160,23,0.2);
+    }
+
+    .lb-profile-info { flex: 1; min-width: 0; }
+
+    .lb-profile-name {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+
+    .lb-profile-next {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+      margin-bottom: 12px;
+    }
+
+    .lb-profile-next strong { color: var(--gold); }
+
+    /* Level distribution */
+    .lb-level-dist {
+      margin-top: 16px;
+    }
+
+    .lb-level-dist-title {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      margin-bottom: 10px;
+    }
+
+    .lb-dist-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 7px;
+    }
+
+    .lb-dist-label {
+      font-size: 0.75rem;
+      color: var(--white-muted);
+      width: 110px;
+      flex-shrink: 0;
+    }
+
+    .lb-dist-bar-track {
+      flex: 1;
+      height: 6px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .lb-dist-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 0.5s ease;
+    }
+
+    .lb-dist-pct {
+      font-size: 0.72rem;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--white-dim);
+      width: 36px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* Three leaderboard cards */
+    .lb-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .lb-card {
+      background: var(--charcoal-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .lb-card:hover { border-color: rgba(255,255,255,0.12); }
+
+    .lb-card-title {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lb-card-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .lb-card-row:last-child { border-bottom: none; }
+
+    .lb-card-rank {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 800;
+      width: 18px;
+      text-align: center;
+      flex-shrink: 0;
+      color: var(--white-dim);
+    }
+
+    .lb-card-rank.gold { color: var(--gold); }
+    .lb-card-rank.silver { color: #b0b0b0; }
+    .lb-card-rank.bronze { color: #c48c5c; }
+
+    .lb-card-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2a2a2a, #444);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--white-muted);
+      flex-shrink: 0;
+    }
+
+    .lb-card-avatar.is-me {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--charcoal);
+    }
+
+    .lb-card-name {
+      flex: 1;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--white);
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lb-card-pts {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold);
+      font-family: var(--font-heading);
+      flex-shrink: 0;
+    }
+
+    /* Gamification rules info box */
+    .lb-rules-card {
+      background: var(--charcoal-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+
+    .lb-rules-title {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .lb-rules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 32px;
+    }
+
+    .lb-rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--white-muted);
+      line-height: 1.45;
+    }
+
+    .lb-rule-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: rgba(212,160,23,0.1);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-family: var(--font-heading);
+      font-weight: 800;
+    }
+
+    .lb-levels-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .lb-level-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+
     /* ====== RESPONSIVE ====== */
     @media (max-width: 768px) {
       .page-body {
@@ -618,6 +923,11 @@
 
       .nav-logo { font-size: 1.35rem; }
       .nav-tab { padding: 7px 14px; font-size: 0.8rem; }
+      .lb-cards-grid { grid-template-columns: 1fr; }
+      .lb-profile-card { flex-direction: column; gap: 16px; padding: 20px; }
+      .lb-profile-avatar { width: 56px; height: 56px; font-size: 1.2rem; }
+      .lb-rules-grid { grid-template-columns: 1fr; }
+      .lb-page { padding-left: 16px; padding-right: 16px; padding-top: calc(var(--nav-height) + 20px); }
     }
   </style>
 </head>
@@ -628,7 +938,8 @@
     <div class="nav-inner">
       <span class="nav-logo">Jakub Popluhar</span>
       <div class="nav-tabs">
-        <a href="index.html" class="nav-tab active">Community</a>
+        <a href="index.html" class="nav-tab active" id="tab-community" onclick="switchTab('community',event)">Community</a>
+        <a href="#" class="nav-tab" id="tab-leaderboard" onclick="switchTab('leaderboard',event)">Bestenliste</a>
         <a href="classroom.html" class="nav-tab">Classroom</a>
       </div>
     </div>
@@ -684,6 +995,110 @@
         <div id="leaderboard-list"></div>
       </div>
     </aside>
+  </div>
+
+  <!-- LEADERBOARD PAGE -->
+  <div class="lb-page" id="lb-page">
+
+    <div class="lb-page-header">
+      <div class="lb-page-eyebrow">Gamification</div>
+      <h1 class="lb-page-title">Bestenliste</h1>
+      <p class="lb-page-subtitle">Likes die Sie erhalten, zählen als Punkte. Punkte bestimmen Ihr Level. Level öffnen neue Inhalte.</p>
+    </div>
+
+    <!-- PROFILE CARD -->
+    <div class="lb-profile-card" id="lb-profile-card">
+      <div class="lb-profile-avatar" id="lb-profile-avatar">JP</div>
+      <div style="flex:1;min-width:0">
+        <div class="lb-profile-name" id="lb-profile-name">
+          Jakub Popluhar
+          <span class="level-badge level-5">Lv.5 Meister</span>
+        </div>
+        <div class="lb-profile-next" id="lb-profile-next"><strong>MAX</strong> — Sie haben das höchste Level erreicht</div>
+        <div class="progress-bar-track" style="margin-top:10px">
+          <div class="progress-bar-fill" id="lb-profile-bar" style="width:100%"></div>
+        </div>
+        <div class="lb-level-dist">
+          <div class="lb-level-dist-title">Level-Verteilung der Community</div>
+          <div class="lb-dist-row">
+            <div class="lb-dist-label">Lv.1 Einsteiger</div>
+            <div class="lb-dist-bar-track"><div class="lb-dist-bar-fill" style="width:58%;background:rgba(176,176,176,0.5)"></div></div>
+            <div class="lb-dist-pct">58%</div>
+          </div>
+          <div class="lb-dist-row">
+            <div class="lb-dist-label">Lv.2 Anwender</div>
+            <div class="lb-dist-bar-track"><div class="lb-dist-bar-fill" style="width:24%;background:rgba(109,200,109,0.6)"></div></div>
+            <div class="lb-dist-pct">24%</div>
+          </div>
+          <div class="lb-dist-row">
+            <div class="lb-dist-label">Lv.3 Fortgeschritten</div>
+            <div class="lb-dist-bar-track"><div class="lb-dist-bar-fill" style="width:12%;background:rgba(116,168,255,0.6)"></div></div>
+            <div class="lb-dist-pct">12%</div>
+          </div>
+          <div class="lb-dist-row">
+            <div class="lb-dist-label">Lv.4 Experte</div>
+            <div class="lb-dist-bar-track"><div class="lb-dist-bar-fill" style="width:5%;background:rgba(212,160,23,0.7)"></div></div>
+            <div class="lb-dist-pct">5%</div>
+          </div>
+          <div class="lb-dist-row">
+            <div class="lb-dist-label">Lv.5 Meister</div>
+            <div class="lb-dist-bar-track"><div class="lb-dist-bar-fill" style="width:1%;background:rgba(232,124,62,0.8)"></div></div>
+            <div class="lb-dist-pct">1%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THREE LEADERBOARD CARDS -->
+    <div class="lb-cards-grid">
+      <div class="lb-card">
+        <div class="lb-card-title">Leaderboard (7 Tage)</div>
+        <div id="lb-7d"></div>
+      </div>
+      <div class="lb-card">
+        <div class="lb-card-title">Leaderboard (30 Tage)</div>
+        <div id="lb-30d"></div>
+      </div>
+      <div class="lb-card">
+        <div class="lb-card-title">Leaderboard (Gesamt)</div>
+        <div id="lb-all"></div>
+      </div>
+    </div>
+
+    <!-- GAMIFICATION RULES -->
+    <div class="lb-rules-card">
+      <div class="lb-rules-title">Wie funktioniert das Punktesystem?</div>
+      <div class="lb-rules-grid">
+        <div class="lb-rule-item">
+          <div class="lb-rule-icon">+1</div>
+          <div>Ein <strong style="color:var(--white)">Like</strong> auf Ihren Beitrag = 1 Punkt für Sie</div>
+        </div>
+        <div class="lb-rule-item">
+          <div class="lb-rule-icon">Lv</div>
+          <div>Punkte bestimmen Ihr <strong style="color:var(--white)">Level</strong> — höhere Level öffnen Kursinhalte</div>
+        </div>
+        <div class="lb-rule-item">
+          <div class="lb-rule-icon">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div>Teilen Sie <strong style="color:var(--white)">Erkenntnisse & Ergebnisse</strong> — das bringt mehr Likes als Fragen</div>
+        </div>
+        <div class="lb-rule-item">
+          <div class="lb-rule-icon">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div>Modul 3 erfordert <strong style="color:var(--white)">Level 3</strong> (ab 20 Punkte)</div>
+        </div>
+      </div>
+      <div class="lb-levels-row">
+        <span class="lb-level-pill level-1">Lv.1 Einsteiger — 0 Pkt.</span>
+        <span class="lb-level-pill level-2">Lv.2 Anwender — 5 Pkt.</span>
+        <span class="lb-level-pill level-3">Lv.3 Fortgeschritten — 20 Pkt.</span>
+        <span class="lb-level-pill level-4">Lv.4 Experte — 65 Pkt.</span>
+        <span class="lb-level-pill level-5">Lv.5 Meister — 155 Pkt.</span>
+      </div>
+    </div>
+
   </div>
 
   <!-- FOOTER -->
@@ -1070,6 +1485,87 @@
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;')
         .replace(/\n/g, '<br>');
+    }
+
+    // ===== LEADERBOARD DEMO DATA =====
+    const LB_DEMO = [
+      { name: 'Jakub Popluhar', initials: 'JP', gold: true,  pts7: 42, pts30: 118, ptsAll: 247 },
+      { name: 'Maria K.',       initials: 'MK', gold: false, pts7: 18, pts30:  54, ptsAll: 112 },
+      { name: 'Thomas R.',      initials: 'TR', gold: false, pts7: 11, pts30:  39, ptsAll:  87 },
+      { name: 'Stefan H.',      initials: 'SH', gold: false, pts7:  7, pts30:  22, ptsAll:  43 },
+      { name: 'Anna L.',        initials: 'AL', gold: false, pts7:  3, pts30:  11, ptsAll:  19 },
+    ];
+
+    function renderLbCard(containerId, getPoints) {
+      const el = document.getElementById(containerId);
+      const sorted = [...LB_DEMO].sort((a, b) => getPoints(b) - getPoints(a));
+
+      // Merge real users from state
+      const liveUsers = getAllUsers();
+      for (const u of liveUsers) {
+        if (!sorted.find(d => d.name === u.name)) {
+          sorted.push({ name: u.name, initials: u.initials, gold: u.gold, pts7: u.points, pts30: u.points, ptsAll: u.points });
+        }
+      }
+      sorted.sort((a, b) => getPoints(b) - getPoints(a));
+
+      const top5 = sorted.slice(0, 5);
+      const rankClass = i => i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+      const rankLabel = i => i === 0 ? '1' : i === 1 ? '2' : i === 2 ? '3' : i + 1;
+
+      el.innerHTML = top5.map((u, i) => {
+        const isMe = state.currentUser.name && u.name === state.currentUser.name;
+        return `
+          <div class="lb-card-row">
+            <div class="lb-card-rank ${rankClass(i)}">${rankLabel(i)}</div>
+            <div class="lb-card-avatar ${u.gold || isMe ? 'is-me' : ''}">${u.initials}</div>
+            <div class="lb-card-name">${escHtml(u.name)}</div>
+            <div class="lb-card-pts">${getPoints(u)}</div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderLeaderboardPage() {
+      // Profile card
+      const name = state.currentUser.name || 'Jakub Popluhar';
+      const isRealUser = !!state.currentUser.name;
+      const pts = isRealUser ? getUserPoints(name) : 247;
+      const lvl = getLevel(pts);
+      const nextLvl = getNextLevel(pts);
+      const progress = getLevelProgress(pts);
+
+      document.getElementById('lb-profile-avatar').textContent = isRealUser ? initials(name) : 'JP';
+      document.getElementById('lb-profile-name').innerHTML = `${escHtml(name)} <span class="level-badge level-${lvl.level}">Lv.${lvl.level} ${lvl.name}</span>`;
+      document.getElementById('lb-profile-next').innerHTML = nextLvl
+        ? `Noch <strong>${nextLvl.min - pts} Punkte</strong> bis Level ${nextLvl.level} (${nextLvl.name})`
+        : `<strong>MAX</strong> — Sie haben das höchste Level erreicht`;
+      document.getElementById('lb-profile-bar').style.width = progress + '%';
+
+      renderLbCard('lb-7d',  u => u.pts7);
+      renderLbCard('lb-30d', u => u.pts30);
+      renderLbCard('lb-all', u => u.ptsAll);
+    }
+
+    // ===== TAB SWITCHING =====
+    function switchTab(tab, e) {
+      if (e) e.preventDefault();
+      const communityBody = document.querySelector('.page-body');
+      const lbPage = document.getElementById('lb-page');
+      const tabCommunity = document.getElementById('tab-community');
+      const tabLeaderboard = document.getElementById('tab-leaderboard');
+
+      if (tab === 'community') {
+        communityBody.style.display = '';
+        lbPage.classList.remove('active');
+        tabCommunity.classList.add('active');
+        tabLeaderboard.classList.remove('active');
+      } else {
+        communityBody.style.display = 'none';
+        lbPage.classList.add('active');
+        tabCommunity.classList.remove('active');
+        tabLeaderboard.classList.add('active');
+        renderLeaderboardPage();
+      }
     }
 
     // ===== INIT =====

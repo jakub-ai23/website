@@ -272,6 +272,13 @@
       margin-top: 4px;
     }
 
+    .module-source {
+      font-size: 0.68rem;
+      color: var(--white-dim);
+      opacity: 0.6;
+      margin-top: 2px;
+    }
+
     .module-right {
       display: flex;
       flex-direction: column;
@@ -384,6 +391,17 @@
       color: var(--white-dim);
     }
 
+    .lesson-desc {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      line-height: 1.55;
+      margin-top: 6px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.03);
+      border-left: 2px solid var(--border-gold);
+      border-radius: 0 4px 4px 0;
+    }
+
     .lesson-tag {
       font-size: 0.7rem;
       font-family: var(--font-heading);
@@ -474,7 +492,7 @@
       </div>
       <div class="overall-divider"></div>
       <div class="overall-stat">
-        <div class="overall-stat-num" id="stat-total">11</div>
+        <div class="overall-stat-num" id="stat-total">15</div>
         <div class="overall-stat-label">Lektionen gesamt</div>
       </div>
       <div class="overall-divider"></div>
@@ -510,37 +528,134 @@
         title: 'Die Psychologie der Maschine',
         icon: '🧠',
         locked: false,
+        source: 'ARS KI Büroalltag AM',
         lessons: [
-          { id: 'l-1-1', title: 'Wie denkt eine KI wirklich?', sub: 'Noch nicht verfügbar', tag: 'video' },
-          { id: 'l-1-2', title: 'Large Language Models verstehen', sub: 'Noch nicht verfügbar', tag: 'reading' },
-          { id: 'l-1-3', title: 'Die 5 Missverständnisse über KI', sub: 'Noch nicht verfügbar', tag: 'video' },
-          { id: 'l-1-4', title: 'Übung: Ihr erstes KI-Gespräch auswerten', sub: 'Noch nicht verfügbar', tag: 'exercise' },
+          {
+            id: 'l-1-1',
+            title: 'High-Tech-Werkzeug, Low-Tech-Nutzung',
+            sub: 'Warum wir KI wie Google nutzen und was das kostet',
+            desc: 'Die meisten Menschen tippen kurze Fragen in ChatGPT — so wie eine Google-Suche. Was das tatsächlich kostet: Zeit, Qualität und verpasstes Potenzial. Wir schauen uns an, wie der Unterschied aussieht.',
+            tag: 'video',
+          },
+          {
+            id: 'l-1-2',
+            title: 'LLMs verstehen',
+            sub: 'Token-Prediction, Context Window, Halluzinationen',
+            desc: 'Was passiert eigentlich, wenn Sie auf Enter drücken? Wir erklären Token-Vorhersage, Context Window und warum KI manchmal selbstbewusst falsch liegt — ohne es zu wissen.',
+            tag: 'reading',
+          },
+          {
+            id: 'l-1-3',
+            title: 'CITE(R) Framework',
+            sub: 'Der strukturierte Prompt: Context, Intent, Task, Execution, Reality',
+            desc: 'Das CITE(R)-Framework ist Ihr Handwerkszeug für professionelle Prompts. Jede Komponente hat eine Funktion — zusammen liefern sie konsistente, verwendbare Ergebnisse.',
+            tag: 'exercise',
+          },
+          {
+            id: 'l-1-4',
+            title: 'Lieferant vs. Tutor',
+            sub: 'Zwei Modi der KI-Nutzung: Ergebnis holen vs. Wissen aufbauen',
+            desc: 'KI kann Ihnen ein Ergebnis liefern — oder Ihnen erklären, wie das Ergebnis entsteht. Beide Modi sind wertvoll. Zu wissen, wann welcher passt, ist der Unterschied zwischen Nutzung und Meisterschaft.',
+            tag: 'reading',
+          },
+          {
+            id: 'l-1-5',
+            title: 'Guardrails & Datenschutz',
+            sub: '3-Sekunden-Regel, PII-Checkliste, Schatten-KI',
+            desc: 'Was darf in den Prompt, was nicht? Die 3-Sekunden-Regel, eine praktische PII-Checkliste und warum Schatten-KI in Unternehmen ein echtes Compliance-Risiko darstellt.',
+            tag: 'reading',
+          },
         ],
       },
       {
         id: 'mod-2',
         num: 'Modul 2',
-        title: 'Das digitale Team',
+        title: 'Bauen Sie Ihren persönlichen KI-Stack',
         icon: '⚡',
         locked: false,
+        source: 'AISS25 Modul 02',
         lessons: [
-          { id: 'l-2-1', title: 'KI als Werkzeug vs. KI als Mitarbeiter', sub: 'Noch nicht verfügbar', tag: 'video' },
-          { id: 'l-2-2', title: 'Das CITE-Framework in der Praxis', sub: 'Noch nicht verfügbar', tag: 'exercise' },
-          { id: 'l-2-3', title: 'Welche Tasks Sie delegieren sollten', sub: 'Noch nicht verfügbar', tag: 'reading' },
+          {
+            id: 'l-2-1',
+            title: 'Abgrenzung: LLM vs. Custom GPT vs. Workflows vs. Agenten',
+            sub: 'Was ist was und wann brauche ich es',
+            desc: 'Vier Technologien, vier verschiedene Anwendungsfälle. Diese Lektion gibt Ihnen das Vokabular und das Urteilsvermögen, um die richtige Stufe für jede Aufgabe zu wählen.',
+            tag: 'video',
+          },
+          {
+            id: 'l-2-2',
+            title: 'NotebookLM',
+            sub: 'Eigene Dokumente hochladen, Grounding, Audio Overview, Lernkarten',
+            desc: 'NotebookLM verwandelt Ihre eigenen Dokumente in eine durchsuchbare Wissensbasis. Wir zeigen, wie Grounding Halluzinationen verhindert und wie Audio Overviews Ihnen Lernzeit sparen.',
+            tag: 'exercise',
+          },
+          {
+            id: 'l-2-3',
+            title: 'Perplexity',
+            sub: 'Aktuelle Recherche mit Quellenangaben statt Google-Suche',
+            desc: 'Perplexity ist die Alternative zur Google-Suche für alle, die Antworten mit Quellenangaben brauchen. Wir zeigen, wann Perplexity ChatGPT schlägt und wie Sie die Suchmodi richtig einsetzen.',
+            tag: 'video',
+          },
+          {
+            id: 'l-2-4',
+            title: 'Eigene KI-Assistenten bauen',
+            sub: 'Custom GPTs und Gemini Gems erstellen',
+            desc: 'Konfigurieren Sie KI einmal — und nutzen Sie sie hundertfach. Wir bauen gemeinsam einen Custom GPT und einen Gemini Gem, der genau auf Ihre Arbeit zugeschnitten ist.',
+            tag: 'exercise',
+          },
+          {
+            id: 'l-2-5',
+            title: 'Prompts sammeln & organisieren',
+            sub: 'Ihre persönliche Prompt-Bibliothek aufbauen',
+            desc: 'Ein guter Prompt ist ein Werkzeug — er sollte nicht einmal geschrieben und vergessen werden. Wir zeigen, wie Sie eine persönliche Prompt-Bibliothek aufbauen, die im Alltag wirklich genutzt wird.',
+            tag: 'reading',
+          },
         ],
       },
       {
         id: 'mod-3',
         num: 'Modul 3',
-        title: 'Advanced: Prompt Engineering Masterclass',
+        title: 'Das digitale Team & Strategie',
         icon: '🔒',
         locked: true,
         lockLabel: 'Level 3 erforderlich',
+        source: 'ARS KI Büroalltag PM',
         lessons: [
-          { id: 'l-3-1', title: 'Chain-of-Thought Prompting', sub: 'Noch nicht verfügbar', tag: 'video' },
-          { id: 'l-3-2', title: 'Few-Shot Learning: Beispiele geben', sub: 'Noch nicht verfügbar', tag: 'video' },
-          { id: 'l-3-3', title: 'System Prompts und Personas bauen', sub: 'Noch nicht verfügbar', tag: 'exercise' },
-          { id: 'l-3-4', title: 'Fortgeschrittene Techniken im Überblick', sub: 'Noch nicht verfügbar', tag: 'reading' },
+          {
+            id: 'l-3-1',
+            title: 'Modelling of Excellence',
+            sub: 'Vom Hausarzt zum Spezialisten',
+            desc: 'Die besten KI-Ergebnisse kommen nicht von besseren Fragen — sie kommen von besseren Rollen. Wir zeigen, wie Sie KI als Spezialisten statt als Generalist einsetzen.',
+            tag: 'video',
+          },
+          {
+            id: 'l-3-2',
+            title: 'Prompt Layering (Salami-Taktik)',
+            sub: 'Das Tribunal: Multi-Perspektive durch sequenzielles Prompting',
+            desc: 'Komplexe Probleme brauchen mehrere Perspektiven. Die Salami-Taktik zerlegt ein großes Thema in sequenzielle Prompts — und das Tribunal-Modell lässt KI aus mehreren Blickwinkeln urteilen.',
+            tag: 'exercise',
+          },
+          {
+            id: 'l-3-3',
+            title: 'Human in the Loop',
+            sub: 'Qualitätskontrolle: KI liefert 80%, Sie prüfen 20%',
+            desc: 'KI ist kein Autopilot. Das 80/20-Prinzip im KI-Einsatz: wo Automation sinnvoll ist und wo menschliches Urteil unverzichtbar bleibt. Prüfchecklisten für die wichtigsten Anwendungsfälle.',
+            tag: 'reading',
+          },
+          {
+            id: 'l-3-4',
+            title: 'KI-Tools Showcase',
+            sub: 'Gamma, HeyGen, ElevenLabs, Suno, Grok Imagine',
+            desc: 'Ein kuratierter Überblick über spezialisierte KI-Tools jenseits von ChatGPT: Präsentationen, KI-Videos, Sprachklone, Musikgenerierung und Bildgenerierung — mit konkreten Anwendungsszenarien.',
+            tag: 'video',
+          },
+          {
+            id: 'l-3-5',
+            title: 'Zero Trust & Deepfakes',
+            sub: 'Die neue Kompetenz: Nichts mehr blind vertrauen',
+            desc: 'Deepfakes sind keine Zukunftsmusik mehr. Diese Lektion vermittelt die neue Medienkompetenz: Erkennungsmerkmale, Verifikationsstrategien und wie Sie Ihr Unternehmen vor KI-gestütztem Betrug schützen.',
+            tag: 'reading',
+          },
         ],
       },
     ];
@@ -609,6 +724,7 @@
               <div class="lesson-info">
                 <div class="lesson-title" style="${isDone ? 'text-decoration:line-through;opacity:0.5' : ''}">${escHtml(lesson.title)}</div>
                 <div class="lesson-sub">${escHtml(lesson.sub)}</div>
+                ${lesson.desc ? `<div class="lesson-desc">${escHtml(lesson.desc)}</div>` : ''}
               </div>
               <span class="lesson-tag tag-${lesson.tag}">${tagLabel(lesson.tag)}</span>
             </div>`;
@@ -626,6 +742,7 @@
                 <div class="module-num">${mod.num}</div>
                 <div class="module-title">${escHtml(mod.title)}</div>
                 <div class="module-meta">${total} Lektionen</div>
+                ${mod.source ? `<div class="module-source">aus ${escHtml(mod.source)}</div>` : ''}
               </div>
               <div class="module-right">
                 ${mod.locked
