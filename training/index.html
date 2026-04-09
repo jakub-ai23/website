@@ -1,12 +1,522 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;url=https://form.jotform.com/260982630356057">
-<title>Training — Jakub Popluhar</title>
-<link rel="canonical" href="https://form.jotform.com/260982630356057">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nach dem Training — Jakub Popluhar</title>
+  <meta name="description" content="Ressourcen und Kontakt nach dem KI-Training mit Jakub Popluhar.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --nav-height: 70px;
+    }
+
+    html, body {
+      min-height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-light); }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== NAVIGATION ========== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      background: rgba(20, 20, 20, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-svg-nav { height: 46px; }
+
+    .nav-contact {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--white-muted);
+    }
+
+    .nav-contact a {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ========== MAIN CONTENT ========== */
+    .page-wrapper {
+      padding-top: calc(var(--nav-height) + 40px);
+      padding-bottom: 60px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 160, 23, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 48px;
+      align-items: center;
+      padding: 48px 0 40px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 160, 23, 0.1);
+      border: 1px solid rgba(212, 160, 23, 0.25);
+      padding: 7px 14px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+    }
+
+    .hero-content h1 .highlight {
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--white-muted);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+
+    /* Quick-action trust items */
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .action-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--white-muted);
+    }
+
+    .action-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(212, 160, 23, 0.12);
+      border: 1px solid rgba(212, 160, 23, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .action-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--gold);
+    }
+
+    /* Photo */
+    .hero-photo {
+      position: relative;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 16px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+    }
+
+    .photo-accent {
+      position: absolute;
+      bottom: -10px;
+      left: -10px;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      border: 2px solid rgba(212, 160, 23, 0.2);
+      z-index: -1;
+    }
+
+    /* ========== DIVIDER ========== */
+    .gold-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212, 160, 23, 0.4) 30%, rgba(212, 160, 23, 0.4) 70%, transparent 100%);
+      margin: 8px 0 36px;
+    }
+
+    /* ========== FORM SECTION ========== */
+    .form-section {
+      flex: 1;
+    }
+
+    .form-intro {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .form-intro h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .form-intro p {
+      font-size: 0.9rem;
+      color: var(--white-muted);
+    }
+
+    .form-wrapper {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-wrapper iframe {
+      width: 100%;
+      min-height: 680px;
+      border: none;
+      display: block;
+      background: transparent;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      text-align: center;
+      padding: 32px 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 48px;
+    }
+
+    .footer-name {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .footer-contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      flex-wrap: wrap;
+    }
+
+    .footer-contact a {
+      color: var(--gold);
+    }
+
+    .footer-contact a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-divot {
+      display: inline-block;
+      color: rgba(212, 160, 23, 0.3);
+    }
+
+    .footer-back {
+      margin-top: 16px;
+      font-size: 0.8rem;
+    }
+
+    .footer-back a {
+      color: var(--white-muted);
+    }
+
+    .footer-back a:hover {
+      color: var(--white);
+    }
+
+    /* ========== MOBILE ========== */
+    @media (max-width: 680px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 32px 0 28px;
+        text-align: center;
+      }
+
+      .hero-photo {
+        order: -1;
+      }
+
+      .hero-photo img {
+        max-width: 220px;
+        margin: 0 auto;
+      }
+
+      .photo-accent {
+        display: none;
+      }
+
+      .hero-badge {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        align-items: center;
+      }
+
+      .action-item {
+        justify-content: center;
+      }
+
+      .form-wrapper iframe {
+        min-height: 760px;
+      }
+
+      .nav-contact {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
-<p>Weiterleitung... <a href="https://form.jotform.com/260982630356057">Klicken Sie hier</a> falls die Seite nicht automatisch weiterleitet.</p>
+
+  <!-- Hidden SVG for shared gradient definitions -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#bf953f"/>
+        <stop offset="18%" stop-color="#fcf6ba"/>
+        <stop offset="36%" stop-color="#daa520"/>
+        <stop offset="55%" stop-color="#f5e27a"/>
+        <stop offset="85%" stop-color="#daa520"/>
+        <stop offset="100%" stop-color="#aa771c"/>
+      </linearGradient>
+      <filter id="goldGlow">
+        <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo" aria-label="Jakub Popluhar — Startseite">
+        <svg class="logo-svg-nav" viewBox="0 0 380 125" aria-hidden="true">
+          <text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text>
+          <text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text>
+        </svg>
+      </a>
+      <span class="nav-contact">Fragen? <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a></span>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE ===== -->
+  <div class="page-wrapper">
+    <div class="container">
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <div class="hero-badge">Nach dem Training</div>
+            <h1>Was passiert nach<br>dem <span class="highlight">Training?</span></h1>
+            <p class="hero-subtitle">Bleiben Sie dran, ich schicke Ihnen die wichtigsten Ressourcen und stehe für Rückfragen bereit. Tragen Sie sich jetzt ein.</p>
+            <div class="hero-actions">
+              <div class="action-item">
+                <div class="action-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <span>Ressourcen und Zusammenfassung per E-Mail</span>
+              </div>
+              <div class="action-item">
+                <div class="action-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+                </div>
+                <span>Direkte Antworten auf Ihre Fragen</span>
+              </div>
+              <div class="action-item">
+                <div class="action-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                </div>
+                <span>Exklusive Inhalte für Trainingsteilnehmer</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-photo">
+            <img src="../images/profile/14.png" alt="Jakub Popluhar, KI-Trainer und Konsumentenpsychologe" width="320" height="420" loading="eager">
+            <div class="photo-accent"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gold-divider"></div>
+
+      <!-- FORM -->
+      <section class="form-section">
+        <div class="form-intro">
+          <h2>Jetzt eintragen</h2>
+          <p>Ein Formular, 2 Minuten, und Sie verpassen nichts.</p>
+        </div>
+        <div class="form-wrapper">
+          <iframe
+            id="JotFormIFrame-260982630356057"
+            title="Nach dem Training — Kontaktformular"
+            src="https://form.jotform.com/260982630356057"
+            allow="geolocation; microphone; camera; fullscreen"
+            scrolling="yes"
+            aria-label="Kontaktformular"
+          ></iframe>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-name">Jakub Popluhar, M.Ed. — KI-Trainer & Konsumentenpsychologe</div>
+      <div class="footer-contact">
+        <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+        <span class="footer-divot">|</span>
+        <a href="tel:+436641389800">+43 664 138 98 00</a>
+      </div>
+      <div class="footer-back">
+        <a href="/">&larr; Zurück zur Hauptseite</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Auto-resize iframe based on Jotform postMessage events
+    window.addEventListener('message', function(event) {
+      if (event.data && typeof event.data === 'string') {
+        var args = event.data.split(':');
+        if (args.length > 2) {
+          var iframe = document.getElementById('JotFormIFrame-' + args[1]);
+          if (iframe && args[0] === 'setHeight') {
+            var height = parseInt(args[2], 10);
+            if (!isNaN(height) && height > 200) {
+              iframe.style.minHeight = height + 'px';
+            }
+          }
+        }
+      }
+    });
+  </script>
+
 </body>
 </html>
