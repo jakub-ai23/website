@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nach dem Training — Jakub Popluhar</title>
+  <meta name="description" content="Ressourcen und Kontakt nach dem KI-Training mit Jakub Popluhar.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --nav-height: 70px;
+    }
+
+    html, body { min-height: 100%; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-light); }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========== NAVIGATION ========== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      background: rgba(20, 20, 20, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .nav-logo { display: flex; align-items: center; }
+    .logo-svg-nav { height: 46px; }
+
+    .nav-contact {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--white-muted);
+    }
+    .nav-contact a { color: var(--gold); font-weight: 600; }
+
+    /* ========== PAGE WRAPPER ========== */
+    .page-wrapper {
+      padding-top: calc(var(--nav-height) + 40px);
+      padding-bottom: 60px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ========== HERO ========== */
+    .hero { position: relative; overflow: hidden; }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%; right: -10%;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 160, 23, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+      align-items: center;
+      padding: 48px 0 40px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 160, 23, 0.1);
+      border: 1px solid rgba(212, 160, 23, 0.25);
+      padding: 7px 14px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+    }
+
+    .hero-content h1 .highlight { color: var(--gold); }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--white-muted);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions { display: flex; flex-direction: column; gap: 12px; }
+
+    .action-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--white-muted);
+    }
+
+    .action-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(212, 160, 23, 0.12);
+      border: 1px solid rgba(212, 160, 23, 0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .action-icon svg { width: 16px; height: 16px; fill: var(--gold); }
+
+    .hero-photo { position: relative; }
+
+    .hero-photo img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 16px;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+    }
+
+    .photo-accent {
+      position: absolute;
+      bottom: -10px; left: -10px;
+      width: 100%; height: 100%;
+      border-radius: 16px;
+      border: 2px solid rgba(212, 160, 23, 0.2);
+      z-index: -1;
+    }
+
+    /* ========== DIVIDER ========== */
+    .gold-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212, 160, 23, 0.4) 30%, rgba(212, 160, 23, 0.4) 70%, transparent 100%);
+      margin: 8px 0 40px;
+    }
+
+    /* ========== PROVOCATION ANIMATION ========== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+
+    @keyframes formReveal {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .provocation {
+      text-align: center;
+      padding: 40px 0 32px;
+    }
+
+    .provocation-line {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--white);
+      opacity: 0;
+      margin-bottom: 12px;
+      /* each line animates in, holds, then fades out */
+      animation-fill-mode: both;
+      animation-timing-function: ease;
+    }
+
+    /* Line 1: "Nichts." — fades in at 0.2s, fades out at 3.8s */
+    .provocation-line:nth-child(1) {
+      animation:
+        fadeInUp 0.6s 0.2s forwards,
+        fadeOut  0.5s 3.8s forwards;
+    }
+
+    /* Line 2: "Alles vergessen." — fades in at 1.2s, fades out at 3.9s */
+    .provocation-line:nth-child(2) {
+      animation:
+        fadeInUp 0.6s 1.2s forwards,
+        fadeOut  0.5s 3.9s forwards;
+    }
+
+    /* Line 3: "Was für ein Training?" — fades in at 2.2s, fades out at 4.0s */
+    .provocation-line:nth-child(3) {
+      animation:
+        fadeInUp 0.6s 2.2s forwards,
+        fadeOut  0.5s 4.0s forwards;
+    }
+
+    /* Line 1 gets white-muted color — it's the punchline setup */
+    .provocation-line:nth-child(1),
+    .provocation-line:nth-child(2) {
+      color: var(--white-muted);
+    }
+
+    /* Line 3 is the twist — slightly gold tint */
+    .provocation-line:nth-child(3) {
+      color: var(--white);
+      font-style: italic;
+    }
+
+    /* The form section answer line fades in after provocation */
+    .form-answer-line {
+      font-family: var(--font-heading);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: -0.3px;
+      text-align: center;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: formReveal 0.8s 4.8s ease both;
+    }
+
+    /* Form section itself fades in after provocation clears */
+    .form-section {
+      opacity: 0;
+      animation: formReveal 0.8s 4.6s ease both;
+    }
+
+    /* ========== FORM SECTION ========== */
+    .form-section { flex: 1; }
+
+    .form-intro {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .form-intro h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .form-intro p {
+      font-size: 0.9rem;
+      color: var(--white-muted);
+    }
+
+    /* Form card */
+    .form-card {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ---- Input fields ---- */
+    .training-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .training-form input[type="text"],
+    .training-form input[type="email"],
+    .training-form textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    .training-form input::placeholder,
+    .training-form textarea::placeholder {
+      color: #666;
+    }
+
+    .training-form input:focus,
+    .training-form textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.12);
+    }
+
+    .training-form textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* ---- Checkbox group ---- */
+    .field-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Hide native checkbox */
+    .checkbox-item input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0; height: 0;
+    }
+
+    /* Custom checkbox box */
+    .checkbox-box {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      border-radius: 5px;
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.04);
+      margin-top: 1px;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .checkbox-box svg {
+      width: 11px; height: 11px;
+      fill: none;
+      stroke: var(--charcoal);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .checkbox-item input[type="checkbox"]:checked + .checkbox-box {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .checkbox-item input[type="checkbox"]:checked + .checkbox-box svg {
+      opacity: 1;
+    }
+
+    .checkbox-item:hover .checkbox-box {
+      border-color: var(--gold);
+    }
+
+    .checkbox-label {
+      font-size: 0.9rem;
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    /* ---- Datenschutz checkbox (smaller, muted) ---- */
+    .datenschutz-item .checkbox-label {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      line-height: 1.5;
+    }
+
+    .datenschutz-item .checkbox-box {
+      width: 18px; height: 18px;
+      margin-top: 2px;
+    }
+
+    .datenschutz-item .checkbox-box svg {
+      width: 10px; height: 10px;
+    }
+
+    /* ---- Submit ---- */
+    .btn-submit {
+      background: var(--gold);
+      color: var(--charcoal);
+      padding: 15px 28px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      border: 2px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      background: transparent;
+      color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 160, 23, 0.3);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* ---- Success state ---- */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 24px;
+    }
+
+    .form-success-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(212, 160, 23, 0.12);
+      border: 2px solid rgba(212, 160, 23, 0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .form-success-icon svg {
+      width: 24px; height: 24px;
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .form-success h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .form-success p {
+      color: var(--white-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Error state ---- */
+    .form-error {
+      display: none;
+      background: rgba(220, 53, 69, 0.1);
+      border: 1px solid rgba(220, 53, 69, 0.25);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      color: #f5a0a8;
+      text-align: center;
+    }
+
+    /* ========== BOOKING CTA ========== */
+    .booking-section { text-align: center; }
+
+    .booking-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .booking-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .btn-booking {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--charcoal);
+      padding: 18px 40px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: 2px solid var(--gold);
+      transition: all 0.2s;
+      letter-spacing: -0.2px;
+    }
+
+    .btn-booking:hover {
+      background: transparent;
+      color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 36px rgba(212, 160, 23, 0.3);
+    }
+
+    .booking-note {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      text-align: center;
+      padding: 32px 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 48px;
+    }
+
+    .footer-name {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .footer-contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      flex-wrap: wrap;
+    }
+
+    .footer-contact a { color: var(--gold); }
+    .footer-contact a:hover { color: var(--gold-light); }
+    .footer-divot { color: rgba(212, 160, 23, 0.3); }
+
+    .footer-back { margin-top: 16px; font-size: 0.8rem; }
+    .footer-back a { color: var(--white-muted); }
+    .footer-back a:hover { color: var(--white); }
+
+    /* ========== MOBILE ========== */
+    @media (max-width: 680px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 28px 0 24px;
+        text-align: center;
+      }
+
+      .hero-photo { order: -1; }
+
+      .hero-photo img {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+
+      .photo-accent { display: none; }
+
+      .hero-badge,
+      .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions { align-items: center; }
+      .action-item { justify-content: center; }
+
+      .form-card { padding: 24px 20px; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .nav-contact { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hidden SVG defs for gold gradient (logo) -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#bf953f"/>
+        <stop offset="18%" stop-color="#fcf6ba"/>
+        <stop offset="36%" stop-color="#daa520"/>
+        <stop offset="55%" stop-color="#f5e27a"/>
+        <stop offset="85%" stop-color="#daa520"/>
+        <stop offset="100%" stop-color="#aa771c"/>
+      </linearGradient>
+      <filter id="goldGlow">
+        <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo" aria-label="Jakub Popluhar — Startseite">
+        <svg class="logo-svg-nav" viewBox="0 0 380 125" aria-hidden="true">
+          <text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text>
+          <text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text>
+        </svg>
+      </a>
+      <span class="nav-contact">Fragen? <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a></span>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE ===== -->
+  <div class="page-wrapper">
+    <div class="container">
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <div class="hero-badge">Nach dem Training</div>
+            <h1>Was passiert nach<br>dem <span class="highlight">Training?</span></h1>
+            <p class="hero-subtitle">Bleiben Sie dran, ich schicke Ihnen die wichtigsten Ressourcen und stehe für Rückfragen bereit. Tragen Sie sich jetzt ein.</p>
+            <div class="hero-actions">
+              <div class="action-item">
+                <div class="action-icon">
+                  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <span>Mein KI-Stack &amp; Ressourcen per E-Mail</span>
+              </div>
+              <div class="action-item">
+                <div class="action-icon">
+                  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+                </div>
+                <span>In-House Training (über ARS Akademie)</span>
+              </div>
+              <div class="action-item">
+                <div class="action-icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                </div>
+                <span>KI Executive Coaching 1:1</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-photo">
+            <img src="../images/profile/14.png" alt="Jakub Popluhar, KI-Trainer und Konsumentenpsychologe" width="300" height="400" loading="eager">
+            <div class="photo-accent"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="gold-divider"></div>
+
+      <!-- PROVOCATION -->
+      <div class="provocation" aria-hidden="true">
+        <p class="provocation-line">Nichts.</p>
+        <p class="provocation-line">Alles vergessen.</p>
+        <p class="provocation-line">Was für ein Training?</p>
+      </div>
+
+      <!-- FORM -->
+      <section class="form-section">
+        <div class="form-intro">
+          <h2>Jetzt eintragen</h2>
+          <p class="form-answer-line">Oder: Sie bleiben dran.</p>
+        </div>
+
+        <div class="form-card">
+          <form
+            class="training-form"
+            id="trainingForm"
+            action="https://formspree.io/f/xzdaybpa"
+            method="POST"
+          >
+            <!-- Hidden fields -->
+            <input type="hidden" name="_subject" value="ARS Training 14.04 — Neuer Kontakt">
+            <input type="hidden" name="_language" value="de">
+
+            <!-- Name + E-Mail -->
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Name *" required autocomplete="name">
+              <input type="email" name="email" placeholder="E-Mail *" required autocomplete="email">
+            </div>
+
+            <!-- Firma -->
+            <input type="text" name="firma" placeholder="Firma *" required autocomplete="organization">
+
+            <!-- Checkboxes: Interessen -->
+            <div>
+              <div class="field-label">Was interessiert Sie? (Mehrfachauswahl möglich)</div>
+              <div class="checkbox-group">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="interesse" value="Mein KI-Stack & Ressourcen per E-Mail">
+                  <span class="checkbox-box">
+                    <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
+                  </span>
+                  <span class="checkbox-label">Mein KI-Stack &amp; Ressourcen per E-Mail</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="interesse" value="In-House Training (über ARS Akademie)">
+                  <span class="checkbox-box">
+                    <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
+                  </span>
+                  <span class="checkbox-label">In-House Training (über ARS Akademie)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="interesse" value="KI Executive Coaching 1:1">
+                  <span class="checkbox-box">
+                    <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
+                  </span>
+                  <span class="checkbox-label">KI Executive Coaching 1:1</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Textarea: Frage -->
+            <textarea
+              name="frage"
+              placeholder="Haben Sie eine konkrete Frage? (optional)"
+              rows="3"
+            ></textarea>
+
+            <!-- Datenschutz -->
+            <div>
+              <label class="checkbox-item datenschutz-item" id="datenschutzLabel">
+                <input type="checkbox" name="datenschutz" value="Zugestimmt" required id="datenschutzCheck">
+                <span class="checkbox-box">
+                  <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
+                </span>
+                <span class="checkbox-label">Ich bin damit einverstanden, dass Jakub Popluhar meine Daten zur Kontaktaufnahme und zum Versand der angeforderten Ressourcen verwendet. Meine Daten werden nicht an Dritte weitergegeben. *</span>
+              </label>
+            </div>
+
+            <!-- Error message -->
+            <div class="form-error" id="formError">Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie direkt an jakub@popluhar.at</div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">Jetzt eintragen &rarr;</button>
+          </form>
+
+          <!-- Success state -->
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"/></svg>
+            </div>
+            <h3>Vielen Dank!</h3>
+            <p>Ich melde mich in Kürze bei Ihnen.<br>Schauen Sie auch in Ihren Spam-Ordner.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKING CTA -->
+      <section class="booking-section">
+        <div class="gold-divider" style="margin: 48px 0 40px;"></div>
+        <div class="booking-inner">
+          <p class="booking-eyebrow">Lieber direkt sprechen?</p>
+          <a href="#" class="btn-booking" id="bookingBtn">
+            Kostenloses Erstgespräch buchen &rarr;
+          </a>
+          <p class="booking-note">15 Minuten. Unverbindlich.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-name">Jakub Popluhar, M.Ed. &mdash; KI-Trainer &amp; Konsumentenpsychologe</div>
+      <div class="footer-contact">
+        <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+        <span class="footer-divot">|</span>
+        <a href="tel:+436641389800">+43 664 138 98 00</a>
+      </div>
+      <div class="footer-back">
+        <a href="/">&larr; Zurück zur Hauptseite</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    var form = document.getElementById('trainingForm');
+    var successEl = document.getElementById('formSuccess');
+    var errorEl = document.getElementById('formError');
+    var submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      errorEl.style.display = 'none';
+      submitBtn.textContent = 'Wird gesendet...';
+      submitBtn.disabled = true;
+
+      try {
+        var res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          successEl.style.display = 'block';
+        } else {
+          var data = await res.json();
+          throw new Error(data.error || 'Server error');
+        }
+      } catch (err) {
+        errorEl.style.display = 'block';
+        submitBtn.textContent = 'Jetzt eintragen \u2192';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
