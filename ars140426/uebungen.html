@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Übungen & Prompts — KI für den Büroalltag</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* HEADER */
+    .site-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+
+    .logo { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: var(--white); }
+    .logo span { color: var(--gold); }
+
+    .back-link {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    /* MAIN */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero p { font-size: 0.95rem; color: var(--white-muted); }
+
+    /* SECTION DIVIDERS */
+    .section-divider {
+      text-align: center;
+      margin: 56px 0 40px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* EXERCISE CARDS */
+    .exercise {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .exercise-number {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .exercise h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .exercise .subtitle {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .exercise p, .exercise li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .exercise ul, .exercise ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .exercise li { margin-bottom: 6px; }
+
+    /* PROMPT BLOCKS (copyable) */
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      margin: 14px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .prompt-block:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    .prompt-block::after {
+      content: 'Kopieren';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover::after { opacity: 1; }
+
+    .prompt-block.copied::after {
+      content: 'Kopiert!';
+      opacity: 1;
+    }
+
+    /* CONTEXT BLOCKS */
+    .context-block {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 14px 0;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+    }
+
+    .context-block strong { color: var(--white); }
+
+    /* STEP LABELS */
+    .step-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin: 18px 0 6px;
+    }
+
+    /* COMPARISON TABLE */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.82rem;
+    }
+
+    .compare-table th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .compare-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+    }
+
+    /* ROLE CARDS (for Task Force) */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .role-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.82rem;
+    }
+
+    .role-card strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-size: 0.78rem;
+    }
+
+    /* MAGIC FORMULA */
+    .magic-box {
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 14px 0;
+      text-align: center;
+    }
+
+    .magic-box .label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 20px 24px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* MOBILE */
+    @media (max-width: 500px) {
+      main { padding: 32px 16px 64px; }
+      .exercise { padding: 22px 18px; }
+      .prompt-block { padding: 14px 14px; }
+      .role-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 0.75rem; }
+      .compare-table td, .compare-table th { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">Jakub <span>Popluhar</span></div>
+    <a href="./" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Zurück
+    </a>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <div class="badge">ARS Training &middot; 14.04.2026</div>
+      <h1>Übungen & Prompts</h1>
+      <p>Tippen Sie auf einen Prompt-Block, um ihn zu kopieren.</p>
+    </div>
+
+    <!-- ==================== VORMITTAG ==================== -->
+    <div class="section-divider"><h2>Vormittag: Prompt Profis</h2></div>
+
+    <!-- ÜBUNG 1 -->
+    <div class="exercise">
+      <div class="exercise-number">Übung 1</div>
+      <h3>Die Stil-Maschine</h3>
+      <p class="subtitle">Arbeiten Sie zu zweit. Nehmen Sie ein Thema aus Ihrem Arbeitsalltag.</p>
+
+      <p>Schreiben Sie zuerst einen normalen Prompt zu Ihrem Thema. Dann lassen Sie die KI den gleichen Inhalt in verschiedenen Stilen umschreiben:</p>
+
+      <div class="prompt-block">Schreibe das als Disney-Song mit Refrain und Strophen.</div>
+
+      <div class="prompt-block">Erkläre das einem 5-Jährigen.</div>
+
+      <div class="prompt-block">Schreibe das als wütender Leserbrief an eine Zeitung.</div>
+
+      <div class="prompt-block">Formuliere das als Rap-Battle zwischen zwei Abteilungsleitern.</div>
+
+      <div class="prompt-block">Schreibe das als dramatischen Netflix-Trailer-Text.</div>
+
+      <p style="margin-top:16px; color: var(--white-muted); font-size: 0.85rem;">Ziel: Sie sehen sofort, dass die KI Muster imitiert, nicht "denkt". Und: Tonalität im Prompt steuert alles.</p>
+    </div>
+
+    <!-- ÜBUNG 2 -->
+    <div class="exercise">
+      <div class="exercise-number">Übung 2</div>
+      <h3>CITE(R) Framework</h3>
+      <p class="subtitle">Bauen Sie Ihren Prompt nach dem CITE-Framework.</p>
+
+      <table class="compare-table">
+        <tr><th style="width:30%">Baustein</th><th>Frage</th></tr>
+        <tr><td><strong>C</strong> = Context</td><td>Was ist die Ausgangssituation?</td></tr>
+        <tr><td><strong>I</strong> = Intent</td><td>Was genau will ich erreichen?</td></tr>
+        <tr><td><strong>T</strong> = Task</td><td>Was soll die KI machen?</td></tr>
+        <tr><td><strong>E</strong> = Execution</td><td>Wie soll sie es machen? (Format, Ton, Länge)</td></tr>
+        <tr><td><strong>R</strong> = Reality</td><td>Stimmt das Ergebnis? Was muss ich prüfen?</td></tr>
+      </table>
+
+      <p class="step-label">Praxisbeispiel: Meeting-Zusammenfassung</p>
+      <div class="prompt-block">Kontext: 45-minütiges Meeting über KI-Tools im Onboarding. Transkript liegt vor.
+
+Ziel: Klarheit über Entscheidungen, Team-Verständnis, klare nächste Schritte.
+
+Aufgabe: Extrahiere die Kerninhalte und schreibe eine E-Mail mit 3 Abschnitten:
+1. Was wurde besprochen?
+2. Welche Entscheidungen wurden getroffen?
+3. Was sind die nächsten Schritte mit Verantwortlichkeiten und Fristen?
+
+Ausführung: Max. 300 Wörter, professioneller Ton, Wir-Form, Bulletpoints.</div>
+
+      <p class="step-label">Praxisbeispiel: Trainingskonzept</p>
+      <div class="prompt-block">Kontext: Neues KI-Tool wird für das Vertriebsteam eingeführt. Keine LLM-Erfahrung. Internes Training nötig.
+
+Ziel: Strukturierter Trainingsplan zur Freigabe durch die Geschäftsleitung.
+
+Aufgabe: Erstelle 3 x 60-minütige Trainingseinheiten für max. 10 Personen. Jeweils mit: Titel, Lernziele, Aktivitäten, 1 Satz erwartetes Ergebnis.
+
+Ausführung: 3 nummerierte Abschnitte, max. 350 Wörter je Abschnitt, klare Sprache, kein Fachjargon.</div>
+    </div>
+
+    <!-- ÜBUNG 3 -->
+    <div class="exercise">
+      <div class="exercise-number">Übung 3</div>
+      <h3>Der Realitäts-Check</h3>
+      <p class="subtitle">Mensch vs. Maschine: Halluziniert die KI oder gibt sie zu, es nicht zu wissen?</p>
+
+      <p>Fragen Sie die KI nach einem Fakt, den nur Sie kennen. Z.B.:</p>
+
+      <div class="prompt-block">Wer ist der aktuelle Geschäftsführer der FFG?</div>
+
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Ziel: Die KI ist kein Wissensarchiv, sondern eine Wort-Vorhersage-Maschine. Manchmal erfindet sie Fakten.</p>
+    </div>
+
+    <!-- ÜBUNG 4 -->
+    <div class="exercise">
+      <div class="exercise-number">Übung 4</div>
+      <h3>Lieferant vs. Tutor</h3>
+      <p class="subtitle">Person A = Lieferant-Modus, Person B = Tutor-Modus. Gleiche Aufgabe, verschiedene Ergebnisse.</p>
+
+      <table class="compare-table">
+        <tr><th></th><th>Der Lieferant</th><th>Der Tutor</th></tr>
+        <tr><td><strong>Wunsch</strong></td><td>"Ich muss schnell wissen, was '20' auf Englisch heißt."</td><td>"Ich will verstehen, wie die englischen Zahlen funktionieren."</td></tr>
+        <tr><td><strong>Prompt</strong></td><td>"Was heißt '20' auf Englisch?"</td><td>"Du bist mein Englischlehrer. Bring mir bei, wie man zählt. Gib mir nicht sofort die Lösung, sondern erkläre mir die Regel und lass mich üben."</td></tr>
+        <tr><td><strong>Antwort</strong></td><td>"Twenty." (Ende)</td><td>"Gerne! Im Englischen enden die Zehnerzahlen meist auf '-ty'&hellip; Jetzt du: Was heißt '60'?"</td></tr>
+        <tr><td><strong>Nutzen</strong></td><td>Nichts gelernt.</td><td><strong>Wissen aufgebaut.</strong></td></tr>
+      </table>
+
+      <p>Jetzt sind Sie dran!</p>
+      <ul>
+        <li>Was möchten Sie gerne <strong>sofort wissen</strong>?</li>
+        <li>Was möchten Sie gerne <strong>lernen</strong>?</li>
+        <li>Welche <strong>Experten</strong> gibt es, die Ihr Problem schon gelöst haben?</li>
+      </ul>
+
+      <div class="magic-box">
+        <div class="label">Die Magische Formel</div>
+        <div class="prompt-block" style="text-align:left; margin:0;">Bevor du antwortest: Stelle mir 3 bis 5 gezielte Fragen, um meine Situation besser zu verstehen. Warte mit dem Entwurf, bis ich geantwortet habe.</div>
+      </div>
+    </div>
+
+    <!-- BONUS PROMPTS -->
+    <div class="exercise">
+      <div class="exercise-number">Bonus</div>
+      <h3>Prompts für Grok / Perplexity</h3>
+
+      <p class="step-label">Elevator Pitch von jeder Website</p>
+      <div class="prompt-block">Geh auf ________. Lies die aktuelle Startseite. Schreibe mir einen knackigen 30-Sekunden-Elevator-Pitch, den ich einem potenziellen Kunden im Aufzug erzählen kann. Fokus auf Kundennutzen, kein Marketing-Bla-Bla.</div>
+
+      <p class="step-label">Website-Kritik</p>
+      <div class="prompt-block">Du bist ein kritischer Neukunde, der wenig Zeit hat. Was ist das EINE Ding auf der Startseite, das dich verwirrt oder fehlt? Sei ehrlich und konstruktiv.</div>
+    </div>
+
+    <!-- ==================== NACHMITTAG ==================== -->
+    <div class="section-divider"><h2>Nachmittag: KI-Assistenten & Produktivität</h2></div>
+
+    <!-- ÜBUNG 5 -->
+    <div class="exercise">
+      <div class="exercise-number">Übung 5</div>
+      <h3>Live-Labor: Task-Force "Schatten-KI"</h3>
+      <p class="subtitle">Der CEO braucht bis 17:00 Uhr einen Report über die Risiken von "Shadow AI".</p>
+
+      <p class="step-label">Schritt 1: Recherche (Perplexity)</p>
+      <p>Öffnen Sie <strong>Perplexity.ai</strong>. Finden Sie 2-3 fundierte Quellen zum Thema "Risiken von Schatten-KI" oder "Shadow AI Statistics 2024/2025". Speichern Sie die Links.</p>
+
+      <p class="step-label">Schritt 2: Die Wissens-Maschine (NotebookLM)</p>
+      <p>Öffnen Sie <strong>NotebookLM.google.com</strong>. Erstellen Sie ein neues Notizbuch. Laden Sie Ihre Quellen hoch.</p>
+
+      <p class="step-label">Schritt 3: Der Faktencheck</p>
+      <div class="prompt-block">Was sind laut diesen Quellen die 3 größten Sicherheitsrisiken?</div>
+      <div class="prompt-block">Nenne mir konkrete Statistiken oder Prozentzahlen aus den Texten.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Achten Sie auf die grauen Ziffern (Zitate) am Ende der Sätze!</p>
+
+      <p class="step-label">Schritt 4: Die Produktion (Ihre Mission)</p>
+      <div class="role-grid">
+        <div class="role-card"><strong>A) Audio-Producer</strong>"Audio Overview" (Deep Dive). Ziel: 2-Minuten-Podcast.</div>
+        <div class="role-card"><strong>B) Visualisierer</strong>"Erstelle eine hierarchische Liste der Risiken für eine Mindmap."</div>
+        <div class="role-card"><strong>C) Trainer</strong>"Lernhilfe" (Study Guide). Karteikarten + Quiz.</div>
+        <div class="role-card"><strong>D) Regisseur</strong>"Schreibe ein Skript für ein 1-minütiges Warn-Video."</div>
+      </div>
+    </div>
+
+    <!-- ÜBUNG 6 -->
+    <div class="exercise">
+      <div class="exercise-number">Übung 6</div>
+      <h3>Modelling of Excellence</h3>
+      <p class="subtitle">Vom Hausarzt zum Spezialisten</p>
+
+      <p class="step-label">Die Überweisung (Das Casting)</p>
+      <div class="prompt-block">Ich stehe vor folgender Herausforderung: [Thema/Problem beschreiben]
+
+Nenne mir 3 weltbekannte Experten oder Methoden, die für dieses spezifische Problem am besten geeignet sind, und erkläre warum.</div>
+
+      <p class="step-label">Die Anamnese (Die Untersuchung)</p>
+      <div class="prompt-block">Ich entscheide mich für [Name des Experten]. Schlüpfe jetzt in diese Rolle.
+
+WICHTIG: Schreibe noch KEINE Lösung! Stelle mir stattdessen erst 5 gezielte Fragen, um meine Situation genau zu verstehen. Warte auf meine Antworten.</div>
+
+      <p class="step-label">Das Rezept (Die Lösung)</p>
+      <div class="prompt-block">Hier sind meine Antworten:
+1. ...
+2. ...
+
+Erstelle jetzt die Lösung basierend auf diesen Fakten. Nutze konsequent den Stil und die Strategien von [Name des Experten].</div>
+    </div>
+
+    <!-- ÜBUNG 7 -->
+    <div class="exercise">
+      <div class="exercise-number">Übung 7</div>
+      <h3>Prompt Layering: Das "Tribunal"</h3>
+      <p class="subtitle">a.k.a. Salami-Taktik. Kopieren Sie die Prompts nacheinander in denselben Chat.</p>
+
+      <p class="step-label">Schritt 1: Die Vision (Der CEO)</p>
+      <div class="prompt-block">Du bist der CEO des Unternehmens.
+
+Unser Ziel: Wir wollen die Mitarbeiter wieder öfter im Büro sehen (aktuell sind fast 100% im Home Office).
+
+Nenne mir 3 strategische Gründe, warum wir zurück ins Büro müssen. Fokus: Innovation, "Spirit" und Geschwindigkeit. Sei streng, fordernd und visionär. Ignoriere erst einmal praktische Probleme.</div>
+
+      <p class="step-label">Schritt 2: Der Realitäts-Check (Controller)</p>
+      <div class="prompt-block">Wechsle jetzt den Hut. Du bist der Facility Manager & Controller.
+
+Die Realität sieht anders aus als die Vision des CEOs: Wir haben im letzten Jahr Schreibtische abgebaut, um Miete zu sparen. Wenn alle gleichzeitig kommen, haben wir gar keinen Platz.
+
+Analysiere die Forderung des CEOs oben kritisch: Welche logistischen und finanziellen Probleme entstehen sofort? Sei der Spielverderber und liste die Risiken schonungslos auf.</div>
+
+      <p class="step-label">Schritt 3: Der Faktor Mensch (HR)</p>
+      <div class="prompt-block">Jetzt bist du der HR-Manager.
+
+Du liest die Vision des CEOs und die Warnung des Controllers. Deine Sorge: Wenn wir das so hart durchziehen, kündigen uns die Top-Talente, die ihre Freiheit lieben.
+
+Finde einen Kompromiss. Schlage ein Modell vor (z.B. Hybrid), das die Flexibilität erhält, aber die Begegnung im Büro fördert. Wie können wir das den Mitarbeitern "verkaufen", ohne dass die Stimmung kippt?</div>
+
+      <p class="step-label">Schritt 4: Die Synthese (Projektleiter)</p>
+      <div class="prompt-block">Du bist jetzt der Projektleiter für "New Work".
+
+Denk Schritt für Schritt nach: Wie balanciere ich die Härte des CEOs mit den Sorgen von HR?
+
+Schreibe dann die finale E-Mail an alle Mitarbeiter.
+
+- Die Regelung: 3 Tage Büro, 2 Tage Home Office (mit Desk-Sharing-System).
+- Nutze die starken Argumente des CEOs (Warum), adressiere ehrlich die Platzprobleme des Controllers (Wie) und nutze den empathischen Tonfall von HR.
+
+Die Mail soll professionell, motivierend und klar sein.</div>
+    </div>
+
+    <!-- ADVOCATUS DIABOLI -->
+    <div class="exercise">
+      <div class="exercise-number">Alternative</div>
+      <h3>Der Advocatus Diaboli</h3>
+      <p class="subtitle">Perfekt für wichtige Entscheidungen, Strategien oder heikle E-Mails.</p>
+
+      <p class="step-label">1. Der Entwurf</p>
+      <div class="prompt-block">Schreibe einen Entwurf für [Strategie/Mail/Idee].</div>
+
+      <p class="step-label">2. Der Kritiker</p>
+      <div class="prompt-block">Schlüpfe jetzt in die Rolle meines kritischsten Kunden (oder des Betriebsrats). Zerlege den Entwurf von oben. Was ist unklar? Was wirkt arrogant? Was fehlt?</div>
+
+      <p class="step-label">3. Die Veredelung</p>
+      <div class="prompt-block">Danke. Schreibe jetzt die finale Version des Entwurfs und baue die Kritikpunkte ein, um sie zu entschärfen.</div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://jakubpopluhar.com/weiter">jakubpopluhar.com/weiter</a>
+      &nbsp;&middot;&nbsp;
+      Jakub Popluhar M.Ed.
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+    </p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.prompt-block').forEach(block => {
+      block.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(block.textContent.trim());
+          block.classList.add('copied');
+          setTimeout(() => block.classList.remove('copied'), 1500);
+        } catch (e) {
+          const range = document.createRange();
+          range.selectNodeContents(block);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
