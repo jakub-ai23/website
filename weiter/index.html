@@ -107,10 +107,10 @@
     }
 
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 48px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
       padding: 48px 0 40px;
     }
 
@@ -153,6 +153,17 @@
     }
 
     .hero-content h1 .highlight { color: var(--gold); }
+
+    .cursor {
+      color: var(--gold);
+      font-weight: 300;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
 
     .hero-subtitle {
       font-size: 1.05rem;
@@ -623,29 +634,14 @@
     /* ========== MOBILE ========== */
     @media (max-width: 680px) {
       .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 28px;
         padding: 28px 0 24px;
-        text-align: center;
       }
-
-      .hero-photo { order: 1; }
-
-      .hero-photo img {
-        max-width: 200px;
-        margin: 0 auto;
-      }
-
-      .photo-accent { display: none; }
 
       .hero-badge,
       .hero-subtitle {
         margin-left: auto;
         margin-right: auto;
       }
-
-      .hero-actions { align-items: center; }
-      .action-item { justify-content: center; }
 
       .form-card { padding: 24px 20px; }
 
@@ -693,53 +689,21 @@
 
       <!-- HERO -->
       <section class="hero">
-        <div class="hero-inner">
+        <div class="hero-inner" style="grid-template-columns: 1fr; text-align: center;">
           <div class="hero-content">
             <div class="hero-badge">Nach dem Training</div>
-            <h1>Was passiert nach<br>dem <span class="highlight">Training?</span></h1>
-            <p class="hero-subtitle">Bleiben Sie dran, ich schicke Ihnen die wichtigsten Ressourcen und stehe für Rückfragen bereit. Tragen Sie sich jetzt ein.</p>
-            <div class="hero-actions">
-              <div class="action-item">
-                <div class="action-icon">
-                  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </div>
-                <span>Mein KI-Stack &amp; Ressourcen per E-Mail</span>
-              </div>
-              <div class="action-item">
-                <div class="action-icon">
-                  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-                </div>
-                <span>In-House Training (über ARS Akademie)</span>
-              </div>
-              <div class="action-item">
-                <div class="action-icon">
-                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-                </div>
-                <span>KI Executive Coaching 1:1</span>
-              </div>
-            </div>
-          </div>
-          <div class="hero-photo">
-            <img src="../images/profile/14.png" alt="Jakub Popluhar, KI-Trainer und Konsumentenpsychologe" width="300" height="400" loading="eager">
-            <div class="photo-accent"></div>
+            <h1>Was passiert nach<br>dem <span class="highlight" id="typewriter-target"></span><span class="cursor">|</span></h1>
+            <p class="hero-subtitle">Bleiben Sie dran, ich schicke Ihnen die wichtigsten Ressourcen und stehe für Rückfragen bereit.</p>
           </div>
         </div>
       </section>
 
       <div class="gold-divider"></div>
 
-      <!-- PROVOCATION -->
-      <div class="provocation" aria-hidden="true">
-        <p class="provocation-line">Nichts.</p>
-        <p class="provocation-line">Alles vergessen.</p>
-        <p class="provocation-line">Was für ein Training?</p>
-      </div>
-
       <!-- FORM -->
       <section class="form-section">
         <div class="form-intro">
-          <h2>Jetzt eintragen</h2>
-          <p class="form-answer-line">Oder: Sie bleiben dran.</p>
+          <h2>Was interessiert Sie?</h2>
         </div>
 
         <div class="form-card">
@@ -753,25 +717,16 @@
             <input type="hidden" name="_subject" value="ARS Training 14.04 — Neuer Kontakt">
             <input type="hidden" name="_language" value="de">
 
-            <!-- Name + E-Mail -->
-            <div class="form-row">
-              <input type="text" name="name" placeholder="Name *" required autocomplete="name">
-              <input type="email" name="email" placeholder="E-Mail *" required autocomplete="email">
-            </div>
-
-            <!-- Firma -->
-            <input type="text" name="firma" placeholder="Firma *" required autocomplete="organization">
-
-            <!-- Checkboxes: Interessen -->
+            <!-- Checkboxes: Interessen (FIRST) -->
             <div>
-              <div class="field-label">Was interessiert Sie? (Mehrfachauswahl möglich)</div>
+              <div class="field-label">Mehrfachauswahl möglich</div>
               <div class="checkbox-group">
                 <label class="checkbox-item">
-                  <input type="checkbox" name="interesse" value="Mein KI-Stack & Ressourcen per E-Mail">
+                  <input type="checkbox" name="interesse" value="Kostenloses Erstgespräch (15 Min)">
                   <span class="checkbox-box">
                     <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                   </span>
-                  <span class="checkbox-label">Mein KI-Stack &amp; Ressourcen per E-Mail</span>
+                  <span class="checkbox-label">Kostenloses Erstgespräch (15 Min)</span>
                 </label>
                 <label class="checkbox-item">
                   <input type="checkbox" name="interesse" value="In-House Training (über ARS Akademie)">
@@ -781,21 +736,29 @@
                   <span class="checkbox-label">In-House Training (über ARS Akademie)</span>
                 </label>
                 <label class="checkbox-item">
-                  <input type="checkbox" name="interesse" value="KI Executive Coaching 1:1">
+                  <input type="checkbox" name="interesse" value="Mein KI-Stack & Ressourcen per E-Mail">
                   <span class="checkbox-box">
                     <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                   </span>
-                  <span class="checkbox-label">KI Executive Coaching 1:1</span>
+                  <span class="checkbox-label">Mein KI-Stack &amp; Ressourcen per E-Mail</span>
                 </label>
                 <label class="checkbox-item">
-                  <input type="checkbox" name="interesse" value="Kostenloses Erstgespräch (15 Min)">
+                  <input type="checkbox" name="interesse" value="Community: KI-Austausch (coming soon)">
                   <span class="checkbox-box">
                     <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                   </span>
-                  <span class="checkbox-label">Kostenloses Erstgespräch (15 Min)</span>
+                  <span class="checkbox-label">Community: KI-Austausch (coming soon)</span>
                 </label>
               </div>
             </div>
+
+            <!-- Name + E-Mail + Firma -->
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Name *" required autocomplete="name">
+              <input type="email" name="email" placeholder="E-Mail *" required autocomplete="email">
+            </div>
+
+            <input type="text" name="firma" placeholder="Firma *" required autocomplete="organization">
 
             <!-- Textarea: Frage -->
             <textarea
@@ -811,14 +774,14 @@
                 <span class="checkbox-box">
                   <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                 </span>
-                <span class="checkbox-label">Ich bin damit einverstanden, dass Jakub Popluhar meine Daten zur Kontaktaufnahme und zum Versand der angeforderten Ressourcen verwendet. Meine Daten werden nicht an Dritte weitergegeben. *</span>
+                <span class="checkbox-label">Ich bin damit einverstanden, dass Jakub Popluhar meine Daten zur Kontaktaufnahme, zum Versand der angeforderten Ressourcen sowie für Informationen zu weiteren Trainings und Angeboten verwendet. Meine Daten werden nicht an Dritte weitergegeben. Ich kann mich jederzeit abmelden. *</span>
               </label>
             </div>
 
             <!-- Error message -->
             <div class="form-error" id="formError">Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie direkt an jakub@popluhar.at</div>
 
-            <button type="submit" class="btn-submit" id="submitBtn">Jetzt eintragen &rarr;</button>
+            <button type="submit" class="btn-submit" id="submitBtn">Jetzt sichern &rarr;</button>
           </form>
 
           <!-- Success state -->
@@ -828,6 +791,10 @@
             </div>
             <h3>Vielen Dank!</h3>
             <p>Ich melde mich in Kürze bei Ihnen.<br>Schauen Sie auch in Ihren Spam-Ordner.</p>
+            <div id="calendlyOffer" style="display:none; margin-top: 24px;">
+              <p style="margin-bottom: 12px;">Sie haben ein Erstgespräch gewählt. Buchen Sie gleich einen Termin:</p>
+              <a href="https://calendly.com/jakub-popluhar/30min" id="calendlyLink" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--gold); color:var(--charcoal); padding:14px 32px; border-radius:8px; font-weight:700; font-size:0.95rem; transition: all 0.2s;">Termin buchen &rarr;</a>
+            </div>
           </div>
         </div>
       </section>
@@ -882,16 +849,33 @@
         if (res.ok) {
           form.style.display = 'none';
           successEl.style.display = 'block';
+          // Show Calendly link if Erstgespräch was checked
+          var erstgespraech = form.querySelector('input[value="Kostenloses Erstgespräch (15 Min)"]');
+          if (erstgespraech && erstgespraech.checked) {
+            document.getElementById('calendlyOffer').style.display = 'block';
+          }
         } else {
           var data = await res.json();
           throw new Error(data.error || 'Server error');
         }
       } catch (err) {
         errorEl.style.display = 'block';
-        submitBtn.textContent = 'Jetzt eintragen \u2192';
+        submitBtn.textContent = 'Jetzt sichern \u2192';
         submitBtn.disabled = false;
       }
     });
+
+    // Typewriter effect on "Training?"
+    const target = document.getElementById('typewriter-target');
+    const text = 'Training?';
+    let i = 0;
+    setTimeout(() => {
+      const interval = setInterval(() => {
+        target.textContent += text[i];
+        i++;
+        if (i >= text.length) clearInterval(interval);
+      }, 100);
+    }, 600);
   </script>
 
 </body>
