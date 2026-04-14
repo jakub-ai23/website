@@ -547,12 +547,12 @@
 
     <nav class="sidebar-nav" id="sidebar-vm">
       <div class="nav-section-label">Vormittag</div>
-      <a href="#ue1">1:Prompten</a>
-      <a href="#ue2">2:CITE Framework</a>
-      <a href="#ue3">3:Wissensbasis</a>
-      <a href="#demo-rc">Demo:Realitäts-Check</a>
-      <a href="#ue4">4:Lieferant vs. Tutor</a>
-      <a href="#bonus-vm">Bonus:Grok/Perplexity</a>
+      <a href="#ue1">1. Prompten</a>
+      <a href="#ue2">2. CITE Framework</a>
+      <a href="#ue3">3. Wissensbasis</a>
+      <a href="#demo-rc">Demo. Realitäts-Check</a>
+      <a href="#ue4">4. Lieferant vs. Tutor</a>
+      <a href="#bonus-vm">Bonus. Grok/Perplexity</a>
     </nav>
 
     <div>
@@ -561,7 +561,7 @@
     <div class="exercise" id="ue1">
       <div class="exercise-number">Übung 1</div>
       <h3>Prompten: Homeoffice-Regelung</h3>
-      <p class="subtitle">Arbeiten Sie zu zweit. Eine Person promptet, die andere beobachtet.</p>
+      <p class="subtitle">Arbeiten Sie zu zweit. Beide prompten, danach vergleichen Sie Ihre Ergebnisse.</p>
 
       <p class="step-label">Schritt 1: Der einfache Prompt</p>
       <p>Kopieren Sie diesen Prompt und schauen Sie, was die KI daraus macht:</p>
@@ -885,43 +885,127 @@ Format: Genau 3 Bulletpoints, je 1 Zeile. Ampelfarbe vor jedem Punkt (🟢 / �
 
     <nav class="sidebar-nav" id="sidebar-nm">
       <div class="nav-section-label">Nachmittag</div>
-      <a href="#ue5">5:Schatten-KI</a>
-      <a href="#ue6">6:Modelling of Excellence</a>
-      <a href="#ue7">7:Prompt Layering</a>
-      <a href="#alt-ad">Alt:Advocatus Diaboli</a>
+      <a href="#ue5">5. EU AI Act + NotebookLM</a>
+      <a href="#ue6">6. KI-Werkstatt (eigenes Problem)</a>
+      <a href="#ue7">7. Modelling of Excellence</a>
+      <a href="#ue8">8. Prompt Layering</a>
+      <a href="#ue9">9. Personalisierung</a>
+      <a href="#alt-ad">Alt. Advocatus Diaboli</a>
     </nav>
 
     <div>
 
-    <!-- ÜBUNG 5 -->
+    <!-- ÜBUNG 5: EU AI Act + NotebookLM -->
     <div class="exercise" id="ue5">
       <div class="exercise-number">Übung 5</div>
-      <h3>Live-Labor: Task-Force "Schatten-KI"</h3>
-      <p class="subtitle">Der CEO braucht bis 17:00 Uhr einen Report über die Risiken von "Shadow AI".</p>
+      <h3>EU AI Act + NotebookLM</h3>
+      <p class="subtitle">Ihre erste "sichere Wissensdatenbank": Ein echtes EU-Dokument, keine Halluzinationen.</p>
 
-      <p class="step-label">Schritt 1: Recherche (Perplexity)</p>
-      <p>Öffnen Sie <strong>Perplexity.ai</strong>. Finden Sie 2-3 fundierte Quellen zum Thema "Risiken von Schatten-KI" oder "Shadow AI Statistics 2024/2025". Speichern Sie die Links.</p>
+      <p class="step-label">Schritt 1: PDF herunterladen</p>
+      <p><a href="EU-AI-Act-DE.pdf" target="_blank" style="display:inline-block; background:rgba(212,160,23,0.12); border:1px solid rgba(212,160,23,0.3); padding:12px 20px; border-radius:8px; font-weight:600; color:var(--gold); margin: 8px 0;">EU AI Act (Deutsch) herunterladen</a></p>
 
-      <p class="step-label">Schritt 2: Die Wissens-Maschine (NotebookLM)</p>
-      <p>Öffnen Sie <strong>NotebookLM.google.com</strong>. Erstellen Sie ein neues Notizbuch. Laden Sie Ihre Quellen hoch.</p>
+      <p class="step-label">Schritt 2: NotebookLM öffnen</p>
+      <p>Gehen Sie auf <strong><a href="https://notebooklm.google.com" target="_blank">notebooklm.google.com</a></strong>. Erstellen Sie ein neues Notizbuch. Laden Sie das PDF hoch.</p>
 
-      <p class="step-label">Schritt 3: Der Faktencheck</p>
-      <div class="prompt-block">Was sind laut diesen Quellen die 3 größten Sicherheitsrisiken?</div>
-      <div class="prompt-block">Nenne mir konkrete Statistiken oder Prozentzahlen aus den Texten.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Achten Sie auf die grauen Ziffern (Zitate) am Ende der Sätze!</p>
+      <p class="step-label">Schritt 3: Fragen stellen</p>
+      <div class="prompt-block">Was sind die wichtigsten Pflichten für Unternehmen laut diesem Gesetz?</div>
+      <div class="prompt-block">Welche KI-Systeme gelten als "hochriskant"? Nenne konkrete Beispiele aus dem Text.</div>
+      <div class="prompt-block">Was passiert, wenn ein Unternehmen gegen das Gesetz verstößt? Nenne die Strafen.</div>
+      <div class="prompt-block">Fasse die wichtigsten Punkte zusammen, die für ein mittelständisches Unternehmen in Österreich relevant sind. Max. 5 Bulletpoints.</div>
+      <p style="color: var(--gold); font-size: 0.85rem;">Achten Sie auf die Zitate (graue Ziffern) am Ende der Antworten. NotebookLM erfindet nichts, es zeigt Ihnen immer die Quelle.</p>
 
-      <p class="step-label">Schritt 4: Die Produktion (Ihre Mission)</p>
-      <div class="role-grid">
-        <div class="role-card"><strong>A) Audio-Producer</strong>"Audio Overview" (Deep Dive). Ziel: 2-Minuten-Podcast.</div>
-        <div class="role-card"><strong>B) Visualisierer</strong>"Erstelle eine hierarchische Liste der Risiken für eine Mindmap."</div>
-        <div class="role-card"><strong>C) Trainer</strong>"Lernhilfe" (Study Guide). Karteikarten + Quiz.</div>
-        <div class="role-card"><strong>D) Regisseur</strong>"Schreibe ein Skript für ein 1-minütiges Warn-Video."</div>
-      </div>
+      <details>
+        <summary>Schritt 4: Produktion (aufklappen wenn bereit)</summary>
+        <div class="collapsible-content">
+          <p>Wählen Sie eine Rolle:</p>
+          <div class="role-grid">
+            <div class="role-card"><strong>A) Audio-Producer</strong>Klicken Sie auf "Audio Overview". Ziel: Ein 2-Minuten-Podcast über den EU AI Act.</div>
+            <div class="role-card"><strong>B) Visualisierer</strong>"Erstelle eine hierarchische Liste der Risikokategorien für eine Mindmap."</div>
+            <div class="role-card"><strong>C) Trainer</strong>Klicken Sie auf "Lernhilfe" (Study Guide). Karteikarten + Quizfragen.</div>
+            <div class="role-card"><strong>D) Zusammenfasser</strong>"Schreibe eine 1-seitige Zusammenfassung für meinen Vorgesetzten, der keine Zeit hat."</div>
+          </div>
+        </div>
+      </details>
     </div>
 
-    <!-- ÜBUNG 6 -->
+    <!-- ÜBUNG 6: KI-Werkstatt -->
     <div class="exercise" id="ue6">
       <div class="exercise-number">Übung 6</div>
+      <h3>KI-Werkstatt: Ihr eigenes Problem lösen</h3>
+      <p class="subtitle">Jetzt arbeiten Sie an einem echten Pain Point aus Ihrem Arbeitsalltag. Kollegen aus der gleichen Firma: arbeiten Sie zusammen!</p>
+
+      <p class="step-label">Schritt 1: Problem wählen</p>
+      <p>Wählen Sie ein konkretes Problem, das Sie regelmäßig Zeit kostet. Hier Beispiele nach Branche:</p>
+
+      <details>
+        <summary>Beispiele nach Firma (aufklappen)</summary>
+        <div class="collapsible-content">
+          <ul>
+            <li><strong>FFG:</strong> "Wie können wir Förderanträge schneller vorprüfen?"</li>
+            <li><strong>ÖAW:</strong> "Wie fasse ich 20 Research Papers für einen Review zusammen?"</li>
+            <li><strong>voestalpine / Berndorf:</strong> "Wie reduzieren wir Reporting-Aufwand über Standorte hinweg?"</li>
+            <li><strong>PORR:</strong> "Wie dokumentieren wir Baustellen-Fortschritt effizienter?"</li>
+            <li><strong>backaldrin:</strong> "Wie vereinheitlichen wir Finanz-Reporting über 16 Länder?"</li>
+            <li><strong>EatHappy:</strong> "Wie optimieren wir Kommunikation zwischen 57 Standorten und der Zentrale?"</li>
+            <li><strong>Raiffeisenverband:</strong> "Wie automatisieren wir wiederkehrende Compliance-Checks?"</li>
+            <li><strong>Selbsthilfe Kärnten:</strong> "Wie schaffen wir zu zweit die Kommunikation für 50+ Selbsthilfegruppen?"</li>
+            <li><strong>Hutschinski Mobility:</strong> "Wie verbessern wir die Kundenkommunikation bei Fahrzeugübergaben?"</li>
+            <li><strong>Tulzer & Osterauer:</strong> "Wie strukturieren wir Projektdokumentation einheitlich?"</li>
+            <li><strong>MZK Advisory:</strong> "Wie beschleunigen wir Due-Diligence-Recherche?"</li>
+            <li><strong>Uni-Zahnklinik:</strong> "Wie optimieren wir Patientendokumentation ohne Datenschutz zu verletzen?"</li>
+          </ul>
+        </div>
+      </details>
+
+      <p class="step-label">Schritt 2: Recherche (Perplexity)</p>
+      <p>Öffnen Sie <strong><a href="https://perplexity.ai" target="_blank">Perplexity.ai</a></strong>. Recherchieren Sie Ihr Problem:</p>
+      <div class="prompt-block">Ich arbeite bei [Firma/Branche] und habe folgendes Problem: [Problem beschreiben].
+
+Finde mir 2-3 aktuelle Studien, Best Practices oder Lösungsansätze. Fokus auf praktisch umsetzbare Ansätze, nicht Theorie.</div>
+
+      <details>
+        <summary>Schritt 3: In NotebookLM laden (aufklappen wenn bereit)</summary>
+        <div class="collapsible-content">
+          <p>Erstellen Sie ein <strong>zweites Notizbuch</strong> in NotebookLM (das erste war EU AI Act). Laden Sie Ihre Perplexity-Quellen hoch. Stellen Sie Fragen:</p>
+          <div class="prompt-block">Was sind die 3 wichtigsten Erkenntnisse aus diesen Quellen für mein spezifisches Problem?</div>
+          <div class="prompt-block">Welche konkreten Schritte kann ich morgen sofort umsetzen?</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Schritt 4: Lösung bauen mit CITE (aufklappen wenn bereit)</summary>
+        <div class="collapsible-content">
+          <p>Wechseln Sie zu <strong>ChatGPT oder Claude</strong>. Nutzen Sie Ihre Kontextdokumente vom Vormittag + die Recherche:</p>
+          <div class="prompt-block">Kontext: [Fügen Sie Ihr Unternehmens-Dokument vom Vormittag ein]
+
+Zusätzliche Recherche: [Fügen Sie die wichtigsten Erkenntnisse aus NotebookLM ein]
+
+Ziel: Eine konkrete, umsetzbare Lösung für folgendes Problem: [Ihr Problem]
+
+Aufgabe: Erstelle einen Aktionsplan mit maximal 5 Schritten. Jeder Schritt mit: Was, Wer, Bis wann.
+
+Ausführung: Tabellenformat, klare Sprache, sofort umsetzbar. Kein Fachjargon.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Schritt 5: Human in the Loop (aufklappen wenn bereit)</summary>
+        <div class="collapsible-content">
+          <p><strong>Prüfen Sie den Output kritisch:</strong></p>
+          <ul>
+            <li>Stimmen die Fakten? Hat die KI etwas erfunden?</li>
+            <li>Ist das realistisch für Ihre Firma?</li>
+            <li>Würden Sie das so an Ihren Chef schicken?</li>
+            <li>Klingt es nach KI oder nach Ihnen? (Tipp: Zu viele Gedankenstriche = KI-Stil)</li>
+          </ul>
+          <div class="prompt-block">Prüfe diesen Plan kritisch: Was ist unrealistisch? Was fehlt? Was würde mein skeptischster Kollege daran bemängeln?</div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ÜBUNG 7 -->
+    <div class="exercise" id="ue7">
+      <div class="exercise-number">Übung 7</div>
       <h3>Modelling of Excellence</h3>
       <p class="subtitle">Vom Hausarzt zum Spezialisten</p>
 
@@ -933,7 +1017,7 @@ Nenne mir 3 weltbekannte Experten oder Methoden, die für dieses spezifische Pro
       <p class="step-label">Die Anamnese (Die Untersuchung)</p>
       <div class="prompt-block">Ich entscheide mich für [Name des Experten]. Schlüpfe jetzt in diese Rolle.
 
-WICHTIG: Schreibe noch KEINE Lösung! Stelle mir stattdessen erst 5 gezielte Fragen, um meine Situation genau zu verstehen. Warte auf meine Antworten.</div>
+WICHTIG: Schreibe noch KEINE Lösung! Stelle mir stattdessen erst 3 bis 5 gezielte Fragen, um meine Situation genau zu verstehen. Warte auf meine Antworten.</div>
 
       <p class="step-label">Das Rezept (Die Lösung)</p>
       <div class="prompt-block">Hier sind meine Antworten:
@@ -943,9 +1027,9 @@ WICHTIG: Schreibe noch KEINE Lösung! Stelle mir stattdessen erst 5 gezielte Fra
 Erstelle jetzt die Lösung basierend auf diesen Fakten. Nutze konsequent den Stil und die Strategien von [Name des Experten].</div>
     </div>
 
-    <!-- ÜBUNG 7 -->
-    <div class="exercise" id="ue7">
-      <div class="exercise-number">Übung 7</div>
+    <!-- ÜBUNG 8 -->
+    <div class="exercise" id="ue8">
+      <div class="exercise-number">Übung 8</div>
       <h3>Prompt Layering: Das "Tribunal"</h3>
       <p class="subtitle">a.k.a. Salami-Taktik. Kopieren Sie die Prompts nacheinander in denselben Chat.</p>
 
@@ -981,6 +1065,60 @@ Schreibe dann die finale E-Mail an alle Mitarbeiter.
 - Nutze die starken Argumente des CEOs (Warum), adressiere ehrlich die Platzprobleme des Controllers (Wie) und nutze den empathischen Tonfall von HR.
 
 Die Mail soll professionell, motivierend und klar sein.</div>
+    </div>
+
+    <!-- ÜBUNG 9: Personalisierung -->
+    <div class="exercise" id="ue9">
+      <div class="exercise-number">Übung 9</div>
+      <h3>Personalisierung: Projekte + System Prompts</h3>
+      <p class="subtitle">Machen Sie Ihre KI dauerhaft schlauer. Laden Sie Ihre Kontextdokumente vom Vormittag hoch.</p>
+
+      <details>
+        <summary>Option A: ChatGPT Projekt anlegen</summary>
+        <div class="collapsible-content">
+          <p class="step-label">Schritt 1</p>
+          <p>Klicken Sie links oben auf <strong>"Neues Projekt"</strong> (oder "New Project").</p>
+          <p class="step-label">Schritt 2</p>
+          <p>Geben Sie dem Projekt einen Namen (z.B. "Meine Firma" oder "Arbeit").</p>
+          <p class="step-label">Schritt 3</p>
+          <p>Laden Sie Ihre <strong>Kontextdokumente vom Vormittag</strong> hoch (Unternehmen, Rolle, oder Prozess).</p>
+          <p class="step-label">Schritt 4</p>
+          <p>Fügen Sie eine <strong>Projektanweisung</strong> hinzu:</p>
+          <div class="prompt-block">Du bist mein KI-Assistent für [Firma/Abteilung].
+
+Bevor du antwortest: Lies meine hochgeladenen Dokumente und berücksichtige den Kontext meiner Firma und meiner Rolle.
+
+Antworte immer: auf Deutsch, in Sie-Form, max. 300 Wörter, mit konkreten nächsten Schritten.</div>
+          <p style="color: var(--gold); font-size: 0.85rem;">Ab jetzt kennt ChatGPT in diesem Projekt Ihre Firma, Ihre Rolle und Ihren Stil. Jede neue Konversation startet mit diesem Wissen.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Option B: Claude Projekt anlegen</summary>
+        <div class="collapsible-content">
+          <p class="step-label">Schritt 1</p>
+          <p>Klicken Sie auf <strong>"Projekte"</strong> in der linken Seitenleiste, dann "Neues Projekt".</p>
+          <p class="step-label">Schritt 2</p>
+          <p>Geben Sie einen Namen und laden Sie Ihre Kontextdokumente hoch.</p>
+          <p class="step-label">Schritt 3</p>
+          <p>Fügen Sie unter <strong>"Projektanweisungen"</strong> ein:</p>
+          <div class="prompt-block">Du bist mein KI-Assistent für [Firma/Abteilung].
+
+Berücksichtige immer den Kontext aus meinen hochgeladenen Dokumenten.
+
+Antworte: auf Deutsch, professionell, konkret, max. 300 Wörter. Wenn du dir unsicher bist, frage nach bevor du rätst.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Option C: Custom Instructions (ohne Projekt)</summary>
+        <div class="collapsible-content">
+          <p>Wenn Sie kein Projekt anlegen wollen, können Sie die Kontextdokumente direkt in die <strong>Custom Instructions</strong> einfügen:</p>
+          <p><strong>ChatGPT:</strong> Einstellungen → Personalisierung → "Benutzerdefinierte Anweisungen"</p>
+          <p><strong>Claude:</strong> Einstellungen → Profilanweisungen</p>
+          <p>Kopieren Sie Ihr Unternehmens- oder Rollen-Dokument dort hinein.</p>
+        </div>
+      </details>
     </div>
 
     <!-- ADVOCATUS DIABOLI -->
