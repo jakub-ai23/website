@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Übungen & Prompts — KI für den Büroalltag</title>
+  <title>Übungen & Prompts:KI für den Büroalltag</title>
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#141414">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -70,9 +70,9 @@
 
     /* MAIN */
     main {
-      max-width: 720px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 24px 80px;
+      padding: 40px 40px 80px;
     }
 
     /* HERO */
@@ -192,6 +192,7 @@
       position: relative;
       cursor: pointer;
       transition: background 0.2s;
+      white-space: pre-line;
     }
 
     .prompt-block:hover {
@@ -321,7 +322,191 @@
     footer a { color: var(--white-muted); transition: color 0.2s; }
     footer a:hover { color: var(--gold); }
 
+    /* COLLAPSIBLE SECTIONS */
+    details {
+      margin: 14px 0;
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details summary {
+      padding: 14px 18px;
+      background: rgba(212, 160, 23, 0.06);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    details summary:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: '+';
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    details .collapsible-content {
+      padding: 16px 18px;
+      border-top: 1px solid rgba(212, 160, 23, 0.1);
+    }
+
+    details .collapsible-content p,
+    details .collapsible-content li {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: var(--white-muted);
+    }
+
+    details .collapsible-content strong {
+      color: var(--white);
+    }
+
+    /* FLOAT ANIMATION */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* TAB SWITCHER */
+    .tab-switcher {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--charcoal-light);
+      border: none;
+      color: var(--white-muted);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:first-child { border-right: 1px solid rgba(212, 160, 23, 0.3); }
+
+    .tab-btn.active {
+      background: rgba(212, 160, 23, 0.12);
+      color: var(--gold);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: var(--charcoal-lighter);
+      color: var(--white);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* LAYOUT WITH SIDEBAR */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+    }
+
+    /* SIDEBAR NAV */
+    .sidebar-nav {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.06);
+      border-left-color: var(--gold);
+    }
+
+    .sidebar-nav .nav-section-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 12px 14px 4px;
+      opacity: 0.7;
+    }
+
     /* MOBILE */
+    @media (max-width: 768px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .sidebar-nav a {
+        padding: 8px 12px;
+        font-size: 0.72rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 6px;
+        background: var(--charcoal-light);
+      }
+
+      .sidebar-nav a:hover,
+      .sidebar-nav a.active {
+        border-left: none;
+        border-bottom-color: var(--gold);
+      }
+
+      .sidebar-nav .nav-section-label {
+        width: 100%;
+        padding: 8px 0 2px;
+      }
+    }
+
     @media (max-width: 500px) {
       main { padding: 32px 16px 64px; }
       .exercise { padding: 22px 18px; }
@@ -350,39 +535,99 @@
       <p>Tippen Sie auf einen Prompt-Block, um ihn zu kopieren.</p>
     </div>
 
+    <!-- TAB SWITCHER -->
+    <div class="tab-switcher">
+      <button class="tab-btn active" data-tab="vm">Vormittag: Prompt Profis</button>
+      <button class="tab-btn" data-tab="nm">Nachmittag: KI-Assistenten</button>
+    </div>
+
     <!-- ==================== VORMITTAG ==================== -->
-    <div class="section-divider"><h2>Vormittag: Prompt Profis</h2></div>
+    <div class="tab-content active" id="tab-vm">
+    <div class="page-layout">
+
+    <nav class="sidebar-nav" id="sidebar-vm">
+      <div class="nav-section-label">Vormittag</div>
+      <a href="#ue1">1:Prompten</a>
+      <a href="#ue2">2:CITE Framework</a>
+      <a href="#ue3">3:Wissensbasis</a>
+      <a href="#demo-rc">Demo:Realitäts-Check</a>
+      <a href="#ue4">4:Lieferant vs. Tutor</a>
+      <a href="#bonus-vm">Bonus:Grok/Perplexity</a>
+    </nav>
+
+    <div>
 
     <!-- ÜBUNG 1 -->
-    <div class="exercise">
+    <div class="exercise" id="ue1">
       <div class="exercise-number">Übung 1</div>
-      <h3>Die Stil-Maschine</h3>
-      <p class="subtitle">Arbeiten Sie zu zweit. Wir nehmen die neue Homeoffice-Regelung und schreiben sie in völlig verschiedenen Stilen um.</p>
+      <h3>Prompten: Homeoffice-Regelung</h3>
+      <p class="subtitle">Arbeiten Sie zu zweit. Eine Person promptet, die andere beobachtet.</p>
 
-      <p>Zuerst der "normale" Prompt:</p>
+      <p class="step-label">Schritt 1: Der einfache Prompt</p>
+      <p>Kopieren Sie diesen Prompt und schauen Sie, was die KI daraus macht:</p>
 
       <div class="prompt-block">Mach mir einen Entwurf für ein internes Schreiben, mit dem die Einführung einer neuen Homeoffice-Regelung bekanntgegeben wird.</div>
 
-      <p>Jetzt lassen Sie die KI den gleichen Inhalt umschreiben:</p>
+      <details>
+        <summary>Schritt 2: Was die KI nicht weiß (aufklappen)</summary>
+        <div class="collapsible-content">
+          <p><strong>1. Platzproblem:</strong> Wir haben Schreibtische abgebaut, um Miete zu sparen. Wenn 100% gleichzeitig kommen, gibt es nicht genug Arbeitsplätze.</p>
+          <p><strong>2. Infrastruktur:</strong> Meetingräume, Drucker, WLAN: alles auf reduzierten Betrieb ausgelegt. Mehr Leute überlasten alles sofort.</p>
+          <p><strong>3. Logistik:</strong> Pendlerströme, Parkplatzknappheit, Kantinenkapazität. Sicherheits- und Reinigungsaufwand steigt.</p>
+          <p><strong>4. Finanzielle Risiken:</strong> Kurzfristig neue Arbeitsplätze schaffen: Möbel, Hardware, Lizenzen, eventuell Mietflächen erweitern.</p>
+          <p><strong>5. Akzeptanz:</strong> Mitarbeiter sind genervt: "Schon wieder neue Regeln, zuerst flexible Arbeitsmodelle, jetzt zurück ins Büro?" Gefühl der Fremdbestimmung. Misstrauen gegenüber dem Sinn.</p>
+          <p style="color: var(--gold); margin-top: 12px;"><strong>Frage an Sie:</strong> Merken Sie den Unterschied? Die KI wusste nichts davon. Sie hat geraten. Deshalb war das Ergebnis generisch.</p>
+        </div>
+      </details>
 
-      <div class="prompt-block">Schreibe die Homeoffice-Regelung als Disney-Song mit Refrain und Strophen.</div>
+      <details>
+        <summary>Schritt 3: Jetzt mit Kontext probieren (aufklappen)</summary>
+        <div class="collapsible-content">
+          <p>Probieren Sie den gleichen Prompt nochmal, aber geben Sie der KI den Kontext mit. Hier der vollständige Prompt zum Kopieren:</p>
 
-      <div class="prompt-block">Erkläre die Homeoffice-Regelung einem 5-Jährigen.</div>
+          <div class="prompt-block">Mach mir einen Entwurf für ein internes Schreiben, mit dem die Einführung einer neuen Homeoffice-Regelung bekanntgegeben wird.
 
-      <div class="prompt-block">Schreibe die Homeoffice-Regelung als wütenden Leserbrief an eine Zeitung.</div>
+Kontext:
 
-      <div class="prompt-block">Formuliere die Homeoffice-Regelung als Rap-Battle zwischen CEO und Betriebsrat.</div>
+Wir haben im letzten Jahr Schreibtische abgebaut, um Mietkosten zu sparen. Wenn 100% gleichzeitig ins Büro kommen, gibt es nicht genug Arbeitsplätze.
 
-      <div class="prompt-block">Schreibe die Homeoffice-Regelung als dramatischen Netflix-Trailer-Text.</div>
+Meetingräume, Drucker, WLAN sind auf reduzierten Betrieb ausgelegt. Pendlerströme, Parkplatzknappheit und Kantinenkapazität sind ein Problem.
 
-      <p style="margin-top:16px; color: var(--white-muted); font-size: 0.85rem;">Ziel: Sie sehen sofort, dass die KI Muster imitiert, nicht "denkt". Und: Tonalität im Prompt steuert alles.</p>
+Kurzfristig müssten neue Arbeitsplätze geschaffen werden: Möbel, Hardware, Lizenzen.
+
+Die Mitarbeiter sind skeptisch: "Schon wieder neue Regeln, zuerst flexible Arbeitsmodelle, jetzt zurück ins Büro?" Viele fühlen sich fremdbestimmt und sehen nicht, dass Innovation oder Geschwindigkeit von ihnen abhängen.
+
+Das Schreiben muss diese Sorgen adressieren, nicht ignorieren.
+
+Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Mai.</div>
+
+          <p style="color: var(--gold); margin-top: 12px;"><strong>Vergleichen Sie:</strong> Gleiche KI, gleiche Frage, aber mit Kontext. Völlig anderes Ergebnis.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Schritt 4: Die Stil-Maschine (aufklappen)</summary>
+        <div class="collapsible-content">
+          <p>Jetzt lassen Sie die KI den gleichen Inhalt in völlig verschiedenen Stilen umschreiben:</p>
+
+          <div class="prompt-block">Schreibe die Homeoffice-Regelung als Disney-Song mit Refrain und Strophen.</div>
+
+          <div class="prompt-block">Schreibe die Homeoffice-Regelung als wütenden Leserbrief an eine Zeitung.</div>
+
+          <div class="prompt-block">Formuliere die Homeoffice-Regelung als Rap-Battle zwischen CEO und Betriebsrat.</div>
+
+          <div class="prompt-block">Schreibe die Homeoffice-Regelung als dramatischen Netflix-Trailer-Text.</div>
+
+          <p style="color: var(--gold); margin-top: 12px;"><strong>Erkenntnis:</strong> Die KI imitiert Muster, sie "denkt" nicht. Und: Tonalität im Prompt steuert alles.</p>
+        </div>
+      </details>
     </div>
 
     <!-- ÜBUNG 2 -->
-    <div class="exercise">
+    <div class="exercise" id="ue2">
       <div class="exercise-number">Übung 2</div>
-      <h3>CITE(R) Framework</h3>
-      <p class="subtitle">Bauen Sie Ihren Prompt nach dem CITE-Framework.</p>
+      <h3>CITE(R) Framework:Jetzt sind Sie dran!</h3>
+      <p class="subtitle">Wählen Sie eine Aufgabe (A, B oder C). Kopieren Sie Schritt für Schritt und beobachten Sie, wie das Ergebnis besser wird.</p>
 
       <table class="compare-table">
         <tr><th style="width:30%">Baustein</th><th>Frage</th></tr>
@@ -393,31 +638,194 @@
         <tr><td><strong>R</strong> = Reality</td><td>Stimmt das Ergebnis? Was muss ich prüfen?</td></tr>
       </table>
 
-      <p class="step-label">Praxisbeispiel: Meeting-Zusammenfassung</p>
-      <div class="prompt-block">Kontext: 45-minütiges Meeting über KI-Tools im Onboarding. Transkript liegt vor.
+      <!-- AUFGABE A -->
+      <details>
+        <summary>Aufgabe A: Meeting-Protokoll aus Stichworten</summary>
+        <div class="collapsible-content">
+          <p class="step-label">Schritt 1:Nur die Aufgabe</p>
+          <div class="prompt-block">Schreibe ein Meeting-Protokoll.</div>
 
-Ziel: Klarheit über Entscheidungen, Team-Verständnis, klare nächste Schritte.
+          <p class="step-label">Schritt 2:+ Kontext</p>
+          <div class="prompt-block">Schreibe ein Meeting-Protokoll.
 
-Aufgabe: Extrahiere die Kerninhalte und schreibe eine E-Mail mit 3 Abschnitten:
-1. Was wurde besprochen?
-2. Welche Entscheidungen wurden getroffen?
-3. Was sind die nächsten Schritte mit Verantwortlichkeiten und Fristen?
+Meine Notizen: Budget Q3 besprochen, Marketing will 15% mehr, Chef sagt max 8%, Kompromiss 10% wenn KPIs stimmen, nächstes Meeting in 2 Wochen.</div>
 
-Ausführung: Max. 300 Wörter, professioneller Ton, Wir-Form, Bulletpoints.</div>
+          <p class="step-label">Schritt 3:+ Ziel</p>
+          <div class="prompt-block">Schreibe ein Meeting-Protokoll.
 
-      <p class="step-label">Praxisbeispiel: Trainingskonzept</p>
-      <div class="prompt-block">Kontext: Neues KI-Tool wird für das Vertriebsteam eingeführt. Keine LLM-Erfahrung. Internes Training nötig.
+Meine Notizen: Budget Q3 besprochen, Marketing will 15% mehr, Chef sagt max 8%, Kompromiss 10% wenn KPIs stimmen, nächstes Meeting in 2 Wochen.
 
-Ziel: Strukturierter Trainingsplan zur Freigabe durch die Geschäftsleitung.
+Ziel: Sauberes Protokoll, das ich direkt an alle Teilnehmer schicken kann. Jeder soll sofort wissen, was beschlossen wurde und was er zu tun hat.</div>
 
-Aufgabe: Erstelle 3 x 60-minütige Trainingseinheiten für max. 10 Personen. Jeweils mit: Titel, Lernziele, Aktivitäten, 1 Satz erwartetes Ergebnis.
+          <p class="step-label">Schritt 4:+ Ausführung</p>
+          <div class="prompt-block">Schreibe ein Meeting-Protokoll.
 
-Ausführung: 3 nummerierte Abschnitte, max. 350 Wörter je Abschnitt, klare Sprache, kein Fachjargon.</div>
+Meine Notizen: Budget Q3 besprochen, Marketing will 15% mehr, Chef sagt max 8%, Kompromiss 10% wenn KPIs stimmen, nächstes Meeting in 2 Wochen.
+
+Ziel: Sauberes Protokoll, das ich direkt an alle Teilnehmer schicken kann. Jeder soll sofort wissen, was beschlossen wurde und was er zu tun hat.
+
+Format: Datum, Teilnehmerliste, Tagesordnungspunkte, Beschlüsse, nächste Schritte mit Verantwortlichen und Fristen. Max. 200 Wörter. Professioneller Ton, Bulletpoints.</div>
+        </div>
+      </details>
+
+      <!-- AUFGABE B -->
+      <details>
+        <summary>Aufgabe B: Willkommens-E-Mail für neuen Kollegen</summary>
+        <div class="collapsible-content">
+          <p class="step-label">Schritt 1:Nur die Aufgabe</p>
+          <div class="prompt-block">Schreibe eine Willkommens-E-Mail für einen neuen Kollegen.</div>
+
+          <p class="step-label">Schritt 2:+ Kontext</p>
+          <div class="prompt-block">Schreibe eine Willkommens-E-Mail für einen neuen Kollegen.
+
+Situation: Nächsten Montag startet eine neue Kollegin in unserem 8-Personen-Team. Sie kommt aus einer anderen Branche, kennt niemanden, und ist etwas nervös. Wir arbeiten hybrid (3 Tage Büro, 2 Tage Home Office).</div>
+
+          <p class="step-label">Schritt 3:+ Ziel</p>
+          <div class="prompt-block">Schreibe eine Willkommens-E-Mail für einen neuen Kollegen.
+
+Situation: Nächsten Montag startet eine neue Kollegin in unserem 8-Personen-Team. Sie kommt aus einer anderen Branche, kennt niemanden, und ist etwas nervös. Wir arbeiten hybrid (3 Tage Büro, 2 Tage Home Office).
+
+Ziel: Sie soll sich willkommen fühlen, wissen was am ersten Tag passiert, und keine Angst haben.</div>
+
+          <p class="step-label">Schritt 4:+ Ausführung</p>
+          <div class="prompt-block">Schreibe eine Willkommens-E-Mail für einen neuen Kollegen.
+
+Situation: Nächsten Montag startet eine neue Kollegin in unserem 8-Personen-Team. Sie kommt aus einer anderen Branche, kennt niemanden, und ist etwas nervös. Wir arbeiten hybrid (3 Tage Büro, 2 Tage Home Office).
+
+Ziel: Sie soll sich willkommen fühlen, wissen was am ersten Tag passiert, und keine Angst haben.
+
+Format: Freundlicher Du-Ton, max. 150 Wörter, 3 Abschnitte: (1) Persönliche Begrüßung, (2) Was am Montag passiert (Uhrzeit, Treffpunkt, Ansprechpartner), (3) Ein lockerer Satz zum Team (z.B. Kaffee-Tradition, Mittagessen). Keine Corporate-Phrasen.</div>
+        </div>
+      </details>
+
+      <!-- AUFGABE C -->
+      <details>
+        <summary>Aufgabe C: Chef-Update in 3 Bulletpoints</summary>
+        <div class="collapsible-content">
+          <p class="step-label">Schritt 1:Nur die Aufgabe</p>
+          <div class="prompt-block">Schreibe ein Status-Update für meinen Chef.</div>
+
+          <p class="step-label">Schritt 2:+ Kontext</p>
+          <div class="prompt-block">Schreibe ein Status-Update für meinen Chef.
+
+Meine 3 Projekte: Website-Relaunch (läuft nach Plan), CRM-Migration (verzögert, Datenproblem bei der Übernahme), Newsletter (wartet auf Freigabe vom Legal seit 2 Wochen).</div>
+
+          <p class="step-label">Schritt 3:+ Ziel</p>
+          <div class="prompt-block">Schreibe ein Status-Update für meinen Chef.
+
+Meine 3 Projekte: Website-Relaunch (läuft nach Plan), CRM-Migration (verzögert, Datenproblem bei der Übernahme), Newsletter (wartet auf Freigabe vom Legal seit 2 Wochen).
+
+Ziel: Mein Chef hat 30 Sekunden. Er will wissen wo alles steht und wo er eingreifen muss.</div>
+
+          <p class="step-label">Schritt 4:+ Ausführung</p>
+          <div class="prompt-block">Schreibe ein Status-Update für meinen Chef.
+
+Meine 3 Projekte: Website-Relaunch (läuft nach Plan), CRM-Migration (verzögert, Datenproblem bei der Übernahme), Newsletter (wartet auf Freigabe vom Legal seit 2 Wochen).
+
+Ziel: Mein Chef hat 30 Sekunden. Er will wissen wo alles steht und wo er eingreifen muss.
+
+Format: Genau 3 Bulletpoints, je 1 Zeile. Ampelfarbe vor jedem Punkt (🟢 / 🟡 / 🔴). Kein Fließtext, keine Einleitung. Nur die 3 Punkte.</div>
+        </div>
+      </details>
     </div>
 
     <!-- ÜBUNG 3 -->
-    <div class="exercise">
+    <div class="exercise" id="ue3">
       <div class="exercise-number">Übung 3</div>
+      <h3>Ihre KI-Wissensbasis aufbauen</h3>
+      <p class="subtitle">Erstellen Sie 2 Dokumente, die Ihre KI ab sofort schlauer machen. Kollegen aus der gleichen Firma: arbeiten Sie zusammen!</p>
+
+      <div class="magic-box" style="margin-bottom: 24px;">
+        <div class="label" style="animation: pulse 2s infinite;">Die Magische Formel</div>
+        <div class="prompt-block" style="text-align:left; margin:0; animation: float 3s ease-in-out infinite;">Bevor du antwortest: Stelle mir 3 bis 5 gezielte Fragen, um meine Situation besser zu verstehen. Warte mit dem Entwurf, bis ich geantwortet habe.</div>
+      </div>
+
+      <p>Wählen Sie 1 Dokument. Schreiben Sie es direkt in Ihrem LLM und <strong>speichern Sie das Ergebnis</strong>, das werden wir gleich in einem Projekt verwenden.</p>
+
+      <details>
+        <summary>A: Mein Unternehmen (empfohlen)</summary>
+        <div class="collapsible-content">
+          <p>Beschreiben Sie Ihr Unternehmen so, dass eine KI sofort versteht, in welchem Kontext Sie arbeiten.</p>
+          <p class="step-label">Schritt 1:Kopieren und abschicken</p>
+          <div class="prompt-block">Hilf mir, ein Kontextdokument über mein Unternehmen zu erstellen. Stelle mir dazu 3-5 gezielte Fragen, z.B. zu Branche, Größe, Kunden, Produkten, Herausforderungen. Warte auf meine Antworten, bevor du das Dokument schreibst.</div>
+          <p style="color: var(--gold); font-size: 0.85rem;">Tipp: Diktieren statt tippen! Die KI versteht Ihre Antworten auch gesprochen.</p>
+          <p style="color: var(--white-muted); font-size: 0.85rem;">Beantworten Sie die Fragen der KI. Warten Sie danach auf die nächste Anweisung.</p>
+          <details>
+            <summary>Schritte 2-4 (erst aufklappen wenn Schritt 1 fertig)</summary>
+            <div class="collapsible-content">
+              <p class="step-label">Schritt 2:Dokument erstellen lassen</p>
+              <div class="prompt-block">Erstelle jetzt das Kontextdokument basierend auf meinen Antworten. Schreibe es so, dass ich es in Zukunft am Anfang jeder Konversation einfügen kann, damit du sofort weißt, wo ich arbeite.</div>
+              <p class="step-label">Schritt 3:Verfeinern</p>
+              <div class="prompt-block">Was fehlt in diesem Dokument, das für eine KI wichtig wäre? Schlage 3 Ergänzungen vor.</div>
+              <p class="step-label">Schritt 4:Speichern</p>
+              <p>Kopieren Sie das fertige Dokument und speichern Sie es (z.B. in einer Notiz-App, Word, oder direkt in den Custom Instructions Ihres LLMs).</p>
+            </div>
+          </details>
+        </div>
+      </details>
+
+      <details>
+        <summary>B: Meine Rolle (empfohlen)</summary>
+        <div class="collapsible-content">
+          <p>Beschreiben Sie Ihre Rolle so, dass eine KI Ihnen ab sofort passgenau zuarbeiten kann.</p>
+          <p class="step-label">Schritt 1:Kopieren und abschicken</p>
+          <div class="prompt-block">Hilf mir, ein Kontextdokument über meine berufliche Rolle zu erstellen. Stelle mir 3-5 gezielte Fragen, z.B. zu meiner Position, meinen täglichen Aufgaben, meinen Verantwortlichkeiten, mit wem ich zusammenarbeite, und was meine größten Herausforderungen sind. Warte auf meine Antworten.</div>
+          <p style="color: var(--white-muted); font-size: 0.85rem;">Beantworten Sie die Fragen der KI. Warten Sie danach auf die nächste Anweisung.</p>
+          <details>
+            <summary>Schritte 2-4 (erst aufklappen wenn Schritt 1 fertig)</summary>
+            <div class="collapsible-content">
+              <p class="step-label">Schritt 2:Dokument erstellen lassen</p>
+              <div class="prompt-block">Erstelle jetzt das Kontextdokument basierend auf meinen Antworten. Schreibe es so, dass ich es in Zukunft am Anfang jeder Konversation einfügen kann, damit du sofort weißt, wer ich bin und was ich mache.</div>
+              <p class="step-label">Schritt 3:Verfeinern</p>
+              <div class="prompt-block">Was fehlt in diesem Dokument, das für eine KI wichtig wäre? Schlage 3 Ergänzungen vor.</div>
+              <p class="step-label">Schritt 4:Speichern</p>
+              <p>Kopieren Sie das fertige Dokument und speichern Sie es.</p>
+            </div>
+          </details>
+        </div>
+      </details>
+
+      <details>
+        <summary>C: Ein Prozess aus meinem Alltag (empfohlen)</summary>
+        <div class="collapsible-content">
+          <p>Beschreiben Sie einen Prozess, den Sie regelmäßig durchführen (z.B. Genehmigung, Bestellung, Onboarding, Reporting).</p>
+          <p class="step-label">Schritt 1:Kopieren und abschicken</p>
+          <div class="prompt-block">Hilf mir, einen wiederkehrenden Arbeitsprozess zu dokumentieren. Stelle mir 3-5 gezielte Fragen, z.B.: Wie heißt der Prozess? Wie oft mache ich ihn? Welche Schritte hat er? Wo gibt es Engpässe? Wer ist noch beteiligt? Warte auf meine Antworten.</div>
+          <p style="color: var(--white-muted); font-size: 0.85rem;">Beantworten Sie die Fragen der KI. Warten Sie danach auf die nächste Anweisung.</p>
+          <details>
+            <summary>Schritte 2-4 (erst aufklappen wenn Schritt 1 fertig)</summary>
+            <div class="collapsible-content">
+              <p class="step-label">Schritt 2:Dokument erstellen lassen</p>
+              <div class="prompt-block">Erstelle jetzt das Prozessdokument basierend auf meinen Antworten. Schreibe es so, dass ich es einer KI geben kann und sie sofort versteht, wie der Prozess funktioniert.</div>
+              <p class="step-label">Schritt 3:Verfeinern</p>
+              <div class="prompt-block">Was fehlt in diesem Dokument? Welche Schritte oder Sonderfälle sollte ich noch ergänzen? Schlage 3 Verbesserungen vor.</div>
+              <p class="step-label">Schritt 4:Speichern</p>
+              <p>Kopieren Sie das fertige Dokument und speichern Sie es.</p>
+            </div>
+          </details>
+        </div>
+      </details>
+
+      <details>
+        <summary>Weitere Optionen (für Fortgeschrittene)</summary>
+        <div class="collapsible-content">
+          <p>Wenn Sie A-C schon fertig haben oder etwas anderes brauchen:</p>
+          <ul>
+            <li><strong>Mein Team</strong>:Wer macht was, Stärken, Kommunikationswege</li>
+            <li><strong>Mein Schreibstil</strong>:Wie sollen E-Mails klingen, formell/informell, Du/Sie</li>
+            <li><strong>Mein Kunde / Meine Zielgruppe</strong>:Wer kauft bei uns, was brauchen die</li>
+            <li><strong>Ein Projekt</strong>:Aktuelles Projekt mit Zielen, Timeline, Beteiligten</li>
+          </ul>
+          <div class="prompt-block">Hilf mir, ein Kontextdokument über [Thema] zu erstellen. Stelle mir 3-5 gezielte Fragen, damit du ein vollständiges Dokument schreiben kannst. Warte auf meine Antworten.</div>
+        </div>
+      </details>
+
+      <p style="margin-top: 16px; color: var(--gold); font-size: 0.85rem;"><strong>Wichtig: Speichern Sie Ihre Dokumente!</strong> Wir verwenden sie gleich im nächsten Schritt, wenn wir Projekte anlegen.</p>
+    </div>
+
+    <!-- REALITÄTS-CHECK (Demo, nach Übung 3) -->
+    <div class="exercise" id="demo-rc">
+      <div class="exercise-number">Demo</div>
       <h3>Der Realitäts-Check</h3>
       <p class="subtitle">Mensch vs. Maschine: Halluziniert die KI oder gibt sie zu, es nicht zu wissen?</p>
 
@@ -429,7 +837,7 @@ Ausführung: 3 nummerierte Abschnitte, max. 350 Wörter je Abschnitt, klare Spra
     </div>
 
     <!-- ÜBUNG 4 -->
-    <div class="exercise">
+    <div class="exercise" id="ue4">
       <div class="exercise-number">Übung 4</div>
       <h3>Lieferant vs. Tutor</h3>
       <p class="subtitle">Person A = Lieferant-Modus, Person B = Tutor-Modus. Gleiche Aufgabe, verschiedene Ergebnisse.</p>
@@ -456,7 +864,7 @@ Ausführung: 3 nummerierte Abschnitte, max. 350 Wörter je Abschnitt, klare Spra
     </div>
 
     <!-- BONUS PROMPTS -->
-    <div class="exercise">
+    <div class="exercise" id="bonus-vm">
       <div class="exercise-number">Bonus</div>
       <h3>Prompts für Grok / Perplexity</h3>
 
@@ -467,11 +875,26 @@ Ausführung: 3 nummerierte Abschnitte, max. 350 Wörter je Abschnitt, klare Spra
       <div class="prompt-block">Du bist ein kritischer Neukunde, der wenig Zeit hat. Was ist das EINE Ding auf der Startseite, das dich verwirrt oder fehlt? Sei ehrlich und konstruktiv.</div>
     </div>
 
+    </div><!-- close VM inner -->
+    </div><!-- close page-layout -->
+    </div><!-- close tab-vm -->
+
     <!-- ==================== NACHMITTAG ==================== -->
-    <div class="section-divider"><h2>Nachmittag: KI-Assistenten & Produktivität</h2></div>
+    <div class="tab-content" id="tab-nm">
+    <div class="page-layout">
+
+    <nav class="sidebar-nav" id="sidebar-nm">
+      <div class="nav-section-label">Nachmittag</div>
+      <a href="#ue5">5:Schatten-KI</a>
+      <a href="#ue6">6:Modelling of Excellence</a>
+      <a href="#ue7">7:Prompt Layering</a>
+      <a href="#alt-ad">Alt:Advocatus Diaboli</a>
+    </nav>
+
+    <div>
 
     <!-- ÜBUNG 5 -->
-    <div class="exercise">
+    <div class="exercise" id="ue5">
       <div class="exercise-number">Übung 5</div>
       <h3>Live-Labor: Task-Force "Schatten-KI"</h3>
       <p class="subtitle">Der CEO braucht bis 17:00 Uhr einen Report über die Risiken von "Shadow AI".</p>
@@ -497,7 +920,7 @@ Ausführung: 3 nummerierte Abschnitte, max. 350 Wörter je Abschnitt, klare Spra
     </div>
 
     <!-- ÜBUNG 6 -->
-    <div class="exercise">
+    <div class="exercise" id="ue6">
       <div class="exercise-number">Übung 6</div>
       <h3>Modelling of Excellence</h3>
       <p class="subtitle">Vom Hausarzt zum Spezialisten</p>
@@ -521,7 +944,7 @@ Erstelle jetzt die Lösung basierend auf diesen Fakten. Nutze konsequent den Sti
     </div>
 
     <!-- ÜBUNG 7 -->
-    <div class="exercise">
+    <div class="exercise" id="ue7">
       <div class="exercise-number">Übung 7</div>
       <h3>Prompt Layering: Das "Tribunal"</h3>
       <p class="subtitle">a.k.a. Salami-Taktik. Kopieren Sie die Prompts nacheinander in denselben Chat.</p>
@@ -561,7 +984,7 @@ Die Mail soll professionell, motivierend und klar sein.</div>
     </div>
 
     <!-- ADVOCATUS DIABOLI -->
-    <div class="exercise">
+    <div class="exercise" id="alt-ad">
       <div class="exercise-number">Alternative</div>
       <h3>Der Advocatus Diaboli</h3>
       <p class="subtitle">Perfekt für wichtige Entscheidungen, Strategien oder heikle E-Mails.</p>
@@ -576,6 +999,10 @@ Die Mail soll professionell, motivierend und klar sein.</div>
       <div class="prompt-block">Danke. Schreibe jetzt die finale Version des Entwurfs und baue die Kritikpunkte ein, um sie zu entschärfen.</div>
     </div>
 
+    </div><!-- close NM inner -->
+    </div><!-- close page-layout -->
+    </div><!-- close tab-nm -->
+
   </main>
 
   <footer>
@@ -589,6 +1016,7 @@ Die Mail soll professionell, motivierend und klar sein.</div>
   </footer>
 
   <script>
+    // Copy prompt on click
     document.querySelectorAll('.prompt-block').forEach(block => {
       block.addEventListener('click', async () => {
         try {
@@ -602,6 +1030,35 @@ Die Mail soll professionell, motivierend und klar sein.</div>
           sel.removeAllRanges();
           sel.addRange(range);
         }
+      });
+    });
+
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // Accordion: within each exercise, only one details open at a time
+    document.querySelectorAll('.exercise').forEach(exercise => {
+      const allDetails = exercise.querySelectorAll(':scope > details, .collapsible-content > details');
+      allDetails.forEach(det => {
+        det.addEventListener('toggle', () => {
+          if (det.open) {
+            // Close siblings (same parent)
+            const siblings = det.parentElement.querySelectorAll(':scope > details');
+            siblings.forEach(sib => {
+              if (sib !== det && sib.open) sib.open = false;
+            });
+            // Smooth scroll to opened section
+            setTimeout(() => det.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+          }
+        });
       });
     });
   </script>
