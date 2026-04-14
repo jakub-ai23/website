@@ -305,12 +305,6 @@
       animation: formReveal 0.8s 4.8s ease both;
     }
 
-    /* Form section itself fades in after provocation clears */
-    .form-section {
-      opacity: 0;
-      animation: formReveal 0.8s 4.6s ease both;
-    }
-
     /* ========== FORM SECTION ========== */
     .form-section { flex: 1; }
 
@@ -698,15 +692,10 @@
         </div>
       </section>
 
-      <div class="gold-divider"></div>
-
-      <!-- FORM -->
-      <section class="form-section">
-        <div class="form-intro">
-          <h2>Was interessiert Sie?</h2>
-        </div>
-
+      <!-- FORM direkt im Hero-Bereich -->
+      <section class="form-section" style="margin-top: -20px;">
         <div class="form-card">
+          <h2 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; margin-bottom: 16px;">Was interessiert Sie?</h2>
           <form
             class="training-form"
             id="trainingForm"
