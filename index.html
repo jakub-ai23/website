@@ -2342,16 +2342,24 @@
       }
 
       // ---- IntersectionObserver for active tracking ----
+      // Uses multiple thresholds + picks highest ratio to survive snap-scroll
+      // (snap can jump a slide from 0→100% without crossing a single threshold)
       const observer = new IntersectionObserver((entries) => {
+        let best = null;
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const index = parseInt(entry.target.dataset.index);
-            currentSlide = index;
-            updateActive(index);
+            if (!best || entry.intersectionRatio > best.intersectionRatio) {
+              best = entry;
+            }
           }
         });
+        if (best) {
+          const index = parseInt(best.target.dataset.index);
+          currentSlide = index;
+          updateActive(index);
+        }
       }, {
-        threshold: 0.3
+        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1.0]
       });
 
       slides.forEach(slide => observer.observe(slide));
