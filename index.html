@@ -1576,19 +1576,18 @@
 
     .social-link:hover svg { fill: var(--gold); }
 
-    /* ========== SLIDE ANIMATIONS ========== */
+    /* ========== SLIDE ANIMATIONS (disabled — content always visible) ========== */
     .slide-content {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
 
     .slide.active .slide-content {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
-    /* First slide starts visible */
     .slide-hero .slide-content,
     .slide-hero .hero-main,
     .slide-hero .hero-trust {
