@@ -54,6 +54,10 @@ Building a personal brand website that combines the best elements from five anal
 - **Overall text review**: User wants to review all copy together
 - **Push to remote**: 2 commits made locally, not yet pushed
 
+## Known Pitfalls (read before editing)
+
+- **No hide-until-active patterns.** Do NOT ship CSS like `.slide-content { opacity: 0 }` that relies on JS (IntersectionObserver, snap-scroll, scroll-reveal) to add an `.active` class before content becomes visible. If the JS misfires, content stays invisible forever. Caught 2026-04-15 — slides 2–6 disappeared on load. Fix documented in `CHANGES-2026-04-15.md`. If fade-in is desired, use a time-based `animation: fadeIn` on load, not state-based opacity toggling. **Commander's rule: content must be visible on first paint, no exceptions.**
+
 ## Skills & Patterns Reference
 - **`PORYGON_SKILLS.md`** — Porygon's training manual. Modern CSS, vanilla JS, design tokens, accessibility, SEO, image optimization. Read before any design/code task.
 - **Zack Kass (zackkass.com)** — closest competitor comp. Dark premium, AI speaker, anti-hype. Client logos in first viewport, collapsing hero on scroll.
