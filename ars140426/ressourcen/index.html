@@ -56,9 +56,7 @@
       z-index: 100;
     }
 
-    .logo { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: var(--white); text-decoration: none; }
-    .logo:hover { color: var(--white); }
-    .logo span { color: var(--gold); }
+    .logo { display: flex; align-items: center; text-decoration: none; }
 
     .back-link {
       font-size: 0.8rem;
@@ -364,7 +362,9 @@
 <body>
 
   <header class="site-header">
-    <a href="https://jakubpopluhar.com" class="logo">Jakub <span>Popluhar</span></a>
+    <a href="https://jakubpopluhar.com" class="logo" aria-label="Jakub Popluhar">
+      <img src="../../images/logos/jakub-popluhar-logo-dark.png" alt="Jakub Popluhar" height="44">
+    </a>
     <a href="../" class="back-link">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       Zurück

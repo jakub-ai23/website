@@ -56,13 +56,10 @@
     }
 
     .logo {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.8rem;
-      color: var(--white);
-      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
     }
-
-    .logo span { color: var(--gold); }
 
     /* ========== MAIN ========== */
     main {
@@ -249,7 +246,9 @@
 
   <!-- HEADER -->
   <header class="site-header">
-    <div class="logo">Jakub <span>Popluhar</span></div>
+    <a href="https://jakubpopluhar.com" class="logo" aria-label="Jakub Popluhar">
+      <img src="../images/logos/jakub-popluhar-logo-dark.png" alt="Jakub Popluhar" height="44">
+    </a>
   </header>
 
   <!-- MAIN -->
