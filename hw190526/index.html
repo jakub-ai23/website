@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI für den Büroalltag — Hill-Woltron Training 19.05.2026</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html, body {
+      min-height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+
+    /* ========== HEADER ========== */
+    .site-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    /* ========== MAIN ========== */
+    main {
+      flex: 1;
+      padding: 40px 24px 48px;
+      max-width: 560px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: var(--white-muted);
+    }
+
+    /* ========== GOLD DIVIDER ========== */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto;
+      opacity: 0.7;
+    }
+
+    /* ========== LINKS SECTION ========== */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 10px;
+      padding: 20px 22px;
+      min-height: 72px;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      text-decoration: none;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .link-card:hover,
+    .link-card:focus {
+      border-color: rgba(212, 160, 23, 0.5);
+      background: var(--charcoal-lighter);
+      transform: translateY(-1px);
+      color: var(--white);
+      outline: none;
+    }
+
+    .link-card:active {
+      transform: translateY(0);
+    }
+
+    .link-card.primary {
+      border-color: rgba(212, 160, 23, 0.45);
+      background: rgba(212, 160, 23, 0.06);
+    }
+
+    .link-card.primary:hover,
+    .link-card.primary:focus {
+      border-color: var(--gold);
+      background: rgba(212, 160, 23, 0.12);
+    }
+
+    .link-card.disabled {
+      opacity: 0.45;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .card-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: rgba(212, 160, 23, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .card-text {
+      flex: 1;
+    }
+
+    .card-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    .card-sub {
+      font-size: 0.78rem;
+      color: var(--white-muted);
+      line-height: 1.3;
+    }
+
+    .card-arrow {
+      flex-shrink: 0;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+
+    .card-arrow svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      padding: 20px 24px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--white-muted);
+      line-height: 1.8;
+    }
+
+    footer a {
+      color: var(--white-muted);
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--gold); }
+
+    /* ========== MOBILE ========== */
+    @media (max-width: 400px) {
+      .logo { font-size: 1.55rem; }
+      main { padding: 32px 16px 40px; gap: 28px; }
+      .link-card { padding: 18px 16px; gap: 14px; }
+      .card-icon { width: 36px; height: 36px; }
+      .card-icon svg { width: 18px; height: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="https://jakubpopluhar.com" class="logo" aria-label="Jakub Popluhar">
+      <img src="../images/logos/jakub-popluhar-logo-dark.png" alt="Jakub Popluhar" height="44">
+    </a>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="badge">Hill-Woltron Training &middot; 19.05.2026</div>
+      <h1>KI für den Büroalltag</h1>
+      <p>Ihr Arbeitsblatt für heute</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- LINKS -->
+    <div class="links">
+
+      <!-- Google Doc — primary action -->
+      <a class="link-card primary"
+         href="https://docs.google.com/document/d/1VlhOo51ljA9T9P-tabItn357jg-7ieq8gxiMlfhGHk4/edit"
+         target="_blank"
+         rel="noopener noreferrer">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <div class="card-text">
+          <div class="card-label">Gemeinsames Arbeitsblatt</div>
+          <div class="card-sub">Google Doc &mdash; heute live bearbeiten</div>
+        </div>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Übungen & Prompts -->
+      <a class="link-card"
+         href="uebungen.html">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <div class="card-text">
+          <div class="card-label">Übungen &amp; Prompts</div>
+          <div class="card-sub">Alle Prompts zum Kopieren</div>
+        </div>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Ressourcen & Tools -->
+      <a class="link-card" href="ressourcen/">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="card-text">
+          <div class="card-label">Ressourcen &amp; Tools</div>
+          <div class="card-sub">Mein KI-Stack &mdash; Tools &amp; Empfehlungen</div>
+        </div>
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      Jakub Popluhar M.Ed.
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+      &nbsp;&middot;&nbsp;
+      <a href="tel:+436641386498">+43 664 138 64 98</a>
+    </p>
+  </footer>
+
+</body>
+</html>
