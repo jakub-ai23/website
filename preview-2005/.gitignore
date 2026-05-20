@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Local server / Claude
+.claude/
+
+# Build artefacts (none yet, but reserve)
+node_modules/
+dist/
+.cache/
