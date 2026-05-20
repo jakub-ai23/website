@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo options for the Home (EN) · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; }
+    .preview-head { max-width: 900px; margin: 0 auto 2rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .preview-head h1 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 0.8rem; }
+    .preview-head p { color: var(--muted); max-width: 680px; margin: 0 auto; }
+    .toggle-bar {
+      max-width: 1320px; margin: 0 auto 2.5rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      display: flex; gap: 0.6rem; justify-content: center; align-items: center;
+      font-size: 0.92rem; color: var(--muted);
+    }
+    .toggle-btn {
+      padding: 0.5rem 1rem; border-radius: 999px;
+      border: 1px solid var(--border-s); background: var(--white);
+      font-family: var(--font); font-weight: 600; font-size: 0.86rem; color: var(--ink);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .toggle-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .toggle-btn.active { background: var(--charcoal-d); color: var(--white); border-color: var(--charcoal-d); }
+
+    .slot-section {
+      max-width: 1320px;
+      margin: 0 auto 3.5rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+    }
+    .slot-head { margin-bottom: 1.3rem; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem; }
+    .slot-head h2 {
+      font-size: 1.4rem; font-weight: 600; color: var(--ink);
+      letter-spacing: -0.008em;
+    }
+    .slot-head .slot-tag {
+      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--orange);
+    }
+    .slot-head .slot-where {
+      font-size: 0.88rem; color: var(--muted); font-style: italic;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    .photo-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .photo-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .photo-card:hover { border-color: var(--border-s); box-shadow: 0 14px 30px rgba(87,87,86,0.10); transform: translateY(-2px); }
+    .photo-frame {
+      aspect-ratio: 4/3;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, filter 0.4s ease;
+      filter: grayscale(100%) contrast(1.05);
+    }
+    .photo-card:hover .photo-frame img { transform: scale(1.04); filter: grayscale(100%) contrast(1.10) brightness(1.02); }
+    body.color-mode .photo-frame img { filter: none; }
+
+    .photo-meta { padding: 1rem 1.2rem 1.3rem; flex: 1; }
+    .photo-name { font-size: 0.96rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+    .photo-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.5; }
+
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+    @media (max-width: 1000px) { .photo-grid, .photo-grid.cols-2 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 680px)  { .photo-grid, .photo-grid.cols-2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index-en.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ Home Photo Options</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="preview-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">Photo Mood · Home (EN)</div>
+    <h1 class="h2">More options, mapped to each section of the Home page</h1>
+    <p>For every slot on <a href="index-en.html" style="color:var(--orange); text-decoration: underline;">index-en.html</a>, here are 2–4 photo options. All in B&amp;W by default — toggle to compare with colour. Click any card name to vote it in, or just tell me the numbers.</p>
+  </header>
+
+  <div class="toggle-bar">
+    <span>View:</span>
+    <button class="toggle-btn active" data-mode="bw" type="button">Black &amp; White</button>
+    <button class="toggle-btn" data-mode="color" type="button">Colour</button>
+  </div>
+
+  <!-- ─── SLOT 1: HERO ─────────────────────────── -->
+  <section class="slot-section">
+    <div class="slot-head">
+      <div>
+        <div class="slot-tag">Slot 01 · Hero</div>
+        <h2>The dominant image at the top of the page</h2>
+      </div>
+      <div class="slot-where">Behind / next to "We start with people, not with the platform."</div>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">1.1 · Woman, side-light, thinking</div>
+          <div class="photo-desc">Editorial portrait with negative space — ideal for an overlay headline. Sober, considered.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1494790108377-7be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">1.2 · Woman, frontal, calm</div>
+          <div class="photo-desc">Direct gaze, restrained smile — feels intelligent and approachable. Great for a CEO/HR-leader hero.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">1.3 · Window-light, reflective</div>
+          <div class="photo-desc">Person at window, soft natural light. "Human in the Lead" mood — thinking before acting.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">1.4 · Two people, listening</div>
+          <div class="photo-desc">Conversation, eye contact, real moment. Works if you want the hero to be relational rather than single-portrait.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SLOT 2: PILLARS ─────────────────────────── -->
+  <section class="slot-section">
+    <div class="slot-head">
+      <div>
+        <div class="slot-tag">Slot 02 · Pillars Trio</div>
+        <h2>One image per pillar: Recruiting · Onboarding · Learning</h2>
+      </div>
+      <div class="slot-where">Below the philosophy block, above the suite teaser</div>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">2.1 · Recruiting — interview moment</div>
+          <div class="photo-desc">Two people across a table, structured conversation. Reads as "selection" without being staged.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">2.2 · Onboarding — welcome scene</div>
+          <div class="photo-desc">A team welcoming someone, slight movement, no posed handshakes. Day-one feeling.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">2.3 · Learning — hands &amp; notebook</div>
+          <div class="photo-desc">Close-up: hands writing, notebook, methodical. Anchors the "Methodology before tool" claim visually.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SLOT 3: SUITE COLLABORATION ─────────────────────────── -->
+  <section class="slot-section">
+    <div class="slot-head">
+      <div>
+        <div class="slot-tag">Slot 03 · Suite Teaser</div>
+        <h2>One image suggesting collaboration / process</h2>
+      </div>
+      <div class="slot-where">In the cream "Five modules. One operating system." section</div>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">3.1 · Three people, table, daylight</div>
+          <div class="photo-desc">Mid-conversation, papers and screens visible but not central. Real collaboration.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">3.2 · Workshop wall / sticky notes</div>
+          <div class="photo-desc">Process visible on a wall — feels like methodology in action, not just chat.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">3.3 · Two hands, decisive moment</div>
+          <div class="photo-desc">Close-up handshake-style — but framed as a quiet, considered moment, not a sales cliché.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SLOT 4: HERITAGE ─────────────────────────── -->
+  <section class="slot-section">
+    <div class="slot-head">
+      <div>
+        <div class="slot-tag">Slot 04 · Heritage / "Since 1975"</div>
+        <h2>Faces with experience — or an archive feel</h2>
+      </div>
+      <div class="slot-where">Next to the "50+" gradient block on the home, or in heritage hero</div>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">4.1 · Senior man, wisdom</div>
+          <div class="photo-desc">Older professional, weathered yet sharp. Heritage = experience, in a single face.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">4.2 · Senior portrait, side-light</div>
+          <div class="photo-desc">Editorial, contemplative — works beautifully in B&amp;W as a "founder" or "three generations" portrait.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1568633538856-99ca09da81d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">4.3 · Vintage / archive feel</div>
+          <div class="photo-desc">Could pose as a 1975-era reference shot. Stand-in until you find real Hill archive material.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SLOT 5: PERSPECTIVES ─────────────────────────── -->
+  <section class="slot-section">
+    <div class="slot-head">
+      <div>
+        <div class="slot-tag">Slot 05 · Perspectives Cards</div>
+        <h2>Editorial header images for the three article teasers</h2>
+      </div>
+      <div class="slot-where">Inside each of the three "Perspectives" cards</div>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1488998427799-e3362cec87c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">5.1 · Position Paper · open book</div>
+          <div class="photo-desc">Quiet study scene. Reads as "longer think piece" — pairs with the "Sovereign HR" position paper.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1493497029755-f49c8e9a25fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">5.2 · Briefing · institutional architecture</div>
+          <div class="photo-desc">Government / institutional feel — for the EU AI Act briefing.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">5.3 · Manifesto · thinker</div>
+          <div class="photo-desc">A person mid-thought, contemplative. Carries the "Human in the Lead" manifesto.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SLOT 6: ATMOSPHERE / MOUNTAINS ─────────────────────────── -->
+  <section class="slot-section">
+    <div class="slot-head">
+      <div>
+        <div class="slot-tag">Slot 06 · Atmosphere / Backdrop</div>
+        <h2>Optional landscape moods — for hero backdrop or Final CTA</h2>
+      </div>
+      <div class="slot-where">Behind hero overlay, or as Final-CTA atmospheric layer (recommend keeping in colour for the Hill gradient)</div>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">6.1 · Alps · sunrise</div>
+          <div class="photo-desc">Yellow→Orange in real light. The Hill brand gradient as actual atmosphere — most on-brand if used in colour.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">6.2 · Mountain ridge · cool</div>
+          <div class="photo-desc">Sharper, colder, more sober. Works well in B&amp;W as a heritage-anchor.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">6.3 · Mountain · valley fog</div>
+          <div class="photo-desc">Mood-piece: atmospheric, contemplative. Could be used as a faded backdrop in a quiet section.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="preview-back-row">
+    <a href="index-en.html" class="preview-back">← back to home</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+  <script>
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.toggle('active', b === btn));
+        document.body.classList.toggle('color-mode', btn.dataset.mode === 'color');
+      });
+    });
+  </script>
+</body>
+</html>

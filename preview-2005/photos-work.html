@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photos: Team · AI Training · Workflow · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; }
+    .preview-head { max-width: 920px; margin: 0 auto 1.5rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .preview-head h1 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 0.8rem; }
+    .preview-head p { color: var(--muted); max-width: 720px; margin: 0 auto; }
+    .toggle-bar {
+      max-width: 1320px; margin: 0 auto 2.5rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      display: flex; gap: 0.6rem; justify-content: center; align-items: center;
+      font-size: 0.92rem; color: var(--muted);
+    }
+    .toggle-btn {
+      padding: 0.5rem 1rem; border-radius: 999px;
+      border: 1px solid var(--border-s); background: var(--white);
+      font-family: var(--font); font-weight: 600; font-size: 0.86rem; color: var(--ink);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .toggle-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .toggle-btn.active { background: var(--charcoal-d); color: var(--white); border-color: var(--charcoal-d); }
+
+    .cat-section {
+      max-width: 1320px;
+      margin: 0 auto 4rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+    }
+    .cat-head {
+      margin-bottom: 1.4rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .cat-tag {
+      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+    .cat-name {
+      font-size: 1.45rem; font-weight: 600; color: var(--ink);
+      letter-spacing: -0.012em; margin-bottom: 0.4rem;
+    }
+    .cat-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; max-width: 760px; }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .photo-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .photo-card:hover { border-color: var(--border-s); box-shadow: 0 14px 30px rgba(87,87,86,0.10); transform: translateY(-2px); }
+    .photo-frame {
+      aspect-ratio: 4/3;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, filter 0.4s ease;
+      filter: grayscale(100%) contrast(1.06);
+    }
+    .photo-card:hover .photo-frame img { transform: scale(1.04); filter: grayscale(100%) contrast(1.12) brightness(1.02); }
+    body.color-mode .photo-frame img { filter: none; }
+
+    .photo-meta { padding: 0.85rem 1rem 1rem; flex: 1; }
+    .photo-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; line-height: 1.3; }
+    .photo-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.45; }
+
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+
+    @media (max-width: 1100px) { .photo-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 760px)  { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .photo-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index-en.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ Team · AI · Workflow</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="preview-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">Photo Mood · Activity</div>
+    <h1 class="h2">Photos: Team work · AI training · Workflow in action</h1>
+    <p>Twenty-four more options — this time organised by what's happening in the image. All in B&amp;W by default. Real moments, no robot-brain clichés, no shiny stock smiles.</p>
+  </header>
+
+  <div class="toggle-bar">
+    <span>View:</span>
+    <button class="toggle-btn active" data-mode="bw" type="button">Black &amp; White</button>
+    <button class="toggle-btn" data-mode="color" type="button">Colour</button>
+  </div>
+
+  <!-- ─── A · TEAM ─────────────────────────────── -->
+  <section class="cat-section">
+    <div class="cat-head">
+      <div class="cat-tag">Category A</div>
+      <h2 class="cat-name">Team — collaboration, real moments</h2>
+      <p class="cat-desc">Cross-functional groups working together. Diverse age and gender, daylight, real workplaces. The shots that say "HR and IT and the line manager actually talk."</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">A.1 · Cross-functional huddle</div>
+          <div class="photo-desc">Diverse team around a laptop, real discussion. Reads as "HR + line manager + IT in one room".</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">A.2 · Three people, daylight</div>
+          <div class="photo-desc">Mid-conversation, papers visible. Natural HRBP-huddle aesthetic.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">A.3 · Two leaders, eye contact</div>
+          <div class="photo-desc">Senior dyad, quiet decision moment. Works for board / steering committee scenes.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1565728744382-61accd4aa148?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">A.4 · Diverse team, modern office</div>
+          <div class="photo-desc">Younger team energy — for the "operations / day-to-day HR" register.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1530099486328-e021101a494a?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">A.5 · Open office, working</div>
+          <div class="photo-desc">Wider scene, multiple people in different tasks. Atmosphere over portrait.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">A.6 · Modern team, stand-up</div>
+          <div class="photo-desc">Standing meeting, agile feel. Good for "tempo" sections.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">A.7 · 1:1 daylight conversation</div>
+          <div class="photo-desc">Two people, considered talk. Mirrors the Hill coaching/audit register.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">A.8 · Boardroom deliberation</div>
+          <div class="photo-desc">Mid-deliberation, not presentation. Quiet C-level moment.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── B · AI TRAINING ─────────────────────────────── -->
+  <section class="cat-section">
+    <div class="cat-head">
+      <div class="cat-tag">Category B</div>
+      <h2 class="cat-name">AI Training — learning, coaching, considered tech</h2>
+      <p class="cat-desc">People learning to work <em>with</em> AI, not be replaced by it. Coaching moments, on-screen review, side-by-side training. No glowing brains. No robots. Just humans working considered with tooling.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.1 · Training session, room</div>
+          <div class="photo-desc">Workshop / training feel. Multiple participants, screen visible but not central.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.2 · Standing briefing</div>
+          <div class="photo-desc">Someone explaining a process to others. The HR-introduces-new-tool moment.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.3 · Person at screen, learning</div>
+          <div class="photo-desc">Concentrated, reading on a screen. AI-tool-onboarding moment without the gimmick.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.4 · Side-by-side coaching</div>
+          <div class="photo-desc">Two people, one screen — peer learning. The "I show you, you show me" register.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1573164574230-db1d5e960238?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.5 · Consulting moment</div>
+          <div class="photo-desc">Listening, taking it in. Translates well to "we train your HR team on Hill Digital".</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.6 · Strategy / governance review</div>
+          <div class="photo-desc">Board-level technology decision moment. EU AI Act audit register.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1488998427799-e3362cec87c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.7 · Reading / study</div>
+          <div class="photo-desc">Quiet learning — book or paper. Hill-methodology register, "study before tool".</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.8 · 1:1 coaching with screen</div>
+          <div class="photo-desc">A coach and a learner over data — clear AI-literacy moment without gimmicks.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── C · WORKFLOW ─────────────────────────────── -->
+  <section class="cat-section">
+    <div class="cat-head">
+      <div class="cat-tag">Category C</div>
+      <h2 class="cat-name">Workflow — process visible, methodology in action</h2>
+      <p class="cat-desc">Where the work actually happens. Hands writing, kanban boards, structured workshops, focused workstations. These photos anchor "methodology before tool" — the bedrock claim of Hill Digital.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">C.1 · Hands writing in notebook</div>
+          <div class="photo-desc">Methodology made tangible. Analog gravitas — the Hill audit register.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">C.2 · Workshop wall · sticky notes</div>
+          <div class="photo-desc">Process visible on a wall — planning, mapping, structuring. Workflow at its source.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">C.3 · Focused workstation</div>
+          <div class="photo-desc">One person, focus, screen — the "HR-Ops processes 30 candidates today" image.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">C.4 · Hands on laptop, considered</div>
+          <div class="photo-desc">Close-up of work happening. Could pair with "automation" headlines.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">C.5 · Kanban / process board</div>
+          <div class="photo-desc">Visible workflow stages, cards moving. Suite-process register.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1493292307868-3aff89b62b9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">C.6 · Documents · structured</div>
+          <div class="photo-desc">Folders, templates, structured documentation — methodology made physical.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">C.7 · Dual-screen setup</div>
+          <div class="photo-desc">Sober dual-monitor workstation. The "HR analyst at work" register, no hacker-stock cliché.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">C.8 · Process review, two people</div>
+          <div class="photo-desc">Pair reviewing a screen together — workflow handover, training transition.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="preview-back-row">
+    <a href="index-en.html" class="preview-back">← back to home</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+  <script>
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.toggle('active', b === btn));
+        document.body.classList.toggle('color-mode', btn.dataset.mode === 'color');
+      });
+    });
+  </script>
+</body>
+</html>

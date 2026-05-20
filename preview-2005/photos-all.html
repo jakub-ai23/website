@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Photos · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; }
+    .preview-head { max-width: 920px; margin: 0 auto 1.5rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .preview-head h1 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 0.8rem; }
+    .preview-head p { color: var(--muted); max-width: 720px; margin: 0 auto; }
+
+    .controls-bar {
+      max-width: 1480px; margin: 0 auto 2.5rem;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      display: flex; gap: 0.6rem; justify-content: center; align-items: center; flex-wrap: wrap;
+      font-size: 0.92rem; color: var(--muted);
+    }
+    .toggle-btn {
+      padding: 0.45rem 0.95rem; border-radius: 999px;
+      border: 1px solid var(--border-s); background: var(--white);
+      font-family: var(--font); font-weight: 600; font-size: 0.84rem; color: var(--ink);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .toggle-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .toggle-btn.active { background: var(--charcoal-d); color: var(--white); border-color: var(--charcoal-d); }
+
+    .filter-bar {
+      max-width: 1480px; margin: 0 auto 2rem;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      display: flex; gap: 0.4rem; justify-content: center; align-items: center; flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.35rem 0.85rem; border-radius: 999px;
+      border: 1px solid var(--border); background: transparent;
+      font-family: var(--font); font-weight: 600; font-size: 0.78rem; color: var(--muted);
+      cursor: pointer; transition: all 0.2s;
+      letter-spacing: 0.06em;
+    }
+    .filter-btn:hover { color: var(--orange); border-color: var(--orange); }
+    .filter-btn.active { background: var(--orange); color: var(--white); border-color: var(--orange); }
+
+    .cat-section {
+      max-width: 1480px;
+      margin: 0 auto 3.5rem;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+    }
+    .cat-head { margin-bottom: 1.1rem; }
+    .cat-tag {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 0.4rem;
+    }
+    .cat-name {
+      font-size: 1.2rem; font-weight: 600; color: var(--ink);
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.8rem;
+    }
+    .photo-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .photo-card:hover { border-color: var(--border-s); transform: translateY(-2px); }
+    .photo-frame {
+      aspect-ratio: 4/3;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.3s ease;
+      filter: grayscale(100%) contrast(1.06);
+    }
+    .photo-card:hover .photo-frame img { transform: scale(1.06); }
+    body.color-mode .photo-frame img { filter: none; }
+
+    .photo-meta { padding: 0.55rem 0.7rem 0.65rem; }
+    .photo-id {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 0.15rem;
+    }
+    .photo-name { font-size: 0.82rem; font-weight: 500; color: var(--ink); line-height: 1.3; }
+
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+
+    .gallery-links {
+      max-width: 1480px; margin: 0 auto 3rem;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;
+    }
+    .gallery-links a {
+      font-size: 0.82rem; color: var(--muted); padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border); border-radius: 999px;
+      transition: all 0.2s;
+    }
+    .gallery-links a:hover { color: var(--orange); border-color: var(--orange); }
+
+    @media (max-width: 1200px) { .photo-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 900px)  { .photo-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px)  { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index-en.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ All Photos</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="preview-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">All Photo Options</div>
+    <h1 class="h2">Full mood board · 52 photos</h1>
+    <p>Every photo across all previews in one contact-sheet view. Group-tagged, B&amp;W by default. Hover to see colour. Quote any ID code (e.g. <strong>POR-03</strong>) to vote it in.</p>
+  </header>
+
+  <div class="controls-bar">
+    <span>View:</span>
+    <button class="toggle-btn active" data-mode="bw" type="button">Black &amp; White</button>
+    <button class="toggle-btn" data-mode="color" type="button">Colour</button>
+  </div>
+
+  <div class="gallery-links">
+    <a href="photos-preview.html">6 directions</a>
+    <a href="photos-home.html">by home slot</a>
+    <a href="photos-personas.html">by persona</a>
+    <a href="photos-work.html">team · AI · workflow</a>
+    <a href="photos-paper-vs-ai.html">paper vs AI</a>
+  </div>
+
+  <!-- ─── PORTRAITS ─────────────────────────────── -->
+  <section class="cat-section">
+    <div class="cat-head"><div class="cat-tag">POR · Portraits</div><h2 class="cat-name">Single-person editorial portraits — 13</h2></div>
+    <div class="photo-grid">
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-01</div><div class="photo-name">HR Director, decisive</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-02</div><div class="photo-name">Editorial side-light</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-03</div><div class="photo-name">Woman, frontal, calm</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-04</div><div class="photo-name">Window light, focused</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-05</div><div class="photo-name">Mid-career, composed</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-06</div><div class="photo-name">Taking notes, structured</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1559548331-f9cb98280344?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-07</div><div class="photo-name">Walking briefing</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1573164574230-db1d5e960238?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-08</div><div class="photo-name">On the phone, listening</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-09</div><div class="photo-name">Senior man, wisdom</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-10</div><div class="photo-name">Senior portrait, side-light</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-11</div><div class="photo-name">CEO portrait</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-12</div><div class="photo-name">Thinker, profile</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1568633538856-99ca09da81d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">POR-13</div><div class="photo-name">Vintage portrait feel</div></div></div>
+    </div>
+  </section>
+
+  <!-- ─── TEAMS ─────────────────────────────── -->
+  <section class="cat-section">
+    <div class="cat-head"><div class="cat-tag">TEA · Teams</div><h2 class="cat-name">Group moments, real collaboration — 12</h2></div>
+    <div class="photo-grid">
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-01</div><div class="photo-name">Three people, daylight</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-02</div><div class="photo-name">Standing briefing</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-03</div><div class="photo-name">Interview moment</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-04</div><div class="photo-name">Workshop wall, sticky notes</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-05</div><div class="photo-name">Two leaders, eye contact</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-06</div><div class="photo-name">Hands, agreement</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-07</div><div class="photo-name">Boardroom deliberation</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-08</div><div class="photo-name">1:1 daylight talk</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-09</div><div class="photo-name">Cross-functional huddle</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1565728744382-61accd4aa148?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-10</div><div class="photo-name">Diverse team, modern office</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1530099486328-e021101a494a?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-11</div><div class="photo-name">Open office, working</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">TEA-12</div><div class="photo-name">Modern stand-up</div></div></div>
+    </div>
+  </section>
+
+  <!-- ─── WORKFLOW / PAPER ─────────────────────────────── -->
+  <section class="cat-section">
+    <div class="cat-head"><div class="cat-tag">WRK · Workflow & paper</div><h2 class="cat-name">Method, hands, paper, structured work — 11</h2></div>
+    <div class="photo-grid">
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">WRK-01</div><div class="photo-name">Hands writing in notebook</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">WRK-02</div><div class="photo-name">Focused workstation</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">WRK-03</div><div class="photo-name">Hands on laptop, close-up</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">WRK-04</div><div class="photo-name">Kanban / process board</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1493292307868-3aff89b62b9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">WRK-05</div><div class="photo-name">Documents, structured</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">WRK-06</div><div class="photo-name">Dual-screen setup</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">WRK-07</div><div class="photo-name">Pair reviewing screen</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">WRK-08</div><div class="photo-name">Files and folders</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">WRK-09</div><div class="photo-name">Stack of documents</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1494178270175-e96de2971df9?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">WRK-10</div><div class="photo-name">Printed pages, review</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">WRK-11</div><div class="photo-name">Paper documents, structured</div></div></div>
+    </div>
+  </section>
+
+  <!-- ─── AI / DIGITAL ─────────────────────────────── -->
+  <section class="cat-section">
+    <div class="cat-head"><div class="cat-tag">AI · AI applied & digital</div><h2 class="cat-name">Dashboards, screens, coaching with tech — 9</h2></div>
+    <div class="photo-grid">
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">AI-01</div><div class="photo-name">Dashboard, analytics</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">AI-02</div><div class="photo-name">Multi-screen analytics</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">AI-03</div><div class="photo-name">Tablet workflow</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">AI-04</div><div class="photo-name">Modern workstation</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">AI-05</div><div class="photo-name">Screen review, concentrated</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">AI-06</div><div class="photo-name">Tablet + interface detail</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">AI-07</div><div class="photo-name">Training session, room</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">AI-08</div><div class="photo-name">Side-by-side coaching</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">AI-09</div><div class="photo-name">Coaching with screen</div></div></div>
+    </div>
+  </section>
+
+  <!-- ─── BRIDGE ─────────────────────────────── -->
+  <section class="cat-section">
+    <div class="cat-head"><div class="cat-tag">BRG · Bridge — Human in the Lead</div><h2 class="cat-name">Paper + screen + human in one frame — 4</h2></div>
+    <div class="photo-grid">
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">BRG-01</div><div class="photo-name">Paper + laptop, same desk</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1488998427799-e3362cec87c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">BRG-02</div><div class="photo-name">Open book, study</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1493497029755-f49c8e9a25fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">BRG-03</div><div class="photo-name">Institutional architecture</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1516550893923-42d28e5677af?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">BRG-04</div><div class="photo-name">Vienna · facade detail</div></div></div>
+    </div>
+  </section>
+
+  <!-- ─── MOUNTAINS ─────────────────────────────── -->
+  <section class="cat-section">
+    <div class="cat-head"><div class="cat-tag">MTN · Mountains & atmosphere</div><h2 class="cat-name">Landscape — recommended in colour — 3</h2></div>
+    <div class="photo-grid">
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">MTN-01</div><div class="photo-name">Alps · sunrise</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">MTN-02</div><div class="photo-name">Mountain ridge, cool</div></div></div>
+      <div class="photo-card"><div class="photo-frame"><img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="" loading="lazy"/></div><div class="photo-meta"><div class="photo-id">MTN-03</div><div class="photo-name">Mountain · valley fog</div></div></div>
+    </div>
+  </section>
+
+  <div class="preview-back-row">
+    <a href="index-en.html" class="preview-back">← back to home</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+  <script>
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.toggle('active', b === btn));
+        document.body.classList.toggle('color-mode', btn.dataset.mode === 'color');
+      });
+    });
+  </script>
+</body>
+</html>

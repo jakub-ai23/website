@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Master Claim · Human in the Lead · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Source+Sans+3:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; background: var(--bg); }
+    .campaign-head { max-width: 940px; margin: 0 auto 3rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .campaign-head h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.6rem; line-height: 1.05; }
+    .campaign-head h1 .accent {
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .campaign-head p { color: var(--muted); max-width: 700px; margin: 0 auto; font-size: 1.02rem; }
+
+    .campaign-container {
+      max-width: 1280px;
+      margin: 0 auto 5rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+    }
+
+    .campaign-card {
+      position: relative;
+      aspect-ratio: 16/9;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #0E0E0D;
+      box-shadow: 0 32px 80px rgba(14,14,13,0.36);
+    }
+    .campaign-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(800px 560px at 82% 18%, rgba(255,160,20,0.16), transparent 62%),
+        radial-gradient(540px 380px at 10% 88%, rgba(250,230,0,0.08), transparent 62%);
+      pointer-events: none;
+    }
+    /* faint star-dust grain */
+    .campaign-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='180' viewBox='0 0 240 180'><g fill='%23ffffff'><circle cx='30' cy='40' r='0.6' fill-opacity='0.22'/><circle cx='90' cy='22' r='0.5' fill-opacity='0.18'/><circle cx='160' cy='60' r='0.7' fill-opacity='0.20'/><circle cx='210' cy='30' r='0.5' fill-opacity='0.16'/><circle cx='60' cy='110' r='0.6' fill-opacity='0.19'/><circle cx='140' cy='130' r='0.5' fill-opacity='0.17'/><circle cx='200' cy='150' r='0.6' fill-opacity='0.20'/></g></svg>");
+      background-size: 240px 180px;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .hero-slogan {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -52%);
+      text-align: center;
+      z-index: 2;
+      pointer-events: none;
+      width: 90%;
+    }
+    .claim-line {
+      font-family: 'Caveat', cursive;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.02;
+      letter-spacing: 0.01em;
+      display: block;
+      text-shadow:
+        0 0 14px rgba(255,255,255,0.20),
+        0 0 32px rgba(255,200,90,0.12);
+    }
+    .claim-line-1 {
+      font-size: clamp(3.4rem, 10.5vw, 8rem);
+      transform: rotate(-4deg);
+      margin-bottom: 0.15rem;
+    }
+    .claim-line-2 {
+      font-size: clamp(3rem, 9vw, 7rem);
+      transform: rotate(-2deg) translateX(6%);
+      color: #ffffff;
+    }
+    .claim-line-2 .accent {
+      background: linear-gradient(90deg, #FFE680 0%, #FFA014 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .arrow-line {
+      display: block;
+      margin: 0.6rem auto 0;
+      width: clamp(220px, 38vw, 420px);
+      height: auto;
+      transform: rotate(-3deg) translateX(8%);
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.14));
+    }
+
+    .corner-logo {
+      position: absolute;
+      top: clamp(1.6rem, 3.5vw, 2.4rem);
+      right: clamp(1.6rem, 3.5vw, 2.4rem);
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      color: var(--white); font-weight: 700;
+      font-size: clamp(1.1rem, 1.8vw, 1.55rem);
+      letter-spacing: -0.012em; z-index: 3;
+    }
+    .corner-logo svg { width: clamp(38px, 4.2vw, 50px); height: clamp(38px, 4.2vw, 50px); }
+
+    .motiv-badge {
+      position: absolute;
+      top: clamp(1.6rem, 3.5vw, 2.4rem);
+      left: clamp(1.6rem, 3.5vw, 2.4rem);
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(255,255,255,0.62);
+      z-index: 3;
+    }
+    .motiv-badge::before {
+      content: ''; width: 22px; height: 2px;
+      background: linear-gradient(90deg, var(--yellow), var(--orange));
+      border-radius: 1px;
+    }
+
+    .signature {
+      position: absolute;
+      bottom: clamp(1.4rem, 3vw, 2.2rem);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font);
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.48);
+      z-index: 2;
+    }
+
+    .campaign-meta {
+      max-width: 1280px; margin: 0 auto;
+      padding: 1rem clamp(1.5rem, 4vw, 4rem) 1.4rem;
+      display: flex; justify-content: space-between; gap: 0.6rem; flex-wrap: wrap;
+      font-size: 0.84rem; color: var(--muted-l);
+    }
+    .campaign-meta strong { color: var(--ink); font-weight: 600; }
+
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+    .preview-back + .preview-back { margin-left: 1.4rem; }
+
+    @media (max-width: 720px) {
+      .campaign-card { aspect-ratio: 4/5; }
+      .claim-line-1 { font-size: 2.6rem; }
+      .claim-line-2 { font-size: 2.3rem; }
+      .arrow-line { width: 70%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ Master Claim</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="campaign-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">Master Claim · Campaign</div>
+    <h1>Human in the Lead. <span class="accent">KI im Hintergrund.</span></h1>
+    <p>Derselbe handgeschriebene Rahmen, jetzt mit dem Master-Claim als zentralem Motiv. Zwei Zeilen Caveat, leicht versetzt rotiert, weißes Glühen auf tiefdunklem Grund, mit Yellow→Orange-Lichtspot.</p>
+  </header>
+
+  <section class="campaign-container">
+
+    <div class="campaign-card">
+      <span class="corner-logo">
+        <svg viewBox="0 0 34 34" width="28" height="28">
+          <defs><linearGradient id="hillArcM" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+          <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+          <path d="M6 10 Q17 2 28 10" stroke="url(#hillArcM)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        </svg>
+        Hill Digital
+      </span>
+
+      <div class="hero-slogan">
+        <span class="claim-line claim-line-1">Human in the Lead.</span>
+        <span class="claim-line claim-line-2"><span class="accent">KI im Hintergrund.</span></span>
+        <svg class="arrow-line" viewBox="0 0 420 50" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 14 38 Q 90 36 180 30 Q 280 24 380 16"
+                stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 365 8 L 392 16 L 372 30"
+                stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="14" cy="38" r="2.2" fill="white"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="campaign-meta">
+      <div><strong>Format:</strong> 16:9 · Web Hero, LinkedIn-Cover, Print, Display Ad</div>
+      <div><strong>Visual:</strong> Caveat handwriting · arrow · dark</div>
+    </div>
+
+  </section>
+
+  <div class="preview-back-row">
+    <a href="campaign.html" class="preview-back">← Drei-Motive-Serie</a>
+    <a href="index.html" class="preview-back">zurück zur Seite →</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+</body>
+</html>

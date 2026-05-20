@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo · Hill Woltron Envelope · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; }
+    .preview-head { max-width: 940px; margin: 0 auto 3rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .preview-head h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.6rem; line-height: 1.05; }
+    .preview-head h1 .accent {
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .preview-head p { color: var(--muted); max-width: 720px; margin: 0 auto; font-size: 1.02rem; }
+
+    .variant-grid {
+      max-width: 1320px; margin: 0 auto 4rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      display: grid; gap: 2rem;
+    }
+
+    .variant-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .variant-head {
+      padding: 1.5rem 2rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .variant-tag {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 0.4rem;
+    }
+    .variant-name { font-size: 1.2rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0.3rem; }
+    .variant-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+
+    .variant-stage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 280px;
+    }
+    .stage-light { background: var(--cream); display: grid; place-items: center; padding: 2.4rem; }
+    .stage-dark  { background: var(--charcoal-d); display: grid; place-items: center; padding: 2.4rem; }
+    .stage-light svg, .stage-dark svg { max-width: 92%; width: 100%; height: auto; }
+
+    .nav-mock-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--border);
+    }
+    .nav-mock-cell {
+      padding: 1.4rem 1.8rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+      border-right: 1px solid var(--border);
+    }
+    .nav-mock-cell:last-child { border-right: none; }
+    .nav-mock-cell.dark { background: var(--charcoal-d); }
+    .nav-mock-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted-l);
+    }
+    .nav-mock-cell.dark .nav-mock-label { color: rgba(255,255,255,0.5); }
+    .nav-mock-inner {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-family: var(--font); font-weight: 700; font-size: 1.05rem;
+      color: var(--ink);
+    }
+    .nav-mock-cell.dark .nav-mock-inner { color: var(--white); }
+    .nav-mock-inner svg { width: 40px; height: 32px; }
+    .nav-mock-sub { color: var(--muted); font-weight: 500; }
+    .nav-mock-cell.dark .nav-mock-sub { color: rgba(255,255,255,0.5); }
+
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+    .preview-back + .preview-back { margin-left: 1.4rem; }
+
+    @media (max-width: 760px) { .variant-stage, .nav-mock-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ Logo Envelope</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="preview-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">Konzept A · Envelope Arc</div>
+    <h1>Hill Woltron Linie · <span class="accent">Hill Digital adaptiert</span></h1>
+    <p>Lange Yellow-to-Orange-Bogenlinie die den Berg umfasst, nicht nur darüber sitzt. Berg-Silhouette mit zwei Gipfeln und langem rechten Fuß, wie im Original. Drei Sub-Varianten der Wortmarke. Bogen und Berg konsistent über alle drei.</p>
+  </header>
+
+  <section class="variant-grid">
+
+    <!-- ─── E.1 · Envelope · Stacked Wordmark ─────────── -->
+    <article class="variant-card">
+      <div class="variant-head">
+        <div class="variant-tag">Variante E.1 · Stacked Wordmark</div>
+        <div class="variant-name">"Hill Digital" stacked, "HR-Betriebssystem" als Subline</div>
+        <div class="variant-desc">Analog zum Original Hill-Woltron-Layout (Wortmarke über Tracked-Caps-Subline). Berg und Bogen treu zur Vorlage adaptiert. Wirkt formell, autoritär, geeignet für Briefpapier und Visitenkarte.</div>
+      </div>
+      <div class="variant-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" aria-label="E.1 light">
+            <defs>
+              <linearGradient id="e1l" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FFA014"/>
+                <stop offset="35%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FAE600"/>
+              </linearGradient>
+            </defs>
+            <!-- enveloping arc -->
+            <path d="M 18 165 C 8 30 90 -20 175 45"
+                  stroke="url(#e1l)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <!-- mountain silhouette (filled grey) -->
+            <path d="M 35 155 L 70 78 L 82 100 L 110 38 L 128 62 L 140 50 L 154 72 L 200 155 Z"
+                  fill="#B0B0B0"/>
+            <!-- wordmark -->
+            <text x="230" y="105" font-family="Source Sans 3, sans-serif" font-size="40" font-weight="700" fill="#575756" letter-spacing="-1">Hill Digital</text>
+            <text x="232" y="140" font-family="Source Sans 3, sans-serif" font-size="16" font-weight="500" fill="#575756" letter-spacing="3">HR-BETRIEBSSYSTEM</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" aria-label="E.1 dark">
+            <defs>
+              <linearGradient id="e1d" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FFA014"/>
+                <stop offset="35%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FAE600"/>
+              </linearGradient>
+            </defs>
+            <path d="M 18 165 C 8 30 90 -20 175 45"
+                  stroke="url(#e1d)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M 35 155 L 70 78 L 82 100 L 110 38 L 128 62 L 140 50 L 154 72 L 200 155 Z"
+                  fill="#D8D8D6"/>
+            <text x="230" y="105" font-family="Source Sans 3, sans-serif" font-size="40" font-weight="700" fill="#FFFFFF" letter-spacing="-1">Hill Digital</text>
+            <text x="232" y="140" font-family="Source Sans 3, sans-serif" font-size="16" font-weight="500" fill="#FFFFFF" letter-spacing="3">HR-BETRIEBSSYSTEM</text>
+          </svg>
+        </div>
+      </div>
+      <div class="nav-mock-row">
+        <div class="nav-mock-cell">
+          <span class="nav-mock-label">Nav · light</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 50 36">
+              <defs><linearGradient id="e1nl" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#FFA014"/><stop offset="35%" stop-color="#FFC107"/><stop offset="100%" stop-color="#FAE600"/></linearGradient></defs>
+              <path d="M 4 30 C 1 5 18 -3 38 8" stroke="url(#e1nl)" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M 8 28 L 16 14 L 19 18 L 25 8 L 29 13 L 32 11 L 35 14 L 44 28 Z" fill="#B0B0B0"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+        <div class="nav-mock-cell dark">
+          <span class="nav-mock-label">Nav · dark</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 50 36">
+              <defs><linearGradient id="e1nd" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#FFA014"/><stop offset="35%" stop-color="#FFC107"/><stop offset="100%" stop-color="#FAE600"/></linearGradient></defs>
+              <path d="M 4 30 C 1 5 18 -3 38 8" stroke="url(#e1nd)" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M 8 28 L 16 14 L 19 18 L 25 8 L 29 13 L 32 11 L 35 14 L 44 28 Z" fill="#D8D8D6"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── E.2 · Envelope · Inline Horizontal ─────────── -->
+    <article class="variant-card">
+      <div class="variant-head">
+        <div class="variant-tag">Variante E.2 · Inline Horizontal</div>
+        <div class="variant-name">"Hill Digital" auf einer Zeile, ohne Subline</div>
+        <div class="variant-desc">Berg und Envelope-Bogen kompakter. Wortmarke horizontal in einer Zeile. Wirkt moderner und passt besser in Site-Headers und schmale Container.</div>
+      </div>
+      <div class="variant-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg" aria-label="E.2 light">
+            <defs>
+              <linearGradient id="e2l" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FFA014"/>
+                <stop offset="35%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FAE600"/>
+              </linearGradient>
+            </defs>
+            <path d="M 14 130 C 6 20 80 -18 155 32"
+                  stroke="url(#e2l)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+            <path d="M 30 122 L 60 60 L 72 80 L 96 28 L 112 50 L 124 40 L 138 58 L 178 122 Z"
+                  fill="#B0B0B0"/>
+            <text x="200" y="95" font-family="Source Sans 3, sans-serif" font-size="44" font-weight="700" fill="#575756" letter-spacing="-1.2">Hill Digital</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg" aria-label="E.2 dark">
+            <defs>
+              <linearGradient id="e2d" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FFA014"/>
+                <stop offset="35%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FAE600"/>
+              </linearGradient>
+            </defs>
+            <path d="M 14 130 C 6 20 80 -18 155 32"
+                  stroke="url(#e2d)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+            <path d="M 30 122 L 60 60 L 72 80 L 96 28 L 112 50 L 124 40 L 138 58 L 178 122 Z"
+                  fill="#D8D8D6"/>
+            <text x="200" y="95" font-family="Source Sans 3, sans-serif" font-size="44" font-weight="700" fill="#FFFFFF" letter-spacing="-1.2">Hill Digital</text>
+          </svg>
+        </div>
+      </div>
+      <div class="nav-mock-row">
+        <div class="nav-mock-cell">
+          <span class="nav-mock-label">Nav · light</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 50 36">
+              <defs><linearGradient id="e2nl" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#FFA014"/><stop offset="35%" stop-color="#FFC107"/><stop offset="100%" stop-color="#FAE600"/></linearGradient></defs>
+              <path d="M 4 30 C 1 5 18 -3 38 8" stroke="url(#e2nl)" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M 8 28 L 16 14 L 19 18 L 25 8 L 29 13 L 32 11 L 35 14 L 44 28 Z" fill="#B0B0B0"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+        <div class="nav-mock-cell dark">
+          <span class="nav-mock-label">Nav · dark</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 50 36">
+              <defs><linearGradient id="e2nd" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#FFA014"/><stop offset="35%" stop-color="#FFC107"/><stop offset="100%" stop-color="#FAE600"/></linearGradient></defs>
+              <path d="M 4 30 C 1 5 18 -3 38 8" stroke="url(#e2nd)" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M 8 28 L 16 14 L 19 18 L 25 8 L 29 13 L 32 11 L 35 14 L 44 28 Z" fill="#D8D8D6"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── E.3 · Envelope · Outlined Mountain ─────────── -->
+    <article class="variant-card">
+      <div class="variant-head">
+        <div class="variant-tag">Variante E.3 · Outline Mountain</div>
+        <div class="variant-name">Envelope-Bogen mit Berg als Outline statt Füllung</div>
+        <div class="variant-desc">Mischung aus Envelope-Bogen und Outline-Berg-Idee. Leichter, eleganter, lässt den Bogen noch dominanter wirken.</div>
+      </div>
+      <div class="variant-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" aria-label="E.3 light">
+            <defs>
+              <linearGradient id="e3l" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FFA014"/>
+                <stop offset="35%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FAE600"/>
+              </linearGradient>
+            </defs>
+            <path d="M 18 165 C 8 30 90 -20 175 45"
+                  stroke="url(#e3l)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M 35 155 L 70 78 L 82 100 L 110 38 L 128 62 L 140 50 L 154 72 L 200 155 Z"
+                  fill="none" stroke="#575756" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+            <text x="230" y="105" font-family="Source Sans 3, sans-serif" font-size="40" font-weight="700" fill="#575756" letter-spacing="-1">Hill Digital</text>
+            <text x="232" y="140" font-family="Source Sans 3, sans-serif" font-size="16" font-weight="500" fill="#575756" letter-spacing="3">HR-BETRIEBSSYSTEM</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" aria-label="E.3 dark">
+            <defs>
+              <linearGradient id="e3d" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FFA014"/>
+                <stop offset="35%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FAE600"/>
+              </linearGradient>
+            </defs>
+            <path d="M 18 165 C 8 30 90 -20 175 45"
+                  stroke="url(#e3d)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M 35 155 L 70 78 L 82 100 L 110 38 L 128 62 L 140 50 L 154 72 L 200 155 Z"
+                  fill="none" stroke="#D8D8D6" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+            <text x="230" y="105" font-family="Source Sans 3, sans-serif" font-size="40" font-weight="700" fill="#FFFFFF" letter-spacing="-1">Hill Digital</text>
+            <text x="232" y="140" font-family="Source Sans 3, sans-serif" font-size="16" font-weight="500" fill="#FFFFFF" letter-spacing="3">HR-BETRIEBSSYSTEM</text>
+          </svg>
+        </div>
+      </div>
+      <div class="nav-mock-row">
+        <div class="nav-mock-cell">
+          <span class="nav-mock-label">Nav · light</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 50 36">
+              <defs><linearGradient id="e3nl" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#FFA014"/><stop offset="35%" stop-color="#FFC107"/><stop offset="100%" stop-color="#FAE600"/></linearGradient></defs>
+              <path d="M 4 30 C 1 5 18 -3 38 8" stroke="url(#e3nl)" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M 8 28 L 16 14 L 19 18 L 25 8 L 29 13 L 32 11 L 35 14 L 44 28 Z" fill="none" stroke="#575756" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+        <div class="nav-mock-cell dark">
+          <span class="nav-mock-label">Nav · dark</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 50 36">
+              <defs><linearGradient id="e3nd" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#FFA014"/><stop offset="35%" stop-color="#FFC107"/><stop offset="100%" stop-color="#FAE600"/></linearGradient></defs>
+              <path d="M 4 30 C 1 5 18 -3 38 8" stroke="url(#e3nd)" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M 8 28 L 16 14 L 19 18 L 25 8 L 29 13 L 32 11 L 35 14 L 44 28 Z" fill="none" stroke="#D8D8D6" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <div class="preview-back-row">
+    <a href="logos-preview.html" class="preview-back">← Drei-Konzepte-Übersicht</a>
+    <a href="logos-preview-2.html" class="preview-back">A gefüllt</a>
+    <a href="logos-preview-3.html" class="preview-back">A Outline</a>
+    <a href="index.html" class="preview-back">zurück zur Seite</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+</body>
+</html>

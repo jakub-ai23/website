@@ -4,6 +4,15 @@
 
 ---
 
+## v1.40 · 2026-05-20 20:50 · [J] · AGB v1.0 publiziert, Footer-Sync, Nav "AI Trainings"
+
+- `agbs.html`: Volltext AGB v1.0 B2B aus `Hill_Digital_AGB_B2B_v1.0.docx` publiziert. Alle `[●]`-Platzhalter mit HWDigital-Daten ersetzt (FN 537930z, ATU 75762667, GF Melanie Hill BA, Kölblgasse 2, 1030 Wien, office@hill-woltron-digital.com). Anlagen 1–4 referenziert (gesondert beizulegen, keine Subpages). Footer-Kontakt-Stubs gefüllt. Internen Hinweis entfernt.
+- Footer-Spalte "Trainings" (mit Sub-Items) durch homogene "Leistungen"-Spalte ersetzt auf: `agbs.html`, `datenschutz.html`, `impressum.html`, `kontakt.html`, `news.html`, `trainings.html`, `ueber-uns.html`. Identisch zur Homepage: AI Recruiting · AI Onboarding · AI Enablement & Trainings · Suite (Phase 2).
+- Nav-Header: "Trainings" → "AI Trainings" auf allen 11 live DE-Seiten. Recruiting + Onboarding bleiben generisch.
+- Hinweis: EN-Seiten unverändert (eigener Footer mit alter Tuchlauben-Adresse, eigene Lane).
+
+---
+
 ## v1.36 · 2026-05-19 01:05 · [K] · Logo-Konzepte Mood-Boards 3 und 4 dazu
 
 - `logos-preview-3.html`: vier Outline-Varianten von Konzept A (Berg als reine Kontur statt gefüllt). Stroke-Width-Varianten 2px und 3px, Ridge-Only, Layered.

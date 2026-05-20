@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo · Konzept A Outline · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; }
+    .preview-head { max-width: 940px; margin: 0 auto 3rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .preview-head h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.6rem; line-height: 1.05; }
+    .preview-head h1 .accent {
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .preview-head p { color: var(--muted); max-width: 720px; margin: 0 auto; font-size: 1.02rem; }
+
+    .variant-grid {
+      max-width: 1320px; margin: 0 auto 4rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      display: grid; gap: 2rem;
+    }
+
+    .variant-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .variant-head {
+      padding: 1.5rem 2rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .variant-tag {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 0.4rem;
+    }
+    .variant-name { font-size: 1.2rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0.3rem; }
+    .variant-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+
+    .variant-stage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 240px;
+    }
+    .stage-light { background: var(--cream); display: grid; place-items: center; padding: 2.2rem; }
+    .stage-dark  { background: var(--charcoal-d); display: grid; place-items: center; padding: 2.2rem; }
+    .stage-light svg, .stage-dark svg { max-width: 92%; width: 100%; height: auto; }
+
+    .nav-mock-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--border);
+    }
+    .nav-mock {
+      padding: 1.4rem 1.8rem;
+      display: flex; align-items: center; gap: 0.7rem;
+      border-right: 1px solid var(--border);
+    }
+    .nav-mock:last-child { border-right: none; }
+    .nav-mock.dark { background: var(--charcoal-d); color: var(--white); }
+    .nav-mock-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted-l);
+      margin-bottom: 0.5rem; display: block;
+    }
+    .nav-mock.dark .nav-mock-label { color: rgba(255,255,255,0.5); }
+    .nav-mock-inner {
+      display: flex; align-items: center; gap: 0.55rem;
+      font-family: var(--font); font-weight: 700; font-size: 1.05rem;
+    }
+    .nav-mock-inner svg { width: 34px; height: 34px; }
+    .nav-mock-sub { color: var(--muted); font-weight: 500; }
+    .nav-mock.dark .nav-mock-sub { color: rgba(255,255,255,0.5); }
+    .nav-mock-cell { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.2rem 1.8rem; }
+    .nav-mock-cell.dark { background: var(--charcoal-d); }
+    .nav-mock-cell.dark .nav-mock-inner { color: var(--white); }
+
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+    .preview-back + .preview-back { margin-left: 1.4rem; }
+
+    @media (max-width: 760px) { .variant-stage, .nav-mock-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ Logo Outline</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="preview-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">Konzept A · Outline-Varianten</div>
+    <h1>Berge als <span class="accent">Konturen</span></h1>
+    <p>Vier Varianten von Konzept A mit Berg als Outline statt Füllung. Yellow-zu-Orange-Bogen bleibt unverändert. Jede Variante auf hell und dunkel plus Nav-Logo-Mockup im realen Mass.</p>
+  </header>
+
+  <section class="variant-grid">
+
+    <!-- ─── A.1-O · Pure Outline ─────────── -->
+    <article class="variant-card">
+      <div class="variant-head">
+        <div class="variant-tag">Variante A.1-O · Pure Outline</div>
+        <div class="variant-name">Schmale Linie, klare Silhouette</div>
+        <div class="variant-desc">Berg als geschlossener Pfad mit 2 Pixel Stroke, keine Füllung. Hill-Grau als Linienfarbe. Wirkt zurückhaltender und moderner als die gefüllte Version, lässt den Bogen stärker wirken.</div>
+      </div>
+      <div class="variant-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-label="A.1-O light">
+            <defs>
+              <linearGradient id="o1l" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10 95 L 38 38 L 52 60 L 70 22 L 86 48 L 100 35 L 120 78 L 135 95 Z"
+                  fill="none" stroke="#B0B0B0" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M 8 45 Q 72 4 138 38" stroke="url(#o1l)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="160" y="68" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#575756" letter-spacing="-0.8">Hill</text>
+            <text x="160" y="108" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#575756" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-label="A.1-O dark">
+            <defs>
+              <linearGradient id="o1d" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10 95 L 38 38 L 52 60 L 70 22 L 86 48 L 100 35 L 120 78 L 135 95 Z"
+                  fill="none" stroke="#D8D8D6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M 8 45 Q 72 4 138 38" stroke="url(#o1d)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="160" y="68" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Hill</text>
+            <text x="160" y="108" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+      </div>
+      <div class="nav-mock-row">
+        <div class="nav-mock-cell">
+          <span class="nav-mock-label">Nav · light</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 34 34">
+              <defs><linearGradient id="o1nl" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+              <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="none" stroke="#B0B0B0" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M6 10 Q17 2 28 10" stroke="url(#o1nl)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+        <div class="nav-mock-cell dark">
+          <span class="nav-mock-label">Nav · dark</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 34 34">
+              <defs><linearGradient id="o1nd" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+              <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="none" stroke="#D8D8D6" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M6 10 Q17 2 28 10" stroke="url(#o1nd)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── A.2-O · Bold Outline ─────────── -->
+    <article class="variant-card">
+      <div class="variant-head">
+        <div class="variant-tag">Variante A.2-O · Bold Outline</div>
+        <div class="variant-name">Stärkere Linie, klarer Auftritt</div>
+        <div class="variant-desc">Wie A.1-O aber mit 3 Pixel Stroke. Mehr Präsenz bei gleichem Kontur-Charakter. Funktioniert besser bei kleineren Größen wo dünne Linien sonst verschwinden.</div>
+      </div>
+      <div class="variant-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-label="A.2-O light">
+            <defs>
+              <linearGradient id="o2l" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10 95 L 38 38 L 52 60 L 70 22 L 86 48 L 100 35 L 120 78 L 135 95 Z"
+                  fill="none" stroke="#B0B0B0" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M 8 45 Q 72 4 138 38" stroke="url(#o2l)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="160" y="68" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#575756" letter-spacing="-0.8">Hill</text>
+            <text x="160" y="108" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#575756" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-label="A.2-O dark">
+            <defs>
+              <linearGradient id="o2d" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10 95 L 38 38 L 52 60 L 70 22 L 86 48 L 100 35 L 120 78 L 135 95 Z"
+                  fill="none" stroke="#D8D8D6" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M 8 45 Q 72 4 138 38" stroke="url(#o2d)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="160" y="68" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Hill</text>
+            <text x="160" y="108" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+      </div>
+      <div class="nav-mock-row">
+        <div class="nav-mock-cell">
+          <span class="nav-mock-label">Nav · light</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 34 34">
+              <defs><linearGradient id="o2nl" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+              <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="none" stroke="#B0B0B0" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M6 10 Q17 2 28 10" stroke="url(#o2nl)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+        <div class="nav-mock-cell dark">
+          <span class="nav-mock-label">Nav · dark</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 34 34">
+              <defs><linearGradient id="o2nd" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+              <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="none" stroke="#D8D8D6" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M6 10 Q17 2 28 10" stroke="url(#o2nd)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── A.3-O · Ridge Only (Top Contour Only) ─────────── -->
+    <article class="variant-card">
+      <div class="variant-head">
+        <div class="variant-tag">Variante A.3-O · Ridge Only</div>
+        <div class="variant-name">Nur die Gipfellinie, keine Basis</div>
+        <div class="variant-desc">Pfad ohne Schluss-Linie, zeigt nur die obere Bergkette. Optisch leichter, eleganter, fast wie eine handgezeichnete Skizze. Weniger Marken-Mark, mehr Detail.</div>
+      </div>
+      <div class="variant-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-label="A.3-O light">
+            <defs>
+              <linearGradient id="o3l" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10 95 L 38 38 L 52 60 L 70 22 L 86 48 L 100 35 L 120 78 L 135 95"
+                  fill="none" stroke="#B0B0B0" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M 8 45 Q 72 4 138 38" stroke="url(#o3l)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="160" y="68" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#575756" letter-spacing="-0.8">Hill</text>
+            <text x="160" y="108" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#575756" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-label="A.3-O dark">
+            <defs>
+              <linearGradient id="o3d" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10 95 L 38 38 L 52 60 L 70 22 L 86 48 L 100 35 L 120 78 L 135 95"
+                  fill="none" stroke="#D8D8D6" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M 8 45 Q 72 4 138 38" stroke="url(#o3d)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="160" y="68" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Hill</text>
+            <text x="160" y="108" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+      </div>
+      <div class="nav-mock-row">
+        <div class="nav-mock-cell">
+          <span class="nav-mock-label">Nav · light</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 34 34">
+              <defs><linearGradient id="o3nl" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+              <path d="M6 24 L14 12 L18 17 L23 10 L28 24" fill="none" stroke="#B0B0B0" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M6 10 Q17 2 28 10" stroke="url(#o3nl)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+        <div class="nav-mock-cell dark">
+          <span class="nav-mock-label">Nav · dark</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 34 34">
+              <defs><linearGradient id="o3nd" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+              <path d="M6 24 L14 12 L18 17 L23 10 L28 24" fill="none" stroke="#D8D8D6" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M6 10 Q17 2 28 10" stroke="url(#o3nd)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── A.4-O · Double Outline / Layered Depth ─────────── -->
+    <article class="variant-card">
+      <div class="variant-head">
+        <div class="variant-tag">Variante A.4-O · Layered</div>
+        <div class="variant-name">Zwei Konturen, Tiefe durch hinteren Bergrücken</div>
+        <div class="variant-desc">Hauptberg als Outline plus ein zweiter, blasserer Bergrücken dahinter. Erzeugt Tiefe und Atmosphäre, erinnert an Höhenlinien einer Wanderkarte. Distinktiv, etwas reicher in der Bildsprache.</div>
+      </div>
+      <div class="variant-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-label="A.4-O light">
+            <defs>
+              <linearGradient id="o4l" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <!-- back ridge, fainter -->
+            <path d="M 4 95 L 28 56 L 42 70 L 60 42 L 78 62 L 96 50 L 112 88 L 130 95"
+                  fill="none" stroke="#B0B0B0" stroke-opacity="0.45" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <!-- front mountain, full -->
+            <path d="M 18 95 L 46 42 L 60 64 L 78 26 L 94 52 L 108 38 L 128 80 L 142 95"
+                  fill="none" stroke="#575756" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M 14 48 Q 78 8 144 42" stroke="url(#o4l)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="165" y="68" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#575756" letter-spacing="-0.8">Hill</text>
+            <text x="165" y="108" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#575756" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-label="A.4-O dark">
+            <defs>
+              <linearGradient id="o4d" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 4 95 L 28 56 L 42 70 L 60 42 L 78 62 L 96 50 L 112 88 L 130 95"
+                  fill="none" stroke="#D8D8D6" stroke-opacity="0.40" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M 18 95 L 46 42 L 60 64 L 78 26 L 94 52 L 108 38 L 128 80 L 142 95"
+                  fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M 14 48 Q 78 8 144 42" stroke="url(#o4d)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="165" y="68" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Hill</text>
+            <text x="165" y="108" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+      </div>
+      <div class="nav-mock-row">
+        <div class="nav-mock-cell">
+          <span class="nav-mock-label">Nav · light</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 34 34">
+              <defs><linearGradient id="o4nl" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+              <path d="M3 24 L8 18 L11 21 L15 15 L19 19 L23 17 L27 23" fill="none" stroke="#B0B0B0" stroke-opacity="0.45" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M6 24 L14 12 L18 17 L23 10 L28 24" fill="none" stroke="#575756" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M6 10 Q17 2 28 10" stroke="url(#o4nl)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+        <div class="nav-mock-cell dark">
+          <span class="nav-mock-label">Nav · dark</span>
+          <div class="nav-mock-inner">
+            <svg viewBox="0 0 34 34">
+              <defs><linearGradient id="o4nd" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+              <path d="M3 24 L8 18 L11 21 L15 15 L19 19 L23 17 L27 23" fill="none" stroke="#D8D8D6" stroke-opacity="0.40" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M6 24 L14 12 L18 17 L23 10 L28 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M6 10 Q17 2 28 10" stroke="url(#o4nd)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span>Hill Digital <span class="nav-mock-sub">/ HR-OS</span></span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <div class="preview-back-row">
+    <a href="logos-preview.html" class="preview-back">← Drei-Konzepte-Übersicht</a>
+    <a href="logos-preview-2.html" class="preview-back">Konzept A gefüllt</a>
+    <a href="index.html" class="preview-back">zurück zur Seite</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+</body>
+</html>

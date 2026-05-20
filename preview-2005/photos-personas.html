@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photos by Persona · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; }
+    .preview-head { max-width: 920px; margin: 0 auto 1.5rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .preview-head h1 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 0.8rem; }
+    .preview-head p { color: var(--muted); max-width: 720px; margin: 0 auto; }
+    .toggle-bar {
+      max-width: 1320px; margin: 0 auto 2.5rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      display: flex; gap: 0.6rem; justify-content: center; align-items: center;
+      font-size: 0.92rem; color: var(--muted);
+    }
+    .toggle-btn {
+      padding: 0.5rem 1rem; border-radius: 999px;
+      border: 1px solid var(--border-s); background: var(--white);
+      font-family: var(--font); font-weight: 600; font-size: 0.86rem; color: var(--ink);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .toggle-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .toggle-btn.active { background: var(--charcoal-d); color: var(--white); border-color: var(--charcoal-d); }
+
+    .persona-section {
+      max-width: 1320px;
+      margin: 0 auto 4rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+    }
+    .persona-head {
+      margin-bottom: 1.4rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .persona-tag {
+      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+    .persona-name {
+      font-size: 1.45rem; font-weight: 600; color: var(--ink);
+      letter-spacing: -0.012em; margin-bottom: 0.4rem;
+    }
+    .persona-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; max-width: 760px; }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .photo-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .photo-card:hover { border-color: var(--border-s); box-shadow: 0 14px 30px rgba(87,87,86,0.10); transform: translateY(-2px); }
+    .photo-frame {
+      aspect-ratio: 4/5;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, filter 0.4s ease;
+      filter: grayscale(100%) contrast(1.06);
+    }
+    .photo-card:hover .photo-frame img { transform: scale(1.04); filter: grayscale(100%) contrast(1.12) brightness(1.02); }
+    body.color-mode .photo-frame img { filter: none; }
+
+    .photo-meta { padding: 0.9rem 1rem 1.1rem; flex: 1; }
+    .photo-name { font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; line-height: 1.3; }
+    .photo-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+
+    @media (max-width: 1100px) { .photo-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 760px)  { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .photo-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index-en.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ Photos by Persona</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="preview-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">Photo Mood · Target Audience</div>
+    <h1 class="h2">Photos by audience persona</h1>
+    <p>Twenty-four image options, grouped by the four people we actually speak to: HR leaders, HR teams, executive assistants, and C-level decision-makers. All in B&amp;W by default — toggle to compare with colour. Vote per persona section.</p>
+  </header>
+
+  <div class="toggle-bar">
+    <span>View:</span>
+    <button class="toggle-btn active" data-mode="bw" type="button">Black &amp; White</button>
+    <button class="toggle-btn" data-mode="color" type="button">Colour</button>
+  </div>
+
+  <!-- ─── PERSONA 1: HEADS OF HR ─────────────────── -->
+  <section class="persona-section">
+    <div class="persona-head">
+      <div class="persona-tag">Persona 01</div>
+      <h2 class="persona-name">Heads of HR · HR Directors</h2>
+      <p class="persona-desc">Mostly women, 38–55, professional but warm. Authority that comes from listening, not from posturing. They want a vendor who respects their craft, not one who promises to "disrupt HR".</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">1.1 · HR Director, decisive</div>
+          <div class="photo-desc">Strong eye contact, calm. The "she runs HR for 800 people" feeling.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">1.2 · Open posture, listening</div>
+          <div class="photo-desc">Mid-conversation. Warmth without softness — exactly the HR-leader register.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">1.3 · Side-light portrait</div>
+          <div class="photo-desc">Editorial, thoughtful. Works as hero with right-side negative space for headline.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">1.4 · Mid-career, composed</div>
+          <div class="photo-desc">Mature, sophisticated. The face of someone whose first hire was 20 years ago.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PERSONA 2: HR TEAMS ─────────────────── -->
+  <section class="persona-section">
+    <div class="persona-head">
+      <div class="persona-tag">Persona 02</div>
+      <h2 class="persona-name">HR Business Partners · HR Operations</h2>
+      <p class="persona-desc">28–45, the ones who actually run the routines that Hill Digital takes off their plate. They want visible relief and a tool that respects their judgement. Often shown as small teams, real interaction, not single-portrait.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">2.1 · Team working, daylight</div>
+          <div class="photo-desc">Three people at a table, mid-conversation. The "HRBP huddle" moment.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">2.2 · Standing, briefing</div>
+          <div class="photo-desc">Standing handover or check-in — the operational tempo of HR.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">2.3 · Interview / selection moment</div>
+          <div class="photo-desc">Two people, structured conversation across a table. Reads as "good interview".</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">2.4 · Workshop wall, process</div>
+          <div class="photo-desc">Sticky notes, planning, methodology visible. Anchors "method before tool".</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PERSONA 3: EXECUTIVE ASSISTANTS ─────────────────── -->
+  <section class="persona-section">
+    <div class="persona-head">
+      <div class="persona-tag">Persona 03</div>
+      <h2 class="persona-name">Executive Assistants · Chief of Staff</h2>
+      <p class="persona-desc">28–48, the people who actually make C-level decisions executable. They are organised, well-informed, and read everything before their boss does. They evaluate vendors first; the CEO meets us only if they recommend us.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">3.1 · Focused at desk</div>
+          <div class="photo-desc">Concentrated, organised. The "she has the boss's full schedule in her head" moment.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1573164574230-db1d5e960238?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">3.2 · On the phone, listening</div>
+          <div class="photo-desc">Gatekeeper energy. Polite but unmistakably the deciding voice in the room.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">3.3 · Taking notes, structured</div>
+          <div class="photo-desc">Notebook, pen, considered. The Chief-of-Staff aesthetic.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1559548331-f9cb98280344?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">3.4 · Walking briefing</div>
+          <div class="photo-desc">In motion, conversation in transit. Captures the tempo of CoS work.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PERSONA 4: C-LEVEL ─────────────────── -->
+  <section class="persona-section">
+    <div class="persona-head">
+      <div class="persona-tag">Persona 04</div>
+      <h2 class="persona-name">C-Level · CHRO, CEO, COO</h2>
+      <p class="persona-desc">45–65, decision-makers. We need them to read three sentences and understand: "this is serious, EU-grounded, methodologically credible." Imagery: gravitas without stiffness, real decision moments, no American-style smiles.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">4.1 · Executive meeting, eye contact</div>
+          <div class="photo-desc">Two senior people, decision moment. Quiet, considered, not theatrical.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">4.2 · Senior man, wisdom</div>
+          <div class="photo-desc">Older executive, weathered authority. Reads as "decades of experience".</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">4.3 · CEO portrait, considered</div>
+          <div class="photo-desc">Sober, no power-pose. The DACH-CEO register: result-focused, not telegenic.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">4.4 · Senior, side-light</div>
+          <div class="photo-desc">Editorial portrait, contemplative. Pairs with a heritage / position-paper context.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BONUS: IN-THE-ROOM MOMENTS ─────────────────── -->
+  <section class="persona-section">
+    <div class="persona-head">
+      <div class="persona-tag">Bonus</div>
+      <h2 class="persona-name">In-the-room moments · cross-persona</h2>
+      <p class="persona-desc">Real consulting and decision moments where multiple personas overlap. Useful as supporting imagery for the suite, heritage, and final-CTA sections.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">5.1 · Hands · agreement</div>
+          <div class="photo-desc">Close-up of a quiet handshake — sober, not sales-y.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">5.2 · Boardroom, considered</div>
+          <div class="photo-desc">A real boardroom moment — deliberation, not presentation.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">5.3 · Methodology · notes</div>
+          <div class="photo-desc">Hands writing — anchor for "Methodology before tool".</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">5.4 · 1:1 conversation, daylight</div>
+          <div class="photo-desc">Two people, quiet talk. Hill's coaching/audit register translated into image.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="preview-back-row">
+    <a href="index-en.html" class="preview-back">← back to home</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+  <script>
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.toggle('active', b === btn));
+        document.body.classList.toggle('color-mode', btn.dataset.mode === 'color');
+      });
+    });
+  </script>
+</body>
+</html>

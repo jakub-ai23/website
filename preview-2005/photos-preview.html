@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo-Mood · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; }
+    .preview-head { max-width: 880px; margin: 0 auto 3rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .preview-head h1 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 0.8rem; }
+    .preview-head p { color: var(--muted); max-width: 680px; margin: 0 auto; }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+      max-width: 1320px;
+      margin: 0 auto 4rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+    }
+    .photo-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .photo-card:hover { border-color: var(--border-s); box-shadow: 0 18px 38px rgba(87,87,86,0.10); transform: translateY(-3px); }
+    .photo-frame {
+      aspect-ratio: 4/3;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, filter 0.4s ease;
+      filter: grayscale(100%) contrast(1.05);
+    }
+    .photo-card:hover .photo-frame img { transform: scale(1.04); filter: grayscale(100%) contrast(1.10) brightness(1.02); }
+    .photo-card:hover .photo-frame::after {
+      content: 'Hover · Color preview';
+      position: absolute; bottom: 10px; left: 12px;
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--white);
+      background: rgba(44,44,43,0.62);
+      padding: 4px 9px; border-radius: 4px;
+      pointer-events: none;
+    }
+    .toggle-bar {
+      max-width: 1320px; margin: 0 auto 1.5rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      display: flex; gap: 0.6rem; justify-content: center; align-items: center;
+      font-size: 0.92rem; color: var(--muted);
+    }
+    .toggle-btn {
+      padding: 0.5rem 1rem; border-radius: 999px;
+      border: 1px solid var(--border-s); background: var(--white);
+      font-family: var(--font); font-weight: 600; font-size: 0.86rem; color: var(--ink);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .toggle-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .toggle-btn.active { background: var(--charcoal-d); color: var(--white); border-color: var(--charcoal-d); }
+    body.color-mode .photo-frame img { filter: none; }
+    body.color-mode .photo-card:hover .photo-frame::after { content: ''; display: none; }
+    .photo-meta { padding: 1.4rem 1.6rem 1.8rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+    .photo-num {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--orange);
+    }
+    .photo-name { font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+    .photo-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.55; flex: 1; }
+    .photo-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+    .photo-tag {
+      font-size: 0.72rem; font-weight: 600;
+      color: var(--charcoal); background: var(--grey-l);
+      padding: 0.2rem 0.6rem; border-radius: 999px;
+    }
+    .photo-source {
+      font-size: 0.78rem; color: var(--muted-l);
+      margin-top: 0.4rem;
+    }
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+    .note-box {
+      max-width: 1080px; margin: 0 auto 3rem;
+      padding: 1.4rem 1.8rem;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.95rem; color: var(--muted);
+      margin-left: clamp(1.5rem, 4vw, 4rem);
+      margin-right: clamp(1.5rem, 4vw, 4rem);
+    }
+    .note-box strong { color: var(--ink); }
+    @media (max-width: 1080px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 700px)  { .photo-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ Photo Mood</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="preview-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">Photography</div>
+    <h1 class="h2">Sechs Bild-Direktionen für Hill Digital</h1>
+    <p>Echte Bilder statt abstrakter Grafik. Sechs Tonalitäten, je mit Brief, Schlagworten und einem Beispielfoto. Sag mir welche, dann setze ich sie in die Seiten ein.</p>
+  </header>
+
+  <div class="note-box">
+    <strong>Treatment:</strong> Alle Bilder sind hier in Schwarz-Weiß behandelt (Grayscale + leichter Kontrast-Boost) — das gibt einen sofortigen Premium-Consulting-Look, wie ihn Heidrick und ältere Korn-Ferry-Editorials nutzen. <strong>Hover</strong> über ein Bild zeigt eine "Color preview"-Markierung; mit dem Schalter unten kannst du das Treatment zwischen B&W und Farbe wechseln.<br /><br />
+    <strong>Hinweis:</strong> Beispielbilder von Unsplash, nur Stimmungsbasis. Für produktive Site: eigenes Shooting in Wien (1–2 Tage, ~€3–5.000) für Hero und Heritage, Stocksy für Sekundärslots.
+  </div>
+
+  <div class="toggle-bar">
+    <span>Ansicht:</span>
+    <button class="toggle-btn active" data-mode="bw" type="button">Schwarz-Weiß</button>
+    <button class="toggle-btn" data-mode="color" type="button">Farbe</button>
+  </div>
+
+  <section class="photo-grid">
+
+    <!-- 1 · Editorial Portrait -->
+    <div class="photo-card">
+      <div class="photo-frame">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+             alt="Editorial Portrait" loading="lazy" />
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">01 · Editorial Portrait</span>
+        <div class="photo-name">Die Person, die entscheidet</div>
+        <p class="photo-desc">Einzelportrait, nachdenklich, weiches Tageslicht von der Seite. Kein Lächeln-in-die-Kamera. Für Hero-Bilder, Standpunkte-Autoren, Über-uns-Team.</p>
+        <div class="photo-tags">
+          <span class="photo-tag">Hero</span>
+          <span class="photo-tag">Standpunkte</span>
+          <span class="photo-tag">Team</span>
+        </div>
+        <div class="photo-source">Suche: "editorial portrait window light professional"</div>
+      </div>
+    </div>
+
+    <!-- 2 · Echte Arbeitsszene -->
+    <div class="photo-card">
+      <div class="photo-frame">
+        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+             alt="Arbeitsszene" loading="lazy" />
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">02 · Real Workplace</span>
+        <div class="photo-name">Echtes Gespräch, kein Stock</div>
+        <p class="photo-desc">Zwei bis drei Personen im echten Meeting, Tageslicht, keine inszenierte Pose. Wichtig: divers, 28–50, kein "Suit-and-Smile"-Klischee.</p>
+        <div class="photo-tags">
+          <span class="photo-tag">Suite</span>
+          <span class="photo-tag">Pillars</span>
+          <span class="photo-tag">Onboard</span>
+        </div>
+        <div class="photo-source">Suche: "team meeting real office natural light diverse"</div>
+      </div>
+    </div>
+
+    <!-- 3 · Hände / Details -->
+    <div class="photo-card">
+      <div class="photo-frame">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+             alt="Hände schreibend" loading="lazy" />
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">03 · Methodology Detail</span>
+        <div class="photo-name">Hände, Notizbücher, Methodik</div>
+        <p class="photo-desc">Detailaufnahmen — Hände beim Schreiben, strukturierte Notizen, ein Hill-Bewertungsbogen. Anker für "Methodik vor Tool", analog, gewichtig.</p>
+        <div class="photo-tags">
+          <span class="photo-tag">Heritage</span>
+          <span class="photo-tag">Assess</span>
+          <span class="photo-tag">Develop</span>
+        </div>
+        <div class="photo-source">Suche: "hands writing notebook close up business"</div>
+      </div>
+    </div>
+
+    <!-- 4 · Wien / Architektur -->
+    <div class="photo-card">
+      <div class="photo-frame">
+        <img src="https://images.unsplash.com/photo-1516550893923-42d28e5677af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+             alt="Wien" loading="lazy" />
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">04 · Vienna / Heritage Architecture</span>
+        <div class="photo-name">Wien, sober, kein Touristen-Bild</div>
+        <p class="photo-desc">Wiener Innenstadt-Detail: Eingang Tuchlauben, Innenhof Innere Stadt, klassische Fassade. Sober, nicht Stephansdom-Postkarte. Heritage und DACH-Verortung in einem.</p>
+        <div class="photo-tags">
+          <span class="photo-tag">Heritage</span>
+          <span class="photo-tag">Kontakt</span>
+          <span class="photo-tag">Footer</span>
+        </div>
+        <div class="photo-source">Suche: "Vienna architecture detail facade morning light"</div>
+      </div>
+    </div>
+
+    <!-- 5 · Historisches / Archiv -->
+    <div class="photo-card">
+      <div class="photo-frame">
+        <img src="https://images.unsplash.com/photo-1568633538856-99ca09da81d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+             alt="Schwarz-Weiß-Archiv" loading="lazy" />
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">05 · Heritage Archive</span>
+        <div class="photo-name">1975 in Schwarz-Weiß</div>
+        <p class="photo-desc">Archivmaterial der Hill-Geschichte, Schwarz-Weiß oder warmes Sepia. Wenn Hill ein Firmenarchiv hat: dringend nutzen. Sonst: stilisiertes B&W-Portrait einer älteren Person mit Erfahrungs-Lesart.</p>
+        <div class="photo-tags">
+          <span class="photo-tag">Heritage</span>
+          <span class="photo-tag">Timeline</span>
+        </div>
+        <div class="photo-source">Hill-Archiv prüfen / "vintage black white business portrait 1970s"</div>
+      </div>
+    </div>
+
+    <!-- 6 · Berge / Landschaft -->
+    <div class="photo-card">
+      <div class="photo-frame">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+             alt="Berge Sonnenaufgang" loading="lazy" />
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">06 · Mountain · Sunrise</span>
+        <div class="photo-name">Österreichische Alpen, warmes Licht</div>
+        <p class="photo-desc">Bergpanorama mit Sonnenaufgang oder warmem Streiflicht — der Hill-Brand-Gradient als reale Atmosphäre. Setzt das Logo-Motiv in echte Landschaft um. Funktioniert als Hero-Backdrop oder Section-Akzent.</p>
+        <div class="photo-tags">
+          <span class="photo-tag">Hero</span>
+          <span class="photo-tag">Heritage</span>
+          <span class="photo-tag">Backdrop</span>
+        </div>
+        <div class="photo-source">Suche: "Austrian Alps sunrise warm light golden hour"</div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="preview-back-row">
+    <a href="index.html" class="preview-back">← zurück zur Seite</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+  <script>
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.toggle('active', b === btn));
+        document.body.classList.toggle('color-mode', btn.dataset.mode === 'color');
+      });
+    });
+  </script>
+</body>
+</html>

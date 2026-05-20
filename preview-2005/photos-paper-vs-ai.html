@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photos: Paper vs AI · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; }
+    .preview-head { max-width: 920px; margin: 0 auto 1.5rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .preview-head h1 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 0.8rem; }
+    .preview-head p { color: var(--muted); max-width: 720px; margin: 0 auto; }
+    .toggle-bar {
+      max-width: 1320px; margin: 0 auto 2.5rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      display: flex; gap: 0.6rem; justify-content: center; align-items: center;
+      font-size: 0.92rem; color: var(--muted);
+    }
+    .toggle-btn {
+      padding: 0.5rem 1rem; border-radius: 999px;
+      border: 1px solid var(--border-s); background: var(--white);
+      font-family: var(--font); font-weight: 600; font-size: 0.86rem; color: var(--ink);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .toggle-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .toggle-btn.active { background: var(--charcoal-d); color: var(--white); border-color: var(--charcoal-d); }
+
+    .cat-section {
+      max-width: 1320px;
+      margin: 0 auto 4rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+    }
+    .cat-section.bridge { background: var(--cream); padding-top: 3rem; padding-bottom: 3rem; border-radius: var(--radius-lg); }
+    .cat-head {
+      margin-bottom: 1.4rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .bridge .cat-head { border-bottom-color: rgba(87,87,86,0.18); }
+    .cat-tag {
+      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .cat-tag.paper-tag { color: var(--charcoal); }
+    .cat-tag.ai-tag    { color: var(--blue, var(--orange)); color: var(--charcoal-d); }
+    .cat-tag.bridge-tag {
+      background: linear-gradient(90deg, var(--yellow), var(--orange));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .cat-name {
+      font-size: 1.45rem; font-weight: 600; color: var(--ink);
+      letter-spacing: -0.012em; margin-bottom: 0.4rem;
+    }
+    .cat-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.6; max-width: 760px; }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    .photo-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .photo-card:hover { border-color: var(--border-s); box-shadow: 0 14px 30px rgba(87,87,86,0.10); transform: translateY(-2px); }
+    .photo-frame {
+      aspect-ratio: 4/3;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease, filter 0.4s ease;
+      filter: grayscale(100%) contrast(1.06);
+    }
+    .photo-card:hover .photo-frame img { transform: scale(1.04); filter: grayscale(100%) contrast(1.12) brightness(1.02); }
+    body.color-mode .photo-frame img { filter: none; }
+
+    .photo-meta { padding: 0.9rem 1rem 1.1rem; flex: 1; }
+    .photo-name { font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; line-height: 1.3; }
+    .photo-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+
+    .narrative-strip {
+      max-width: 920px; margin: 0 auto 3rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      text-align: center;
+      font-size: 1.05rem; color: var(--muted);
+      font-style: italic;
+    }
+    .narrative-strip strong {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--yellow), var(--orange));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+      font-weight: 600;
+    }
+
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+
+    @media (max-width: 1000px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { .photo-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index-en.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ Paper vs AI · Workflow Story</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="preview-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">Workflow Story</div>
+    <h1 class="h2">Paper-era · AI-applied · The bridge in between</h1>
+    <p>Three sections telling the story Hill Digital lives in: where HR comes from (paper), where it's heading (AI applied), and the bridge where humans stay in the lead.</p>
+  </header>
+
+  <div class="toggle-bar">
+    <span>View:</span>
+    <button class="toggle-btn active" data-mode="bw" type="button">Black &amp; White</button>
+    <button class="toggle-btn" data-mode="color" type="button">Colour</button>
+  </div>
+
+  <!-- ─── PAPER ─────────────────────────────── -->
+  <section class="cat-section">
+    <div class="cat-head">
+      <div class="cat-tag paper-tag">Section 01 · Paper era</div>
+      <h2 class="cat-name">Paper — what HR routine looks like without automation</h2>
+      <p class="cat-desc">Stacks of CVs, filing folders, handwritten interview notes, printed reports, sticky-note process walls. The before-image. Use these in "what costs time today" sections, in the philosophy block, or against a stat showing time loss.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">P.1 · Files and folders, archive</div>
+          <div class="photo-desc">Open filing system, stacks of folders. The "where personnel files actually live" moment.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">P.2 · Hands writing in notebook</div>
+          <div class="photo-desc">Analog interview-note moment. Methodical, considered — but slow and not searchable.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">P.3 · Stack of documents</div>
+          <div class="photo-desc">Printed CVs / applications. Highlighter on paper. Visible workload.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">P.4 · Sticky-note wall, process</div>
+          <div class="photo-desc">Workshop methodology made visible — analog kanban, the "process before tool" moment.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1494178270175-e96de2971df9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">P.5 · Printed pages, review</div>
+          <div class="photo-desc">Pen on paper, reading a printed report. Slow, deep, focused.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">P.6 · Paper documents, structured</div>
+          <div class="photo-desc">Forms, templates, signatures. The visible-paperwork reality of most DACH HR departments.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="narrative-strip">— and what HR routine looks like <strong>when AI does the lifting</strong> —</p>
+
+  <!-- ─── AI APPLIED ─────────────────────────────── -->
+  <section class="cat-section">
+    <div class="cat-head">
+      <div class="cat-tag ai-tag">Section 02 · AI applied</div>
+      <h2 class="cat-name">AI applied — automation, dashboards, considered tech</h2>
+      <p class="cat-desc">Where Hill Digital actually adds leverage: structured screens, candidate dashboards, AI-assisted review, automated workflows. Calm, professional, no glowing-brain clichés.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">AI.1 · Dashboard, analytics</div>
+          <div class="photo-desc">Clean data view on laptop. The "Hill Recruit dashboard" register — calm, structured.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">AI.2 · Multi-screen analytics</div>
+          <div class="photo-desc">Workstation with charts and tables. The "HR analyst with AI assist" moment.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">AI.3 · Tablet workflow</div>
+          <div class="photo-desc">Reviewing on a tablet, mobile-friendly. The Suite-in-motion register.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">AI.4 · Modern workstation</div>
+          <div class="photo-desc">Clean monitor setup, considered hands. No hacker stock — just professional digital work.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">AI.5 · Concentrated screen review</div>
+          <div class="photo-desc">Reading data attentively. "Human reviews AI-prepared shortlist."</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">AI.6 · Tablet + interface detail</div>
+          <div class="photo-desc">Close-up of a mobile-friendly HR interface. Suite-screenshot stand-in.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="narrative-strip">— and this is <strong>where Hill Digital actually lives</strong> —</p>
+
+  <!-- ─── BRIDGE ─────────────────────────────── -->
+  <section class="cat-section bridge">
+    <div class="cat-head">
+      <div class="cat-tag bridge-tag">Section 03 · The bridge — Human in the Lead</div>
+      <h2 class="cat-name">Bridge — paper, screen and a human in one frame</h2>
+      <p class="cat-desc">The visual core of Hill Digital: someone reading paper notes <em>and</em> a screen at the same time. A laptop next to a notebook. Analog methodology translated into digital workflow. This is the register we want our marketing to live in.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.1 · Paper + laptop, same desk</div>
+          <div class="photo-desc">Notebook and screen in one frame. The literal Hill-Digital story: analog plus digital, side by side.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.2 · Pair reviewing together</div>
+          <div class="photo-desc">Two people, one screen, paper nearby — handover moment where method meets tool.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.3 · Coaching · screen + judgement</div>
+          <div class="photo-desc">A coach guiding a learner over data. AI in the background, human in the lead.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.4 · 1:1 discussion, mixed tools</div>
+          <div class="photo-desc">Conversation with notebooks and devices in shot. The Hill audit/coaching register, modernised.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.5 · Boardroom · paper + screen</div>
+          <div class="photo-desc">A decision moment where both physical documents and digital displays are present.</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="https://images.unsplash.com/photo-1573164574230-db1d5e960238?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" /></div>
+        <div class="photo-meta">
+          <div class="photo-name">B.6 · Consulting · listen first</div>
+          <div class="photo-desc">Notepad open, listening posture. Hill-style methodology — write things down before you automate them.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="narrative-strip">My recommendation: <strong>P.3 + AI.1 + B.1</strong> as a triptych on the home, telling the whole story in one row.</p>
+
+  <div class="preview-back-row">
+    <a href="index-en.html" class="preview-back">← back to home</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+  <script>
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.toggle('active', b === btn));
+        document.body.classList.toggle('color-mode', btn.dataset.mode === 'color');
+      });
+    });
+  </script>
+</body>
+</html>

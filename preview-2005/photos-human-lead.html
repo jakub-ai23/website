@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human in the Lead · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; }
+    .preview-head { max-width: 920px; margin: 0 auto 1.5rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .preview-head h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.8rem; line-height: 1.1; }
+    .preview-head h1 .accent {
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .preview-head p { color: var(--muted); max-width: 720px; margin: 0 auto; }
+
+    .principle {
+      max-width: 980px; margin: 0 auto 2.5rem;
+      padding: 1.4rem 1.8rem;
+      background: var(--charcoal-d); color: var(--white);
+      border-radius: var(--radius-lg);
+      font-size: 1rem; line-height: 1.7;
+      margin-left: clamp(1.5rem, 4vw, 4rem); margin-right: clamp(1.5rem, 4vw, 4rem);
+    }
+    .principle strong { color: var(--yellow); font-weight: 600; }
+
+    .toggle-bar {
+      max-width: 1480px; margin: 0 auto 2.5rem;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      display: flex; gap: 0.6rem; justify-content: center; align-items: center;
+      font-size: 0.92rem; color: var(--muted);
+    }
+    .toggle-btn {
+      padding: 0.45rem 0.95rem; border-radius: 999px;
+      border: 1px solid var(--border-s); background: var(--white);
+      font-family: var(--font); font-weight: 600; font-size: 0.84rem; color: var(--ink);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .toggle-btn:hover { border-color: var(--orange); color: var(--orange); }
+    .toggle-btn.active { background: var(--charcoal-d); color: var(--white); border-color: var(--charcoal-d); }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
+      max-width: 1480px;
+      margin: 0 auto 4rem;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+    }
+    .photo-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .photo-card:hover { border-color: var(--border-s); box-shadow: 0 14px 30px rgba(87,87,86,0.10); transform: translateY(-2px); }
+    .photo-frame {
+      aspect-ratio: 4/5;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.3s ease;
+      filter: grayscale(100%) contrast(1.06);
+    }
+    .photo-card:hover .photo-frame img { transform: scale(1.04); filter: grayscale(100%) contrast(1.12) brightness(1.02); }
+    body.color-mode .photo-frame img { filter: none; }
+
+    .photo-meta { padding: 0.85rem 1rem 1rem; flex: 1; }
+    .photo-id {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 0.2rem;
+    }
+    .photo-name { font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.3; }
+    .photo-reason { font-size: 0.78rem; color: var(--muted); line-height: 1.5; font-style: italic; }
+
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+
+    @media (max-width: 1100px) { .photo-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 760px)  { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .photo-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index-en.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ Human in the Lead</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="preview-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">Master Claim · Photography</div>
+    <h1>Human in the Lead. <span class="accent">AI in the background.</span></h1>
+    <p>Twelve photos chosen specifically to embody the master claim — humans in the foreground (face, hands, decision), technology secondary, supportive, often blurred or peripheral. The composition <em>is</em> the message.</p>
+  </header>
+
+  <div class="principle">
+    <strong>Composition rule.</strong> The human is in focus, in colour-of-attention, in command. The screen / device / dashboard is present but secondary — softened by depth-of-field, framed at the edge, or behind a thoughtful gaze. <strong>Never</strong> the reverse: never a human dwarfed by glowing UI. We work with technology, we don't worship it.
+  </div>
+
+  <div class="toggle-bar">
+    <span>View:</span>
+    <button class="toggle-btn active" data-mode="bw" type="button">Black &amp; White</button>
+    <button class="toggle-btn" data-mode="color" type="button">Colour</button>
+  </div>
+
+  <section class="photo-grid">
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-01 · POR-04</div>
+        <div class="photo-name">Window light, looking up from screen</div>
+        <div class="photo-reason">The decisive pause. She's just looked away from a dashboard — the human is the foreground; the work is hers.</div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1573164574230-db1d5e960238?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-02 · POR-08</div>
+        <div class="photo-name">On the phone, listening</div>
+        <div class="photo-reason">No device visible. The human relationship is the foreground; technology is implied, not displayed.</div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-03 · POR-06</div>
+        <div class="photo-name">Pen, paper, considered note</div>
+        <div class="photo-reason">She writes things down before she clicks. Analog judgment leads, the AI receives — not the other way around.</div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-04 · BRG-01</div>
+        <div class="photo-name">Notebook and laptop, same desk</div>
+        <div class="photo-reason">The literal claim. Analog method and digital tool, both visible — paper held in hand, screen as backdrop.</div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-05 · POR-12</div>
+        <div class="photo-name">Thinker, profile</div>
+        <div class="photo-reason">Pure cognition. No device in frame. The human <em>is</em> the workload — and the worth.</div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-06 · WRK-07</div>
+        <div class="photo-name">Pair reviewing a screen</div>
+        <div class="photo-reason">Two humans, one screen. The conversation is foreground, the AI output is what they're shaping together.</div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-07 · TEA-05</div>
+        <div class="photo-name">Two leaders, eye contact</div>
+        <div class="photo-reason">Decision over data. The faces are in focus, the laptops are blurred at the edge — exactly the hierarchy we want to show.</div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1497032205916-ac775f0649ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-08 · TEA-08</div>
+        <div class="photo-name">1:1 daylight talk</div>
+        <div class="photo-reason">The Hill audit register in one frame: two people, structured talk, devices secondary. Methodology before tool.</div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-09 · AI-08</div>
+        <div class="photo-name">Side-by-side coaching with screen</div>
+        <div class="photo-reason">A coach guides a learner over data. The humans are central, the screen is the topic — not the protagonist.</div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1559548331-f9cb98280344?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-10 · POR-07</div>
+        <div class="photo-name">Walking briefing</div>
+        <div class="photo-reason">In transit, two humans, no screens in shot. The Hill Digital "tempo without dependence" register.</div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-11 · WRK-01</div>
+        <div class="photo-name">Hands writing in a notebook</div>
+        <div class="photo-reason">Pure methodology. The hand decides what the AI will later operationalise.</div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" /></div>
+      <div class="photo-meta">
+        <div class="photo-id">HIL-12 · TEA-07</div>
+        <div class="photo-name">Boardroom deliberation</div>
+        <div class="photo-reason">A real decision moment. Multiple humans, data visible at the edge but not central. C-level register, EU-grounded.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="preview-back-row">
+    <a href="index-en.html" class="preview-back">← back to home</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+  <script>
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.toggle('active', b === btn));
+        document.body.classList.toggle('color-mode', btn.dataset.mode === 'color');
+      });
+    });
+  </script>
+</body>
+</html>

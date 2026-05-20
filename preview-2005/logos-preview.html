@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo Konzepte · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; }
+    .preview-head { max-width: 940px; margin: 0 auto 3rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .preview-head h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.6rem; line-height: 1.05; }
+    .preview-head h1 .accent {
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .preview-head p { color: var(--muted); max-width: 700px; margin: 0 auto; font-size: 1.02rem; }
+
+    .reference-row {
+      max-width: 1100px; margin: 0 auto 3rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem;
+    }
+    .reference-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      text-align: center;
+    }
+    .reference-card-label {
+      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted-l);
+      margin-bottom: 1rem;
+    }
+    .reference-card svg { max-width: 280px; width: 100%; height: auto; margin: 0 auto; display: block; }
+
+    .concept-grid {
+      max-width: 1320px; margin: 0 auto 4rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      display: grid; gap: 2.5rem;
+    }
+
+    .concept-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .concept-head {
+      padding: 1.6rem 2rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .concept-tag {
+      display: inline-block;
+      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+    .concept-name {
+      font-size: 1.4rem; font-weight: 700; color: var(--ink);
+      letter-spacing: -0.012em; margin-bottom: 0.4rem;
+    }
+    .concept-desc {
+      font-size: 0.96rem; color: var(--muted);
+      line-height: 1.6; max-width: 760px;
+    }
+
+    .concept-stage {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      min-height: 320px;
+    }
+    .stage-light {
+      background: var(--cream);
+      display: grid; place-items: center;
+      padding: 2.5rem;
+    }
+    .stage-dark {
+      background: var(--charcoal-d);
+      display: grid; place-items: center;
+      padding: 2.5rem;
+    }
+    .stage-light svg, .stage-dark svg {
+      max-width: 90%; width: 100%; height: auto;
+    }
+
+    .concept-row-small {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-top: 1px solid var(--border);
+    }
+    .small-cell {
+      padding: 1.5rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.6rem;
+      border-right: 1px solid var(--border);
+    }
+    .small-cell:last-child { border-right: none; }
+    .small-cell.dark { background: var(--charcoal-d); }
+    .small-cell.mono { background: var(--bg); }
+    .small-cell-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted-l);
+    }
+    .small-cell.dark .small-cell-label { color: rgba(255,255,255,0.5); }
+    .small-cell svg { max-width: 160px; width: 100%; height: auto; }
+
+    .rationale {
+      padding: 1.4rem 2rem 1.8rem;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .rationale h4 {
+      font-size: 0.86rem; font-weight: 600; color: var(--ink);
+      letter-spacing: 0.04em; margin-bottom: 0.5rem;
+    }
+    .rationale ul {
+      list-style: none; display: grid; gap: 0.4rem;
+    }
+    .rationale li {
+      font-size: 0.9rem; color: var(--muted); line-height: 1.55;
+      padding-left: 1rem; position: relative;
+    }
+    .rationale li::before {
+      content: ''; position: absolute; left: 0; top: 0.5rem;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+    }
+
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+
+    @media (max-width: 760px) {
+      .reference-row { grid-template-columns: 1fr; }
+      .concept-stage { grid-template-columns: 1fr; }
+      .concept-row-small { grid-template-columns: 1fr; }
+      .small-cell { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ Logo Konzepte</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="preview-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">Logo Konzepte</div>
+    <h1>Drei Richtungen für das <span class="accent">Hill Digital Logo</span></h1>
+    <p>Basis: Hill Woltron Logo (Berg, Sonnenaufgang-Bogen, Slab-Wordmark). Aufgabe: zeitgemäße Hill-Digital-Variante. Drei klar verschiedene Lesarten, jeweils auf hell und dunkel, plus Compact- und Mono-Versionen. Alle in Source Sans 3.</p>
+  </header>
+
+  <!-- Reference: original Hill Woltron logo (recreated SVG) -->
+  <section class="reference-row">
+    <div class="reference-card">
+      <div class="reference-card-label">Referenz · Hill Woltron Original</div>
+      <svg viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg" aria-label="Hill Woltron Logo">
+        <defs>
+          <linearGradient id="refArc" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FAE600"/>
+            <stop offset="100%" stop-color="#FFA014"/>
+          </linearGradient>
+        </defs>
+        <!-- mountain silhouette (Hill Woltron-style) -->
+        <path d="M 26 75 L 60 30 L 78 50 L 100 18 L 132 65 L 144 75 Z" fill="#B0B0B0"/>
+        <!-- sunrise arc -->
+        <path d="M 24 38 Q 88 4 150 32" stroke="url(#refArc)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <!-- wordmark "Hill Woltron" slab feel -->
+        <text x="172" y="68" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="700" fill="#575756">Hill</text>
+        <text x="172" y="98" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="700" fill="#575756">Woltron</text>
+      </svg>
+    </div>
+    <div class="reference-card">
+      <div class="reference-card-label">Ziel · Modernisiert für Hill Digital</div>
+      <svg viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg" aria-label="Hill Digital target sketch">
+        <defs>
+          <linearGradient id="targetArc" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FAE600"/>
+            <stop offset="100%" stop-color="#FFA014"/>
+          </linearGradient>
+        </defs>
+        <path d="M 30 78 L 60 35 L 78 56 L 100 22 L 130 70 L 142 78 Z" fill="#B0B0B0"/>
+        <path d="M 28 40 Q 86 6 148 36" stroke="url(#targetArc)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <text x="172" y="68" font-family="Source Sans 3, sans-serif" font-size="30" font-weight="700" fill="#575756" letter-spacing="-0.5">Hill</text>
+        <text x="172" y="100" font-family="Source Sans 3, sans-serif" font-size="30" font-weight="700" fill="#575756" letter-spacing="-0.5">Digital</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="concept-grid">
+
+    <!-- ─── CONCEPT A: REFINED HERITAGE ─────────── -->
+    <article class="concept-card">
+      <div class="concept-head">
+        <div class="concept-tag">Konzept A · Refined Heritage</div>
+        <div class="concept-name">Treuer Refresh · Berg, Bogen, moderne Wortmarke</div>
+        <div class="concept-desc">
+          Hält die DNA des Hill-Woltron-Logos eins zu eins, modernisiert nur Geometrie und Typografie. Berg wird klarer geschnitten, Bogen feiner, Slab-Serif weicht Source Sans 3. Höchste Wiedererkennung für Bestandskunden, klare Familienzugehörigkeit zur Mutter-Marke.
+        </div>
+      </div>
+
+      <div class="concept-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" aria-label="Hill Digital Logo A on light">
+            <defs>
+              <linearGradient id="arcA1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 18 80 L 50 32 L 70 56 L 92 22 L 120 70 L 134 80 Z" fill="#B0B0B0"/>
+            <path d="M 16 40 Q 76 4 138 38" stroke="url(#arcA1)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            <text x="160" y="65" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#575756" letter-spacing="-0.6">Hill</text>
+            <text x="160" y="100" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#575756" letter-spacing="-0.6">Digital</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" aria-label="Hill Digital Logo A on dark">
+            <defs>
+              <linearGradient id="arcA2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 18 80 L 50 32 L 70 56 L 92 22 L 120 70 L 134 80 Z" fill="#D8D8D6"/>
+            <path d="M 16 40 Q 76 4 138 38" stroke="url(#arcA2)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            <text x="160" y="65" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF" letter-spacing="-0.6">Hill</text>
+            <text x="160" y="100" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF" letter-spacing="-0.6">Digital</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="concept-row-small">
+        <div class="small-cell">
+          <span class="small-cell-label">Inline</span>
+          <svg viewBox="0 0 400 70" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="arcA3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M 6 50 L 22 22 L 32 38 L 46 14 L 62 44 L 70 50 Z" fill="#B0B0B0"/>
+            <path d="M 6 25 Q 38 2 70 22" stroke="url(#arcA3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <text x="88" y="48" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#575756" letter-spacing="-0.5">Hill Digital</text>
+          </svg>
+        </div>
+        <div class="small-cell dark">
+          <span class="small-cell-label">Icon Only</span>
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
+            <defs><linearGradient id="arcA4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <rect width="80" height="80" rx="14" fill="#1B1B1A"/>
+            <path d="M 14 56 L 32 26 L 42 40 L 54 18 L 66 50 Z" fill="#D8D8D6"/>
+            <path d="M 14 28 Q 40 8 66 26" stroke="url(#arcA4)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="small-cell mono">
+          <span class="small-cell-label">Mono</span>
+          <svg viewBox="0 0 400 70" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 6 50 L 22 22 L 32 38 L 46 14 L 62 44 L 70 50 Z" fill="#575756"/>
+            <path d="M 6 25 Q 38 2 70 22" stroke="#575756" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <text x="88" y="48" font-family="Source Sans 3, sans-serif" font-size="32" font-weight="700" fill="#575756" letter-spacing="-0.5">Hill Digital</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="rationale">
+        <h4>Was dieses Konzept sagt</h4>
+        <ul>
+          <li>Wir sind ein Teil der Hill-Familie, kein abgekoppelter Startup.</li>
+          <li>Die Heritage trägt das digitale Tochterunternehmen, der Bogen steht für den Aufstieg.</li>
+          <li>Source Sans 3 statt Slab-Serif signalisiert Tempo und Digital-Reife, ohne die Verbindung zu kappen.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ─── CONCEPT B: PEAK MONOGRAMM ─────────── -->
+    <article class="concept-card">
+      <div class="concept-head">
+        <div class="concept-tag">Konzept B · Peak Monogramm</div>
+        <div class="concept-name">Berg im Buchstaben · der "H" wird zur Bergsilhouette</div>
+        <div class="concept-desc">
+          Mutigere Reduktion. Der Berg verschmilzt mit dem Buchstaben "H" zu einem einzigen kompakten Mark. Der Yellow→Orange-Bogen sitzt darüber als Krone. Sehr distinktiv, app-tauglich, lesbar bis 32 Pixel. Funktioniert solo als Icon oder als Mark links neben der Wortmarke.
+        </div>
+      </div>
+
+      <div class="concept-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" aria-label="Hill Digital Logo B on light">
+            <defs>
+              <linearGradient id="arcB1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <!-- H-shaped peak: two vertical bars + a crossbar that forms the valley between two peaks -->
+            <path d="M 24 110 L 24 70 L 38 70 L 38 30 L 54 30 L 54 110 Z M 78 110 L 78 30 L 94 30 L 94 70 L 108 70 L 108 110 Z" fill="#575756"/>
+            <!-- mountain peak detail: the valley between the H bars is a peak shape -->
+            <path d="M 54 70 L 66 50 L 78 70 Z" fill="#B0B0B0"/>
+            <!-- arc above the H -->
+            <path d="M 22 22 Q 66 0 110 20" stroke="url(#arcB1)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            <!-- wordmark -->
+            <text x="138" y="78" font-family="Source Sans 3, sans-serif" font-size="30" font-weight="700" fill="#575756" letter-spacing="-0.6">Hill</text>
+            <text x="138" y="108" font-family="Source Sans 3, sans-serif" font-size="22" font-weight="500" fill="#575756" letter-spacing="2.6">DIGITAL</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" aria-label="Hill Digital Logo B on dark">
+            <defs>
+              <linearGradient id="arcB2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 24 110 L 24 70 L 38 70 L 38 30 L 54 30 L 54 110 Z M 78 110 L 78 30 L 94 30 L 94 70 L 108 70 L 108 110 Z" fill="#FFFFFF"/>
+            <path d="M 54 70 L 66 50 L 78 70 Z" fill="#D8D8D6"/>
+            <path d="M 22 22 Q 66 0 110 20" stroke="url(#arcB2)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            <text x="138" y="78" font-family="Source Sans 3, sans-serif" font-size="30" font-weight="700" fill="#FFFFFF" letter-spacing="-0.6">Hill</text>
+            <text x="138" y="108" font-family="Source Sans 3, sans-serif" font-size="22" font-weight="500" fill="#FFFFFF" letter-spacing="2.6">DIGITAL</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="concept-row-small">
+        <div class="small-cell">
+          <span class="small-cell-label">Inline</span>
+          <svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="arcB3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M 8 48 L 8 30 L 14 30 L 14 12 L 20 12 L 20 48 Z M 30 48 L 30 12 L 36 12 L 36 30 L 42 30 L 42 48 Z" fill="#575756"/>
+            <path d="M 20 30 L 25 22 L 30 30 Z" fill="#B0B0B0"/>
+            <path d="M 7 8 Q 25 0 43 7" stroke="url(#arcB3)" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <text x="56" y="42" font-family="Source Sans 3, sans-serif" font-size="28" font-weight="700" fill="#575756" letter-spacing="-0.5">Hill Digital</text>
+          </svg>
+        </div>
+        <div class="small-cell dark">
+          <span class="small-cell-label">Icon Only</span>
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
+            <defs><linearGradient id="arcB4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <rect width="80" height="80" rx="14" fill="#1B1B1A"/>
+            <path d="M 18 64 L 18 42 L 28 42 L 28 24 L 38 24 L 38 64 Z M 46 64 L 46 24 L 56 24 L 56 42 L 66 42 L 66 64 Z" fill="#FFFFFF"/>
+            <path d="M 38 42 L 42 32 L 46 42 Z" fill="#D8D8D6"/>
+            <path d="M 18 18 Q 42 8 66 18" stroke="url(#arcB4)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="small-cell mono">
+          <span class="small-cell-label">Mono</span>
+          <svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 8 48 L 8 30 L 14 30 L 14 12 L 20 12 L 20 48 Z M 30 48 L 30 12 L 36 12 L 36 30 L 42 30 L 42 48 Z" fill="#575756"/>
+            <path d="M 20 30 L 25 22 L 30 30 Z" fill="#575756"/>
+            <path d="M 7 8 Q 25 0 43 7" stroke="#575756" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <text x="56" y="42" font-family="Source Sans 3, sans-serif" font-size="28" font-weight="700" fill="#575756" letter-spacing="-0.5">Hill Digital</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="rationale">
+        <h4>Was dieses Konzept sagt</h4>
+        <ul>
+          <li>Hill ist nicht nur Name, sondern Form. Der Buchstabe trägt die Marken-DNA.</li>
+          <li>Hohe Skalierbarkeit: das Mark funktioniert bei 16 Pixeln (Favicon) und 16 Metern (Print).</li>
+          <li>Distinktiver Bruch zur Mutter-Marke ohne sie zu verleugnen, signalisiert eigenständige Tochter.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ─── CONCEPT C: WORDMARK-FORWARD ─────────── -->
+    <article class="concept-card">
+      <div class="concept-head">
+        <div class="concept-tag">Konzept C · Wordmark-Forward</div>
+        <div class="concept-name">Pure Typografie · Berg als Akzent-Hauch</div>
+        <div class="concept-desc">
+          Mutigster Schritt. Kein dominantes Berg-Symbol. "Hill Digital" als reine Typo, "Digital" im Yellow→Orange-Gradient. Der i-Punkt im Wort "Digital" wird zu einer Mini-Bergspitze als subtiler Heritage-Hauch. Maximal modern, Software-Native-Look (Linear, Vercel, Stripe). Klare Distanz zur Mutter-Marke, eigene Identität.
+        </div>
+      </div>
+
+      <div class="concept-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 420 100" xmlns="http://www.w3.org/2000/svg" aria-label="Hill Digital Logo C on light">
+            <defs>
+              <linearGradient id="gradC1" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FFA014"/>
+                <stop offset="100%" stop-color="#E68800"/>
+              </linearGradient>
+              <linearGradient id="peakC1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <text x="20" y="68" font-family="Source Sans 3, sans-serif" font-size="56" font-weight="700" fill="#575756" letter-spacing="-2.2">Hill</text>
+            <text x="160" y="68" font-family="Source Sans 3, sans-serif" font-size="56" font-weight="700" fill="url(#gradC1)" letter-spacing="-2.2">Digital</text>
+            <!-- replace i-dot of Digital with a tiny peak -->
+            <path d="M 235 24 L 244 12 L 253 24 Z" fill="url(#peakC1)"/>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 420 100" xmlns="http://www.w3.org/2000/svg" aria-label="Hill Digital Logo C on dark">
+            <defs>
+              <linearGradient id="gradC2" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FFA014"/>
+                <stop offset="100%" stop-color="#FFB540"/>
+              </linearGradient>
+              <linearGradient id="peakC2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <text x="20" y="68" font-family="Source Sans 3, sans-serif" font-size="56" font-weight="700" fill="#FFFFFF" letter-spacing="-2.2">Hill</text>
+            <text x="160" y="68" font-family="Source Sans 3, sans-serif" font-size="56" font-weight="700" fill="url(#gradC2)" letter-spacing="-2.2">Digital</text>
+            <path d="M 235 24 L 244 12 L 253 24 Z" fill="url(#peakC2)"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="concept-row-small">
+        <div class="small-cell">
+          <span class="small-cell-label">Inline</span>
+          <svg viewBox="0 0 360 50" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gradC3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFA014"/><stop offset="100%" stop-color="#E68800"/></linearGradient>
+              <linearGradient id="peakC3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient>
+            </defs>
+            <text x="10" y="38" font-family="Source Sans 3, sans-serif" font-size="30" font-weight="700" fill="#575756" letter-spacing="-1">Hill</text>
+            <text x="86" y="38" font-family="Source Sans 3, sans-serif" font-size="30" font-weight="700" fill="url(#gradC3)" letter-spacing="-1">Digital</text>
+            <path d="M 126 16 L 131 8 L 136 16 Z" fill="url(#peakC3)"/>
+          </svg>
+        </div>
+        <div class="small-cell dark">
+          <span class="small-cell-label">Icon Only</span>
+          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="60" height="60">
+            <defs>
+              <linearGradient id="gradC4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient>
+            </defs>
+            <rect width="80" height="80" rx="14" fill="#1B1B1A"/>
+            <text x="40" y="58" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="50" font-weight="800" fill="#FFFFFF" letter-spacing="-2">hd</text>
+            <path d="M 50 14 L 58 4 L 66 14 Z" fill="url(#gradC4)"/>
+          </svg>
+        </div>
+        <div class="small-cell mono">
+          <span class="small-cell-label">Mono</span>
+          <svg viewBox="0 0 360 50" xmlns="http://www.w3.org/2000/svg">
+            <text x="10" y="38" font-family="Source Sans 3, sans-serif" font-size="30" font-weight="700" fill="#575756" letter-spacing="-1">Hill</text>
+            <text x="86" y="38" font-family="Source Sans 3, sans-serif" font-size="30" font-weight="700" fill="#575756" letter-spacing="-1">Digital</text>
+            <path d="M 126 16 L 131 8 L 136 16 Z" fill="#575756"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="rationale">
+        <h4>Was dieses Konzept sagt</h4>
+        <ul>
+          <li>Wir sind digital. Wir sind ernst. Wir brauchen kein Symbol, um es zu sagen.</li>
+          <li>Heritage-Hauch durch den Mini-Berg im i-Punkt, lesbar nur für die, die es wissen wollen.</li>
+          <li>Eigenständige Marke statt Tochter-Look, gut für SaaS-Positionierung.</li>
+        </ul>
+      </div>
+    </article>
+
+  </section>
+
+  <div class="preview-back-row">
+    <a href="index.html" class="preview-back">zurück zur Seite</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+</body>
+</html>

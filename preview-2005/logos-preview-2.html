@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo · Konzept A verfeinert · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding-top: 4rem; }
+    .preview-head { max-width: 940px; margin: 0 auto 3rem; padding: 0 clamp(1.5rem, 4vw, 4rem); text-align: center; }
+    .preview-head h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.6rem; line-height: 1.05; }
+    .preview-head h1 .accent {
+      background: linear-gradient(135deg, var(--yellow), var(--orange));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .preview-head p { color: var(--muted); max-width: 720px; margin: 0 auto; font-size: 1.02rem; }
+
+    .variant-grid {
+      max-width: 1320px; margin: 0 auto 4rem;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      display: grid; gap: 2rem;
+    }
+
+    .variant-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .variant-head {
+      padding: 1.5rem 2rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .variant-tag {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 0.4rem;
+    }
+    .variant-name { font-size: 1.2rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0.3rem; }
+    .variant-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+
+    .variant-stage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 240px;
+    }
+    .stage-light { background: var(--cream); display: grid; place-items: center; padding: 2.2rem; }
+    .stage-dark { background: var(--charcoal-d); display: grid; place-items: center; padding: 2.2rem; }
+    .stage-light svg, .stage-dark svg { max-width: 92%; width: 100%; height: auto; }
+
+    .preview-back-row { text-align: center; padding-bottom: 4rem; }
+    .preview-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--orange); font-weight: 600; font-size: 0.94rem;
+    }
+    .preview-back + .preview-back { margin-left: 1.4rem; }
+
+    @media (max-width: 760px) { .variant-stage { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" width="34" height="34">
+            <defs><linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAE600"/><stop offset="100%" stop-color="#FFA014"/></linearGradient></defs>
+            <path d="M6 24 L14 12 L18 17 L23 10 L28 24 Z" fill="#B0B0B0"/>
+            <path d="M6 10 Q17 2 28 10" stroke="url(#hillArc)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>Hill Digital <span class="nav-logo-sub">/ Logo A verfeinert</span></span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="preview-head" style="margin-top: 4rem;">
+    <div class="eyebrow" style="justify-content: center; display: inline-flex;">Konzept A · Verfeinerung</div>
+    <h1>Refined Heritage · <span class="accent">vier Sub-Varianten</span></h1>
+    <p>Berg-Silhouette präziser nach Hill-Woltron-Vorbild, Yellow-Orange-Bogen mit stärkerem Gradient, vier Wortmarken-Layouts zur Auswahl. Alle Source Sans 3.</p>
+  </header>
+
+  <section class="variant-grid">
+
+    <!-- ─── A.1: Stacked, Polished Original ─────────── -->
+    <article class="variant-card">
+      <div class="variant-head">
+        <div class="variant-tag">Variante A.1 · Stacked Polished</div>
+        <div class="variant-name">"Hill" über "Digital" mit verfeinertem Berg</div>
+        <div class="variant-desc">Berg mit drei differenzierten Gipfeln nach Hill-Woltron-Vorbild. Bogen mit klarem Yellow-zu-Orange-Verlauf. Wortmarke zweizeilig wie das Original.</div>
+      </div>
+      <div class="variant-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-label="A.1 light">
+            <defs>
+              <linearGradient id="a1l" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <!-- refined Hill-Woltron-style mountain: 3 peaks, varied heights -->
+            <path d="M 10 95 L 38 38 L 52 60 L 70 22 L 86 48 L 100 35 L 120 78 L 135 95 Z" fill="#B0B0B0"/>
+            <!-- arc with clear gradient -->
+            <path d="M 8 45 Q 72 4 138 38" stroke="url(#a1l)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <!-- wordmark stacked -->
+            <text x="160" y="68" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#575756" letter-spacing="-0.8">Hill</text>
+            <text x="160" y="108" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#575756" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" aria-label="A.1 dark">
+            <defs>
+              <linearGradient id="a1d" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10 95 L 38 38 L 52 60 L 70 22 L 86 48 L 100 35 L 120 78 L 135 95 Z" fill="#D8D8D6"/>
+            <path d="M 8 45 Q 72 4 138 38" stroke="url(#a1d)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="160" y="68" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Hill</text>
+            <text x="160" y="108" font-family="Source Sans 3, sans-serif" font-size="36" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── A.2: Inline Horizontal ─────────── -->
+    <article class="variant-card">
+      <div class="variant-head">
+        <div class="variant-tag">Variante A.2 · Inline Horizontal</div>
+        <div class="variant-name">"Hill Digital" auf einer Zeile</div>
+        <div class="variant-desc">Berg-Mark kompakter, Wortmarke horizontal in einer Zeile. Wirkt moderner und passt besser in Headers und schmale Container.</div>
+      </div>
+      <div class="variant-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 460 100" xmlns="http://www.w3.org/2000/svg" aria-label="A.2 light">
+            <defs>
+              <linearGradient id="a2l" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 8 75 L 30 28 L 42 46 L 56 16 L 68 38 L 78 28 L 96 62 L 108 75 Z" fill="#B0B0B0"/>
+            <path d="M 6 36 Q 58 0 110 30" stroke="url(#a2l)" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <text x="130" y="64" font-family="Source Sans 3, sans-serif" font-size="42" font-weight="700" fill="#575756" letter-spacing="-1.2">Hill Digital</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 460 100" xmlns="http://www.w3.org/2000/svg" aria-label="A.2 dark">
+            <defs>
+              <linearGradient id="a2d" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 8 75 L 30 28 L 42 46 L 56 16 L 68 38 L 78 28 L 96 62 L 108 75 Z" fill="#D8D8D6"/>
+            <path d="M 6 36 Q 58 0 110 30" stroke="url(#a2d)" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <text x="130" y="64" font-family="Source Sans 3, sans-serif" font-size="42" font-weight="700" fill="#FFFFFF" letter-spacing="-1.2">Hill Digital</text>
+          </svg>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── A.3: With HR-OS Subtitle ─────────── -->
+    <article class="variant-card">
+      <div class="variant-head">
+        <div class="variant-tag">Variante A.3 · Mit Subline</div>
+        <div class="variant-name">"Hill Digital" plus "HR-Betriebssystem" als Subline</div>
+        <div class="variant-desc">Wie das Hill-Woltron-Original mit "Management Partner". Subline klärt, was Hill Digital macht, ohne lange erklären zu müssen. Funktioniert auf Visitenkarten, Briefpapier, E-Mail-Signatur.</div>
+      </div>
+      <div class="variant-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 440 150" xmlns="http://www.w3.org/2000/svg" aria-label="A.3 light">
+            <defs>
+              <linearGradient id="a3l" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 12 105 L 40 40 L 54 64 L 72 22 L 88 52 L 102 38 L 122 86 L 138 105 Z" fill="#B0B0B0"/>
+            <path d="M 10 50 Q 74 6 140 42" stroke="url(#a3l)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="165" y="76" font-family="Source Sans 3, sans-serif" font-size="40" font-weight="700" fill="#575756" letter-spacing="-1">Hill Digital</text>
+            <text x="166" y="108" font-family="Source Sans 3, sans-serif" font-size="15" font-weight="500" fill="#575756" letter-spacing="2.8">HR-BETRIEBSSYSTEM</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 440 150" xmlns="http://www.w3.org/2000/svg" aria-label="A.3 dark">
+            <defs>
+              <linearGradient id="a3d" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 12 105 L 40 40 L 54 64 L 72 22 L 88 52 L 102 38 L 122 86 L 138 105 Z" fill="#D8D8D6"/>
+            <path d="M 10 50 Q 74 6 140 42" stroke="url(#a3d)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="165" y="76" font-family="Source Sans 3, sans-serif" font-size="40" font-weight="700" fill="#FFFFFF" letter-spacing="-1">Hill Digital</text>
+            <text x="166" y="108" font-family="Source Sans 3, sans-serif" font-size="15" font-weight="500" fill="#FFFFFF" letter-spacing="2.8">HR-BETRIEBSSYSTEM</text>
+          </svg>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── A.4: Dramatic Mountain ─────────── -->
+    <article class="variant-card">
+      <div class="variant-head">
+        <div class="variant-tag">Variante A.4 · Dramatic Peaks</div>
+        <div class="variant-name">Höhere Berge, mutigerer Bogen</div>
+        <div class="variant-desc">Berg-Mark dominanter, Gipfel spitzer, Bogen weiter. Wirkt selbstbewusster, eignet sich für Hero-Anwendung und Print-Cover. Etwas weniger praktisch bei kleinen Größen.</div>
+      </div>
+      <div class="variant-stage">
+        <div class="stage-light">
+          <svg viewBox="0 0 380 160" xmlns="http://www.w3.org/2000/svg" aria-label="A.4 light">
+            <defs>
+              <linearGradient id="a4l" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10 125 L 42 28 L 58 56 L 78 12 L 98 44 L 114 30 L 138 100 L 156 125 Z" fill="#B0B0B0"/>
+            <path d="M 6 50 Q 80 0 160 38" stroke="url(#a4l)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <text x="180" y="80" font-family="Source Sans 3, sans-serif" font-size="38" font-weight="700" fill="#575756" letter-spacing="-0.8">Hill</text>
+            <text x="180" y="120" font-family="Source Sans 3, sans-serif" font-size="38" font-weight="700" fill="#575756" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+        <div class="stage-dark">
+          <svg viewBox="0 0 380 160" xmlns="http://www.w3.org/2000/svg" aria-label="A.4 dark">
+            <defs>
+              <linearGradient id="a4d" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#FAE600"/>
+                <stop offset="50%" stop-color="#FFC107"/>
+                <stop offset="100%" stop-color="#FFA014"/>
+              </linearGradient>
+            </defs>
+            <path d="M 10 125 L 42 28 L 58 56 L 78 12 L 98 44 L 114 30 L 138 100 L 156 125 Z" fill="#D8D8D6"/>
+            <path d="M 6 50 Q 80 0 160 38" stroke="url(#a4d)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <text x="180" y="80" font-family="Source Sans 3, sans-serif" font-size="38" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Hill</text>
+            <text x="180" y="120" font-family="Source Sans 3, sans-serif" font-size="38" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Digital</text>
+          </svg>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <div class="preview-back-row">
+    <a href="logos-preview.html" class="preview-back">← Drei-Konzepte-Übersicht</a>
+    <a href="index.html" class="preview-back">zurück zur Seite</a>
+  </div>
+
+  <script src="assets/js/hill.js" defer></script>
+</body>
+</html>
