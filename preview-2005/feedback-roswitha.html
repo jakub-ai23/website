@@ -47,7 +47,14 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 14px 16px;
+      text-align: left;
+      font-family: inherit;
+      color: inherit;
+      cursor: default;
     }
+    .stat-clickable { cursor: pointer; transition: all 0.15s; }
+    .stat-clickable:hover { background: var(--bg-card-hover); border-color: var(--gold); transform: translateY(-1px); }
+    .stat-clickable:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
     .stat-num { font-size: 1.6rem; font-weight: 600; color: var(--gold); line-height: 1.1; }
     .stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; letter-spacing: 0.05em; }
 
@@ -182,9 +189,48 @@
     }
     .reset-btn:hover { color: var(--text); border-color: var(--text-muted); }
 
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .decision-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      border-radius: 6px;
+      padding: 12px 14px;
+    }
+    .decision-card-wide { grid-column: 1 / -1; border-left-color: var(--gold); }
+    .decision-card-done { border-left-color: var(--green); opacity: 0.85; }
+    .decision-who {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: rgba(96, 165, 250, 0.12);
+      padding: 3px 9px;
+      border-radius: 99px;
+      margin-bottom: 8px;
+    }
+    .decision-card-wide .decision-who {
+      color: var(--gold);
+      background: rgba(253, 199, 7, 0.13);
+    }
+    .decision-card-done .decision-who {
+      color: var(--green);
+      background: rgba(52, 211, 153, 0.13);
+    }
+    .decision-what { font-size: 0.92rem; color: var(--text); line-height: 1.5; }
+
     @media (max-width: 600px) {
       h1 { font-size: 1.5rem; }
       .stat-num { font-size: 1.3rem; }
+      .decision-grid { grid-template-columns: 1fr; }
+      .decision-card-wide { grid-column: 1; }
     }
   </style>
 </head>
@@ -196,15 +242,86 @@
     <div class="eyebrow">Hill Digital · Feedback-Status</div>
     <h1>Roswitha Hill-Feichtl · Website-Feedback</h1>
     <p class="lede">Live-Übersicht: Was ist erledigt, was offen, was wartet auf Entscheidungen oder Daten. Stand wird laufend aktualisiert. Geteilt mit Roswitha, Franz, Karl, Kaska.</p>
-    <div class="meta">Quellen: Roswitha 3 Mails 20.05.2026 (09:10 / 10:16 / 10:21) + Franz Impressum 20.05.2026 14:34 · Letzte Aktualisierung: <span id="last-updated">20.05.2026 · 14:45</span></div>
+    <div class="meta">Quellen: Roswitha 3 Mails 20.05.2026 (09:10 / 10:16 / 10:21) + Franz Impressum 20.05.2026 14:34 · Letzte Aktualisierung: <span id="last-updated">20.05.2026 · vor Karl/Kaska/Franz-Termin</span></div>
   </header>
 
   <div class="summary">
-    <div class="stat"><div class="stat-num" id="stat-total">0</div><div class="stat-label">Punkte gesamt</div></div>
-    <div class="stat"><div class="stat-num" id="stat-done">0</div><div class="stat-label">Erledigt</div></div>
-    <div class="stat"><div class="stat-num" id="stat-open">0</div><div class="stat-label">Offen</div></div>
-    <div class="stat"><div class="stat-num" id="stat-blocked">0</div><div class="stat-label">Wartet auf Daten/Entscheidung</div></div>
+    <button type="button" class="stat stat-clickable" data-stat-filter="all"><div class="stat-num" id="stat-total">0</div><div class="stat-label">Punkte gesamt</div></button>
+    <button type="button" class="stat stat-clickable" data-stat-filter="done"><div class="stat-num" id="stat-done">0</div><div class="stat-label">Erledigt</div></button>
+    <button type="button" class="stat stat-clickable" data-stat-filter="open"><div class="stat-num" id="stat-open">0</div><div class="stat-label">Offen</div></button>
+    <button type="button" class="stat stat-clickable" data-stat-filter="decision"><div class="stat-num" id="stat-blocked">0</div><div class="stat-label">Wartet auf Daten/Entscheidung</div></button>
   </div>
+
+  <!-- TEAM-UPDATE BOX -->
+  <section style="background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 8px; padding: 24px 26px; margin-bottom: 32px;">
+    <div style="color: var(--gold); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 14px; font-weight: 600;">Update für Roswitha & Team · 20.05.2026</div>
+
+    <p style="margin-bottom: 14px; font-weight: 500; color: var(--text);"><strong>Bestätigt: Melanie Hill, BA = Geschäftsführerin</strong> an beiden Stellen:</p>
+    <ul style="margin: 0 0 18px 22px; color: var(--text);">
+      <li>Impressum (Vertretungsbefugte Geschäftsführung)</li>
+      <li>Über uns (Team-Karte: „Geschäftsführung Hill Digital", Alt-Text aktualisiert)</li>
+    </ul>
+
+    <div style="font-weight: 600; color: var(--gold); margin: 18px 0 8px;">Was bereits umgesetzt ist:</div>
+
+    <p style="margin-bottom: 6px; font-weight: 600;">Impressum — komplett mit HWDigital GmbH Daten:</p>
+    <p style="margin: 0 0 16px 14px; color: var(--text-muted); font-size: 0.9rem;">HWDigital GmbH · GF Melanie Hill, BA · Kölblgasse 2, 1030 Wien · +43 800 66 55 04 · office@hill-woltron-digital.com · FN 537930z · UID ATU 75762667</p>
+
+    <p style="margin-bottom: 6px; font-weight: 600;">Kontakt + Footer-Sektionen (16 DE-Files):</p>
+    <ul style="margin: 0 0 16px 22px; color: var(--text-muted); font-size: 0.9rem;">
+      <li>Adresse: Tuchlauben → Kölblgasse 2, 1030 Wien</li>
+      <li>Tel: +43 1 798 35 66 → +43 800 66 55 04</li>
+      <li>Email: digital@hill-woltron.com → office@hill-woltron-digital.com</li>
+      <li>Domain: hill-digital.eu → hill-woltron-digital.com</li>
+    </ul>
+
+    <p style="margin-bottom: 16px; color: var(--text-muted); font-size: 0.9rem;"><strong style="color: var(--text);">EN-Files:</strong> nicht angefasst (Standing Order, warten auf Kommando).</p>
+
+    <p style="margin-bottom: 8px;"><strong>News-Sektion + Position Paper Hero:</strong> Roswithas Texte übernommen.</p>
+    <p style="margin-bottom: 8px;"><strong>Warteliste:</strong> Roswithas Text mit „Keine Newsletter-Aufnahme ohne separate Zustimmung".</p>
+    <p style="margin-bottom: 18px;"><strong>Jakubs Email eingesetzt:</strong> <code style="background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px;">j.popluhar@hill-woltron-digital.com</code> auf Trainings-Seite (Trainer-Block) und Über-uns (Jakub-Bio).</p>
+
+    <p style="margin-bottom: 8px;"><strong>Domains die wir besitzen:</strong></p>
+    <ul style="margin: 0 0 18px 22px; color: var(--text-muted); font-size: 0.9rem;">
+      <li><span style="color: var(--green);">hill-woltron-digital.com</span> — aktuelle offizielle Domain (Live + Email)</li>
+      <li><span style="color: var(--text-muted);">hill-digital.academy</span> — gehalten für Expansion (next Version)</li>
+      <li><span style="color: var(--text-muted);">hill-woltron.ai</span> — gehalten für Expansion (next Version)</li>
+    </ul>
+
+    <p style="margin-bottom: 18px;"><strong>Status:</strong> <span style="color: var(--green);">17 von 24 Items erledigt</span> — Phase 1 komplett + Phase 2 weitgehend + Phase 3 Impressum/Kontakt.</p>
+
+    <div style="font-weight: 600; color: var(--blue); margin: 18px 0 12px; font-size: 1.05rem;">Noch offen — wer entscheidet was?</div>
+    <div class="decision-grid">
+      <div class="decision-card">
+        <div class="decision-who">Franz</div>
+        <div class="decision-what"><strong>Franz-Bio:</strong> Variante A oder B?</div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-who">Franz</div>
+        <div class="decision-what"><strong>Gewerbe-Bezeichnung</strong> im Impressum (exakte WKO-Bezeichnung)</div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-who">Karl + Franz</div>
+        <div class="decision-what"><strong>Ökosystem-Section:</strong> Variante A oder B?</div>
+      </div>
+      <div class="decision-card">
+        <div class="decision-who">Karl + Franz</div>
+        <div class="decision-what"><strong>„Human in the Lead":</strong> beibehalten oder ändern? (Brand-Lock-Frage)</div>
+      </div>
+      <div class="decision-card decision-card-wide">
+        <div class="decision-who">Team (Roswitha + Karl + Franz + Jakub)</div>
+        <div class="decision-what"><strong>CTA-Wortlaut — welche Formulierung wollen wir einheitlich verwenden?</strong><br><span style="color: var(--text-muted); font-size: 0.88rem;">Optionen: „30 Minuten — ganz unverbindlich" · „30 Minuten Training-Informationen" · „30 Minuten Zeit für Ihre Fragen" · „30 Minuten für Sie und Ihr Anliegen" · etwas anderes?</span></div>
+      </div>
+      <div class="decision-card decision-card-wide">
+        <div class="decision-who">Team (alle)</div>
+        <div class="decision-what"><strong>Tagline / Untertitel der Webseite:</strong> verwenden wir „Hill Digital — by Hill Woltron Digital" (oder eine Variante) als sichtbare Parent-Attribution im Footer / Header? Aktuell steht „Mitglied der Hill-Gruppe".</div>
+      </div>
+      <div class="decision-card decision-card-done">
+        <div class="decision-who">✓ Geklärt</div>
+        <div class="decision-what"><strong>Domain:</strong> hill-woltron-digital.com ist die offizielle Domain</div>
+      </div>
+    </div>
+  </section>
 
   <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
 
@@ -231,76 +348,76 @@
     </div>
     <p class="phase-desc">Direkt umsetzbar, kein Rückfragebedarf. Sprache, Markenrecht, Tonalität.</p>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p1-1"></div>
         <div class="item-main">
-          <div class="item-title">"HILL" überall auf "Hill" umstellen <span class="badge open">Offen</span></div>
+          <div class="item-title">"HILL" überall auf "Hill" umstellen <span class="badge done">Erledigt</span></div>
           <div class="quote">"Achtung bei Mitglied der HILL Gruppe bitte Hill in Kleinbuchstaben — dürfen wir lt. Gesetz nicht in Großbuchstaben schreiben!!! HILL HERITAGE müssen wir in Kleinbuchstaben schreiben!!!"</div>
           <div class="action"><strong>Aktion:</strong> Grep über alle HTML-Dateien (case-sensitive), `HILL` → `Hill`. Ausgenommen Logos/SVG.</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p1-2"></div>
         <div class="item-main">
-          <div class="item-title">Gendern durchgängig (:in / :innen) <span class="badge open">Offen</span></div>
+          <div class="item-title">Gendern durchgängig (:in / :innen) <span class="badge done">Erledigt</span></div>
           <div class="quote">"bitte unbedingt gendern!!!!" — bei HR-Leiter:in, Geschäftsführer:in, Unternehmer:in, Mitarbeiter:innen, Aufsichtsrät:in, Inhaber:innen.</div>
           <div class="action"><strong>Aktion:</strong> Scan über alle Personenbezeichnungen. Anpassen in Hero, Sub-Headlines, Body, Buttons, Personas-Karten, Trainings-Beschreibungen.</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p1-3"></div>
         <div class="item-main">
-          <div class="item-title">"Welle reiten"-Metapher entfernen <span class="badge open">Offen</span></div>
+          <div class="item-title">"Welle reiten"-Metapher entfernen <span class="badge done">Erledigt</span></div>
           <div class="quote">"Wer mit uns die Welle reitet — passt lt. Chatti überhaupt nicht zu unserer Homepage. Die Welle reiten sollen wir lt. KI nicht verwenden!"</div>
           <div class="action"><strong>Aktion:</strong> Über-uns Hero → neue Headline ("Wer hinter Hill Digital steht. Und wer mit uns Zukunft gestaltet."). Section "Menschen im Vordergrund" komplett neu.</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p1-4"></div>
         <div class="item-main">
-          <div class="item-title">"Innerhalb eines Werktags zurück" klarstellen <span class="badge open">Offen</span></div>
+          <div class="item-title">"Innerhalb eines Werktags zurück" klarstellen <span class="badge done">Erledigt</span></div>
           <div class="quote">"Innerhalb eines Werktags zurück. Was ist damit gemeint — wir melden uns innerhalb eines Werktages zurück?"</div>
           <div class="action"><strong>Aktion:</strong> Umformulieren zu "Wir melden uns innerhalb eines Werktags bei Ihnen."</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p1-5"></div>
         <div class="item-main">
-          <div class="item-title">Trainings-Karte 07 (KI für Büroalltag) Farbe angleichen <span class="badge open">Offen</span></div>
+          <div class="item-title">Trainings-Karte 07 (KI für Büroalltag) Farbe angleichen <span class="badge done">Erledigt</span></div>
           <div class="quote">"KI für Büroalltag — 07: die Farbe bitte an die anderen 6 Trainings anpassen"</div>
           <div class="action"><strong>Aktion:</strong> In <code>trainings.html</code> → Karte 07: Background/Accent-Farbe auf den Standard der anderen 6 setzen.</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p1-6"></div>
         <div class="item-main">
-          <div class="item-title">Recruiting Karten 01–03: Texte übernehmen <span class="badge open">Offen</span></div>
+          <div class="item-title">Recruiting Karten 01–03: Texte übernehmen <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>Aktion:</strong> Demografie, EU AI Act, AT-Spezifika — Roswithas Texte 1:1 übernehmen (alle drei mit "ich empfehle diesen Text" markiert).</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p1-7"></div>
         <div class="item-main">
-          <div class="item-title">Onboarding Karten 01–03: Texte übernehmen <span class="badge open">Offen</span></div>
+          <div class="item-title">Onboarding Karten 01–03: Texte übernehmen <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>Aktion:</strong> Frühfluktuation, KMU-Realität, EU AI Act — Roswithas Texte übernehmen.</div>
         </div>
       </div>
@@ -315,31 +432,31 @@
     </div>
     <p class="phase-desc">Roswitha hat Alternativen geliefert. Karl/Jakub wählen Variante vor Umsetzung.</p>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p2-1"></div>
         <div class="item-main">
-          <div class="item-title">Recruiting-Hero neu <span class="badge open">Offen</span></div>
+          <div class="item-title">Recruiting-Hero neu <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>Roswithas Text:</strong> "KI im Recruiting. Schneller zur richtigen Person. Tiefe HR-Expertise im Recruiting, Sovereign AI im Hintergrund. […]"</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p2-2"></div>
         <div class="item-main">
-          <div class="item-title">Trainings "Erst zuhören, dann bauen" <span class="badge open">Offen</span></div>
+          <div class="item-title">Trainings "Erst zuhören, dann bauen" <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>Roswithas Text:</strong> Zwei-Absatz-Version mit "Führungskräfte sehen einen konkreten Nutzen — und Mitarbeiter:innen erleben, dass KI ihre tägliche Arbeit tatsächlich erleichtert."</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p2-3"></div>
         <div class="item-main">
-          <div class="item-title">Warteliste-Sektion <span class="badge open">Offen</span></div>
+          <div class="item-title">Warteliste-Sektion <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>Roswithas Text:</strong> "Warteliste für das nächste Training. […] Keine Newsletter-Aufnahme ohne separate Zustimmung."</div>
         </div>
       </div>
@@ -349,7 +466,7 @@
       <div class="item-top">
         <div class="checkbox" data-id="p2-4"></div>
         <div class="item-main">
-          <div class="item-title">Franz-Bio: Variante A oder B? <span class="badge decision">Entscheidung</span></div>
+          <div class="item-title">Franz-Bio: Variante A oder B? <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>A:</strong> "Seit 1988 Teil der Hill-Welt. Hat Recruiting durch Internet, E-Mail, Cloud und KI begleitet. […]"<br><strong>B:</strong> "Seit 1988 in der Hill-Familie aktiv. Hat Recruiting im DACH-Raum durch jede technologische Veränderung begleitet. […]"<br><strong>Entscheidung:</strong> Franz selbst.</div>
         </div>
       </div>
@@ -359,47 +476,47 @@
       <div class="item-top">
         <div class="checkbox" data-id="p2-5"></div>
         <div class="item-main">
-          <div class="item-title">Ökosystem-Sektion: Variante A oder B? <span class="badge decision">Entscheidung</span></div>
+          <div class="item-title">Ökosystem-Sektion: Variante A oder B? <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>A:</strong> "Klein im Kern. Stark im Netzwerk. […]"<br><strong>B:</strong> "Hill Digital arbeitet nicht isoliert. […]"</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p2-6"></div>
         <div class="item-main">
-          <div class="item-title">Pilot & Lab Karte 04 <span class="badge open">Offen</span></div>
+          <div class="item-title">Pilot & Lab Karte 04 <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>Roswithas Text:</strong> "50 Jahre Recruiting-Erfahrung treffen auf neue KI-Werkzeuge — nicht im Demo-Modus, sondern im echten Alltag. […]"</div>
         </div>
       </div>
     </div>
 
-    <div class="item decision" data-status="decision">
+    <div class="item done" data-status="decision">
       <div class="item-top">
         <div class="checkbox" data-id="p2-7"></div>
         <div class="item-main">
-          <div class="item-title">Onboarding-Hero: Variante A oder B? <span class="badge decision">Entscheidung</span></div>
+          <div class="item-title">Onboarding-Hero: Variante A oder B? <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>A:</strong> "Die ersten 90 Tage prägen, ob aus einem Einstieg eine langfristige Zusammenarbeit wird. […]"<br><strong>B:</strong> "Gute Onboarding-Prozesse schaffen Sicherheit, Orientierung und Bindung. […]"</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p2-8"></div>
         <div class="item-main">
-          <div class="item-title">News-Sektion neuer Text <span class="badge open">Offen</span></div>
+          <div class="item-title">News-Sektion neuer Text <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>Roswithas Text:</strong> "Wie sich HR gerade verändert — und was davon Substanz hat. Briefings, Positionen und klare Perspektiven […] Ohne PR-Sprache. Ohne Buzzwords."</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p2-9"></div>
         <div class="item-main">
-          <div class="item-title">Position Paper neuer Text <span class="badge open">Offen</span></div>
+          <div class="item-title">Position Paper neuer Text <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>Roswithas Text:</strong> "Warum souveränes HR jetzt Pflicht wird. Der EU AI Act greift. US-Anbieter werden geopolitisch sensibler. […] Wer 2027 noch ohne souveräne HR-Infrastruktur arbeitet, hat […] ein strategisches Problem."</div>
         </div>
       </div>
@@ -409,7 +526,7 @@
       <div class="item-top">
         <div class="checkbox" data-id="p2-10"></div>
         <div class="item-main">
-          <div class="item-title">CTA-Wortlaut vereinheitlichen <span class="badge decision">Entscheidung</span></div>
+          <div class="item-title">CTA-Wortlaut vereinheitlichen <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>Optionen:</strong> "30 Minuten — ganz unverbindlich" / "30 Minuten Zeit für Ihre Fragen" / "30 Minuten für Sie und Ihr Anliegen". Eine Variante wählen und an allen 3 Personas-Karten + Inhouse-Anfrage identisch verwenden. <strong>Empfehlung:</strong> "30 Minuten — ganz unverbindlich".</div>
         </div>
       </div>
@@ -424,22 +541,22 @@
     </div>
     <p class="phase-desc">Kann erst geschehen, wenn Franz oder Karl liefern.</p>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p3-1"></div>
         <div class="item-main">
-          <div class="item-title">Impressum vervollständigen <span class="badge open">Daten da · Offen</span></div>
+          <div class="item-title">Impressum vervollständigen <span class="badge done">Erledigt</span></div>
           <div class="quote">"Impressum Daten bitte von Franz anfordern!!!" — Franz hat 20.05.2026 14:34 alle Daten geliefert.</div>
           <div class="action"><strong>Daten (von Franz):</strong> HWDigital GmbH · GF: Melanie Hill, BA · Kölblgasse 2, 1030 Wien · Tel +43 800 66 55 04 · office@hill-woltron-digital.com · FN 537930z · UID ATU 75762667 · Gerichtsstand Wien · Wirtschaftskammer Wien.<br><strong>Aktion:</strong> In <code>impressum.html</code> + <code>imprint-en.html</code> eintragen.</div>
         </div>
       </div>
     </div>
 
-    <div class="item open" data-status="open">
+    <div class="item done" data-status="open">
       <div class="item-top">
         <div class="checkbox" data-id="p3-2"></div>
         <div class="item-main">
-          <div class="item-title">Kontakt-Sektion: Adresse, Telefon, Email ergänzen <span class="badge open">Daten da · Offen</span></div>
+          <div class="item-title">Kontakt-Sektion: Adresse, Telefon, Email ergänzen <span class="badge done">Erledigt</span></div>
           <div class="quote">"Bei Ihr nächster Schritt steht bei Kontakt keine Adresse und keine Telefonnummer sowie keine Email"</div>
           <div class="action"><strong>Aktion:</strong> Kölblgasse 2, 1030 Wien · +43 800 66 55 04 · office@hill-woltron-digital.com — in Kontakt-Section auf index.html + index-en.html + kontakt.html.</div>
         </div>
@@ -490,7 +607,7 @@
       <div class="item-top">
         <div class="checkbox" data-id="p4-1"></div>
         <div class="item-main">
-          <div class="item-title">Lokale Preview rendern + screenshot <span class="badge open">Offen</span></div>
+          <div class="item-title">Lokale Preview rendern + screenshot <span class="badge done">Erledigt</span></div>
           <div class="action"><strong>Aktion:</strong> Vor Push lokal prüfen (Heroes, Personas, Trainings-Farbe, Gendern).</div>
         </div>
       </div>
@@ -570,18 +687,24 @@
   });
 
   // Filter pills
-  document.querySelectorAll('.pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      const f = pill.dataset.filter;
-      document.querySelectorAll('.item').forEach(item => {
-        if (f === 'all') item.style.display = '';
-        else if (f === 'done') item.style.display = item.classList.contains('done') ? '' : 'none';
-        else if (f === 'open') item.style.display = (item.dataset.status === 'open' && !item.classList.contains('done')) ? '' : 'none';
-        else item.style.display = (item.dataset.status === f && !item.classList.contains('done')) ? '' : 'none';
-      });
+  function applyFilter(f) {
+    document.querySelectorAll('.pill').forEach(p => p.classList.toggle('active', p.dataset.filter === f));
+    document.querySelectorAll('.item').forEach(item => {
+      if (f === 'all') item.style.display = '';
+      else if (f === 'done') item.style.display = item.classList.contains('done') ? '' : 'none';
+      else if (f === 'open') item.style.display = (item.dataset.status === 'open' && !item.classList.contains('done')) ? '' : 'none';
+      else if (f === 'decision') item.style.display = ((item.dataset.status === 'decision' || item.dataset.status === 'blocked') && !item.classList.contains('done')) ? '' : 'none';
+      else item.style.display = (item.dataset.status === f && !item.classList.contains('done')) ? '' : 'none';
     });
+    // Scroll to first visible phase section
+    const firstPhase = document.querySelector('.phase');
+    if (firstPhase) firstPhase.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('click', () => applyFilter(pill.dataset.filter));
+  });
+  document.querySelectorAll('.stat-clickable').forEach(s => {
+    s.addEventListener('click', () => applyFilter(s.dataset.statFilter));
   });
 
   recalcStats();
