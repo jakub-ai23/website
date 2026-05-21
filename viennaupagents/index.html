@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your First AI Agent — ViennaUP 22.05.2026</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --phase-intro: #4a90e2;
+      --phase-1: #50c878;
+      --phase-2: #4a90e2;
+      --phase-3: #d4a017;
+      --pitfall-red: #e74c3c;
+      --pitfall-orange: #e67e22;
+      --pitfall-purple: #9b59b6;
+      --pitfall-green: #50c878;
+      --pitfall-blue: #4a90e2;
+      --pitfall-gold: #d4a017;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* HEADER */
+    .site-header {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 40px; display: block; }
+
+    .header-meta {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white-muted);
+    }
+
+    /* PARTNER STRIP */
+    .partner-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .partner-strip .partner-logo {
+      display: inline-flex;
+      align-items: center;
+      background: #ffffff;
+      padding: 10px 16px;
+      border-radius: 12px;
+      line-height: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      opacity: 0.95;
+    }
+
+    .partner-strip .partner-logo:hover { opacity: 1; transform: translateY(-1px); }
+    .partner-strip .partner-logo img { height: 56px; width: auto; display: block; image-rendering: -webkit-optimize-contrast; }
+
+    .partner-strip .partner-divider {
+      color: var(--gold);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.2rem;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 600px) {
+      .partner-strip { gap: 12px; margin-bottom: 18px; }
+      .partner-strip .partner-logo { padding: 8px 12px; }
+      .partner-strip .partner-logo img { height: 40px; }
+      .partner-strip .partner-divider { display: none; }
+    }
+
+    /* LAYOUT */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(2rem, 5.5vw, 3rem);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 .accent { color: var(--gold); }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: var(--white-muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .hero .meta-row {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white-muted);
+    }
+    .hero .meta-row span { padding: 4px 0; }
+    .hero .meta-row .dot { color: var(--gold); }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 22px auto 0;
+      opacity: 0.7;
+    }
+
+    /* PAGE LAYOUT WITH SIDEBAR */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 48px;
+      margin-top: 48px;
+    }
+
+    .sidebar-nav {
+      position: sticky;
+      top: 90px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+
+    .sidebar-nav .nav-section-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 14px 14px 4px;
+      opacity: 0.7;
+    }
+
+    .sidebar-nav .nav-section-label:first-child { padding-top: 0; }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 8px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.06);
+      border-left-color: var(--gold);
+    }
+
+    /* SECTION DIVIDERS */
+    .section-divider {
+      text-align: center;
+      margin: 64px 0 32px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .section-divider.first { margin-top: 0; }
+
+    /* SECTION HEADINGS */
+    .section-intro h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .section-intro p {
+      color: var(--white-muted);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    /* STEP LABELS */
+    .step-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin: 22px 0 6px;
+    }
+
+    .step-meta {
+      font-size: 0.88rem;
+      color: var(--white-muted);
+      margin-bottom: 14px;
+    }
+
+    /* COLLAPSIBLE */
+    details {
+      margin: 18px 0 28px;
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details summary {
+      padding: 14px 18px;
+      background: rgba(212, 160, 23, 0.06);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    details summary:hover { background: rgba(212, 160, 23, 0.1); }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: '+'; font-size: 1.2rem; font-weight: 700; color: var(--gold); }
+    details[open] summary::after { content: '−'; }
+
+    details .collapsible-content { padding: 18px 20px; border-top: 1px solid rgba(212, 160, 23, 0.1); }
+    details .collapsible-content p { font-size: 0.9rem; margin-bottom: 8px; color: var(--white-muted); }
+    details .collapsible-content strong { color: var(--white); }
+
+    /* PROMPT BLOCKS */
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 18px 20px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: pre-line;
+    }
+
+    .prompt-block:hover { background: rgba(212, 160, 23, 0.1); }
+
+    .prompt-block::after {
+      content: 'Copy';
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover::after { opacity: 1; }
+    .prompt-block.copied::after { content: 'Copied!'; opacity: 1; }
+
+    /* CTA CARD */
+    .cta-card {
+      margin: 32px 0;
+      padding: 32px 28px;
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cta-card .cta-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .cta-card .cta-sub {
+      font-size: 0.9rem;
+      color: var(--white-muted);
+      margin-bottom: 22px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--charcoal);
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      border: 2px solid var(--gold);
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .cta-btn:hover {
+      background: var(--gold-light);
+      color: var(--charcoal);
+      transform: translateY(-1px);
+    }
+
+    /* PHASE CARDS */
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .phase-card {
+      background: var(--charcoal-light);
+      border-radius: 12px;
+      padding: 20px 18px;
+      border-top: 4px solid var(--gold);
+    }
+    .phase-card.intro { border-top-color: var(--phase-intro); }
+    .phase-card.p1 { border-top-color: var(--phase-1); }
+    .phase-card.p2 { border-top-color: var(--phase-2); }
+    .phase-card.p3 { border-top-color: var(--phase-3); }
+
+    .phase-card .phase-tag {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white-muted);
+      margin-bottom: 4px;
+    }
+
+    .phase-card h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .phase-card .phase-host {
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .phase-card ul {
+      list-style: none;
+      padding: 0;
+      font-size: 0.82rem;
+      color: var(--white-muted);
+    }
+
+    .phase-card ul li {
+      padding: 3px 0 3px 14px;
+      position: relative;
+    }
+
+    .phase-card ul li::before {
+      content: '■';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.6rem;
+      top: 6px;
+    }
+
+    @media (max-width: 800px) {
+      .phase-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .phase-grid { grid-template-columns: 1fr; }
+    }
+
+    /* LEVELS STAIRCASE */
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-top: 20px;
+      align-items: end;
+    }
+
+    .level-card {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 10px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+
+    .level-card.highlight {
+      background: rgba(74, 144, 226, 0.12);
+      border-color: var(--phase-2);
+    }
+
+    .level-card .lv {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .level-card .lv-name {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .level-card .lv-tool {
+      font-size: 0.72rem;
+      color: var(--white-muted);
+    }
+
+    .levels-note {
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      color: var(--white);
+    }
+
+    .levels-note strong { color: var(--gold); }
+
+    @media (max-width: 700px) {
+      .levels-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* TOOL CARDS (Tool Landscape) */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .tool-card {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-left: 4px solid var(--gold);
+      border-radius: 12px;
+      padding: 18px 16px;
+    }
+    .tool-card.n8n { border-left-color: #e74c3c; }
+    .tool-card.lovable { border-left-color: #9b59b6; }
+    .tool-card.claude { border-left-color: #e67e22; }
+    .tool-card.eleven { border-left-color: #141414; border-left-color: #ffffff; }
+
+    .tool-card h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .tool-card .tool-tag {
+      font-size: 0.78rem;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .tool-card .tool-label {
+      font-family: var(--font-heading);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white-muted);
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .tool-card p {
+      font-size: 0.82rem;
+      color: var(--white);
+    }
+
+    @media (max-width: 800px) {
+      .tool-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* COMPARE 2-COL */
+    .compare-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .compare-block {
+      background: var(--charcoal-light);
+      border-radius: 12px;
+      padding: 22px 22px;
+      border-top: 4px solid var(--white-muted);
+    }
+    .compare-block.right { border-top-color: var(--phase-2); }
+
+    .compare-block h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .compare-block .compare-sub {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .compare-block ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 14px;
+    }
+
+    .compare-block ul li {
+      padding: 4px 0 4px 18px;
+      position: relative;
+      font-size: 0.88rem;
+    }
+
+    .compare-block ul li::before {
+      content: '■';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.6rem;
+      top: 8px;
+    }
+
+    .compare-block .examples-label {
+      font-family: var(--font-heading);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 700px) {
+      .compare-2col { grid-template-columns: 1fr; }
+    }
+
+    /* ANATOMY 5-COL */
+    .anatomy-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .anatomy-card {
+      background: var(--charcoal-light);
+      border-radius: 12px;
+      padding: 18px 14px;
+      text-align: center;
+      border-top: 3px solid var(--gold);
+    }
+
+    .anatomy-card .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+    }
+    .anatomy-card.goal .icon { background: #4a90e2; }
+    .anatomy-card.instructions .icon { background: #50c878; }
+    .anatomy-card.tools .icon { background: #d4a017; }
+    .anatomy-card.memory .icon { background: #9b59b6; }
+    .anatomy-card.trigger .icon { background: #e74c3c; }
+
+    .anatomy-card h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .anatomy-card p {
+      font-size: 0.78rem;
+      color: var(--white-muted);
+      margin-bottom: 8px;
+    }
+
+    .anatomy-card .ex {
+      font-size: 0.72rem;
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    @media (max-width: 900px) {
+      .anatomy-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 500px) {
+      .anatomy-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* LOOP 4-COL */
+    .loop-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .loop-card {
+      background: var(--charcoal-light);
+      border-radius: 12px;
+      padding: 18px 14px;
+      text-align: center;
+      position: relative;
+    }
+
+    .loop-card .num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+    }
+    .loop-card:nth-child(odd) .num { background: #4a90e2; }
+    .loop-card:nth-child(even) .num { background: #d4a017; }
+
+    .loop-card h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .loop-card p {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      margin-bottom: 10px;
+    }
+
+    .loop-card .ex {
+      font-size: 0.74rem;
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    @media (max-width: 700px) {
+      .loop-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* BUILD STEPS (numbered list) */
+    .build-step {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 18px;
+      margin-bottom: 22px;
+      align-items: start;
+    }
+
+    .build-step .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .build-step h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.08rem;
+      margin-bottom: 6px;
+    }
+
+    .build-step p {
+      color: var(--white-muted);
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+    }
+
+    /* PITFALLS GRID */
+    .pitfalls-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .pitfall {
+      background: var(--charcoal-light);
+      border-radius: 10px;
+      padding: 18px 16px;
+      border-left: 4px solid var(--gold);
+    }
+    .pitfall.red { border-left-color: var(--pitfall-red); }
+    .pitfall.orange { border-left-color: var(--pitfall-orange); }
+    .pitfall.purple { border-left-color: var(--pitfall-purple); }
+    .pitfall.green { border-left-color: var(--pitfall-green); }
+    .pitfall.blue { border-left-color: var(--pitfall-blue); }
+    .pitfall.gold { border-left-color: var(--pitfall-gold); }
+
+    .pitfall h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .pitfall.red h4 { color: var(--pitfall-red); }
+    .pitfall.orange h4 { color: var(--pitfall-orange); }
+    .pitfall.purple h4 { color: var(--pitfall-purple); }
+    .pitfall.green h4 { color: var(--pitfall-green); }
+    .pitfall.blue h4 { color: var(--pitfall-blue); }
+    .pitfall.gold h4 { color: var(--pitfall-gold); }
+
+    .pitfall p { font-size: 0.85rem; color: var(--white); margin-bottom: 10px; }
+    .pitfall .fix { font-size: 0.82rem; color: var(--white-muted); font-style: italic; }
+    .pitfall .fix strong { color: var(--white); font-style: normal; }
+
+    @media (max-width: 800px) {
+      .pitfalls-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .pitfalls-grid { grid-template-columns: 1fr; }
+    }
+
+    /* AI ACT 3-COL */
+    .act-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .act-card {
+      background: var(--charcoal-light);
+      border-radius: 12px;
+      padding: 22px 20px;
+      text-align: center;
+      border: 1px solid rgba(212, 160, 23, 0.12);
+    }
+    .act-card.ok { background: rgba(80, 200, 120, 0.08); border-color: rgba(80, 200, 120, 0.3); }
+    .act-card.warn { background: rgba(212, 160, 23, 0.08); border-color: rgba(212, 160, 23, 0.3); }
+    .act-card.danger { background: rgba(231, 76, 60, 0.08); border-color: rgba(231, 76, 60, 0.3); }
+
+    .act-card .act-icon { font-size: 2rem; margin-bottom: 10px; }
+    .act-card h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .act-card.ok h4 { color: var(--pitfall-green); }
+    .act-card.warn h4 { color: var(--gold); }
+    .act-card.danger h4 { color: var(--pitfall-red); }
+
+    .act-card p { font-size: 0.85rem; color: var(--white); }
+
+    @media (max-width: 700px) {
+      .act-grid { grid-template-columns: 1fr; }
+    }
+
+    /* STACK 3-COL */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .stack-card {
+      background: var(--charcoal-light);
+      border-radius: 12px;
+      padding: 22px 20px;
+      border-top: 5px solid var(--gold);
+    }
+    .stack-card.tonight { border-top-color: var(--pitfall-green); }
+    .stack-card.integration { border-top-color: var(--phase-2); }
+    .stack-card.production { border-top-color: var(--pitfall-purple); }
+
+    .stack-card h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    .stack-card.tonight h4 { color: var(--pitfall-green); }
+    .stack-card.integration h4 { color: var(--phase-2); }
+    .stack-card.production h4 { color: var(--pitfall-purple); }
+
+    .stack-card .stack-sub {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .stack-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .stack-card ul li {
+      padding: 4px 0 4px 18px;
+      position: relative;
+      font-size: 0.88rem;
+    }
+
+    .stack-card ul li::before {
+      content: '■';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.6rem;
+      top: 8px;
+    }
+
+    @media (max-width: 800px) {
+      .stack-grid { grid-template-columns: 1fr; }
+    }
+
+    /* 7-DAY PLAN */
+    .plan-item {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 10px;
+      padding: 16px 22px;
+      margin-bottom: 10px;
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .plan-item .day {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      background: var(--phase-2);
+      padding: 6px 10px;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .plan-item h4 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .plan-item p { font-size: 0.85rem; color: var(--white-muted); }
+
+    @media (max-width: 500px) {
+      .plan-item { grid-template-columns: 1fr; gap: 4px; }
+      .plan-item .day { justify-self: start; }
+    }
+
+    /* LLM GRID */
+    .llm-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .llm-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .llm-card .llm-name { font-family: var(--font-heading); font-weight: 700; font-size: 0.95rem; color: var(--white); margin-bottom: 8px; }
+    .llm-card .llm-browser { display: inline-block; font-size: 0.82rem; font-weight: 600; color: var(--gold); margin-bottom: 10px; }
+    .llm-card .llm-stores { display: flex; gap: 8px; margin-top: 4px; }
+
+    .llm-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      flex: 1;
+      justify-content: center;
+      min-height: 40px;
+    }
+
+    .llm-store-btn:hover, .llm-store-btn:focus {
+      border-color: var(--gold);
+      background: rgba(212, 160, 23, 0.08);
+      color: var(--white);
+    }
+
+    .llm-store-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .llm-store-btn .store-meta { display: flex; flex-direction: column; line-height: 1.1; align-items: flex-start; }
+    .llm-store-btn .store-meta small { font-size: 0.62rem; color: var(--white-muted); font-weight: 500; letter-spacing: 0.4px; }
+    .llm-store-btn .store-meta strong { font-size: 0.82rem; font-weight: 700; }
+
+    @media (max-width: 600px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* CONTACT GRID */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .contact-card {
+      background: var(--charcoal-light);
+      border-radius: 12px;
+      padding: 22px 20px;
+      text-align: center;
+      border-top: 4px solid var(--phase-2);
+    }
+
+    .contact-card h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .contact-card .contact-org { color: var(--phase-2); font-size: 0.88rem; font-weight: 600; margin-bottom: 4px; }
+    .contact-card .contact-role { font-size: 0.82rem; color: var(--white-muted); font-style: italic; margin-bottom: 12px; }
+    .contact-card a { font-size: 0.88rem; color: var(--gold); }
+
+    @media (max-width: 700px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    /* JOTFORM */
+    .jotform-wrap {
+      margin: 24px 0;
+      padding: 8px;
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.2);
+      border-radius: 12px;
+    }
+
+    .jotform-wrap iframe {
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 28px 24px 36px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 64px;
+    }
+
+    footer p { font-size: 0.82rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .page-layout { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+      .hero { margin-bottom: 16px; }
+      .sidebar-nav {
+        position: static; flex-direction: row; flex-wrap: wrap; gap: 6px;
+        max-height: none; overflow: visible; margin-bottom: 12px;
+        padding-bottom: 12px; border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      }
+      .sidebar-nav .nav-section-label { width: 100%; padding: 8px 0 2px; }
+      .sidebar-nav a {
+        padding: 8px 12px; font-size: 0.72rem;
+        border-left: none; border-bottom: 2px solid transparent;
+        background: var(--charcoal-light); border-radius: 6px;
+      }
+      .sidebar-nav a:hover, .sidebar-nav a.active {
+        border-left: none; border-bottom-color: var(--gold);
+      }
+      .sidebar-nav a.sub-item { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .site-header { padding: 12px 16px; }
+      .logo img { height: 32px; }
+      .header-meta { display: none; }
+    }
+
+    @media (max-width: 500px) {
+      main { padding: 24px 16px 64px; }
+      .site-header { padding: 10px 14px; }
+      .logo img { height: 28px; }
+      .prompt-block { padding: 16px 14px; font-size: 0.85rem; }
+      .cta-card { padding: 26px 20px; }
+      .section-intro h3 { font-size: 1.35rem; }
+      .hero h1 { font-size: clamp(1.6rem, 7vw, 2rem); }
+      .hero .sub { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="https://jakubpopluhar.com" class="logo" aria-label="Jakub Popluhar">
+      <img src="../images/logos/jakub-popluhar-logo-dark.png" alt="Jakub Popluhar">
+    </a>
+    <div class="header-meta">ViennaUP · 22.05.2026 · 13:00–14:30</div>
+  </header>
+
+  <main>
+
+    <!-- PARTNER STRIP (3 logos centered) -->
+    <div class="partner-strip">
+      <a href="https://hill-digital.at/" class="partner-logo" target="_blank" rel="noopener" aria-label="Hill Digital">
+        <img src="../images/logos/hill-digital.png" alt="Hill Digital">
+      </a>
+      <span class="partner-divider">×</span>
+      <a href="https://optima-solutions.at/" class="partner-logo" target="_blank" rel="noopener" aria-label="Optima Solutions">
+        <img src="../images/logos/optima-solutions.png" alt="Optima Solutions">
+      </a>
+      <span class="partner-divider">×</span>
+      <a href="https://soneo.ai/" class="partner-logo" target="_blank" rel="noopener" aria-label="Soneo AI">
+        <img src="../images/logos/soneo.png" alt="Soneo AI">
+      </a>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="badge">ViennaUP · AI Factory Austria · 22.05.2026</div>
+      <h1>Build Your First <span class="accent">AI Agent</span><br>for Startups</h1>
+      <p class="sub">Your workshop companion. Tap, copy, build. In 90 minutes you walk out with a working voice agent on your phone, the templates we used, and a 7-day plan to ship it.</p>
+      <div class="meta-row">
+        <span>90 Min</span><span class="dot">·</span>
+        <span>40 Founders</span><span class="dot">·</span>
+        <span>Hands-On</span><span class="dot">·</span>
+        <span>Jakub + Andreas</span>
+      </div>
+      <div class="divider"></div>
+    </div>
+
+    <div class="page-layout">
+
+      <!-- SIDEBAR NAV -->
+      <nav class="sidebar-nav" aria-label="Sections">
+        <div class="nav-section-label">Start here</div>
+        <a href="#setup">Open your LLM</a>
+        <a href="#flow">Today's flow</a>
+
+        <div class="nav-section-label">Concepts</div>
+        <a href="#levels">Levels of building</a>
+        <a href="#tools">Tool landscape</a>
+        <a href="#chatbot-vs-agent">Chatbot vs Agent</a>
+        <a href="#anatomy">Anatomy of an Agent</a>
+        <a href="#loop">Perceive · Plan · Act · Reflect</a>
+        <a href="#api-mcp">API Keys &amp; MCP</a>
+
+        <div class="nav-section-label">Phase 2 · Build</div>
+        <a href="#build">Build your voice agent</a>
+        <a href="#prompt-library">Prompt library</a>
+        <a href="#credits">Free Lovable credits</a>
+
+        <div class="nav-section-label">Take home</div>
+        <a href="#pitfalls">Common pitfalls</a>
+        <a href="#ai-act">AI Act in 60s</a>
+        <a href="#stack">Take-home stack</a>
+        <a href="#plan">7-day plan</a>
+
+        <div class="nav-section-label">Stay in touch</div>
+        <a href="#leadcapture">Slides + templates</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- CONTENT -->
+      <div class="content">
+
+        <!-- LLM SETUP -->
+        <details id="setup" open>
+          <summary>Open your LLM (tap to expand)</summary>
+          <div class="collapsible-content">
+            <p>No LLM open yet? Pick one. All free tiers work for this workshop.</p>
+            <div class="llm-grid">
+              <div class="llm-card">
+                <div class="llm-name">ChatGPT</div>
+                <a class="llm-browser" href="https://chatgpt.com" target="_blank" rel="noopener">Open in browser →</a>
+                <div class="llm-stores">
+                  <a class="llm-store-btn" href="https://apps.apple.com/app/chatgpt/id6448311069" target="_blank" rel="noopener" aria-label="Download ChatGPT on the App Store">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                    <span class="store-meta"><small>Download on the</small><strong>App Store</strong></span>
+                  </a>
+                  <a class="llm-store-btn" href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank" rel="noopener" aria-label="Get ChatGPT on Google Play">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.039 12l2.659-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/></svg>
+                    <span class="store-meta"><small>Get it on</small><strong>Google Play</strong></span>
+                  </a>
+                </div>
+              </div>
+              <div class="llm-card">
+                <div class="llm-name">Claude</div>
+                <a class="llm-browser" href="https://claude.ai" target="_blank" rel="noopener">Open in browser →</a>
+                <div class="llm-stores">
+                  <a class="llm-store-btn" href="https://apps.apple.com/app/claude-by-anthropic/id6473753684" target="_blank" rel="noopener" aria-label="Download Claude on the App Store">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                    <span class="store-meta"><small>Download on the</small><strong>App Store</strong></span>
+                  </a>
+                  <a class="llm-store-btn" href="https://play.google.com/store/apps/details?id=com.anthropic.claude" target="_blank" rel="noopener" aria-label="Get Claude on Google Play">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.039 12l2.659-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/></svg>
+                    <span class="store-meta"><small>Get it on</small><strong>Google Play</strong></span>
+                  </a>
+                </div>
+              </div>
+              <div class="llm-card">
+                <div class="llm-name">Gemini</div>
+                <a class="llm-browser" href="https://gemini.google.com" target="_blank" rel="noopener">Open in browser →</a>
+                <div class="llm-stores">
+                  <a class="llm-store-btn" href="https://apps.apple.com/app/google-gemini/id6477489729" target="_blank" rel="noopener" aria-label="Download Gemini on the App Store">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                    <span class="store-meta"><small>Download on the</small><strong>App Store</strong></span>
+                  </a>
+                  <a class="llm-store-btn" href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard" target="_blank" rel="noopener" aria-label="Get Gemini on Google Play">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.039 12l2.659-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/></svg>
+                    <span class="store-meta"><small>Get it on</small><strong>Google Play</strong></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- TODAY'S FLOW -->
+        <div class="section-divider first" id="flow"><h2>Today's flow · 90 Min</h2></div>
+
+        <div class="section-intro">
+          <h3>15 + 25 + 35 + 15</h3>
+          <p>Landscape, then concepts, then build, then take home. By the end you have a working voice agent on your phone, two templates to reuse, and a 7-day plan.</p>
+        </div>
+
+        <div class="phase-grid">
+          <div class="phase-card intro">
+            <div class="phase-tag">Intro · 15 Min</div>
+            <h4>Tool Landscape</h4>
+            <div class="phase-host">Jakub</div>
+            <ul>
+              <li>Welcome &amp; quick poll</li>
+              <li>Levels of building (1–6)</li>
+              <li>Tool map: n8n, Lovable, Claude Code, ElevenLabs</li>
+            </ul>
+          </div>
+          <div class="phase-card p1">
+            <div class="phase-tag">Phase 1 · 25 Min</div>
+            <h4>Core Concepts</h4>
+            <div class="phase-host">Andreas</div>
+            <ul>
+              <li>Chatbot vs. agent</li>
+              <li>API keys &amp; MCP</li>
+              <li>Anatomy of an agent</li>
+            </ul>
+          </div>
+          <div class="phase-card p2">
+            <div class="phase-tag">Phase 2 · 35 Min</div>
+            <h4>Build Together</h4>
+            <div class="phase-host">Jakub + Andreas</div>
+            <ul>
+              <li>Live: build your own voice agent</li>
+              <li>Hands-on, on your phone</li>
+              <li>Q&amp;A while building</li>
+            </ul>
+          </div>
+          <div class="phase-card p3">
+            <div class="phase-tag">Phase 3 · 15 Min</div>
+            <h4>Take Home</h4>
+            <div class="phase-host">Andreas + Jakub</div>
+            <ul>
+              <li>Templates &amp; repo</li>
+              <li>7-day plan</li>
+              <li>What to build next</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- LEVELS OF BUILDING -->
+        <div class="section-divider" id="levels"><h2>There are levels to this</h2></div>
+
+        <div class="section-intro">
+          <h3>From a single prompt to a full agentic system</h3>
+          <p>Higher is not better. Higher means more control and more effort. Most startups should live at L2–L4. Today's build sits at L3–L5.</p>
+        </div>
+
+        <div class="levels-grid">
+          <div class="level-card">
+            <div class="lv">L1</div>
+            <div class="lv-name">Prompt</div>
+            <div class="lv-tool">ChatGPT, Claude</div>
+          </div>
+          <div class="level-card">
+            <div class="lv">L2</div>
+            <div class="lv-name">Custom GPT</div>
+            <div class="lv-tool">OpenAI Projects</div>
+          </div>
+          <div class="level-card highlight">
+            <div class="lv">L3</div>
+            <div class="lv-name">Workflow</div>
+            <div class="lv-tool">n8n, Make</div>
+          </div>
+          <div class="level-card highlight">
+            <div class="lv">L4</div>
+            <div class="lv-name">Frontend App</div>
+            <div class="lv-tool">Lovable, v0</div>
+          </div>
+          <div class="level-card highlight">
+            <div class="lv">L5</div>
+            <div class="lv-name">Voice Agent</div>
+            <div class="lv-tool">ElevenLabs</div>
+          </div>
+          <div class="level-card">
+            <div class="lv">L6</div>
+            <div class="lv-name">Custom Build</div>
+            <div class="lv-tool">Claude Code</div>
+          </div>
+        </div>
+
+        <div class="levels-note">
+          <strong>Today's build sits at L3–L5.</strong> You'll pick an ElevenLabs template, swap the system prompt, and have a working voice agent on your phone in 7–15 minutes.
+        </div>
+
+        <!-- TOOL LANDSCAPE -->
+        <div class="section-divider" id="tools"><h2>The tool landscape</h2></div>
+
+        <div class="section-intro">
+          <h3>Which tool for which job</h3>
+          <p>Forget loyalty. Pick what fits. Rule of thumb: start with the simplest tool that solves your problem. Add complexity only when you hit the ceiling.</p>
+        </div>
+
+        <div class="tool-grid">
+          <div class="tool-card n8n">
+            <h4>n8n</h4>
+            <div class="tool-tag">Connectors &amp; workflows</div>
+            <div class="tool-label">Strong at</div>
+            <p>Many apps to connect, scheduled jobs, glue-code without code.</p>
+            <div class="tool-label">Example use</div>
+            <p>Inbound lead → enrich → CRM. Daily summary → Slack.</p>
+          </div>
+          <div class="tool-card lovable">
+            <h4>Lovable</h4>
+            <div class="tool-tag">Frontend &amp; apps</div>
+            <div class="tool-label">Strong at</div>
+            <p>Real UI in minutes. Looks like a product, not a demo.</p>
+            <div class="tool-label">Example use</div>
+            <p>To-Do app, dashboard, customer-facing agent.</p>
+          </div>
+          <div class="tool-card claude">
+            <h4>Claude Code</h4>
+            <div class="tool-tag">Complex logic</div>
+            <div class="tool-label">Strong at</div>
+            <p>Real codebase. Plans, edits, tests. For your developer.</p>
+            <div class="tool-label">Example use</div>
+            <p>Custom integrations, complex multi-step systems.</p>
+          </div>
+          <div class="tool-card eleven">
+            <h4>ElevenLabs</h4>
+            <div class="tool-tag">Voice agents</div>
+            <div class="tool-label">Strong at</div>
+            <p>Talks, listens, calls APIs. Phone-grade quality.</p>
+            <div class="tool-label">Example use</div>
+            <p>Inbound hotline, appointment booking, voice assistant.</p>
+          </div>
+        </div>
+
+        <!-- CHATBOT vs AGENT -->
+        <div class="section-divider" id="chatbot-vs-agent"><h2>Chatbot vs. AI Agent</h2></div>
+
+        <div class="section-intro">
+          <h3>Same surface, very different behaviour underneath</h3>
+          <p>The line is blurring. Modern Claude and ChatGPT are already agentic — they search, plan, and use tools. The label matters less than the behaviour.</p>
+        </div>
+
+        <div class="compare-2col">
+          <div class="compare-block">
+            <h4>LLM (Chatbot)</h4>
+            <div class="compare-sub">Talks. Doesn't act.</div>
+            <ul>
+              <li>Receives a question</li>
+              <li>Understands input and generates a reply</li>
+              <li>Stops there</li>
+            </ul>
+            <div class="examples-label">Examples</div>
+            <ul>
+              <li>Knowledge bot over your docs</li>
+              <li>FAQ assistant on a website</li>
+              <li>Custom GPT with internal handbook</li>
+            </ul>
+          </div>
+          <div class="compare-block right">
+            <h4>AI Agent</h4>
+            <div class="compare-sub">Talks and does.</div>
+            <ul>
+              <li>Plans the steps to reach a goal</li>
+              <li>Uses tools: search, APIs, files, code</li>
+              <li>Self-corrects if a step fails</li>
+            </ul>
+            <div class="examples-label">Examples</div>
+            <ul>
+              <li>Research agent: company brief in 30s</li>
+              <li>Inbound: qualifies leads + CRM entry</li>
+              <li>Voice agent: books an appointment</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ANATOMY -->
+        <div class="section-divider" id="anatomy"><h2>Anatomy of an AI Agent</h2></div>
+
+        <div class="section-intro">
+          <h3>Five building blocks</h3>
+          <p>Every agent has these, no matter the platform. If your agent doesn't behave: the answer is almost always in one of these 5 boxes. Walk through them in order.</p>
+        </div>
+
+        <div class="anatomy-grid">
+          <div class="anatomy-card goal">
+            <div class="icon">⊕</div>
+            <h4>Goal</h4>
+            <p>What outcome do you want? Be specific.</p>
+            <div class="ex">"Brief me on company X in 3 paragraphs"</div>
+          </div>
+          <div class="anatomy-card instructions">
+            <div class="icon">✎</div>
+            <h4>Instructions</h4>
+            <p>The persona + how to behave + what NOT to do.</p>
+            <div class="ex">System prompt, guardrails, style.</div>
+          </div>
+          <div class="anatomy-card tools">
+            <div class="icon">⚒</div>
+            <h4>Tools</h4>
+            <p>What the agent can use: search, files, APIs.</p>
+            <div class="ex">Web search, Gmail, n8n nodes.</div>
+          </div>
+          <div class="anatomy-card memory">
+            <div class="icon">⌬</div>
+            <h4>Memory</h4>
+            <p>What it remembers across steps or sessions.</p>
+            <div class="ex">Knowledge base, conversation history.</div>
+          </div>
+          <div class="anatomy-card trigger">
+            <div class="icon">⚡</div>
+            <h4>Trigger</h4>
+            <p>What kicks it off: human, schedule, webhook.</p>
+            <div class="ex">Form submission, daily 9am, new email.</div>
+          </div>
+        </div>
+
+        <!-- PERCEIVE-PLAN-ACT-REFLECT LOOP -->
+        <div class="section-divider" id="loop"><h2>Inside an AI Agent</h2></div>
+
+        <div class="section-intro">
+          <h3>The four-step loop every working agent runs through</h3>
+          <p>Over and over. This is how an agent gets things done — and how it self-corrects when something breaks.</p>
+        </div>
+
+        <div class="loop-grid">
+          <div class="loop-card">
+            <div class="num">1</div>
+            <h4>Perceive</h4>
+            <p>Reads the input. Pulls in context, documents, and live data the agent needs.</p>
+            <div class="ex">"New lead from form, check CRM for history"</div>
+          </div>
+          <div class="loop-card">
+            <div class="num">2</div>
+            <h4>Plan</h4>
+            <p>Breaks the goal into concrete steps. Picks the right tool for each one.</p>
+            <div class="ex">"Enrich, score, route — in that order"</div>
+          </div>
+          <div class="loop-card">
+            <div class="num">3</div>
+            <h4>Act</h4>
+            <p>Calls tools and APIs. Searches, writes, sends, books — not just talks.</p>
+            <div class="ex">"Write to HubSpot, ping sales in Slack"</div>
+          </div>
+          <div class="loop-card">
+            <div class="num">4</div>
+            <h4>Reflect</h4>
+            <p>Checks the result. If it failed, retries with a different angle.</p>
+            <div class="ex">"Search returned nothing — broaden the query"</div>
+          </div>
+        </div>
+
+        <!-- API KEYS + MCP -->
+        <div class="section-divider" id="api-mcp"><h2>API Keys &amp; MCP</h2></div>
+
+        <div class="section-intro">
+          <h3>The plumbing that connects AI to the rest of your world</h3>
+          <p>Two concepts you need before building. Skip them and your agent stays a chatbot.</p>
+        </div>
+
+        <div class="compare-2col">
+          <div class="compare-block">
+            <h4>API Key</h4>
+            <div class="compare-sub">Your secret password for a service</div>
+            <p style="font-size: 0.88rem; margin-bottom: 12px;">Think of it as <strong style="color: var(--gold);">a hotel keycard</strong> for a specific service. You generate it in the service (OpenAI, Anthropic, ElevenLabs, your CRM). You paste it into your agent. The agent can now act on your behalf.</p>
+            <div class="examples-label">Rules of the road</div>
+            <ul>
+              <li>Treat keys like passwords. No screenshots, no Slack.</li>
+              <li>Set spend limits where possible.</li>
+              <li>Rotate when a project ends.</li>
+            </ul>
+          </div>
+          <div class="compare-block right">
+            <h4>MCP</h4>
+            <div class="compare-sub">Model Context Protocol — the USB-C for AI</div>
+            <p style="font-size: 0.88rem; margin-bottom: 12px;">A standard for <strong style="color: var(--phase-2);">giving AI tools access to your apps</strong>: Gmail, Calendar, Notion, GitHub. Without MCP, you copy-paste between apps. With MCP, the agent reads, writes, and acts directly in them — under your control.</p>
+            <div class="examples-label">What it unlocks</div>
+            <ul>
+              <li>"Summarise my calendar this week"</li>
+              <li>"Draft a reply to this email and save as draft"</li>
+              <li>"Pull all leads from Notion and score them"</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PHASE 2: BUILD YOUR VOICE AGENT -->
+        <div class="section-divider" id="build"><h2>Phase 2 · Build your voice agent · 35 Min</h2></div>
+
+        <div class="section-intro">
+          <h3>Let's build it. Live. On your phone.</h3>
+          <p>Three steps. We do it together. By the end of this section you have a working voice agent you can talk to from your phone.</p>
+        </div>
+
+        <div class="build-step">
+          <div class="step-num">1</div>
+          <div>
+            <h4>Sign up at ElevenLabs &amp; create an agent</h4>
+            <p>Go to <a href="https://elevenlabs.io/app/agents" target="_blank" rel="noopener">elevenlabs.io/app/agents</a> → sign in with Google → "Create Agent" → pick the <strong>"Assistant"</strong> or <strong>"Customer Service"</strong> template. That's your starting skeleton — no need to build from zero.</p>
+          </div>
+        </div>
+
+        <div class="build-step">
+          <div class="step-num">2</div>
+          <div>
+            <h4>Swap the system prompt</h4>
+            <p>This is where the magic lives. Open the "Instructions" / "System Prompt" field. Delete what's there. Tap one of the prompts below to copy, then paste. <strong>The same agent becomes a totally different character</strong> depending on what you paste.</p>
+          </div>
+        </div>
+
+        <div class="build-step">
+          <div class="step-num">3</div>
+          <div>
+            <h4>Test it from your phone</h4>
+            <p>Save the agent. Click "Test" in the browser, or open the agent's share link on your phone. Talk to it. Hear it talk back. Welcome to L5.</p>
+          </div>
+        </div>
+
+        <!-- PROMPT LIBRARY -->
+        <div class="section-intro" id="prompt-library" style="margin-top: 36px;">
+          <h3>Prompt Library</h3>
+          <p>Three system prompts. Pick one. Paste into ElevenLabs. Talk to it. <strong style="color: var(--gold);">Tap any prompt block to copy it.</strong></p>
+        </div>
+
+        <p class="step-label">Prompt 1 · Pizza Expert — il Maestro della Pizza</p>
+        <p class="step-meta">A deeply opinionated Italian pizza expert. Funny, warm, allergic to pineapple. Great first-build prompt because the persona is instantly obvious and recoverable — you cannot break it.</p>
+        <div class="prompt-block">You are Giuseppe, a third-generation Neapolitan pizza master. You have been making pizza for 47 years. You answer voice calls from people who want to know about pizza.
+
+PERSONA:
+- Warm, loud, dramatic. Hands talking even though the caller cannot see them.
+- Italian accent in English. Light Italian expressions: "Mamma mia", "ascolta", "bellissimo", "porca miseria" (only when offended).
+- You laugh easily. You also get genuinely sad when someone describes a bad pizza.
+
+YOUR EXPERTISE:
+You know everything about:
+- Neapolitan vs Roman vs New York vs Detroit vs Chicago deep dish
+- Why San Marzano tomatoes are non-negotiable
+- The exact hydration for the perfect dough (65 to 70 percent)
+- Wood-fired oven temperatures (485°C, no less)
+- Which cheese for which pizza (mozzarella di bufala for Margherita, fior di latte for almost everything else)
+- The five mortal sins of pizza
+
+THE FIVE MORTAL SINS (you bring these up unprompted if relevant):
+1. Pineapple on pizza. This is not pizza. This is a fruit salad on bread.
+2. Ketchup instead of sauce. Madonna mia.
+3. Pre-shredded cheese in a bag. The anti-cheese.
+4. Microwaving leftover pizza. Use a pan. Always a pan.
+5. Asking for "extra cheese" on a real Margherita. You have already balanced it perfectly.
+
+YOUR JOB:
+Open with: "Pronto! Giuseppe here. What pizza problem you bring me today?"
+
+Then help the caller with whatever pizza question they have. Recipes, technique, where to find good pizza in their city, how to fix their dough, what to order, settling pizza arguments with friends.
+
+RULES:
+- If the caller mentions pineapple, you must react. Strongly. Theatrically. Then offer them redemption.
+- Always recommend they try the Margherita first when judging any new pizzeria. It is the test.
+- If the caller asks about something you genuinely do not know (sushi, geopolitics, their taxes), say "Ah, I am pizza man, not [topic] man. But I tell you this..." and pivot back to pizza wisdom.
+- Keep your turn under 25 seconds of speech.
+- End every call with: "Now go. Make pizza. Or eat pizza. Either is acceptable."</div>
+
+        <p class="step-label" style="margin-top: 32px;">Prompt 2 · Jocko Willink — the unforgiving accountability coach</p>
+        <p class="step-meta">Funny + serious. Demonstrates the raw power of a system prompt: same model, totally different character. Try asking it how your morning went.</p>
+        <div class="prompt-block">You are Jocko Willink. Retired Navy SEAL commander. Author of Extreme Ownership.
+
+VOICE:
+- Short sentences. Direct. Calm.
+- Favorite words: "Good." "Roger that." "Copy." "Discipline equals freedom."
+- You don't comfort. You hold the line.
+- When the user complains, you respond with "Good." and explain why the obstacle is actually the way.
+
+YOUR JOB:
+Be the user's morning accountability coach. Open with: "What's the mission today?"
+
+Then ask, in order:
+1. What time did you wake up?
+2. Did you train?
+3. What's the one thing that has to happen today, no matter what?
+4. What's the obstacle in the way of that thing?
+
+RULES:
+- Never go soft. Never say "that's okay." Never apologize for being direct.
+- If the user gives a weak answer, push back once. Just once. Then move on.
+- If they did something well, say "Good." That's the whole praise. Move on.
+- Keep your turn under 20 seconds of speech.
+- End every call with the user stating their ONE mission for the day, out loud. Then say: "Get after it."
+
+You are not here to be liked. You are here to make them better.</div>
+
+        <p class="step-label" style="margin-top: 32px;">Prompt 3 · Tim Ferriss Interview Extractor (light)</p>
+        <p class="step-meta">A voice agent that interviews a guest like Tim Ferriss does on his podcast — open-ended, curious, follows the thread. Use it on yourself for journaling, or on someone else to extract their story.</p>
+        <div class="prompt-block">You are a voice interviewer modeled on Tim Ferriss.
+
+VOICE:
+- Curious, calm, low-ego.
+- You don't fill silence. You let the guest think.
+- You go specific over abstract: "What time was it?" "What did you eat that morning?" "What book was on the nightstand?"
+
+YOUR JOB:
+Conduct a 5-question interview with the guest about a specific area of their life or work. Open with:
+
+"Thanks for being here. Tell me — what does a typical morning look like for you?"
+
+Then go deeper using these threads:
+1. Routine: what they do in the first 60 minutes after waking.
+2. Tools: one piece of gear, software, or supplement under $100 that has changed their life.
+3. Failures: what they got wrong in the last year that they're glad they got wrong.
+4. Mentors: a person they think about often who shaped how they work.
+5. Books: a book they re-read or gift the most.
+
+RULES:
+- Listen first. Quote back something the guest said before asking the next question. ("You mentioned [X] — say more about that.")
+- Never give advice. You are here to extract, not teach.
+- If the guest is vague, ask for the specific example. Always.
+- Keep your turn under 15 seconds of speech.
+- End with: "What's the one question I should have asked you, that I didn't?"</div>
+
+        <!-- LOVABLE CREDITS CTA -->
+        <div class="cta-card" id="credits" style="margin-top: 40px;">
+          <div class="cta-title">Free Lovable credits — for tonight's build</div>
+          <p class="cta-sub">Want to also build the frontend half (L4)? Use this invite for free credits on Lovable. Take it home, ship something this week.</p>
+          <a href="https://lovable.dev/invite/X3NU9Q7" target="_blank" rel="noopener" class="cta-btn">Get your free credits →</a>
+        </div>
+
+        <!-- COMMON PITFALLS -->
+        <div class="section-divider" id="pitfalls"><h2>Common pitfalls</h2></div>
+
+        <div class="section-intro">
+          <h3>Where most first agents quietly fall apart</h3>
+          <p>Watch for these. Every one of them has a "we built it for a client and learned the hard way" story behind it. Ask us about them live.</p>
+        </div>
+
+        <div class="pitfalls-grid">
+          <div class="pitfall red">
+            <h4>No clear goal</h4>
+            <p>Agents fail in fuzz. "Help me with sales" = nothing happens.</p>
+            <div class="fix"><strong>Fix:</strong> Write one concrete outcome before you start.</div>
+          </div>
+          <div class="pitfall orange">
+            <h4>Hallucinations</h4>
+            <p>LLMs sound confident even when wrong, especially on facts.</p>
+            <div class="fix"><strong>Fix:</strong> Ground with search, RAG, or strict prompts.</div>
+          </div>
+          <div class="pitfall purple">
+            <h4>Wrong tool</h4>
+            <p>Trying to build a CRM in Lovable, or a UI in n8n.</p>
+            <div class="fix"><strong>Fix:</strong> Use the tool map. Match strength to the job.</div>
+          </div>
+          <div class="pitfall green">
+            <h4>Over-engineering</h4>
+            <p>10 steps when 3 would do. Slow, fragile, hard to debug.</p>
+            <div class="fix"><strong>Fix:</strong> Ship the 60% version. Iterate from real use.</div>
+          </div>
+          <div class="pitfall blue">
+            <h4>Forgetting cost</h4>
+            <p>LLM calls add up. A loop without a limit can hurt.</p>
+            <div class="fix"><strong>Fix:</strong> Cap tokens, set spend limits in the API key.</div>
+          </div>
+          <div class="pitfall gold">
+            <h4>No human-in-the-loop</h4>
+            <p>Agents that act blindly send bad emails fast.</p>
+            <div class="fix"><strong>Fix:</strong> Approval step before anything that leaves your system.</div>
+          </div>
+        </div>
+
+        <!-- AI ACT -->
+        <div class="section-divider" id="ai-act"><h2>Risks &amp; AI Act in 60 seconds</h2></div>
+
+        <div class="section-intro">
+          <h3>Mandatory block, but compact</h3>
+          <p>Goal: no fear, but eyes open. Concretely today, your use cases can be bold. With customer data and personal data, keep the AI Act in mind.</p>
+        </div>
+
+        <div class="act-grid">
+          <div class="act-card ok">
+            <div class="act-icon">✓</div>
+            <h4>What AI does well today</h4>
+            <p>Text, code, structuring, research synthesis, classification, language understanding.</p>
+          </div>
+          <div class="act-card warn">
+            <div class="act-icon">⚠</div>
+            <h4>Where it gets tricky</h4>
+            <p>Hallucinations, sensitive data, bias, missing sources, false confidence in critical decisions.</p>
+          </div>
+          <div class="act-card danger">
+            <div class="act-icon">⚖</div>
+            <h4>AI Act in one sentence</h4>
+            <p>Avoid forbidden applications (social scoring, manipulation), document high-risk systems, ensure transparency when a customer is talking to AI.</p>
+          </div>
+        </div>
+
+        <!-- TAKE-HOME STACK -->
+        <div class="section-divider" id="stack"><h2>Take-home stack</h2></div>
+
+        <div class="section-intro">
+          <h3>Three tiers you can adopt tonight</h3>
+          <p>No credit card needed to start. Pick the leftmost tier that solves your problem. Don't pre-emptively move right.</p>
+        </div>
+
+        <div class="stack-grid">
+          <div class="stack-card tonight">
+            <h4>Start tonight</h4>
+            <div class="stack-sub">Free, browser only</div>
+            <ul>
+              <li>Claude / ChatGPT (web)</li>
+              <li>Lovable (free tier)</li>
+              <li>n8n cloud (free trial)</li>
+              <li>ElevenLabs (free voice minutes)</li>
+              <li>Notion AI (if you have Notion)</li>
+            </ul>
+          </div>
+          <div class="stack-card integration">
+            <h4>First integration</h4>
+            <div class="stack-sub">API keys, paid tools</div>
+            <ul>
+              <li>OpenAI / Anthropic API</li>
+              <li>n8n self-hosted on Coolify</li>
+              <li>Supabase for data</li>
+              <li>Apify for scraping</li>
+            </ul>
+          </div>
+          <div class="stack-card production">
+            <h4>Production</h4>
+            <div class="stack-sub">Real users, real money</div>
+            <ul>
+              <li>Claude Code for custom logic</li>
+              <li>Lovable Pro + own domain</li>
+              <li>Auth, payments (Clerk, Stripe)</li>
+              <li>Monitoring (Posthog, Sentry)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 7-DAY PLAN -->
+        <div class="section-divider" id="plan"><h2>Your 7-day plan</h2></div>
+
+        <div class="section-intro">
+          <h3>So today's workshop doesn't stay at "aha" but becomes "shipped"</h3>
+          <p>One small thing per day. Stack the days, ship the agent.</p>
+        </div>
+
+        <div class="plan-item">
+          <div class="day">Day 1</div>
+          <div>
+            <h4>Define one outcome</h4>
+            <p>One concrete sentence: "My agent should ____ for ____." Stick it on the wall.</p>
+          </div>
+        </div>
+        <div class="plan-item">
+          <div class="day">Day 2</div>
+          <div>
+            <h4>Pick the stack</h4>
+            <p>Match goal to tools. No more than 2–3 tools for the first version.</p>
+          </div>
+        </div>
+        <div class="plan-item">
+          <div class="day">Day 3</div>
+          <div>
+            <h4>Build the skeleton</h4>
+            <p>Wire the trigger → LLM call → output. Ugly is fine. Working is the goal.</p>
+          </div>
+        </div>
+        <div class="plan-item">
+          <div class="day">Day 4</div>
+          <div>
+            <h4>Add one real tool</h4>
+            <p>Web search, a CRM connector, an email node. Now it's an agent.</p>
+          </div>
+        </div>
+        <div class="plan-item">
+          <div class="day">Day 5</div>
+          <div>
+            <h4>Test with 3 users</h4>
+            <p>Watch them use it without explaining. Note where they hesitate.</p>
+          </div>
+        </div>
+        <div class="plan-item">
+          <div class="day">Day 6</div>
+          <div>
+            <h4>Fix the top 1 issue</h4>
+            <p>Don't refactor. Pick the most painful thing. Fix only that.</p>
+          </div>
+        </div>
+        <div class="plan-item">
+          <div class="day">Day 7</div>
+          <div>
+            <h4>Show &amp; decide</h4>
+            <p>Show it to your team. Decide: kill, iterate, or ship it wider.</p>
+          </div>
+        </div>
+
+        <!-- LEAD CAPTURE -->
+        <div class="section-divider" id="leadcapture"><h2>Get the slides + voice agent templates</h2></div>
+
+        <section>
+          <div class="cta-card" style="text-align: left;">
+            <div class="cta-title" style="font-size: 1.2rem;">One form, everything in your inbox</div>
+            <p class="cta-sub" style="margin-bottom: 18px;">Drop your email. We send you the slides, the three voice agent prompts, the Lovable starter template, and Emanuel's follow-up offer.</p>
+            <div class="jotform-wrap">
+              <iframe id="JotFormIFrame-261405021039040"
+                      title="Build Your First AI Agent — Lead Capture"
+                      onload="window.parent.scrollTo(0,0)"
+                      allowtransparency="true"
+                      allow="geolocation; microphone; camera; fullscreen"
+                      src="https://form.jotform.com/261405021039040"
+                      frameborder="0"
+                      style="min-width:100%;max-width:100%;height:900px;border:none;"
+                      scrolling="no">
+              </iframe>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <div class="section-divider" id="contact"><h2>Stay in touch</h2></div>
+
+        <div class="section-intro">
+          <h3>Who to reach for what</h3>
+          <p>Three people, three lanes. Pick the one that matches your question.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h4>Jakub Popluhar</h4>
+            <div class="contact-org">Optima Solutions · Hill Digital</div>
+            <div class="contact-role">On-site moderation, AI training, custom workshops</div>
+            <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+          </div>
+          <div class="contact-card">
+            <h4>Andreas Schaubmaier</h4>
+            <div class="contact-org">Soneo AI</div>
+            <div class="contact-role">Technical questions, custom builds, production agents</div>
+            <a href="mailto:andreas@soneo.ai">andreas@soneo.ai</a>
+          </div>
+          <div class="contact-card">
+            <h4>Emanuel Stadler</h4>
+            <div class="contact-org">Optima Solutions</div>
+            <div class="contact-role">Follow-up &amp; project support after the workshop</div>
+            <a href="mailto:est@optima-solutions.at">est@optima-solutions.at</a>
+          </div>
+        </div>
+
+      </div><!-- /.content -->
+    </div><!-- /.page-layout -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      Jakub Popluhar M.Ed.
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+      &nbsp;&middot;&nbsp;
+      <a href="tel:+436641386498">+43 664 138 64 98</a>
+    </p>
+    <p style="margin-top: 6px; font-size: 0.75rem; opacity: 0.7;">
+      ViennaUP 2026 · AI Factory Austria · Karl-Farkas-Gasse 22, 1030 Vienna
+    </p>
+  </footer>
+
+  <script>
+    // Click-to-copy on prompt blocks
+    document.querySelectorAll('.prompt-block').forEach(block => {
+      block.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(block.textContent.trim());
+          block.classList.add('copied');
+          setTimeout(() => block.classList.remove('copied'), 1500);
+        } catch (e) {
+          const range = document.createRange();
+          range.selectNodeContents(block);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      });
+    });
+
+    // Sidebar active state on scroll
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+    const sectionIds = Array.from(navLinks).map(a => a.getAttribute('href').slice(1));
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-25% 0px -65% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+  <!-- Jotform iframe auto-resize handler -->
+  <script>
+    (function() {
+      window.handleIFrameMessage = function(e) {
+        if (typeof e.data === 'object') return;
+        var args = e.data.split(":");
+        var iframe;
+        if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[(args.length - 1)]); }
+        else { iframe = document.getElementById("JotFormIFrame"); }
+        if (!iframe) return;
+        switch (args[0]) {
+          case "scrollIntoView":
+            iframe.scrollIntoView();
+            break;
+          case "setHeight":
+            iframe.style.height = args[1] + "px";
+            if (!isNaN(args[1]) && parseInt(iframe.style.minHeight) > parseInt(args[1])) {
+              iframe.style.minHeight = args[1] + "px";
+            }
+            break;
+          case "collapseErrorPage":
+            if (iframe.clientHeight > window.innerHeight) {
+              iframe.style.height = window.innerHeight + "px";
+            }
+            break;
+          case "reloadPage":
+            window.location.reload();
+            break;
+        }
+      };
+      if (window.addEventListener) { window.addEventListener("message", handleIFrameMessage, false); }
+      else if (window.attachEvent) { window.attachEvent("onmessage", handleIFrameMessage); }
+    })();
+  </script>
+</body>
+</html>
