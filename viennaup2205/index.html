@@ -597,9 +597,10 @@
       <nav class="sidebar-nav" aria-label="Sections">
         <div class="nav-section-label">Discovery</div>
         <a href="#how-it-works">How it works</a>
-        <a href="#step-1">Step 1 · Longlist</a>
-        <a href="#step-2">Step 2 · Scoring</a>
-        <a href="#step-3">Step 3 · Cluster &amp; rank</a>
+        <a href="#step-1">Step 1 · Problems</a>
+        <a href="#step-2">Step 2 · Use Cases</a>
+        <a href="#step-3">Step 3 · Scoring</a>
+        <a href="#step-4">Step 4 · Cluster &amp; rank</a>
         <a href="#mentimeter">Share your P1</a>
 
         <div class="nav-section-label">Clusters</div>
@@ -627,33 +628,51 @@
         <details id="how-it-works">
           <summary>How this works (tap to expand)</summary>
           <div class="collapsible-content">
-            <p><strong>Step 1:</strong> Open your preferred LLM (ChatGPT, Claude, or Gemini, free tier works). Keep this tab open throughout.</p>
-            <p><strong>Step 2:</strong> When the trainer says "go," tap Prompt 1 to copy it, paste it into your LLM.</p>
-            <p><strong>Step 3:</strong> Wait for trainer instructions before pasting Prompt 2 into the SAME chat.</p>
-            <p><strong>Step 4:</strong> Same for Prompt 3, paste it into the same chat after the next trainer instruction.</p>
-            <p><strong>Step 5:</strong> At the end, you'll have a scored, clustered, ranked list of AI use cases. Share your P1 anonymously in Mentimeter.</p>
-            <p style="color: var(--gold); margin-top: 14px;"><strong>Important:</strong> Keep all 3 prompts in the SAME conversation. The AI builds on its previous answers.</p>
+            <p><strong>Setup:</strong> Open your preferred LLM (ChatGPT, Claude, or Gemini, free tier works). Keep this tab open throughout.</p>
+            <p><strong>Step 1 — Problems:</strong> When the trainer says "go," tap Prompt 1 to copy, paste it into your LLM. AI returns your numbered problems.</p>
+            <p><strong>Step 2 — Use Cases:</strong> Wait for the trainer, then paste Prompt 2 into the SAME chat. AI derives one AI use case per problem.</p>
+            <p><strong>Step 3 — Scoring:</strong> After the next trainer instruction, paste Prompt 3. AI scores Impact + Feasibility.</p>
+            <p><strong>Step 4 — Cluster &amp; Rank:</strong> Final prompt assigns clusters and gives you P1/P2/P3.</p>
+            <p><strong>After:</strong> Submit your longlist in the form, then head to your cluster corner for the cluster exercise.</p>
+            <p style="color: var(--gold); margin-top: 14px;"><strong>Important:</strong> Keep ALL prompts in the SAME conversation. The AI builds on its previous answers.</p>
           </div>
         </details>
 
-        <!-- STEP 1 -->
-        <div class="section-divider" id="step-1"><h2>Step 1 · Discovery (longlist)</h2></div>
+        <!-- STEP 1 — PROBLEMS -->
+        <div class="section-divider" id="step-1"><h2>Step 1 · Problems</h2></div>
         <p class="step-label">When the trainer says "go," tap the prompt below to copy it.</p>
-        <p class="step-meta">This generates your initial longlist of 5 to 7 AI use cases. No scoring yet, just ideas.</p>
-        <div class="prompt-block">I'm a startup founder. Help me build a structured longlist of AI opportunities for my business.
+        <p class="step-meta">First we name the real problems. No solutions yet, just the pain points.</p>
+        <div class="prompt-block">I'm a startup founder. Help me identify the real PROBLEMS in my business — the day-to-day pain points where AI could later help.
 
 My business in 2 sentences:
 [describe your business, what you do, who you sell to]
 
-Step A: Identify 5 to 7 concrete PROBLEMS we struggle with in our day-to-day. Real problems, not abstract goals. Use these 3 lenses to find them:
+Identify 5 to 7 concrete problems we struggle with. Real, specific problems, not abstract goals. Use these 3 lenses to find them:
 
 1. Recurring process steps or tasks that cost time every day or week
 2. Daily activities with many documents, or where we research / search content
 3. Large amounts of unstructured data that are currently only partially used or manually processed
 
-Step B: For each problem, derive exactly ONE AI use case (the proposed solution).
+Output as a clean numbered list, ONE short sentence per problem (max 15 words each):
 
-Output your answer as a clean Markdown table with these columns and nothing else:
+1. [Problem one]
+2. [Problem two]
+3. [Problem three]
+...
+
+IMPORTANT:
+- NUMBER every problem (1 to 7). The number is the permanent ID, you will reuse it in every later step.
+- Do NOT suggest AI use cases or solutions yet. Just the problems.
+- Whole list max ~120 words.</div>
+        <p class="step-wait">Wait here. The trainer will move to Step 2 in a moment.</p>
+
+        <!-- STEP 2 — USE CASES -->
+        <div class="section-divider" id="step-2"><h2>Step 2 · Use Cases</h2></div>
+        <p class="step-label">Paste this into the SAME chat as Step 1.</p>
+        <p class="step-meta">Now we turn every problem into an AI use case. One use case per problem, same numbering.</p>
+        <div class="prompt-block">Good. Now, for EACH numbered problem from your list, derive exactly ONE AI use case (the proposed solution direction).
+
+Output as a clean Markdown table with these columns and nothing else:
 
 | # | Problem | AI Use Case |
 |---|---------|-------------|
@@ -661,18 +680,19 @@ Output your answer as a clean Markdown table with these columns and nothing else
 | 2 | ...     | ...         |
 ...
 
-IMPORTANT:
-- NUMBER every row (1, 2, 3, 4, 5, 6, 7). The number is the permanent ID, you will reuse it in later steps.
-- Keep Problem and AI Use Case to ONE short sentence each, max 15 words per cell.
-- The whole table should be max ~150 words. Compact, not verbose.
-- Do NOT score, cluster, or rank yet. Just the numbered table.</div>
-        <p class="step-wait">Wait here. The trainer will move to Step 2 in a moment.</p>
+RULES:
+- Keep the SAME # ID as the problem in Step 1.
+- Use the EXACT problem text from Step 1 in the Problem column (you can shorten if needed).
+- AI Use Case = one short sentence describing what AI would do, max 15 words.
+- Whole table max ~150 words.
+- Do NOT score, cluster, or rank yet.</div>
+        <p class="step-wait">Wait again. The trainer will move to Step 3 in a moment.</p>
 
-        <!-- STEP 2 -->
-        <div class="section-divider" id="step-2"><h2>Step 2 · Scoring</h2></div>
-        <p class="step-label">Paste this into the SAME chat as Step 1.</p>
-        <p class="step-meta">This scores every use case from your list. Impact = business value. Feasibility = how realistic it is to build now.</p>
-        <div class="prompt-block">Good. Now score every row from your numbered table with two dimensions:
+        <!-- STEP 3 — SCORING -->
+        <div class="section-divider" id="step-3"><h2>Step 3 · Scoring</h2></div>
+        <p class="step-label">Paste this into the SAME chat.</p>
+        <p class="step-meta">Each use case gets two scores. Impact = business value. Feasibility = how realistic it is now.</p>
+        <div class="prompt-block">Now score every row from your table with two dimensions:
 
 IMPACT score (1 to 5): How much business value would this create?
 - Consider efficiency gain, cost reduction, customer experience, new revenue
@@ -684,20 +704,20 @@ FEASIBILITY score (1 to 5): How realistic is it with today's tech and our curren
 - 5 = easy to build this week with off-the-shelf tools
 - 1 = needs major investment or capabilities we don't have
 
-Reprint the FULL table with the same # IDs and add two new columns. Keep Problem and AI Use Case short (one line each):
+Reprint the FULL table with the same # IDs and add two new columns:
 
 | # | Problem | AI Use Case | Impact | Feasibility | Combined |
 |---|---------|-------------|--------|-------------|----------|
 
 Combined = Impact + Feasibility.
-Sort rows by Combined Score, highest first. Keep the # IDs identical to Step 1.
+Sort rows by Combined Score, highest first. Keep the # IDs identical to before.
 Add one short sentence below the table explaining the top-scoring row.</div>
-        <p class="step-wait">Wait again. The trainer will move to Step 3 after a brief moment.</p>
+        <p class="step-wait">Wait. The trainer will move to Step 4 in a moment.</p>
 
-        <!-- STEP 3 -->
-        <div class="section-divider" id="step-3"><h2>Step 3 · Cluster &amp; rank</h2></div>
+        <!-- STEP 4 — CLUSTER & RANK -->
+        <div class="section-divider" id="step-4"><h2>Step 4 · Cluster &amp; rank</h2></div>
         <p class="step-label">Final prompt, paste this into the SAME chat.</p>
-        <p class="step-meta">This assigns each use case to a workshop cluster and gives you a clear recommendation: which cluster to join, which use case to start with.</p>
+        <p class="step-meta">Assigns each use case to a workshop cluster and gives you your P1/P2/P3 plus cluster recommendation.</p>
         <div class="prompt-block">Now assign each numbered row to one of these 4 clusters. Use the letter as a code:
 
 A = Knowledge &amp; RAG (internal search, knowledge assistant, document summarization)
