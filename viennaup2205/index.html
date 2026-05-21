@@ -712,14 +712,23 @@
       }
     }
 
-    @media (max-width: 500px) {
-      main { padding: 28px 18px 64px; }
+    @media (max-width: 600px) {
+      .site-header { padding: 12px 16px; }
+      .logo img { height: 32px; }
       .header-meta { display: none; }
+    }
+
+    @media (max-width: 500px) {
+      main { padding: 24px 16px 64px; }
+      .site-header { padding: 10px 14px; }
+      .logo img { height: 28px; }
       .exercise { padding: 20px 18px; }
       .prompt-block { padding: 16px 14px; font-size: 0.85rem; }
       .cta-card { padding: 26px 20px; }
       .section-intro h3 { font-size: 1.35rem; }
       .cluster-section h3 { font-size: 1.2rem; }
+      .hero h1 { font-size: clamp(1.6rem, 7vw, 2rem); }
+      .hero .sub { font-size: 0.95rem; }
     }
   </style>
 </head>
@@ -746,7 +755,7 @@
         <p class="sub">Your workshop companion. Two solo prompts to build your <strong>longlist</strong> of problems and AI use cases, one cluster prompt in your group, then score and prioritize together. Tools and a 7-day plan to ship something next week.</p>
         <div class="divider"></div>
       </div>
-      <a href="https://ai-at.eu/en/" class="hero-cohost transparent" target="_blank" rel="noopener" aria-label="AI Factory Austria">
+      <a href="https://ai-at.eu/en/" class="hero-cohost pill" target="_blank" rel="noopener" aria-label="AI Factory Austria">
         <img src="../images/logos/ai-factory.png" alt="AI Factory Austria">
       </a>
     </div>
@@ -945,7 +954,9 @@ Act as an AI architect. Help me:
 2. Identify the top 3 documents/sources we'd need to feed it
 3. Suggest the simplest tool we can start with this week (NotebookLM, ChatGPT Projects, or Claude Projects, and why)
 4. Outline the 5 most likely questions it should answer perfectly first
-5. Flag one risk or limitation we should know upfront</div>
+5. Flag one risk or limitation we should know upfront
+
+HARD LIMIT: Keep your full answer under 150 words total. Be concise. No preamble, no closing remarks. Just the numbered output above.</div>
           </div>
 
           <div class="exercise">
@@ -962,7 +973,9 @@ For each question:
 - Rate the "annoyance level" (1 to 10) of having to look it up manually
 - Suggest a 2-sentence ideal AI answer
 
-End with: "Which question, if answered instantly by AI, would have the biggest impact on this startup's daily flow? Why?"</div>
+End with: "Which question, if answered instantly by AI, would have the biggest impact on this startup's daily flow? Why?"
+
+HARD LIMIT: Keep your full answer under 150 words total. Be concise. No preamble, no closing remarks.</div>
           </div>
         </section>
 
@@ -994,7 +1007,9 @@ Act as an automation consultant. Help me:
 2. Suggest one tool per automatable step (Make, n8n, Zapier, or an LLM call)
 3. Estimate hours per week saved if I implemented this
 4. Flag THE ONE step that would unlock the most value if automated first
-5. Tell me what could go wrong and how to prevent it</div>
+5. Tell me what could go wrong and how to prevent it
+
+HARD LIMIT: Keep your full answer under 150 words total. Be concise. No preamble, no closing remarks.</div>
           </div>
 
           <div class="exercise">
@@ -1018,7 +1033,9 @@ Walk me through how to build this:
 5. What's likely to break, and how do I add error handling?
 6. Bonus: How could I test this safely without spamming anyone?
 
-Keep it minimal. I can always extend later.</div>
+Keep it minimal. I can always extend later.
+
+HARD LIMIT: Keep your full answer under 150 words total. Be concise. No preamble, no closing remarks.</div>
           </div>
         </section>
 
@@ -1052,7 +1069,9 @@ Write 3 versions of a cold outreach email:
 - Version C: Pattern-interrupt or curiosity hook
 
 Each version max 80 words. Include subject lines.
-Write like a real founder talks, no corporate cringe, no buzzwords, no "I hope this finds you well".</div>
+Write like a real founder talks, no corporate cringe, no buzzwords, no "I hope this finds you well".
+
+HARD LIMIT: Keep your full answer under 150 words total across all 3 versions. Be concise. No preamble.</div>
           </div>
 
           <div class="exercise">
@@ -1068,7 +1087,9 @@ For each invented customer message:
 2. Draft a response template that's empathetic, solution-oriented, and 5 sentences max
 3. Flag which categories are SAFE to fully automate (AI sends directly) vs. which need human review before sending
 4. Suggest a simple workflow: "If category = X, AI drafts → human approves → sends"
-5. Estimate how much support time per week this could save a startup like ours</div>
+5. Estimate how much support time per week this could save a startup like ours
+
+HARD LIMIT: Keep your full answer under 150 words total. Be concise. No preamble, no closing remarks.</div>
           </div>
         </section>
 
@@ -1100,7 +1121,9 @@ Step 2: Now analyze that data and tell me:
 - 1 immediate action I can take based on this insight
 - What chart would best visualize the most important finding
 
-Treat me as a smart founder who isn't a data scientist.</div>
+Treat me as a smart founder who isn't a data scientist.
+
+HARD LIMIT: Keep your full answer under 150 words total (including the sample data). Be concise.</div>
           </div>
 
           <div class="exercise">
@@ -1127,7 +1150,9 @@ Step 2: Now analyze that feedback and:
 4. For the top 3 themes, suggest one concrete product or process change
 5. Flag any single entry that's worth a direct founder call to that customer
 
-End with: "If you had to act on only ONE theme this quarter, here's why it should be: [your reasoning]"</div>
+End with: "If you had to act on only ONE theme this quarter, here's why it should be: [your reasoning]"
+
+HARD LIMIT: Keep your full answer under 150 words total (including the invented feedback). Be concise.</div>
           </div>
         </section>
 
