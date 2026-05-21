@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Opportunity Sprint — ViennaUP 22.05.2026</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --cluster-knowledge: #4a90e2;
+      --cluster-automation: #50c878;
+      --cluster-customer: #e67e22;
+      --cluster-analysis: #9b59b6;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* HEADER */
+    .site-header {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 40px; display: block; }
+
+    .header-meta {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white-muted);
+    }
+
+    /* LAYOUT */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: var(--white-muted);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 20px auto 0;
+      opacity: 0.7;
+    }
+
+    /* PAGE LAYOUT WITH SIDEBAR */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 48px;
+      margin-top: 48px;
+    }
+
+    .sidebar-nav {
+      position: sticky;
+      top: 90px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+
+    .sidebar-nav .nav-section-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 14px 14px 4px;
+      opacity: 0.7;
+    }
+
+    .sidebar-nav .nav-section-label:first-child { padding-top: 0; }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 8px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.06);
+      border-left-color: var(--gold);
+    }
+
+    /* SECTION DIVIDERS */
+    .section-divider {
+      text-align: center;
+      margin: 64px 0 32px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .section-divider.first { margin-top: 0; }
+
+    /* SECTION HEADINGS */
+    .section-intro h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .section-intro p {
+      color: var(--white-muted);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    /* STEP LABELS */
+    .step-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin: 22px 0 6px;
+    }
+
+    .step-meta {
+      font-size: 0.88rem;
+      color: var(--white-muted);
+      margin-bottom: 14px;
+    }
+
+    .step-wait {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-top: 12px;
+    }
+
+    /* COLLAPSIBLE DETAILS */
+    details {
+      margin: 18px 0 28px;
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details summary {
+      padding: 14px 18px;
+      background: rgba(212, 160, 23, 0.06);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    details summary:hover { background: rgba(212, 160, 23, 0.1); }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after {
+      content: '+';
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    details[open] summary::after { content: '−'; }
+
+    details .collapsible-content {
+      padding: 18px 20px;
+      border-top: 1px solid rgba(212, 160, 23, 0.1);
+    }
+
+    details .collapsible-content p {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: var(--white-muted);
+    }
+
+    details .collapsible-content strong { color: var(--white); }
+
+    /* PROMPT BLOCKS */
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 18px 20px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: pre-line;
+    }
+
+    .prompt-block:hover { background: rgba(212, 160, 23, 0.1); }
+
+    .prompt-block::after {
+      content: 'Copy';
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover::after { opacity: 1; }
+    .prompt-block.copied::after { content: 'Copied!'; opacity: 1; }
+
+    /* MENTIMETER CTA CARD */
+    .cta-card {
+      margin: 48px 0;
+      padding: 32px 28px;
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cta-card .cta-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .cta-card .cta-sub {
+      font-size: 0.9rem;
+      color: var(--white-muted);
+      margin-bottom: 22px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--charcoal);
+      padding: 14px 36px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      border: 2px solid var(--gold);
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .cta-btn:hover {
+      background: var(--gold-light);
+      color: var(--charcoal);
+      transform: translateY(-1px);
+    }
+
+    /* CLUSTER CARDS */
+    .cluster-section { margin-top: 36px; }
+
+    .cluster-section h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .cluster-section .cluster-tag {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .cluster-section .cluster-sub {
+      color: var(--white-muted);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .exercise {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-left: 4px solid var(--gold);
+      border-radius: 12px;
+      padding: 24px 24px;
+      margin-bottom: 18px;
+    }
+
+    .exercise h4 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .exercise .exercise-meta {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+      margin-bottom: 10px;
+    }
+
+    /* Cluster-specific border colors */
+    #cluster-knowledge .exercise { border-left-color: var(--cluster-knowledge); }
+    #cluster-knowledge .cluster-tag { color: var(--cluster-knowledge); }
+    #cluster-automation .exercise { border-left-color: var(--cluster-automation); }
+    #cluster-automation .cluster-tag { color: var(--cluster-automation); }
+    #cluster-customer .exercise { border-left-color: var(--cluster-customer); }
+    #cluster-customer .cluster-tag { color: var(--cluster-customer); }
+    #cluster-analysis .exercise { border-left-color: var(--cluster-analysis); }
+    #cluster-analysis .cluster-tag { color: var(--cluster-analysis); }
+
+    /* COMPARE TABLE */
+    .table-wrap { overflow-x: auto; margin: 18px 0; }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      min-width: 600px;
+    }
+
+    .compare-table th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .compare-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .compare-table tr:last-child td { border-bottom: none; }
+
+    .table-caption {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    /* 7-DAY PLAN */
+    .plan-item {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+    }
+
+    .plan-item .day {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .plan-item h4 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .plan-item p {
+      font-size: 0.88rem;
+      color: var(--white-muted);
+    }
+
+    /* JOTFORM EMBED */
+    .jotform-wrap {
+      margin: 24px 0;
+      padding: 8px;
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.2);
+      border-radius: 12px;
+    }
+
+    .jotform-wrap iframe {
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 28px 24px 36px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 64px;
+    }
+
+    footer p { font-size: 0.82rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .sidebar-nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+        max-height: none;
+        overflow: visible;
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      }
+
+      .sidebar-nav .nav-section-label {
+        width: 100%;
+        padding: 8px 0 2px;
+      }
+
+      .sidebar-nav a {
+        padding: 8px 12px;
+        font-size: 0.72rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        background: var(--charcoal-light);
+        border-radius: 6px;
+      }
+
+      .sidebar-nav a:hover,
+      .sidebar-nav a.active {
+        border-left: none;
+        border-bottom-color: var(--gold);
+      }
+    }
+
+    @media (max-width: 500px) {
+      main { padding: 28px 18px 64px; }
+      .header-meta { display: none; }
+      .exercise { padding: 20px 18px; }
+      .prompt-block { padding: 16px 14px; font-size: 0.85rem; }
+      .cta-card { padding: 26px 20px; }
+      .section-intro h3 { font-size: 1.35rem; }
+      .cluster-section h3 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="https://jakubpopluhar.com" class="logo" aria-label="Jakub Popluhar">
+      <img src="../images/logos/jakub-popluhar-logo-dark.png" alt="Jakub Popluhar">
+    </a>
+    <div class="header-meta">ViennaUP · 22.05.2026</div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="badge">ViennaUP · AI Factory Austria · 22.05.2026</div>
+      <h1>AI Opportunity Sprint</h1>
+      <p class="sub">Your workshop companion. Three prompts to find your top AI use cases, eight cluster exercises to go deeper, and a 7-day plan to ship something this week.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="page-layout">
+
+      <!-- SIDEBAR NAV -->
+      <nav class="sidebar-nav" aria-label="Sections">
+        <div class="nav-section-label">Discovery</div>
+        <a href="#how-it-works">How it works</a>
+        <a href="#step-1">Step 1 · Longlist</a>
+        <a href="#step-2">Step 2 · Scoring</a>
+        <a href="#step-3">Step 3 · Cluster &amp; rank</a>
+        <a href="#mentimeter">Share your P1</a>
+
+        <div class="nav-section-label">Clusters</div>
+        <a href="#cluster-knowledge">Knowledge &amp; RAG</a>
+        <a href="#cluster-automation">Automation</a>
+        <a href="#cluster-customer">Customer Comm.</a>
+        <a href="#cluster-analysis">Analysis &amp; Insights</a>
+
+        <div class="nav-section-label">Take Home</div>
+        <a href="#tools">Tool stack</a>
+        <a href="#plan">7-day plan</a>
+      </nav>
+
+      <!-- CONTENT -->
+      <div class="content">
+
+        <!-- ===================== DISCOVERY ===================== -->
+        <div class="section-divider first" id="discovery"><h2>Phase 1 · Discovery &amp; Longlist</h2></div>
+
+        <div class="section-intro">
+          <h3>Find your top AI use cases, step by step.</h3>
+          <p>Three prompts. Run them one after another in the same LLM chat. Wait for the trainer between each. By the end you'll have a scored, clustered, ranked list of AI use cases for your business.</p>
+        </div>
+
+        <details id="how-it-works">
+          <summary>How this works (tap to expand)</summary>
+          <div class="collapsible-content">
+            <p><strong>Step 1:</strong> Open your preferred LLM (ChatGPT, Claude, or Gemini, free tier works). Keep this tab open throughout.</p>
+            <p><strong>Step 2:</strong> When the trainer says "go," tap Prompt 1 to copy it, paste it into your LLM.</p>
+            <p><strong>Step 3:</strong> Wait for trainer instructions before pasting Prompt 2 into the SAME chat.</p>
+            <p><strong>Step 4:</strong> Same for Prompt 3, paste it into the same chat after the next trainer instruction.</p>
+            <p><strong>Step 5:</strong> At the end, you'll have a scored, clustered, ranked list of AI use cases. Share your P1 anonymously in Mentimeter.</p>
+            <p style="color: var(--gold); margin-top: 14px;"><strong>Important:</strong> Keep all 3 prompts in the SAME conversation. The AI builds on its previous answers.</p>
+          </div>
+        </details>
+
+        <!-- STEP 1 -->
+        <div class="section-divider" id="step-1"><h2>Step 1 · Discovery (longlist)</h2></div>
+        <p class="step-label">When the trainer says "go," tap the prompt below to copy it.</p>
+        <p class="step-meta">This generates your initial longlist of 5 to 7 AI use cases. No scoring yet, just ideas.</p>
+        <div class="prompt-block">I'm a startup founder. Help me identify AI use cases for my business.
+
+My business in 2 sentences:
+[describe your business, what you do, who you sell to]
+
+Brainstorm 5 to 7 specific AI use cases for my business by answering these 3 questions:
+
+1. What recurring process steps or tasks happen in my day-to-day work?
+2. In which daily activities do I work with many documents, or need to research / search for specific content?
+3. Where do I have large amounts of unstructured data that are currently only partially used or processed manually?
+
+IMPORTANT: NUMBER every use case clearly (1, 2, 3, 4, 5, 6, 7). This number is the permanent ID of that use case, you will reuse it in later steps.
+
+For each numbered use case, give:
+- # (the number)
+- Name (1 short line)
+- Description (2 sentences max)
+- Which of the 3 questions above it answers
+
+Do NOT score or rank yet. Just give me the numbered longlist.</div>
+        <p class="step-wait">Wait here. The trainer will move to Step 2 in a moment.</p>
+
+        <!-- STEP 2 -->
+        <div class="section-divider" id="step-2"><h2>Step 2 · Scoring</h2></div>
+        <p class="step-label">Paste this into the SAME chat as Step 1.</p>
+        <p class="step-meta">This scores every use case from your list. Impact = business value. Feasibility = how realistic it is to build now.</p>
+        <div class="prompt-block">Good. Now score every use case from your numbered list with two dimensions:
+
+IMPACT score (1 to 5): How much business value would this create?
+- Consider efficiency gain, cost reduction, customer experience, new revenue
+- 5 = high impact, transforms the business
+- 1 = marginal, nice-to-have
+
+FEASIBILITY score (1 to 5): How realistic is it with today's tech and our current resources?
+- Consider available data, tools, infrastructure, team skills
+- 5 = easy to build this week with off-the-shelf tools
+- 1 = needs major investment or capabilities we don't have
+
+Present your output as a compact table with these columns:
+# | Use Case (short name only) | Impact | Feasibility | Combined Score (Impact + Feasibility)
+
+Use the SAME number from the longlist as the # column. Keep the use case name short, one line.
+Sort by Combined Score, highest first.
+Add one short sentence below the table explaining the top-scoring use case.</div>
+        <p class="step-wait">Wait again. The trainer will move to Step 3 after a brief moment.</p>
+
+        <!-- STEP 3 -->
+        <div class="section-divider" id="step-3"><h2>Step 3 · Cluster &amp; rank</h2></div>
+        <p class="step-label">Final prompt, paste this into the SAME chat.</p>
+        <p class="step-meta">This assigns each use case to a workshop cluster and gives you a clear recommendation: which cluster to join, which use case to start with.</p>
+        <div class="prompt-block">Now assign each numbered use case to one of these 4 clusters. Use the letter as a code:
+
+A = Knowledge &amp; RAG (internal search, knowledge assistant, document summarization)
+B = Automation (workflows, repetitive tasks, data flows)
+C = Customer Communication (chatbots, outbound, support, voice agents, sales emails)
+D = Analysis &amp; Insights (reports, forecasting, anomaly detection, feedback clustering)
+
+Update the table by adding a CLUSTER column with just the letter (A / B / C / D).
+Keep the same numbering from before.
+
+Then give me a clear, compact final answer in EXACTLY this format:
+
+P1 = #[number], cluster [letter]
+P2 = #[number], cluster [letter]
+P3 = #[number], cluster [letter]
+
+Join cluster: [letter] ([cluster name])
+
+Start with P1 this week because: [one sentence]</div>
+
+        <!-- MENTIMETER CTA -->
+        <div class="cta-card" id="mentimeter">
+          <div class="cta-title">Share your P1 use case</div>
+          <p class="cta-sub">Anonymously. Helps us cluster the room and learn what matters to startups.</p>
+          <a href="MENTIMETER_URL_PLACEHOLDER" target="_blank" rel="noopener" class="cta-btn">Open Mentimeter →</a>
+        </div>
+
+        <!-- USE CASE CAPTURE FORM -->
+        <section id="submit-usecases" style="margin-top: 32px;">
+          <div class="cta-card" style="text-align: left;">
+            <div class="cta-title" style="font-size: 1.2rem;">Submit your use cases</div>
+            <p class="cta-sub" style="margin-bottom: 18px;">Paste the full output from your LLM here, the table with use cases, scores, and your P1/P2/P3. Just Name + Company + the paste. No email needed.</p>
+            <div class="jotform-wrap">
+              <iframe id="JotFormIFrame"
+                      src="https://form.jotform.com/261403809620048"
+                      title="Submit your AI use cases"
+                      width="100%"
+                      height="720"
+                      allowtransparency="true"
+                      allow="geolocation; microphone; camera; fullscreen"
+                      scrolling="no">
+              </iframe>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== CLUSTER PROMPTS ===================== -->
+        <div class="section-divider"><h2>Phase 2 · Cluster Prompts</h2></div>
+
+        <div class="section-intro">
+          <h3>Pick your cluster. Pick a prompt. Run it.</h3>
+          <p>Head to your cluster's corner of the room. Each cluster has 2 prompts, pick whichever fits your use case best and run it in your LLM.</p>
+        </div>
+
+        <!-- CLUSTER 1: KNOWLEDGE & RAG -->
+        <section class="cluster-section" id="cluster-knowledge">
+          <span class="cluster-tag">Cluster 1</span>
+          <h3>Knowledge &amp; RAG</h3>
+          <p class="cluster-sub">Internal search, knowledge assistants, document summarization.</p>
+
+          <div class="exercise">
+            <h4>Exercise 1 — Build your internal knowledge assistant blueprint</h4>
+            <p class="exercise-meta">Define what an internal knowledge assistant looks like for your startup.</p>
+            <div class="prompt-block">I run a startup. Here's what we do in 2 sentences:
+[Your business in 2 sentences]
+
+Our team currently struggles to find information across:
+[List 3 to 5 places: Slack, Notion, Google Drive, emails, Confluence, etc.]
+
+A question our team asks at least 3 times a week is:
+[A real recurring question]
+
+Act as an AI architect. Help me:
+1. Define what an "internal knowledge assistant" would look like for us
+2. Identify the top 3 documents/sources we'd need to feed it
+3. Suggest the simplest tool we can start with this week (NotebookLM, ChatGPT Projects, or Claude Projects, and why)
+4. Outline the 5 most likely questions it should answer perfectly first
+5. Flag one risk or limitation we should know upfront</div>
+          </div>
+
+          <div class="exercise">
+            <h4>Exercise 2 — Find the 5 questions your team asks weekly</h4>
+            <p class="exercise-meta">Surface the recurring questions an AI assistant should answer instantly.</p>
+            <div class="prompt-block">I run a startup that does:
+[Your business in 2 sentences]
+
+If you imagine a typical day in our company, predict the 5 most likely questions our team members would ask repeatedly when working, questions that today require digging through documents, asking colleagues, or checking multiple sources.
+
+For each question:
+- State it in natural language (how a team member would ask it)
+- Identify what type of document or system would hold the answer (FAQ, pricing doc, product spec, sales playbook, customer history, etc.)
+- Rate the "annoyance level" (1 to 10) of having to look it up manually
+- Suggest a 2-sentence ideal AI answer
+
+End with: "Which question, if answered instantly by AI, would have the biggest impact on this startup's daily flow? Why?"</div>
+          </div>
+        </section>
+
+        <!-- CLUSTER 2: AUTOMATION -->
+        <section class="cluster-section" id="cluster-automation">
+          <span class="cluster-tag">Cluster 2</span>
+          <h3>Automation</h3>
+          <p class="cluster-sub">Workflows, repetitive tasks, data flows.</p>
+
+          <div class="exercise">
+            <h4>Exercise 1 — Map your workflow and find automation points</h4>
+            <p class="exercise-meta">Take a real recurring manual process and find what to automate first.</p>
+            <div class="prompt-block">I run a startup. Here's a recurring manual process that costs us time:
+
+Process name:
+[e.g., "Onboarding a new customer", "Processing inbound leads", "Following up on demo requests", "Generating weekly investor updates"]
+
+How often it happens:
+[e.g., 5 times per week]
+
+The steps I currently do manually:
+1. [Step]
+2. [Step]
+3. [Step]
+[List all manual steps you do]
+
+Act as an automation consultant. Help me:
+1. Identify which steps can be fully automated, partially automated, or must stay human
+2. Suggest one tool per automatable step (Make, n8n, Zapier, or an LLM call)
+3. Estimate hours per week saved if I implemented this
+4. Flag THE ONE step that would unlock the most value if automated first
+5. Tell me what could go wrong and how to prevent it</div>
+          </div>
+
+          <div class="exercise">
+            <h4>Exercise 2 — Design your first Make/n8n workflow blueprint</h4>
+            <p class="exercise-meta">Get a step-by-step plan for a real workflow you can build this week.</p>
+            <div class="prompt-block">I want to build a simple AI-powered automation. Here's the goal:
+
+Trigger:
+[What starts the workflow? E.g., "A new entry in our Typeform", "A new email from a specific sender", "A scheduled time each day"]
+
+End result:
+[What should happen at the end? E.g., "Lead is added to CRM with AI-generated qualification score", "Daily summary of new GitHub issues sent to Slack", "Personalized welcome email is drafted and saved as a draft"]
+
+My tools available: Make / n8n / Zapier (any of them)
+
+Walk me through how to build this:
+1. Which trigger node should I use?
+2. What data transformations are needed in between?
+3. Where exactly does an LLM call fit in, and which model?
+4. What's the final output action?
+5. What's likely to break, and how do I add error handling?
+6. Bonus: How could I test this safely without spamming anyone?
+
+Keep it minimal. I can always extend later.</div>
+          </div>
+        </section>
+
+        <!-- CLUSTER 3: CUSTOMER COMMUNICATION -->
+        <section class="cluster-section" id="cluster-customer">
+          <span class="cluster-tag">Cluster 3</span>
+          <h3>Customer Communication</h3>
+          <p class="cluster-sub">Chatbots, outbound, support, voice agents, sales emails.</p>
+
+          <div class="exercise">
+            <h4>Exercise 1 — Draft your AI-powered cold outreach</h4>
+            <p class="exercise-meta">Three versions of a cold email, each with a different psychological hook.</p>
+            <div class="prompt-block">I'm a founder at a startup. Here's the context:
+
+My business in one sentence:
+[e.g., "We help mid-sized SaaS companies reduce churn through predictive customer health scoring"]
+
+My ideal customer is:
+- Industry: [e.g., B2B SaaS, mid-market]
+- Role: [e.g., Head of Customer Success, COO, CRO]
+- Pain we solve: [the specific pain]
+
+Here's a real-sounding prospect I want to reach:
+Company: [Real company you've thought of, OR invent a plausible one]
+What they do: [1 sentence]
+Why I think they need us: [1 sentence]
+
+Write 3 versions of a cold outreach email:
+- Version A: Direct value proposition
+- Version B: Question-first approach
+- Version C: Pattern-interrupt or curiosity hook
+
+Each version max 80 words. Include subject lines.
+Write like a real founder talks, no corporate cringe, no buzzwords, no "I hope this finds you well".</div>
+          </div>
+
+          <div class="exercise">
+            <h4>Exercise 2 — Build your support response template generator</h4>
+            <p class="exercise-meta">Categorize support messages and design templates for what to automate.</p>
+            <div class="prompt-block">We get repetitive customer questions at our startup. Imagine 3 typical customer messages we likely receive (you can invent realistic examples based on this business):
+
+My business in one sentence:
+[Your business]
+
+For each invented customer message:
+1. Categorize it into a recurring "support pattern" (e.g., billing question, feature request, technical issue, refund, onboarding confusion)
+2. Draft a response template that's empathetic, solution-oriented, and 5 sentences max
+3. Flag which categories are SAFE to fully automate (AI sends directly) vs. which need human review before sending
+4. Suggest a simple workflow: "If category = X, AI drafts → human approves → sends"
+5. Estimate how much support time per week this could save a startup like ours</div>
+          </div>
+        </section>
+
+        <!-- CLUSTER 4: ANALYSIS & INSIGHTS -->
+        <section class="cluster-section" id="cluster-analysis">
+          <span class="cluster-tag">Cluster 4</span>
+          <h3>Analysis &amp; Insights</h3>
+          <p class="cluster-sub">Reports, forecasting, anomaly detection, feedback clustering.</p>
+
+          <div class="exercise">
+            <h4>Exercise 1 — Generate sample data + first AI-driven insight</h4>
+            <p class="exercise-meta">No data with you? Let the AI generate a realistic dataset and analyze it.</p>
+            <div class="prompt-block">I'm a startup founder. I don't have real data with me right now, but I want to learn how AI can help me find insights in business data.
+
+My business in one sentence:
+[Your business]
+
+Step 1: Generate a realistic sample dataset for my startup.
+Choose ONE of these scenarios that fits my business:
+- Sales pipeline (50 leads with status, source, deal size, days in stage)
+- User signups (50 entries with signup source, plan, activation status)
+- Customer feedback (30 NPS responses with score and free-text comment)
+- Churn data (40 customers with tenure, plan, churn reason)
+
+Step 2: Now analyze that data and tell me:
+- 5 things that stand out
+- 3 non-obvious patterns I might have missed
+- 2 hypotheses about WHY those patterns exist
+- 1 immediate action I can take based on this insight
+- What chart would best visualize the most important finding
+
+Treat me as a smart founder who isn't a data scientist.</div>
+          </div>
+
+          <div class="exercise">
+            <h4>Exercise 2 — Cluster unstructured feedback into actionable themes</h4>
+            <p class="exercise-meta">Turn messy support tickets, NPS comments, and call notes into clear themes.</p>
+            <div class="prompt-block">I'm a startup founder. I want to learn how to use AI to turn messy unstructured feedback into action.
+
+My business in one sentence:
+[Your business]
+
+Step 1: Invent 20 realistic pieces of unstructured customer feedback that a startup like mine would receive. Mix sources:
+- Support tickets
+- NPS comments
+- Sales call notes
+- Churn interview snippets
+- App store reviews
+
+Make them realistic in tone, some emotional, some factual, some vague, some specific.
+
+Step 2: Now analyze that feedback and:
+1. Cluster the entries into 5 to 7 themes (you name them)
+2. Count how many entries fall into each theme
+3. Identify the 2 themes with highest emotional intensity (positive or negative)
+4. For the top 3 themes, suggest one concrete product or process change
+5. Flag any single entry that's worth a direct founder call to that customer
+
+End with: "If you had to act on only ONE theme this quarter, here's why it should be: [your reasoning]"</div>
+          </div>
+        </section>
+
+        <!-- ===================== TAKE HOME ===================== -->
+        <div class="section-divider"><h2>Phase 3 · Take Home</h2></div>
+
+        <!-- TOOL STACK -->
+        <section id="tools">
+          <div class="section-intro">
+            <h3>Recommended tools per cluster</h3>
+            <p>Start with the simplest thing that works. Upgrade when you outgrow it.</p>
+          </div>
+
+          <div class="table-wrap">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Cluster</th>
+                  <th>Start now</th>
+                  <th>First integration</th>
+                  <th>Long-term</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Knowledge &amp; RAG</strong></td>
+                  <td>NotebookLM, ChatGPT Projects, Claude Projects</td>
+                  <td>Custom GPTs, Claude + MCP, Perplexity Spaces</td>
+                  <td>Vector DB (Pinecone, Qdrant), custom RAG with n8n</td>
+                </tr>
+                <tr>
+                  <td><strong>Automation</strong></td>
+                  <td>Make, Zapier, n8n cloud</td>
+                  <td>n8n self-hosted, Apify Actors</td>
+                  <td>Custom workflows, Coolify deployments</td>
+                </tr>
+                <tr>
+                  <td><strong>Customer Communication</strong></td>
+                  <td>ChatGPT, Claude, ElevenLabs Conversational AI</td>
+                  <td>Smartlead, Apollo + n8n, Vapi + Twilio</td>
+                  <td>Own sequences, multi-channel outbound, CRM-integrated voice</td>
+                </tr>
+                <tr>
+                  <td><strong>Analysis &amp; Insights</strong></td>
+                  <td>ChatGPT Code Interpreter, Claude Analysis</td>
+                  <td>Power BI + Copilot, Google Sheets + Apps Script</td>
+                  <td>Own dashboards, forecast models</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-caption">Brand names are practical recommendations. What fits depends on your setup. More depth in the follow-up session.</p>
+        </section>
+
+        <!-- 7-DAY PLAN -->
+        <section id="plan" style="margin-top: 48px;">
+          <div class="section-intro">
+            <h3>Your 7-day plan</h3>
+            <p>So the workshop doesn't stay at "aha", it becomes "doing".</p>
+          </div>
+
+          <div class="plan-item">
+            <div class="day">Day 1 to 2</div>
+            <h4>Write your top use case as a 1-pager</h4>
+            <p>Problem, target user, expected outcome, success criterion.</p>
+          </div>
+
+          <div class="plan-item">
+            <div class="day">Day 3</div>
+            <h4>Set up the tool stack</h4>
+            <p>Pick the "start now" tools, create accounts, run a first test.</p>
+          </div>
+
+          <div class="plan-item">
+            <div class="day">Day 4 to 5</div>
+            <h4>Build a 60% quality prototype</h4>
+            <p>Better rough and honestly tested than polished and unused.</p>
+          </div>
+
+          <div class="plan-item">
+            <div class="day">Day 6</div>
+            <h4>Test with 3 real users from your target group</h4>
+            <p>Gather quick feedback. Note what surprised you.</p>
+          </div>
+
+          <div class="plan-item">
+            <div class="day">Day 7</div>
+            <h4>Join the cluster follow-up (May 28 to 30)</h4>
+            <p>Show what works, plan next iteration with peers.</p>
+          </div>
+        </section>
+
+      </div><!-- /.content -->
+    </div><!-- /.page-layout -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      Jakub Popluhar M.Ed.
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+      &nbsp;&middot;&nbsp;
+      <a href="tel:+436641386498">+43 664 138 64 98</a>
+    </p>
+  </footer>
+
+  <script>
+    // Click-to-copy on prompt blocks
+    document.querySelectorAll('.prompt-block').forEach(block => {
+      block.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(block.textContent.trim());
+          block.classList.add('copied');
+          setTimeout(() => block.classList.remove('copied'), 1500);
+        } catch (e) {
+          const range = document.createRange();
+          range.selectNodeContents(block);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      });
+    });
+
+    // Sidebar active state on scroll
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+    const sectionIds = Array.from(navLinks).map(a => a.getAttribute('href').slice(1));
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-25% 0px -65% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
