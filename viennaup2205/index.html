@@ -676,8 +676,11 @@
     @media (max-width: 768px) {
       .page-layout {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 12px;
+        margin-top: 24px;
       }
+
+      .hero { margin-bottom: 16px; }
 
       .sidebar-nav {
         position: static;
@@ -686,8 +689,8 @@
         gap: 6px;
         max-height: none;
         overflow: visible;
-        margin-bottom: 16px;
-        padding-bottom: 16px;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
         border-bottom: 1px solid rgba(212, 160, 23, 0.12);
       }
 
@@ -710,6 +713,9 @@
         border-left: none;
         border-bottom-color: var(--gold);
       }
+
+      /* Hide individual cluster sub-items on mobile; keep only the section-entry */
+      .sidebar-nav a.cluster-item { display: none; }
     }
 
     @media (max-width: 600px) {
@@ -772,12 +778,12 @@
 
         <div class="nav-section-label">Phase 2 · Cluster</div>
         <a href="#meet-cluster">Meet your group</a>
-        <a href="#cluster-knowledge">Knowledge &amp; RAG</a>
-        <a href="#cluster-automation">Automation</a>
-        <a href="#cluster-customer">Customer Facing</a>
-        <a href="#cluster-analysis">Analysis &amp; Insights</a>
-        <a href="#cluster-voice">Voice Agents</a>
-        <a href="#cluster-sales">Sales &amp; Marketing</a>
+        <a href="#cluster-knowledge" class="cluster-item">Knowledge &amp; RAG</a>
+        <a href="#cluster-automation" class="cluster-item">Automation</a>
+        <a href="#cluster-customer" class="cluster-item">Customer Facing</a>
+        <a href="#cluster-analysis" class="cluster-item">Analysis &amp; Insights</a>
+        <a href="#cluster-voice" class="cluster-item">Voice Agents</a>
+        <a href="#cluster-sales" class="cluster-item">Sales &amp; Marketing</a>
 
         <div class="nav-section-label">Phase 3 · Prioritize</div>
         <a href="#score-rank">Score &amp; rank in group</a>
