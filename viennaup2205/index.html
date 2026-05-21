@@ -587,7 +587,7 @@
     <div class="hero">
       <div class="badge">ViennaUP · AI Factory Austria · 22.05.2026</div>
       <h1>AI Opportunity Sprint</h1>
-      <p class="sub">Your workshop companion. Three prompts to find your top AI use cases, eight cluster exercises to go deeper, and a 7-day plan to ship something this week.</p>
+      <p class="sub">Your workshop companion. Three prompts to turn your <strong>real problems</strong> into a ranked list of <strong>AI use cases</strong>, eight cluster exercises to go deeper, and a 7-day plan to ship something this week.</p>
       <div class="divider"></div>
     </div>
 
@@ -620,8 +620,8 @@
         <div class="section-divider first" id="discovery"><h2>Phase 1 · Discovery &amp; Longlist</h2></div>
 
         <div class="section-intro">
-          <h3>Find your top AI use cases, step by step.</h3>
-          <p>Three prompts. Run them one after another in the same LLM chat. Wait for the trainer between each. By the end you'll have a scored, clustered, ranked list of AI use cases for your business.</p>
+          <h3>From problems to ranked AI use cases, step by step.</h3>
+          <p>Three prompts. Run them one after another in the same LLM chat. Wait for the trainer between each. By the end you'll have a structured table: numbered <strong>problems</strong>, the <strong>AI use case</strong> for each, <strong>scores</strong>, the <strong>cluster</strong>, and your <strong>P1/P2/P3</strong>.</p>
         </div>
 
         <details id="how-it-works">
@@ -640,33 +640,38 @@
         <div class="section-divider" id="step-1"><h2>Step 1 · Discovery (longlist)</h2></div>
         <p class="step-label">When the trainer says "go," tap the prompt below to copy it.</p>
         <p class="step-meta">This generates your initial longlist of 5 to 7 AI use cases. No scoring yet, just ideas.</p>
-        <div class="prompt-block">I'm a startup founder. Help me identify AI use cases for my business.
+        <div class="prompt-block">I'm a startup founder. Help me build a structured longlist of AI opportunities for my business.
 
 My business in 2 sentences:
 [describe your business, what you do, who you sell to]
 
-Brainstorm 5 to 7 specific AI use cases for my business by answering these 3 questions:
+Step A: Identify 5 to 7 concrete PROBLEMS we struggle with in our day-to-day. Real problems, not abstract goals. Use these 3 lenses to find them:
 
-1. What recurring process steps or tasks happen in my day-to-day work?
-2. In which daily activities do I work with many documents, or need to research / search for specific content?
-3. Where do I have large amounts of unstructured data that are currently only partially used or processed manually?
+1. Recurring process steps or tasks that cost time every day or week
+2. Daily activities with many documents, or where we research / search content
+3. Large amounts of unstructured data that are currently only partially used or manually processed
 
-IMPORTANT: NUMBER every use case clearly (1, 2, 3, 4, 5, 6, 7). This number is the permanent ID of that use case, you will reuse it in later steps.
+Step B: For each problem, derive exactly ONE AI use case (the proposed solution).
 
-For each numbered use case, give:
-- # (the number)
-- Name (1 short line)
-- Description (2 sentences max)
-- Which of the 3 questions above it answers
+Output your answer as a clean Markdown table with these columns and nothing else:
 
-Do NOT score or rank yet. Just give me the numbered longlist.</div>
+| # | Problem | AI Use Case |
+|---|---------|-------------|
+| 1 | ...     | ...         |
+| 2 | ...     | ...         |
+...
+
+IMPORTANT:
+- NUMBER every row (1, 2, 3, 4, 5, 6, 7). The number is the permanent ID, you will reuse it in later steps.
+- Keep Problem and AI Use Case to one short sentence each.
+- Do NOT score, cluster, or rank yet. Just the numbered table.</div>
         <p class="step-wait">Wait here. The trainer will move to Step 2 in a moment.</p>
 
         <!-- STEP 2 -->
         <div class="section-divider" id="step-2"><h2>Step 2 · Scoring</h2></div>
         <p class="step-label">Paste this into the SAME chat as Step 1.</p>
         <p class="step-meta">This scores every use case from your list. Impact = business value. Feasibility = how realistic it is to build now.</p>
-        <div class="prompt-block">Good. Now score every use case from your numbered list with two dimensions:
+        <div class="prompt-block">Good. Now score every row from your numbered table with two dimensions:
 
 IMPACT score (1 to 5): How much business value would this create?
 - Consider efficiency gain, cost reduction, customer experience, new revenue
@@ -678,27 +683,33 @@ FEASIBILITY score (1 to 5): How realistic is it with today's tech and our curren
 - 5 = easy to build this week with off-the-shelf tools
 - 1 = needs major investment or capabilities we don't have
 
-Present your output as a compact table with these columns:
-# | Use Case (short name only) | Impact | Feasibility | Combined Score (Impact + Feasibility)
+Reprint the FULL table with the same # IDs and add two new columns. Keep Problem and AI Use Case short (one line each):
 
-Use the SAME number from the longlist as the # column. Keep the use case name short, one line.
-Sort by Combined Score, highest first.
-Add one short sentence below the table explaining the top-scoring use case.</div>
+| # | Problem | AI Use Case | Impact | Feasibility | Combined |
+|---|---------|-------------|--------|-------------|----------|
+
+Combined = Impact + Feasibility.
+Sort rows by Combined Score, highest first. Keep the # IDs identical to Step 1.
+Add one short sentence below the table explaining the top-scoring row.</div>
         <p class="step-wait">Wait again. The trainer will move to Step 3 after a brief moment.</p>
 
         <!-- STEP 3 -->
         <div class="section-divider" id="step-3"><h2>Step 3 · Cluster &amp; rank</h2></div>
         <p class="step-label">Final prompt, paste this into the SAME chat.</p>
         <p class="step-meta">This assigns each use case to a workshop cluster and gives you a clear recommendation: which cluster to join, which use case to start with.</p>
-        <div class="prompt-block">Now assign each numbered use case to one of these 4 clusters. Use the letter as a code:
+        <div class="prompt-block">Now assign each numbered row to one of these 4 clusters. Use the letter as a code:
 
 A = Knowledge &amp; RAG (internal search, knowledge assistant, document summarization)
 B = Automation (workflows, repetitive tasks, data flows)
 C = Customer Communication (chatbots, outbound, support, voice agents, sales emails)
 D = Analysis &amp; Insights (reports, forecasting, anomaly detection, feedback clustering)
 
-Update the table by adding a CLUSTER column with just the letter (A / B / C / D).
-Keep the same numbering from before.
+Reprint the FULL final table, now with the Cluster column:
+
+| # | Problem | AI Use Case | Impact | Feasibility | Combined | Cluster |
+|---|---------|-------------|--------|-------------|----------|---------|
+
+Keep the same # IDs. Sort by Combined Score descending.
 
 Then give me a clear, compact final answer in EXACTLY this format:
 
@@ -720,14 +731,14 @@ Start with P1 this week because: [one sentence]</div>
         <!-- USE CASE CAPTURE FORM -->
         <section id="submit-usecases" style="margin-top: 32px;">
           <div class="cta-card" style="text-align: left;">
-            <div class="cta-title" style="font-size: 1.2rem;">Submit your use cases</div>
-            <p class="cta-sub" style="margin-bottom: 18px;">Paste the full output from your LLM here, the table with use cases, scores, and your P1/P2/P3. Just Name + Company + the paste. No email needed.</p>
+            <div class="cta-title" style="font-size: 1.2rem;">Submit your longlist</div>
+            <p class="cta-sub" style="margin-bottom: 18px;">Paste your final table from Step 3 (problems, AI use cases, scores, clusters, P1/P2/P3). Later, after the cluster exercise, you'll paste the AI-proposed solution in the second box. Just Name + Company, no email needed.</p>
             <div class="jotform-wrap">
               <iframe id="JotFormIFrame"
                       src="https://form.jotform.com/261403809620048"
                       title="Submit your AI use cases"
                       width="100%"
-                      height="720"
+                      height="900"
                       allowtransparency="true"
                       allow="geolocation; microphone; camera; fullscreen"
                       scrolling="no">
