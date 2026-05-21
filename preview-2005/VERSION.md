@@ -4,6 +4,44 @@
 
 ---
 
+## v1.45 · 2026-05-21 13:10 · [K] · TEA-04 (Workshop wall) neben „Ein Tag im Leben Ihrer HR-Leitung."
+
+Donnerstag-Section-Head auf zwei-spaltigen Grid umgestellt: links Eyebrow + h2 + Lead, rechts TEA-04 „Workshop wall, sticky notes" Foto in B&W (Aspect-Ratio 4/3, grayscale-Filter, leichter Shadow). Inline-Grid mit minmax-Columns für stabile Spaltenbreite.
+
+---
+
+## v1.44 · 2026-05-21 13:04 · [K] · Hero-Foto auf TEA-02 (Standing briefing) gewechselt.
+
+Hero-Bild auf der Homepage neben Headline „Mehr Zeit für Menschen" von POR-04 (Frau am Fenster, `photo-1521737711867`) auf TEA-02 „Standing briefing" (`photo-1542744173`) aus dem Photo-Katalog gewechselt. Alt-Text mit angepasst.
+
+---
+
+## v1.43 · 2026-05-21 10:31 · [K] · Hero-Claim final: „Human in the Lead. AI in Support."
+
+Vom Hero-Claim-Label `.hero-claim` aus v1.42 („Human in the Lead. KI im Hintergrund.") auf den finalen Brand-Satz „Human in the Lead. AI in Support." umgestellt.
+
+---
+
+## v1.42 · 2026-05-21 10:10 · [K] · Hero-Claim umformuliert: „Human in the Lead. KI im Hintergrund." statt „Sovereign AI for HR · People First".
+
+Index-Hero-Claim-Label oben im Hero (`.hero-claim`-Span) auf den Hill-Digital-Positionierungs-Refrain aus dem Briefing umgestellt.
+
+---
+
+## v1.41 · 2026-05-20 21:00 · [K] · Logo-Files freigestellt, plus Browser-basierter PNG/JPG-Exporter
+
+- Neuer Ordner `assets/img/logo/` mit fünf freigestellten SVG-Varianten:
+  - `hill-digital-mark.svg` (Mark only, Color, Berg Grau plus Bogen Yellow-zu-Orange)
+  - `hill-digital-mark-white.svg` (Mark only, Berg Weiß für dunklen Hintergrund)
+  - `hill-digital-mark-mono.svg` (Mark only, alles Charcoal für Einfarb-Druck)
+  - `hill-digital-logo.svg` (Full Logo, Mark plus Wortmarke Source Sans 3 Bold)
+  - `hill-digital-logo-white.svg` (Full Logo, Wortmarke Weiß)
+- Alle SVG mit transparentem Hintergrund, viewBox sauber definiert, viewBox 100x100 für Marks und 360x100 für Full-Logos.
+- `logo-export.html`: Browser-basierte Konverter-Seite, zeichnet jedes SVG via Canvas und exportiert als PNG oder JPG in mehreren Größen. Buttons triggern direkten Download. Funktioniert ohne externes CLI-Tool.
+- Hinweis: Wortmarke aktuell als SVG-Text-Element mit Source-Sans-3-Fallback. Für Print-Output ohne Schrift-Abhängigkeit Wortmarke in Vektor-Tool in Pfade umwandeln.
+
+---
+
 ## v1.40 · 2026-05-20 20:50 · [J] · AGB v1.0 publiziert, Footer-Sync, Nav "AI Trainings"
 
 - `agbs.html`: Volltext AGB v1.0 B2B aus `Hill_Digital_AGB_B2B_v1.0.docx` publiziert. Alle `[●]`-Platzhalter mit HWDigital-Daten ersetzt (FN 537930z, ATU 75762667, GF Melanie Hill BA, Kölblgasse 2, 1030 Wien, office@hill-woltron-digital.com). Anlagen 1–4 referenziert (gesondert beizulegen, keine Subpages). Footer-Kontakt-Stubs gefüllt. Internen Hinweis entfernt.

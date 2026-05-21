@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo Export · Hill Digital</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/hill.css" />
+  <style>
+    body { padding: 2rem; background: var(--bg); }
+    h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 0.4rem; }
+    .intro { color: var(--muted); max-width: 720px; margin-bottom: 2rem; }
+    .logo-row {
+      display: grid; grid-template-columns: 240px 1fr;
+      gap: 1.6rem; padding: 1.4rem;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 14px; margin-bottom: 1.2rem;
+      align-items: center;
+    }
+    .logo-row.dark { background: var(--charcoal-d); color: var(--white); border-color: var(--charcoal-d); }
+    .logo-row.dark .row-title { color: var(--white); }
+    .logo-row.dark .row-meta { color: rgba(255,255,255,0.62); }
+    .logo-preview {
+      width: 200px; height: 200px;
+      background: var(--cream); border-radius: 10px;
+      display: grid; place-items: center;
+      padding: 1rem;
+      border: 1px solid var(--border);
+    }
+    .logo-row.dark .logo-preview { background: var(--charcoal-x); border-color: var(--border-ns); }
+    .logo-preview img, .logo-preview object { max-width: 100%; max-height: 100%; }
+    .row-title { font-size: 1.06rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+    .row-meta { font-size: 0.84rem; color: var(--muted); margin-bottom: 0.9rem; }
+    .btn-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .btn-export {
+      padding: 0.5rem 0.9rem; border-radius: 8px;
+      background: var(--orange); color: var(--white);
+      border: none; font-family: var(--font); font-weight: 600;
+      font-size: 0.82rem; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-export:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .btn-export.dark { background: var(--charcoal-d); }
+    .btn-export.dark:hover { background: var(--charcoal-x); }
+    .status { font-size: 0.82rem; color: var(--orange); margin-top: 0.6rem; min-height: 1.2em; }
+  </style>
+</head>
+<body>
+
+  <h1>Hill Digital Logo Export</h1>
+  <p class="intro">Klick eine Größe, JPG wird automatisch heruntergeladen. JPG hat keinen Alpha-Kanal, deshalb hat jeder Export den passenden Hintergrund (cream für Color-Logos, charcoal für White-Logos). PNG-Buttons exportieren mit transparentem Hintergrund.</p>
+
+  <!-- 1: Mark Color -->
+  <div class="logo-row" data-svg="assets/img/logo/hill-digital-mark.svg" data-bg="#F5F2EA">
+    <div class="logo-preview"><object data="assets/img/logo/hill-digital-mark.svg" type="image/svg+xml"></object></div>
+    <div>
+      <div class="row-title">Mark only · Color</div>
+      <div class="row-meta">Berg grau, Bogen Yellow→Orange. Standard auf hellem Grund.</div>
+      <div class="btn-row">
+        <button class="btn-export" onclick="exportPng(this.parentNode.parentNode.parentNode, 400)">PNG 400×400</button>
+        <button class="btn-export" onclick="exportPng(this.parentNode.parentNode.parentNode, 1000)">PNG 1000×1000</button>
+        <button class="btn-export" onclick="exportJpg(this.parentNode.parentNode.parentNode, 400)">JPG 400</button>
+        <button class="btn-export" onclick="exportJpg(this.parentNode.parentNode.parentNode, 1000)">JPG 1000</button>
+        <button class="btn-export" onclick="exportJpg(this.parentNode.parentNode.parentNode, 2000)">JPG 2000</button>
+      </div>
+      <div class="status" data-status></div>
+    </div>
+  </div>
+
+  <!-- 2: Mark White on Dark -->
+  <div class="logo-row dark" data-svg="assets/img/logo/hill-digital-mark-white.svg" data-bg="#1B1B1A">
+    <div class="logo-preview"><object data="assets/img/logo/hill-digital-mark-white.svg" type="image/svg+xml"></object></div>
+    <div>
+      <div class="row-title">Mark only · White Berg</div>
+      <div class="row-meta">Berg weiß, Bogen Brand-Gradient. Für dunklen Hintergrund.</div>
+      <div class="btn-row">
+        <button class="btn-export dark" onclick="exportPng(this.parentNode.parentNode.parentNode, 400)">PNG 400</button>
+        <button class="btn-export dark" onclick="exportPng(this.parentNode.parentNode.parentNode, 1000)">PNG 1000</button>
+        <button class="btn-export dark" onclick="exportJpg(this.parentNode.parentNode.parentNode, 400)">JPG 400 dark</button>
+        <button class="btn-export dark" onclick="exportJpg(this.parentNode.parentNode.parentNode, 1000)">JPG 1000 dark</button>
+        <button class="btn-export dark" onclick="exportJpg(this.parentNode.parentNode.parentNode, 2000)">JPG 2000 dark</button>
+      </div>
+      <div class="status" data-status></div>
+    </div>
+  </div>
+
+  <!-- 3: Mark Mono Charcoal -->
+  <div class="logo-row" data-svg="assets/img/logo/hill-digital-mark-mono.svg" data-bg="#FFFFFF">
+    <div class="logo-preview"><object data="assets/img/logo/hill-digital-mark-mono.svg" type="image/svg+xml"></object></div>
+    <div>
+      <div class="row-title">Mark only · Mono Charcoal</div>
+      <div class="row-meta">Komplett Charcoal #575756. Für Einfarb-Druck, Stempel, Embossing.</div>
+      <div class="btn-row">
+        <button class="btn-export" onclick="exportPng(this.parentNode.parentNode.parentNode, 400)">PNG 400</button>
+        <button class="btn-export" onclick="exportPng(this.parentNode.parentNode.parentNode, 1000)">PNG 1000</button>
+        <button class="btn-export" onclick="exportJpg(this.parentNode.parentNode.parentNode, 400)">JPG 400</button>
+        <button class="btn-export" onclick="exportJpg(this.parentNode.parentNode.parentNode, 1000)">JPG 1000</button>
+        <button class="btn-export" onclick="exportJpg(this.parentNode.parentNode.parentNode, 2000)">JPG 2000</button>
+      </div>
+      <div class="status" data-status></div>
+    </div>
+  </div>
+
+  <!-- 4: Full Logo Color -->
+  <div class="logo-row" data-svg="assets/img/logo/hill-digital-logo.svg" data-bg="#F5F2EA" data-aspect="3.6">
+    <div class="logo-preview"><object data="assets/img/logo/hill-digital-logo.svg" type="image/svg+xml"></object></div>
+    <div>
+      <div class="row-title">Full Logo · Color · Mark plus Wortmarke</div>
+      <div class="row-meta">Source Sans 3 Bold. Format 360×100, Aspect 3.6:1.</div>
+      <div class="btn-row">
+        <button class="btn-export" onclick="exportPng(this.parentNode.parentNode.parentNode, 720, 200)">PNG 720×200</button>
+        <button class="btn-export" onclick="exportPng(this.parentNode.parentNode.parentNode, 1440, 400)">PNG 1440×400</button>
+        <button class="btn-export" onclick="exportJpg(this.parentNode.parentNode.parentNode, 720, 200)">JPG 720×200</button>
+        <button class="btn-export" onclick="exportJpg(this.parentNode.parentNode.parentNode, 1440, 400)">JPG 1440×400</button>
+        <button class="btn-export" onclick="exportJpg(this.parentNode.parentNode.parentNode, 2880, 800)">JPG 2880×800</button>
+      </div>
+      <div class="status" data-status></div>
+    </div>
+  </div>
+
+  <!-- 5: Full Logo White on Dark -->
+  <div class="logo-row dark" data-svg="assets/img/logo/hill-digital-logo-white.svg" data-bg="#1B1B1A" data-aspect="3.6">
+    <div class="logo-preview"><object data="assets/img/logo/hill-digital-logo-white.svg" type="image/svg+xml"></object></div>
+    <div>
+      <div class="row-title">Full Logo · White on Dark</div>
+      <div class="row-meta">Berg weiß, Bogen Brand-Gradient, Wortmarke weiß. Für dunklen Hintergrund.</div>
+      <div class="btn-row">
+        <button class="btn-export dark" onclick="exportPng(this.parentNode.parentNode.parentNode, 720, 200)">PNG 720×200</button>
+        <button class="btn-export dark" onclick="exportPng(this.parentNode.parentNode.parentNode, 1440, 400)">PNG 1440×400</button>
+        <button class="btn-export dark" onclick="exportJpg(this.parentNode.parentNode.parentNode, 720, 200)">JPG 720×200 dark</button>
+        <button class="btn-export dark" onclick="exportJpg(this.parentNode.parentNode.parentNode, 1440, 400)">JPG 1440×400 dark</button>
+        <button class="btn-export dark" onclick="exportJpg(this.parentNode.parentNode.parentNode, 2880, 800)">JPG 2880×800 dark</button>
+      </div>
+      <div class="status" data-status></div>
+    </div>
+  </div>
+
+  <script>
+    async function loadSvgImage(svgUrl) {
+      const r = await fetch(svgUrl, { cache: 'no-store' });
+      const txt = await r.text();
+      // ensure xmlns + return blob URL
+      const blob = new Blob([txt], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => { resolve({ img, url, txt }); };
+        img.onerror = (e) => { reject(e); };
+        img.src = url;
+      });
+    }
+
+    function drawCentered(canvas, img, bgColor) {
+      const ctx = canvas.getContext('2d');
+      if (bgColor) {
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+      // letterbox to preserve aspect
+      const w = canvas.width, h = canvas.height;
+      const aspectImg = img.naturalWidth / img.naturalHeight;
+      const aspectCanvas = w / h;
+      let dw = w, dh = h, dx = 0, dy = 0;
+      if (aspectImg > aspectCanvas) {
+        dh = w / aspectImg;
+        dy = (h - dh) / 2;
+      } else {
+        dw = h * aspectImg;
+        dx = (w - dw) / 2;
+      }
+      ctx.drawImage(img, dx, dy, dw, dh);
+    }
+
+    function triggerDownload(blob, filename) {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(a.href); }, 500);
+    }
+
+    async function exportJpg(row, w, h) {
+      h = h || w;
+      const status = row.querySelector('[data-status]');
+      status.textContent = 'Konvertiere ' + w + '×' + h + ' JPG...';
+      try {
+        const svgUrl = row.dataset.svg;
+        const bg = row.dataset.bg || '#FFFFFF';
+        const { img } = await loadSvgImage(svgUrl);
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        drawCentered(canvas, img, bg);
+        canvas.toBlob(b => {
+          const base = svgUrl.split('/').pop().replace('.svg', '');
+          triggerDownload(b, base + '-' + w + 'x' + h + '.jpg');
+          status.textContent = 'Heruntergeladen: ' + base + '-' + w + 'x' + h + '.jpg';
+        }, 'image/jpeg', 0.95);
+      } catch (e) {
+        status.textContent = 'Fehler: ' + e;
+        console.error(e);
+      }
+    }
+
+    async function exportPng(row, w, h) {
+      h = h || w;
+      const status = row.querySelector('[data-status]');
+      status.textContent = 'Konvertiere ' + w + '×' + h + ' PNG...';
+      try {
+        const svgUrl = row.dataset.svg;
+        const { img } = await loadSvgImage(svgUrl);
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        // PNG keeps transparency, no bg fill
+        drawCentered(canvas, img, null);
+        canvas.toBlob(b => {
+          const base = svgUrl.split('/').pop().replace('.svg', '');
+          triggerDownload(b, base + '-' + w + 'x' + h + '.png');
+          status.textContent = 'Heruntergeladen: ' + base + '-' + w + 'x' + h + '.png';
+        }, 'image/png');
+      } catch (e) {
+        status.textContent = 'Fehler: ' + e;
+        console.error(e);
+      }
+    }
+  </script>
+</body>
+</html>

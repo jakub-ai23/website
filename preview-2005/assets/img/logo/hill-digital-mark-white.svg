@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hill Digital · Mark only · White Berg für dunkle Hintergründe
+  Berg in Weiß, Bogen Yellow→Orange (Brand-Gradient bleibt)
+  Transparenter Hintergrund.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <defs>
+    <linearGradient id="hillArc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FAE600"/>
+      <stop offset="100%" stop-color="#FFA014"/>
+    </linearGradient>
+  </defs>
+  <path d="M17.6 70.6 L41.2 35.3 L52.9 50 L67.6 29.4 L82.4 70.6 Z" fill="#FFFFFF"/>
+  <path d="M17.6 29.4 Q50 5.9 82.4 29.4" stroke="url(#hillArc)" stroke-width="7.6" fill="none" stroke-linecap="round"/>
+</svg>
