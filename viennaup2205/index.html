@@ -693,8 +693,8 @@
       <!-- SIDEBAR NAV -->
       <nav class="sidebar-nav" aria-label="Sections">
         <div class="nav-section-label">Phase 1 · Solo</div>
-        <a href="#how-it-works">How it works</a>
         <a href="#setup">Open your LLM</a>
+        <a href="#how-it-works">How it works</a>
         <a href="#step-1">Step 1 · Problems</a>
         <a href="#step-2">Step 2 · Use Cases</a>
 
@@ -727,19 +727,7 @@
           <p>Two prompts, run one after another in the same LLM chat. Output: a numbered table — <strong># | Problem | AI Use Case</strong>. Scoring and cluster ranking come later, with your group.</p>
         </div>
 
-        <details id="how-it-works">
-          <summary>How this works (tap to expand)</summary>
-          <div class="collapsible-content">
-            <p><strong>Setup:</strong> Open your preferred LLM (ChatGPT, Claude, or Gemini — free tier works). Keep this tab open.</p>
-            <p><strong>Step 1 — Problems:</strong> When the trainer says "go," tap Prompt 1 to copy, paste it into your LLM. AI returns your numbered problems.</p>
-            <p><strong>Step 2 — Use Cases:</strong> Wait for the trainer, then paste Prompt 2 into the SAME chat. AI derives one AI use case per problem.</p>
-            <p><strong>Then:</strong> head to your cluster corner for Phase 2 (group work).</p>
-            <p style="color: var(--gold); margin-top: 14px;"><strong>Important:</strong> Keep both prompts in the SAME conversation. The AI builds on its previous answers.</p>
-            <p style="color: var(--white-muted); font-size: 0.85rem;">If your LLM doesn't output a clean table, just type: <em>"Please output as a Markdown table."</em></p>
-          </div>
-        </details>
-
-        <details id="setup">
+        <details id="setup" open>
           <summary>Open your LLM (tap to expand)</summary>
           <div class="collapsible-content">
             <p>No LLM open yet? Pick one. All free tiers work for this workshop.</p>
@@ -790,9 +778,20 @@
           </div>
         </details>
 
+        <details id="how-it-works">
+          <summary>How this works (tap to expand)</summary>
+          <div class="collapsible-content">
+            <p><strong>Step 1 — Problems:</strong> When the trainer says "go," <strong>tap Prompt 1 to copy it</strong>, paste it into your LLM. AI returns your numbered problems.</p>
+            <p><strong>Step 2 — Use Cases:</strong> Wait for the trainer, then <strong>tap Prompt 2 to copy</strong> and paste it into the SAME chat. AI derives one AI use case per problem.</p>
+            <p><strong>Then:</strong> head to your cluster corner for Phase 2 (group work).</p>
+            <p style="color: var(--gold); margin-top: 14px;"><strong>Important:</strong> Keep both prompts in the SAME conversation. The AI builds on its previous answers.</p>
+            <p style="color: var(--white-muted); font-size: 0.85rem;">If your LLM doesn't output a clean table, just type: <em>"Please output as a Markdown table."</em></p>
+          </div>
+        </details>
+
         <!-- STEP 1 — PROBLEMS -->
         <div class="section-divider" id="step-1"><h2>Step 1 · Problems</h2></div>
-        <p class="step-label">When the trainer says "go," tap the prompt below to copy it.</p>
+        <p class="step-label">When the trainer says "go," tap the prompt below to copy it &mdash; then paste into your LLM.</p>
         <p class="step-meta">First we name the real problems. No solutions yet, just the pain points.</p>
         <div class="prompt-block">I'm a startup founder. Help me identify the real PROBLEMS in my business — the day-to-day pain points where AI could later help.
 
@@ -820,7 +819,7 @@ IMPORTANT:
 
         <!-- STEP 2 — USE CASES -->
         <div class="section-divider" id="step-2"><h2>Step 2 · Use Cases</h2></div>
-        <p class="step-label">Paste this into the SAME chat as Step 1.</p>
+        <p class="step-label">Tap the prompt to copy, then paste into the SAME chat as Step 1.</p>
         <p class="step-meta">Now we turn every problem into an AI use case. One use case per problem, same numbering.</p>
         <div class="prompt-block">Good. Now, for EACH numbered problem from your list, derive exactly ONE AI use case (the proposed solution direction).
 
@@ -856,7 +855,7 @@ RULES:
 
         <div class="section-intro" style="margin-top: 36px;">
           <h3>Cluster prompts</h3>
-          <p>Pick the prompt that matches your cluster. Run it once for the group, discuss the AI's output.</p>
+          <p>Pick the prompt that matches your cluster. <strong>Tap any prompt block to copy it</strong>, paste it in one of your LLM chats, discuss the output as a group.</p>
           <p style="color: var(--gold); font-size: 0.88rem; margin-top: 4px;"><strong>Tip:</strong> After running the prompt, ask your LLM <em>"Summarize the proposed solution in under 150 words"</em> so it fits cleanly in the submission form.</p>
         </div>
 
@@ -1098,7 +1097,7 @@ End with: "If you had to act on only ONE theme this quarter, here's why it shoul
           <p>One prompt for the whole table from Phase 1. Run it for each person in the group, share the resulting P1 with the cluster.</p>
         </div>
 
-        <p class="step-label" id="score-rank">Paste this into the SAME chat that has your Phase 1 longlist.</p>
+        <p class="step-label" id="score-rank">Tap the prompt to copy, then paste into the SAME chat that has your Phase 1 longlist.</p>
         <p class="step-meta">Two scores per row. Then a clean P1/P2/P3 summary.</p>
         <div class="prompt-block">For my longlist from earlier (the # | Problem | AI Use Case table), score every row on two dimensions:
 
