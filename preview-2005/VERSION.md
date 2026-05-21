@@ -4,6 +4,24 @@
 
 ---
 
+## v1.48 · 2026-05-21 13:25 · [K] · AI-05 (Screen review, concentrated) im Trainings-Hero neben Headline.
+
+Page-Header auf `trainings.html` auf zwei-spaltigen Grid umgestellt, gleicher Stil wie Recruiting + Onboarding: links Eyebrow + h1 + Lead, rechts AI-05 „Screen review, concentrated" Foto in B&W (Aspect 4/5, grayscale, Shadow).
+
+---
+
+## v1.47 · 2026-05-21 13:21 · [K] · TEA-09 (Cross-functional huddle) im Onboarding-Hero neben Headline.
+
+Page-Header auf `onboarding.html` auf zwei-spaltigen Grid umgestellt, gleicher Stil wie Recruiting-Hero: links Eyebrow + h1 + Lead, rechts TEA-09 „Cross-functional huddle" Foto in B&W (Aspect 4/5, grayscale, Shadow).
+
+---
+
+## v1.46 · 2026-05-21 13:17 · [K] · WRK-07 (Pair reviewing screen) im Recruiting-Hero neben Headline.
+
+Page-Header auf `recruiting.html` auf zwei-spaltigen Grid umgestellt: links Eyebrow + h1 + Lead, rechts WRK-07 „Pair reviewing screen" Foto in B&W (Aspect 4/5, grayscale-Filter, Shadow). Inline-Grid mit max-width: 1200px für stabile Breite.
+
+---
+
 ## v1.45 · 2026-05-21 13:10 · [K] · TEA-04 (Workshop wall) neben „Ein Tag im Leben Ihrer HR-Leitung."
 
 Donnerstag-Section-Head auf zwei-spaltigen Grid umgestellt: links Eyebrow + h2 + Lead, rechts TEA-04 „Workshop wall, sticky notes" Foto in B&W (Aspect-Ratio 4/3, grayscale-Filter, leichter Shadow). Inline-Grid mit minmax-Columns für stabile Spaltenbreite.
