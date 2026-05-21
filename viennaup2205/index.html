@@ -29,6 +29,8 @@
       --cluster-automation: #50c878;
       --cluster-customer: #e67e22;
       --cluster-analysis: #9b59b6;
+      --cluster-voice: #50c878;
+      --cluster-sales: #e74c3c;
       --font-heading: 'Montserrat', sans-serif;
       --font-body: 'Inter', sans-serif;
     }
@@ -422,6 +424,10 @@
     #cluster-customer .cluster-tag { color: var(--cluster-customer); }
     #cluster-analysis .exercise { border-left-color: var(--cluster-analysis); }
     #cluster-analysis .cluster-tag { color: var(--cluster-analysis); }
+    #cluster-voice .exercise { border-left-color: var(--cluster-voice); }
+    #cluster-voice .cluster-tag { color: var(--cluster-voice); }
+    #cluster-sales .exercise { border-left-color: var(--cluster-sales); }
+    #cluster-sales .cluster-tag { color: var(--cluster-sales); }
 
     /* COMPARE TABLE */
     .table-wrap { overflow-x: auto; margin: 18px 0; }
@@ -490,6 +496,54 @@
     .plan-item p {
       font-size: 0.88rem;
       color: var(--white-muted);
+    }
+
+    /* LLM SETUP GRID */
+    .llm-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .llm-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .llm-card .llm-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .llm-card .llm-browser {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .llm-card .llm-stores {
+      display: flex;
+      gap: 12px;
+      font-size: 0.72rem;
+    }
+
+    .llm-card .llm-stores a {
+      color: var(--white-muted);
+      border-bottom: 1px dotted rgba(212, 160, 23, 0.3);
+    }
+
+    .llm-card .llm-stores a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .llm-grid { grid-template-columns: 1fr; }
     }
 
     /* JOTFORM EMBED */
@@ -622,24 +676,56 @@
       <!-- CONTENT -->
       <div class="content">
 
-        <!-- ===================== DISCOVERY ===================== -->
-        <div class="section-divider first" id="discovery"><h2>Phase 1 · Discovery &amp; Longlist</h2></div>
+        <!-- ===================== PHASE 1 — SOLO ===================== -->
+        <div class="section-divider first" id="discovery"><h2>Phase 1 · Solo · 20 Min</h2></div>
 
         <div class="section-intro">
-          <h3>From problems to ranked AI use cases, step by step.</h3>
-          <p>Three prompts. Run them one after another in the same LLM chat. Wait for the trainer between each. By the end you'll have a structured table: numbered <strong>problems</strong>, the <strong>AI use case</strong> for each, <strong>scores</strong>, the <strong>cluster</strong>, and your <strong>P1/P2/P3</strong>.</p>
+          <h3>Build your longlist of problems and AI use cases.</h3>
+          <p>Two prompts, run one after another in the same LLM chat. Output: a numbered table — <strong># | Problem | AI Use Case</strong>. Scoring and cluster ranking come later, with your group.</p>
         </div>
 
         <details id="how-it-works">
           <summary>How this works (tap to expand)</summary>
           <div class="collapsible-content">
-            <p><strong>Setup:</strong> Open your preferred LLM (ChatGPT, Claude, or Gemini, free tier works). Keep this tab open throughout.</p>
+            <p><strong>Setup:</strong> Open your preferred LLM (ChatGPT, Claude, or Gemini — free tier works). Keep this tab open.</p>
             <p><strong>Step 1 — Problems:</strong> When the trainer says "go," tap Prompt 1 to copy, paste it into your LLM. AI returns your numbered problems.</p>
             <p><strong>Step 2 — Use Cases:</strong> Wait for the trainer, then paste Prompt 2 into the SAME chat. AI derives one AI use case per problem.</p>
-            <p><strong>Step 3 — Scoring:</strong> After the next trainer instruction, paste Prompt 3. AI scores Impact + Feasibility.</p>
-            <p><strong>Step 4 — Cluster &amp; Rank:</strong> Final prompt assigns clusters and gives you P1/P2/P3.</p>
-            <p><strong>After:</strong> Submit your longlist in the form, then head to your cluster corner for the cluster exercise.</p>
-            <p style="color: var(--gold); margin-top: 14px;"><strong>Important:</strong> Keep ALL prompts in the SAME conversation. The AI builds on its previous answers.</p>
+            <p><strong>Then:</strong> head to your cluster corner for Phase 2 (group work).</p>
+            <p style="color: var(--gold); margin-top: 14px;"><strong>Important:</strong> Keep both prompts in the SAME conversation. The AI builds on its previous answers.</p>
+            <p style="color: var(--white-muted); font-size: 0.85rem;">If your LLM doesn't output a clean table, just type: <em>"Please output as a Markdown table."</em></p>
+          </div>
+        </details>
+
+        <details id="setup">
+          <summary>Open your LLM (tap to expand)</summary>
+          <div class="collapsible-content">
+            <p>No LLM open yet? Pick one. All free tiers work for this workshop.</p>
+            <div class="llm-grid">
+              <div class="llm-card">
+                <div class="llm-name">ChatGPT</div>
+                <a class="llm-browser" href="https://chatgpt.com" target="_blank" rel="noopener">Open in browser →</a>
+                <div class="llm-stores">
+                  <a href="https://apps.apple.com/app/chatgpt/id6448311069" target="_blank" rel="noopener">iOS</a>
+                  <a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank" rel="noopener">Android</a>
+                </div>
+              </div>
+              <div class="llm-card">
+                <div class="llm-name">Claude</div>
+                <a class="llm-browser" href="https://claude.ai" target="_blank" rel="noopener">Open in browser →</a>
+                <div class="llm-stores">
+                  <a href="https://apps.apple.com/app/claude-by-anthropic/id6473753684" target="_blank" rel="noopener">iOS</a>
+                  <a href="https://play.google.com/store/apps/details?id=com.anthropic.claude" target="_blank" rel="noopener">Android</a>
+                </div>
+              </div>
+              <div class="llm-card">
+                <div class="llm-name">Gemini</div>
+                <a class="llm-browser" href="https://gemini.google.com" target="_blank" rel="noopener">Open in browser →</a>
+                <div class="llm-stores">
+                  <a href="https://apps.apple.com/app/google-gemini/id6477489729" target="_blank" rel="noopener">iOS</a>
+                  <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard" target="_blank" rel="noopener">Android</a>
+                </div>
+              </div>
+            </div>
           </div>
         </details>
 
@@ -690,96 +776,27 @@ RULES:
 - Use the EXACT problem text from Step 1 in the Problem column (you can shorten if needed).
 - AI Use Case = one short sentence describing what AI would do, max 15 words.
 - Whole table max ~150 words.
-- Do NOT score, cluster, or rank yet.</div>
-        <p class="step-wait">Wait again. The trainer will move to Step 3 in a moment.</p>
+- Do NOT score, cluster, or rank yet — that comes in your group.</div>
+        <p class="step-wait">Phase 1 done. Keep this LLM chat open, you'll reuse it. Now head to your cluster corner for Phase 2.</p>
 
-        <!-- STEP 3 — SCORING -->
-        <div class="section-divider" id="step-3"><h2>Step 3 · Scoring</h2></div>
-        <p class="step-label">Paste this into the SAME chat.</p>
-        <p class="step-meta">Each use case gets two scores. Impact = business value. Feasibility = how realistic it is now.</p>
-        <div class="prompt-block">Now score every row from your table with two dimensions:
+        <!-- ===================== PHASE 2 — CLUSTER (GROUP) ===================== -->
+        <div class="section-divider"><h2>Phase 2 · Cluster · 30 Min</h2></div>
 
-IMPACT score (1 to 5): How much business value would this create?
-- Consider efficiency gain, cost reduction, customer experience, new revenue
-- 5 = high impact, transforms the business
-- 1 = marginal, nice-to-have
-
-FEASIBILITY score (1 to 5): How realistic is it with today's tech and our current resources?
-- Consider available data, tools, infrastructure, team skills
-- 5 = easy to build this week with off-the-shelf tools
-- 1 = needs major investment or capabilities we don't have
-
-Reprint the FULL table with the same # IDs and add two new columns:
-
-| # | Problem | AI Use Case | Impact | Feasibility | Combined |
-|---|---------|-------------|--------|-------------|----------|
-
-Combined = Impact + Feasibility.
-Sort rows by Combined Score, highest first. Keep the # IDs identical to before.
-Add one short sentence below the table explaining the top-scoring row.</div>
-        <p class="step-wait">Wait. The trainer will move to Step 4 in a moment.</p>
-
-        <!-- STEP 4 — CLUSTER & RANK -->
-        <div class="section-divider" id="step-4"><h2>Step 4 · Cluster &amp; rank</h2></div>
-        <p class="step-label">Final prompt, paste this into the SAME chat.</p>
-        <p class="step-meta">Assigns each use case to a workshop cluster and gives you your P1/P2/P3 plus cluster recommendation.</p>
-        <div class="prompt-block">Now assign each numbered row to one of these 4 clusters. Use the letter as a code:
-
-A = Knowledge &amp; RAG (internal search, knowledge assistant, document summarization)
-B = Automation (workflows, repetitive tasks, data flows)
-C = Customer Communication (chatbots, outbound, support, voice agents, sales emails)
-D = Analysis &amp; Insights (reports, forecasting, anomaly detection, feedback clustering)
-
-Reprint the FULL final table, now with the Cluster column:
-
-| # | Problem | AI Use Case | Impact | Feasibility | Combined | Cluster |
-|---|---------|-------------|--------|-------------|----------|---------|
-
-Keep the same # IDs. Sort by Combined Score descending.
-
-Then give me a clear, compact final answer in EXACTLY this format:
-
-P1 = #[number], cluster [letter]
-P2 = #[number], cluster [letter]
-P3 = #[number], cluster [letter]
-
-Join cluster: [letter] ([cluster name])
-
-Start with P1 this week because: [one sentence]</div>
-
-        <!-- MENTIMETER CTA -->
-        <div class="cta-card" id="mentimeter">
-          <div class="cta-title">Share your P1 use case</div>
-          <p class="cta-sub">Anonymously. Helps us cluster the room and learn what matters to startups.</p>
-          <a href="MENTIMETER_URL_PLACEHOLDER" target="_blank" rel="noopener" class="cta-btn">Open Mentimeter →</a>
+        <div id="meet-cluster" class="cta-card" style="text-align: left;">
+          <div class="cta-title">Meet your cluster group</div>
+          <p class="cta-sub" style="margin-bottom: 14px;">When the trainer calls your cluster, head to that corner of the room.</p>
+          <ul style="margin: 0 0 0 22px; color: var(--white-muted); font-size: 0.92rem; line-height: 1.8;">
+            <li><strong style="color: var(--white);">Introduce yourselves</strong> — 15 seconds each: name + company</li>
+            <li><strong style="color: var(--white);">Share</strong> your top problem + AI use case from Phase 1</li>
+            <li><strong style="color: var(--white);">Run the cluster prompt</strong> below as a group, in one LLM</li>
+            <li><strong style="color: var(--white);">Write down</strong> what the AI suggests — that's your group's deliverable</li>
+          </ul>
         </div>
 
-        <!-- USE CASE CAPTURE FORM -->
-        <section id="submit-usecases" style="margin-top: 32px;">
-          <div class="cta-card" style="text-align: left;">
-            <div class="cta-title" style="font-size: 1.2rem;">Submit everything in one form</div>
-            <p class="cta-sub" style="margin-bottom: 18px;">Name + Company, then paste: <strong>your problems</strong>, <strong>your AI use cases</strong> (output of Step 3), and after the cluster exercise <strong>your AI-suggested solution</strong>. Scrolling is fine, one submit at the end.</p>
-            <div class="jotform-wrap">
-              <iframe id="JotFormIFrame"
-                      src="https://form.jotform.com/261403809620048"
-                      title="Submit your AI use cases"
-                      width="100%"
-                      height="1150"
-                      allowtransparency="true"
-                      allow="geolocation; microphone; camera; fullscreen"
-                      scrolling="yes">
-              </iframe>
-            </div>
-          </div>
-        </section>
-
-        <!-- ===================== CLUSTER PROMPTS ===================== -->
-        <div class="section-divider"><h2>Phase 2 · Cluster Prompts</h2></div>
-
-        <div class="section-intro">
-          <h3>Pick your cluster. Pick a prompt. Run it.</h3>
-          <p>Head to your cluster's corner of the room. Each cluster has 2 prompts, pick whichever fits your use case best and run it in your LLM.</p>
-          <p style="color: var(--gold); font-size: 0.88rem; margin-top: 4px;"><strong>Tip:</strong> After running the prompt, ask your LLM "Summarize the proposed solution in under 150 words" so it fits cleanly in the submission form.</p>
+        <div class="section-intro" style="margin-top: 36px;">
+          <h3>Cluster prompts</h3>
+          <p>Pick the prompt that matches your cluster. Run it once for the group, discuss the AI's output.</p>
+          <p style="color: var(--gold); font-size: 0.88rem; margin-top: 4px;"><strong>Tip:</strong> After running the prompt, ask your LLM <em>"Summarize the proposed solution in under 150 words"</em> so it fits cleanly in the submission form.</p>
         </div>
 
         <!-- CLUSTER 1: KNOWLEDGE & RAG -->
@@ -885,8 +902,8 @@ Keep it minimal. I can always extend later.</div>
         <!-- CLUSTER 3: CUSTOMER COMMUNICATION -->
         <section class="cluster-section" id="cluster-customer">
           <span class="cluster-tag">Cluster 3</span>
-          <h3>Customer Communication</h3>
-          <p class="cluster-sub">Chatbots, outbound, support, voice agents, sales emails.</p>
+          <h3>Customer Facing</h3>
+          <p class="cluster-sub">Chatbots, self-service, personalized recommendations.</p>
 
           <div class="exercise">
             <h4>Exercise 1 — Draft your AI-powered cold outreach</h4>
@@ -991,8 +1008,68 @@ End with: "If you had to act on only ONE theme this quarter, here's why it shoul
           </div>
         </section>
 
-        <!-- ===================== TAKE HOME ===================== -->
-        <div class="section-divider"><h2>Phase 3 · Take Home</h2></div>
+        <!-- CLUSTER 5 + 6: COVERED AT THE EDGE -->
+        <section class="cluster-section" id="cluster-voice">
+          <span class="cluster-tag">Cluster 5</span>
+          <h3>Voice Agents</h3>
+          <p class="cluster-sub">Hotline, appointment booking, inbound qualification.</p>
+          <div class="exercise" style="border-left-color: var(--cluster-voice);">
+            <h4>Covered at the edge today</h4>
+            <p class="exercise-meta">No dedicated group exercise. If this is your cluster, see the tool stack below (ElevenLabs Conversational AI, Vapi, Twilio) and join the follow-up call next week. The team can also pair you with an adjacent cluster (Customer Facing) for today's group work.</p>
+          </div>
+        </section>
+
+        <section class="cluster-section" id="cluster-sales">
+          <span class="cluster-tag">Cluster 6</span>
+          <h3>Sales &amp; Marketing</h3>
+          <p class="cluster-sub">Outbound, content, campaign generation.</p>
+          <div class="exercise" style="border-left-color: var(--cluster-sales);">
+            <h4>Covered at the edge today</h4>
+            <p class="exercise-meta">No dedicated group exercise. If this is your cluster, see the tool stack below (ChatGPT, Claude, Apollo, Instantly, Smartlead) and join the follow-up call next week. The team can also pair you with an adjacent cluster (Customer Facing) for today's group work.</p>
+          </div>
+        </section>
+
+        <!-- ===================== PHASE 3 — SCORE & RANK (GROUP) ===================== -->
+        <div class="section-divider"><h2>Phase 3 · Score &amp; Rank · 20 Min</h2></div>
+
+        <div class="section-intro">
+          <h3>Score in your group. Pick P1, P2, P3.</h3>
+          <p>One prompt for the whole table from Phase 1. Run it for each person in the group, share the resulting P1 with the cluster.</p>
+        </div>
+
+        <p class="step-label" id="score-rank">Paste this into the SAME chat that has your Phase 1 longlist.</p>
+        <p class="step-meta">Two scores per row. Then a clean P1/P2/P3 summary.</p>
+        <div class="prompt-block">For my longlist from earlier (the # | Problem | AI Use Case table), score every row on two dimensions:
+
+IMPACT (1 to 5): business value created
+- Consider efficiency, cost, customer experience, new revenue
+- 5 = transforms the business
+- 1 = marginal, nice-to-have
+
+FEASIBILITY (1 to 5): realistic with today's tech + our resources
+- Consider data, tools, infrastructure, skills
+- 5 = easy to build this week with off-the-shelf tools
+- 1 = needs major investment
+
+Reprint the FULL table adding three columns:
+
+| # | Problem | AI Use Case | Impact | Feasibility | Combined |
+|---|---------|-------------|--------|-------------|----------|
+
+Combined = Impact + Feasibility. Sort by Combined descending.
+
+Then give a clean, compact final answer in this format:
+
+P1 = #[number] — [short use case name]
+P2 = #[number] — [short use case name]
+P3 = #[number] — [short use case name]
+
+Start with P1 next week because: [one sentence]
+
+Reasoning rule: high Impact + high Feasibility = P1. One dimension strong, the other needs prep = P2. Both weak = P3.</div>
+
+        <!-- ===================== PHASE 4 — TAKE HOME ===================== -->
+        <div class="section-divider"><h2>Phase 4 · Take Home · 20 Min</h2></div>
 
         <!-- TOOL STACK -->
         <section id="tools">
@@ -1025,16 +1102,28 @@ End with: "If you had to act on only ONE theme this quarter, here's why it shoul
                   <td>Custom workflows, Coolify deployments</td>
                 </tr>
                 <tr>
-                  <td><strong>Customer Communication</strong></td>
-                  <td>ChatGPT, Claude, ElevenLabs Conversational AI</td>
-                  <td>Smartlead, Apollo + n8n, Vapi + Twilio</td>
-                  <td>Own sequences, multi-channel outbound, CRM-integrated voice</td>
+                  <td><strong>Voice Agents</strong></td>
+                  <td>ElevenLabs Conversational AI</td>
+                  <td>ElevenLabs + Twilio, Vapi</td>
+                  <td>Telephony integration into CRM</td>
+                </tr>
+                <tr>
+                  <td><strong>Customer Facing</strong></td>
+                  <td>Lovable, v0, Bolt</td>
+                  <td>Lovable + Supabase, Vercel + Claude</td>
+                  <td>Own frontend, auth, payments</td>
                 </tr>
                 <tr>
                   <td><strong>Analysis &amp; Insights</strong></td>
                   <td>ChatGPT Code Interpreter, Claude Analysis</td>
-                  <td>Power BI + Copilot, Google Sheets + Apps Script</td>
+                  <td>Power BI + Copilot, Sheets + Apps Script</td>
                   <td>Own dashboards, forecast models</td>
+                </tr>
+                <tr>
+                  <td><strong>Sales &amp; Marketing</strong></td>
+                  <td>ChatGPT, Claude, Apollo, Instantly</td>
+                  <td>Smartlead, Apollo + n8n, Dripify</td>
+                  <td>Own sequences, multi-channel outbound</td>
                 </tr>
               </tbody>
             </table>
@@ -1077,6 +1166,27 @@ End with: "If you had to act on only ONE theme this quarter, here's why it shoul
             <div class="day">Day 7</div>
             <h4>Join the cluster follow-up (May 28 to 30)</h4>
             <p>Show what works, plan next iteration with peers.</p>
+          </div>
+        </section>
+
+        <!-- ===================== SUBMIT FORM ===================== -->
+        <div class="section-divider"><h2>Submit your longlist</h2></div>
+
+        <section id="submit-usecases">
+          <div class="cta-card" style="text-align: left;">
+            <div class="cta-title" style="font-size: 1.2rem;">One form, everything in one place</div>
+            <p class="cta-sub" style="margin-bottom: 18px;">Name + Company, then paste: <strong>your problems</strong>, <strong>your AI use cases</strong>, and after the cluster exercise <strong>your AI-suggested solution</strong>. Email is optional, only needed if you want slides or follow-up.</p>
+            <div class="jotform-wrap">
+              <iframe id="JotFormIFrame"
+                      src="https://form.jotform.com/261403809620048"
+                      title="Submit your AI use cases"
+                      width="100%"
+                      height="1500"
+                      allowtransparency="true"
+                      allow="geolocation; microphone; camera; fullscreen"
+                      scrolling="yes">
+              </iframe>
+            </div>
           </div>
         </section>
 
