@@ -82,7 +82,7 @@
 
 ## Phrases / hooks (locked translations)
 
-- "Mehr Zeit für Menschen. Weniger Zeit für Routine." → **"More time for people. Less time for routine."**
+- "Mehr Zeit für Menschen. Weniger Zeit für Routine." → **"More time for people. Less time for routine tasks."** (updated 2026-05-21 — "routine" alone reads incomplete in EN)
 - "Human in the Lead. KI im Hintergrund." → **"Human in the Lead. AI in Support."** (already EN, use this exact wording — overrides any "KI im Hintergrund" literalism)
 - "Drei Pfeiler, ein roter Faden" → "Three pillars, one common thread"
 - "People First" → People First (unchanged)
