@@ -32,8 +32,8 @@
       if (status) {
         status.hidden = false;
         status.textContent = form.dataset.lang === 'en'
-          ? 'Thank you — we will be in touch within one business day.'
-          : 'Danke — wir melden uns innerhalb eines Werktags.';
+          ? 'Thank you. We will be in touch within one business day.'
+          : 'Danke. Wir melden uns innerhalb eines Werktags.';
       }
       form.reset();
     });
