@@ -72,6 +72,48 @@
       color: var(--white-muted);
     }
 
+    /* HERO with FLANKING CO-HOST LOGOS */
+    .hero-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-row .hero { text-align: center; }
+
+    .hero-cohost {
+      display: inline-flex;
+      align-items: center;
+      transition: opacity 0.2s, transform 0.2s;
+      opacity: 0.95;
+      flex-shrink: 0;
+    }
+    .hero-cohost:hover { opacity: 1; transform: translateY(-1px); }
+
+    .hero-cohost.pill {
+      background: #ffffff;
+      padding: 12px 16px;
+      border-radius: 12px;
+    }
+    .hero-cohost.pill img { height: 90px; display: block; }
+
+    .hero-cohost.transparent img { height: 120px; display: block; }
+
+    @media (max-width: 900px) {
+      .hero-row { grid-template-columns: auto 1fr auto; gap: 20px; }
+      .hero-cohost.pill img { height: 60px; }
+      .hero-cohost.transparent img { height: 80px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-row { grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 8px; }
+      .hero-row .hero { grid-column: 1 / -1; order: 3; }
+      .hero-cohost.pill img { height: 44px; }
+      .hero-cohost.transparent img { height: 56px; }
+      .hero-cohost:nth-child(3) { justify-self: end; }
+    }
+
     /* LAYOUT */
     main {
       max-width: 1100px;
@@ -680,12 +722,20 @@
 
   <main>
 
-    <!-- HERO -->
-    <div class="hero">
-      <div class="badge">ViennaUP · AI Factory Austria · 22.05.2026</div>
-      <h1>AI Opportunity Sprint</h1>
-      <p class="sub">Your workshop companion. Two solo prompts to build your <strong>longlist</strong> of problems and AI use cases, one cluster prompt in your group, then score and prioritize together. Tools and a 7-day plan to ship something next week.</p>
-      <div class="divider"></div>
+    <!-- HERO with flanking co-host logos -->
+    <div class="hero-row">
+      <a href="https://hill-digital.at/" class="hero-cohost pill" target="_blank" rel="noopener" aria-label="Hill Digital">
+        <img src="../images/logos/hill-digital.png" alt="Hill Digital">
+      </a>
+      <div class="hero">
+        <div class="badge">ViennaUP · AI Factory Austria · 22.05.2026</div>
+        <h1>AI Opportunity Sprint</h1>
+        <p class="sub">Your workshop companion. Two solo prompts to build your <strong>longlist</strong> of problems and AI use cases, one cluster prompt in your group, then score and prioritize together. Tools and a 7-day plan to ship something next week.</p>
+        <div class="divider"></div>
+      </div>
+      <a href="https://ai-at.eu/en/" class="hero-cohost transparent" target="_blank" rel="noopener" aria-label="AI Factory Austria">
+        <img src="../images/logos/ai-factory.png" alt="AI Factory Austria">
+      </a>
     </div>
 
     <div class="page-layout">
@@ -709,11 +759,11 @@
 
         <div class="nav-section-label">Phase 3 · Prioritize</div>
         <a href="#score-rank">Score &amp; rank in group</a>
+        <a href="#submit-usecases">Submit longlist</a>
 
         <div class="nav-section-label">Phase 4 · Take Home</div>
         <a href="#tools">Tool stack</a>
         <a href="#plan">7-day plan</a>
-        <a href="#submit-usecases">Submit longlist</a>
       </nav>
 
       <!-- CONTENT -->
@@ -1128,6 +1178,27 @@ Start with P1 next week because: [one sentence]
 
 Reasoning rule: high Impact + high Feasibility = P1. One dimension strong, the other needs prep = P2. Both weak = P3.</div>
 
+        <!-- ===================== SUBMIT FORM (after Phase 3) ===================== -->
+        <div class="section-divider"><h2>Submit your longlist</h2></div>
+
+        <section id="submit-usecases">
+          <div class="cta-card" style="text-align: left;">
+            <div class="cta-title" style="font-size: 1.2rem;">One form, everything in one place</div>
+            <p class="cta-sub" style="margin-bottom: 18px;">Name + Company, then paste: <strong>your problems</strong>, <strong>your AI use cases</strong> (Phase 1) and <strong>your AI-suggested solution</strong> (from the cluster exercise). Email is optional, only needed if you want slides or follow-up.</p>
+            <div class="jotform-wrap">
+              <iframe id="JotFormIFrame"
+                      src="https://form.jotform.com/261403809620048"
+                      title="Submit your AI use cases"
+                      width="100%"
+                      height="1500"
+                      allowtransparency="true"
+                      allow="geolocation; microphone; camera; fullscreen"
+                      scrolling="yes">
+              </iframe>
+            </div>
+          </div>
+        </section>
+
         <!-- ===================== PHASE 4 — TAKE HOME ===================== -->
         <div class="section-divider"><h2>Phase 4 · Take Home · 20 Min</h2></div>
 
@@ -1226,27 +1297,6 @@ Reasoning rule: high Impact + high Feasibility = P1. One dimension strong, the o
             <div class="day">Day 7</div>
             <h4>Join the cluster follow-up (May 28 to 30)</h4>
             <p>Show what works, plan next iteration with peers.</p>
-          </div>
-        </section>
-
-        <!-- ===================== SUBMIT FORM ===================== -->
-        <div class="section-divider"><h2>Submit your longlist</h2></div>
-
-        <section id="submit-usecases">
-          <div class="cta-card" style="text-align: left;">
-            <div class="cta-title" style="font-size: 1.2rem;">One form, everything in one place</div>
-            <p class="cta-sub" style="margin-bottom: 18px;">Name + Company, then paste: <strong>your problems</strong>, <strong>your AI use cases</strong>, and after the cluster exercise <strong>your AI-suggested solution</strong>. Email is optional, only needed if you want slides or follow-up.</p>
-            <div class="jotform-wrap">
-              <iframe id="JotFormIFrame"
-                      src="https://form.jotform.com/261403809620048"
-                      title="Submit your AI use cases"
-                      width="100%"
-                      height="1500"
-                      allowtransparency="true"
-                      allow="geolocation; microphone; camera; fullscreen"
-                      scrolling="yes">
-              </iframe>
-            </div>
           </div>
         </section>
 
