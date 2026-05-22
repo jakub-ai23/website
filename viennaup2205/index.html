@@ -660,6 +660,105 @@
       display: block;
     }
 
+    /* COUNTDOWN */
+    .countdown-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin: 14px 0 22px;
+      flex-wrap: wrap;
+    }
+    .countdown-cell {
+      background: rgba(212, 160, 23, 0.1);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      border-radius: 10px;
+      padding: 12px 16px;
+      min-width: 68px;
+      text-align: center;
+    }
+    .countdown-cell .cd-num {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.7rem;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .countdown-cell .cd-label {
+      font-family: var(--font-heading);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white-muted);
+      margin-top: 6px;
+      display: block;
+    }
+    .countdown-expired {
+      text-align: center;
+      color: #e74c3c;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 14px 0;
+    }
+
+    /* SECONDARY FORM CTA — gold panel for Google Form feedback */
+    .secondary-form-cta {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: var(--charcoal);
+      border-radius: 16px;
+      padding: 36px 32px;
+      margin: 28px 0;
+      text-align: center;
+    }
+    .secondary-form-cta .eyebrow {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+    .secondary-form-cta h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .secondary-form-cta p {
+      font-size: 1rem;
+      max-width: 540px;
+      margin: 0 auto 22px;
+      opacity: 0.88;
+    }
+    .secondary-form-cta .secondary-form-btn {
+      display: inline-block;
+      background: var(--charcoal);
+      color: var(--gold);
+      padding: 16px 36px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      border: 2px solid var(--charcoal);
+      transition: transform 0.15s, background 0.2s;
+      text-decoration: none;
+    }
+    .secondary-form-cta .secondary-form-btn:hover {
+      background: #000;
+      color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .secondary-form-cta .micro {
+      font-size: 0.8rem;
+      margin-top: 14px;
+      opacity: 0.7;
+    }
+
     /* FOOTER */
     footer {
       padding: 28px 24px 36px;
@@ -752,7 +851,7 @@
 
     <!-- HERO with flanking co-host logos -->
     <div class="hero-row">
-      <a href="https://hill-digital.at/" class="hero-cohost pill" target="_blank" rel="noopener" aria-label="Hill Digital">
+      <a href="https://hill-digital.at/index-en" class="hero-cohost pill" target="_blank" rel="noopener" aria-label="Hill Digital">
         <img src="../images/logos/hill-digital.png" alt="Hill Digital">
       </a>
       <div class="hero">
@@ -1223,10 +1322,17 @@ Start with P1 next week because: [one sentence]
 Reasoning rule: high Impact + high Feasibility = P1. One dimension strong, the other needs prep = P2. Both weak = P3.</div>
 
         <!-- ===================== SUBMIT FORM (after Phase 3) ===================== -->
-        <div class="section-divider"><h2>Submit your longlist</h2></div>
+        <div class="section-divider"><h2>Claim your slides</h2></div>
 
         <section id="submit-usecases">
           <div class="cta-card" style="text-align: left;">
+            <div class="cta-title" style="font-size: 1.2rem; text-align: center;">This page goes offline in</div>
+            <div class="countdown-row" id="countdown">
+              <div class="countdown-cell"><span class="cd-num" id="cd-days">--</span><span class="cd-label">Days</span></div>
+              <div class="countdown-cell"><span class="cd-num" id="cd-hours">--</span><span class="cd-label">Hours</span></div>
+              <div class="countdown-cell"><span class="cd-num" id="cd-mins">--</span><span class="cd-label">Min</span></div>
+              <div class="countdown-cell"><span class="cd-num" id="cd-secs">--</span><span class="cd-label">Sec</span></div>
+            </div>
             <div class="cta-title" style="font-size: 1.2rem;">One form, everything in one place</div>
             <p class="cta-sub" style="margin-bottom: 18px;">Name + Company, then paste: <strong>your problems</strong>, <strong>your AI use cases</strong> (Phase 1) and <strong>your AI-suggested solution</strong> (from the cluster exercise). Email is optional, only needed if you want slides or follow-up.</p>
             <div class="jotform-wrap">
@@ -1241,6 +1347,15 @@ Reasoning rule: high Impact + high Feasibility = P1. One dimension strong, the o
                       scrolling="no">
               </iframe>
             </div>
+          </div>
+
+          <!-- SECONDARY FORM CTA — Google Form feedback -->
+          <div class="secondary-form-cta">
+            <div class="eyebrow">Already submitted? One more · 30 seconds</div>
+            <h3>Help us run a better next workshop</h3>
+            <p>Quick feedback form: what worked, what didn't, what you'd want next time. Anonymous if you want.</p>
+            <a href="https://forms.gle/x1VfnRcVrTxSuPKV8" target="_blank" rel="noopener" class="secondary-form-btn">Open the feedback form →</a>
+            <div class="micro">forms.gle/x1VfnRcVrTxSuPKV8</div>
           </div>
         </section>
 
@@ -1361,6 +1476,35 @@ Reasoning rule: high Impact + high Feasibility = P1. One dimension strong, the o
   </footer>
 
   <script>
+    // Countdown to page expiry
+    (function() {
+      const target = new Date('2026-05-29T23:59:00+02:00').getTime();
+      const els = {
+        days: document.getElementById('cd-days'),
+        hours: document.getElementById('cd-hours'),
+        mins: document.getElementById('cd-mins'),
+        secs: document.getElementById('cd-secs'),
+        wrap: document.getElementById('countdown'),
+      };
+      function tick() {
+        const diff = target - Date.now();
+        if (diff <= 0) {
+          if (els.wrap) els.wrap.innerHTML = '<div class="countdown-expired">This page is closing soon — submit now to still get the kit.</div>';
+          return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        if (els.days) els.days.textContent = String(d).padStart(2, '0');
+        if (els.hours) els.hours.textContent = String(h).padStart(2, '0');
+        if (els.mins) els.mins.textContent = String(m).padStart(2, '0');
+        if (els.secs) els.secs.textContent = String(s).padStart(2, '0');
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
     // Click-to-copy on prompt blocks
     document.querySelectorAll('.prompt-block').forEach(block => {
       block.addEventListener('click', async () => {
