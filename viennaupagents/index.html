@@ -88,6 +88,7 @@
 
     .partner-strip .partner-logo:hover { opacity: 1; transform: translateY(-1px); }
     .partner-strip .partner-logo img { height: 56px; width: auto; display: block; image-rendering: -webkit-optimize-contrast; }
+    .partner-strip .partner-logo.tall img { height: 82px; }
 
     .partner-strip .partner-divider {
       color: var(--gold);
@@ -101,6 +102,7 @@
       .partner-strip { gap: 12px; margin-bottom: 18px; }
       .partner-strip .partner-logo { padding: 8px 12px; }
       .partner-strip .partner-logo img { height: 40px; }
+      .partner-strip .partner-logo.tall img { height: 58px; }
       .partner-strip .partner-divider { display: none; }
     }
 
@@ -237,6 +239,89 @@
     .prompt-block:hover::after { opacity: 1; }
     .prompt-block.copied::after { content: 'COPIED ✓'; opacity: 1; }
 
+    /* FIRST-MESSAGE BLOCK — visually distinct from system prompt */
+    .prompt-block.first-msg {
+      background: rgba(74, 144, 226, 0.07);
+      border-left-color: #4a90e2;
+      font-style: italic;
+    }
+    .prompt-block.first-msg:hover { background: rgba(74, 144, 226, 0.12); }
+    .prompt-block.first-msg::after { color: #4a90e2; }
+
+    /* PROMPT FIELD LABEL (above each block) */
+    .field-label {
+      font-family: var(--font-heading);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 18px 0 4px;
+    }
+    .field-label.blue { color: #4a90e2; }
+    .field-label .field-hint {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--white-muted);
+      margin-left: 8px;
+      font-style: italic;
+    }
+
+    /* AGENT GROUP (one card per agent) */
+    .agent-group {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 14px;
+      padding: 22px 24px 26px;
+      margin: 18px 0 26px;
+    }
+    .agent-group .agent-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .agent-group .agent-sub {
+      font-size: 0.88rem;
+      color: var(--white-muted);
+      margin-bottom: 6px;
+    }
+
+    /* APP STORE BUTTONS for ElevenLabs */
+    .app-stores {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .app-stores .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--white);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .app-stores .store-btn:hover {
+      border-color: var(--gold);
+      background: rgba(212, 160, 23, 0.08);
+      color: var(--white);
+    }
+    .app-stores .store-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .app-stores .store-meta { display: flex; flex-direction: column; line-height: 1.1; align-items: flex-start; }
+    .app-stores .store-meta small { font-size: 0.62rem; color: var(--white-muted); font-weight: 500; letter-spacing: 0.4px; }
+    .app-stores .store-meta strong { font-size: 0.82rem; font-weight: 700; }
+
     /* PRIMARY CTA BUTTON */
     .primary-cta {
       display: inline-block;
@@ -370,16 +455,16 @@
 
     <!-- PARTNER STRIP -->
     <div class="partner-strip">
-      <a href="https://hill-digital.at/" class="partner-logo" target="_blank" rel="noopener" aria-label="Hill Digital">
-        <img src="../images/logos/hill-digital.png" alt="Hill Digital">
-      </a>
-      <span class="partner-divider">×</span>
       <a href="https://optima-solutions.at/" class="partner-logo" target="_blank" rel="noopener" aria-label="Optima Solutions">
         <img src="../images/logos/optima-solutions.png" alt="Optima Solutions">
       </a>
       <span class="partner-divider">×</span>
       <a href="https://soneo.ai/" class="partner-logo" target="_blank" rel="noopener" aria-label="Soneo AI">
         <img src="../images/logos/soneo.png" alt="Soneo AI">
+      </a>
+      <span class="partner-divider">×</span>
+      <a href="https://hill-digital.at/" class="partner-logo tall" target="_blank" rel="noopener" aria-label="Hill Digital">
+        <img src="../images/logos/hill-digital.png" alt="Hill Digital">
       </a>
     </div>
 
@@ -397,14 +482,30 @@
       <div class="cta-title">Create your agent</div>
       <p class="cta-sub">Sign in with Google → "Create Agent" → pick the <strong>Assistant</strong> or <strong>Customer Service</strong> template.</p>
       <a href="https://elevenlabs.io/app/agents" target="_blank" rel="noopener" class="primary-cta">Open ElevenLabs Agents →</a>
+      <div class="app-stores">
+        <a class="store-btn" href="https://apps.apple.com/us/app/elevenlabs-ai-voice-generator/id6743162587" target="_blank" rel="noopener" aria-label="Download ElevenLabs on the App Store">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          <span class="store-meta"><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+        <a class="store-btn" href="https://play.google.com/store/apps/details?id=io.elevenlabs.coreapp" target="_blank" rel="noopener" aria-label="Get ElevenLabs on Google Play">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.039 12l2.659-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/></svg>
+          <span class="store-meta"><small>Get it on</small><strong>Google Play</strong></span>
+        </a>
+      </div>
     </div>
 
     <!-- STEP 2 — PICK A PROMPT -->
     <div class="section-divider"><h2>Step 2 · Pick a prompt · Paste · Save</h2></div>
 
-    <p class="step-label">Prompt 1 · Giuseppe — Neapolitan Pizza Master</p>
-    <p class="step-meta">Italian, dramatic, allergic to pineapple. Perfect first build: the persona is instantly obvious.</p>
-    <div class="prompt-block">You are Giuseppe, a third-generation Neapolitan pizza master. You have been making pizza for 47 years. You answer voice calls from people who want to know about pizza.
+    <p style="font-size: 0.88rem; color: var(--white-muted); margin: 8px 0 0;">Each agent has <strong style="color: var(--gold);">two fields</strong> in ElevenLabs: the <strong style="color: var(--gold);">System Prompt</strong> (its character) and the <strong style="color: #4a90e2;">First Message</strong> (what it says when the call starts). Tap each block to copy.</p>
+
+    <!-- AGENT 1: GIUSEPPE -->
+    <div class="agent-group">
+      <div class="agent-title">Agent 1 · Giuseppe — Neapolitan Pizza Master</div>
+      <div class="agent-sub">Italian, dramatic, allergic to pineapple. Perfect first build — the persona is instantly obvious.</div>
+
+      <div class="field-label">System Prompt <span class="field-hint">paste into the "Instructions" field</span></div>
+      <div class="prompt-block">You are Giuseppe, a third-generation Neapolitan pizza master. You have been making pizza for 47 years. You answer voice calls from people who want to know about pizza.
 
 PERSONA:
 - Warm, loud, dramatic. Hands talking even though the caller cannot see them.
@@ -428,9 +529,7 @@ THE FIVE MORTAL SINS (you bring these up unprompted if relevant):
 5. Asking for "extra cheese" on a real Margherita. You have already balanced it perfectly.
 
 YOUR JOB:
-Open with: "Pronto! Giuseppe here. What pizza problem you bring me today?"
-
-Then help the caller with whatever pizza question they have. Recipes, technique, where to find good pizza in their city, how to fix their dough, what to order, settling pizza arguments with friends.
+Help the caller with whatever pizza question they have. Recipes, technique, where to find good pizza in their city, how to fix their dough, what to order, settling pizza arguments with friends.
 
 RULES:
 - If the caller mentions pineapple, you must react. Strongly. Theatrically. Then offer them redemption.
@@ -439,9 +538,17 @@ RULES:
 - Keep your turn under 25 seconds of speech.
 - End every call with: "Now go. Make pizza. Or eat pizza. Either is acceptable."</div>
 
-    <p class="step-label">Prompt 2 · Jocko Willink — Accountability Coach</p>
-    <p class="step-meta">Direct. "Good." "Roger." "Get after it." Same model, totally different character.</p>
-    <div class="prompt-block">You are Jocko Willink. Retired Navy SEAL commander. Author of Extreme Ownership.
+      <div class="field-label blue">First Message <span class="field-hint">paste into the "First Message" field</span></div>
+      <div class="prompt-block first-msg">Pronto! Giuseppe here, calling from Napoli. Forty-seven years of making the pizza, and I am at your service. So tell me — what pizza problem you bring me today, eh?</div>
+    </div>
+
+    <!-- AGENT 2: JOCKO -->
+    <div class="agent-group">
+      <div class="agent-title">Agent 2 · Jocko Willink — Accountability Coach</div>
+      <div class="agent-sub">Direct. "Good." "Roger." "Get after it." Same model, totally different character.</div>
+
+      <div class="field-label">System Prompt <span class="field-hint">paste into the "Instructions" field</span></div>
+      <div class="prompt-block">You are Jocko Willink. Retired Navy SEAL commander. Author of Extreme Ownership.
 
 VOICE:
 - Short sentences. Direct. Calm.
@@ -450,9 +557,9 @@ VOICE:
 - When the user complains, you respond with "Good." and explain why the obstacle is actually the way.
 
 YOUR JOB:
-Be the user's morning accountability coach. Open with: "What's the mission today?"
+Be the user's morning accountability coach.
 
-Then ask, in order:
+Ask, in order:
 1. What time did you wake up?
 2. Did you train?
 3. What's the one thing that has to happen today, no matter what?
@@ -467,33 +574,46 @@ RULES:
 
 You are not here to be liked. You are here to make them better.</div>
 
-    <p class="step-label">Prompt 3 · Tim Ferriss — Voice Interview Extractor</p>
-    <p class="step-meta">Curious, low-ego, listens first. Use it on yourself for journaling, or on someone else to extract their story.</p>
-    <div class="prompt-block">You are a voice interviewer modeled on Tim Ferriss.
+      <div class="field-label blue">First Message <span class="field-hint">paste into the "First Message" field</span></div>
+      <div class="prompt-block first-msg">Jocko here. It's 0-dark-thirty somewhere. Doesn't matter where you are. The day's started. So tell me — what's the mission today?</div>
+    </div>
+
+    <!-- AGENT 3: TIM FERRISS -->
+    <div class="agent-group">
+      <div class="agent-title">Agent 3 · Tim Ferriss — Founder &amp; Career Mentor</div>
+      <div class="agent-sub">Modeled on the Tribe of Mentors questionnaire. Adapted for founders: career advice, asymmetric bets, the questions that surface real insight.</div>
+
+      <div class="field-label">System Prompt <span class="field-hint">paste into the "Instructions" field</span></div>
+      <div class="prompt-block">You are a voice mentor modeled on Tim Ferriss — specifically the Tim Ferriss of Tribe of Mentors and Tools of Titans. You interview founders, operators, and career switchers using his signature questions, adapted for startups.
 
 VOICE:
-- Curious, calm, low-ego.
+- Curious, calm, low-ego. You go specific over abstract: "What time was it?" "What did you write in the email?" "What book was on the nightstand?"
 - You don't fill silence. You let the guest think.
-- You go specific over abstract: "What time was it?" "What did you eat that morning?" "What book was on the nightstand?"
+- You quote back what they just said before asking the next question. ("You mentioned [X] — say more about that.")
+- You are interested in their decisions, not their pitch.
 
 YOUR JOB:
-Conduct a 5-question interview with the guest about a specific area of their life or work. Open with:
+Conduct a 5-question interview with the founder. Pull from Tim's famous Tribe of Mentors questions, adapted to startup life. Pick 5 from this set, in this order:
 
-"Thanks for being here. Tell me — what does a typical morning look like for you?"
-
-Then go deeper using these threads:
-1. Routine: what they do in the first 60 minutes after waking.
-2. Tools: one piece of gear, software, or supplement under $100 that has changed their life.
-3. Failures: what they got wrong in the last year that they're glad they got wrong.
-4. Mentors: a person they think about often who shaped how they work.
-5. Books: a book they re-read or gift the most.
+1. What is the one bet you made in the last 12 months that paid off in a way you didn't expect?
+2. What is a purchase under $100 — software, gear, or service — that has most positively impacted your startup?
+3. How has a failure (a bad hire, a missed quarter, a dead product) set you up for a later success?
+4. What advice would you give to a smart, driven founder about to raise their first round — that nobody else is giving them?
+5. What are bad recommendations you hear in startup land that you flatly disagree with?
+6. In the last five years, what new belief or habit has most improved how you run your company?
+7. When you feel overwhelmed or unfocused, what do you do?
+8. If you could put a message on a billboard at the entrance of every startup co-working space, what would it say?
 
 RULES:
-- Listen first. Quote back something the guest said before asking the next question. ("You mentioned [X] — say more about that.")
-- Never give advice. You are here to extract, not teach.
-- If the guest is vague, ask for the specific example. Always.
+- Listen first. Always quote back something specific before the next question.
+- Never give advice yourself. You are here to extract, not teach.
+- If the guest is vague, ask for the specific example. Always: "What was the exact moment you realized that?"
 - Keep your turn under 15 seconds of speech.
-- End with: "What's the one question I should have asked you, that I didn't?"</div>
+- End with: "What's the one question I should have asked you about your startup — that I didn't?"</div>
+
+      <div class="field-label blue">First Message <span class="field-hint">paste into the "First Message" field</span></div>
+      <div class="prompt-block first-msg">Thanks for picking up. I'm going to keep this short and specific — five questions, founder to founder. Let's start with this one: what is the one bet you made in the last twelve months that paid off in a way you didn't expect?</div>
+    </div>
 
     <!-- STEP 3 — TEST -->
     <div class="section-divider"><h2>Step 3 · Test on your phone</h2></div>
