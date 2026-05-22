@@ -337,6 +337,49 @@
       opacity: 0.7;
     }
 
+    /* STAY CONNECTED — Jakub QR card */
+    .stay-connected {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 14px;
+      padding: 28px 28px;
+      margin: 28px 0;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .stay-connected .qr-wrap {
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      line-height: 0;
+    }
+    .stay-connected .qr-wrap img { width: 180px; height: 180px; display: block; }
+    .stay-connected h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.2px;
+    }
+    .stay-connected p { color: var(--white-muted); font-size: 0.95rem; }
+    .stay-connected .scan-hint {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .stay-connected { grid-template-columns: 1fr; text-align: center; }
+      .stay-connected .qr-wrap { justify-self: center; }
+    }
+
     /* FIRST-MESSAGE BLOCK — visually distinct from system prompt */
     .prompt-block.first-msg {
       background: rgba(74, 144, 226, 0.07);
@@ -761,6 +804,19 @@ RULES:
       <p>Emanuel from Optima Solutions runs the post-workshop track: one free 15-minute call to pressure-test your idea, pick the right stack, and scope what's buildable in a week. No pitch. Just the next concrete step.</p>
       <a href="https://cal.com/emanuel-stadler/15-min-optima-solutions" target="_blank" rel="noopener" class="emanuel-btn">Book your 15 minutes →</a>
       <div class="micro">cal.com/emanuel-stadler · est@optima-solutions.at</div>
+    </div>
+
+    <!-- STAY CONNECTED — Jakub QR -->
+    <div class="section-divider"><h2>Stay connected with Jakub</h2></div>
+    <div class="stay-connected">
+      <div class="qr-wrap">
+        <img src="qr-stay-connected.jpeg" alt="Scan to connect with Jakub Popluhar">
+      </div>
+      <div>
+        <h3>Get practical AI tips, every week</h3>
+        <p>Scan the code to connect. Real builds, real lessons from the field — what's working in DACH AI training and how to ship your first agent without overengineering it.</p>
+        <span class="scan-hint">Point your phone camera ↗</span>
+      </div>
     </div>
 
     <!-- CONTACT -->
