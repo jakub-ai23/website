@@ -404,9 +404,10 @@
       margin-bottom: 4px;
     }
 
-    .contact-card .contact-org { color: var(--gold); font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; }
-    .contact-card a { font-size: 0.85rem; color: var(--white-muted); }
-    .contact-card a:hover { color: var(--gold); }
+    .contact-card .contact-org { display: block; color: var(--gold); font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; text-decoration: none; }
+    .contact-card .contact-org:hover { color: var(--gold-light); }
+    .contact-card > a:not(.contact-org) { display: inline-block; font-size: 0.85rem; color: var(--white-muted); }
+    .contact-card > a:not(.contact-org):hover { color: var(--gold); }
 
     @media (max-width: 700px) {
       .contact-grid { grid-template-columns: 1fr; }
@@ -455,15 +456,15 @@
 
     <!-- PARTNER STRIP -->
     <div class="partner-strip">
-      <a href="https://optima-solutions.at/" class="partner-logo" target="_blank" rel="noopener" aria-label="Optima Solutions">
+      <a href="https://www.optima-solutions.at/en" class="partner-logo" target="_blank" rel="noopener" aria-label="Optima Solutions">
         <img src="../images/logos/optima-solutions.png" alt="Optima Solutions">
       </a>
       <span class="partner-divider">×</span>
-      <a href="https://soneo.ai/" class="partner-logo" target="_blank" rel="noopener" aria-label="Soneo AI">
+      <a href="https://www.soneo.ai/en" class="partner-logo" target="_blank" rel="noopener" aria-label="Soneo AI">
         <img src="../images/logos/soneo.png" alt="Soneo AI">
       </a>
       <span class="partner-divider">×</span>
-      <a href="https://hill-digital.at/" class="partner-logo tall" target="_blank" rel="noopener" aria-label="Hill Digital">
+      <a href="https://hill-digital.at/index-en" class="partner-logo tall" target="_blank" rel="noopener" aria-label="Hill Digital">
         <img src="../images/logos/hill-digital.png" alt="Hill Digital">
       </a>
     </div>
@@ -652,19 +653,19 @@ RULES:
     <div class="section-divider"><h2>Stay in touch</h2></div>
     <div class="contact-grid">
       <div class="contact-card">
-        <h4>Jakub Popluhar</h4>
-        <div class="contact-org">Optima · Hill Digital</div>
-        <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+        <h4>Emanuel Stadler</h4>
+        <a href="https://www.optima-solutions.at/en" target="_blank" rel="noopener" class="contact-org">Optima Solutions ↗</a>
+        <a href="mailto:est@optima-solutions.at">est@optima-solutions.at</a>
       </div>
       <div class="contact-card">
         <h4>Andreas Schaubmaier</h4>
-        <div class="contact-org">Soneo AI</div>
+        <a href="https://www.soneo.ai/en" target="_blank" rel="noopener" class="contact-org">Soneo AI ↗</a>
         <a href="mailto:andreas@soneo.ai">andreas@soneo.ai</a>
       </div>
       <div class="contact-card">
-        <h4>Emanuel Stadler</h4>
-        <div class="contact-org">Optima Solutions</div>
-        <a href="mailto:est@optima-solutions.at">est@optima-solutions.at</a>
+        <h4>Jakub Popluhar</h4>
+        <a href="https://hill-digital.at/index-en" target="_blank" rel="noopener" class="contact-org">Hill Digital ↗</a>
+        <a href="mailto:jakub.popluhar@hill-digital.at">jakub.popluhar@hill-digital.at</a>
       </div>
     </div>
 
@@ -675,7 +676,7 @@ RULES:
     <p>
       Jakub Popluhar M.Ed.
       &nbsp;&middot;&nbsp;
-      <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+      <a href="mailto:jakub.popluhar@hill-digital.at">jakub.popluhar@hill-digital.at</a>
       &nbsp;&middot;&nbsp;
       <a href="tel:+436641386498">+43 664 138 64 98</a>
     </p>
