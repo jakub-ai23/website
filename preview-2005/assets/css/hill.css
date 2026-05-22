@@ -272,13 +272,22 @@ nav.scrolled {
 .nav-inner { display: flex; align-items: center; gap: 1rem; }
 .nav-logo {
   display: inline-flex; align-items: center; gap: 0.8rem;
-  font-weight: 700; font-size: 1.6rem; color: var(--ink);
+  font-weight: 700; font-size: 1rem; color: var(--ink);
   letter-spacing: -0.012em;
+  flex-shrink: 0;
+  max-width: 220px;
 }
 .nav-logo-mark { width: 64px; height: 64px; display: grid; place-items: center; flex-shrink: 0; }
 .nav-logo-mark svg { width: 100%; height: 100%; }
 .nav-logo-sub { display: none; }
-.nav-links { display: flex; gap: 2.2rem; list-style: none; margin-left: auto; margin-right: 2rem; }
+.nav-logo img {
+  height: 48px !important;
+  width: auto !important;
+  max-width: 200px !important;
+  max-height: 48px !important;
+  display: block;
+}
+.nav-links { display: flex; gap: 1.8rem; list-style: none; margin-left: auto; margin-right: 1.5rem; }
 .nav-links a {
   font-size: 0.94rem; font-weight: 500; color: var(--muted);
   transition: color 0.2s;

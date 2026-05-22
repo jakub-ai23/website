@@ -4,6 +4,42 @@
 
 ---
 
+## v1.59 · 2026-05-21 23:25 · [K] · WRK-01 als Wide-Banner unter „Wir schreiben kurz" auf News-Page.
+
+Auf `news.html` zwischen Section-Head „Wir schreiben kurz. Aber wir schreiben." und der Insights-Grid ein breites Foto-Banner eingesetzt. WRK-01 „Hands writing in notebook" mit Aspect 21/9, B&W (grayscale 100%, contrast 1.06), Shadow.
+
+---
+
+## v1.58 · 2026-05-21 23:15 · [K] · Nav-Logo von Square-PNG auf Wordmark-SVG umgestellt für bessere Lesbarkeit.
+
+Auf 16 aktiven Seiten (10 DE + 6 EN) den Logo-Pfad von `hill-digital-logo-full.png` (1600×1600 PNG mit viel Whitespace) auf `hill-digital-logo.svg` (360×100 Vector-Wordmark) umgestellt. Dadurch wird der „Hill Digital"-Wordmark bei moderater Höhe gut lesbar. `.nav-logo img` Regel mit `!important` aufgewertet (height: 48px, max-width: 200px), `.nav-logo` Container `font-size` reduziert und `max-width: 220px`+`flex-shrink: 0` gesetzt damit Navigation nicht mehr überlappt. `.nav-links` gap auf 1.8rem reduziert.
+
+---
+
+## v1.57 · 2026-05-21 22:59 · [K] · Nav-Logo kleiner: 64px → 48px Höhe.
+
+`.nav-logo img` Höhe von 64px auf 48px reduziert, max-width von 240px auf 180px. Gilt global auf allen aktiven Seiten.
+
+---
+
+## v1.56 · 2026-05-21 22:56 · [K] · TEA-02 als Wide-Banner unter „Zwei Formate" auf Trainings-Page.
+
+Auf `trainings.html` zwischen Section-Head „Open Training oder Inhouse. Mit Vorgespräch in beiden Fällen." und Formate-Grid ein breites Foto-Banner eingesetzt. TEA-02 „Standing briefing" mit Aspect 21/9, B&W (grayscale 100%), Shadow.
+
+---
+
+## v1.55 · 2026-05-21 21:08 · [K] · Nav-Logo auf neue Wortmarke (PNG) umgestellt auf 16 aktiven Seiten.
+
+Neues Logo-PNG (`hill-digital-logo-full.png`, ~98 KB, transparent, Bogen + Berg + Wortmarke „Hill Digital" mit Slab-Serif) aus dem Eigentümer-Logo-Ordner nach `assets/img/logo/` kopiert. Inline-SVG-Nav-Logo-Block durch `<img>` ersetzt auf 10 DE-Seiten (index, recruiting, onboarding, trainings, ueber-uns, news, kontakt, impressum, datenschutz, agbs) plus 6 EN-Seiten (index-en, recruiting-en, onboarding-en, trainings-en, about-en, contact-en). Hill.css um `.nav-logo img` Regel erweitert (height: 64px, width: auto, max-width: 240px). Footer-Logo, Archive und Mood-Boards unverändert.
+
+---
+
+## v1.49 · 2026-05-21 20:52 · [K] · Recruiting-Hero-Foto auf POR-08 (On the phone, listening) gewechselt.
+
+Foto neben Headline auf `recruiting.html` von WRK-07 „Pair reviewing screen" auf POR-08 „On the phone, listening" umgestellt. Alt-Text entsprechend angepasst.
+
+---
+
 ## v1.48 · 2026-05-21 13:25 · [K] · AI-05 (Screen review, concentrated) im Trainings-Hero neben Headline.
 
 Page-Header auf `trainings.html` auf zwei-spaltigen Grid umgestellt, gleicher Stil wie Recruiting + Onboarding: links Eyebrow + h1 + Lead, rechts AI-05 „Screen review, concentrated" Foto in B&W (Aspect 4/5, grayscale, Shadow).
