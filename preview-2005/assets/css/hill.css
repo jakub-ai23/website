@@ -304,9 +304,26 @@ nav.scrolled {
 .lang-item.active { color: var(--charcoal-d); background: rgba(255,160,20,0.14); }
 .lang-sep { width: 1px; background: var(--border-s); height: 16px; }
 
+/* Mobile nav toggle (hamburger) */
+.nav-toggle { display: none; background: transparent; border: 0; cursor: pointer; padding: 0.5rem; flex-direction: column; gap: 5px; z-index: 100; }
+.nav-toggle span { display: block; width: 26px; height: 2px; background: var(--ink); transition: transform 0.25s ease, opacity 0.2s ease; }
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 @media (max-width: 880px) {
-  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
   .nav-logo-sub { display: none; }
+  .nav-links {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bg);
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.8rem; margin: 0; padding: 5rem 2rem 2rem;
+    z-index: 90;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 1.4rem; font-weight: 600; color: var(--ink); }
 }
 
 /* ─── PAGE HEADER (non-home hero) ─────────────────────────── */
