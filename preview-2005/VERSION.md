@@ -6,6 +6,12 @@
 
 ---
 
+## v1.62 · 2026-05-26 · [J] · Melanie-Annotations Startseite: Eyebrow „Wofür" + Hero-Foto auf TEA-01.
+
+Zwei Anmerkungen aus Melanies Screenshots vom 22.05.: (1) Eyebrow im Pillars-Block auf der Startseite: „Worauf Hill Digital steht" → „Wofür Hill Digital steht" (DE + EN: „What Hill Digital stands on" → „What Hill Digital stands for"). (2) Hero-Foto auf der Startseite ausgetauscht: vorher Unsplash 1542744173 (Standing-Briefing), jetzt TEA-01 aus dem Visuals-Katalog (Unsplash 1543269865, „Drei Menschen im Tageslicht"). Gleiche Stelle, gleiche Größe, gleiches Filter-Behavior — kein Layout-Eingriff. Promise-Card-Annotation aus Image 1 war bereits in v1.60 von [K] umgesetzt.
+
+---
+
 ## v1.61 · 2026-05-26 · [J] · Feedback Franz/Melanie eingearbeitet: Hill-Gruppe Caps, Datenschutz-Vermerk, Newsletter-Form.
 
 Drei Fixes aus dem Feedback vom 22.05.: (1) Franz: Footer "Mitglied der Hill-Gruppe" wird nicht mehr in Großbuchstaben dargestellt — `text-transform: uppercase` aus `.footer-heritage` entfernt, Schriftgröße leicht erhöht und Letter-Spacing reduziert für die neue Wirkung. Betrifft Footer auf allen 14 Seiten. (2) Melanie: Datenschutzseite — sichtbarer Vorlagentext-Disclaimer am Seitenende entfernt, nur "Stand: Mai 2026" bleibt. (3) Melanie: Newsletter-Form lieferte Browser-Fehler bei Submit (action="#" POST auf statische Seite). Form auf 15 Seiten umgestellt auf `action="kontakt"` (DE) bzw. `action="contact-en"` (EN) mit `method="GET"` — Submit leitet jetzt sauber auf Kontaktseite weiter, kein Fehler mehr. MailerLite-Integration folgt später als Phase 2.
