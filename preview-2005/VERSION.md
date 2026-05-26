@@ -1,6 +1,20 @@
 # Hill Digital Website — Versions-Log
 
-*Append-only Log aller Etappen-Commits. Format: `vX.Y · YYYY-MM-DD HH:MM · Beschreibung`*
+*Append-only Log aller Etappen-Commits. Format: `vX.Y · YYYY-MM-DD HH:MM · [Initialen] · Beschreibung`*
+
+> **Nummerierungs-Regel (Stand 2026-05-25):** Eine einzige fortlaufende Reihe fuer beide Personen. Vor dem Arbeiten immer `git pull`. Neue Version = hoechste Nummer hier plus 1, egal wer pusht. Initialen kennzeichnen WER: **[J]** Jakub, **[K]** Kaska. Nummer nie doppelt vergeben. Volle Regeln in `CLAUDE.md`.
+
+---
+
+## v1.60 · 2026-05-25 · [J] · Repo auf website-only bereinigt, Versionierungs-Regeln gesetzt.
+
+Interne Dokumente (STRATEGY-v2.0, Glossar, `feedback/`, AGB-Quelle `.docx`, `_archive/`) aus dem geteilten Repo in das private Projekt-Repo verschoben, damit ueber GitHub Pages nur die Website oeffentlich ist. `CNAME` (hill-digital.at), `README.md` (Workflow) und `CLAUDE.md` (Regeln fuer Versionierung und Zusammenarbeit) ergaenzt. Keine Aenderung an Website-Inhalten, Layout oder Texten. Hintergrund: v1.55 bis v1.59 wurden parallel von [J] und [K] doppelt vergeben, diese Etappe stellt die Nummerierung auf eine eindeutige Reihe.
+
+---
+
+## v1.60 · 2026-05-21 23:45 · [K] · Promise-Card „Was wir nicht tun" Wording präzisiert.
+
+Auf `index.html` (Promise-Section) den ersten Bullet von „Wir verstärken Ihr Team, nicht ersetzen." auf „Wir verstärken Ihr Team, wir ersetzen es nicht." umformuliert — klarere Satzstruktur. EN-Version (`index-en.html`) ist bereits konsistent („we don't replace it").
 
 ---
 
