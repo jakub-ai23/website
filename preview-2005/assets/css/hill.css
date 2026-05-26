@@ -1006,7 +1006,7 @@ footer {
 .footer-brand { color: var(--white); font-weight: 700; font-size: 1.18rem; }
 .footer-tagline { color: rgba(255,255,255,0.58); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.2rem; max-width: 300px; }
 .footer-heritage {
-  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  font-size: 0.92rem; font-weight: 600; letter-spacing: 0.04em;
   background: linear-gradient(90deg, var(--yellow), var(--orange));
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;

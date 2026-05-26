@@ -6,6 +6,12 @@
 
 ---
 
+## v1.61 · 2026-05-26 · [J] · Feedback Franz/Melanie eingearbeitet: Hill-Gruppe Caps, Datenschutz-Vermerk, Newsletter-Form.
+
+Drei Fixes aus dem Feedback vom 22.05.: (1) Franz: Footer "Mitglied der Hill-Gruppe" wird nicht mehr in Großbuchstaben dargestellt — `text-transform: uppercase` aus `.footer-heritage` entfernt, Schriftgröße leicht erhöht und Letter-Spacing reduziert für die neue Wirkung. Betrifft Footer auf allen 14 Seiten. (2) Melanie: Datenschutzseite — sichtbarer Vorlagentext-Disclaimer am Seitenende entfernt, nur "Stand: Mai 2026" bleibt. (3) Melanie: Newsletter-Form lieferte Browser-Fehler bei Submit (action="#" POST auf statische Seite). Form auf 15 Seiten umgestellt auf `action="kontakt"` (DE) bzw. `action="contact-en"` (EN) mit `method="GET"` — Submit leitet jetzt sauber auf Kontaktseite weiter, kein Fehler mehr. MailerLite-Integration folgt später als Phase 2.
+
+---
+
 ## v1.60 · 2026-05-25 · [J] · Repo auf website-only bereinigt, Versionierungs-Regeln gesetzt.
 
 Interne Dokumente (STRATEGY-v2.0, Glossar, `feedback/`, AGB-Quelle `.docx`, `_archive/`) aus dem geteilten Repo in das private Projekt-Repo verschoben, damit ueber GitHub Pages nur die Website oeffentlich ist. `CNAME` (hill-digital.at), `README.md` (Workflow) und `CLAUDE.md` (Regeln fuer Versionierung und Zusammenarbeit) ergaenzt. Keine Aenderung an Website-Inhalten, Layout oder Texten. Hintergrund: v1.55 bis v1.59 wurden parallel von [J] und [K] doppelt vergeben, diese Etappe stellt die Nummerierung auf eine eindeutige Reihe.
