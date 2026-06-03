@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI-Demo · TechTrain</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --tectrain-blue: #0066cc;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    .site-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+
+    .logo { font-family: var(--font-heading); font-size: 1.2rem; color: var(--white); text-decoration: none; font-weight: 600; }
+    .logo span { color: var(--gold); }
+
+    .header-badge {
+      font-size: 0.7rem;
+      color: var(--white-muted);
+      background: rgba(255,255,255,0.05);
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-bottom: 8px;
+    }
+
+    .hero p { font-size: 0.95rem; color: var(--white-muted); }
+
+    .section-divider {
+      text-align: center;
+      margin: 56px 0 40px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .exercise {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .exercise-number {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .exercise h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .exercise .subtitle {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .exercise p, .exercise li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .exercise ul, .exercise ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      margin: 14px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: pre-line;
+    }
+
+    .prompt-block:hover { background: rgba(212, 160, 23, 0.1); }
+
+    .prompt-block::after {
+      content: 'Kopieren';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover::after { opacity: 1; }
+    .prompt-block.copied::after { content: 'Kopiert!'; opacity: 1; }
+
+    .step-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin: 18px 0 6px;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.82rem;
+    }
+
+    .compare-table th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .compare-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+    }
+
+    details {
+      margin: 14px 0;
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details summary {
+      padding: 14px 18px;
+      background: rgba(212, 160, 23, 0.06);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details summary:hover { background: rgba(212, 160, 23, 0.1); }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: '+'; font-size: 1.1rem; font-weight: 700; color: var(--gold); }
+    details[open] summary::after { content: '−'; }
+
+    details .collapsible-content {
+      padding: 16px 18px;
+      border-top: 1px solid rgba(212, 160, 23, 0.1);
+    }
+
+    details .collapsible-content p {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: var(--white-muted);
+    }
+
+    details .collapsible-content strong { color: var(--white); }
+
+    .highlight-box {
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 14px 0;
+    }
+
+    .highlight-box .label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .tool-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .tool-card h4 {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+
+    .tool-card p {
+      font-size: 0.78rem;
+      color: var(--white-muted);
+      margin: 0;
+    }
+
+    .tool-card a {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: var(--gold);
+    }
+
+    footer {
+      padding: 20px 24px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 500px) {
+      main { padding: 32px 16px 64px; }
+      .exercise { padding: 22px 18px; }
+      .prompt-block { padding: 14px 14px; }
+      .compare-table { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="https://jakubpopluhar.com" class="logo">Jakub <span>Popluhar</span></a>
+    <span class="header-badge">TechTrain Demo · 03.06.2026</span>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <div class="badge">TechTrain · KI-Demo</div>
+      <h1>KI im Arbeitsalltag</h1>
+      <p>Tippen Sie auf einen Prompt-Block, um ihn zu kopieren.</p>
+    </div>
+
+    <!-- ÜBUNG 1: CYTR -->
+    <div class="exercise" id="ue1">
+      <div class="exercise-number">Übung 1</div>
+      <h3>Copy Your Task Result (CYTR)</h3>
+      <p class="subtitle">Der wichtigste Unterschied: Generische Antwort vs. präzises Ergebnis</p>
+
+      <p class="step-label">Schritt 1: Der einfache Prompt</p>
+      <p>Kopieren Sie diesen Prompt und schauen Sie, was die KI daraus macht:</p>
+
+      <div class="prompt-block">Mach mir einen Entwurf für ein internes Schreiben, mit dem die Einführung einer neuen Homeoffice-Regelung bekanntgegeben wird.</div>
+
+      <p style="color: var(--white-muted); font-size: 0.85rem; margin-top: 16px;">Das Ergebnis ist generisch. Die KI weiß nichts über Ihre Situation.</p>
+
+      <details>
+        <summary>Schritt 2: Was die KI nicht weiß (aufklappen)</summary>
+        <div class="collapsible-content">
+          <p><strong>1. Platzproblem:</strong> Wir haben Schreibtische abgebaut, um Miete zu sparen.</p>
+          <p><strong>2. Infrastruktur:</strong> Meetingräume, WLAN - alles auf reduzierten Betrieb ausgelegt.</p>
+          <p><strong>3. Akzeptanz:</strong> Mitarbeiter sind skeptisch: "Schon wieder neue Regeln?"</p>
+          <p style="color: var(--gold); margin-top: 12px;"><strong>Die KI wusste nichts davon. Sie hat geraten.</strong></p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Schritt 3: Jetzt mit Kontext (CYTR)</summary>
+        <div class="collapsible-content">
+          <p>Geben Sie der KI den Kontext mit:</p>
+
+          <div class="prompt-block">Mach mir einen Entwurf für ein internes Schreiben, mit dem die Einführung einer neuen Homeoffice-Regelung bekanntgegeben wird.
+
+Kontext:
+
+Wir haben im letzten Jahr Schreibtische abgebaut, um Mietkosten zu sparen. Wenn 100% gleichzeitig ins Büro kommen, gibt es nicht genug Arbeitsplätze.
+
+Meetingräume, Drucker, WLAN sind auf reduzierten Betrieb ausgelegt.
+
+Die Mitarbeiter sind skeptisch: "Schon wieder neue Regeln, zuerst flexible Arbeitsmodelle, jetzt zurück ins Büro?"
+
+Das Schreiben muss diese Sorgen adressieren, nicht ignorieren.
+
+Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Mai.</div>
+
+          <p style="color: var(--gold); margin-top: 12px;"><strong>Vergleichen Sie:</strong> Gleiche KI, gleiche Frage, aber mit Kontext. Völlig anderes Ergebnis.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- ÜBUNG 2: KI-Agent Konzept -->
+    <div class="exercise" id="ue2">
+      <div class="exercise-number">Übung 2</div>
+      <h3>KI-Agent: Das "Tribunal"</h3>
+      <p class="subtitle">Die KI wechselt Perspektiven - CEO, Controller, HR, Projektleiter</p>
+
+      <p>Kopieren Sie die Prompts <strong>nacheinander in denselben Chat</strong>:</p>
+
+      <p class="step-label">1. Der CEO (Vision)</p>
+      <div class="prompt-block">Du bist der CEO des Unternehmens.
+
+Unser Ziel: Wir wollen die Mitarbeiter wieder öfter im Büro sehen (aktuell sind fast 100% im Home Office).
+
+Nenne mir 3 strategische Gründe, warum wir zurück ins Büro müssen. Fokus: Innovation, "Spirit" und Geschwindigkeit. Sei streng und visionär.</div>
+
+      <p class="step-label">2. Der Controller (Realitäts-Check)</p>
+      <div class="prompt-block">Wechsle jetzt den Hut. Du bist der Facility Manager & Controller.
+
+Die Realität: Wir haben Schreibtische abgebaut. Wenn alle gleichzeitig kommen, haben wir keinen Platz.
+
+Analysiere die Forderung des CEOs kritisch: Welche Probleme entstehen sofort?</div>
+
+      <p class="step-label">3. HR (Der Faktor Mensch)</p>
+      <div class="prompt-block">Jetzt bist du der HR-Manager.
+
+Du liest die Vision des CEOs und die Warnung des Controllers. Deine Sorge: Top-Talente kündigen, wenn wir das hart durchziehen.
+
+Finde einen Kompromiss. Wie "verkaufen" wir das den Mitarbeitern?</div>
+
+      <p class="step-label">4. Projektleiter (Synthese)</p>
+      <div class="prompt-block">Du bist jetzt der Projektleiter für "New Work".
+
+Schreibe die finale E-Mail an alle Mitarbeiter.
+
+- Die Regelung: 3 Tage Büro, 2 Tage Home Office (mit Desk-Sharing).
+- Nutze die Argumente des CEOs, adressiere die Probleme des Controllers, nutze den Ton von HR.
+
+Professionell, motivierend, klar.</div>
+
+      <div class="highlight-box" style="margin-top: 20px;">
+        <div class="label">Das Prinzip</div>
+        <p style="margin: 0; font-size: 0.9rem;">Die KI simuliert verschiedene Stakeholder. Sie sehen Ihr Problem aus mehreren Perspektiven - bevor Sie es in der echten Welt präsentieren.</p>
+      </div>
+    </div>
+
+    <!-- TechTrain Use Cases -->
+    <div class="section-divider">
+      <h2>Use Cases für TechTrain</h2>
+    </div>
+
+    <div class="exercise" id="usecases">
+      <div class="exercise-number">Für Ihr Business</div>
+      <h3>KI-Anwendungen für IT-Training</h3>
+      <p class="subtitle">Konkrete Ideen für TechTrain und Ihre Kunden</p>
+
+      <details>
+        <summary>1. Intelligenter Lab-Assistent (für Lernende)</summary>
+        <div class="collapsible-content">
+          <p>Wenn Teilnehmer in DevOps/Cloud-Labs steckenbleiben:</p>
+          <div class="prompt-block">Du bist ein erfahrener Azure-Trainer. Ein Teilnehmer hat folgenden Fehler in seinem Lab:
+
+[FEHLERMELDUNG HIER EINFÜGEN]
+
+Gib ihm keine direkte Lösung, sondern:
+1. Erkläre, was der Fehler bedeutet
+2. Stelle 2 gezielte Fragen, die ihn zur Lösung führen
+3. Gib einen Hinweis auf die Azure-Dokumentation</div>
+          <p style="color: var(--gold);">Vorteil: Sokratische Methode - Teilnehmer lernen, statt nur zu kopieren.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>2. Kurs-Content schneller erstellen (intern)</summary>
+        <div class="collapsible-content">
+          <p>Neue Kurse und Lab-Scripts entwickeln:</p>
+          <div class="prompt-block">Du bist ein erfahrener IT-Trainer für [THEMA, z.B. Kubernetes].
+
+Erstelle eine Kursstruktur für einen 2-tägigen Workshop:
+- Zielgruppe: DevOps-Engineers mit Linux-Grundkenntnissen
+- Ziel: Teilnehmer können am Ende einen Cluster aufsetzen und deployen
+
+Gib mir:
+1. Agenda mit Zeitblöcken
+2. 3 praktische Lab-Übungen
+3. Liste der Prerequisite-Checks</div>
+          <p style="color: var(--gold);">Vorteil: 40-60% schnellere Content-Erstellung.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>3. Zertifizierungs-Prep (für Lernende)</summary>
+        <div class="collapsible-content">
+          <p>Prüfungsvorbereitung mit adaptiver Schwierigkeit:</p>
+          <div class="prompt-block">Du bist ein Prüfungstrainer für [Azure AZ-104 / Kubernetes CKA / etc.].
+
+Stelle mir 5 Prüfungsfragen zum Thema [THEMA].
+- Starte mit mittlerer Schwierigkeit
+- Wenn ich richtig antworte, mach es schwerer
+- Wenn ich falsch antworte, erkläre kurz warum und gib eine leichtere Frage
+
+Beginne jetzt.</div>
+          <p style="color: var(--gold);">Vorteil: 24/7 Übungsmöglichkeit, höhere Pass-Rates.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- Tools -->
+    <div class="section-divider">
+      <h2>Tools zum Ausprobieren</h2>
+    </div>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h4>ChatGPT</h4>
+        <p>Allrounder für Text, Code, Analyse</p>
+        <a href="https://chat.openai.com" target="_blank">chat.openai.com →</a>
+      </div>
+      <div class="tool-card">
+        <h4>Claude</h4>
+        <p>Besonders gut für lange Dokumente</p>
+        <a href="https://claude.ai" target="_blank">claude.ai →</a>
+      </div>
+      <div class="tool-card">
+        <h4>Perplexity</h4>
+        <p>Recherche mit Quellenangaben</p>
+        <a href="https://perplexity.ai" target="_blank">perplexity.ai →</a>
+      </div>
+      <div class="tool-card">
+        <h4>NotebookLM</h4>
+        <p>Eigene Dokumente als Wissensbasis</p>
+        <a href="https://notebooklm.google.com" target="_blank">notebooklm.google.com →</a>
+      </div>
+    </div>
+
+    <!-- Magische Formel -->
+    <div class="highlight-box" style="text-align: center; margin-top: 40px;">
+      <div class="label">Die Magische Formel</div>
+      <div class="prompt-block" style="text-align: left; margin: 0;">Bevor du antwortest: Stelle mir 3 bis 5 gezielte Fragen, um meine Situation besser zu verstehen. Warte mit dem Entwurf, bis ich geantwortet habe.</div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://jakubpopluhar.com">jakubpopluhar.com</a>
+      &nbsp;·&nbsp;
+      Jakub Popluhar M.Ed.
+      &nbsp;·&nbsp;
+      <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+    </p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.prompt-block').forEach(block => {
+      block.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(block.textContent.trim());
+          block.classList.add('copied');
+          setTimeout(() => block.classList.remove('copied'), 1500);
+        } catch (e) {
+          const range = document.createRange();
+          range.selectNodeContents(block);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
