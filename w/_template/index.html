@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+  WORKSHOP-VORLAGE  -  jakubpopluhar.com/w/
+  So baust du eine neue Workshop-/Trainingsseite:
+  1. Ordner kopieren:  cp -r w/_template w/<neuer-name>
+  2. Diese Datei oeffnen, alle [[...]] Platzhalter ersetzen.
+  3. Sektionen im <main> nach Bedarf duplizieren/loeschen.
+  4. Sidebar-Links muessen zu den Sektions-IDs passen (Scroll-Spy haengt daran).
+  Design + Verhalten kommen zentral aus /w/assets/  -  kein Copy-Paste von CSS/JS mehr.
+-->
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[[Titel des Workshops]] - Jakub Popluhar</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/w/assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="https://jakubpopluhar.com" class="logo" aria-label="Jakub Popluhar">
+      <img src="/images/logos/jakub-popluhar-logo-dark.png" alt="Jakub Popluhar" height="40">
+    </a>
+    <span class="header-badge">[[Kunde / Anlass &middot; Datum]]</span>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <div class="badge">[[Programm &middot; Datum]]</div>
+      <h1>[[Headline des Workshops]]</h1>
+      <p>[[Ein Satz: was die Teilnehmer heute mitnehmen.]]</p>
+    </div>
+
+    <!-- Optionales gemeinsames Arbeitsblatt (Google Doc). Loeschen wenn nicht gebraucht. -->
+    <a class="doc-callout" href="[[GOOGLE-DOC-URL]]" target="_blank" rel="noopener noreferrer">
+      <div class="doc-icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+      </div>
+      <div class="doc-text">
+        <div class="doc-label">Gemeinsames Arbeitsblatt</div>
+        <div class="doc-sub">Google Doc, hier arbeiten wir heute live zusammen</div>
+      </div>
+      <div class="doc-arrow">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+
+    <div class="page-layout">
+
+      <!-- SIDEBAR: Links muessen den Sektions-IDs unten entsprechen -->
+      <nav class="sidebar-nav" aria-label="Inhalt">
+        <div class="nav-section-label">Start hier</div>
+        <a href="#setup">LLM öffnen</a>
+        <div class="nav-section-label">Arbeiten</div>
+        <a href="#block1">1. [[Block 1]]</a>
+        <a href="#block2">2. [[Block 2]]</a>
+        <div class="nav-section-label">Mitnehmen</div>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <!-- CONTENT -->
+      <div class="content">
+
+        <!-- LLM SETUP (Standardbaustein, PC) -->
+        <div class="section-divider first" id="setup"><h2>Öffnen Sie Ihr LLM</h2></div>
+        <p class="section-intro">Für heute reicht der <strong>kostenlose Account</strong>. Bitte <strong>anmelden</strong>. Wir arbeiten am Computer.</p>
+        <div class="llm-grid">
+          <div class="llm-card"><div class="llm-name">ChatGPT</div><div class="llm-tag">[[wofür]]</div><a class="llm-browser" href="https://chatgpt.com" target="_blank" rel="noopener">Im Browser öffnen &rarr;</a></div>
+          <div class="llm-card"><div class="llm-name">Gemini</div><div class="llm-tag">[[wofür]]</div><a class="llm-browser" href="https://gemini.google.com" target="_blank" rel="noopener">Im Browser öffnen &rarr;</a></div>
+          <div class="llm-card"><div class="llm-name">Claude</div><div class="llm-tag">Optional, sehr gut für Texte</div><a class="llm-browser" href="https://claude.ai" target="_blank" rel="noopener">Im Browser öffnen &rarr;</a></div>
+        </div>
+
+        <!-- BLOCK 1 -->
+        <div class="section-divider" id="block1"><h2>1. [[Block-Titel]] <span class="time-tag">ca. [[xx]] Min</span></h2></div>
+        <p class="section-intro">[[Worum es in diesem Block geht.]]</p>
+        <div class="exercise">
+          <div class="exercise-number">Übung</div>
+          <h3>[[Übungstitel]]</h3>
+          <p class="subtitle">[[Kurze Anleitung.]]</p>
+          <div class="prompt-block">[[Fertiger, kopierbarer Prompt. Antippen kopiert ihn.]]</div>
+          <details>
+            <summary>[[Optionaler aufklappbarer Schritt]]</summary>
+            <div class="collapsible-content"><p>[[Inhalt]]</p></div>
+          </details>
+        </div>
+
+        <!-- BLOCK 2 -->
+        <div class="section-divider" id="block2"><h2>2. [[Block-Titel]] <span class="time-tag">ca. [[xx]] Min</span></h2></div>
+        <p class="section-intro">[[...]]</p>
+        <div class="exercise">
+          <h3>[[Übungstitel]]</h3>
+          <table class="compare-table">
+            <tr><th style="width:30%">[[Spalte]]</th><th>[[Spalte]]</th></tr>
+            <tr><td><strong>[[...]]</strong></td><td>[[...]]</td></tr>
+          </table>
+          <div class="magic-box quote"><div class="label">Merksatz</div><p>[[Der eine Satz, der haengen bleibt.]]</p></div>
+        </div>
+
+        <!-- KONTAKT (Standardbaustein) -->
+        <div class="section-divider" id="kontakt"><h2>In Kontakt bleiben</h2></div>
+        <div class="exercise">
+          <p style="margin-bottom:4px;"><strong>Jakub Popluhar</strong>, M.Ed. &middot; AI Performance Trainer</p>
+          <p style="margin-bottom:4px;">E-Mail: <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a></p>
+          <p style="margin-bottom:0;">Telefon: <a href="tel:+436641386498">+43 664 138 64 98</a></p>
+        </div>
+
+      </div><!-- /.content -->
+    </div><!-- /.page-layout -->
+  </main>
+
+  <footer>
+    <p>Jakub Popluhar M.Ed. &nbsp;&middot;&nbsp; <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a> &nbsp;&middot;&nbsp; [[Programm / Anlass]]</p>
+  </footer>
+
+  <script src="/w/assets/workshop.js" defer></script>
+  <!-- analytics beacon --><script>(function(){try{var i=new Image(1,1);i.src="https://deflifeos.popluhar.at/t.gif?site=jakubpopluhar&path="+encodeURIComponent(location.pathname+location.search)+"&ref="+encodeURIComponent(document.referrer);}catch(e){}})();</script>
+</body>
+</html>
