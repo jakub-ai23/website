@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI für Sportvereine - Modul 2: Ihr eigener KI-Assistent</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* HEADER */
+    .site-header {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .header-badge {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px; }
+
+    /* HERO */
+    .hero { text-align: center; margin-bottom: 36px; }
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .hero p { font-size: 1rem; color: var(--white-muted); max-width: 620px; margin: 0 auto; }
+
+    /* PRIMARY DOC CALLOUT */
+    .doc-callout {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 0 auto 40px;
+      max-width: 640px;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .doc-callout:hover { background: rgba(212, 160, 23, 0.14); border-color: var(--gold); transform: translateY(-1px); color: var(--white); }
+    .doc-callout .doc-icon { flex-shrink: 0; width: 42px; height: 42px; background: rgba(212,160,23,0.14); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .doc-callout .doc-text { flex: 1; }
+    .doc-callout .doc-label { font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: var(--white); }
+    .doc-callout .doc-sub { font-size: 0.82rem; color: var(--white-muted); }
+    .doc-callout .doc-arrow { color: var(--gold); }
+
+    /* LAYOUT */
+    .page-layout { display: grid; grid-template-columns: 210px 1fr; gap: 44px; }
+
+    .sidebar-nav {
+      position: sticky; top: 84px; align-self: start;
+      display: flex; flex-direction: column; gap: 3px; max-height: calc(100vh - 100px); overflow-y: auto;
+    }
+    .sidebar-nav a {
+      display: block; padding: 9px 14px; font-size: 0.78rem; font-weight: 500;
+      color: var(--white-muted); border-radius: 6px; border-left: 2px solid transparent; transition: all 0.2s;
+    }
+    .sidebar-nav a:hover, .sidebar-nav a.active {
+      color: var(--gold); background: rgba(212, 160, 23, 0.06); border-left-color: var(--gold);
+    }
+    .sidebar-nav .nav-section-label {
+      font-family: var(--font-heading); font-size: 0.6rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold); padding: 14px 14px 4px; opacity: 0.7;
+    }
+    .sidebar-nav .nav-section-label:first-child { padding-top: 0; }
+
+    /* SECTION DIVIDERS */
+    .section-divider { margin: 48px 0 24px; position: relative; }
+    .section-divider.first { margin-top: 0; }
+    .section-divider h2 {
+      font-family: var(--font-heading); font-weight: 700; font-size: 1.25rem; color: var(--white);
+      padding-bottom: 10px; border-bottom: 1px solid rgba(212, 160, 23, 0.25);
+    }
+    .section-divider .time-tag {
+      font-family: var(--font-heading); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--gold); margin-left: 8px;
+    }
+    .section-intro { color: var(--white-muted); font-size: 0.92rem; margin-bottom: 16px; }
+
+    /* EXERCISE CARDS */
+    .exercise {
+      background: var(--charcoal-light); border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 12px; padding: 24px 22px; margin-bottom: 20px;
+    }
+    .exercise-number {
+      font-family: var(--font-heading); font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+    }
+    .exercise h3 { font-family: var(--font-heading); font-weight: 600; font-size: 1.1rem; margin-bottom: 4px; }
+    .exercise .subtitle { font-size: 0.85rem; color: var(--white-muted); font-style: italic; margin-bottom: 14px; }
+    .exercise p, .exercise li { font-size: 0.9rem; margin-bottom: 10px; }
+    .exercise ul, .exercise ol { padding-left: 20px; margin-bottom: 14px; }
+    .exercise li { margin-bottom: 6px; }
+
+    /* PROMPT BLOCKS */
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06); border-left: 3px solid var(--gold);
+      padding: 16px 18px; margin: 12px 0; border-radius: 0 8px 8px 0;
+      font-size: 0.88rem; line-height: 1.6; position: relative; cursor: pointer;
+      transition: background 0.2s; white-space: pre-line;
+    }
+    .prompt-block:hover { background: rgba(212, 160, 23, 0.1); }
+    .prompt-block::after {
+      content: 'Kopieren'; position: absolute; top: 8px; right: 10px; font-size: 0.65rem;
+      font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); opacity: 0; transition: opacity 0.2s;
+    }
+    .prompt-block:hover::after { opacity: 1; }
+    .prompt-block.copied::after { content: 'Kopiert!'; opacity: 1; }
+    .prompt-label {
+      font-family: var(--font-heading); font-weight: 600; font-size: 0.82rem; color: var(--gold); margin: 16px 0 2px;
+    }
+
+    /* CONTEXT / NOTE BLOCKS */
+    .note { font-size: 0.82rem; color: var(--white-muted); margin: 6px 0 4px; }
+    .note strong { color: var(--white); }
+    .step-label { font-family: var(--font-heading); font-weight: 600; font-size: 0.8rem; color: var(--gold); margin: 18px 0 6px; }
+
+    /* COMPARE TABLE */
+    .compare-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.85rem; }
+    .compare-table th {
+      font-family: var(--font-heading); font-weight: 600; font-size: 0.72rem; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--gold); text-align: left; padding: 10px 12px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    }
+    .compare-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); vertical-align: top; }
+
+    /* MAGIC / TAKEAWAY BOX */
+    .magic-box {
+      background: rgba(212, 160, 23, 0.08); border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 10px; padding: 20px; margin: 16px 0;
+    }
+    .magic-box .label {
+      font-family: var(--font-heading); font-weight: 700; font-size: 0.7rem; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+    }
+    .magic-box.quote { text-align: center; }
+    .magic-box.quote p { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; }
+
+    /* COLLAPSIBLE */
+    details { margin: 12px 0; border: 1px solid rgba(212, 160, 23, 0.15); border-radius: 8px; overflow: hidden; }
+    details summary {
+      padding: 14px 18px; background: rgba(212, 160, 23, 0.06); cursor: pointer;
+      font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; color: var(--gold);
+      list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none; transition: background 0.2s;
+    }
+    details summary:hover { background: rgba(212, 160, 23, 0.1); }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: '+'; font-size: 1.1rem; font-weight: 700; color: var(--gold); transition: transform 0.2s; }
+    details[open] summary::after { content: '\2212'; }
+    details .collapsible-content { padding: 16px 18px; border-top: 1px solid rgba(212, 160, 23, 0.1); }
+    details .collapsible-content p, details .collapsible-content li { font-size: 0.88rem; margin-bottom: 8px; color: var(--white-muted); }
+    details .collapsible-content strong { color: var(--white); }
+
+    /* LLM GRID */
+    .llm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .llm-card { background: rgba(212, 160, 23, 0.04); border: 1px solid rgba(212, 160, 23, 0.18); border-radius: 10px; padding: 16px; }
+    .llm-card .llm-name { font-family: var(--font-heading); font-weight: 700; font-size: 0.95rem; color: var(--white); margin-bottom: 6px; }
+    .llm-card .llm-tag { font-size: 0.72rem; color: var(--white-muted); margin-bottom: 10px; }
+    .llm-card .llm-browser { display: inline-block; font-size: 0.82rem; font-weight: 600; color: var(--gold); }
+
+    /* FOOTER */
+    footer { padding: 28px 24px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 40px; }
+    footer p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); }
+    footer a:hover { color: var(--gold); }
+
+    /* MOBILE */
+    @media (max-width: 820px) {
+      main { padding: 32px 20px 64px; }
+      .page-layout { grid-template-columns: 1fr; gap: 16px; }
+      .sidebar-nav {
+        position: static; flex-direction: row; flex-wrap: wrap; gap: 6px; max-height: none; margin-bottom: 12px;
+        border-bottom: 1px solid rgba(212,160,23,0.12); padding-bottom: 14px;
+      }
+      .sidebar-nav a { padding: 7px 11px; font-size: 0.72rem; border-left: none; border-bottom: 2px solid transparent; background: var(--charcoal-light); }
+      .sidebar-nav a:hover, .sidebar-nav a.active { border-left: none; border-bottom-color: var(--gold); }
+      .sidebar-nav .nav-section-label { width: 100%; padding: 6px 0 0; }
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 500px) {
+      main { padding: 28px 14px 56px; }
+      .exercise { padding: 20px 16px; }
+      .compare-table { font-size: 0.78rem; }
+      .compare-table td, .compare-table th { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="https://jakubpopluhar.com" class="logo" aria-label="Jakub Popluhar">
+      <img src="../images/logos/jakub-popluhar-logo-dark.png" alt="Jakub Popluhar" height="40">
+    </a>
+    <span class="header-badge">Sportunion &middot; Modul 2</span>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <div class="badge">KI für Sportvereine &middot; Modul 2</div>
+      <h1>Ihr eigener KI-Assistent für den Verein</h1>
+      <p>Heute wird gearbeitet, nicht zugehört. Wir legen ein Projekt an, das Ihren Verein kennt, und nutzen es gleich für Ihre Mitgliederwerbung.</p>
+    </div>
+
+    <!-- GOOGLE DOC CALLOUT -->
+    <a class="doc-callout" href="https://docs.google.com/document/d/1SCznDS6MoeBLPlxsTfFmVH9gkC--0eSWBMnpH4OwGuM/edit" target="_blank" rel="noopener noreferrer">
+      <div class="doc-icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+      </div>
+      <div class="doc-text">
+        <div class="doc-label">Gemeinsames Arbeitsblatt</div>
+        <div class="doc-sub">Google Doc, hier arbeiten wir heute live zusammen</div>
+      </div>
+      <div class="doc-arrow">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+
+    <div class="page-layout">
+
+      <!-- SIDEBAR -->
+      <nav class="sidebar-nav" aria-label="Inhalt">
+        <div class="nav-section-label">Start hier</div>
+        <a href="#setup">LLM öffnen</a>
+        <a href="#ablauf">Ablauf heute</a>
+        <div class="nav-section-label">Auffrischung</div>
+        <a href="#recap">Modul 1 in 5 Minuten</a>
+        <div class="nav-section-label">Arbeiten</div>
+        <a href="#projekt">1. Projekt anlegen</a>
+        <a href="#kontext">2. Kontext-Dokument</a>
+        <a href="#block1">3. Mitglieder werben</a>
+        <a href="#systemprompt">4. System-Prompt</a>
+        <a href="#bonus">Bonus: Perspektive</a>
+        <div class="nav-section-label">Mitnehmen</div>
+        <a href="#mitnehmen">Ihr Stack</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <!-- CONTENT -->
+      <div class="content">
+
+        <!-- SETUP -->
+        <div class="section-divider first" id="setup"><h2>Öffnen Sie Ihr LLM</h2></div>
+        <p class="section-intro">Noch kein KI-Tool offen? Wählen Sie eines. Für heute reicht der <strong>kostenlose Account</strong>. Wichtig: bitte <strong>anmelden</strong>, sonst können Sie später keine Projekte oder Gems speichern. Wir bauen heute am Computer, nicht am Handy.</p>
+        <div class="llm-grid">
+          <div class="llm-card">
+            <div class="llm-name">ChatGPT</div>
+            <div class="llm-tag">Hier bauen wir Projekte</div>
+            <a class="llm-browser" href="https://chatgpt.com" target="_blank" rel="noopener">Im Browser öffnen &rarr;</a>
+          </div>
+          <div class="llm-card">
+            <div class="llm-name">Gemini</div>
+            <div class="llm-tag">Hier bauen wir Gems</div>
+            <a class="llm-browser" href="https://gemini.google.com" target="_blank" rel="noopener">Im Browser öffnen &rarr;</a>
+          </div>
+          <div class="llm-card">
+            <div class="llm-name">Claude</div>
+            <div class="llm-tag">Optional, sehr gut für Texte</div>
+            <a class="llm-browser" href="https://claude.ai" target="_blank" rel="noopener">Im Browser öffnen &rarr;</a>
+          </div>
+        </div>
+
+        <!-- ABLAUF -->
+        <div class="section-divider" id="ablauf"><h2>Ablauf heute <span class="time-tag">ca. 2 Stunden</span></h2></div>
+        <p class="section-intro">Wir bauen Schritt für Schritt: zuerst ein Projekt, das Ihren Verein kennt, dann nutzen wir es. Sie brauchen einen Laptop, einen kostenlosen KI-Account und ein konkretes Anliegen aus Ihrem Verein im Kopf.</p>
+        <table class="compare-table">
+          <tr><th style="width:38%">Block</th><th>Worum es geht</th></tr>
+          <tr><td><strong>Auffrischung</strong> (ca. 15 Min)</td><td>Das Wichtigste aus Modul 1 (alte Folien) plus eine kurze Aufwärmübung.</td></tr>
+          <tr><td><strong>1 + 2. Projekt &amp; Kontext</strong> (ca. 30 Min)</td><td>Ein Projekt anlegen und Ihren Verein als Dokument hinterlegen.</td></tr>
+          <tr><td><strong>3. Mitglieder werben</strong> (ca. 35 Min)</td><td>Fertige Prompts als Use Cases, direkt im Projekt genutzt.</td></tr>
+          <tr><td><strong>4. System-Prompt</strong> (ca. 25 Min)</td><td>Die Projekt-Einweisung schreiben, mit kurzem Demo.</td></tr>
+          <tr><td><strong>Bonus</strong> (wenn Zeit bleibt)</td><td>Perspektive wechseln: die Sicht der Mitglieder und der Eltern.</td></tr>
+        </table>
+
+        <!-- RECAP -->
+        <div class="section-divider" id="recap"><h2>Modul 1 in 5 Minuten</h2></div>
+        <p class="section-intro">Eine KI ist <strong>gehorsam, nicht automatisch richtig</strong>. Sie klingt überzeugt, auch wenn ihr Infos fehlen, und erfindet im Zweifel Details. Ihr Job: Ziel, Kontext und Format klar vorgeben. Die Verantwortung bleibt bei Ihnen.</p>
+
+        <div class="exercise">
+          <h3>Das CITER-Gerüst</h3>
+          <p class="subtitle">Je mehr davon im Prompt steht, desto besser das Ergebnis.</p>
+          <table class="compare-table">
+            <tr><th style="width:32%">Baustein</th><th>Frage</th></tr>
+            <tr><td><strong>C</strong> = Context</td><td>Wie ist die Ausgangssituation?</td></tr>
+            <tr><td><strong>I</strong> = Intent (Ziel)</td><td>Was genau will ich erreichen?</td></tr>
+            <tr><td><strong>T</strong> = Task (Aufgabe)</td><td>Was soll die KI machen?</td></tr>
+            <tr><td><strong>E</strong> = Execution</td><td>Wie soll sie es machen? Format, Ton, Länge.</td></tr>
+            <tr><td><strong>R</strong> = Reality</td><td>Stimmt das Ergebnis? Was muss ich prüfen?</td></tr>
+          </table>
+          <p class="note"><strong>Merksatz:</strong> Reden Sie mit der KI wie in einem Dialog. Nicht ein perfekter Prompt, sondern Nachfragen und Präzisieren bringt das gute Ergebnis.</p>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-number">Aufwärmen &middot; zu zweit, 5 Min</div>
+          <h3>Spüren Sie den Unterschied</h3>
+          <p>Schicken Sie erst nur die Aufgabe ab. Dann dieselbe Aufgabe mit echtem Kontext aus Ihrem Verein. Vergleichen Sie die zwei Ergebnisse.</p>
+          <p class="prompt-label">Schritt 1: nur die Aufgabe</p>
+          <div class="prompt-block">Schreib eine kurze Einladung zu einem Schnuppertraining für unseren Sportverein.</div>
+          <p class="prompt-label">Schritt 2: mit Kontext (eigene Daten einsetzen)</p>
+          <div class="prompt-block">Schreib eine kurze Einladung zu einem Schnuppertraining für unseren Sportverein.
+
+Kontext: Wir sind ein [Sportart]-Verein in [Ort]. Training jeden [Wochentag] um [Uhrzeit] in [Ort]. Anfänger sind ausdrücklich willkommen, Ausrüstung wird gestellt.
+
+Format: WhatsApp-tauglich, maximal 5 Zeilen, ein klarer nächster Schritt, freundlicher Vereins-Ton, keine Werbesprache.</div>
+        </div>
+
+        <!-- 1. PROJEKT -->
+        <div class="section-divider" id="projekt"><h2>1. Legen Sie ein Projekt an</h2></div>
+        <p class="section-intro">Bevor wir Texte schreiben, bauen wir den Ort, der sich Ihren Verein merkt: ein <strong>Projekt</strong> (ChatGPT) oder einen <strong>Gem</strong> (Gemini). Jetzt erst einmal nur anlegen. Die Anweisungen schreiben wir später gemeinsam.</p>
+
+        <div class="exercise">
+          <div class="exercise-number">Schritt für Schritt</div>
+          <h3>Projekt oder Gem erstellen</h3>
+          <p class="subtitle">Wählen Sie Ihr Tool. Beide können dauerhaft Wissen und Anweisungen speichern.</p>
+
+          <details>
+            <summary>Option A: ChatGPT-Projekt anlegen</summary>
+            <div class="collapsible-content">
+              <p><strong>1.</strong> Links oben auf "Neues Projekt" klicken.</p>
+              <p><strong>2.</strong> Namen vergeben, zum Beispiel "Vereins-Assistent".</p>
+              <p><strong>3.</strong> Das war es fürs Erste. <strong>Anweisungen noch leer lassen</strong>, die schreiben wir in Block 4.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Option B: Gemini-Gem anlegen</summary>
+            <div class="collapsible-content">
+              <p><strong>1.</strong> Links im Menü "Gems" oder "Gem-Manager" öffnen, dann "Neuer Gem".</p>
+              <p><strong>2.</strong> Namen vergeben.</p>
+              <p><strong>3.</strong> Anweisungen noch leer lassen, die kommen in Block 4.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- 2. KONTEXT -->
+        <div class="section-divider" id="kontext"><h2>2. Ihr Verein als Dokument</h2></div>
+        <p class="section-intro">Damit das Projekt Ihren Verein kennt, geben wir ihm einmal alle wichtigen Infos. Die Idee: Sie tippen die Eckdaten ein, die KI macht ein sauberes Dokument daraus, und das laden wir ins Projekt.</p>
+
+        <div class="exercise">
+          <div class="exercise-number">Schritt für Schritt</div>
+          <h3>Kontext-Dokument bauen und hochladen</h3>
+          <p class="step-label">Schritt 1: Eckdaten eingeben</p>
+          <p>Geben Sie der KI die wichtigsten Infos zu Ihrem Verein. Einfach eintippen oder diktieren:</p>
+          <div class="prompt-block">Hier sind die Infos zu meinem Sportverein:
+
+- Name und Standort/Adresse: [...]
+- Sportart: [...]
+- Trainingszeiten und Ort: [...]
+- Für wen wir da sind (Zielgruppe, Alter): [...]
+- Was uns besonders macht / Ton, in dem wir kommunizieren: [...]
+
+Fasse das zu einem klaren, strukturierten Vereins-Dokument zusammen. Ergänze, was für die Vereinskommunikation noch wichtig wäre. Stell mir am Ende 2 bis 3 Rückfragen, falls etwas fehlt.</div>
+
+          <p class="step-label">Schritt 2: als Dokument speichern lassen</p>
+          <div class="prompt-block">Speichere diese Infos jetzt als fertiges Dokument, das ich herunterladen oder kopieren kann.</div>
+
+          <p class="step-label">Schritt 3: ins Projekt hochladen</p>
+          <p>Laden Sie das Dokument in Ihr Projekt (ChatGPT: in den Projekt-Dateien) bzw. in Ihren Gem (Gemini: unter "Wissen"). Ab jetzt kennt der Assistent Ihren Verein bei jeder Aufgabe.</p>
+
+          <details>
+            <summary>Variante: die KI erst fragen lassen (die "magische Formel")</summary>
+            <div class="collapsible-content">
+              <p>Wenn Sie nicht alles selbst zusammentragen wollen, lassen Sie die KI führen:</p>
+              <div class="prompt-block" style="margin:0;">Hilf mir, ein Kontextdokument über meinen Sportverein zu erstellen. Stell mir zuerst 3 bis 5 gezielte Fragen, zum Beispiel zu Sportart, Standort, Trainingszeiten, Zielgruppe und was uns besonders macht. Wichtig: Schreib noch kein Dokument. Warte auf meine Antworten.</div>
+            </div>
+          </details>
+        </div>
+
+        <!-- 3. MITGLIEDER WERBEN -->
+        <div class="section-divider" id="block1"><h2>3. Mitglieder werben mit KI <span class="time-tag">ca. 35 Min</span></h2></div>
+        <p class="section-intro">Jetzt arbeiten wir <strong>im Projekt</strong>. Weil das Projekt Ihren Verein schon kennt (Ihr Dokument ist hochgeladen), brauchen Sie die [Klammern] für Ort, Sportart und Zeiten oft gar nicht mehr. Sechs fertige Vorlagen, antippen kopiert den Text.</p>
+
+        <div class="exercise">
+          <div class="exercise-number">Prompt-Bibliothek</div>
+          <h3>Sechs Use Cases für Mitgliedergewinnung</h3>
+
+          <p class="prompt-label">1. Einladung zum Schnuppertraining (WhatsApp / Social)</p>
+          <div class="prompt-block">Schreib eine kurze, freundliche Einladung zu einem kostenlosen Schnuppertraining für unseren Verein.
+
+Ziel: Interessierte sollen sich trauen, einfach vorbeizukommen, ohne Hürde.
+
+Format: WhatsApp-tauglich, maximal 5 Zeilen, ein klarer nächster Schritt (einfach kommen oder kurz Bescheid geben), freundlicher Ton, keine Werbesprache.</div>
+
+          <p class="prompt-label">2. Beitrag für Instagram oder Facebook</p>
+          <div class="prompt-block">Schreib einen Social-Media-Beitrag, der neue Mitglieder für unseren Verein gewinnt.
+
+Ziel: Menschen, die unsere Sportart noch nie probiert haben, neugierig machen, sodass sie uns kontaktieren.
+
+Format: Instagram-Beitrag, 3 bis 5 Sätze, eine starke erste Zeile, am Ende ein klarer nächster Schritt und 5 passende Hashtags. Locker und einladend.</div>
+
+          <p class="prompt-label">3. Persönliche Nachricht an Interessierte (Nachfassen)</p>
+          <div class="prompt-block">Schreib eine kurze, persönliche Nachricht an eine Person, die sich für unseren Verein interessiert hat.
+
+Kontext: [Name] hat letzte Woche gefragt, wann das nächste Training ist, war aber noch nicht da. Wir wollen unaufdringlich dranbleiben.
+
+Ziel: [Name] soll sich erinnert und eingeladen fühlen und einen konkreten nächsten Termin bekommen.
+
+Format: maximal 120 Wörter, lockerer Du-Ton, ein konkreter Terminvorschlag, eine einfache Antwortmöglichkeit. Freundlich, nicht verkäuferisch.</div>
+
+          <p class="prompt-label">4. Inaktive Mitglieder zurückholen</p>
+          <div class="prompt-block">Schreib eine Nachricht an ehemalige oder inaktive Mitglieder, um sie zurückzuholen.
+
+Kontext: Einige waren länger nicht mehr beim Training. Kein Vorwurf, wir würden uns einfach freuen, sie wiederzusehen. Die neue Saison startet bald.
+
+Ziel: Ohne Druck eine warme Brücke bauen, sodass der Wiedereinstieg leichtfällt.
+
+Format: kurze WhatsApp-Nachricht, maximal 4 Zeilen, warmherzig, ein einfacher Anlass für den Wiedereinstieg, klare Einladung.</div>
+
+          <p class="prompt-label">5. Text für Aushang oder Flyer</p>
+          <div class="prompt-block">Schreib den Text für einen Aushang, der neue Mitglieder für unseren Verein sucht.
+
+Kontext: Aushang für [Ort: Uni, schwarzes Brett, Café].
+
+Ziel: In wenigen Sekunden Aufmerksamkeit gewinnen und einen einfachen ersten Kontakt ermöglichen.
+
+Format: kurze Überschrift, 3 Stichpunkte (was, wann, für wen), ein klarer Kontakt- oder QR-Hinweis. Gut lesbar, kein Fließtext.</div>
+
+          <p class="prompt-label">6. Kooperations-Anfrage (Schule, Firma, Partner)</p>
+          <div class="prompt-block">Schreib eine E-Mail-Anfrage für eine Kooperation, die uns neue Mitglieder bringt.
+
+Kontext: Wir wollen [Schule / Firma / Studierendenorganisation] ansprechen, um gemeinsam ein Schnupperangebot zu machen.
+
+Ziel: Ein konkretes, niederschwelliges Treffen oder Schnupperangebot vereinbaren, das beiden Seiten nützt.
+
+Format: maximal 150 Wörter, höflich und konkret, klarer Nutzen für die andere Seite, ein konkreter Vorschlag für den nächsten Schritt.</div>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-number">Übung &middot; Breakout, zu zweit</div>
+          <h3>Ein Use Case, Ihr echter Verein</h3>
+          <p>Wählen Sie <strong>einen</strong> Prompt, der gerade am meisten zählt, und arbeiten Sie ihn im Projekt aus:</p>
+          <ol>
+            <li>Prompt abschicken. Beobachten Sie: Nutzt das Projekt schon Ihre Vereinsdaten aus dem Dokument?</li>
+            <li>Mit einem Folge-Satz verfeinern, zum Beispiel: <em>Kürzer. Lockerer. Mehr Wir-Gefühl.</em></li>
+            <li><strong>Realitäts-Check</strong> bevor etwas rausgeht: Stimmen die Fakten? Klingt es nach uns oder nach KI? Würden Sie das so verschicken?</li>
+          </ol>
+          <p class="note">Im Breakout: jede Person nimmt einen anderen Use Case. Danach vergleichen wir im Plenum.</p>
+        </div>
+
+        <!-- 4. SYSTEM PROMPT -->
+        <div class="section-divider" id="systemprompt"><h2>4. Der System-Prompt <span class="time-tag">ca. 25 Min</span></h2></div>
+        <p class="section-intro">Ihnen ist aufgefallen: Sie erklären dem Projekt oft dasselbe (Ton, Länge, kein Erfinden). Das schreiben wir jetzt <strong>einmal fest</strong>, zurück im Projekt, in die <strong>Projekt-Einweisung</strong> (das Anweisungsfeld). Genau das ist der System-Prompt.</p>
+
+        <div class="exercise">
+          <h3>Das Gerüst eines System-Prompts</h3>
+          <p class="subtitle">Fünf Bausteine. In dieser Reihenfolge funktioniert es am besten.</p>
+          <table class="compare-table">
+            <tr><th style="width:30%">Baustein</th><th>Was hineingehört</th></tr>
+            <tr><td><strong>Rolle</strong></td><td>Wer ist die KI? "Du bist der Willkommens-Assistent unseres Vereins."</td></tr>
+            <tr><td><strong>Kontext / Wissen</strong></td><td>Worauf greift sie zu? Das hochgeladene Vereins-Dokument.</td></tr>
+            <tr><td><strong>Aufgaben</strong></td><td>Was genau soll sie tun, wenn ich ihr etwas gebe?</td></tr>
+            <tr><td><strong>Ton &amp; Format</strong></td><td>Wie soll das Ergebnis aussehen? Länge, Stil, Sprache.</td></tr>
+            <tr><td><strong>Grenzen</strong></td><td>Was darf sie nicht? Keine Fakten erfinden, im Zweifel nachfragen.</td></tr>
+          </table>
+
+          <p class="prompt-label">Schwach (zu vage)</p>
+          <div class="prompt-block">Hilf mir bei der Vereinskommunikation.</div>
+          <p class="prompt-label">Stark (alle fünf Bausteine, sofort nutzbar)</p>
+          <div class="prompt-block">Du bist der Willkommens-Assistent unseres Sportvereins.
+
+Kontext: Nutze immer das hochgeladene Vereins-Dokument (Sportart, Trainingszeiten, Ort, Ton).
+
+Aufgaben: Wenn ich dir Namen und ein paar Infos zu einem neuen Mitglied gebe, schreibst du eine herzliche Begrüßungsnachricht mit allen wichtigen Infos für den Start (wann, wo, was mitbringen, Ansprechperson).
+
+Ton und Format: freundlich, Du-Ton, maximal 8 Zeilen, WhatsApp-tauglich, ein klarer nächster Schritt.
+
+Grenzen: Erfinde keine Fakten. Wenn dir eine Info fehlt, frag nach, bevor du schreibst.</div>
+          <p class="note"><strong>So tragen Sie ihn ein:</strong> zurück ins Projekt, Feld "Anweisungen" bzw. "Projekt-Einweisung", einfügen, speichern. Ab jetzt befolgt jeder Chat im Projekt diese Regeln automatisch.</p>
+        </div>
+
+        <div class="exercise">
+          <div class="exercise-number">Zwei fertige Einweisungen</div>
+          <h3>Vorlagen zum Einsetzen</h3>
+          <p>Nehmen Sie eine davon als Projekt-Einweisung. Anpassen dürfen Sie alles.</p>
+          <p class="prompt-label">A: Willkommens-Assistent (neue Mitglieder begrüßen)</p>
+          <div class="prompt-block">Du bist der Willkommens-Assistent unseres Sportvereins.
+
+Kontext: Nutze immer das hochgeladene Vereins-Dokument.
+
+Aufgaben: Wenn ich dir Namen und ein paar Infos zu einem neuen Mitglied gebe, schreibst du eine herzliche Begrüßungsnachricht mit allen wichtigen Infos für den Start (wann, wo, was mitbringen, Ansprechperson).
+
+Ton und Format: freundlich, Du-Ton, maximal 8 Zeilen, WhatsApp-tauglich, ein klarer nächster Schritt.
+
+Grenzen: Erfinde keine Fakten. Wenn dir eine Info fehlt, frag nach, bevor du schreibst.</div>
+          <p class="prompt-label">B: Event-Ideen-Assistent (Ideen für den nächsten Anlass)</p>
+          <div class="prompt-block">Du bist der Event-Ideen-Assistent unseres Sportvereins.
+
+Kontext: Nutze immer das hochgeladene Vereins-Dokument.
+
+Aufgaben: Wenn ich dir einen Anlass und grobe Rahmenbedingungen (Budget, Teilnehmerzahl, Saison) nenne, schlägst du 5 konkrete Event-Ideen vor, die zu unserem Verein passen und neue Mitglieder anziehen. Pro Idee: kurze Beschreibung, Aufwand (niedrig, mittel, hoch), warum es Mitglieder bringt.
+
+Ton und Format: konkret und umsetzbar, als Liste. Keine Allgemeinplätze.
+
+Grenzen: Bleib realistisch für einen ehrenamtlich geführten Verein. Bei fehlenden Infos: frag nach.</div>
+        </div>
+
+        <!-- BONUS -->
+        <div class="section-divider" id="bonus"><h2>Bonus: Perspektive wechseln</h2></div>
+        <p class="section-intro">Wenn Zeit bleibt. Die beste Werbung trifft den Blick der anderen Seite. Bei Kindern und Jugendlichen entscheiden oft die Eltern mit, also brauchen wir beide Perspektiven: was das Kind sieht und welche Fragen die Eltern haben.</p>
+
+        <div class="exercise">
+          <div class="exercise-number">Übung</div>
+          <h3>Die Sicht der Mitglieder und der Eltern</h3>
+          <div class="prompt-block">Wir wollen Kinder und Jugendliche für unseren Verein gewinnen. Wechsle die Perspektive:
+
+1. Aus Sicht des Kindes: Was sieht und fühlt ein Kind beim ersten Training? Was macht ihm Spaß, was könnte ihm Angst machen?
+
+2. Aus Sicht der Eltern: Welche Fragen und Bedenken haben Eltern, bevor sie ihr Kind anmelden? Denk an Sicherheit, Kosten, Betreuung, Zeitaufwand und Anfahrt.
+
+Schreib dann eine Einladung, die beide Seiten anspricht: dem Kind Lust macht und den Eltern ihre wichtigsten Fragen beantwortet.</div>
+          <p class="note">So lernt Ihr Assistent, Botschaften zu schreiben, die nicht nur das Mitglied, sondern auch die Entscheider erreichen.</p>
+        </div>
+
+        <!-- MITNEHMEN -->
+        <div class="section-divider" id="mitnehmen"><h2>Das nehmen Sie mit</h2></div>
+        <div class="exercise">
+          <h3>Ihr KI-Stack ab heute</h3>
+          <ul>
+            <li><strong>ChatGPT (Projekte)</strong> und <strong>Gemini (Gems)</strong>, beides kostenlos.</li>
+            <li>Ihr <strong>Vereins-Dokument</strong>: einmal gebaut, immer wiederverwendbar.</li>
+            <li>Ein <strong>Projekt mit Einweisung</strong>, das ab heute für Sie arbeitet.</li>
+            <li>Eine <strong>Prompt-Bibliothek</strong> für Mitgliederwerbung, die Sie im Verein teilen können.</li>
+          </ul>
+          <div class="magic-box quote">
+            <div class="label">Merksatz</div>
+            <p>Ein gut gespeichertes Projekt schlägt jede Automatisierung, die niemand wartet.</p>
+          </div>
+          <p class="prompt-label">Ihre nächsten drei Schritte</p>
+          <ol>
+            <li>Vereins-Dokument fertig machen und ins Projekt laden.</li>
+            <li>Den Assistenten diese Woche wirklich einsetzen.</li>
+            <li>Die Prompt-Bibliothek mit dem Vorstand teilen.</li>
+          </ol>
+        </div>
+
+        <!-- KONTAKT -->
+        <div class="section-divider" id="kontakt"><h2>In Kontakt bleiben</h2></div>
+        <p class="section-intro">Fragen nach dem Workshop, oder Lust auf Modul 3? Melden Sie sich gern direkt.</p>
+        <div class="exercise">
+          <p style="margin-bottom:4px;"><strong>Jakub Popluhar</strong>, M.Ed. &middot; AI Performance Trainer</p>
+          <p style="margin-bottom:4px;">E-Mail: <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a></p>
+          <p style="margin-bottom:0;">Telefon: <a href="tel:+436641386498">+43 664 138 64 98</a></p>
+        </div>
+
+      </div><!-- /.content -->
+    </div><!-- /.page-layout -->
+  </main>
+
+  <footer>
+    <p>
+      Jakub Popluhar M.Ed.
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+      &nbsp;&middot;&nbsp;
+      KI für Sportvereine, Modul 2
+    </p>
+  </footer>
+
+  <script>
+    // Copy prompt on click
+    document.querySelectorAll('.prompt-block').forEach(block => {
+      block.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(block.textContent.trim());
+          block.classList.add('copied');
+          setTimeout(() => block.classList.remove('copied'), 1500);
+        } catch (e) {
+          const range = document.createRange();
+          range.selectNodeContents(block);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      });
+    });
+
+    // Accordion: only one details open at a time within an exercise
+    document.querySelectorAll('.exercise').forEach(exercise => {
+      const allDetails = exercise.querySelectorAll(':scope > details');
+      allDetails.forEach(det => {
+        det.addEventListener('toggle', () => {
+          if (det.open) {
+            allDetails.forEach(sib => { if (sib !== det && sib.open) sib.open = false; });
+          }
+        });
+      });
+    });
+
+    // Sidebar active state on scroll
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+    const sectionIds = Array.from(navLinks).map(a => a.getAttribute('href').slice(1));
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + id));
+        }
+      });
+    }, { rootMargin: '-25% 0px -65% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+<!-- analytics beacon --><script>(function(){try{var i=new Image(1,1);i.src="https://deflifeos.popluhar.at/t.gif?site=jakubpopluhar&path="+encodeURIComponent(location.pathname+location.search)+"&ref="+encodeURIComponent(document.referrer);}catch(e){}})();</script>
+</body>
+</html>
