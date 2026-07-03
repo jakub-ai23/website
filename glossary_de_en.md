@@ -2,7 +2,39 @@
 
 Source: `index.html` (Jakub Popluhar personal brand site)
 Target dialect: **Neutral EU business English** (spelling-neutral, leaning UK; no US-only idiom, no UK-only slang)
-Created: 2026-05-28
+Created: 2026-05-28 · **Updated 2026-07-03 (positioning change — see §0)**
+
+## 0. POSITIONING UPDATE 2026-07-03 (overrides older entries below)
+
+The site was repositioned: **Business Lead at Hill Digital** now leads; **SURF™ / Mindworx REMOVED** everywhere; trainings shown as a 6-item agenda across ARS + Hill Digital + tecTrain; sport facts corrected (roundnet + floorball + PADI Divemaster, **no BJJ/martial arts**). Where entries below conflict, THIS section wins.
+
+**New stays-in-source (do NOT translate):** Hill Digital, Hill Woltron (with O — NEVER "Hill International"), tecTrain, Roundnet, Floorball, PADI Divemaster, cal.eu, Claude, DSGVO→**GDPR** (translate this one).
+
+**New locked term map:**
+| German | English (locked) | Notes |
+|---|---|---|
+| Business Lead bei Hill Digital | Business Lead at Hill Digital | Hero badge, title, meta, schema. Leads everything. |
+| dem digitalen Arm von Hill Woltron | the digital arm of Hill Woltron | |
+| Mitglied von Hill Woltron | member of Hill Woltron | |
+| Human in the Lead. KI im Hintergrund. | Human in the Lead. AI in Support. | Tagline — locked EN form. Never "AI in the background". |
+| KI-Trainer für Führungskräfte und Teams im DACH-Raum | AI trainer for executives and teams across the DACH region | |
+| Erster gesponserter Roundnet-Spieler Europas | First sponsored roundnet player in Europe | |
+| ehem. Floorball-Nationalspieler | Former national floorball player | Slovak national team; keep "former". |
+| PADI Divemaster | PADI Divemaster | Keep. |
+| Termin anfragen | Request an appointment | Individual-appointment CTA. |
+| Kein passender Termin dabei? | No date that fits? | |
+| Möchten Sie einen individuellen Termin anfragen? Nehmen Sie Kontakt auf. | Would you like to request an individual appointment? Get in touch. | Commander-specified prompt. |
+| In Kooperation mit ARS, Hill Digital und tecTrain | In cooperation with ARS, Hill Digital and tecTrain | |
+| Anmelden | Register | Agenda CTA (shorter than "Details & registration"). |
+| Ganzer Tag | Full day | |
+| Business Lead | Business Lead | Stat label + credential — already English, keep. |
+
+**REMOVED (do not carry into EN — delete, do not translate):** SURF™ Method, SURF, "Licensed SURF™ Method Trainer", Mindworx, the SURF badge overlay `<img>`, the "SURF / Licensed" about-stat, "Consumer Psychologist" as the LEAD title (consumer psychology stays only as a service/skill mention, not the headline identity).
+
+**EN LOCKED About + headline:** use the "About — EN (locked...)" block from `STANDING-ORDER-positioning-and-changes.md` verbatim; condense to slide length for the About slide. Do NOT re-translate from German — the commander wrote the EN version.
+
+---
+
 
 ## 1. Form of address
 

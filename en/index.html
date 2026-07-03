@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jakub Popluhar | AI Trainer & Consumer Psychologist</title>
-  <meta name="description" content="AI Trainer & Consumer Psychologist in Vienna. Practical, hands-on AI training for executives, teams and companies. 1:1 Executive Sessions, in-house training, keynotes.">
+  <title>Jakub Popluhar | Business Lead at Hill Digital & AI Trainer</title>
+  <meta name="description" content="Business Lead at Hill Digital and AI trainer for executives, teams and companies across the DACH region. Practical, hands-on AI training, 1:1 Executive Sessions, in-house training, keynotes. Human in the Lead. AI in Support.">
   <meta name="theme-color" content="#141414">
-  <meta property="og:title" content="Jakub Popluhar | AI Trainer & Consumer Psychologist">
-  <meta property="og:description" content="Practical, hands-on AI training for executives. I combine AI expertise with consumer psychology.">
+  <meta property="og:title" content="Jakub Popluhar | Business Lead at Hill Digital & AI Trainer">
+  <meta property="og:description" content="Business Lead at Hill Digital and AI trainer for executives across the DACH region. Human in the Lead. AI in Support.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jakubpopluhar.com/en/">
   <meta property="og:image" content="https://jakubpopluhar.com/images/profile/14.png">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Jakub Popluhar | AI Trainer & Consumer Psychologist">
-  <meta name="twitter:description" content="Practical, hands-on AI training for executives. AI expertise + consumer psychology.">
+  <meta name="twitter:title" content="Jakub Popluhar | Business Lead at Hill Digital & AI Trainer">
+  <meta name="twitter:description" content="Business Lead at Hill Digital and AI trainer for executives across the DACH region. Human in the Lead. AI in Support.">
   <meta name="twitter:image" content="https://jakubpopluhar.com/images/profile/14.png">
   <link rel="canonical" href="https://jakubpopluhar.com/en/">
   <link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/">
@@ -534,22 +534,6 @@
 
     .about-image-wrapper {
       position: relative;
-    }
-
-    .surf-badge-overlay {
-      position: absolute;
-      bottom: 70px;
-      right: 64px;
-      width: 120px;
-      height: 120px;
-      z-index: 3;
-      filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.6));
-    }
-
-    .surf-badge-overlay img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
     }
 
     .about-stats {
@@ -1072,8 +1056,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 16px;
-      margin-bottom: 40px;
+      margin-bottom: 34px;
     }
 
     .open-trainings-header span {
@@ -1083,108 +1066,156 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       color: var(--white-muted);
-    }
-
-    .ars-logo-badge {
-      display: inline-flex;
-      align-items: center;
-      background: #ffffff;
-      padding: 8px 20px;
-      border-radius: 10px;
-    }
-
-    .ars-logo-badge img {
-      height: 44px;
-      width: auto;
-    }
-
-    .training-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .training-card {
-      background: var(--charcoal-lighter);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 16px;
-      padding: 28px 24px;
-      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-      display: flex;
-      flex-direction: column;
       text-align: center;
     }
 
-    .training-card:hover {
-      border-color: rgba(212, 160, 23, 0.25);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(212, 160, 23, 0.08);
-      transform: translateY(-4px);
+    /* ===== Agenda / schedule ===== */
+    .agenda {
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .training-card .training-tag {
-      display: inline-block;
-      align-self: center;
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--gold);
-      background: rgba(212, 160, 23, 0.12);
-      padding: 4px 12px;
-      border-radius: 100px;
-      margin-bottom: 16px;
-    }
-
-    .training-card h4 {
-      font-family: var(--font-heading);
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-
-    .training-card .training-sub {
-      color: var(--white-muted);
-      font-size: 0.85rem;
-      line-height: 1.6;
-      margin-bottom: 16px;
-      flex-grow: 1;
-    }
-
-    .training-meta {
+    .ag {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 4px;
+      gap: 24px;
+      padding: 18px 0;
     }
 
-    .training-date {
-      font-size: 0.78rem;
-      font-weight: 600;
+    .ag + .ag {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ag-date {
+      flex: none;
+      width: 88px;
+      text-align: center;
+      border-right: 2px solid var(--gold);
+      padding-right: 18px;
+    }
+
+    .ag-day {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .ag-mon {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       color: var(--gold);
+      margin-top: 4px;
     }
 
-    .training-meta .training-tag {
-      font-size: 0.6rem;
-      margin-bottom: 0;
-      background: rgba(255, 255, 255, 0.05);
+    .ag-body {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .ag-body .txt h4 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+
+    .ag-body .txt p {
       color: var(--white-muted);
+      font-size: 0.83rem;
+      line-height: 1.5;
     }
 
-    .training-card .btn-training {
-      display: inline-block;
-      margin-top: 16px;
-      font-size: 0.82rem;
-      font-weight: 600;
+    .ag-prov {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border-radius: 6px;
+      height: 32px;
+      padding: 4px 11px;
+      flex: none;
+    }
+
+    .ag-prov img {
+      height: 22px;
+      width: auto;
+      max-width: 100px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .btn-training {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: #141414;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-training:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    /* ===== Individual appointment prompt ===== */
+    .training-cta-note {
+      max-width: 1000px;
+      margin: 34px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      background: var(--charcoal-lighter);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 22px 26px;
+    }
+
+    .training-cta-note p {
+      font-family: var(--font-heading);
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .training-cta-note p span {
+      display: block;
+      font-family: var(--font-body);
+      color: var(--white-muted);
+      font-size: 0.86rem;
+      font-weight: 400;
+      margin-top: 4px;
+    }
+
+    .training-cta-note .btn-training {
+      background: transparent;
       color: var(--gold);
-      transition: color 0.2s;
+      border: 1.5px solid var(--gold);
     }
 
-    .training-card .btn-training:hover {
-      color: var(--gold-light);
+    .training-cta-note .btn-training:hover {
+      background: rgba(212, 160, 23, 0.12);
+      transform: translateY(-2px);
     }
 
     /* ========== SLIDE 5: PROOF ========== */
@@ -1692,12 +1723,33 @@
       .service-featured-image img { max-height: 280px; }
       .service-points { text-align: left; }
 
-      .training-cards {
-        grid-template-columns: 1fr;
+      .ag {
+        flex-wrap: wrap;
         gap: 14px;
       }
 
-      .training-card { padding: 20px 18px; }
+      .ag-date {
+        width: auto;
+        border-right: none;
+        border-left: 2px solid var(--gold);
+        padding-right: 0;
+        padding-left: 14px;
+        text-align: left;
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+      }
+
+      .ag-mon { margin-top: 0; }
+      .ag-body { flex: 1 1 100%; }
+      .ag .btn-training { flex: 1 1 100%; justify-content: center; }
+
+      .training-cta-note {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .training-cta-note .btn-training { width: 100%; justify-content: center; }
 
       .proof-grid {
         grid-template-columns: 1fr;
@@ -1742,7 +1794,6 @@
       .about-content h2 { font-size: 1.4rem; }
       .about-text { font-size: 0.85rem; }
       .about-stats { flex-direction: column; gap: 8px; }
-      .surf-badge-overlay { bottom: 20px; right: -10px; width: 90px; height: 90px; }
 
       .section-header h2 { font-size: 1.5rem; }
 
@@ -1802,7 +1853,12 @@
       "@type": "Person",
       "name": "Jakub Popluhar",
       "honorificSuffix": "M.Ed.",
-      "jobTitle": "AI Trainer & Consumer Psychologist",
+      "jobTitle": "Business Lead at Hill Digital & AI Trainer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Hill Digital",
+        "url": "https://hill-digital.at"
+      },
       "sameAs": [
         "https://www.linkedin.com/in/jakubpopluhar/"
       ]
@@ -1887,7 +1943,7 @@
     <section class="slide slide-hero active" id="hero" data-index="0">
       <div class="hero-main">
         <div class="hero-content slide-content">
-          <div class="hero-badge">AI Trainer & Consumer Psychologist</div>
+          <div class="hero-badge">Business Lead at Hill Digital · AI Trainer</div>
           <h1>"You don't know&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
           <p class="hero-sub">You know AI is changing your business. You just don't know where to start. That's what I'm here for.</p>
           <div class="hero-ctas">
@@ -1932,9 +1988,6 @@
           <div class="about-image">
             <img src="../images/profile/7.png" alt="Jakub Popluhar" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
           </div>
-          <div class="surf-badge-overlay">
-            <img src="../images/logos/surf-badge-color.svg" alt="SURF™ Method - Licensed Trainer & Coach, mindworx 2025">
-          </div>
           <div class="about-stats">
             <div class="about-stat">
               <span class="number">5</span>
@@ -1945,8 +1998,8 @@
               <span class="label">Trainer</span>
             </div>
             <div class="about-stat">
-              <span class="number">SURF</span>
-              <span class="label">Licensed</span>
+              <span class="number">HD</span>
+              <span class="label">Business Lead</span>
             </div>
           </div>
         </div>
@@ -1954,15 +2007,15 @@
         <div class="about-content">
           <p class="section-label">Who I am</p>
           <h2>I test everything on myself before I show it to you.</h2>
-          <p class="about-text">Not another AI consultant. I combine AI expertise with consumer psychology - I understand the technology AND why people resist it. Every workflow I show you runs on my own machine first.</p>
+          <p class="about-text">I'm Business Lead at Hill Digital, the digital arm of Hill Woltron, and an AI trainer for executives and teams across the DACH region. Tools change every month; the fundamentals don't - how you think with AI, prompt it, check it, keep control. Human in the Lead. AI in Support.</p>
 
           <ul class="about-credentials">
-            <li><span class="check">&#10003;</span> Linguistics & American Studies - semantics is the foundation of all AI communication</li>
-            <li><span class="check">&#10003;</span> Licensed SURF™ Method Trainer - Mindworx</li>
+            <li><span class="check">&#10003;</span> Business Lead at Hill Digital (member of Hill Woltron)</li>
             <li><span class="check">&#10003;</span> AI Trainer at ARS (Austria's largest seminar provider)</li>
+            <li><span class="check">&#10003;</span> Linguistics & American Studies - semantics is the foundation of all AI communication</li>
             <li><span class="check">&#10003;</span> Speaker, President Ivanov's School for Young Leaders</li>
             <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
-            <li><span class="check">&#10003;</span> Competitive athlete · Skydiver · Dive Master · Martial artist</li>
+            <li><span class="check">&#10003;</span> First sponsored roundnet player in Europe · Former national floorball player · PADI Divemaster · Skydiver</li>
           </ul>
         </div>
       </div>
@@ -2102,43 +2155,63 @@
         </div>
 
         <div class="open-trainings-header">
-          <span>In cooperation with</span>
-          <div class="ars-logo-badge">
-            <img src="../images/logos/ars-akademie.svg" alt="ARS Akademie">
+          <span>In cooperation with ARS, Hill Digital and tecTrain</span>
+        </div>
+
+        <div class="agenda">
+          <div class="ag">
+            <div class="ag-date"><div class="ag-day">21</div><div class="ag-mon">Jul</div></div>
+            <div class="ag-body">
+              <div class="ag-prov"><img src="../images/logos/hill-digital-logo.svg" alt="Hill Digital"></div>
+              <div class="txt"><h4>AI in Everyday HR</h4><p>HR work with AI, GDPR-compliant &middot; Full day</p></div>
+            </div>
+            <a href="https://hill-digital.at/firmen-buchung?t=ki-hr&f=volltag" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag">
+            <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">Sep</div></div>
+            <div class="ag-body">
+              <div class="ag-prov"><img src="../images/logos/tectrain.png" alt="tecTrain"></div>
+              <div class="txt"><h4>Microsoft Copilot for Users</h4><p>Use Copilot safely and productively &middot; Full day</p></div>
+            </div>
+            <a href="https://www.tectrain.at/kurskatalog/microsoft-technisch/microsoft-copilot/microsoft-copilot-fuer-anwender" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag">
+            <div class="ag-date"><div class="ag-day">29</div><div class="ag-mon">Sep</div></div>
+            <div class="ag-body">
+              <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
+              <div class="txt"><h4>AI for the everyday office</h4><p>2-day hands-on complete solution &middot; 2 days</p></div>
+            </div>
+            <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag">
+            <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-body">
+              <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
+              <div class="txt"><h4>Use Microsoft 365 Copilot efficiently</h4><p>Data protection, AI governance, productive use &middot; Full day</p></div>
+            </div>
+            <a href="https://ars.at/seminar/332641/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag">
+            <div class="ag-date"><div class="ag-day">07</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-body">
+              <div class="ag-prov"><img src="../images/logos/tectrain.png" alt="tecTrain"></div>
+              <div class="txt"><h4>AI Fundamentals with ChatGPT</h4><p>Practical applications with ChatGPT &middot; Full day</p></div>
+            </div>
+            <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/chatgpt-und-kuenstliche-intelligenz-in-der-praxis" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag">
+            <div class="ag-date"><div class="ag-day">16</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-body">
+              <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
+              <div class="txt"><h4>Using Claude in a data-compliant way</h4><p>Claude in everyday work, GDPR-compliant &middot; Full day</p></div>
+            </div>
+            <a href="https://ars.at/seminar/333220/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
           </div>
         </div>
 
-        <div class="training-cards">
-          <div class="training-card">
-            <span class="training-tag">Microsoft 365</span>
-            <h4>Use Microsoft 365 Copilot efficiently</h4>
-            <p class="training-sub">Data protection, AI governance and productive everyday use</p>
-            <div class="training-meta">
-              <span class="training-date">Next date: 25 June 2026</span>
-              <span class="training-tag">Full day</span>
-            </div>
-            <a href="https://ars.at/seminar/332641/" class="btn-training" target="_blank" rel="noopener">Details & registration &rarr;</a>
-          </div>
-          <div class="training-card">
-            <span class="training-tag">Special</span>
-            <h4>Consumer Psychology in the Age of AI</h4>
-            <p class="training-sub">How people decide, and how to use that knowledge in marketing</p>
-            <div class="training-meta">
-              <span class="training-date">Next date: 6 July 2026</span>
-              <span class="training-tag">Half day</span>
-            </div>
-            <a href="https://ars.at/seminar/333096/" class="btn-training" target="_blank" rel="noopener">Details & registration &rarr;</a>
-          </div>
-          <div class="training-card">
-            <span class="training-tag">Programme</span>
-            <h4>AI for the everyday office</h4>
-            <p class="training-sub">The 2-day hands-on complete solution for AI users</p>
-            <div class="training-meta">
-              <span class="training-date">Next date: 14-15 July 2026</span>
-              <span class="training-tag">2 days</span>
-            </div>
-            <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Details & registration &rarr;</a>
-          </div>
+        <div class="training-cta-note">
+          <p>No date that fits?<span>Would you like to request an individual appointment? Get in touch.</span></p>
+          <a href="https://cal.eu/hilldigital/consulting" class="btn-training" target="_blank" rel="noopener">Request an appointment &rarr;</a>
         </div>
       </div>
     </section>
