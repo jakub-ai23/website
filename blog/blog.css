@@ -349,6 +349,27 @@ a { color: inherit; text-decoration: none; }
 }
 .article-body pre code { background: none; padding: 0; }
 
+/* Sources / footnotes: ultra small */
+.article-sources {
+  margin-top: 2.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.68rem;
+  line-height: 1.5;
+  color: var(--white-muted);
+}
+.article-sources > * + * { margin-top: 0.4rem; }
+.article-sources h2 {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white-muted);
+  margin-top: 0;
+}
+.article-sources a { color: var(--gold); border: none; word-break: break-word; }
+.article-sources em { color: var(--white-muted); }
+
 /* Author box */
 .author-box {
   display: flex;

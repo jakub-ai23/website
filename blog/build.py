@@ -341,9 +341,11 @@ def share_html(s, url, title):
     li = f"https://www.linkedin.com/sharing/share-offsite/?url={enc}"
     tw = f"https://twitter.com/intent/tweet?url={enc}&text={tenc}"
     fb = f"https://www.facebook.com/sharer/sharer.php?u={enc}"
+    mail = f"mailto:?subject={tenc}&body={quote(title + ' ' + url, safe='')}"
     return f"""<div class="share-row">
       <span class="share-label">{s['share_label']}</span>
       <a class="share-btn" href="{li}" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a class="share-btn" href="{mail}" aria-label="E-Mail">E-Mail</a>
       <a class="share-btn" href="{tw}" target="_blank" rel="noopener" aria-label="X">X</a>
       <a class="share-btn" href="{fb}" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
       <button class="share-btn copy" data-url="{html.escape(url)}" data-done="{s['share_copied']}">{s['share_copy']}</button>
@@ -513,6 +515,11 @@ def render_article(lang, p):
         hero = ""
     lede = f'<p class="lede">{html.escape(p["lede"])}</p>' if p["lede"] else ""
     share = share_html(s, canonical, p["title"])
+    # split off a trailing "Quellen"/"Sources" section -> render ultra small
+    parts = re.split(r"(?m)^(?=##\s+(?:Quellen|Sources)\b)", p["_body"], maxsplit=1)
+    body_html = md_to_html(parts[0])
+    if len(parts) > 1:
+        body_html += '\n<div class="article-sources">\n' + md_to_html(parts[1]) + "\n</div>"
     cat = CAT_BY_SLUG.get(p["category"])
     cat_tag = (f' &middot; <a class="cat-tag" href="{s["blog_base"]}/{cat["slug"]}/">{cat_label(cat, lang)}</a>'
                if cat else "")
@@ -528,7 +535,7 @@ def render_article(lang, p):
     <div class="wrap">
       {hero}
       <div class="article-body">
-{md_to_html(p['_body'])}
+{body_html}
       </div>
       {share}
       <div class="author-box">
