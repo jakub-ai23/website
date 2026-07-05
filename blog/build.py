@@ -332,17 +332,48 @@ def abs_url(path):
     return path if path.startswith("http") else SITE + path
 
 
+LOGO_SVG = ('<svg class="logo-svg-nav" viewBox="0 0 380 125" height="46" aria-label="Jakub Popluhar">'
+            '<defs><linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">'
+            '<stop offset="0%" stop-color="#bf953f"/><stop offset="18%" stop-color="#fcf6ba"/>'
+            '<stop offset="40%" stop-color="#b38728"/><stop offset="65%" stop-color="#fbf5b7"/>'
+            '<stop offset="85%" stop-color="#daa520"/><stop offset="100%" stop-color="#aa771c"/>'
+            '</linearGradient><filter id="goldGlow"><feDropShadow dx="0" dy="1" stdDeviation="1.5"'
+            ' flood-color="#d4a017" flood-opacity="0.35"/></filter></defs>'
+            '<text x="15" y="70" text-anchor="start" font-family="\'Great Vibes\', cursive"'
+            ' font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text>'
+            '<text x="85" y="112" text-anchor="start" font-family="\'Montserrat\', sans-serif"'
+            ' font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text></svg>')
+
+NAV_LABELS = {
+    "de": ("Über mich", "Angebote", "Ergebnisse", "Blog", "Session buchen"),
+    "en": ("About", "Services", "Results", "Blog", "Book a session"),
+}
+
+
 def nav_html(s, other_href):
-    return f"""<nav class="blog-nav">
-    <a class="logo" href="{s['home']}">Jakub<span>POPLUHAR</span></a>
-    <div class="blog-nav-right">
-      <a class="home-link" href="{s['home']}">{s['home_link']}</a>
-      <a href="{s['blog_base']}/">Blog</a>
-      <span class="blog-lang">
-        <a href="{s['blog_base']}/" class="active">{'DE' if s['lang']=='de' else 'EN'}</a>
-        <span class="sep">/</span>
-        <a href="{other_href}">{s['other_lang_label']}</a>
-      </span>
+    home, lang = s["home"], s["lang"]
+    about, services, results, blog, cta = NAV_LABELS[lang]
+    de_active = "active" if lang == "de" else ""
+    en_active = "active" if lang == "en" else ""
+    de_href = s["blog_base"] + "/" if lang == "de" else other_href
+    en_href = other_href if lang == "de" else s["blog_base"] + "/"
+    return f"""<nav class="nav">
+    <div class="container">
+      <a href="{home}" class="nav-logo">{LOGO_SVG}</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="{home}#about">{about}</a></li>
+          <li><a href="{home}#services">{services}</a></li>
+          <li><a href="{home}#proof">{results}</a></li>
+          <li><a href="{s['blog_base']}/" class="active">{blog}</a></li>
+          <li><a href="{home}#contact" class="nav-cta">{cta}</a></li>
+        </ul>
+        <div class="nav-lang" aria-label="Sprache">
+          <a href="{de_href}" class="{de_active}">DE</a>
+          <span class="nav-lang-sep">/</span>
+          <a href="{en_href}" class="{en_active}">EN</a>
+        </div>
+      </div>
     </div>
   </nav>"""
 
