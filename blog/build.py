@@ -584,6 +584,43 @@ def other_lang_article(lang, slug):
 
 
 # ---------------------------------------------------------------------------
+# Homepage teaser: inject latest posts into a marked region of index.html
+# ---------------------------------------------------------------------------
+def home_teaser_cards(lang, posts):
+    s = STRINGS[lang]
+    out = []
+    for p in posts[:3]:
+        cat = CAT_BY_SLUG.get(p["category"])
+        meta = fmt_date(p["date"], lang)
+        if cat:
+            meta += f" &middot; {cat_label(cat, lang)}"
+        out.append(
+            f'<a class="blog-card" href="{s["blog_base"]}/{p["slug"]}/">'
+            f'<span class="blog-card-meta">{meta}</span>'
+            f'<span class="blog-card-title">{html.escape(p["title"])}</span></a>'
+        )
+    return "\n        ".join(out)
+
+
+def inject_home_teaser(lang, posts):
+    path = os.path.join(ROOT, "index.html") if lang == "de" else os.path.join(ROOT, "en", "index.html")
+    if not os.path.exists(path):
+        return
+    with open(path, encoding="utf-8") as f:
+        doc = f.read()
+    start, end = "<!-- BLOG-TEASER:START -->", "<!-- BLOG-TEASER:END -->"
+    if start not in doc or end not in doc:
+        return  # no teaser region in this file (e.g. EN not wired yet)
+    cards = home_teaser_cards(lang, posts)
+    new = re.sub(re.escape(start) + r".*?" + re.escape(end),
+                 start + "\n        " + cards + "\n        " + end, doc, flags=re.S)
+    if new != doc:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(new)
+        print("  injected home teaser ->", os.path.relpath(path, ROOT))
+
+
+# ---------------------------------------------------------------------------
 # Site-level files (GEO)
 # ---------------------------------------------------------------------------
 def write_robots():
@@ -657,6 +694,7 @@ def main():
             sitemap_urls.append(f"{s['blog_base']}/{cat['slug']}/")
             cats_built += 1
         print(f"[{lang}] {len(listed)} listed, {len(buildable)} built, {cats_built} categor(y/ies)")
+        inject_home_teaser(lang, listed)
         write(os.path.join(out_base, "index.html"), render_index(lang, listed))
         sitemap_urls.append(f"{s['blog_base']}/")
         for p in buildable:
