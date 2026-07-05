@@ -3,7 +3,7 @@ title: Ich schrieb eine Regel. Die KI brach sie 20 Minuten später.
 slug: regel-gebrochen
 date: 2026-07-05
 draft: false
-category: aus-der-praxis
+category: meine-agenten
 description: Ich gab meinem KI-Assistenten eine feste Regel ins Gedächtnis. 20 Minuten später hat er sie gebrochen. Warum eine aufgeschriebene Regel ein falsches Gefühl von Erledigung erzeugt.
 lede: Nicht trotz der Regel. Danach.
 hero: /images/blog/regel-gebrochen-roboter.png

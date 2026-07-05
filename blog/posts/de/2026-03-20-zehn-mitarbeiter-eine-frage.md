@@ -3,7 +3,7 @@ title: Ich habe heute 10 Mitarbeiter losgeschickt, um eine Frage zu beantworten.
 slug: zehn-mitarbeiter-eine-frage
 date: 2026-03-20
 draft: false
-category: aus-der-praxis
+category: meine-agenten
 description: Zwei KI-Agenten, dutzende Quellen, ein dreiseitiger Report, für eine Frage, die in 90 Sekunden gepasst hätte. Ein SWAT-Team für einen Schmetterling.
 lede: Zwei KI-Agenten, dutzende Quellen, ein dreiseitiger Report, für eine Frage, die in 90 Sekunden gepasst hätte. Ein SWAT-Team für einen Schmetterling.
 hero: /images/blog/swat-butterfly.png

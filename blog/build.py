@@ -56,22 +56,33 @@ PERSON = {
 WARNINGS = []  # collected lint warnings, printed at end (non-fatal)
 
 # Kategorien (1 pro Post). Reihenfolge = Reihenfolge der Cluster im Index.
+# `color` = Akzentfarbe pro Kategorie (Tag, Cluster-Titel, Teaser), damit man sie unterscheidet.
 CATEGORIES = [
-    {"slug": "aus-der-praxis", "de": "Aus der Praxis", "en": "From Practice",
+    {"slug": "meine-agenten", "de": "Meine Agenten", "en": "My Agents", "color": "#a98be0",
+     "desc_de": "Meine KI-Agenten, die Roboter: wie ich sie baue, was sie tun, was schiefgeht.",
+     "desc_en": "My AI agents, the robots: how I build them, what they do, what breaks."},
+    {"slug": "aus-der-praxis", "de": "Aus der Praxis", "en": "From Practice", "color": "#d4a017",
      "desc_de": "Was ich selbst baue: eigene Builds, Experimente, Systeme.",
      "desc_en": "What I build myself: my own builds, experiments, systems."},
-    {"slug": "jakub-trainings", "de": "Jakub Trainings", "en": "Jakub Trainings",
-     "desc_de": "Praxisbeispiele aus Trainings mit Klienten und Firmen.",
-     "desc_en": "Practical examples from trainings with clients and companies."},
-    {"slug": "ki-wissen", "de": "KI-Wissen", "en": "AI Knowledge",
+    {"slug": "ki-wissen", "de": "KI-Wissen", "en": "AI Knowledge", "color": "#5aa9d6",
      "desc_de": "Erklärendes und Grundlagen: was ist ein LLM und so weiter.",
      "desc_en": "Explainers and fundamentals: what an LLM is, and so on."},
+    {"slug": "meine-reise", "de": "Meine Reise", "en": "My Journey", "color": "#e08a4b",
+     "desc_de": "Meine eigene Reise: Gesundheit, Experimente am eigenen Leben, was wirkt.",
+     "desc_en": "My own journey: health, self-experiments, what actually works."},
+    {"slug": "jakub-trainings", "de": "Jakub Trainings", "en": "Jakub Trainings", "color": "#6bbf8a",
+     "desc_de": "Praxisbeispiele aus Trainings mit Klienten und Firmen.",
+     "desc_en": "Practical examples from trainings with clients and companies."},
 ]
 CAT_BY_SLUG = {c["slug"]: c for c in CATEGORIES}
 
 
 def cat_label(cat, lang):
     return cat[lang]
+
+
+def cat_color(cat):
+    return cat.get("color", "#d4a017")
 
 STRINGS = {
     "de": {
@@ -445,8 +456,9 @@ def render_index(lang, posts):
             in_cat = [p for p in posts if p["category"] == cat["slug"]]
             if not in_cat:
                 continue
-            chead = (f'<div class="cluster-head"><h2>{cat_label(cat, lang)}</h2>'
-                     f'<a href="{s["blog_base"]}/{cat["slug"]}/">{s["view_all"]}</a></div>')
+            c = cat_color(cat)
+            chead = (f'<div class="cluster-head"><h2 style="color:{c}">{cat_label(cat, lang)}</h2>'
+                     f'<a href="{s["blog_base"]}/{cat["slug"]}/" style="color:{c}">{s["view_all"]}</a></div>')
             ccards = "\n".join(post_card(s, p, lang, small=True) for p in in_cat[:3])
             parts.append(f'<section class="cluster">{chead}'
                          f'<div class="post-list small-list">{ccards}</div></section>')
@@ -478,8 +490,8 @@ def render_category(lang, cat, posts):
     label = cat_label(cat, lang)
     content = f"""<header class="blog-head">
     <div class="wrap">
-      <div class="cat-eyebrow"><a href="{s['blog_base']}/">Blog</a> / {label}</div>
-      <h1>{label}</h1>
+      <div class="cat-eyebrow"><a href="{s['blog_base']}/">Blog</a> / <span style="color:{cat_color(cat)}">{label}</span></div>
+      <h1 style="color:{cat_color(cat)}">{label}</h1>
       <p>{cat['desc_'+lang]}</p>
     </div>
   </header>
@@ -521,7 +533,8 @@ def render_article(lang, p):
     if len(parts) > 1:
         body_html += '\n<div class="article-sources">\n' + md_to_html(parts[1]) + "\n</div>"
     cat = CAT_BY_SLUG.get(p["category"])
-    cat_tag = (f' &middot; <a class="cat-tag" href="{s["blog_base"]}/{cat["slug"]}/">{cat_label(cat, lang)}</a>'
+    cat_tag = (f' &middot; <a class="cat-tag" style="color:{cat_color(cat)};border-color:{cat_color(cat)}66"'
+               f' href="{s["blog_base"]}/{cat["slug"]}/">{cat_label(cat, lang)}</a>'
                if cat else "")
     content = f"""<article>
     <header class="article-head">
@@ -592,11 +605,13 @@ def home_teaser_cards(lang, posts):
     for p in posts[:3]:
         cat = CAT_BY_SLUG.get(p["category"])
         meta = fmt_date(p["date"], lang)
+        color = "#d4a017"
         if cat:
             meta += f" &middot; {cat_label(cat, lang)}"
+            color = cat_color(cat)
         out.append(
             f'<a class="blog-card" href="{s["blog_base"]}/{p["slug"]}/">'
-            f'<span class="blog-card-meta">{meta}</span>'
+            f'<span class="blog-card-meta" style="color:{color}">{meta}</span>'
             f'<span class="blog-card-title">{html.escape(p["title"])}</span></a>'
         )
     return "\n        ".join(out)
