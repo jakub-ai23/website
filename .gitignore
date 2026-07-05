@@ -1,1 +1,12 @@
 .DS_Store
+
+# Internal planning / re-entry / debrief docs — keep OFF the public Pages site.
+# (This repo is served at jakubpopluhar.com; anything committed is web-reachable.)
+SITREP.md
+STANDING-ORDER-*.md
+*-session-debrief-*.md
+*-debrief-*.md
+
+# Blog working dirs (drafts + research) — not for publication.
+blog/_off/
+blog/_research/
