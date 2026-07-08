@@ -8,5 +8,12 @@ STANDING-ORDER-*.md
 *-debrief-*.md
 
 # Blog working dirs (drafts + research) — not for publication.
+blog/posts/_off/
 blog/_off/
 blog/_research/
+
+# Internal translation QC + mission reports + layout scratch — keep OFF the public site.
+*-proofreader-*.md
+*-gatekeeper-*.md
+*-translation-mission-report.md
+zz-layouts.html

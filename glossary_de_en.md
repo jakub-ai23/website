@@ -192,3 +192,76 @@ The site was repositioned: **Business Lead at Hill Digital** now leads; **SURF�
 - Formspree action URL, analytics beacon, all `aria-label="Slide N"`.
 - SVG gradient defs, font-face blocks, entire `<style>` block.
 - Curly quotes: source uses „ … " (German). For EN use straight or English curly " … " — keep consistent; simplest is English double quotes " ". No em/en dashes anywhere (brand rule) — source already uses " - " hyphen-with-spaces; keep that or restructure.
+
+---
+
+## 9. BLOG SECTION (added 2026-07-08 — governs `blog/posts/en/*.md`)
+
+The blog is a **separate register** from the homepage. Source lives in `blog/posts/de/*.md`; EN mirror goes to `blog/posts/en/*.md` (same filename, **same slug/date/category/hero/draft** — build.py cross-links DE↔EN by identical slug). Translate only: `title`, `lede`, `description`, `caption`, and the body.
+
+### 9.1 Register — informal, personal, first-person
+- German blog uses **informal "du"** (not the homepage's formal "Sie"). English has no T/V split → **"you"**, but the *tone* is casual, direct, personal essay (Tim Ferriss / Mark Manson lane), NOT corporate. Contractions everywhere (I'd, you're, it's, doesn't, wouldn't).
+- First person "ich" → "I". Keep the confessional, story-first voice. Short punchy sentences and fragments are intentional — preserve them ("Not really. But close." / "Not despite the rule. After it.").
+- **No selling** in the blog (blog rule): no CTA, no price, no pitch. Do not add any.
+
+### 9.2 Frontmatter quote trap
+- Parser (`build.py` L153) strips leading/trailing **straight** `"`/`'` from frontmatter values. Any title that must *show* quotes uses **English curly quotes** `"…"` (U+201C/U+201D), e.g. `title: "Anthropic? What's that?"`. Body dialogue uses normal straight `"` (not in frontmatter, not stripped).
+
+### 9.3 Category labels (already in build.py, do not translate in files)
+`meine-agenten`→My Agents · `aus-der-praxis`→From Practice · `ki-wissen`→AI Knowledge · `meine-reise`→My Journey · `jakub-trainings`→Jakub Trainings. Set `category:` to the **slug** (German slug), build.py renders the EN label.
+
+### 9.4 Recurring blog terms
+| German | English (locked) | Notes |
+|---|---|---|
+| KI-Agent(en) | AI agent(s) | |
+| Rechercheur | researcher | |
+| Kritiker | critic | agent role |
+| Sales-Scout / Content-Maschine / Website-Builder / Finanz-Analyst | sales scout / content engine / website builder / finance analyst | agent roles |
+| Missions-Briefing | mission briefing | |
+| Logbuch(-Notiz) | logbook (note/entry) | |
+| Bericht / Report | report | keep consistent; prefer "report" |
+| Kontextfenster | context window | |
+| System-Prompt | system prompt | |
+| institutionelles Gedächtnis | institutional memory | |
+| Karteikarte / das Buch | index card / the book | metaphor pair — keep |
+| Deep-Work-Fenster | deep-work window | |
+| Admin-Aufgaben | admin tasks | |
+| Faustregel | rule of thumb | |
+| Hersteller | maker / vendor | "maker" for who builds the model; keep one choice per article |
+| Modell(reihe) | model (line-up) | |
+| Stufe | tier | Klein/Mittel/Groß → Small/**Middle**/Large (model tiers). NB: use "Middle" not "Medium" for the middle tier in ki-landkarte, because "Medium" is also Mistral's model name in the same table row (collision). |
+| Abo | subscription / plan | |
+| Drittanbieter | third-party reseller / third party | |
+| Oberfläche | interface / front end | Copilot context |
+| blinder Fleck | blind spot | |
+| Prompt | prompt | keep |
+| Führungskraft / Entscheider | executive / decision-maker | blog tone: "leader", "decision-maker" |
+| Erfahrungspunkte / Level | experience points / level | Pokémon-tracking metaphor — keep |
+
+### 9.5 Per-article locked titles + punch lines (translate by hand, preserve rhythm)
+| Slug | DE title | EN title (locked) |
+|---|---|---|
+| zehn-mitarbeiter-eine-frage | Ich habe heute 10 Mitarbeiter losgeschickt, um eine Frage zu beantworten. | I sent 10 employees to answer one question today. |
+| agenten-ohne-gedaechtnis | Meine KI-Agenten hatten kein Gedächtnis | My AI agents had no memory |
+| ki-landkarte | „Anthropic? Was ist das?" | "Anthropic? What's that?" |
+| regel-gebrochen | Ich schrieb eine Regel. Die KI brach sie 20 Minuten später. | I wrote a rule. The AI broke it 20 minutes later. |
+| was-uebersehe-ich | Du weißt nicht, was du nicht weißt | You don't know what you don't know |
+
+Locked punch lines:
+- "Ein SWAT-Team für einen Schmetterling." → "A SWAT team for a butterfly."
+- "Es funktioniert. Und jeder weiß, dass es Unsinn ist." → "It works. And everyone knows it's nonsense."
+- "Nicht weil er schneller denkt. Sondern weil er weniger darf." → "Not because it thinks faster. Because it's allowed to do less."
+- "Der Geheimdienst, der seine Berichte schreddert" → "The intelligence agency that shreds its own reports."
+- "Die Notiz ist die Karteikarte. Der Bericht ist das Buch." → "The note is the index card. The report is the book."
+- "Standard ist Vergessen." → "Forgetting is the default."
+- "Bau nicht die vergessende Sorte." → "Don't build the forgetting kind."
+- "Nicht trotz der Regel. Danach." → "Not despite the rule. After it."
+- "Aufschreiben ist nicht befolgen." → "Writing it down is not following it."
+- "Die Lücke zwischen Wissen und Tun ist der Ort, an dem die meisten Fehler passieren." → "The gap between knowing and doing is where most mistakes happen."
+- "KI-Zugang hat heute jeder. Durchblick fast keiner." → "Everyone has AI access today. Almost no one has a clear view."
+- "Der stärkste Prompt ist nicht 'gib mir X', sondern 'was übersehe ich bei X'." → "The strongest prompt isn't 'give me X', it's 'what am I missing about X'."
+- "Dir fehlt nicht die Antwort. Dir fehlt die Frage." → "You're not missing the answer. You're missing the question."
+
+### 9.6 Sources/tables/citations
+- Keep citation markers `[1] [2] [3] [4]` and all URLs verbatim. Translate the surrounding prose and the "Quellen" heading → "Sources". Keep the "Stand Juli 2026" note → "As of July 2026". Table structure identical; translate row/column labels (Klein, schnell → Small, fast etc.).
+- Image alt/caption: "Bild mit KI generiert" → "Image generated with AI".

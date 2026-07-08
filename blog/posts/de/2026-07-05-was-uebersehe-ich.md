@@ -2,9 +2,9 @@
 title: Du weißt nicht, was du nicht weißt
 slug: was-uebersehe-ich
 date: 2026-07-05
-draft: true
+draft: false
 category: jakub-trainings
-description: Der unterschätzte Wert von KI ist nicht die Antwort auf deine Frage, sondern die Frage, die du nie gestellt hättest. Warum der stärkste Prompt "Was übersehe ich?" heißt.
+description: Der unterschätzte Wert von KI ist nicht die Antwort auf deine Frage, sondern die Frage, die du nie gestellt hättest. Warum der stärkste Prompt „Was übersehe ich?“ heißt.
 lede: Eine zufällige Bemerkung eines Fremden, und plötzlich geht eine Tür auf, von der du nicht wusstest, dass sie existiert. Genau das kann KI, wenn du sie richtig fragst.
 ---
 

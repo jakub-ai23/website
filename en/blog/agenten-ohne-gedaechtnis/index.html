@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My AI agents had no memory - Jakub Popluhar</title>
+<meta name="description" content="Ten AI agents, 27 research missions, and the full reports were all gone. Why agents forget everything by default, what that costs, and the fix that takes ten minutes.">
+<link rel="canonical" href="https://jakubpopluhar.com/en/blog/agenten-ohne-gedaechtnis/">
+<meta property="og:title" content="My AI agents had no memory">
+<meta property="og:description" content="Ten AI agents, 27 research missions, and the full reports were all gone. Why agents forget everything by default, what that costs, and the fix that takes ten minutes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jakubpopluhar.com/en/blog/agenten-ohne-gedaechtnis/">
+<meta property="og:image" content="https://jakubpopluhar.com/images/profile/headshot.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/agenten-ohne-gedaechtnis/">
+<link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/agenten-ohne-gedaechtnis/">
+<link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/agenten-ohne-gedaechtnis/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "My AI agents had no memory",
+  "description": "Ten AI agents, 27 research missions, and the full reports were all gone. Why agents forget everything by default, what that costs, and the fix that takes ten minutes.",
+  "datePublished": "2026-07-05",
+  "dateModified": "2026-07-05",
+  "image": "https://jakubpopluhar.com/images/profile/headshot.png",
+  "author": {
+    "@type": "Person",
+    "name": "Jakub Popluhar",
+    "jobTitle": "Business Lead bei Hill Digital & KI-Trainer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Hill Digital",
+      "url": "https://hill-digital.at"
+    },
+    "url": "https://jakubpopluhar.com/",
+    "image": "https://jakubpopluhar.com/images/profile/headshot.png",
+    "sameAs": [
+      "https://www.linkedin.com/in/jakubpopluhar/",
+      "https://github.com/jakub-ai23"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hill Digital",
+    "url": "https://hill-digital.at"
+  },
+  "mainEntityOfPage": "https://jakubpopluhar.com/en/blog/agenten-ohne-gedaechtnis/",
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Blog",
+      "item": "https://jakubpopluhar.com/en/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "From Practice",
+      "item": "https://jakubpopluhar.com/en/blog/aus-der-praxis/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "My AI agents had no memory",
+      "item": "https://jakubpopluhar.com/en/blog/agenten-ohne-gedaechtnis/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="nav">
+    <div class="container">
+      <a href="/en/" class="nav-logo"><svg class="logo-svg-nav" viewBox="0 0 380 125" height="46" aria-label="Jakub Popluhar"><defs><linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#bf953f"/><stop offset="18%" stop-color="#fcf6ba"/><stop offset="40%" stop-color="#b38728"/><stop offset="65%" stop-color="#fbf5b7"/><stop offset="85%" stop-color="#daa520"/><stop offset="100%" stop-color="#aa771c"/></linearGradient><filter id="goldGlow"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/></filter></defs><text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text><text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text></svg></a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="/en/#about">About</a></li>
+          <li><a href="/en/#services">Services</a></li>
+          <li><a href="/en/#proof">Results</a></li>
+          <li><a href="/en/blog/" class="active">Blog</a></li>
+          <li><a href="/en/#contact" class="nav-cta">Book a session</a></li>
+        </ul>
+        <div class="nav-lang" aria-label="Sprache">
+          <a href="/blog/agenten-ohne-gedaechtnis/" class="">DE</a>
+          <span class="nav-lang-sep">/</span>
+          <a href="/en/blog/" class="active">EN</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<main>
+<article>
+    <header class="article-head">
+      <div class="wrap">
+        <div class="meta">Jul 5, 2026 &middot; 4 min read &middot; <a class="cat-tag" style="color:#d4a017;border-color:#d4a01766" href="/en/blog/aus-der-praxis/">From Practice</a></div>
+        <h1>My AI agents had no memory</h1>
+        <p class="lede">I found out I was running an intelligence agency that shreds its own reports.</p>
+        <div class="share-row">
+      <span class="share-label">Share:</span>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fagenten-ohne-gedaechtnis%2F" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a class="share-btn" href="mailto:?subject=My%20AI%20agents%20had%20no%20memory&body=My%20AI%20agents%20had%20no%20memory%20https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fagenten-ohne-gedaechtnis%2F" aria-label="Email">Email</a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fagenten-ohne-gedaechtnis%2F&text=My%20AI%20agents%20had%20no%20memory" target="_blank" rel="noopener" aria-label="X">X</a>
+      <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fagenten-ohne-gedaechtnis%2F" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      <button class="share-btn copy" data-url="https://jakubpopluhar.com/en/blog/agenten-ohne-gedaechtnis/" data-done="Copied ✓">Copy link</button>
+    </div>
+      </div>
+    </header>
+    <div class="wrap">
+      
+      <div class="article-body">
+<h2>The intelligence agency that shreds its own reports</h2>
+<p>For over a month I've had a fleet of ten AI agents running parallel missions. A researcher that digs deep into companies and markets. A critic that checks every output before it goes out. A sales scout, a content engine, a website builder, a finance analyst. Ten agents, each with a clear job, each deployed dozens of times.</p>
+<p>After 27 research missions, I discovered something uncomfortable: the full reports were gone. Every single one.</p>
+<p>The mission briefing was still there. The three-line logbook note was still there. Date, topic, result, all neatly archived. But the actual intelligence, the detailed findings, the source tables, the competitive maps, the analysis that took 45 minutes: vanished. Deleted when the conversation ended. Overwritten when the next session started.</p>
+<p>Like an intelligence agency that keeps the mission file and shreds the report. I had a perfectly organised archive of what my agents had done. And almost no record of what they had found.</p>
+<h2>A logbook is not a report</h2>
+<p>I did have a form of memory built in. After every mission, each agent writes three lines to the logbook: date, what it did, what it found, which lesson.</p>
+<p>That's good. It's far better than nothing. But it doesn't replace the full report.</p>
+<p>A logbook note reads like this:</p>
+<blockquote>Researched the corporate training market in Austria. Found 12 active providers. ARS Akademie is the dominant player. Lesson: BFI Wien blocks web access, use the OTS press releases instead.</blockquote>
+<p>Useful. Next time, the agent knows to use OTS. The lesson compounds.</p>
+<p>But the full report had the 12 providers with programme structure, pricing signals and positioning. The source links and how reliable they were. The competitive analysis of who serves which segment. The note is the index card. The report is the book.</p>
+<blockquote class="pullquote">With the index card but not the book, you know something exists, but you can't get to it.</blockquote>
+<h2>Forgetting is the default</h2>
+<p>This isn't a bug. It's how these systems work. The context window closes, the session is gone. Everything you didn't explicitly save to a file goes with it.</p>
+<p>For a chatbot, that's fine. Question in, answer out, done. For an agent that works over weeks, it's a fundamental problem. Because agents don't just answer questions. They build something meant to carry the next mission, and the one after that.</p>
+<p>An employee who wakes up every morning with no memory of their previous work would be unemployable. They'd have to be retrained daily. They'd make the same mistakes again and again, because they have no record of having made them before. That's exactly what most AI agent setups look like. Not out of carelessness, but because memory has to be deliberately designed, and the urgency only shows up once something is lost.</p>
+<p>For me it was 27 reports before I noticed.</p>
+<h2>The real capital</h2>
+<p>And this is where it gets interesting for anyone using AI in a company.</p>
+<p>The accumulated knowledge of an agent fleet IS the product. Not the code, that can be copied. Not the prompts, those can be rebuilt. The real capital is the institutional memory: the saved reports, the reviewed outputs, the lessons, the domain-specific knowledge that has grown over months of real work.</p>
+<p>That's why "we used AI" is a weak position. "We have six months of AI-generated, human-reviewed intelligence on this topic, organised and searchable" is a strong one. The only difference is whether the reports get saved.</p>
+<p>I track my agents like Pokémon, by the way, with levels and experience points. A researcher at level 4 has 27 missions behind it. But that number only means something if the 27 reports are actually accessible. If they're gone, the level is a fiction: it counts deployments, not skill. The number looks impressive. The capability doesn't exist.</p>
+<h2>The fix and the lesson</h2>
+<p>The fix took ten minutes: one line in every agent's system prompt, "save the report". Technically solved.</p>
+<p>But the lesson is bigger than a config snippet. My fleet looked functional. 384 results in 31 days, ten agents with logbooks and levels. It looked like an organised operation. And then I went looking for a report from three weeks earlier and found nothing.</p>
+<p>That's the moment you understand the difference between an expensive chat session and a real agent system. The chat session produces outputs that live and die in the conversation. The real system accumulates: today's work makes next month's work faster, cheaper, better.</p>
+<p>The only difference is whether the reports get saved. Don't build the forgetting kind.</p>
+      </div>
+      <div class="share-row">
+      <span class="share-label">Share:</span>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fagenten-ohne-gedaechtnis%2F" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a class="share-btn" href="mailto:?subject=My%20AI%20agents%20had%20no%20memory&body=My%20AI%20agents%20had%20no%20memory%20https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fagenten-ohne-gedaechtnis%2F" aria-label="Email">Email</a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fagenten-ohne-gedaechtnis%2F&text=My%20AI%20agents%20had%20no%20memory" target="_blank" rel="noopener" aria-label="X">X</a>
+      <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fagenten-ohne-gedaechtnis%2F" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      <button class="share-btn copy" data-url="https://jakubpopluhar.com/en/blog/agenten-ohne-gedaechtnis/" data-done="Copied ✓">Copy link</button>
+    </div>
+      <div class="author-box">
+        <img src="/images/profile/headshot.png" alt="Jakub Popluhar">
+        <div>
+          <div class="name">Jakub Popluhar</div>
+          <div class="bio">Business Lead at Hill Digital and AI trainer. <a href="/en/#about">More about me</a></div>
+        </div>
+      </div>
+      <div class="article-foot"><a href="/en/blog/">← All articles</a></div>
+    </div>
+  </article>
+</main>
+<footer class="blog-footer">
+    <div class="wrap">
+      <div class="links">
+        <a href="/impressum.html">Imprint</a>
+        <a href="/datenschutz.html">Privacy</a>
+      </div>
+      <div>&copy; 2026 Jakub Popluhar</div>
+    </div>
+  </footer>
+<script>
+document.querySelectorAll('.share-btn.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    navigator.clipboard.writeText(b.dataset.url).then(function(){
+      var t=b.textContent;b.textContent=b.dataset.done;setTimeout(function(){b.textContent=t;},1500);
+    });
+  });
+});
+</script>
+</body>
+</html>

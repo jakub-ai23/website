@@ -102,6 +102,7 @@ STRINGS = {
         "latest": "Neueste Beiträge",
         "view_all": "Alle ansehen →",
         "share_label": "Teilen:",
+        "share_email": "E-Mail",
         "share_copy": "Link kopieren",
         "share_copied": "Kopiert ✓",
         "author_name": "Jakub Popluhar",
@@ -126,6 +127,7 @@ STRINGS = {
         "latest": "Latest",
         "view_all": "View all →",
         "share_label": "Share:",
+        "share_email": "Email",
         "share_copy": "Copy link",
         "share_copied": "Copied ✓",
         "author_name": "Jakub Popluhar",
@@ -387,7 +389,7 @@ def share_html(s, url, title):
     return f"""<div class="share-row">
       <span class="share-label">{s['share_label']}</span>
       <a class="share-btn" href="{li}" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-      <a class="share-btn" href="{mail}" aria-label="E-Mail">E-Mail</a>
+      <a class="share-btn" href="{mail}" aria-label="{s['share_email']}">{s['share_email']}</a>
       <a class="share-btn" href="{tw}" target="_blank" rel="noopener" aria-label="X">X</a>
       <a class="share-btn" href="{fb}" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
       <button class="share-btn copy" data-url="{html.escape(url)}" data-done="{s['share_copied']}">{s['share_copy']}</button>
@@ -471,17 +473,65 @@ def post_card(s, p, lang, featured=False, small=False):
       </a>"""
 
 
+def mag_featured(s, p, lang):
+    """Magazine hero: newest post, big image (or category-colour tile) + text."""
+    cat = CAT_BY_SLUG.get(p["category"])
+    color = cat_color(cat) if cat else "#d4a017"
+    label = cat_label(cat, lang) if cat else ""
+    if p["hero"]:
+        media = f'<div class="mag-feat-img"><img src="{p["hero"]}" alt=""></div>'
+    else:
+        media = (f'<div class="mag-feat-img tile" '
+                 f'style="background:linear-gradient(135deg,{color},{color}55)">'
+                 f'<span>{html.escape(label)}</span></div>')
+    eyebrow = f'<span class="mag-eyebrow" style="color:{color}">{html.escape(label)}</span>' if label else ""
+    return f"""<a class="mag-feat" href="{s['blog_base']}/{p['slug']}/">
+      {media}
+      <div class="mag-feat-body">
+        <div class="mag-meta">{eyebrow}<span class="mag-date">{fmt_date(p['date'], lang)}</span></div>
+        <h2>{html.escape(p['title'])}</h2>
+        <p>{html.escape(p['description'] or p['lede'])}</p>
+        <span class="more">{s['read_more']}</span>
+      </div>
+    </a>"""
+
+
+def mag_grid_card(s, p, lang):
+    """Compact grid card: category-colour top border, date + category, title."""
+    cat = CAT_BY_SLUG.get(p["category"])
+    color = cat_color(cat) if cat else "#d4a017"
+    label = cat_label(cat, lang) if cat else ""
+    tail = f" &middot; {html.escape(label)}" if label else ""
+    return f"""<a class="mag-card" href="{s['blog_base']}/{p['slug']}/" style="border-top-color:{color}">
+      <span class="mag-card-date">{fmt_date(p['date'], lang)}{tail}</span>
+      <h3>{html.escape(p['title'])}</h3>
+    </a>"""
+
+
+def hreflang_links(path):
+    """Bilingual alternate links. `path` is the blog-relative tail after the
+    language base: "" for the index, "<slug>/" for an article, "<cat>/" for a
+    category. DE is the site default (x-default), mirroring the homepage."""
+    de = abs_url(f"/blog/{path}")
+    en = abs_url(f"/en/blog/{path}")
+    return (f'<link rel="alternate" hreflang="de" href="{de}">\n'
+            f'<link rel="alternate" hreflang="en" href="{en}">\n'
+            f'<link rel="alternate" hreflang="x-default" href="{de}">')
+
+
 def render_index(lang, posts):
     """Hybrid index: newest posts on top, then a cluster per category."""
     s = STRINGS[lang]
     if not posts:
         body = f'<p class="empty-note">{s["empty"]}</p>'
     else:
-        # 1) Neueste
-        latest = posts[:5]
-        cards = [post_card(s, p, lang, featured=(i == 0)) for i, p in enumerate(latest)]
+        # 1) Neueste - Magazine-Layout: Featured oben + Grid darunter
+        latest = posts[:7]
         parts = [f'<h2 class="section-h">{s["latest"]}</h2>',
-                 '<div class="post-list">' + "\n".join(cards) + "</div>"]
+                 mag_featured(s, latest[0], lang)]
+        if len(latest) > 1:
+            grid = "\n".join(mag_grid_card(s, p, lang) for p in latest[1:])
+            parts.append(f'<div class="mag-grid">{grid}</div>')
         # 2) Cluster je Kategorie (nur mit Posts)
         for cat in CATEGORIES:
             in_cat = [p for p in posts if p["category"] == cat["slug"]]
@@ -509,7 +559,8 @@ def render_index(lang, posts):
     return PAGE.format(
         lang=lang, title=s["index_title"], description=s["index_intro"],
         ogtitle=s["index_h1"], ogtype="website", canonical=canonical, ogimage=DEFAULT_OG,
-        head_extra=jsonld(PERSON), nav=nav_html(s, s["other_lang_href_index"]),
+        head_extra=hreflang_links("") + "\n" + jsonld(PERSON),
+        nav=nav_html(s, s["other_lang_href_index"]),
         content=content, footer=footer_html(s), scripts="",
     )
 
@@ -540,7 +591,7 @@ def render_category(lang, cat, posts):
     return PAGE.format(
         lang=lang, title=f"{label} - Blog - Jakub Popluhar", description=cat['desc_'+lang],
         ogtitle=label, ogtype="website", canonical=canonical, ogimage=DEFAULT_OG,
-        head_extra=jsonld(PERSON) + "\n" + jsonld(breadcrumb),
+        head_extra=hreflang_links(f"{cat['slug']}/") + "\n" + jsonld(PERSON) + "\n" + jsonld(breadcrumb),
         nav=nav_html(s, s["other_lang_href_index"]),
         content=content, footer=footer_html(s), scripts="",
     )
@@ -605,7 +656,7 @@ def render_article(lang, p):
         "mainEntityOfPage": canonical,
         "inLanguage": lang,
     }
-    head = jsonld(posting)
+    head = hreflang_links(f"{p['slug']}/") + "\n" + jsonld(posting)
     if cat:
         crumbs = [
             {"@type": "ListItem", "position": 1, "name": "Blog", "item": abs_url(f"{s['blog_base']}/")},
