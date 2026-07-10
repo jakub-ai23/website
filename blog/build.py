@@ -450,6 +450,9 @@ PAGE = """<!doctype html>
 </main>
 {footer}
 {scripts}
+<!-- Analytics: zentraler cookieless Beacon (+ Consent-gated Clarity). NICHT entfernen,
+     sonst ist der Artikel ungetrackt. Siehe assets/js/site.js. -->
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>
 """
@@ -760,6 +763,9 @@ def load(lang):
 
 
 def write(path, content):
+    # Analytics-Gate: jede gebaute HTML-Seite MUSS site.js laden, sonst kein Tracking.
+    if path.endswith(".html") and "/assets/js/site.js" not in content:
+        raise SystemExit(f"Analytics-Hook fehlt in {path}: site.js nicht im generierten HTML")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
