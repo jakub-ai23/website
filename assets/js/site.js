@@ -103,3 +103,48 @@ function jpLoadClarity() {
     else init();
   } catch (e) {}
 })();
+
+/* ===== Schicht 3: Conversion-Events (Clarity Custom Events) =====
+   Feuert nur, wenn Clarity geladen ist (= Besucher hat zugestimmt). Ohne Consent no-op.
+   Taxonomie ist gelockt -> siehe cta-erd. Reine Klick-/Submit-Delegation, kein Per-Seite-Edit. */
+(function () {
+  function jpTrack(name) {
+    try { if (window.clarity) window.clarity('event', name); } catch (e) {}
+  }
+  try {
+    // 1) Formspree-Absenden = Haupt-Conversion. submit-Event feuert auch bei fetch/preventDefault.
+    document.addEventListener('submit', function (e) {
+      var f = e.target;
+      if (!f || f.tagName !== 'FORM') return;
+      var action = (f.getAttribute('action') || '') + (f.action || '');
+      if (action.indexOf('formspree.io') === -1) return;
+      jpTrack('jp_form_submit');
+      // Interesse-Checkboxen (Lead-Qualitaet) mitlesen
+      try {
+        f.querySelectorAll('input[type=checkbox]:checked').forEach(function (cb) {
+          var v = ((cb.value || '') + ' ' + (cb.name || '')).toLowerCase();
+          if (/erstgespr/.test(v)) jpTrack('jp_form_interest_erstgespraech');
+          if (/1:1|coaching|executive/.test(v)) jpTrack('jp_form_interest_1on1');
+          if (/ressourc|ki-stack|newsletter/.test(v)) jpTrack('jp_form_interest_ressourcen');
+        });
+      } catch (e2) {}
+    }, true);
+
+    // 2) Ausgehende Money-/Kontakt-Klicks -> je nach Ziel gelocktes Event
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      var href = (a.getAttribute('href') || '').toLowerCase();
+      if (href.indexOf('cal.eu/hilldigital') !== -1) jpTrack('jp_booking_caleu');
+      else if (href.indexOf('calendly.com/jakub') !== -1) jpTrack('jp_booking_calendly');
+      else if (href.indexOf('ars.at/seminar') !== -1) jpTrack('jp_register_ars');
+      else if (href.indexOf('tectrain') !== -1) jpTrack('jp_register_tectrain');
+      else if (href.indexOf('hill-digital.at/firmen-buchung') !== -1) jpTrack('jp_register_hd_firmen');
+      else if (href.indexOf('mailto:jakub@popluhar.at') !== -1) jpTrack('jp_contact_mail');
+      else if (href.indexOf('tel:') === 0) jpTrack('jp_contact_phone');
+      else if (href.indexOf('linkedin.com') !== -1) jpTrack('jp_social_linkedin');
+      // weiche "Session buchen" (scrollt zum Formular) = Intent, nicht Buchung
+      else if (href.indexOf('#contact') !== -1 || /session buchen|book a session/i.test(a.textContent || '')) jpTrack('jp_cta_session_soft');
+    }, true);
+  } catch (e) {}
+})();
