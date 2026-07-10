@@ -85,7 +85,7 @@ Share-Buttons pro Artikel (LinkedIn zuerst, X, Facebook, Link kopieren), reine S
 - [x] Phase 2A: Typo-Vertrag + Parser (Tabellen, Pull-Quote, Caption) + Styleguide + Share + GEO-P1 + Scaffolding
 - [x] Phase 2B: Ingestion-Workflow + `import.py` (Dry-Run default, `--write` speichert draft-Stub)
 - [x] Phase 3: Kategorien (Hybrid-Index + Kategorieseiten + Breadcrumbs, DE). `category`-Feld aktiv, CATEGORIES-Config in build.py
-- [ ] Phase 4: EN-Mirror + Wikidata/Entity-Bridge, Kommentare, Start-Here, Newsletter, Messung
+- [~] Phase 4: **EN-Mirror LIVE (2026-07-08)** — 5 Artikel `blog/posts/en/`, `/en/blog/` Index+Kategorien+Artikel, DE↔EN per Slug, hreflang de/en/x-default auf allen Blog-Seiten, EN-Startseiten-Teaser, EN-Infografik (HTML-Render). Rest offen: Wikidata/Entity-Bridge, Kommentare, Start-Here, Newsletter, Messung. **REGEL: jeder neue Artikel + Nav/Startseite ab jetzt zweisprachig** (EN = gleicher Slug, nur title/lede/description/caption/body uebersetzt; Register `glossary_de_en.md` §9).
 
 ## Bekannte offene Punkte
 - EN-Kategorie-Labels bei Phase 4 bestätigen.
