@@ -10,7 +10,7 @@
     var h = location.hostname;
     if (h === 'localhost' || h === '127.0.0.1' || location.protocol === 'file:') return; // lokale Previews nicht tracken
     var i = new Image(1, 1);
-    i.src = 'https://deflifeos.popluhar.at/t.gif?site=jakubpopluhar&path=' +
+    i.src = 'https://stats.jakubpopluhar.com/px?site=jakubpopluhar&path=' +
       encodeURIComponent(location.pathname + location.search) +
       '&ref=' + encodeURIComponent(document.referrer);
   } catch (e) {}
