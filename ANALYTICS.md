@@ -84,7 +84,13 @@ The blind spot above is fixed for jakubpopluhar.com. What was done:
 
 **VERIFIED 2026-07-11 (real iPhone Safari).** 11 real (non-curl) `/px` hits landed in `beacon.log`, incl. genuine mobile Safari (`iPhone ... Version/26.5 ... Safari/604.1`) navigating `/` → `/impressum.html` → `/datenschutz.html`, all 200. The old third-party endpoint dropped these. **First-party beats Safari ITP — proven, not just theory.** (Test from a NORMAL browser only — the Comet/automation browser injects synthetic 503/204 for analytics-param URLs and is NOT a valid test.)
 
-**PRESENTATION GAP (open):** collection works, but jakubpopluhar has **no dashboard/archive wired**. The permanent archiver (`archive-from-logs.py` cron) currently runs for **hilldigital only** — the `jakubpopluhar/` archive is stale (~Jul 2), and today's real hits sit in raw `beacon.log`, unarchived, shown nowhere. The **HD dashboard is hilldigital-only** (hard `site != "hilldigital"` filter) and must stay that way — jakubpopluhar appears there ONLY as a referrer (personal site → HD leads), never as its own data. TODO: wire a jakubpopluhar archive + view (or Vera reads the raw archive).
+**Dashboard: ALREADY LIVE + WIRED** → `https://deflifeos.popluhar.at/analytics/jakubpopluhar.html` (Analytics basic-auth, `/root/.stats_htpasswd`). Regenerated every 2 min by cron (`*/2 regen-all.sh` → `regen-dashboard.sh /root/analytics/sites/jakubpopluhar.conf`). Reads `beacon.log` + rotations directly, filtered `site=jakubpopluhar` regardless of path → **counts `/px` automatically** (verified 2026-07-11: today=11 = the real iPhone-Safari hits).
+
+**IMPORTANT — two independent VPS analytics pipelines (don't confuse them):**
+- **A) deflifeos `/analytics/` hub** = `regen-dashboard.sh`, reads `beacon.log` live, per-site `.conf`, cron `*/2`. Serves jakubpopluhar, csdating, deflifeos, futureroundnet. **This is jakubpopluhar's dashboard.**
+- **B) HD dashboard v2** = `hd-dashboard/generate.py`, reads `archive/hilldigital`, cron `*/5` → `hdlab.popluhar.at/analytics.html`, **hilldigital ONLY** (hard `site==hilldigital` filter). jakubpopluhar NEVER appears here as own data — only as a referrer (personal site → HD leads).
+
+(Earlier note claimed jakubpopluhar had "no dashboard" — WRONG; that checked pipeline B's archive. Pipeline A is the JP dashboard and works.)
 
 **Correction (2026-07-10, facts-first):** the 503s seen during diagnosis came from that automation browser's own tracker-blocker, not proven to be Safari ITP. First-party genuinely defeats ITP + domain-blocklists (right move, correctly deployed), but param-pattern blockers still drop it even first-party → honest ceiling is "meaningfully better, not total." Reality check from the parallel HD migration: actual ITP/ETP block rate was small (~FF 0.1% / Mac-Safari 0.3% of hits), so this is hygiene + future-proofing, not a rescue.
 
