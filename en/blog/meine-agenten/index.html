@@ -62,7 +62,7 @@
     <div class="container">
       <a href="/en/" class="nav-logo"><svg class="logo-svg-nav" viewBox="0 0 380 125" height="46" aria-label="Jakub Popluhar"><defs><linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#bf953f"/><stop offset="18%" stop-color="#fcf6ba"/><stop offset="40%" stop-color="#b38728"/><stop offset="65%" stop-color="#fbf5b7"/><stop offset="85%" stop-color="#daa520"/><stop offset="100%" stop-color="#aa771c"/></linearGradient><filter id="goldGlow"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/></filter></defs><text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text><text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text></svg></a>
       <div class="nav-right">
-        <ul class="nav-links">
+        <ul class="nav-links" id="blogNavLinks">
           <li><a href="/en/#about">About</a></li>
           <li><a href="/en/#services">Services</a></li>
           <li><a href="/en/#proof">Results</a></li>
@@ -74,9 +74,25 @@
           <span class="nav-lang-sep">/</span>
           <a href="/en/blog/" class="active">EN</a>
         </div>
+        <button class="nav-toggle" id="blogNavToggle" aria-label="Menu" aria-expanded="false" aria-controls="blogNavLinks">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
+  <script>
+  (function(){
+    var t=document.getElementById('blogNavToggle'),l=document.getElementById('blogNavLinks');
+    if(!t||!l)return;
+    t.addEventListener('click',function(){
+      var open=l.classList.toggle('open');
+      t.setAttribute('aria-expanded',open?'true':'false');
+    });
+    l.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){l.classList.remove('open');t.setAttribute('aria-expanded','false');});
+    });
+  })();
+  </script>
 <main>
 <header class="blog-head">
     <div class="wrap">
