@@ -551,7 +551,6 @@
       <a href="#ue1">1. Prompten</a>
       <a href="#ue2">2. CITE Framework</a>
       <a href="#ue3">3. Wissensbasis</a>
-      <a href="#demo-rc">Demo. Realitäts-Check</a>
       <a href="#ue4">4. Lieferant vs. Tutor</a>
       <a href="#bonus-vm">Bonus. Grok/Perplexity</a>
     </nav>
@@ -673,31 +672,70 @@ Format: Datum, Teilnehmerliste, Tagesordnungspunkte, Beschlüsse, nächste Schri
 
       <!-- AUFGABE B -->
       <details>
-        <summary>Aufgabe B: Willkommens-E-Mail für neuen Kollegen</summary>
+        <summary>Aufgabe B: Schatten-KI-Artikel in ein Rundschreiben verwandeln</summary>
         <div class="collapsible-content">
-          <p class="step-label">Schritt 1:Nur die Aufgabe</p>
-          <div class="prompt-block">Schreibe eine Willkommens-E-Mail für einen neuen Kollegen.</div>
+          <p>Ein langer echter Artikel wird Schicht für Schicht zu etwas Nutzbarem. Alles im selben Chat (Prompt Layering), alles in ChatGPT. Sie laden keine Firmendaten hoch, die Quelle ist ein öffentlicher Artikel.</p>
 
-          <p class="step-label">Schritt 2:+ Kontext</p>
-          <div class="prompt-block">Schreibe eine Willkommens-E-Mail für einen neuen Kollegen.
+          <details>
+            <summary>Der Artikel: anzeigen und kopieren (aufklappen)</summary>
+            <div class="collapsible-content">
+              <p style="color: var(--white-muted); font-size: 0.85rem;">Klicken Sie in den Block, um den ganzen Text zu kopieren. Quelle: <a href="https://www.cio.com/article/4083473/shadow-ai-the-hidden-agents-beyond-traditional-governance.html" target="_blank">cio.com</a>, Ravi Sharma, November 2025.</p>
+              <div class="prompt-block">Shadow AI: The hidden agents beyond traditional governance (CIO.com, Ravi Sharma, Nov 2025)
 
-Situation: Nächsten Montag startet eine neue Kollegin in unserem 8-Personen-Team. Sie kommt aus einer anderen Branche, kennt niemanden, und ist etwas nervös. Wir arbeiten hybrid (3 Tage Büro, 2 Tage Home Office).</div>
+As AI adoption accelerates across the enterprise, a quieter risk is emerging in its wake: employees are deploying intelligent tools faster than organizations can govern them. The result is a widening gap between innovation and oversight, one that exposes even mature enterprises to invisible risks.
 
-          <p class="step-label">Schritt 3:+ Ziel</p>
-          <div class="prompt-block">Schreibe eine Willkommens-E-Mail für einen neuen Kollegen.
+About a decade ago, enterprises witnessed the rise of what became known as shadow IT, employees using Dropbox folders, unauthorized SaaS tools or Trello boards to bypass bureaucratic delays and get work done. Over time, CIOs came to recognize that this behavior was not rebellious; it was functional. It signaled that employees were innovating faster than governance systems could adapt.
 
-Situation: Nächsten Montag startet eine neue Kollegin in unserem 8-Personen-Team. Sie kommt aus einer anderen Branche, kennt niemanden, und ist etwas nervös. Wir arbeiten hybrid (3 Tage Büro, 2 Tage Home Office).
+Today, a new form of "unsanctioned technology" has emerged and it is far more complex. The unapproved tools are no longer just apps; they are autonomous systems, chatbots, large language models and low-code agents that learn, think, act and decide. IBM describes shadow AI as the unsanctioned use of AI tools or applications by employees without formal IT approval or oversight.
 
-Ziel: Sie soll sich willkommen fühlen, wissen was am ersten Tag passiert, und keine Angst haben.</div>
+With employees across departments using these tools to write code, summarize data or automate workflows, organizations may now be coping with a growing ecosystem of untracked, self-directed systems. Unlike shadow IT, these agents not only move data but also influence decisions. That shift from unsanctioned technology to unsanctioned intelligence marks a new governance frontier for CIOs, CISOs and internal audit teams alike.
 
-          <p class="step-label">Schritt 4:+ Ausführung</p>
-          <div class="prompt-block">Schreibe eine Willkommens-E-Mail für einen neuen Kollegen.
+Why shadow AI is growing so fast
 
-Situation: Nächsten Montag startet eine neue Kollegin in unserem 8-Personen-Team. Sie kommt aus einer anderen Branche, kennt niemanden, und ist etwas nervös. Wir arbeiten hybrid (3 Tage Büro, 2 Tage Home Office).
+The rapid rise of shadow AI reflects not rebellion but accessibility. A decade ago, deploying new technology required procurement, infrastructure and IT sponsorship. Today, all that's needed is a browser tab and an API key. With open-source models like Llama 3 and Mistral 7B running locally and commercially available LLMs on demand, anyone can build an automated process in just minutes.
 
-Ziel: Sie soll sich willkommen fühlen, wissen was am ersten Tag passiert, und keine Angst haben.
+Three dynamics drive this growth. First, democratization. Generative AI's low entry barrier has turned every employee into a potential developer or data scientist. Second, organizational pressure. Business units are under visible mandates to use AI to enhance productivity, often without a parallel mandate for governance. Third, cultural reinforcement. Modern enterprises prize initiative and speed, sometimes valuing experimentation more than adherence to process.
 
-Format: Freundlicher Du-Ton, max. 150 Wörter, 3 Abschnitte: (1) Persönliche Begrüßung, (2) Was am Montag passiert (Uhrzeit, Treffpunkt, Ansprechpartner), (3) Ein lockerer Satz zum Team (z.B. Kaffee-Tradition, Mittagessen). Keine Corporate-Phrasen.</div>
+The hidden dangers behind the automation glow
+
+Most instances of shadow AI begin with good intent. A marketing analyst uses a chatbot to draft campaign copy. A finance associate experiments with an LLM to forecast revenue. Each effort seems harmless in isolation. But collectively, these small automations form an ungoverned network of decision-making that quietly bypasses the enterprise's formal control structure.
+
+Data exposure. The first and most immediate risk is data exposure. Sensitive information often makes its way into public or third-party AI tools without adequate protection. Once entered, data may be logged, cached or used for model retraining, permanently leaving the organization's control. Komprise's 2025 IT Survey found that 90% are concerned about shadow AI from a privacy and security standpoint, nearly 80% have already experienced negative AI-related data incidents and 13% report those incidents caused financial, customer or reputational harm.
+
+Unreigned autonomy. Some agents now execute tasks on their own, such as responding to customer inquiries, approving transactions or initiating workflow changes. When intent and authorization blur, automation can easily become action without accountability.
+
+Regulatory compliance. Unlike traditional applications, most generative systems do not preserve prompt histories or version records. When a decision generated by AI needs to be reviewed, there may be no evidence trail to reconstruct it.
+
+Governance without killing innovation
+
+Heavy restrictions rarely solve innovation risk. In most organizations, prohibiting generative AI only drives its use underground, making oversight harder. The goal is not to suppress experimentation but to formalize it. The most effective programs begin with structured permission: a simple registration workflow lets teams declare the AI tools they use. Equally critical is an AI registry, a living inventory of sanctioned models, data connectors and owners.
+
+Culture change: Curiosity with a conscience
+
+No governance framework succeeds without the culture to sustain it. Policies define boundaries, but culture defines behavior. The most effective CIOs now frame AI governance not as restriction, but as responsible empowerment. Employees should be encouraged to disclose how they use AI, confident that transparency will be met with guidance, not punishment. Ultimately, the challenge for CIOs is not to suppress curiosity, but to align it with conscience.</div>
+            </div>
+          </details>
+
+          <p class="step-label">Schritt 1:Kontext schaffen (Übersetzen + Zusammenfassen)</p>
+          <div class="prompt-block">Hier ist ein englischer Artikel über Schatten-KI. Übersetze ihn ins Deutsche und fasse ihn in maximal 200 Wörtern zusammen. Behalte die wichtigsten Zahlen und Studien.
+
+[Artikel hier einfügen]</div>
+
+          <p class="step-label">Schritt 2:Anreichern (3 Vorschläge)</p>
+          <div class="prompt-block">Was fehlt in diesem Artikel für den Büroalltag in einem österreichischen Unternehmen? Gib mir drei konkrete Vorschläge, was ich ergänzen könnte.</div>
+
+          <p class="step-label">Schritt 3:CITE(R), etwas Nutzbares bauen</p>
+          <div class="prompt-block">KONTEXT: Nutze deine Zusammenfassung von oben. Ich arbeite bei [meine Firma / Branche].
+
+ZIEL: Ich will mein Team für die Risiken von Schatten-KI sensibilisieren, ohne dass sie Angst bekommen, KI überhaupt zu nutzen.
+
+AUFGABE: Schreibe ein internes Rundschreiben an mein Team.
+
+AUSFÜHRUNG: Maximal 250 Wörter, Sie-Form, freundlich aber klar. Drei konkrete Verhaltensregeln. Kein Fachjargon, kein Juristendeutsch.</div>
+
+          <p class="step-label">Schritt 4:Reality-Check (das R)</p>
+          <div class="prompt-block">Prüfe deinen eigenen Entwurf: Stimmt jede Zahl mit dem Originalartikel überein? Hast du etwas erfunden oder dazugedichtet? Was würde mein skeptischster Kollege daran bemängeln? Markiere alle unsicheren Stellen.</div>
+          <p style="color: var(--gold); font-size: 0.85rem;">Human in the Loop: Die KI liefert 80 Prozent, Sie machen die letzten 20 Prozent. Sie haften für das Ergebnis, nicht die KI.</p>
         </div>
       </details>
 
@@ -826,19 +864,6 @@ Format: Genau 3 Bulletpoints, je 1 Zeile. Ampelfarbe vor jedem Punkt (🟢 / �
       <p style="margin-top: 16px; color: var(--gold); font-size: 0.85rem;"><strong>Wichtig: Speichern Sie Ihre Dokumente!</strong> Wir verwenden sie gleich im nächsten Schritt, wenn wir Projekte anlegen.</p>
     </div>
 
-    <!-- REALITÄTS-CHECK (Demo, nach Übung 3) -->
-    <div class="exercise" id="demo-rc">
-      <div class="exercise-number">Demo</div>
-      <h3>Der Realitäts-Check</h3>
-      <p class="subtitle">Mensch vs. Maschine: Halluziniert die KI oder gibt sie zu, es nicht zu wissen?</p>
-
-      <p>Fragen Sie die KI nach einem Fakt, den nur Sie kennen. Z.B.:</p>
-
-      <div class="prompt-block">Wie heißt der CEO von A1?</div>
-
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Ziel: Die KI ist kein Wissensarchiv, sondern eine Wort-Vorhersage-Maschine. Manchmal erfindet sie Fakten.</p>
-    </div>
-
     <!-- ÜBUNG 4 -->
     <div class="exercise" id="ue4">
       <div class="exercise-number">Übung 4</div>
@@ -853,17 +878,14 @@ Format: Genau 3 Bulletpoints, je 1 Zeile. Ampelfarbe vor jedem Punkt (🟢 / �
         <tr><td><strong>Nutzen</strong></td><td>Nichts gelernt.</td><td><strong>Wissen aufgebaut.</strong></td></tr>
       </table>
 
-      <p>Jetzt sind Sie dran!</p>
+      <p class="step-label">Ihre Übung: Jetzt sind Sie dran</p>
+      <p>Nehmen Sie sich ein echtes Thema aus Ihrem Alltag und lassen Sie die KI im <strong>Tutor-Modus</strong> arbeiten, nicht als Lieferant. Wählen Sie eine Frage und legen Sie los:</p>
       <ul>
-        <li>Was möchten Sie gerne <strong>sofort wissen</strong>?</li>
-        <li>Was möchten Sie gerne <strong>lernen</strong>?</li>
-        <li>Welche <strong>Experten</strong> gibt es, die Ihr Problem schon gelöst haben?</li>
+        <li>Was möchten Sie gerade <strong>sofort wissen</strong>? (z.B. "Erklär mir den Unterschied zwischen brutto und netto in einem Angebot.")</li>
+        <li>Was möchten Sie wirklich <strong>lernen</strong> und verstehen? (z.B. "Bring mir Schritt für Schritt bei, wie ich eine gute Betreffzeile schreibe.")</li>
+        <li>Welche <strong>Experten</strong> haben Ihr Problem schon gelöst? (z.B. "Coache mich wie ein erfahrener Kommunikationstrainer.")</li>
       </ul>
-
-      <div class="magic-box">
-        <div class="label">Die Magische Formel</div>
-        <div class="prompt-block" style="text-align:left; margin:0;">Bevor du antwortest: Stelle mir 3 bis 5 gezielte Fragen, um meine Situation besser zu verstehen. Warte mit dem Entwurf, bis ich geantwortet habe.</div>
-      </div>
+      <p style="color: var(--gold); font-size: 0.85rem;">Was möchten Sie lernen? Diese Frage nehmen wir am Nachmittag wieder auf.</p>
     </div>
 
     <!-- BONUS PROMPTS -->
@@ -895,11 +917,10 @@ Format: Genau 3 Bulletpoints, je 1 Zeile. Ampelfarbe vor jedem Punkt (🟢 / �
     <nav class="sidebar-nav" id="sidebar-nm">
       <div class="nav-section-label">Nachmittag</div>
       <a href="#ue5">5. EU AI Act + NotebookLM</a>
-      <a href="#ue-schatten">6. Schatten-KI (CITE(R))</a>
-      <a href="#ue6">7. KI-Werkstatt (eigenes Problem)</a>
-      <a href="#ue7">8. Modelling of Excellence</a>
-      <a href="#ue8">9. Prompt Layering</a>
-      <a href="#ue9">10. Personalisierung</a>
+      <a href="#ue6">6. KI-Werkstatt (eigenes Problem)</a>
+      <a href="#ue7">7. Modelling of Excellence</a>
+      <a href="#ue8">8. Prompt Layering</a>
+      <a href="#ue9">9. Personalisierung</a>
       <a href="#alt-ad">Alt. Advocatus Diaboli</a>
     </nav>
 
@@ -938,102 +959,9 @@ Format: Genau 3 Bulletpoints, je 1 Zeile. Ampelfarbe vor jedem Punkt (🟢 / �
       </details>
     </div>
 
-    <!-- ÜBUNG 6: Schatten-KI Prompt Layering mit CITE(R) -->
-    <div class="exercise" id="ue-schatten">
-      <div class="exercise-number">Übung 6</div>
-      <h3>Schatten-KI: Prompt Layering mit CITE(R)</h3>
-      <p class="subtitle">Ein langer echter Artikel wird Schicht für Schicht zu etwas Nutzbarem. Alles im selben Chat, alles in ChatGPT. Sie laden keine Firmendaten hoch, die Quelle ist ein öffentlicher Artikel.</p>
-
-      <p class="step-label">Schritt 0: Den Artikel holen</p>
-      <p>Wir arbeiten mit einem echten Fachartikel über Schatten-KI (CIO.com, Ravi Sharma, November 2025). Klicken Sie in den Block, um den ganzen Text zu kopieren. Quelle: <a href="https://www.cio.com/article/4083473/shadow-ai-the-hidden-agents-beyond-traditional-governance.html" target="_blank">cio.com</a></p>
-      <details>
-        <summary>Artikel anzeigen und kopieren (aufklappen)</summary>
-        <div class="collapsible-content">
-          <div class="prompt-block">Shadow AI: The hidden agents beyond traditional governance (CIO.com, Ravi Sharma, Nov 2025)
-
-As AI adoption accelerates across the enterprise, a quieter risk is emerging in its wake: employees are deploying intelligent tools faster than organizations can govern them. The result is a widening gap between innovation and oversight, one that exposes even mature enterprises to invisible risks.
-
-About a decade ago, enterprises witnessed the rise of what became known as shadow IT, employees using Dropbox folders, unauthorized SaaS tools or Trello boards to bypass bureaucratic delays and get work done. Over time, CIOs came to recognize that this behavior was not rebellious; it was functional. It signaled that employees were innovating faster than governance systems could adapt.
-
-Today, a new form of "unsanctioned technology" has emerged and it is far more complex. The unapproved tools are no longer just apps; they are autonomous systems, chatbots, large language models and low-code agents that learn, think, act and decide. IBM describes shadow AI as the unsanctioned use of AI tools or applications by employees without formal IT approval or oversight.
-
-With employees across departments using these tools to write code, summarize data or automate workflows, organizations may now be coping with a growing ecosystem of untracked, self-directed systems. Unlike shadow IT, these agents not only move data but also influence decisions. That shift from unsanctioned technology to unsanctioned intelligence marks a new governance frontier for CIOs, CISOs and internal audit teams alike.
-
-As these autonomous agents multiply, enterprises face an emerging governance challenge: visibility into systems that learn and act without explicit permission.
-
-Why shadow AI is growing so fast
-
-The rapid rise of shadow AI reflects not rebellion but accessibility. A decade ago, deploying new technology required procurement, infrastructure and IT sponsorship. Today, all that's needed is a browser tab and an API key. With open-source models like Llama 3 and Mistral 7B running locally and commercially available LLMs on demand, anyone can build an automated process in just minutes. The result is a silent acceleration of experimentation happening well outside formal oversight.
-
-Three dynamics drive this growth. First, democratization. Generative AI's low entry barrier has turned every employee into a potential developer or data scientist. Second, organizational pressure. Business units are under visible mandates to use AI to enhance productivity, often without a parallel mandate for governance. Third, cultural reinforcement. Modern enterprises prize initiative and speed, sometimes valuing experimentation more than adherence to process. Gartner's Top Strategic Predictions for 2024 and Beyond warns that unchecked AI experimentation is emerging as a critical enterprise risk that CIOs must address through structured governance and control.
-
-This pattern mirrors earlier innovation cycles, cloud adoption, low-code tools and shadow IT, but with higher stakes. What once lived on unsanctioned apps now resides in decision-making algorithms. The challenge for CIOs is not to suppress this energy but to harness it, to transform curiosity into capability before it matures into risk.
-
-The hidden dangers behind the automation glow
-
-Most instances of shadow AI begin with good intent. A marketing analyst uses a chatbot to draft campaign copy. A finance associate experiments with an LLM to forecast revenue. A developer automates ticket updates through a private API. Each effort seems harmless in isolation. But collectively, these small automations form an ungoverned network of decision-making that quietly bypasses the enterprise's formal control structure.
-
-Data exposure. The first and most immediate risk is data exposure. Sensitive information often makes its way into public or third-party AI tools without adequate protection. Once entered, data may be logged, cached or used for model retraining, permanently leaving the organization's control. Recent evidence supports this: Komprise's 2025 IT Survey found that 90% are concerned about shadow AI from a privacy and security standpoint, nearly 80% have already experienced negative AI-related data incidents and 13% report those incidents caused financial, customer or reputational harm.
-
-Unreigned autonomy. A second risk lies in unmonitored autonomy. Some agents now execute tasks on their own, such as responding to customer inquiries, approving transactions or initiating workflow changes. When intent and authorization blur, automation can easily become action without accountability.
-
-Regulatory compliance. Finally, there is the issue of auditability. Unlike traditional applications, most generative systems do not preserve prompt histories or version records. When a decision generated by AI needs to be reviewed, there may be no evidence trail to reconstruct it. Shadow AI doesn't just live outside governance; it quietly erodes it, replacing structured oversight with opaque automation.
-
-How to detect the invisible
-
-The defining risk of shadow AI is its invisibility. Unlike traditional applications that require installation or provisioning, many AI tools operate through browser extensions, embedded scripts or personal cloud accounts. They live within the seams of legitimate workflows, which are hard to isolate and even harder to measure. For most enterprises, the first challenge is not control but simply knowing where AI already exists.
-
-Detection begins with visibility, not enforcement. Existing monitoring infrastructure can be extended before any new technology investment is made. Cloud access security brokers (CASBs) can flag unsanctioned AI endpoints, while endpoint management tools can alert security teams to unusual activity linked to model APIs.
-
-Yet, detection is as cultural as it is technical. Employees are often willing to disclose AI use if disclosure is treated as learning, not punishment. A transparent declaration process built into compliance training or self-assessment can reveal far more than any algorithmic scan. Shadow AI hides best in fear; it surfaces fastest in trust.
-
-Governance without killing innovation
-
-Heavy restrictions rarely solve innovation risk. In most organizations, prohibiting generative AI only drives its use underground, making oversight harder. The goal, therefore, is not to suppress experimentation but to formalize it, creating guardrails that enable safe autonomy rather than blanket prohibition.
-
-The most effective programs begin with structured permission. A simple registration workflow allows teams to declare the AI tools they use and describe their purpose. Security and compliance teams can then conduct a lightweight risk review and assign an internal "AI-approved" designation. This approach shifts governance from policing to partnership, encouraging visibility instead of avoidance.
-
-Equally critical is the creation of an AI registry, a living inventory of sanctioned models, data connectors and owners. This transforms oversight into asset management, ensuring that responsibility follows capability.
-
-Bringing shadow AI into the light
-
-Once organizations gain visibility into unsanctioned AI activity, the next step is to convert discovery into discipline. A practical starting point is the establishment of AI sandboxes, contained environments where employees can test and validate models using synthetic or anonymized data. Equally valuable is the creation of centralized AI gateways that log prompts, model outputs and usage patterns across approved tools. Policies should also articulate tiers of acceptable use: public LLMs may be permitted for ideation and non-sensitive drafts, while any process touching customer data or financial records must occur within approved platforms.
-
-Culture change: Curiosity with a conscience
-
-No governance framework succeeds without the culture to sustain it. Policies define boundaries, but culture defines behavior. The most effective CIOs now frame AI governance not as restriction, but as responsible empowerment. Employees should be encouraged to disclose how they use AI, confident that transparency will be met with guidance, not punishment. Ultimately, the challenge for CIOs is not to suppress curiosity, but to align it with conscience. When innovation and integrity advance in tandem, the enterprise doesn't just control technology; it earns trust in how that technology thinks, acts and determines outcomes that define modern governance.</div>
-        </div>
-      </details>
-
-      <p class="step-label">Schritt 1: Kontext schaffen (Übersetzen + Zusammenfassen)</p>
-      <p>Fügen Sie den Artikel ein und davor diesen Prompt. Zwei Fliegen mit einer Klappe: Sie sehen, wie mühelos die KI übersetzt, und Sie schrumpfen den langen Text auf eine handliche Arbeitsgrundlage (weniger Tokens für alles Weitere).</p>
-      <div class="prompt-block">Hier ist ein englischer Artikel über Schatten-KI. Übersetze ihn ins Deutsche und fasse ihn in maximal 200 Wörtern zusammen. Behalte die wichtigsten Zahlen und Studien.
-
-[Artikel hier einfügen]</div>
-
-      <p class="step-label">Schritt 2: Anreichern (3 Vorschläge)</p>
-      <p>Bleiben Sie im selben Chat. Jetzt lassen Sie die KI mitdenken, was noch fehlt.</p>
-      <div class="prompt-block">Was fehlt in diesem Artikel für den Büroalltag in einem österreichischen Unternehmen? Gib mir drei konkrete Vorschläge, was ich ergänzen könnte.</div>
-
-      <p class="step-label">Schritt 3: CITE(R), etwas Nutzbares bauen</p>
-      <p>Jetzt bauen wir aus dem Wissen ein echtes Arbeitsergebnis: ein internes Rundschreiben an Ihr Team. Achten Sie auf die vier Bausteine im Prompt.</p>
-      <div class="prompt-block">KONTEXT: Nutze deine Zusammenfassung von oben. Ich arbeite bei [meine Firma / Branche].
-
-ZIEL: Ich will mein Team für die Risiken von Schatten-KI sensibilisieren, ohne dass sie Angst bekommen, KI überhaupt zu nutzen.
-
-AUFGABE: Schreibe ein internes Rundschreiben an mein Team.
-
-AUSFÜHRUNG: Maximal 250 Wörter, Sie-Form, freundlich aber klar. Drei konkrete Verhaltensregeln. Kein Fachjargon, kein Juristendeutsch.</div>
-
-      <p class="step-label">Schritt 4: Reality-Check (das R in CITE(R))</p>
-      <p>Der wichtigste Schritt. Sie lassen die KI ihren eigenen Entwurf prüfen und übernehmen die Endkontrolle.</p>
-      <div class="prompt-block">Prüfe deinen eigenen Entwurf: Stimmt jede Zahl mit dem Originalartikel überein? Hast du etwas erfunden oder dazugedichtet? Was würde mein skeptischster Kollege daran bemängeln? Markiere alle unsicheren Stellen.</div>
-      <p style="color: var(--gold); font-size: 0.85rem;">Human in the Loop: Die KI liefert 80 Prozent, Sie machen die letzten 20 Prozent. Sie haften für das Ergebnis, nicht die KI.</p>
-    </div>
-
-    <!-- ÜBUNG 7: KI-Werkstatt -->
+    <!-- ÜBUNG 6: KI-Werkstatt -->
     <div class="exercise" id="ue6">
-      <div class="exercise-number">Übung 7</div>
+      <div class="exercise-number">Übung 6</div>
       <h3>KI-Werkstatt: Ihr eigenes Problem lösen</h3>
       <p class="subtitle">Jetzt arbeiten Sie an einem echten Pain Point aus Ihrem Arbeitsalltag. Kollegen aus der gleichen Firma: arbeiten Sie zusammen!</p>
 
@@ -1108,7 +1036,7 @@ Ausführung: Tabellenformat, klare Sprache, sofort umsetzbar. Kein Fachjargon.</
 
     <!-- ÜBUNG 7 -->
     <div class="exercise" id="ue7">
-      <div class="exercise-number">Übung 8</div>
+      <div class="exercise-number">Übung 7</div>
       <h3>Modelling of Excellence</h3>
       <p class="subtitle">Vom Hausarzt zum Spezialisten</p>
 
@@ -1132,7 +1060,7 @@ Erstelle jetzt die Lösung basierend auf diesen Fakten. Nutze konsequent den Sti
 
     <!-- ÜBUNG 8 -->
     <div class="exercise" id="ue8">
-      <div class="exercise-number">Übung 9</div>
+      <div class="exercise-number">Übung 8</div>
       <h3>Prompt Layering: Das "Tribunal"</h3>
       <p class="subtitle">a.k.a. Salami-Taktik. Kopieren Sie die Prompts nacheinander in denselben Chat.</p>
 
@@ -1172,7 +1100,7 @@ Die Mail soll professionell, motivierend und klar sein.</div>
 
     <!-- ÜBUNG 9: Personalisierung -->
     <div class="exercise" id="ue9">
-      <div class="exercise-number">Übung 10</div>
+      <div class="exercise-number">Übung 9</div>
       <h3>Personalisierung: Projekte + System Prompts</h3>
       <p class="subtitle">Machen Sie Ihre KI dauerhaft schlauer. Laden Sie Ihre Kontextdokumente vom Vormittag hoch.</p>
 
