@@ -98,6 +98,9 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- Shared layout ---------- */
 .wrap { max-width: var(--reading); margin: 0 auto; padding: 0 clamp(1.1rem, 5vw, 1.5rem); }
+/* Breiter Magazin-Container fuer den Blog-Index (Featured + Grid brauchen Breite,
+   Artikel bleiben bei --reading 720px) */
+.wrap-wide { max-width: 1140px; margin: 0 auto; padding: 0 clamp(1.1rem, 5vw, 1.5rem); }
 
 /* ---------- Blog index ---------- */
 .blog-head { text-align: center; padding: clamp(3rem, 8vw, 5.5rem) 0 2.5rem; }

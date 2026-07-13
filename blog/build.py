@@ -556,12 +556,12 @@ def render_index(lang, posts):
         body = "\n".join(parts)
 
     content = f"""<header class="blog-head">
-    <div class="wrap">
+    <div class="wrap-wide">
       <h1>{s['index_h1']}</h1>
       <p>{s['index_intro']}</p>
     </div>
   </header>
-  <section class="wrap">
+  <section class="wrap-wide">
     {body}
   </section>"""
 
