@@ -101,6 +101,8 @@ STRINGS = {
         "back_all": "← Alle Artikel",
         "latest": "Neueste Beiträge",
         "view_all": "Alle ansehen →",
+        "more_card": "Weiterlesen →",
+        "more_all": "Weitere Artikel →",
         "share_label": "Teilen:",
         "share_email": "E-Mail",
         "share_copy": "Link kopieren",
@@ -126,6 +128,8 @@ STRINGS = {
         "back_all": "← All articles",
         "latest": "Latest",
         "view_all": "View all →",
+        "more_card": "Read more →",
+        "more_all": "More articles →",
         "share_label": "Share:",
         "share_email": "Email",
         "share_copy": "Copy link",
@@ -527,10 +531,13 @@ def mag_grid_card(s, p, lang):
         media = (f'<div class="mag-card-img tile" '
                  f'style="background:linear-gradient(135deg,{color},{color}55)">'
                  f'<span>{html.escape(label)}</span></div>')
+    desc = html.escape(p['description'] or p['lede'] or "")
     return f"""<a class="mag-card" href="{s['blog_base']}/{p['slug']}/" style="--cat:{color}">
       {media}
       <span class="mag-card-date">{fmt_date(p['date'], lang)}{tail}</span>
       <h3>{html.escape(p['title'])}</h3>
+      <p class="mag-card-desc">{desc}</p>
+      <span class="mag-card-more">{s['more_card']}</span>
     </a>"""
 
 
@@ -551,14 +558,15 @@ def render_index(lang, posts):
     if not posts:
         body = f'<p class="empty-note">{s["empty"]}</p>'
     else:
-        # 1) Neueste - Magazine-Layout: Featured oben + Grid darunter
-        latest = posts[:7]
+        # 1) Neueste - Magazine-Layout: Featured (Hauptartikel) + genau 3 Karten
+        latest = posts
         parts = [f'<h2 class="section-h">{s["latest"]}</h2>',
                  mag_featured(s, latest[0], lang)]
         if len(latest) > 1:
-            grid = "\n".join(mag_grid_card(s, p, lang) for p in latest[1:])
+            grid = "\n".join(mag_grid_card(s, p, lang) for p in latest[1:4])
             parts.append(f'<div class="mag-grid">{grid}</div>')
-        # 2) Cluster je Kategorie (nur mit Posts)
+        # 2) Rest hinter "Weitere Artikel" (CSS :target, kein JS, Inhalt bleibt im DOM = GEO-sicher)
+        clusters = []
         for cat in CATEGORIES:
             in_cat = [p for p in posts if p["category"] == cat["slug"]]
             if not in_cat:
@@ -567,8 +575,11 @@ def render_index(lang, posts):
             chead = (f'<div class="cluster-head"><h2 style="color:{c}">{cat_label(cat, lang)}</h2>'
                      f'<a href="{s["blog_base"]}/{cat["slug"]}/" style="color:{c}">{s["view_all"]}</a></div>')
             ccards = "\n".join(post_card(s, p, lang, small=True) for p in in_cat[:3])
-            parts.append(f'<section class="cluster">{chead}'
-                         f'<div class="post-list small-list">{ccards}</div></section>')
+            clusters.append(f'<section class="cluster">{chead}'
+                            f'<div class="post-list small-list">{ccards}</div></section>')
+        if clusters:
+            parts.append(f'<div id="more" class="more-content">{"".join(clusters)}</div>')
+            parts.append(f'<div class="more-cta"><a href="#more" class="more-btn">{s["more_all"]}</a></div>')
         body = "\n".join(parts)
 
     content = f"""<header class="blog-head">

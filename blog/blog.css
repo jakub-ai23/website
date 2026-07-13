@@ -344,6 +344,43 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.1rem;
   line-height: 1.28;
 }
+.mag-card-desc {
+  color: var(--white-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-top: 0.55rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.mag-card-more {
+  display: inline-block;
+  margin-top: 0.7rem;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.mag-card:hover .mag-card-more { color: var(--gold-light); }
+
+/* "Weitere Artikel" - CSS-only Aufklapp (kein JS, Inhalt bleibt im DOM = GEO-sicher) */
+.more-content { display: none; }
+.more-content:target { display: block; }
+.more-cta { text-align: center; padding: 1rem 0 3rem; }
+.more-content:target + .more-cta { display: none; }
+.more-btn {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--gold);
+  border: 1.5px solid rgba(212, 160, 23, 0.4);
+  border-radius: 8px;
+  padding: 0.75rem 1.8rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.more-btn:hover { border-color: var(--gold); background: rgba(212, 160, 23, 0.08); }
+
 @media (max-width: 720px) {
   .mag-feat { grid-template-columns: 1fr; }
   .mag-feat-body { padding: 0 1.3rem 1.4rem; }
