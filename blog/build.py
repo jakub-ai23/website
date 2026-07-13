@@ -363,7 +363,7 @@ def nav_html(s, other_href):
     <div class="container">
       <a href="{home}" class="nav-logo">{LOGO_SVG}</a>
       <div class="nav-right">
-        <ul class="nav-links">
+        <ul class="nav-links" id="blogNavLinks">
           <li><a href="{home}#about">{about}</a></li>
           <li><a href="{home}#services">{services}</a></li>
           <li><a href="{home}#proof">{results}</a></li>
@@ -375,9 +375,25 @@ def nav_html(s, other_href):
           <span class="nav-lang-sep">/</span>
           <a href="{en_href}" class="{en_active}">EN</a>
         </div>
+        <button class="nav-toggle" id="blogNavToggle" aria-label="Menu" aria-expanded="false" aria-controls="blogNavLinks">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-  </nav>"""
+  </nav>
+  <script>
+  (function(){{
+    var t=document.getElementById('blogNavToggle'),l=document.getElementById('blogNavLinks');
+    if(!t||!l)return;
+    t.addEventListener('click',function(){{
+      var open=l.classList.toggle('open');
+      t.setAttribute('aria-expanded',open?'true':'false');
+    }});
+    l.querySelectorAll('a').forEach(function(a){{
+      a.addEventListener('click',function(){{l.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+    }});
+  }})();
+  </script>"""
 
 
 def share_html(s, url, title):
