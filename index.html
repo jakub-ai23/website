@@ -1471,6 +1471,27 @@
       color: var(--white);
     }
 
+    .form-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 4px;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: var(--white-muted);
+      text-align: left;
+      cursor: pointer;
+    }
+    .form-consent input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+    .form-consent a { color: var(--gold); font-weight: 600; }
+
     .contact-form textarea {
       resize: vertical;
       min-height: 80px;
@@ -2345,6 +2366,10 @@
               <input type="text" name="company" placeholder="Unternehmen / Position">
             </div>
             <textarea name="message" placeholder="Erzählen Sie mir kurz, wobei ich Ihnen helfen kann..."></textarea>
+            <label class="form-consent">
+              <input type="checkbox" name="consent">
+              <span>Ich bin einverstanden, dass mich Jakub Popluhar und die Hill Digital GmbH zu meiner Anfrage und zu passenden KI-Themen per E-Mail kontaktieren. Meine Angaben werden dafür bei Hill Digital (Brevo) gespeichert. Widerruf jederzeit möglich. Mehr in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
+            </label>
             <button type="submit" class="btn-submit">Nachricht senden &rarr;</button>
           </form>
           <div class="form-success" id="formSuccess">Vielen Dank! Ich melde mich bei Ihnen.</div>
@@ -2551,6 +2576,26 @@
           const btn = contactForm.querySelector('.btn-submit');
           btn.textContent = 'Wird gesendet...';
           btn.disabled = true;
+          // Zweiter Sink (SPOF-Absicherung): dauerhafter Lead-Datensatz in Brevo, NUR mit Einwilligung.
+          // Fire-and-forget -> blockiert/bricht die UX nie; Erfolg haengt weiter an Formspree.
+          const fd = new FormData(contactForm);
+          if (fd.get('consent') === 'on') {
+            try {
+              fetch('https://deflifeos.popluhar.at/api/brevo/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  kind: 'trainings',
+                  email: fd.get('email') || '',
+                  vorname: fd.get('name') || '',
+                  firma: fd.get('company') || '',
+                  interesse: fd.get('interest') || '',
+                  notiz: fd.get('message') || '',
+                  consent: true
+                })
+              }).catch(() => {});
+            } catch (e2) {}
+          }
           try {
             const res = await fetch(contactForm.action, {
               method: 'POST',
