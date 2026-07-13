@@ -707,7 +707,7 @@
         <div class="form-card">
           <div class="form-intro" style="margin-bottom: 24px; text-align: left;">
             <h2 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">Ressourcen anfordern</h2>
-            <p style="font-size: 0.85rem; color: var(--white-muted);">Vorname, E-Mail, ein Häkchen bei dem, was Sie interessiert. Der Rest kommt von mir.</p>
+            <p style="font-size: 0.85rem; color: var(--white-muted);">Kurz Ihre Daten, ein Klick, und ich schicke Ihnen die Ressourcen vom Training.</p>
           </div>
 
           <div class="form-error" id="arsFormError">Da ist etwas schiefgelaufen. Bitte noch einmal versuchen oder direkt an jakub@popluhar.at schreiben.</div>
@@ -721,41 +721,12 @@
 
             <div class="form-row">
               <input type="text" id="arsVorname" name="vorname" placeholder="Vorname *" required autocomplete="given-name">
-              <input type="email" id="arsEmail" name="email" placeholder="E-Mail *" required autocomplete="email">
+              <input type="text" id="arsNachname" name="nachname" placeholder="Nachname *" required autocomplete="family-name">
             </div>
-
-            <div>
-              <div class="field-label">Was interessiert Sie?</div>
-              <div class="checkbox-group">
-                <label class="checkbox-item">
-                  <input type="checkbox" name="ars_interesse" value="Ressourcen und Übungen zum Training">
-                  <span class="checkbox-box">
-                    <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
-                  </span>
-                  <span class="checkbox-label">Ressourcen und Übungen zum Training</span>
-                </label>
-                <label class="checkbox-item">
-                  <input type="checkbox" name="ars_interesse" value="Kostenloses Strategiegespräch (KI im Unternehmen)">
-                  <span class="checkbox-box">
-                    <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
-                  </span>
-                  <span class="checkbox-label">Kostenloses Strategiegespräch (KI im Unternehmen)</span>
-                </label>
-                <label class="checkbox-item">
-                  <input type="checkbox" name="ars_interesse" value="Training für mein Team (Inhouse)">
-                  <span class="checkbox-box">
-                    <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
-                  </span>
-                  <span class="checkbox-label">Training für mein Team (Inhouse)</span>
-                </label>
-                <label class="checkbox-item">
-                  <input type="checkbox" name="ars_interesse" value="Rechtskonforme KI-Lösungen (Datenschutz, EU AI Act)">
-                  <span class="checkbox-box">
-                    <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
-                  </span>
-                  <span class="checkbox-label">Rechtskonforme KI-Lösungen (Datenschutz, EU AI Act)</span>
-                </label>
-              </div>
+            <input type="email" id="arsEmail" name="email" placeholder="E-Mail *" required autocomplete="email">
+            <div class="form-row">
+              <input type="text" id="arsFirma" name="firma" placeholder="Firma (optional)" autocomplete="organization">
+              <input type="text" inputmode="tel" id="arsTelefon" name="telefon" placeholder="Telefon (optional)" autocomplete="tel">
             </div>
 
             <div>
@@ -764,7 +735,7 @@
                 <span class="checkbox-box">
                   <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                 </span>
-                <span class="checkbox-label">Hill Digital darf mich zu diesen Themen per E-Mail kontaktieren. Abmeldung jederzeit möglich.</span>
+                <span class="checkbox-label">Jakub Popluhar und Hill Digital dürfen mich per E-Mail kontaktieren. Abmeldung jederzeit möglich.</span>
               </label>
             </div>
 
@@ -819,15 +790,14 @@
         arsErrorBox.style.display = 'none';
 
         var vorname = document.getElementById('arsVorname').value.trim();
+        var nachname = document.getElementById('arsNachname').value.trim();
         var email = document.getElementById('arsEmail').value.trim();
+        var firma = document.getElementById('arsFirma').value.trim();
+        var telefon = document.getElementById('arsTelefon').value.trim();
         var consent = document.getElementById('arsConsent').checked;
         var hp = document.getElementById('arsHp').value;
-        var interesse = Array.prototype.slice
-          .call(arsForm.querySelectorAll('input[name="ars_interesse"]:checked'))
-          .map(function (el) { return el.value; })
-          .join(', ');
 
-        if (!vorname || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !consent) {
+        if (!vorname || !nachname || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !consent) {
           arsErrorBox.style.display = 'block';
           return;
         }
@@ -842,7 +812,9 @@
             kind: 'ars',
             email: email,
             vorname: vorname,
-            interesse: interesse,
+            nachname: nachname,
+            firma: firma,
+            telefon: telefon,
             consent: consent,
             hp: hp,
           }),
