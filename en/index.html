@@ -1485,6 +1485,27 @@
       color: var(--white);
     }
 
+    .form-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 4px;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: var(--white-muted);
+      text-align: left;
+      cursor: pointer;
+    }
+    .form-consent input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+    .form-consent a { color: var(--gold); font-weight: 600; }
+
     .contact-form textarea {
       resize: vertical;
       min-height: 80px;
@@ -1924,7 +1945,7 @@
           <li><a href="#services" data-slide="5">Services</a></li>
           <li><a href="#proof" data-slide="7">Results</a></li>
           <li><a href="/en/blog/">Blog</a></li>
-          <li><a href="#contact" class="nav-cta" onclick="selectInterest('1:1 Executive Session')">Book a session</a></li>
+          <li><a href="https://cal.eu/hilldigital/strategiegespraech" class="nav-cta" target="_blank" rel="noopener">Book a session</a></li>
         </ul>
         <div class="nav-lang" aria-label="Language">
           <a href="/">DE</a>
@@ -1963,7 +1984,7 @@
           <h1>"You don't know&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
           <p class="hero-sub">You know AI is changing your business. You just don't know where to start. That's what I'm here for.</p>
           <div class="hero-ctas">
-            <a href="#contact" class="btn btn-primary" onclick="selectInterest('1:1 Executive Session')">Book a session &rarr;</a>
+            <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
             <a href="#about" class="btn btn-secondary" data-slide="1">Learn more</a>
           </div>
         </div>
@@ -2155,7 +2176,7 @@
               <li><span class="icon">&#10003;</span> Hands-on with the right tools for your business</li>
               <li><span class="icon">&#10003;</span> Psychology + AI: understand why teams resist AI - and how to change that</li>
             </ul>
-            <a href="#contact" class="btn btn-primary" onclick="selectInterest('1:1 Executive Session')">Book a session &rarr;</a>
+            <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
           </div>
         </div>
 
@@ -2227,7 +2248,7 @@
 
         <div class="training-cta-note">
           <p>No date that fits?<span>Would you like to request an individual appointment? Get in touch.</span></p>
-          <a href="https://cal.eu/hilldigital/consulting" class="btn-training" target="_blank" rel="noopener">Request an appointment &rarr;</a>
+          <a href="https://cal.eu/hilldigital/training" class="btn-training" target="_blank" rel="noopener">Request an appointment &rarr;</a>
         </div>
       </div>
     </section>
@@ -2315,14 +2336,14 @@
             <span class="offer-badge">1:1</span>
             <h3>Executive Session</h3>
             <p>Personalised AI training on your own use cases. Every session delivers a concrete output.</p>
-            <button class="btn btn-primary" onclick="selectInterest('1:1 Executive Session')">Book a session &rarr;</button>
+            <a href="https://cal.eu/hilldigital/training" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
           </div>
 
           <div class="cta-offer-card">
             <span class="offer-badge">Team</span>
             <h3>In-house Training</h3>
             <p>AI skills + consumer psychology for your team. Includes AI Literacy per EU AI Act Art. 4.</p>
-            <button class="btn btn-secondary" onclick="selectInterest('Inhouse-Training (Team)')">Request pricing &rarr;</button>
+            <a href="https://cal.eu/hilldigital/training" class="btn btn-secondary" target="_blank" rel="noopener">I'm interested in trainings &rarr;</a>
           </div>
         </div>
 
@@ -2345,6 +2366,10 @@
               <input type="text" name="company" placeholder="Company / Position">
             </div>
             <textarea name="message" placeholder="Tell me briefly how I can help..."></textarea>
+            <label class="form-consent">
+              <input type="checkbox" name="consent">
+              <span>I agree that Jakub Popluhar and Hill Digital GmbH may contact me by email about my enquiry and relevant AI topics. My details will be stored at Hill Digital (Brevo) for this purpose. I can withdraw this consent at any time. More in the <a href="../datenschutz.html" target="_blank" rel="noopener">privacy policy</a>.</span>
+            </label>
             <button type="submit" class="btn-submit">Send message &rarr;</button>
           </form>
           <div class="form-success" id="formSuccess">Thank you! I'll be in touch.</div>
@@ -2551,6 +2576,26 @@
           const btn = contactForm.querySelector('.btn-submit');
           btn.textContent = 'Sending...';
           btn.disabled = true;
+          // Second sink (SPOF safeguard): durable lead record in Brevo, only with consent.
+          // Fire-and-forget -> never blocks/breaks the UX; success still keyed on Formspree.
+          const fd = new FormData(contactForm);
+          if (fd.get('consent') === 'on') {
+            try {
+              fetch('https://deflifeos.popluhar.at/api/brevo/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  kind: 'trainings',
+                  email: fd.get('email') || '',
+                  vorname: fd.get('name') || '',
+                  firma: fd.get('company') || '',
+                  interesse: fd.get('interest') || '',
+                  notiz: fd.get('message') || '',
+                  consent: true
+                })
+              }).catch(() => {});
+            } catch (e2) {}
+          }
           try {
             const res = await fetch(contactForm.action, {
               method: 'POST',
