@@ -10,7 +10,7 @@
 <meta property="og:description" content="A lawyer at the gym almost bought the wrong AI subscription. The map so this doesn't happen to you, maker, app, model, tier. For most people the middle model is enough.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jakubpopluhar.com/en/blog/ki-landkarte/">
-<meta property="og:image" content="https://jakubpopluhar.com/images/profile/headshot.png">
+<meta property="og:image" content="https://jakubpopluhar.com/images/blog/ki-landkarte-anbieter-modelle-en.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/blog/blog.css">
@@ -25,7 +25,7 @@
   "description": "A lawyer at the gym almost bought the wrong AI subscription. The map so this doesn't happen to you, maker, app, model, tier. For most people the middle model is enough.",
   "datePublished": "2026-07-05",
   "dateModified": "2026-07-05",
-  "image": "https://jakubpopluhar.com/images/profile/headshot.png",
+  "image": "https://jakubpopluhar.com/images/blog/ki-landkarte-anbieter-modelle-en.png",
   "author": {
     "@type": "Person",
     "name": "Jakub Popluhar",
@@ -83,7 +83,7 @@
     <div class="container">
       <a href="/en/" class="nav-logo"><svg class="logo-svg-nav" viewBox="0 0 380 125" height="46" aria-label="Jakub Popluhar"><defs><linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#bf953f"/><stop offset="18%" stop-color="#fcf6ba"/><stop offset="40%" stop-color="#b38728"/><stop offset="65%" stop-color="#fbf5b7"/><stop offset="85%" stop-color="#daa520"/><stop offset="100%" stop-color="#aa771c"/></linearGradient><filter id="goldGlow"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/></filter></defs><text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text><text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text></svg></a>
       <div class="nav-right">
-        <ul class="nav-links">
+        <ul class="nav-links" id="blogNavLinks">
           <li><a href="/en/#about">About</a></li>
           <li><a href="/en/#services">Services</a></li>
           <li><a href="/en/#proof">Results</a></li>
@@ -95,16 +95,33 @@
           <span class="nav-lang-sep">/</span>
           <a href="/en/blog/" class="active">EN</a>
         </div>
+        <button class="nav-toggle" id="blogNavToggle" aria-label="Menu" aria-expanded="false" aria-controls="blogNavLinks">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
+  <script>
+  (function(){
+    var t=document.getElementById('blogNavToggle'),l=document.getElementById('blogNavLinks');
+    if(!t||!l)return;
+    t.addEventListener('click',function(){
+      var open=l.classList.toggle('open');
+      t.setAttribute('aria-expanded',open?'true':'false');
+    });
+    l.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){l.classList.remove('open');t.setAttribute('aria-expanded','false');});
+    });
+  })();
+  </script>
 <main>
 <article>
     <header class="article-head">
       <div class="wrap">
-        <div class="meta">Jul 5, 2026 &middot; 5 min read &middot; <a class="cat-tag" style="color:#5aa9d6;border-color:#5aa9d666" href="/en/blog/ki-wissen/">AI Knowledge</a></div>
+        <div class="cat-eyebrow"><a href="/en/blog/ki-wissen/" style="color:#5aa9d6">AI Knowledge</a></div>
         <h1>“Anthropic? What&#x27;s that?”</h1>
         <p class="lede">The AI map for normal users: maker, model, subscription. A lawyer almost bought the wrong one.</p>
+        <div class="byline"><img class="byline-img" src="/images/profile/headshot.png" alt="Jakub Popluhar"><div class="byline-text"><span class="byline-name">Jakub Popluhar</span><span class="byline-meta">Jul 5, 2026 &middot; 5 min read</span></div></div>
         <div class="share-row">
       <span class="share-label">Share:</span>
       <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fki-landkarte%2F" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
@@ -116,7 +133,7 @@
       </div>
     </header>
     <div class="wrap">
-      
+      <figure class="article-hero-fig"><img class="article-hero" src="/images/blog/ki-landkarte-anbieter-modelle-en.png" alt=""><figcaption class="article-hero-caption">The AI map: provider, app, model, tier.</figcaption></figure>
       <div class="article-body">
 <h2>The conversation that shows everything</h2>
 <p>Between my sets at the gym I got talking with a young woman, the way you do.</p>

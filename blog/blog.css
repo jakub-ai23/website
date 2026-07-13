@@ -84,20 +84,61 @@ a { color: inherit; text-decoration: none; }
 .nav-lang a:hover { color: var(--white); }
 .nav-lang a.active { color: var(--gold); }
 .nav-lang-sep { color: rgba(255, 255, 255, 0.25); }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  margin: 6px 0;
+}
 @media (max-width: 860px) {
   .nav-right { gap: 14px; }
   .nav-links { gap: 14px; font-size: 0.82rem; }
   .nav-cta { padding: 8px 15px; }
 }
-@media (max-width: 560px) {
-  .nav, .nav .container { height: auto; }
-  .nav .container { flex-wrap: wrap; padding: 10px 16px; gap: 10px; }
-  .nav-right { flex-wrap: wrap; gap: 12px; }
-  .nav-links { gap: 12px; }
+/* Below 700px the full link row + CTA no longer fits on one line without
+   wrapping into an untidy 2-3 row stack. Collapse into the same hamburger
+   pattern the homepage already uses (id="navToggle"/"navLinks" there,
+   "blogNavToggle"/"blogNavLinks" here) so mobile nav feels consistent
+   site-wide instead of wrapping. */
+@media (max-width: 700px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: rgba(20, 20, 20, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 8px 24px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; padding: 10px 0; }
+  .nav-links a { display: inline-block; font-size: 0.95rem; }
+  .nav-links .nav-cta { display: inline-block; margin-top: 4px; }
+  .nav-toggle { display: block; }
+}
+@media (max-width: 400px) {
+  .nav .container { padding: 0 16px; }
+  .nav-right { gap: 10px; }
 }
 
 /* ---------- Shared layout ---------- */
 .wrap { max-width: var(--reading); margin: 0 auto; padding: 0 clamp(1.1rem, 5vw, 1.5rem); }
+/* Breiter Magazin-Container fuer den Blog-Index (Featured + Grid brauchen Breite,
+   Artikel bleiben bei --reading 720px) */
+.wrap-wide { max-width: 1140px; margin: 0 auto; padding: 0 clamp(1.1rem, 5vw, 1.5rem); }
 
 /* ---------- Blog index ---------- */
 .blog-head { text-align: center; padding: clamp(3rem, 8vw, 5.5rem) 0 2.5rem; }
@@ -261,11 +302,33 @@ a { color: inherit; text-decoration: none; }
 }
 .mag-card {
   display: block;
-  border-top: 2px solid var(--gold);
-  padding-top: 0.9rem;
   transition: transform 0.2s;
 }
 .mag-card:hover { transform: translateY(-3px); }
+.mag-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+  border-top: 3px solid var(--cat, var(--gold));
+}
+.mag-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+.mag-card:hover .mag-card-img img { transform: scale(1.05); }
+.mag-card-img.tile { display: flex; align-items: flex-end; padding: 0.9rem; }
+.mag-card-img.tile span {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: #fff;
+  opacity: 0.92;
+  font-size: 0.95rem;
+}
 .mag-card-date {
   display: block;
   font-family: var(--font-heading);
@@ -281,6 +344,43 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.1rem;
   line-height: 1.28;
 }
+.mag-card-desc {
+  color: var(--white-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-top: 0.55rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.mag-card-more {
+  display: inline-block;
+  margin-top: 0.7rem;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.mag-card:hover .mag-card-more { color: var(--gold-light); }
+
+/* "Weitere Artikel" - CSS-only Aufklapp (kein JS, Inhalt bleibt im DOM = GEO-sicher) */
+.more-content { display: none; }
+.more-content:target { display: block; }
+.more-cta { text-align: center; padding: 1rem 0 3rem; }
+.more-content:target + .more-cta { display: none; }
+.more-btn {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--gold);
+  border: 1.5px solid rgba(212, 160, 23, 0.4);
+  border-radius: 8px;
+  padding: 0.75rem 1.8rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.more-btn:hover { border-color: var(--gold); background: rgba(212, 160, 23, 0.08); }
+
 @media (max-width: 720px) {
   .mag-feat { grid-template-columns: 1fr; }
   .mag-feat-body { padding: 0 1.3rem 1.4rem; }
@@ -314,6 +414,29 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.2rem;
   margin-top: 1.1rem;
 }
+/* Byline unter dem Titel (HD-Struktur): Foto + Name . Datum . Lesezeit */
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+.byline-img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(212, 160, 23, 0.3);
+}
+.byline-text { display: flex; flex-direction: column; line-height: 1.35; }
+.byline-name { font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; }
+.byline-meta {
+  font-size: 0.74rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white-muted);
+}
 .article-hero-fig { margin: 2rem 0 0; }
 .article-hero {
   width: 100%;
@@ -338,6 +461,19 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.55rem;
   line-height: 1.25;
   margin-top: 2.6rem;
+  position: relative;
+  padding-top: 0.95rem;
+}
+/* HD-Signatur: goldener Akzent-Balken ueber jeder H2 */
+.article-body h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 3px;
 }
 .article-body h3 {
   font-family: var(--font-heading);
@@ -350,26 +486,34 @@ a { color: inherit; text-decoration: none; }
 .article-body strong { color: var(--white); font-weight: 600; }
 .article-body ul, .article-body ol { padding-left: 1.4rem; }
 .article-body li { margin-top: 0.5rem; }
+/* Verbatim-Zitat (>) — Kasten mit dezenter Fuellung, gedaempfter Balken (HD .rule, dunkel) */
 .article-body blockquote {
-  border-left: 3px solid var(--gold);
-  padding: 0.3rem 0 0.3rem 1.3rem;
+  border-left: 5px solid rgba(255, 255, 255, 0.25);
+  background: var(--charcoal-lighter);
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.3rem;
+  margin: 1.6rem 0;
   color: var(--white-muted);
   font-style: italic;
+  font-size: 1.08rem;
+  font-weight: 500;
 }
-/* Pull-quote (>>) — the power line, distinct from a verbatim quote */
+/* Pull-quote (>>) — die Power-Line: goldener Kasten (HD .pull, gold-getoent) */
 .article-body blockquote.pullquote {
-  border-left: none;
-  text-align: center;
+  border-left: 5px solid var(--gold);
+  background: rgba(212, 160, 23, 0.09);
+  border-radius: 0 12px 12px 0;
+  text-align: left;
   font-style: normal;
   font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
-  line-height: 1.3;
-  color: var(--gold-light);
-  padding: 1.2rem 0;
-  margin: 2.4rem 0;
-  border-top: 1px solid rgba(212,160,23,0.3);
-  border-bottom: 1px solid rgba(212,160,23,0.3);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 3vw, 1.45rem);
+  line-height: 1.45;
+  color: var(--white);
+  padding: 1rem 1.4rem;
+  margin: 1.9rem 0;
+  border-top: none;
+  border-bottom: none;
 }
 /* Tables — comparison blocks */
 .article-body .table-wrap { overflow-x: auto; }
@@ -512,8 +656,3 @@ a { color: inherit; text-decoration: none; }
 .blog-footer a { color: var(--white-muted); }
 .blog-footer a:hover { color: var(--white); }
 .blog-footer .links { margin-bottom: 0.6rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-@media (max-width: 520px) {
-  .blog-nav-right { gap: 14px; }
-  .blog-nav-right .home-link { display: none; }
-}

@@ -695,9 +695,7 @@
       <section class="hero">
         <div class="hero-inner" style="grid-template-columns: 1fr; text-align: center;">
           <div class="hero-content">
-            <div class="hero-badge">Nach dem Training</div>
-            <h1>Was passiert nach<br>dem <span class="highlight" id="typewriter-target"></span><span class="cursor">|</span></h1>
-            <p class="hero-subtitle">Bleiben Sie dran, ich schicke Ihnen die wichtigsten Ressourcen und stehe für Rückfragen bereit.</p>
+            <h1>Was möchten Sie, dass <span class="highlight">nach dem Training</span> passiert?</h1>
           </div>
         </div>
       </section>
@@ -705,11 +703,6 @@
       <!-- ARS-FORMULAR: Ressourcen anfordern (verlinkt vom CTA in ars14072026) -->
       <section class="form-section" id="ars-lead-section" style="margin-top: -20px;">
         <div class="form-card">
-          <div class="form-intro" style="margin-bottom: 24px; text-align: left;">
-            <h2 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">Ressourcen anfordern</h2>
-            <p style="font-size: 0.85rem; color: var(--white-muted);">Kurz Ihre Daten, ein Klick, und ich schicke Ihnen die Ressourcen vom Training.</p>
-          </div>
-
           <div class="form-error" id="arsFormError">Da ist etwas schiefgelaufen. Bitte noch einmal versuchen oder direkt an jakub@popluhar.at schreiben.</div>
 
           <form class="training-form" id="arsLeadForm" novalidate>
@@ -730,12 +723,46 @@
             </div>
 
             <div>
+              <div class="field-label">Was darf ich Ihnen schicken?</div>
+              <div class="checkbox-group">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="ars_interesse" value="Ressourcen und Übungen zum Training">
+                  <span class="checkbox-box">
+                    <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
+                  </span>
+                  <span class="checkbox-label">Ressourcen und Übungen zum Training</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="ars_interesse" value="Kostenloses Strategiegespräch (KI im Unternehmen)">
+                  <span class="checkbox-box">
+                    <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
+                  </span>
+                  <span class="checkbox-label">Kostenloses Strategiegespräch (KI im Unternehmen)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="ars_interesse" value="Training für mich, mein Team oder weitere Trainings">
+                  <span class="checkbox-box">
+                    <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
+                  </span>
+                  <span class="checkbox-label">Training für mich, mein Team oder weitere Trainings</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="ars_interesse" value="Rechtskonforme KI-Lösungen (Datenschutz, EU AI Act)">
+                  <span class="checkbox-box">
+                    <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
+                  </span>
+                  <span class="checkbox-label">Rechtskonforme KI-Lösungen (Datenschutz, EU AI Act)</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
               <label class="checkbox-item datenschutz-item" id="arsConsentLabel">
                 <input type="checkbox" id="arsConsent" name="consent" required>
                 <span class="checkbox-box">
                   <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                 </span>
-                <span class="checkbox-label">Jakub Popluhar und Hill Digital dürfen mich per E-Mail kontaktieren. Abmeldung jederzeit möglich.</span>
+                <span class="checkbox-label">Jakub Popluhar und Hill Digital dürfen mich per E-Mail bezüglich Angeboten in der Zukunft kontaktieren. Abmeldung jederzeit möglich.</span>
               </label>
             </div>
 
@@ -750,14 +777,6 @@
             <p>Ich melde mich bei Ihnen. Bis dahin: viel Erfolg beim Umsetzen.</p>
           </div>
         </div>
-      </section>
-
-      <!-- Nächster Kurs -->
-      <section style="text-align:center; margin-top: 40px; padding: 28px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
-        <p style="font-size: 0.85rem; color: var(--white-muted); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-bottom: 8px;">Mein nächster ARS-Kurs</p>
-        <p style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; margin-bottom: 6px;">Konsumentenpsychologie im KI-Zeitalter</p>
-        <p style="font-size: 0.9rem; color: var(--white-muted); margin-bottom: 16px;">12.05.2026 &amp; 06.07.2026 | ARS Akademie</p>
-        <a href="https://ars.at/seminar/333096" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:transparent; color:var(--gold); padding:12px 28px; border-radius:8px; font-weight:600; font-size:0.9rem; border: 1px solid var(--gold); transition: all 0.2s;">Mehr erfahren &rarr;</a>
       </section>
 
     </div>
@@ -796,8 +815,18 @@
         var telefon = document.getElementById('arsTelefon').value.trim();
         var consent = document.getElementById('arsConsent').checked;
         var hp = document.getElementById('arsHp').value;
+        var interesse = Array.prototype.slice
+          .call(arsForm.querySelectorAll('input[name="ars_interesse"]:checked'))
+          .map(function (el) { return el.value; })
+          .join(', ');
 
-        if (!vorname || !nachname || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !consent) {
+        if (!vorname || !nachname || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          arsErrorBox.textContent = 'Bitte füllen Sie Vorname, Nachname und eine gültige E-Mail aus.';
+          arsErrorBox.style.display = 'block';
+          return;
+        }
+        if (!consent) {
+          arsErrorBox.textContent = 'Bitte kreuzen Sie das Kästchen an, damit ich Ihnen die Ressourcen schicken darf.';
           arsErrorBox.style.display = 'block';
           return;
         }
@@ -815,6 +844,7 @@
             nachname: nachname,
             firma: firma,
             telefon: telefon,
+            interesse: interesse,
             consent: consent,
             hp: hp,
           }),
@@ -824,6 +854,7 @@
             if (data && data.ok === false) {
               arsSubmitBtn.disabled = false;
               arsSubmitBtn.textContent = 'Ja, schicken Sie mir das';
+              arsErrorBox.textContent = 'Da ist etwas schiefgelaufen. Bitte noch einmal versuchen oder direkt an jakub@popluhar.at schreiben.';
               arsErrorBox.style.display = 'block';
               return;
             }
@@ -833,22 +864,11 @@
           .catch(function () {
             arsSubmitBtn.disabled = false;
             arsSubmitBtn.textContent = 'Ja, schicken Sie mir das';
+            arsErrorBox.textContent = 'Da ist etwas schiefgelaufen. Bitte noch einmal versuchen oder direkt an jakub@popluhar.at schreiben.';
             arsErrorBox.style.display = 'block';
           });
       });
     })();
-
-    // Typewriter effect on "Training?"
-    const target = document.getElementById('typewriter-target');
-    const text = 'Training?';
-    let i = 0;
-    setTimeout(() => {
-      const interval = setInterval(() => {
-        target.textContent += text[i];
-        i++;
-        if (i >= text.length) clearInterval(interval);
-      }, 100);
-    }, 600);
   </script>
 
 <script src="/assets/js/site.js" defer></script>

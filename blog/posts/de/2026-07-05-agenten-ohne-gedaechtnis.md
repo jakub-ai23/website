@@ -6,6 +6,8 @@ draft: false
 category: aus-der-praxis
 description: Zehn KI-Agenten, 27 Recherche-Missionen, und die vollständigen Berichte waren alle weg. Warum Agenten standardmäßig alles vergessen, was das kostet, und der Fix, der zehn Minuten dauert.
 lede: Ich habe herausgefunden, dass ich einen Geheimdienst betreibe, der seine eigenen Berichte schreddert.
+hero: /images/blog/agenten-ohne-gedaechtnis.png
+caption: Bild mit KI generiert.
 ---
 
 ## Der Geheimdienst, der seine Berichte schreddert

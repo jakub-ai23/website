@@ -101,6 +101,8 @@ STRINGS = {
         "back_all": "← Alle Artikel",
         "latest": "Neueste Beiträge",
         "view_all": "Alle ansehen →",
+        "more_card": "Weiterlesen →",
+        "more_all": "Weitere Artikel →",
         "share_label": "Teilen:",
         "share_email": "E-Mail",
         "share_copy": "Link kopieren",
@@ -126,6 +128,8 @@ STRINGS = {
         "back_all": "← All articles",
         "latest": "Latest",
         "view_all": "View all →",
+        "more_card": "Read more →",
+        "more_all": "More articles →",
         "share_label": "Share:",
         "share_email": "Email",
         "share_copy": "Copy link",
@@ -363,7 +367,7 @@ def nav_html(s, other_href):
     <div class="container">
       <a href="{home}" class="nav-logo">{LOGO_SVG}</a>
       <div class="nav-right">
-        <ul class="nav-links">
+        <ul class="nav-links" id="blogNavLinks">
           <li><a href="{home}#about">{about}</a></li>
           <li><a href="{home}#services">{services}</a></li>
           <li><a href="{home}#proof">{results}</a></li>
@@ -375,9 +379,25 @@ def nav_html(s, other_href):
           <span class="nav-lang-sep">/</span>
           <a href="{en_href}" class="{en_active}">EN</a>
         </div>
+        <button class="nav-toggle" id="blogNavToggle" aria-label="Menu" aria-expanded="false" aria-controls="blogNavLinks">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-  </nav>"""
+  </nav>
+  <script>
+  (function(){{
+    var t=document.getElementById('blogNavToggle'),l=document.getElementById('blogNavLinks');
+    if(!t||!l)return;
+    t.addEventListener('click',function(){{
+      var open=l.classList.toggle('open');
+      t.setAttribute('aria-expanded',open?'true':'false');
+    }});
+    l.querySelectorAll('a').forEach(function(a){{
+      a.addEventListener('click',function(){{l.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+    }});
+  }})();
+  </script>"""
 
 
 def share_html(s, url, title):
@@ -500,14 +520,24 @@ def mag_featured(s, p, lang):
 
 
 def mag_grid_card(s, p, lang):
-    """Compact grid card: category-colour top border, date + category, title."""
+    """Image grid card: hero (or category-colour tile) + hover-zoom, date + category, title."""
     cat = CAT_BY_SLUG.get(p["category"])
     color = cat_color(cat) if cat else "#d4a017"
     label = cat_label(cat, lang) if cat else ""
     tail = f" &middot; {html.escape(label)}" if label else ""
-    return f"""<a class="mag-card" href="{s['blog_base']}/{p['slug']}/" style="border-top-color:{color}">
+    if p["hero"]:
+        media = f'<div class="mag-card-img"><img src="{p["hero"]}" alt="" loading="lazy"></div>'
+    else:
+        media = (f'<div class="mag-card-img tile" '
+                 f'style="background:linear-gradient(135deg,{color},{color}55)">'
+                 f'<span>{html.escape(label)}</span></div>')
+    desc = html.escape(p['description'] or p['lede'] or "")
+    return f"""<a class="mag-card" href="{s['blog_base']}/{p['slug']}/" style="--cat:{color}">
+      {media}
       <span class="mag-card-date">{fmt_date(p['date'], lang)}{tail}</span>
       <h3>{html.escape(p['title'])}</h3>
+      <p class="mag-card-desc">{desc}</p>
+      <span class="mag-card-more">{s['more_card']}</span>
     </a>"""
 
 
@@ -528,14 +558,15 @@ def render_index(lang, posts):
     if not posts:
         body = f'<p class="empty-note">{s["empty"]}</p>'
     else:
-        # 1) Neueste - Magazine-Layout: Featured oben + Grid darunter
-        latest = posts[:7]
+        # 1) Neueste - Magazine-Layout: Featured (Hauptartikel) + genau 3 Karten
+        latest = posts
         parts = [f'<h2 class="section-h">{s["latest"]}</h2>',
                  mag_featured(s, latest[0], lang)]
         if len(latest) > 1:
-            grid = "\n".join(mag_grid_card(s, p, lang) for p in latest[1:])
+            grid = "\n".join(mag_grid_card(s, p, lang) for p in latest[1:4])
             parts.append(f'<div class="mag-grid">{grid}</div>')
-        # 2) Cluster je Kategorie (nur mit Posts)
+        # 2) Rest hinter "Weitere Artikel" (CSS :target, kein JS, Inhalt bleibt im DOM = GEO-sicher)
+        clusters = []
         for cat in CATEGORIES:
             in_cat = [p for p in posts if p["category"] == cat["slug"]]
             if not in_cat:
@@ -544,17 +575,20 @@ def render_index(lang, posts):
             chead = (f'<div class="cluster-head"><h2 style="color:{c}">{cat_label(cat, lang)}</h2>'
                      f'<a href="{s["blog_base"]}/{cat["slug"]}/" style="color:{c}">{s["view_all"]}</a></div>')
             ccards = "\n".join(post_card(s, p, lang, small=True) for p in in_cat[:3])
-            parts.append(f'<section class="cluster">{chead}'
-                         f'<div class="post-list small-list">{ccards}</div></section>')
+            clusters.append(f'<section class="cluster">{chead}'
+                            f'<div class="post-list small-list">{ccards}</div></section>')
+        if clusters:
+            parts.append(f'<div id="more" class="more-content">{"".join(clusters)}</div>')
+            parts.append(f'<div class="more-cta"><a href="#more" class="more-btn">{s["more_all"]}</a></div>')
         body = "\n".join(parts)
 
     content = f"""<header class="blog-head">
-    <div class="wrap">
+    <div class="wrap-wide">
       <h1>{s['index_h1']}</h1>
       <p>{s['index_intro']}</p>
     </div>
   </header>
-  <section class="wrap">
+  <section class="wrap-wide">
     {body}
   </section>"""
 
@@ -618,15 +652,24 @@ def render_article(lang, p):
     if len(parts) > 1:
         body_html += '\n<div class="article-sources">\n' + md_to_html(parts[1]) + "\n</div>"
     cat = CAT_BY_SLUG.get(p["category"])
-    cat_tag = (f' &middot; <a class="cat-tag" style="color:{cat_color(cat)};border-color:{cat_color(cat)}66"'
-               f' href="{s["blog_base"]}/{cat["slug"]}/">{cat_label(cat, lang)}</a>'
+    # Kategorie als Eyebrow ueber dem Titel (HD-Struktur)
+    eyebrow = (f'<div class="cat-eyebrow"><a href="{s["blog_base"]}/{cat["slug"]}/"'
+               f' style="color:{cat_color(cat)}">{cat_label(cat, lang)}</a></div>'
                if cat else "")
+    # Byline unter dem Titel: Foto + Name + Datum . Lesezeit (HD-Struktur)
+    byline = (f'<div class="byline">'
+              f'<img class="byline-img" src="{AUTHOR_IMG}" alt="{s["author_name"]}">'
+              f'<div class="byline-text">'
+              f'<span class="byline-name">{s["author_name"]}</span>'
+              f'<span class="byline-meta">{fmt_date(p["date"], lang)} &middot; {p["_reading"]} {s["min_read"]}</span>'
+              f'</div></div>')
     content = f"""<article>
     <header class="article-head">
       <div class="wrap">
-        <div class="meta">{fmt_date(p['date'], lang)} &middot; {p['_reading']} {s['min_read']}{cat_tag}</div>
+        {eyebrow}
         <h1>{html.escape(p['title'])}</h1>
         {lede}
+        {byline}
         {share}
       </div>
     </header>

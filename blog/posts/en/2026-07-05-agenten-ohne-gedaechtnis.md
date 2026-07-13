@@ -6,6 +6,8 @@ draft: false
 category: aus-der-praxis
 description: Ten AI agents, 27 research missions, and the full reports were all gone. Why agents forget everything by default, what that costs, and the fix that takes ten minutes.
 lede: I found out I was running an intelligence agency that shreds its own reports.
+hero: /images/blog/agenten-ohne-gedaechtnis.png
+caption: Image generated with AI.
 ---
 
 ## The intelligence agency that shreds its own reports
