@@ -6,8 +6,8 @@ draft: false
 category: ki-wissen
 description: A lawyer at the gym almost bought the wrong AI subscription. The map so this doesn't happen to you, maker, app, model, tier. For most people the middle model is enough.
 lede: The AI map for normal users: maker, model, subscription. A lawyer almost bought the wrong one.
-hero:
-caption:
+hero: /images/blog/ki-landkarte-anbieter-modelle-en.png
+caption: The AI map: provider, app, model, tier.
 ---
 
 ## The conversation that shows everything

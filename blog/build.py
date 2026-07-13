@@ -500,12 +500,19 @@ def mag_featured(s, p, lang):
 
 
 def mag_grid_card(s, p, lang):
-    """Compact grid card: category-colour top border, date + category, title."""
+    """Image grid card: hero (or category-colour tile) + hover-zoom, date + category, title."""
     cat = CAT_BY_SLUG.get(p["category"])
     color = cat_color(cat) if cat else "#d4a017"
     label = cat_label(cat, lang) if cat else ""
     tail = f" &middot; {html.escape(label)}" if label else ""
-    return f"""<a class="mag-card" href="{s['blog_base']}/{p['slug']}/" style="border-top-color:{color}">
+    if p["hero"]:
+        media = f'<div class="mag-card-img"><img src="{p["hero"]}" alt="" loading="lazy"></div>'
+    else:
+        media = (f'<div class="mag-card-img tile" '
+                 f'style="background:linear-gradient(135deg,{color},{color}55)">'
+                 f'<span>{html.escape(label)}</span></div>')
+    return f"""<a class="mag-card" href="{s['blog_base']}/{p['slug']}/" style="--cat:{color}">
+      {media}
       <span class="mag-card-date">{fmt_date(p['date'], lang)}{tail}</span>
       <h3>{html.escape(p['title'])}</h3>
     </a>"""
@@ -618,15 +625,24 @@ def render_article(lang, p):
     if len(parts) > 1:
         body_html += '\n<div class="article-sources">\n' + md_to_html(parts[1]) + "\n</div>"
     cat = CAT_BY_SLUG.get(p["category"])
-    cat_tag = (f' &middot; <a class="cat-tag" style="color:{cat_color(cat)};border-color:{cat_color(cat)}66"'
-               f' href="{s["blog_base"]}/{cat["slug"]}/">{cat_label(cat, lang)}</a>'
+    # Kategorie als Eyebrow ueber dem Titel (HD-Struktur)
+    eyebrow = (f'<div class="cat-eyebrow"><a href="{s["blog_base"]}/{cat["slug"]}/"'
+               f' style="color:{cat_color(cat)}">{cat_label(cat, lang)}</a></div>'
                if cat else "")
+    # Byline unter dem Titel: Foto + Name + Datum . Lesezeit (HD-Struktur)
+    byline = (f'<div class="byline">'
+              f'<img class="byline-img" src="{AUTHOR_IMG}" alt="{s["author_name"]}">'
+              f'<div class="byline-text">'
+              f'<span class="byline-name">{s["author_name"]}</span>'
+              f'<span class="byline-meta">{fmt_date(p["date"], lang)} &middot; {p["_reading"]} {s["min_read"]}</span>'
+              f'</div></div>')
     content = f"""<article>
     <header class="article-head">
       <div class="wrap">
-        <div class="meta">{fmt_date(p['date'], lang)} &middot; {p['_reading']} {s['min_read']}{cat_tag}</div>
+        {eyebrow}
         <h1>{html.escape(p['title'])}</h1>
         {lede}
+        {byline}
         {share}
       </div>
     </header>
