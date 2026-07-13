@@ -820,7 +820,13 @@
           .map(function (el) { return el.value; })
           .join(', ');
 
-        if (!vorname || !nachname || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !consent) {
+        if (!vorname || !nachname || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          arsErrorBox.textContent = 'Bitte füllen Sie Vorname, Nachname und eine gültige E-Mail aus.';
+          arsErrorBox.style.display = 'block';
+          return;
+        }
+        if (!consent) {
+          arsErrorBox.textContent = 'Bitte kreuzen Sie das Kästchen an, damit ich Ihnen die Ressourcen schicken darf.';
           arsErrorBox.style.display = 'block';
           return;
         }
@@ -848,6 +854,7 @@
             if (data && data.ok === false) {
               arsSubmitBtn.disabled = false;
               arsSubmitBtn.textContent = 'Ja, schicken Sie mir das';
+              arsErrorBox.textContent = 'Da ist etwas schiefgelaufen. Bitte noch einmal versuchen oder direkt an jakub@popluhar.at schreiben.';
               arsErrorBox.style.display = 'block';
               return;
             }
@@ -857,6 +864,7 @@
           .catch(function () {
             arsSubmitBtn.disabled = false;
             arsSubmitBtn.textContent = 'Ja, schicken Sie mir das';
+            arsErrorBox.textContent = 'Da ist etwas schiefgelaufen. Bitte noch einmal versuchen oder direkt an jakub@popluhar.at schreiben.';
             arsErrorBox.style.display = 'block';
           });
       });
