@@ -61,13 +61,15 @@
     .chev{color:var(--gold);font-size:1.3rem;transition:transform .25s;flex-shrink:0}
     .card.open .chev{transform:rotate(90deg)}
     .card-body{max-height:0;opacity:0;transition:max-height .35s ease,opacity .3s ease,padding .3s ease;padding:0 20px}
-    .card.open .card-body{max-height:640px;opacity:1;padding:0 20px 20px 82px}
+    .card.open .card-body{max-height:1200px;opacity:1;padding:0 20px 20px 82px}
     .card-body .row{margin-bottom:12px}
     .card-body .row:last-child{margin-bottom:0}
     .card-body .tag{display:inline-block;font-family:var(--font-h);font-weight:600;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:3px}
     .card-body .txt{font-size:.96rem}
     .card-body .ki{color:var(--gold-light)}
     .card-body .story{color:var(--muted);font-style:italic}
+    .card-body img{width:100%;border-radius:10px;margin-top:8px;display:block;border:1px solid var(--line)}
+    .card-body .cap{font-size:.8rem;color:var(--muted);margin-top:6px;text-align:center;font-style:italic}
     .mic{background:var(--charcoal-3);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:14px}
     .mic .q{color:var(--muted);font-size:.9rem;margin-bottom:6px}
     .mic blockquote{border-left:3px solid var(--gold);padding-left:16px;margin:8px 0 4px;font-size:1.02rem}
@@ -170,6 +172,7 @@
           <div class="row"><span class="tag">Prinzip</span><div class="txt">Sagen Sie den vorhersehbaren Fehler voraus, das Plateau, die unerwartete Frage, das Elfmeterschießen, und entscheiden Sie Ihren Zug vorher. PACE: Primary, Alternate, Contingency, Emergency.</div></div>
           <div class="row"><span class="tag">Frage an sich</span><div class="txt">Was ist hier der vorhersehbare Ausfall, und was ist mein vorentschiedener Plan?</div></div>
           <div class="row"><span class="tag">Bei KI</span><div class="txt ki">Was tue ich, wenn die KI halluziniert, ausfällt, oder das Kontextfenster überläuft und sie Fehler macht? Für eine neue Aufgabe: neuer Chat. Und Zero Trust, wenn jemand per Stimme oder Video gefälscht wird.</div></div>
+          <div class="row"><img src="kontextfenster.jpg" alt="Volles Kontextfenster gegen leeres, dargestellt als überladener gegen aufgeräumten Schreibtisch"><div class="cap">Volles Kontextfenster = überladener Schreibtisch = mehr Fehler. Neuer Chat = frischer Tisch.</div></div>
           <div class="row"><span class="tag">Bild</span><div class="txt story">Den Stau vorher einplanen: buchen Sie die 30 Minuten Verspätung im Voraus, dann wirft sie Sie nicht aus der Bahn.</div></div>
         </div>
       </div>
