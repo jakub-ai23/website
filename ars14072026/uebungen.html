@@ -1012,6 +1012,7 @@ AUSFÜHRUNG: Maximal 250 Wörter, Sie-Form, freundlich aber klar. Drei konkrete 
     <nav class="sidebar-nav" id="sidebar-nm">
       <div class="nav-section-label">Nachmittag</div>
       <a href="#ue5">5. EU AI Act + NotebookLM</a>
+      <a href="fsspike.html" target="_blank" style="color:var(--gold);">&#9733; F-SSPIKE Methode</a>
       <a href="#ue6">6. KI-Werkstatt (eigenes Problem)</a>
       <a href="#ue7">7. Modelling of Excellence</a>
       <a href="#ue7b">7b. Pinpoint: 3 Coach-Fragen</a>
@@ -1057,6 +1058,14 @@ AUSFÜHRUNG: Maximal 250 Wörter, Sie-Form, freundlich aber klar. Drei konkrete 
       </details>
     </div>
 
+    <!-- F-SSPIKE METHODE-KNOPF -->
+    <div class="exercise" id="fsspike-cta" style="text-align:center; border-color: rgba(212,160,23,0.45); background: rgba(212,160,23,0.05);">
+      <div class="exercise-number">Die Methode hinter allen Übungen</div>
+      <h3>F-SSPIKE&trade;</h3>
+      <p class="subtitle" style="font-style:normal;">Ab hier hängt jede Übung an einem roten Faden: Set, Study, Pinpoint, Install, Keep score, Engineer. Öffnen Sie die Landkarte und lassen Sie sie nebenbei offen.</p>
+      <a href="fsspike.html" target="_blank" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 34px; border-radius:8px; font-weight:700; font-size:0.95rem; border:2px solid var(--gold); margin-top:6px;">F-SSPIKE öffnen &rarr;</a>
+    </div>
+
     <!-- ÜBUNG 6: KI-Werkstatt -->
     <div class="exercise" id="ue6">
       <div class="exercise-number">Übung 6</div>
@@ -1083,16 +1092,17 @@ AUSFÜHRUNG: Maximal 250 Wörter, Sie-Form, freundlich aber klar. Drei konkrete 
         </div>
       </details>
 
-      <p class="step-label">Schritt 2: Recherche (Perplexity)</p>
-      <p>Öffnen Sie <strong><a href="https://perplexity.ai" target="_blank">Perplexity.ai</a></strong>. Recherchieren Sie Ihr Problem:</p>
+      <p class="step-label">Schritt 2: Quellen sammeln (mind. 2 Videos + 2 Webseiten)</p>
+      <p>Ihr Notizbuch ist nur so gut wie seine Quellen. Sammeln Sie <strong>mindestens 2 YouTube-Videos und 2 Webseiten</strong> zu Ihrem Thema. Zum Finden hilft ein Recherche-LLM, das seine Quellen zeigt: <strong><a href="https://perplexity.ai" target="_blank">Perplexity</a></strong> (empfohlen), geht auch mit ChatGPT (Suche an) oder Gemini.</p>
       <div class="prompt-block">Ich arbeite bei [Firma/Branche] und habe folgendes Problem: [Problem beschreiben].
 
-Finde mir 2-3 aktuelle Studien, Best Practices oder Lösungsansätze. Fokus auf praktisch umsetzbare Ansätze, nicht Theorie.</div>
+Finde mir aktuelle, praktisch umsetzbare Quellen dazu: konkrete YouTube-Videos (mit Link) und Webseiten/Artikel (mit Link). Mindestens 2 Videos und 2 Webseiten. Je ein Satz, worum es geht.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Kopieren Sie die Links, die zu Ihrem Problem passen. Diese Links sind gleich Ihre Quellen im Notizbuch.</p>
 
       <details>
-        <summary>Schritt 3: In NotebookLM laden (aufklappen wenn bereit)</summary>
+        <summary>Schritt 3: Neues NotebookLM-Notizbuch bauen (aufklappen wenn bereit)</summary>
         <div class="collapsible-content">
-          <p>Erstellen Sie ein <strong>zweites Notizbuch</strong> in NotebookLM (das erste war EU AI Act). Laden Sie Ihre Perplexity-Quellen hoch. Stellen Sie Fragen:</p>
+          <p>Öffnen Sie <strong><a href="https://notebooklm.google.com" target="_blank">NotebookLM</a></strong> und erstellen Sie ein <strong>neues Notizbuch</strong> (das erste war der EU AI Act). Fügen Sie über <strong>Quelle hinzufügen</strong> Ihre gesammelten Links ein: NotebookLM nimmt YouTube-Links und Webseiten direkt. Ziel: mindestens 2 Videos + 2 Webseiten drin. Dann fragen Sie:</p>
           <div class="prompt-block">Was sind die 3 wichtigsten Erkenntnisse aus diesen Quellen für mein spezifisches Problem?</div>
           <div class="prompt-block">Welche konkreten Schritte kann ich morgen sofort umsetzen?</div>
         </div>
