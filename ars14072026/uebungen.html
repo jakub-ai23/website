@@ -1036,6 +1036,7 @@ AUSFÜHRUNG: Maximal 250 Wörter, Sie-Form, freundlich aber klar. Drei konkrete 
       <a href="#ue5">5. EU AI Act + NotebookLM</a>
       <a href="fsspike.html" target="_blank" style="color:var(--gold);">&#9733; F-SSPIKE Methode</a>
       <a href="#ue6">6. KI-Werkstatt (eigenes Problem)</a>
+      <a href="#ue6b">6b. Projekt + System-Prompt</a>
       <a href="#ue7">7. Modelling of Excellence</a>
       <a href="#ue7b">7b. Pinpoint: 3 Coach-Fragen</a>
       <a href="#ue8">8. Prompt Layering</a>
@@ -1164,6 +1165,65 @@ Ausführung: Tabellenformat, klare Sprache, sofort umsetzbar. Kein Fachjargon.</
           <div class="prompt-block">Prüfe diesen Plan kritisch: Was ist unrealistisch? Was fehlt? Was würde mein skeptischster Kollege daran bemängeln?</div>
         </div>
       </details>
+    </div>
+
+    <!-- ÜBUNG 6b: PROJEKT ANLEGEN + SYSTEM-PROMPT -->
+    <div class="exercise" id="ue6b">
+      <div class="exercise-number">Übung 6b</div>
+      <h3>Projekt anlegen + System-Prompt schreiben</h3>
+      <p class="subtitle">Machen Sie Ihre KI dauerhaft schlauer: ein Projekt mit eigener Datenbank und festen Regeln. Nehmen Sie Ihre Kontextdokumente vom Vormittag.</p>
+
+      <p>Ein <strong>Projekt</strong> ist ein eigener Raum, in dem die KI Ihre Dokumente als feste <strong>Datenbank</strong> kennt und sich an Ihre Regeln (den <strong>System-Prompt</strong>) hält. Jede neue Konversation im Projekt startet mit diesem Wissen. Drei Schritte, egal welches Tool: Projekt anlegen, Datenbank hochladen, System-Prompt einfügen.</p>
+
+      <div class="magic-box" style="text-align:left; margin:16px 0;">
+        <div class="label">System-Prompt zum Kopieren</div>
+        <div class="prompt-block" style="margin:0;">Du bist mein KI-Assistent für [Firma / Abteilung / Rolle].
+
+Wissensbasis: Berücksichtige immer meine hochgeladenen Dokumente (Firma, Rolle, Prozesse) als festen Kontext.
+
+Verhalten: Antworte auf Deutsch, in Sie-Form, konkret und knapp (max. 300 Wörter), mit klaren nächsten Schritten. Wenn dir Informationen fehlen, frage nach, bevor du rätst.</div>
+      </div>
+
+      <p style="margin-bottom:6px;">Wählen Sie Ihr Tool:</p>
+
+      <details>
+        <summary>ChatGPT: Projekt anlegen</summary>
+        <div class="collapsible-content">
+          <p class="step-label">1. Projekt anlegen</p>
+          <p>Links in der Seitenleiste auf <strong>"Neues Projekt"</strong> (New Project). Namen vergeben (z.B. "Meine Firma").</p>
+          <p class="step-label">2. Datenbank hochladen</p>
+          <p>Laden Sie im Projekt Ihre <strong>Kontextdokumente vom Vormittag</strong> hoch (Unternehmen, Rolle, Prozess). Das ist die Wissensbasis.</p>
+          <p class="step-label">3. System-Prompt einfügen</p>
+          <p>Öffnen Sie die <strong>Projektanweisungen</strong> und fügen Sie den System-Prompt von oben ein. Passen Sie die [Klammern] an.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Claude: Projekt anlegen</summary>
+        <div class="collapsible-content">
+          <p class="step-label">1. Projekt anlegen</p>
+          <p>In der linken Seitenleiste auf <strong>"Projekte"</strong>, dann "Neues Projekt". Namen vergeben.</p>
+          <p class="step-label">2. Datenbank hochladen</p>
+          <p>Laden Sie Ihre Kontextdokumente in das <strong>Projektwissen</strong> hoch. Das ist Claudes fester Wissensspeicher.</p>
+          <p class="step-label">3. System-Prompt einfügen</p>
+          <p>Unter <strong>"Projektanweisungen"</strong> den System-Prompt von oben einfügen und anpassen.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Gemini: Gem anlegen</summary>
+        <div class="collapsible-content">
+          <p>Bei Gemini heißt das Projekt <strong>"Gem"</strong>: ein eigener, gespeicherter Assistent.</p>
+          <p class="step-label">1. Gem anlegen</p>
+          <p>Links auf <strong>"Gems verwalten"</strong> (Gem-Manager), dann <strong>"Neuer Gem"</strong>. Namen vergeben.</p>
+          <p class="step-label">2. Datenbank hochladen</p>
+          <p>Fügen Sie unter <strong>"Wissen"</strong> Ihre Kontextdokumente als Dateien hinzu.</p>
+          <p class="step-label">3. System-Prompt einfügen</p>
+          <p>In das <strong>Anweisungen</strong>-Feld den System-Prompt von oben einfügen. Speichern.</p>
+        </div>
+      </details>
+
+      <p style="color: var(--gold); font-size: 0.85rem; margin-top:14px;">Ab jetzt kennt die KI in diesem Projekt Ihre Firma, Ihre Rolle und Ihren Stil, ohne dass Sie es jedes Mal neu erklären. Testen Sie es sofort mit einer echten Aufgabe.</p>
     </div>
 
     <!-- ÜBUNG 7 -->
