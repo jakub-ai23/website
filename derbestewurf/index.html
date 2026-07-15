@@ -6,7 +6,7 @@
 <title>Content-Demo für Wilhelm Tupy - Hill Digital</title>
 <meta name="description" content="Zwei Beispielartikel, gebaut von Hill Digital aus einem unveröffentlichten Wilhelm-Tupy-Interview, um zu zeigen, wie KI-gestützte Content-Produktion in seiner eigenen Stimme funktioniert.">
 <meta name="robots" content="noindex, nofollow">
-<link rel="stylesheet" href="_shared.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -26,6 +26,10 @@
   <button class="toggle-btn active" data-target="post-1" type="button">1. Quiet Quitting</button>
   <button class="toggle-btn" data-target="post-2" type="button">2. Team durch die Krise führen</button>
 </div>
+
+<div class="post-layout">
+
+<div class="post-col">
 
 <main class="post" id="post-1">
 
@@ -236,23 +240,54 @@
 
 </main>
 
+</div>
+
+<aside class="wt-sidebar">
+  <p class="sidebar-heading">Mehr lesen</p>
+
+  <button class="related-card" data-target="post-2" type="button" style="all: unset; cursor: pointer; display: block; width: 100%;">
+    <div class="thumb">
+      <span class="category-pill">Leadership</span>
+      <span class="thumb-mark">WT</span>
+    </div>
+    <div class="card-body">
+      <div class="card-meta"><span>15. Juli 2026</span> &middot; <span>Wilhelm Tupy</span></div>
+      <h4>Team durch die Krise führen: Warum Druck nur bis zum Loslassen wirkt</h4>
+      <p>Die Kroatien-Lektion: ein freiwilliger Gehaltsverzicht, getragen von Vertrauen statt Druck.</p>
+      <span class="read-more">Weiterlesen &rarr;</span>
+    </div>
+  </button>
+
+  <div class="sidebar-cta">
+    <p>Willst du wissen, wo bei deinem Team der Hebel sitzt? In einem kostenlosen Erstgespräch schauen wir gemeinsam drauf.</p>
+    <a href="#" class="book-btn">Erstgespräch buchen</a>
+  </div>
+</aside>
+
+</div>
+
 <footer class="wt-footer">
   <a class="wt-logo" href="#">WILHELM TUPY</a>
   <div>Perchtoldsdorf &middot; office@wilhelmtupy.com &middot; Inspire &amp; Lead Podcast</div>
 </footer>
 
 <script>
-  var buttons = document.querySelectorAll('.toggle-btn');
+  var toggleButtons = document.querySelectorAll('.toggle-btn');
+  var switchers = document.querySelectorAll('[data-target]');
   var posts = { 'post-1': document.getElementById('post-1'), 'post-2': document.getElementById('post-2') };
-  buttons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      buttons.forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      Object.keys(posts).forEach(function (key) {
-        posts[key].hidden = key !== btn.dataset.target;
-      });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  function showPost(target) {
+    toggleButtons.forEach(function (b) {
+      b.classList.toggle('active', b.dataset.target === target);
     });
+    Object.keys(posts).forEach(function (key) {
+      posts[key].hidden = key !== target;
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  switchers.forEach(function (el) {
+    el.addEventListener('click', function () { showPost(el.dataset.target); });
   });
 </script>
 

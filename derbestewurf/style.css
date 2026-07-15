@@ -124,11 +124,24 @@ html, body {
   color: var(--wt-ink-soft);
 }
 
-/* ---- article shell ---- */
-main.post {
-  max-width: var(--wt-max);
+/* ---- two-column post layout: content + sidebar, matches wilhelmtupy.com's post template ---- */
+.post-layout {
+  max-width: 1040px;
   margin: 0 auto;
   padding: 1rem 1.5rem 5rem;
+  display: grid;
+  grid-template-columns: minmax(0, var(--wt-max)) minmax(260px, 300px);
+  gap: 3rem;
+  align-items: start;
+}
+.post-col { min-width: 0; }
+@media (max-width: 900px) {
+  .post-layout { grid-template-columns: 1fr; }
+}
+
+/* ---- article shell ---- */
+main.post {
+  min-width: 0;
 }
 
 .post-meta-top {
@@ -308,6 +321,100 @@ ol.action-list strong { color: var(--wt-ink); }
   text-decoration: none;
   white-space: nowrap;
 }
+
+/* ---- sidebar: related-post cards, matches wilhelmtupy.com's post-page sidebar ---- */
+aside.wt-sidebar {
+  position: sticky;
+  top: 1.5rem;
+}
+.sidebar-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--wt-ink-soft);
+  margin: 0 0 1.1rem;
+}
+.related-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--wt-bg-soft);
+  border: 1px solid var(--wt-rule);
+  margin-bottom: 1.4rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.related-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.related-card .thumb {
+  position: relative;
+  height: 130px;
+  background: linear-gradient(135deg, var(--wt-dark) 0%, #34302a 60%, var(--wt-accent) 145%);
+  display: flex;
+  align-items: flex-end;
+  padding: 0.7rem;
+}
+.related-card .thumb .category-pill {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+}
+.related-card .thumb .thumb-mark {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: -0.01em;
+}
+.related-card .card-body { padding: 1rem 1.1rem 1.2rem; }
+.related-card .card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--wt-ink-soft);
+  margin-bottom: 0.5rem;
+}
+.related-card h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.35;
+  margin: 0 0 0.5rem;
+  color: var(--wt-ink);
+}
+.related-card p {
+  font-size: 0.86rem;
+  color: var(--wt-ink-soft);
+  margin: 0 0 0.6rem;
+  line-height: 1.5;
+}
+.related-card .read-more {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--wt-accent-ink);
+  background: var(--wt-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+
+.sidebar-cta {
+  background: var(--wt-dark);
+  color: #fff;
+  border-radius: 12px;
+  padding: 1.4rem;
+  margin-top: 0.5rem;
+}
+.sidebar-cta p { font-size: 0.9rem; color: var(--wt-secondary); margin: 0 0 1rem; line-height: 1.55; }
+.sidebar-cta a.book-btn { display: inline-block; }
 
 footer.wt-footer {
   background: var(--wt-dark);
