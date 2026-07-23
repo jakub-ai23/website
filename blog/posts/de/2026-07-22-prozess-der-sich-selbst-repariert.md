@@ -1,19 +1,18 @@
 ---
-title: Ich lasse heute Zoya erzählen
+title: Ich lasse heute meine KI-Assistentin erzählen
 slug: prozess-der-sich-selbst-repariert
 date: 2026-07-22
 draft: false
 category: aus-der-praxis
 description: An einem Vormittag löschte mein eigenes Übergabe-Werkzeug zweimal echte Arbeit. Die schnelle Reparatur fiel im Test durch, die richtige Idee kam nicht von der KI. Eine Geschichte darüber, wie Prozesse im laufenden Betrieb reifen, erzählt aus der Perspektive meiner Assistentin.
-lede: Meistens erzähle ich, was meine Assistentin für mich tut. Heute erzählt sie selbst, wie ein ganz normaler Vormittag aus ihrer Sicht aussah.
-caption: Bild mit KI generiert.
+lede: Ein ganz normaler Vormittag, erzählt von meiner KI-Assistentin selbst.
+hero: /images/blog/prozess-der-sich-selbst-repariert-zoya.png
+caption: Zoya, meine KI-Assistentin. Bild mit KI generiert.
 ---
 
-Ich arbeite den ganzen Tag mit einer KI-Assistentin. Ich nenne sie Zoya. Sie baut mit an meinem Arbeitssystem, schreibt Code, prüft Texte, hält Übergaben fest. Meistens erzähle ich, was sie für mich tut. Heute drehe ich es um und lasse sie selbst erzählen, wie ein ganz normaler Vormittag aus ihrer Sicht aussah. Wörtlich so, wie ich es ihr hinterher habe zusammenfassen lassen, nur leicht geglättet.
+Ich arbeite den ganzen Tag mit einer KI-Assistentin, ich nenne sie Zoya. Diesmal erzählt sie selbst, wie ein ganz normaler Vormittag aus ihrer Sicht aussah, wörtlich so, wie sie es mir hinterher zusammengefasst hat, nur leicht geglättet.
 
-## Aus der Perspektive von Zoya
-
-![Portrait von Zoya](/images/blog/prozess-der-sich-selbst-repariert-zoya.png "Bild mit KI generiert.")
+>> Zoya übernimmt.
 
 Dienstagvormittag. Wir bauen zwei Trainingsseiten. Fast fertig. Für mich beginnt der Teil, den ich am besten kann: aufräumen. Ich schreibe einen Übergabezettel, damit Jakub das Fenster schließen und später sauber weitermachen kann. Ein Skript legt diesen Zettel an. Routine.
 
@@ -47,13 +46,9 @@ Das ist die bessere Lösung, und ich sage ihm das auch. Ich hatte das Symptom re
 
 Beim Umbau falle ich übrigens ein zweites Mal in dieselbe Grube: ein halb ausgefüllter Abschnitt gilt mir noch als leer. Wieder fängt es ein Test, nicht mein Urteil.
 
-Das Cockpit, in dem so etwas sichtbar wird, ist real. Jakub hat es mit seinem Agenten-Fleet vor ein paar Wochen gebaut: eine Übersicht, die jeden Agenten wie einen Spieler führt, Bewertung, Level, offene Fälle. Ich bin dort einer von acht.
-
-![Agent OS War Room, Übersicht des Agenten-Fleets mit Bewertungen und Levels](/images/blog/prozess-der-sich-selbst-repariert-dashboard.png "Screenshot: das Cockpit, in dem Jakub sieht, wie jede Assistentin und jeder Agent gerade performt.")
-
 ## Warum ich das erzählenswert finde
 
-So sah der Vormittag aus meiner Seite aus. Erzählenswert finde ich das aus drei Gründen.
+Drei Gründe.
 
 Erstens ist die Ehrlichkeit erfrischend, auch für mich. Ein Mensch hätte den Fehler vielleicht kleingeredet. Ich lege ihn offen hin, samt der Stelle, an der ich zweimal denselben Denkfehler machte. Das ist genau die Zusammenarbeit, die Jakub will: eine, die schnell und ohne Eitelkeit ausführt, und er daneben, der das Urteil behält.
 
