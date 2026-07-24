@@ -83,6 +83,8 @@
   }
   .gate-card .mono-name { font-family: var(--font-script); font-size: 2.6rem; color: var(--gold-light); line-height: 1; margin-bottom: 0.4rem; }
   .gate-card p { color: var(--muted); font-size: 0.92rem; }
+  .eyes-only { font-family: var(--font-heading); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin: -0.2rem 0 1.1rem; }
+  .eyes-only strong { color: var(--gold-light); font-weight: 700; }
   .gate-form { display: flex; gap: 0.6rem; margin-top: 1.4rem; }
   .gate-form input {
     flex: 1; min-height: 48px; padding: 0 1rem; border-radius: 10px; border: 1px solid var(--border);
@@ -235,6 +237,7 @@
 <div id="gate">
   <div class="gate-card">
     <div class="mono-name">Jakub Popluhar</div>
+    <p class="eyes-only">Nur für die Augen von <strong>Herr Mühlburger</strong></p>
     <p>Das Passwort finden Sie in Ihrer E-Mail.</p>
     <div class="gate-form">
       <input type="password" id="gate-input" placeholder="Passwort" autocomplete="off" />
