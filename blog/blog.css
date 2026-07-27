@@ -543,6 +543,13 @@ a { color: inherit; text-decoration: none; }
   transform: translateX(-50%);
 }
 .article-body .body-fig img { width: 100%; }
+/* Narrow variant — for detail screenshots/crops that should sit inside the
+   reading column, not break out wide like a full infographic */
+.article-body .body-fig-narrow {
+  width: min(80%, 560px);
+  margin: 2.2rem auto;
+  transform: none;
+}
 .article-body .body-fig figcaption {
   color: var(--white-muted);
   font-size: 0.8rem;

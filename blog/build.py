@@ -197,6 +197,7 @@ def lint_post(p, lang):
 # ---------------------------------------------------------------------------
 IMG_INLINE = re.compile(r'!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)')
 IMG_BLOCK = re.compile(r'^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)\s*$')
+IMG_NARROW_SUFFIX = "|narrow"
 
 
 def _inline(text):
@@ -299,7 +300,11 @@ def md_to_html(md):
         if m:
             alt, src, cap = m.group(1), m.group(2), m.group(3)
             if cap:
-                out.append(f'<figure class="body-fig"><img src="{src}" alt="{html.escape(alt)}">'
+                fig_class = "body-fig"
+                if cap.endswith(IMG_NARROW_SUFFIX):
+                    cap = cap[:-len(IMG_NARROW_SUFFIX)]
+                    fig_class = "body-fig body-fig-narrow"
+                out.append(f'<figure class="{fig_class}"><img src="{src}" alt="{html.escape(alt)}">'
                            f'<figcaption>{html.escape(cap)}</figcaption></figure>')
             else:
                 out.append(f'<img src="{src}" alt="{html.escape(alt)}">')
@@ -646,8 +651,8 @@ def render_article(lang, p):
         hero = ""
     lede = f'<p class="lede">{html.escape(p["lede"])}</p>' if p["lede"] else ""
     share = share_html(s, canonical, p["title"])
-    # split off a trailing "Quellen"/"Sources" section -> render ultra small
-    parts = re.split(r"(?m)^(?=##\s+(?:Quellen|Sources)\b)", p["_body"], maxsplit=1)
+    # split off a trailing "Quellen"/"Sources"/"Hinweis" section -> render ultra small
+    parts = re.split(r"(?m)^(?=##\s+(?:Quellen|Sources|Hinweis)\b)", p["_body"], maxsplit=1)
     body_html = md_to_html(parts[0])
     if len(parts) > 1:
         body_html += '\n<div class="article-sources">\n' + md_to_html(parts[1]) + "\n</div>"
