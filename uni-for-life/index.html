@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Jakub Popluhar · Profil</title>
+<style>
+  @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/great-vibes-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/inter-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/inter-500.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/inter-600.woff2) format('woff2'); }
+  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(fonts/montserrat.woff2) format('woff2'); }
+
+  :root {
+    --gold: #d4a017;
+    --gold-light: #e8b84a;
+    --gold-dark: #b8890f;
+    --charcoal: #0a0a0a;
+    --charcoal-light: #141414;
+    --charcoal-lighter: #1e1e1e;
+    --ink: #f2f0eb;
+    --muted: #9a978e;
+    --border: rgba(212,160,23,0.18);
+    --font-heading: 'Montserrat', Arial, sans-serif;
+    --font-body: 'Inter', Arial, sans-serif;
+    --font-script: 'Great Vibes', cursive;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--charcoal);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 { font-family: var(--font-heading); margin: 0; }
+  a { color: var(--gold); }
+  p { margin: 0 0 0.9rem; color: var(--ink); }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+  .eyebrow { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 0.6rem; }
+
+  /* ambient background */
+  #ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.28; animation: drift 26s ease-in-out infinite; }
+  .blob.b1 { width: 480px; height: 480px; background: var(--gold); top: -140px; left: -120px; animation-delay: 0s; }
+  .blob.b2 { width: 420px; height: 420px; background: #7a4fd6; top: 40%; right: -160px; animation-delay: -8s; }
+  .blob.b3 { width: 380px; height: 380px; background: var(--gold-dark); bottom: -160px; left: 30%; animation-delay: -16s; }
+  @keyframes drift {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(40px,-30px) scale(1.08); }
+    66% { transform: translate(-30px,25px) scale(0.95); }
+  }
+  @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }
+
+  /* cursor glow */
+  #cursor-glow {
+    position: fixed; width: 380px; height: 380px; border-radius: 50%; pointer-events: none; z-index: 1;
+    background: radial-gradient(circle, rgba(212,160,23,0.10) 0%, transparent 70%);
+    transform: translate(-50%,-50%); transition: opacity 0.3s; opacity: 0;
+  }
+  @media (hover: hover) { #cursor-glow { opacity: 1; } }
+
+  main, header, footer { position: relative; z-index: 2; }
+
+  .site-nav { position: relative; z-index: 2; padding: 1.4rem 1.5rem 0; }
+  .site-nav a { display: inline-flex; }
+  .site-nav img { display: block; }
+
+  /* ---------- GATE ---------- */
+  #gate {
+    position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 50% 30%, #1a1a1a 0%, #050505 75%);
+    transition: opacity 0.6s ease, visibility 0.6s;
+  }
+  #gate.unlocked { opacity: 0; visibility: hidden; pointer-events: none; }
+  .gate-card {
+    width: min(420px, 90vw); text-align: center; padding: 2.6rem 2rem; border: 1px solid var(--border);
+    border-radius: 18px; background: rgba(20,20,20,0.7); backdrop-filter: blur(14px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+  }
+  .gate-card .mono-name { font-family: var(--font-script); font-size: 2.6rem; color: var(--gold-light); line-height: 1; margin-bottom: 0.4rem; }
+  .gate-card p { color: var(--muted); font-size: 0.92rem; }
+  .eyes-only { font-family: var(--font-heading); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin: -0.2rem 0 1.1rem; }
+  .eyes-only strong { color: var(--gold-light); font-weight: 700; }
+  .gate-form { display: flex; gap: 0.6rem; margin-top: 1.4rem; }
+  .gate-form input {
+    flex: 1; min-height: 48px; padding: 0 1rem; border-radius: 10px; border: 1px solid var(--border);
+    background: #111; color: var(--ink); font-size: 1rem; font-family: var(--font-body);
+  }
+  .gate-form input:focus { outline: none; border-color: var(--gold); }
+  .gate-form button {
+    min-height: 48px; padding: 0 1.4rem; border-radius: 10px; border: none; cursor: pointer;
+    background: var(--gold); color: #141414; font-weight: 700; font-family: var(--font-heading);
+    transition: transform 0.15s, background 0.2s;
+  }
+  .gate-form button:hover { background: var(--gold-light); transform: translateY(-1px); }
+  #gate-error { color: #e8917a; font-size: 0.84rem; margin-top: 0.8rem; min-height: 1.2em; }
+
+  /* ---------- HERO ---------- */
+  header.hero { padding: 7rem 0 5rem; }
+  .hero-badge { display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.78rem; color: var(--gold-light); margin-bottom: 1.4rem; letter-spacing: 0.04em; }
+  .greeting { font-family: var(--font-heading); font-weight: 700; font-size: 2rem; color: var(--ink); margin-bottom: 0.4rem; min-height: 1.6em; }
+  .greeting-cursor { display: inline-block; color: var(--gold); animation: blink 0.9s step-end infinite; }
+  .greeting-cursor.done { display: none; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .greeting-sub { font-size: 0.92rem; color: var(--muted); margin-bottom: 1.6rem; opacity: 0; transition: opacity 0.6s ease; }
+  .greeting-sub.show { opacity: 1; }
+  h1.hero-name { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.01em; }
+  h1.hero-name .script { font-family: var(--font-script); color: var(--gold); font-weight: 400; font-size: 0.5em; display: block; margin-top: 0.15em; }
+  .hero-role { font-size: 1.15rem; color: var(--muted); margin-top: 0.6rem; max-width: 640px; }
+  .hero-lede { font-size: 1.05rem; max-width: 640px; margin-top: 1.4rem; color: #d8d5cc; }
+  .hero-cta { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: center; }
+  @media (max-width: 800px) { .hero-grid { grid-template-columns: 1fr; } }
+  .hero-photo-wrap { border-radius: 18px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,160,23,0.18); }
+  .hero-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .staerken-split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  @media (max-width: 800px) { .staerken-split { grid-template-columns: 1fr; } }
+  .staerken-photo-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .suit-photo { width: 100%; max-width: 420px; height: auto; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.55)); }
+  .staerken-grid { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.6rem; }
+  .degree-caption { margin-top: 1rem; font-size: 0.84rem; color: var(--muted); max-width: 320px; }
+  .staerke-item { padding: 1.6rem; border-radius: 14px; border: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+  .staerke-num { font-family: var(--font-heading); font-weight: 800; font-size: 1.6rem; color: var(--gold); margin-bottom: 0.6rem; }
+  .staerke-title { font-family: var(--font-heading); font-weight: 700; font-size: 1.02rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .staerke-item p { font-size: 0.92rem; color: #cfccc3; margin: 0; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem; min-height: 48px; padding: 0 1.5rem; border-radius: 10px;
+    font-weight: 700; font-family: var(--font-heading); font-size: 0.92rem; text-decoration: none; cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .btn-primary { background: var(--gold); color: #141414; border: none; }
+  .btn-primary:hover { color: #141414; }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+  .magnetic { will-change: transform; }
+
+  /* section shell */
+  section { padding: 4rem 0; border-top: 1px solid var(--border); }
+  .section-head { max-width: 640px; margin-bottom: 2.4rem; }
+  .section-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; }
+
+  /* ---------- CV ---------- */
+  .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  @media (max-width: 800px) { .cv-grid { grid-template-columns: 1fr; } }
+  .cv-block h3 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 1rem; }
+  .cv-row { display: flex; gap: 1rem; margin-bottom: 1.1rem; padding-left: 1rem; border-left: 2px solid var(--border); position: relative; }
+  .cv-row::before { content: ''; position: absolute; left: -5px; top: 0.3rem; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+  .cv-row .when { font-size: 0.78rem; color: var(--muted); font-weight: 600; white-space: nowrap; flex: 0 0 150px; padding-top: 0.1rem; }
+  .cv-row .what .t { font-weight: 700; font-size: 0.98rem; }
+  .cv-row .what .o { color: var(--muted); font-size: 0.86rem; font-style: italic; }
+  .cv-row .what ul { margin: 0.3rem 0 0; padding-left: 1.1rem; }
+  .cv-row .what li { font-size: 0.86rem; color: #cfccc3; margin-bottom: 0.15rem; }
+  @media (max-width: 560px) { .cv-row { flex-direction: column; gap: 0.2rem; } .cv-row .when { flex: none; } }
+  .chip-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.4rem; }
+  .chip { padding: 0.35rem 0.8rem; border-radius: 999px; border: 1px solid var(--border); font-size: 0.82rem; color: var(--gold-light); }
+
+  .personal-photo-wrap { margin-top: 1.4rem; text-align: center; }
+  .personal-photo { width: 100%; max-width: 360px; border-radius: 14px; box-shadow: 0 24px 55px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,160,23,0.15); }
+  .personal-photo-caption { margin-top: 0.8rem; font-size: 0.86rem; color: var(--muted); }
+
+  .jump-wrap { text-align: center; padding: 1rem 0 3rem; }
+  .jump-wrap h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); max-width: 700px; margin: 0 auto 2rem; }
+  .jump-video { width: 100%; max-width: 640px; min-width: min(100%, 50vw); border-radius: 16px; box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,160,23,0.18); display: block; margin: 0 auto; }
+  .jump-wrap .btn { margin-top: 2rem; }
+  .jump-ps { margin-top: 1.4rem; font-size: 0.86rem; color: var(--muted); max-width: 520px; margin-left: auto; margin-right: auto; }
+
+  /* ---------- TRAININGS (tilt cards) ---------- */
+  .train-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; perspective: 1200px; }
+  @media (max-width: 760px) { .train-grid { grid-template-columns: 1fr; } }
+  .train-card {
+    position: relative; padding: 1.8rem; border-radius: 16px; border: 1px solid var(--border);
+    background: linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.005));
+    transform-style: preserve-3d; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    overflow: hidden;
+  }
+  .train-card::after {
+    content: ''; position: absolute; inset: 0; border-radius: 16px; padding: 1px;
+    background: linear-gradient(120deg, transparent, rgba(212,160,23,0.5), transparent);
+    background-size: 220% 220%; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.3s;
+  }
+  .train-card:hover { box-shadow: 0 30px 60px rgba(0,0,0,0.5); border-color: rgba(212,160,23,0.4); }
+  .train-card:hover::after { opacity: 1; animation: sheen 2.4s linear infinite; }
+  @keyframes sheen { 0% { background-position: 0% 0%; } 100% { background-position: 220% 220%; } }
+  .train-tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-light); margin-bottom: 0.5rem; }
+  .train-card h3 { font-size: 1.18rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .train-card p { font-size: 0.9rem; color: #cfccc3; margin-bottom: 0; }
+  .train-card .train-meta { margin-top: 0.9rem; font-size: 0.78rem; color: var(--muted); }
+
+  .konsum-strip {
+    margin-top: 1.4rem; display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 1.4rem;
+    border-radius: 14px; border: 1px dashed var(--border); background: rgba(212,160,23,0.04); flex-wrap: wrap;
+  }
+  .konsum-strip .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); flex: none; }
+  .konsum-strip strong { color: var(--gold-light); }
+  .konsum-strip span.txt { flex: 1; min-width: 240px; font-size: 0.92rem; color: #d8d5cc; }
+
+  /* ---------- REFERENCES marquee ---------- */
+  .ref-marquee { overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .ref-track { display: flex; gap: 3rem; width: max-content; animation: scroll-x 24s linear infinite; align-items: center; }
+  .ref-track span { font-family: var(--font-heading); font-weight: 700; font-size: 1.05rem; color: var(--muted); white-space: nowrap; opacity: 0.8; }
+  .ref-logo { height: 34px; width: auto; flex-shrink: 0; opacity: 0.55; filter: grayscale(100%) brightness(2) contrast(0.5); transition: opacity 0.4s, filter 0.4s; }
+  .ref-marquee:hover .ref-logo { opacity: 0.8; }
+  .ref-item { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; white-space: nowrap; }
+  @keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .ref-track { animation: none; } }
+
+  /* ---------- CTA ---------- */
+  .cta-block { text-align: center; padding: 5rem 0; }
+  .cta-block h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); max-width: 700px; margin: 0 auto 1.6rem; }
+
+  footer { padding: 2.4rem 0 3rem; text-align: center; color: var(--muted); font-size: 0.82rem; }
+  footer a { color: var(--muted); text-decoration: underline; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal.d1 { transition-delay: 0.08s; }
+  .reveal.d2 { transition-delay: 0.16s; }
+  .reveal.d3 { transition-delay: 0.24s; }
+</style>
+</head>
+<body>
+
+<div id="ambient"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div id="cursor-glow"></div>
+
+<header class="site-nav">
+  <a href="https://jakubpopluhar.com" target="_blank" rel="noopener" aria-label="Jakub Popluhar">
+    <img src="images/logos/jakub-popluhar-logo.svg" alt="Jakub Popluhar" height="36">
+  </a>
+</header>
+
+<div id="gate">
+  <div class="gate-card">
+    <div class="mono-name">Jakub Popluhar</div>
+    <p class="eyes-only">Nur für die Augen von <strong>Eva</strong></p>
+    <p>Das Passwort finden Sie in Ihrer E-Mail.</p>
+    <div class="gate-form">
+      <input type="password" id="gate-input" placeholder="Passwort" autocomplete="off" />
+      <button id="gate-btn" type="button">Ansehen</button>
+    </div>
+    <div id="gate-error"></div>
+  </div>
+</div>
+
+<main id="content" style="display:none;">
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="greeting"><span id="greeting-text"></span><span class="greeting-cursor" id="greeting-cursor">|</span></p>
+        <p class="greeting-sub" id="greeting-sub">Viel Spaß beim Lesen.</p>
+        <div class="hero-badge reveal">Persönliches Profil · UNI for LIFE</div>
+        <h1 class="hero-name reveal d1">Jakub Popluhar<span class="script">Master of Education</span></h1>
+        <p class="hero-role reveal d2">KI-Trainer &amp; Konsumentenpsychologe, Sport Coach, Event Manager und Abenteurer.</p>
+        <div class="hero-cta reveal d3">
+          <a class="btn btn-primary magnetic" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Termin buchen →</a>
+          <a class="btn btn-ghost" href="#cv">Zum Lebenslauf ↓</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap reveal d2">
+        <img src="images/personal/jakub-viennaup-action.jpg" alt="Jakub Popluhar mit Teilnehmenden bei der ViennaUP" class="hero-photo">
+      </div>
+    </div>
+  </header>
+
+  <section id="staerken">
+    <div class="container staerken-split">
+      <div class="staerken-text">
+        <div class="section-head reveal">
+          <div class="eyebrow">Was mich unterscheidet</div>
+          <h2>Drei Stärken.</h2>
+        </div>
+        <div class="staerken-grid">
+          <div class="staerke-item reveal">
+            <div class="staerke-num">01</div>
+            <div class="staerke-title">Heterogene Gruppen</div>
+            <p>Heterogene Gruppen mitnehmen, wenn Teilnehmende mit sehr unterschiedlichem Vorwissen im selben Raum gemeinsam lernen.</p>
+          </div>
+          <div class="staerke-item reveal d1">
+            <div class="staerke-num">02</div>
+            <div class="staerke-title">Individualisierung</div>
+            <p>Genauso präzise in homogenen Gruppen, wenn ich Inhalt und Tiefe vorab genau auf das vorbereite, was ein Unternehmen tatsächlich geliefert haben will.</p>
+          </div>
+          <div class="staerke-item reveal d2">
+            <div class="staerke-num">03</div>
+            <div class="staerke-title">Verkauf</div>
+            <p>Verkauf: ich positioniere ein Training so, dass Folgeangebote und Cross-Selling von selbst entstehen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="staerken-photo-wrap reveal d1">
+        <img src="images/personal/jakub-suit-trainer.png" alt="Jakub Popluhar als Trainer" class="suit-photo">
+        <p class="degree-caption">M.Ed. &middot; Ludwig-Maximilians-Universität München &amp; Technische Universität München</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Lebenslauf</div>
+        <h2>Beruflicher Werdegang.</h2>
+      </div>
+      <div class="cv-block reveal">
+          <h3>Berufserfahrung</h3>
+
+          <div class="cv-row">
+            <div class="when">01/2025 – heute</div>
+            <div class="what">
+              <div class="t">Selbständiger Trainer (Einzelunternehmer, Gewerbe)</div>
+              <div class="o">Wien</div>
+              <ul>
+                <li>Workshops und Vorträge zu digitalen Tools und KI-Anwendungen im Berufsalltag, auf Auftragsbasis</li>
+                <li>Auftraggeber unter anderem ARS Akademie, tecTrain, SPORTUNION Wien</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2020 – 07/2026</div>
+            <div class="what">
+              <div class="t">Sport- und Englischlehrer</div>
+              <div class="o">Vienna European School, Wien (befristet)</div>
+              <ul><li>Sport- und Englischunterricht, Unterrichtsvorbereitung und Klassenführung</li></ul>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2025</div>
+            <div class="what">
+              <div class="t">Trainer und Business Development</div>
+              <div class="o">Mindworx s.r.o.</div>
+              <ul>
+                <li>Online- und Präsenz-Workshops zur Konsumentenpsychologie</li>
+                <li>Aufbau von Lizenzierungs- und Zertifizierungsprogrammen</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2021 – heute</div>
+            <div class="what">
+              <div class="t">Gründer</div>
+              <div class="o">Future Roundnet</div>
+              <ul>
+                <li>Event-Management und Projektmanagement für Trainingscamps und Events, 5 Jahre in Folge größtes Roundnet-Trainingslager der Welt, Content-Erstellung, Podcast</li>
+                <li>Entwicklung einer Coaching-App (iOS &amp; Android)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">09/2023 – 06/2024</div>
+            <div class="what">
+              <div class="t">Reiseleiter</div>
+              <div class="o">Lebenslust Touristik GmbH</div>
+              <ul><li>Reisebegleitung von Seniorengruppen in den Zieldestinationen</li></ul>
+            </div>
+          </div>
+      </div>
+
+      <div class="cv-block reveal d1">
+          <h3>Ausbildung</h3>
+          <div class="cv-row">
+            <div class="when">2025</div>
+            <div class="what">
+              <div class="t">Mindworx Certified Trainer</div>
+              <div class="o">Mindworx s.r.o. &middot; weltführendes Programm für Konsumentenpsychologie</div>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2019</div>
+            <div class="what">
+              <div class="t">Staatsexamen Lehramt Englisch &amp; Sport (M.Ed.)</div>
+              <div class="o">Ludwig-Maximilians-Universität München &amp; TU München</div>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2016</div>
+            <div class="what">
+              <div class="t">Sportmarketing und Sporternährung</div>
+              <div class="o">University of the Sunshine Coast, Australien</div>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2016</div>
+            <div class="what">
+              <div class="t">Bachelor Englisch &amp; Sport</div>
+              <div class="o">Masaryk-Universität Brno, Tschechien</div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:2rem;">Sprachen &amp; Kenntnisse</h3>
+          <div class="chip-row">
+            <span class="chip">Deutsch C2</span><span class="chip">Englisch C2</span>
+            <span class="chip">Slowakisch (Muttersprache)</span><span class="chip">Spanisch B1</span>
+          </div>
+          <div class="chip-row">
+            <span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">Gemini</span>
+            <span class="chip">Perplexity</span><span class="chip">Zapier / n8n</span><span class="chip">MS Office &amp; Teams</span>
+          </div>
+
+          <h3 style="margin-top:2rem;">Interessen</h3>
+          <div class="chip-row">
+            <span class="chip">Tauchen (PADI Divemaster)</span><span class="chip">Fallschirmspringen</span>
+            <span class="chip">Floorball</span><span class="chip">Roundnet</span><span class="chip">Brasilianisches Jiu-Jitsu</span>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="referenzen">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Referenzen</div>
+        <h2>Wo ich bereits trainiere.</h2>
+      </div>
+    </div>
+    <div class="ref-marquee reveal">
+      <div class="ref-track">
+        <img src="images/logos/ars-akademie.svg" alt="ARS Akademie" class="ref-logo">
+        <img src="images/logos/innovatic-group.svg" alt="Innovatic Group" class="ref-logo">
+        <img src="images/logos/ai-factory.png" alt="AI Factory Austria · ViennaUP" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/became-ai-icon.svg" alt="became ai" class="ref-logo"><span>became ai</span></div>
+        <img src="images/logos/sport-union.svg" alt="Sport Union" class="ref-logo">
+        <img src="images/logos/youknowmebest.svg" alt="YouKnowMeBest" class="ref-logo">
+        <img src="images/logos/fitrock.svg" alt="FitRock" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/zr-bjj.svg" alt="ZR Team Vienna" class="ref-logo"><span>ZR Team Vienna</span></div>
+        <img src="images/logos/ars-akademie.svg" alt="" class="ref-logo">
+        <img src="images/logos/innovatic-group.svg" alt="" class="ref-logo">
+        <img src="images/logos/ai-factory.png" alt="" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/became-ai-icon.svg" alt="" class="ref-logo"><span>became ai</span></div>
+        <img src="images/logos/sport-union.svg" alt="" class="ref-logo">
+        <img src="images/logos/youknowmebest.svg" alt="" class="ref-logo">
+        <img src="images/logos/fitrock.svg" alt="" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/zr-bjj.svg" alt="" class="ref-logo"><span>ZR Team Vienna</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trainings">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Meine Trainings</h2>
+      </div>
+
+      <div class="train-grid">
+        <div class="train-card reveal">
+          <div class="train-tag">Grundlagen · Ein Praxistag</div>
+          <h3>KI am Schreibtisch</h3>
+          <p>Wie ein Sprachmodell wirklich arbeitet, das CITE(R)-Framework für verlässliche Prompts, Datenschutz konkret (Drei-Sekunden-Regel), und der Bau eigener KI-Helfer mit NotebookLM und Custom GPTs. Tool-unabhängig: funktioniert mit ChatGPT, Claude oder Gemini.</p>
+          <div class="train-meta">Modul 1 Grundlagen · Modul 2 KI-Helfer produktiv einsetzen</div>
+        </div>
+
+        <div class="train-card reveal d1">
+          <div class="train-tag">HR-Fokus · Ein Praxistag</div>
+          <h3>KI im HR-Alltag</h3>
+          <p>Derselbe methodische Kern, zugeschnitten auf Stellenanzeigen, Bewerberkommunikation, Onboarding und Beurteilungen. Modeling of Excellence für die ideale HR-Persona, Human in the Loop bei automatisierten Entscheidungen, Zero Trust gegen gefälschte Lebensläufe.</p>
+          <div class="train-meta">Für HR-Teams jeder Branchengröße</div>
+        </div>
+
+        <div class="train-card reveal d2">
+          <div class="train-tag">Werkzeug-Vertiefung</div>
+          <h3>Copilot im Arbeitsalltag</h3>
+          <p>Für Häuser mit Microsoft 365: ein Tag direkt in Word, Excel, Teams und Outlook. Wo Copilot zuverlässig ist, wo nicht, und wie er tatsächlich Zeit spart statt nur zu blinken. Baut auf den Grundlagen aus „KI am Schreibtisch" auf.</p>
+          <div class="train-meta">Nur als Inhouse-Training</div>
+        </div>
+
+        <div class="train-card reveal d3">
+          <div class="train-tag">Werkzeug-Vertiefung</div>
+          <h3>ChatGPT, Gemini oder Claude</h3>
+          <p>Drei Trainings, eines pro Werkzeug. Sie buchen den Tag für den Assistenten, mit dem Ihr Haus tatsächlich arbeitet: seine Eigenheiten, seine Grenzen, seine Wege, sich eigene Assistenten zu bauen. Kein Rundflug über drei Produkte.</p>
+          <div class="train-meta">Gleicher Aufbau, gleiche Dauer, ein Werkzeug</div>
+        </div>
+
+        <div class="train-card reveal d3">
+          <div class="train-tag">Konsumentenpsychologie</div>
+          <h3>Konsumentenpsychologie im Zeitalter der Künstlichen Intelligenz</h3>
+          <p>Mein eigenes Training über die vier Entscheidungsbarrieren, die Käufe verhindern, und wie Sie diese gezielt auflösen. Dazu, wie KI die Kommunikation verstärkt, im Guten wie im Schlechten.</p>
+          <div class="train-meta">Ein Praxistag</div>
+        </div>
+
+        <div class="train-card reveal d3">
+          <div class="train-tag">Individuell</div>
+          <h3>Maßgeschneiderte Trainings</h3>
+          <p>Kein Standardprogramm von der Stange: Inhalt, Tiefe und Werkzeug abgestimmt auf das, was Ihr Unternehmen tatsächlich braucht, egal ob Branche, Vorwissen oder Thema, von Einstieg bis Advanced für bereits fortgeschrittene Teams.</p>
+          <div class="train-meta">Auf Anfrage, zugeschnitten auf Ihr Haus</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="jump" style="border-top: none;">
+    <div class="container jump-wrap">
+      <h2 class="reveal">Lass uns zusammen die KI-Welt springen.</h2>
+      <video class="jump-video reveal d1" controls playsinline muted loop autoplay poster="images/personal/ki-angebot-poster.jpg">
+        <source src="images/personal/ki-angebot.mp4" type="video/mp4">
+      </video>
+      <a class="btn btn-primary magnetic reveal d2" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Termin buchen →</a>
+      <p class="jump-ps reveal d3">PS: Es läuft nicht alles sauber oder fehlerfrei, aber genau darum geht es auch nicht. Stabilisierung ist die eigentliche Fähigkeit, bei KI genauso wie beim Sprung.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Firma Jakub Popluhar · 1080 Wien · <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  // password gate
+  var PASSWORD = "UNIFORLIFE2026";
+  var gate = document.getElementById('gate');
+  var input = document.getElementById('gate-input');
+  var btn = document.getElementById('gate-btn');
+  var err = document.getElementById('gate-error');
+  var content = document.getElementById('content');
+
+  function tryUnlock() {
+    if (input.value === PASSWORD) {
+      content.style.display = 'block';
+      gate.classList.add('unlocked');
+      initReveal();
+      typewriterGreeting();
+    } else {
+      err.textContent = 'Falsches Passwort.';
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  function typewriterGreeting() {
+    var text = 'Hallo Eva';
+    var target = document.getElementById('greeting-text');
+    var cursor = document.getElementById('greeting-cursor');
+    var sub = document.getElementById('greeting-sub');
+    var i = 0;
+    (function type() {
+      if (i <= text.length) {
+        target.textContent = text.slice(0, i);
+        i++;
+        setTimeout(type, 110);
+      } else {
+        cursor.classList.add('done');
+        sub.classList.add('show');
+      }
+    })();
+  }
+  btn.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+  input.focus();
+
+  // reveal-on-scroll
+  function initReveal() {
+    var els = document.querySelectorAll('.reveal');
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    els.forEach(function(el){ obs.observe(el); });
+  }
+
+  // cursor glow
+  var glow = document.getElementById('cursor-glow');
+  window.addEventListener('mousemove', function(e){
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+
+  // tilt cards
+  document.querySelectorAll('.train-card').forEach(function(card){
+    card.addEventListener('mousemove', function(e){
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(800px) rotateY(' + (x * 7) + 'deg) rotateX(' + (-y * 7) + 'deg) translateY(-4px)';
+    });
+    card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+  });
+
+  // magnetic buttons
+  document.querySelectorAll('.magnetic').forEach(function(btnEl){
+    btnEl.addEventListener('mousemove', function(e){
+      var r = btnEl.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      btnEl.style.transform = 'translate(' + (x * 10) + 'px,' + (y * 10) + 'px)';
+    });
+    btnEl.addEventListener('mouseleave', function(){ btnEl.style.transform = ''; });
+  });
+</script>
+
+</body>
+</html>
