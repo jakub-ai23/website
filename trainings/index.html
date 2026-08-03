@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inhouse-Trainings · KI-Trainings mit Jakub Popluhar</title>
+<meta name="description" content="Sechs KI-Trainings für Unternehmen: Grundlagen, HR, Microsoft Copilot, ChatGPT, Gemini oder Claude, Konsumentenpsychologie und maßgeschneiderte Programme. Jeweils ein Praxistag, inhouse in Ihrem Haus.">
+<link rel="canonical" href="https://jakubpopluhar.com/trainings/">
+<meta property="og:title" content="Inhouse-Trainings · KI-Trainings mit Jakub Popluhar">
+<meta property="og:description" content="Sechs KI-Trainings für Unternehmen, jeweils ein Praxistag, inhouse in Ihrem Haus. Mit vollständiger Beschreibung und PDF zu jedem Training.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jakubpopluhar.com/trainings/">
+<meta property="og:image" content="https://jakubpopluhar.com/images/profile/headshot.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/great-vibes-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/inter-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/inter-500.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(/fonts/inter-600.woff2) format('woff2'); }
+  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(/fonts/montserrat.woff2) format('woff2'); }
+
+  :root {
+    --gold: #d4a017;
+    --gold-light: #e8b84a;
+    --gold-dark: #b8890f;
+    --charcoal: #0a0a0a;
+    --charcoal-light: #141414;
+    --ink: #f2f0eb;
+    --muted: #9a978e;
+    --border: rgba(212,160,23,0.18);
+    --font-heading: 'Montserrat', Arial, sans-serif;
+    --font-body: 'Inter', Arial, sans-serif;
+    --font-script: 'Great Vibes', cursive;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--font-body); background: var(--charcoal); color: var(--ink); line-height: 1.65; overflow-x: hidden; }
+  h1, h2, h3 { font-family: var(--font-heading); margin: 0; }
+  a { color: var(--gold); }
+  p { margin: 0 0 0.9rem; }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+  .eyebrow { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 0.6rem; }
+
+  #ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.26; animation: drift 26s ease-in-out infinite; }
+  .blob.b1 { width: 480px; height: 480px; background: var(--gold); top: -140px; left: -120px; }
+  .blob.b2 { width: 420px; height: 420px; background: #7a4fd6; top: 45%; right: -160px; animation-delay: -8s; }
+  .blob.b3 { width: 380px; height: 380px; background: var(--gold-dark); bottom: -160px; left: 30%; animation-delay: -16s; }
+  @keyframes drift { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(40px,-30px) scale(1.08); } 66% { transform: translate(-30px,25px) scale(0.95); } }
+  @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }
+  main, header, footer { position: relative; z-index: 2; }
+
+  /* ---------- Navigation inkl. Angebote-Aufklappmenue ---------- */
+  .site-nav { padding: 1.4rem 1.5rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 60; }
+  .site-nav img { display: block; }
+  .nav-links { display: flex; align-items: center; gap: 1.4rem; font-size: 0.86rem; }
+  .nav-links a { color: var(--muted); text-decoration: none; }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+  .nav-links a.nav-cta {
+    background: var(--gold); color: #141414; padding: 0.5rem 1.1rem; border-radius: 6px;
+    font-weight: 600; border: 2px solid var(--gold); transition: all 0.2s;
+  }
+  .nav-links a.nav-cta:hover { background: transparent; color: var(--gold); }
+
+  .nav-drop { position: relative; }
+  .nav-drop > .nav-drop-toggle {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    background: none; border: none; padding: 0; cursor: pointer;
+    font-family: var(--font-body); font-size: 0.86rem; color: var(--muted);
+  }
+  .nav-drop > .nav-drop-toggle:hover,
+  .nav-drop.open > .nav-drop-toggle { color: #fff; }
+  .nav-drop-toggle .caret { border: solid currentColor; border-width: 0 1.5px 1.5px 0; padding: 2px; transform: rotate(45deg); transition: transform 0.2s; margin-bottom: 2px; }
+  .nav-drop.open .nav-drop-toggle .caret { transform: rotate(-135deg); }
+  .nav-drop-menu {
+    position: absolute; top: calc(100% + 0.7rem); left: 50%; transform: translateX(-50%);
+    min-width: 240px; padding: 0.5rem; margin: 0; list-style: none;
+    background: rgba(16,16,16,0.98); border: 1px solid var(--border); border-radius: 10px;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.55);
+    display: none;
+  }
+  .nav-drop-menu::before { content: ''; position: absolute; top: -0.7rem; left: 0; right: 0; height: 0.7rem; }
+  .nav-drop:hover .nav-drop-menu,
+  .nav-drop:focus-within .nav-drop-menu,
+  .nav-drop.open .nav-drop-menu { display: block; }
+  .nav-drop-menu a {
+    display: block; padding: 0.6rem 0.8rem; border-radius: 7px;
+    color: var(--ink); font-size: 0.86rem; line-height: 1.35;
+  }
+  .nav-drop-menu a small { display: block; color: var(--muted); font-size: 0.74rem; }
+  .nav-drop-menu a:hover { background: rgba(212,160,23,0.12); color: #fff; }
+  @media (max-width: 720px) {
+    .nav-links { gap: 0.9rem; font-size: 0.78rem; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-drop { position: static; }
+    .nav-drop-menu { left: 1rem; right: 1rem; transform: none; min-width: 0; }
+  }
+
+  /* ---------- Hero ---------- */
+  header.hero { padding: 4rem 0 2.6rem; }
+  .hero-badge { display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.78rem; color: var(--gold-light); margin-bottom: 1.4rem; }
+  h1.hero-title { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 800; letter-spacing: -0.01em; line-height: 1.12; }
+  h1.hero-title .script { display: block; font-family: var(--font-script); font-weight: 400; color: var(--gold); font-size: 0.62em; margin-top: 0.35rem; }
+  .hero-lede { max-width: 700px; margin-top: 1.2rem; color: #d8d5cc; font-size: 1.02rem; }
+
+  section { padding: 2.6rem 0; }
+  .section-head { max-width: 680px; margin-bottom: 2rem; }
+  .section-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; }
+  .section-head p { color: #d8d5cc; margin-top: 0.8rem; }
+
+  .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.8rem 1.4rem; border-radius: 8px; font-family: var(--font-heading); font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; }
+  .btn-primary { background: var(--gold); color: #141414; border: none; }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  /* ---------- Angebotsleiter ---------- */
+  .ladder { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2.6rem; }
+  @media (max-width: 760px) { .ladder { grid-template-columns: 1fr; } }
+  .rung { position: relative; border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; background: rgba(20,20,20,0.55); }
+  .rung.here { border-color: rgba(212,160,23,0.55); background: rgba(212,160,23,0.07); }
+  .rung h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .rung p { font-size: 0.86rem; color: #cfccc3; margin: 0 0 0.7rem; }
+  .rung a { font-size: 0.82rem; font-weight: 600; text-decoration: none; }
+  /* Marke sitzt in der Ecke, damit alle drei Ueberschriften auf einer Linie bleiben */
+  .rung .here-label { position: absolute; top: 0.9rem; right: 1.1rem; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--gold); }
+
+  /* ---------- Trainingskarten ---------- */
+  .train-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+  @media (max-width: 760px) { .train-grid { grid-template-columns: 1fr; } }
+  .train-card {
+    display: flex; flex-direction: column;
+    border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem;
+    background: linear-gradient(160deg, rgba(24,24,24,0.9), rgba(14,14,14,0.9));
+    transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+  }
+  .train-card:hover { box-shadow: 0 24px 48px rgba(0,0,0,0.45); border-color: rgba(212,160,23,0.4); transform: translateY(-3px); }
+  @media (prefers-reduced-motion: reduce) { .train-card:hover { transform: none; } }
+  .train-tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-light); margin-bottom: 0.5rem; }
+  .train-card h3 { font-size: 1.18rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .train-card p { font-size: 0.9rem; color: #cfccc3; margin-bottom: 0; }
+  .train-card .train-meta { margin-top: 0.9rem; font-size: 0.78rem; color: var(--muted); }
+  .train-card .train-more { margin-top: auto; padding-top: 1rem; }
+  .train-card .train-more .btn { font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+  /* ---------- CTA + Footer ---------- */
+  .cta-band { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(212,160,23,0.05); text-align: center; }
+  .cta-band h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 0.8rem; }
+  .cta-band p { color: #d8d5cc; max-width: 620px; margin: 0 auto 1.4rem; }
+  footer { padding: 2.5rem 0 3rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.86rem; text-align: center; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--gold-light); }
+  footer .script { font-family: var(--font-script); font-size: 1.8rem; color: var(--gold); margin-bottom: 0.4rem; }
+
+  /* Einblenden zeitbasiert beim Laden, nie zustandsabhaengig:
+     Inhalt ist auch ohne JavaScript ab dem ersten Frame sichtbar. */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: no-preference) {
+    .train-card, .rung { animation: fadeUp 0.6s ease both; }
+  }
+</style>
+</head>
+<body>
+<div id="ambient"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+
+<header class="site-nav">
+  <a href="/" aria-label="Jakub Popluhar">
+    <img src="/images/logos/jakub-popluhar-logo.svg" alt="Jakub Popluhar" height="36" width="150">
+  </a>
+  <nav class="nav-links">
+    <a href="/ueber-mich/">Über mich</a>
+    <div class="nav-drop" data-nav-drop>
+      <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Angebote <span class="caret"></span></button>
+      <ul class="nav-drop-menu">
+        <li><a href="/ki-personal-training/">One-on-One-Coaching<small>Einzeln, an Ihren echten Aufgaben</small></a></li>
+        <li><a href="/trainings/">Inhouse-Trainings<small>Ihr Team, ein Praxistag in Ihrem Haus</small></a></li>
+        <li><a href="/termine/">Standard-Trainings<small>Offene Seminare bei ARS und tecTrain</small></a></li>
+      </ul>
+    </div>
+    <a href="/#proof">Ergebnisse</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Session buchen</a>
+  </nav>
+</header>
+
+<main>
+<header class="hero">
+  <div class="container">
+    <div class="hero-badge">Inhouse-Trainings · jeweils ein Praxistag im Haus</div>
+    <h1 class="hero-title">Meine Trainings<span class="script">für Ihr Team</span></h1>
+    <p class="hero-lede">
+      In jeder Gruppe sitzen zwei Sorten Menschen: der eine kann sich nicht einmal anmelden, der andere schreibt schon eigene Systemanweisungen.
+      Meine Trainings sind so gebaut, dass beide etwas mitnehmen. Kein Tool-Feuerwerk, sondern die Grundlagen, die auch nach dem nächsten Modellwechsel noch gelten,
+      und am Ende des Tages hat jede Person etwas Fertiges in der Hand.
+    </p>
+    <p class="hero-lede">
+      Alle Trainings unten sind Ganztagsformate für Ihr Haus. Zu jedem gibt es die vollständige Beschreibung mit Ablauf, Inhalten und PDF zum Weitergeben.
+    </p>
+  </div>
+</header>
+
+<section id="leiter" style="padding-top: 0;">
+  <div class="container">
+    <div class="ladder">
+      <div class="rung">
+        <h3>One-on-One-Coaching</h3>
+        <p>Eine Person, Ihre echten Dateien, Ihr Rechner. Kein Gruppentempo, dafür der höchste Anteil an persönlicher Zeit.</p>
+        <a href="/ki-personal-training/">Ablauf und Preise ansehen →</a>
+      </div>
+      <div class="rung here">
+        <span class="here-label">Sie sind hier</span>
+        <h3>Inhouse-Trainings</h3>
+        <p>Ihr Team, ein Praxistag, in Ihrem Haus oder live online. Inhalt und Werkzeug auf Ihre Arbeit abgestimmt.</p>
+        <a href="#trainings">Die sechs Trainings ↓</a>
+      </div>
+      <div class="rung">
+        <h3>Standard-Trainings</h3>
+        <p>Offene Seminare mit festen Terminen, in Kooperation mit ARS Akademie und tecTrain. Einzeln buchbar.</p>
+        <a href="/termine/">Alle Termine ansehen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trainings" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Das Programm</div>
+      <h2>Sechs Trainings, ein methodischer Kern</h2>
+      <p>
+        Der Unterbau ist überall derselbe: verstehen, wie ein Sprachmodell arbeitet, verlässlich fragen, Datenschutz im Griff behalten, eigene KI-Helfer bauen.
+        Unterschiedlich ist, worauf er zugeschnitten wird, auf welche Abteilung und auf welches Werkzeug.
+      </p>
+    </div>
+
+    <div class="train-grid">
+      <div class="train-card">
+        <div class="train-tag">Grundlagen · Ein Praxistag</div>
+        <h3>KI im Büroalltag</h3>
+        <p>Wie ein Sprachmodell wirklich arbeitet, das CITE(R)-Framework für verlässliche Prompts, Datenschutz konkret (Drei-Sekunden-Regel), und der Bau eigener KI-Helfer mit NotebookLM und Custom GPTs. Tool-unabhängig: funktioniert mit ChatGPT, Claude oder Gemini.</p>
+        <div class="train-meta">Modul 1 Grundlagen · Modul 2 KI-Helfer produktiv einsetzen</div>
+        <div class="train-more"><a class="btn btn-ghost" href="/trainings/ki-im-bueroalltag/">Mehr erfahren →</a></div>
+      </div>
+
+      <div class="train-card">
+        <div class="train-tag">HR-Fokus · Ein Praxistag</div>
+        <h3>KI im HR-Alltag</h3>
+        <p>Derselbe methodische Kern, zugeschnitten auf Stellenanzeigen, Bewerberkommunikation, Onboarding und Beurteilungen. Modeling of Excellence für die ideale HR-Persona, Human in the Loop bei automatisierten Entscheidungen, Zero Trust gegen gefälschte Lebensläufe.</p>
+        <div class="train-meta">Für HR-Teams jeder Branchengröße</div>
+        <div class="train-more"><a class="btn btn-ghost" href="/trainings/hr-kurs/">Mehr erfahren →</a></div>
+      </div>
+
+      <div class="train-card">
+        <div class="train-tag">Werkzeug-Vertiefung</div>
+        <h3>Copilot im Arbeitsalltag</h3>
+        <p>Für Häuser mit Microsoft 365: ein Tag direkt in Word, Excel, Teams und Outlook. Wo Copilot zuverlässig ist, wo nicht, und wie er tatsächlich Zeit spart statt nur zu blinken. Baut auf den Grundlagen aus „KI im Büroalltag" auf.</p>
+        <div class="train-meta">Nur als Inhouse-Training</div>
+        <div class="train-more"><a class="btn btn-ghost" href="/trainings/copilot/">Mehr erfahren →</a></div>
+      </div>
+
+      <div class="train-card">
+        <div class="train-tag">Werkzeug-Vertiefung</div>
+        <h3>ChatGPT, Gemini oder Claude</h3>
+        <p>Drei Trainings, eines pro Werkzeug. Sie buchen den Tag für den Assistenten, mit dem Ihr Haus tatsächlich arbeitet: seine Eigenheiten, seine Grenzen, seine Wege, sich eigene Assistenten zu bauen. Kein Rundflug über drei Produkte.</p>
+        <div class="train-meta">Gleicher Aufbau, gleiche Dauer, ein Werkzeug</div>
+        <div class="train-more"><a class="btn btn-ghost" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Gespräch vereinbaren →</a></div>
+      </div>
+
+      <div class="train-card">
+        <div class="train-tag">Konsumentenpsychologie</div>
+        <h3>Konsumentenpsychologie im Zeitalter der Künstlichen Intelligenz</h3>
+        <p>Mein eigenes Training über die vier Entscheidungsbarrieren, die Käufe verhindern, und wie Sie diese gezielt auflösen. Dazu, wie KI die Kommunikation verstärkt, im Guten wie im Schlechten.</p>
+        <div class="train-meta">Ein Praxistag</div>
+        <div class="train-more"><a class="btn btn-ghost" href="/trainings/konsumentenpsychologie/">Mehr erfahren →</a></div>
+      </div>
+
+      <div class="train-card">
+        <div class="train-tag">Individuell</div>
+        <h3>Maßgeschneiderte Trainings</h3>
+        <p>Kein Standardprogramm von der Stange: Inhalt, Tiefe und Werkzeug abgestimmt auf das, was Ihr Unternehmen tatsächlich braucht, egal ob Branche, Vorwissen oder Thema, von Einstieg bis Advanced für bereits fortgeschrittene Teams.</p>
+        <div class="train-meta">Auf Anfrage, zugeschnitten auf Ihr Haus</div>
+        <div class="train-more"><a class="btn btn-ghost" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Gespräch vereinbaren →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="cta-band">
+  <div class="container">
+    <h2>Zwanzig Minuten, in denen Sie nichts kaufen müssen.</h2>
+    <p>Im Vorgespräch klären wir, welches Format zu Ihrem Haus passt. Wenn ein offenes Seminar für Sie günstiger ist als ein Inhouse-Tag, sage ich Ihnen welches.</p>
+    <a class="btn btn-primary" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Vorgespräch buchen →</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="script">Jakub Popluhar</div>
+    KI-Trainer &amp; Konsumentenpsychologe &nbsp;·&nbsp; <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br>
+    <a href="/ueber-mich/">Über mich</a> &nbsp;·&nbsp; <a href="/termine/">Termine</a> &nbsp;·&nbsp; <a href="/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="/datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "KI-Inhouse-Trainings von Jakub Popluhar",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "url": "https://jakubpopluhar.com/trainings/ki-im-bueroalltag/", "name": "KI im Büroalltag" },
+    { "@type": "ListItem", "position": 2, "url": "https://jakubpopluhar.com/trainings/hr-kurs/", "name": "KI im HR-Alltag" },
+    { "@type": "ListItem", "position": 3, "url": "https://jakubpopluhar.com/trainings/copilot/", "name": "Copilot im Arbeitsalltag" },
+    { "@type": "ListItem", "position": 4, "url": "https://jakubpopluhar.com/trainings/", "name": "ChatGPT, Gemini oder Claude" },
+    { "@type": "ListItem", "position": 5, "url": "https://jakubpopluhar.com/trainings/konsumentenpsychologie/", "name": "Konsumentenpsychologie im Zeitalter der Künstlichen Intelligenz" },
+    { "@type": "ListItem", "position": 6, "url": "https://jakubpopluhar.com/trainings/", "name": "Maßgeschneiderte Trainings" }
+  ]
+}
+</script>
+
+<script>
+  // Aufklappmenue: Hover und Tastaturfokus laufen ueber CSS.
+  // Dieses Skript ergaenzt nur Tippen auf Touchgeraeten und Escape.
+  document.querySelectorAll('[data-nav-drop]').forEach(function (drop) {
+    var toggle = drop.querySelector('.nav-drop-toggle');
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = drop.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+      if (!drop.contains(e.target)) {
+        drop.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    drop.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        drop.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
+  });
+</script>
+
+<!-- Analytics: zentraler cookieless Beacon (+ Consent-gated Clarity). NICHT entfernen,
+     sonst ist die Seite ungetrackt. Siehe assets/js/site.js. -->
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

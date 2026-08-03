@@ -174,6 +174,68 @@
       width: 100%;
     }
 
+    /* Angebote: Aufklappmenue. Oeffnet per Hover und per Tastaturfokus ueber CSS,
+       das Skript ergaenzt nur Tippen auf Touchgeraeten. */
+    .nav-drop { position: relative; display: flex; align-items: center; }
+    .nav-drop-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      transition: color 0.2s;
+    }
+    .nav-drop-toggle:hover,
+    .nav-drop.open .nav-drop-toggle { color: var(--white); }
+    .nav-drop-toggle .caret {
+      border: solid currentColor;
+      border-width: 0 1.5px 1.5px 0;
+      padding: 2.5px;
+      transform: rotate(45deg);
+      margin-bottom: 2px;
+      transition: transform 0.2s;
+    }
+    .nav-drop.open .nav-drop-toggle .caret { transform: rotate(-135deg); }
+    .nav-drop-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 250px;
+      margin: 0;
+      padding: 8px;
+      list-style: none;
+      background: rgba(16, 16, 16, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+      display: none;
+    }
+    /* unsichtbare Bruecke, damit der Zeiger den Weg nach unten ueberlebt */
+    .nav-drop-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+    .nav-drop:hover .nav-drop-menu,
+    .nav-drop:focus-within .nav-drop-menu,
+    .nav-drop.open .nav-drop-menu { display: block; }
+    .nav-drop-menu a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 7px;
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+    .nav-drop-menu a::after { content: none; }
+    .nav-drop-menu a small { display: block; color: var(--white-muted); font-size: 0.74rem; font-weight: 400; }
+    .nav-drop-menu a:hover { background: rgba(212, 160, 23, 0.12); }
+
     .nav-cta {
       background: var(--gold);
       color: var(--charcoal) !important;
@@ -1195,6 +1257,45 @@
       margin-top: 20px;
     }
 
+    /* ===== Weitere Angebotsstufen unter dem Hauptangebot ===== */
+    .service-rungs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .service-rung {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 12px;
+      background: rgba(20, 20, 20, 0.5);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .service-rung:hover { border-color: rgba(212, 160, 23, 0.5); transform: translateY(-2px); }
+    @media (prefers-reduced-motion: reduce) { .service-rung:hover { transform: none; } }
+    .service-rung .rung-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--white);
+    }
+    .service-rung .rung-desc {
+      font-size: 0.78rem;
+      color: var(--white-muted);
+      line-height: 1.4;
+    }
+    .service-rung .rung-go { margin-left: auto; color: var(--gold); font-size: 0.9rem; font-weight: 600; }
+    @media (max-width: 900px) {
+      .service-rung .rung-desc { display: none; }
+    }
+    @media (max-width: 640px) {
+      .service-rungs { grid-template-columns: 1fr; gap: 8px; }
+      .service-rung .rung-desc { display: inline; }
+    }
+
 
     /* ===== Link zur Termin-Unterseite ===== */
     .agenda-more {
@@ -1866,6 +1967,19 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
 
+      /* Im Mobilmenue klappt Angebote im Fluss auf, nicht als schwebende Karte */
+      .nav-links.open .nav-drop { display: block; }
+      .nav-links.open .nav-drop-menu {
+        position: static;
+        transform: none;
+        min-width: 0;
+        margin-top: 10px;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .nav-links.open .nav-drop:hover .nav-drop-menu { display: none; }
+      .nav-links.open .nav-drop.open .nav-drop-menu { display: block; }
+
       .slide-hero h1 { font-size: 1.8rem; min-height: 4.1em; }
       .hero-sub { font-size: 1rem; }
       .hero-image img { max-height: 220px; }
@@ -1986,7 +2100,14 @@
       <div class="nav-right">
         <ul class="nav-links" id="navLinks">
           <li><a href="#about" data-slide="1">Über mich</a></li>
-          <li><a href="#services" data-slide="5">Angebote</a></li>
+          <li class="nav-drop" data-nav-drop>
+            <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Angebote <span class="caret"></span></button>
+            <ul class="nav-drop-menu">
+              <li><a href="/ki-personal-training/">One-on-One-Coaching<small>Einzeln, an Ihren echten Aufgaben</small></a></li>
+              <li><a href="/trainings/">Inhouse-Trainings<small>Ihr Team, ein Praxistag in Ihrem Haus</small></a></li>
+              <li><a href="/termine/">Standard-Trainings<small>Offene Seminare bei ARS und tecTrain</small></a></li>
+            </ul>
+          </li>
           <li><a href="#proof" data-slide="7">Ergebnisse</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="https://cal.eu/hilldigital/strategiegespraech" class="nav-cta" target="_blank" rel="noopener">Session buchen</a></li>
@@ -2229,6 +2350,18 @@
           </div>
         </div>
 
+        <div class="service-rungs">
+          <a href="/trainings/" class="service-rung">
+            <span class="rung-label">Inhouse-Trainings f&uuml;r Ihr Team</span>
+            <span class="rung-desc">Sechs Ganztagsformate</span>
+            <span class="rung-go">&rarr;</span>
+          </a>
+          <a href="/termine/" class="service-rung">
+            <span class="rung-label">Standard-Trainings mit festem Termin</span>
+            <span class="rung-desc">ARS und tecTrain</span>
+            <span class="rung-go">&rarr;</span>
+          </a>
+        </div>
 
       </div>
     </section>
@@ -2591,6 +2724,32 @@
       // Close mobile nav on any link click
       navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => navLinks.classList.remove('open'));
+      });
+
+      // ---- Angebote-Aufklappmenue ----
+      // Hover und Tastaturfokus laufen ueber CSS. Hier nur Tippen (Touch) und Escape,
+      // weil Touchgeraete kein Hover kennen.
+      document.querySelectorAll('[data-nav-drop]').forEach(drop => {
+        const toggle = drop.querySelector('.nav-drop-toggle');
+        toggle.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopPropagation();
+          const open = drop.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        document.addEventListener('click', e => {
+          if (!drop.contains(e.target)) {
+            drop.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+        drop.addEventListener('keydown', e => {
+          if (e.key === 'Escape') {
+            drop.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+          }
+        });
       });
 
       // ---- Initialize first slide as active ----

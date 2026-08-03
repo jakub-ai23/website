@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft 365 Copilot effizient nutzen, Training mit Jakub Popluhar</title>
+<meta name="description" content="Ganztags-Training: KI-Grundlagen und produktiver Einsatz von Copilot in Word, Excel, Teams und Outlook. Referent: Jakub Popluhar, M.Ed.">
+<link rel="canonical" href="https://jakubpopluhar.com/trainings/copilot/">
+<style>
+  @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/great-vibes-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/inter-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/inter-500.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(/fonts/inter-600.woff2) format('woff2'); }
+  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(/fonts/montserrat.woff2) format('woff2'); }
+
+  :root {
+    --gold: #d4a017;
+    --gold-light: #e8b84a;
+    --gold-dark: #b8890f;
+    --charcoal: #0a0a0a;
+    --charcoal-light: #141414;
+    --charcoal-lighter: #1e1e1e;
+    --ink: #f2f0eb;
+    --muted: #9a978e;
+    --border: rgba(212,160,23,0.18);
+    --font-heading: 'Montserrat', Arial, sans-serif;
+    --font-body: 'Inter', Arial, sans-serif;
+    --font-script: 'Great Vibes', cursive;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--charcoal);
+    color: var(--ink);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 { font-family: var(--font-heading); margin: 0; }
+  a { color: var(--gold); }
+  p { margin: 0 0 0.9rem; color: #d8d5cc; }
+  ul { margin: 0 0 0.9rem; padding-left: 1.2rem; color: #d8d5cc; }
+  li { margin-bottom: 0.5rem; }
+  strong { color: var(--ink); }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+  .eyebrow { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 0.6rem; }
+
+  #ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.22; }
+  .blob.b1 { width: 480px; height: 480px; background: var(--gold); top: -140px; left: -120px; }
+  .blob.b2 { width: 420px; height: 420px; background: #7a4fd6; top: 40%; right: -160px; }
+  .blob.b3 { width: 380px; height: 380px; background: var(--gold-dark); bottom: -160px; left: 30%; }
+
+  main, header, footer, section { position: relative; z-index: 2; }
+
+  header.hero { padding: 5rem 0 3rem; }
+  .hero-badge { display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.78rem; color: var(--gold-light); margin-bottom: 1.4rem; letter-spacing: 0.04em; }
+  h1.hero-title { font-size: clamp(1.9rem, 4.6vw, 2.9rem); font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; }
+  .hero-sub { font-size: 1.1rem; color: var(--muted); margin-top: 1rem; max-width: 640px; }
+  .hero-meta { font-size: 0.88rem; color: var(--muted); margin-top: 1.6rem; border-top: 1px solid var(--border); padding-top: 1.2rem; }
+  .hero-meta strong { color: var(--gold-light); }
+  .hero-cta { margin-top: 1.6rem; }
+  .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.3rem; border-radius: 999px; border: 1px solid var(--border); background: rgba(212,160,23,0.08); color: var(--gold-light); font-family: var(--font-heading); font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: transform 0.15s, background 0.2s; }
+  .btn:hover { background: rgba(212,160,23,0.16); transform: translateY(-1px); }
+
+  section { padding: 2.6rem 0; border-top: 1px solid var(--border); }
+  section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.1rem; }
+  section h3 { font-size: 1.1rem; font-weight: 600; color: var(--gold-light); margin: 1.4rem 0 0.6rem; }
+
+  .format-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1rem; }
+  @media (max-width: 700px) { .format-grid { grid-template-columns: 1fr; } }
+  .format-card { border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem; background: rgba(20,20,20,0.5); }
+  .format-card .tag { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.5rem; }
+  .format-card h3 { margin-top: 0; }
+
+  .pill-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+  .pill { border: 1px solid var(--border); border-radius: 999px; padding: 0.4rem 0.9rem; font-size: 0.86rem; color: var(--ink); background: rgba(212,160,23,0.06); }
+
+  .trainer { display: grid; grid-template-columns: 140px 1fr; gap: 1.6rem; align-items: start; }
+  @media (max-width: 600px) { .trainer { grid-template-columns: 1fr; } }
+  .trainer img { width: 140px; height: 140px; object-fit: cover; border-radius: 14px; box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,160,23,0.18); }
+  .trainer h3 { margin-top: 0; color: var(--ink); font-size: 1.15rem; }
+
+  details { border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; margin-bottom: 0.7rem; background: rgba(20,20,20,0.4); }
+  details summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+  details p { margin-top: 0.7rem; margin-bottom: 0; }
+
+  footer { padding: 2.4rem 0 4rem; text-align: center; }
+  footer .script { font-family: var(--font-script); font-size: 2.2rem; color: var(--gold-light); }
+  footer .contact { color: var(--muted); font-size: 0.92rem; margin-top: 0.6rem; }
+  footer .contact a { color: var(--gold-light); }
+  .back-link { display: flex; width: fit-content; align-items: center; gap: 0.4rem; font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; color: var(--muted); text-decoration: none; margin-bottom: 1.4rem; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold-light); }
+  @media print { .back-link { display: none; } }
+</style>
+</head>
+<body>
+
+<div id="ambient">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+
+<main>
+  <header class="hero">
+    <div class="container">
+      <a class="back-link" href="/trainings/">&larr; Alle Trainings</a>
+      <span class="hero-badge">Trainingsangebot · Jakub Popluhar</span>
+      <h1 class="hero-title">Microsoft 365 Copilot effizient nutzen</h1>
+      <p class="hero-sub">KI-Grundlagen und produktiver Einsatz von Copilot in Word, Excel, Teams und Outlook. Von der Funktionsweise bis zum wirksamen Prompting, praxisnah mit Live-Demos in den zentralen M365-Apps.</p>
+      <div class="hero-meta">
+        <strong>Referent:</strong> Jakub Popluhar, M.Ed. &nbsp;·&nbsp;
+        <strong>Format:</strong> Präsenz, ganztags &nbsp;·&nbsp;
+        <strong>Themen:</strong> KI-Grundlagen, Copilot in Word/Excel/Teams/Outlook, Prompting
+      </div>
+      <div class="hero-cta">
+        <a class="btn" href="Copilot-Jakub-Popluhar.pdf" download>Als PDF herunterladen ↓</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2>Warum dieses Training?</h2>
+      <p>Der Einsatz von Microsoft 365 Copilot verändert die tägliche Arbeit mit Word, Excel, Teams und Outlook grundlegend. Das Seminar behandelt die praktischen Einsatzmöglichkeiten von Copilot in den zentralen Microsoft-365-Anwendungen: von der Texterstellung in Word über Datenanalysen in Excel bis hin zur Meeting- und Kommunikationsunterstützung in Teams und Outlook.</p>
+      <p>Gezieltes Prompting und Best Practices sorgen dafür, dass Ergebnisse nicht nur schneller, sondern auch nachvollziehbar und verlässlich entstehen. Auch die Erweiterung von Copilot mit unternehmenseigenen Daten wird praxisorientiert beleuchtet.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Kursinhalte</h2>
+      <ul>
+        <li><strong>Grundlagen der Künstlichen Intelligenz:</strong> was KI ist und wie sie im Unternehmenskontext funktioniert, Einordnung von M365 Copilot als Large Language Model.</li>
+        <li><strong>Funktionsweise von Microsoft 365 Copilot:</strong> wie Copilot Eingaben verarbeitet und Ergebnisse generiert, Integration in die Microsoft-365-Umgebung, Möglichkeiten und Grenzen im Überblick.</li>
+        <li><strong>Copilot in der Praxis, Word, Excel, Teams &amp; Outlook:</strong> Anwendungsfälle und Live-Demos in den zentralen M365-Apps. Texte erstellen und optimieren in Word, Datenanalyse und Tabellenarbeit in Excel, Meetings zusammenfassen und Kommunikation beschleunigen in Teams &amp; Outlook.</li>
+        <li><strong>Effektives Prompting für optimale Ergebnisse:</strong> Aufbau und Struktur wirksamer Prompts, typische Fehler beim Prompten und wie man sie vermeidet, Best Practices für unterschiedliche Aufgabentypen.</li>
+      </ul>
+      <div class="pill-list">
+        <span class="pill">Praxis statt Theorie</span>
+        <span class="pill">Live-Demos in Word/Excel/Teams/Outlook</span>
+        <span class="pill">Mit und ohne Copilot-Vorerfahrung</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Für wen eignet sich dieses Training?</h2>
+      <ul>
+        <li>Mitarbeitende aller Ebenen und Abteilungen, die mit Microsoft 365 (Word, Excel, PowerPoint, Outlook oder Teams) arbeiten.</li>
+        <li>Keine technischen Vorkenntnisse nötig. Wer Word, Excel, Outlook oder Teams bedient, kann teilnehmen.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Ihr Trainer</h2>
+      <div class="trainer">
+        <img src="/images/profile/headshot.png" alt="Jakub Popluhar">
+        <div>
+          <h3>Jakub Popluhar, M.Ed.</h3>
+          <p>KI-Trainer und Implementierungsberater mit Fokus auf Künstliche Intelligenz und Konsumentenpsychologie. Staatsgeprüfter Gymnasiallehrer für Englisch und Sport (Bayern). Jakub verbindet didaktisches Handwerk mit Praxiserfahrung in der KI-Implementierung und bringt komplexe Technik so auf den Punkt, dass sie am Montag im Büro funktioniert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Häufige Fragen</h2>
+      <details>
+        <summary>Brauche ich Vorkenntnisse für das Training?</summary>
+        <p>Nein. Das Training ist für Teilnehmende mit und ohne Copilot-Vorerfahrung konzipiert.</p>
+      </details>
+      <details>
+        <summary>Was muss ich mitbringen?</summary>
+        <p>Einen Laptop mit Internetzugang und einem aktiven Microsoft-365-Konto.</p>
+      </details>
+      <details>
+        <summary>Werden auch Excel und Teams behandelt, oder nur Word?</summary>
+        <p>Alle vier zentralen Anwendungen: Word, Excel, Teams und Outlook, jeweils mit Live-Demos und eigenen Übungen.</p>
+      </details>
+      <details>
+        <summary>Kann das Training als Inhouse-Schulung gebucht werden?</summary>
+        <p>Ja, für Teams und Abteilungen mit Microsoft-365-Umgebung.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="script">Jakub Popluhar</div>
+      <div class="contact">KI-Trainer &amp; Konsumentenpsychologe &nbsp;·&nbsp; <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a></div>
+      <div class="legal"><a href="/trainings/">Alle Trainings</a> &nbsp;&middot;&nbsp; <a href="/impressum.html">Impressum</a> &nbsp;&middot;&nbsp; <a href="/datenschutz.html">Datenschutz</a></div>
+    </div>
+  </footer>
+</main>
+
+<!-- Analytics: zentraler cookieless Beacon (+ Consent-gated Clarity). NICHT entfernen,
+     sonst ist die Seite ungetrackt. Siehe assets/js/site.js. -->
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
