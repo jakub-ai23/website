@@ -6,11 +6,11 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Jakub Popluhar · Profil</title>
 <style>
-  @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
-  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
-  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
-  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
-  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+  @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/great-vibes-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/inter-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/inter-500.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/inter-600.woff2) format('woff2'); }
+  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(fonts/montserrat.woff2) format('woff2'); }
 
   :root {
     --gold: #d4a017;
@@ -65,9 +65,13 @@
 
   main, header, footer { position: relative; z-index: 2; }
 
-  .site-nav { position: relative; z-index: 5; padding: 1.4rem 1.5rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .site-nav { position: sticky; top: 0; z-index: 50; padding: 0.9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    background: rgba(12,12,12,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent; transition: border-color 0.25s ease, background 0.25s ease; }
+  .site-nav.scrolled { border-bottom-color: var(--border); background: rgba(12,12,12,0.9); }
   .site-nav-logo .logo-svg-nav { display: block; height: 52px; width: auto; }
   @media (max-width: 640px) { .site-nav-logo .logo-svg-nav { height: 42px; } }
+  section[id] { scroll-margin-top: 92px; }
   .site-nav-links { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
   .site-nav-links a { font-family: var(--font-heading); font-size: 0.92rem; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
   .site-nav-links a:hover { color: var(--gold-light); }
@@ -82,7 +86,7 @@
 
   /* ---------- GATE ---------- */
   #gate {
-    position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center;
+    position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center;
     background: radial-gradient(circle at 50% 30%, #1a1a1a 0%, #050505 75%);
     transition: opacity 0.6s ease, visibility 0.6s;
   }
@@ -298,7 +302,7 @@
         </div>
       </div>
       <div class="hero-photo-wrap reveal d2">
-        <img src="../images/personal/jakub-viennaup-action.jpg" alt="Jakub Popluhar mit Teilnehmenden bei der ViennaUP" class="hero-photo">
+        <img src="images/personal/jakub-viennaup-action.jpg" alt="Jakub Popluhar mit Teilnehmenden bei der ViennaUP" class="hero-photo">
       </div>
     </div>
   </header>
@@ -329,7 +333,7 @@
         </div>
       </div>
       <div class="staerken-photo-wrap reveal d1">
-        <img src="../images/personal/jakub-suit-trainer.png" alt="Jakub Popluhar als Trainer" class="suit-photo">
+        <img src="images/personal/jakub-suit-trainer.png" alt="Jakub Popluhar als Trainer" class="suit-photo">
         <p class="degree-caption">M.Ed. &middot; Ludwig-Maximilians-Universität München &amp; Technische Universität München</p>
       </div>
     </div>
@@ -454,22 +458,22 @@
     </div>
     <div class="ref-marquee reveal">
       <div class="ref-track">
-        <img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" class="ref-logo">
-        <img src="../images/logos/innovatic-group.svg" alt="Innovatic Group" class="ref-logo">
-        <img src="../images/logos/ai-factory.png" alt="AI Factory Austria · ViennaUP" class="ref-logo">
-        <div class="ref-item"><img src="../images/logos/became-ai-icon.svg" alt="became ai" class="ref-logo"><span>became ai</span></div>
-        <img src="../images/logos/sport-union.svg" alt="Sport Union" class="ref-logo">
-        <img src="../images/logos/youknowmebest.svg" alt="YouKnowMeBest" class="ref-logo">
-        <img src="../images/logos/fitrock.svg" alt="FitRock" class="ref-logo">
-        <div class="ref-item"><img src="../images/logos/zr-bjj.svg" alt="ZR Team Vienna" class="ref-logo"><span>ZR Team Vienna</span></div>
-        <img src="../images/logos/ars-akademie.svg" alt="" class="ref-logo">
-        <img src="../images/logos/innovatic-group.svg" alt="" class="ref-logo">
-        <img src="../images/logos/ai-factory.png" alt="" class="ref-logo">
-        <div class="ref-item"><img src="../images/logos/became-ai-icon.svg" alt="" class="ref-logo"><span>became ai</span></div>
-        <img src="../images/logos/sport-union.svg" alt="" class="ref-logo">
-        <img src="../images/logos/youknowmebest.svg" alt="" class="ref-logo">
-        <img src="../images/logos/fitrock.svg" alt="" class="ref-logo">
-        <div class="ref-item"><img src="../images/logos/zr-bjj.svg" alt="" class="ref-logo"><span>ZR Team Vienna</span></div>
+        <img src="images/logos/ars-akademie.svg" alt="ARS Akademie" class="ref-logo">
+        <img src="images/logos/innovatic-group.svg" alt="Innovatic Group" class="ref-logo">
+        <img src="images/logos/ai-factory.png" alt="AI Factory Austria · ViennaUP" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/became-ai-icon.svg" alt="became ai" class="ref-logo"><span>became ai</span></div>
+        <img src="images/logos/sport-union.svg" alt="Sport Union" class="ref-logo">
+        <img src="images/logos/youknowmebest.svg" alt="YouKnowMeBest" class="ref-logo">
+        <img src="images/logos/fitrock.svg" alt="FitRock" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/zr-bjj.svg" alt="ZR Team Vienna" class="ref-logo"><span>ZR Team Vienna</span></div>
+        <img src="images/logos/ars-akademie.svg" alt="" class="ref-logo">
+        <img src="images/logos/innovatic-group.svg" alt="" class="ref-logo">
+        <img src="images/logos/ai-factory.png" alt="" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/became-ai-icon.svg" alt="" class="ref-logo"><span>became ai</span></div>
+        <img src="images/logos/sport-union.svg" alt="" class="ref-logo">
+        <img src="images/logos/youknowmebest.svg" alt="" class="ref-logo">
+        <img src="images/logos/fitrock.svg" alt="" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/zr-bjj.svg" alt="" class="ref-logo"><span>ZR Team Vienna</span></div>
       </div>
     </div>
   </section>
@@ -535,13 +539,12 @@
   <section id="jump" style="border-top: none;">
     <div class="container jump-wrap">
       <h2 class="reveal">Lass uns zusammen in die KI-Welt springen.</h2>
-      <video class="jump-video reveal d1" controls playsinline muted loop autoplay poster="../images/personal/ki-angebot-poster.jpg">
-        <source src="../images/personal/ki-angebot.mp4" type="video/mp4">
+      <video class="jump-video reveal d1" controls playsinline muted loop autoplay poster="images/personal/ki-angebot-poster.jpg">
+        <source src="images/personal/ki-angebot.mp4" type="video/mp4">
       </video>
       <p class="jump-ps reveal d3">PS: Es läuft nicht alles sauber oder fehlerfrei, aber genau darum geht es auch nicht. Stabilisierung ist die eigentliche Fähigkeit, bei KI genauso wie beim Sprung.</p>
       <div class="jump-cta reveal d2">
         <a class="btn btn-primary magnetic" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Termin buchen →</a>
-        <a class="btn btn-ghost" href="https://jakubpopluhar.com" target="_blank" rel="noopener">Mehr Infos auf meiner Website ↗</a>
       </div>
     </div>
   </section>
@@ -593,6 +596,13 @@
       }
     })();
   }
+  (function(){
+    var navEl = document.querySelector('.site-nav');
+    if (!navEl) return;
+    var onScroll = function(){ navEl.classList.toggle('scrolled', window.scrollY > 8); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
   btn.addEventListener('click', tryUnlock);
   input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
   input.focus();
