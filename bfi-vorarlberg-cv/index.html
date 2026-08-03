@@ -66,6 +66,8 @@
   main, header, footer { position: relative; z-index: 2; }
 
   .site-nav { position: relative; z-index: 5; padding: 1.4rem 1.5rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .site-nav-logo .logo-svg-nav { display: block; height: 52px; width: auto; }
+  @media (max-width: 640px) { .site-nav-logo .logo-svg-nav { height: 42px; } }
   .site-nav-links { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
   .site-nav-links a { font-family: var(--font-heading); font-size: 0.92rem; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
   .site-nav-links a:hover { color: var(--gold-light); }
@@ -241,7 +243,23 @@
 
 <header class="site-nav">
   <a class="site-nav-logo" href="https://jakubpopluhar.com" target="_blank" rel="noopener" aria-label="Jakub Popluhar">
-    <img src="../images/logos/jakub-popluhar-logo.svg" alt="Jakub Popluhar" height="36">
+    <svg class="logo-svg-nav" viewBox="0 0 380 125" height="52" aria-label="Jakub Popluhar">
+      <defs>
+        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#bf953f"/>
+          <stop offset="18%" stop-color="#fcf6ba"/>
+          <stop offset="40%" stop-color="#b38728"/>
+          <stop offset="65%" stop-color="#fbf5b7"/>
+          <stop offset="85%" stop-color="#daa520"/>
+          <stop offset="100%" stop-color="#aa771c"/>
+        </linearGradient>
+        <filter id="goldGlow">
+          <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/>
+        </filter>
+      </defs>
+      <text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text>
+      <text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing:0.16em">POPLUHAR</text>
+    </svg>
   </a>
   <nav class="site-nav-links" aria-label="Seitennavigation">
     <a href="#trainings">Trainings</a>
