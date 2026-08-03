@@ -1176,6 +1176,30 @@
       transform: translateY(-2px);
     }
 
+    /* ===== Link zur Termin-Unterseite ===== */
+    .agenda-more {
+      max-width: 1000px;
+      margin: 22px auto 0;
+      text-align: right;
+    }
+
+    .agenda-more a {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.4);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .agenda-more a:hover {
+      color: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
     /* ===== Individueller Termin prompt ===== */
     .training-cta-note {
       max-width: 1000px;
@@ -2192,23 +2216,15 @@
         </div>
 
         <div class="open-trainings-header">
-          <span>In Kooperation mit ARS, Hill Digital und tecTrain</span>
+          <span>In Kooperation mit ARS und tecTrain</span>
         </div>
 
         <div class="agenda">
           <div class="ag">
-            <div class="ag-date"><div class="ag-day">21</div><div class="ag-mon">Jul</div></div>
-            <div class="ag-body">
-              <div class="ag-prov"><img src="images/logos/hill-digital-logo.svg" alt="Hill Digital"></div>
-              <div class="txt"><h4>KI im HR-Alltag</h4><p>Personalarbeit mit KI, DSGVO-konform &middot; Ganzer Tag</p></div>
-            </div>
-            <a href="https://hill-digital.at/firmen-buchung?t=ki-hr&f=volltag" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag">
             <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">Sep</div></div>
             <div class="ag-body">
               <div class="ag-prov"><img src="images/logos/tectrain.png" alt="tecTrain"></div>
-              <div class="txt"><h4>Microsoft Copilot f&uuml;r Anwender</h4><p>Copilot sicher und produktiv einsetzen &middot; Ganzer Tag</p></div>
+              <div class="txt"><h4>Microsoft Copilot für Anwender</h4><p>Copilot sicher und produktiv einsetzen &middot; Ganzer Tag</p></div>
             </div>
             <a href="https://www.tectrain.at/kurskatalog/microsoft-technisch/microsoft-copilot/microsoft-copilot-fuer-anwender" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
@@ -2216,7 +2232,7 @@
             <div class="ag-date"><div class="ag-day">29</div><div class="ag-mon">Sep</div></div>
             <div class="ag-body">
               <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
-              <div class="txt"><h4>KI f&uuml;r den B&uuml;roalltag</h4><p>2-t&auml;gige Hands-on-Gesamtl&ouml;sung &middot; 2 Tage</p></div>
+              <div class="txt"><h4>Lehrgang KI für den Büroalltag</h4><p>Hands-on, Wien &middot; 29.&ndash;30.09.2026 &middot; 2 Tage</p></div>
             </div>
             <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
@@ -2236,14 +2252,10 @@
             </div>
             <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/chatgpt-und-kuenstliche-intelligenz-in-der-praxis" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
-          <div class="ag">
-            <div class="ag-date"><div class="ag-day">16</div><div class="ag-mon">Okt</div></div>
-            <div class="ag-body">
-              <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
-              <div class="txt"><h4>Claude datenschutzkonform nutzen</h4><p>Claude DSGVO-konform im Arbeitsalltag &middot; Ganzer Tag</p></div>
-            </div>
-            <a href="https://ars.at/seminar/333220/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
+        </div>
+
+        <div class="agenda-more">
+          <a href="/termine/">Alle Termine ansehen &rarr;</a>
         </div>
 
         <div class="training-cta-note">
