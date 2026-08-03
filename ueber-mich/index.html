@@ -151,6 +151,49 @@
   .cta-band p { color: var(--muted); max-width: 580px; margin: 0 auto 1.8rem; }
 
   footer { padding: 2.5rem 0 3rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.86rem; text-align: center; }
+
+  /* ---- Angebote-Aufklappmenue (Hover, Tastatur, Touch) ---- */
+  .nav-drop { position: relative; display: inline-flex; align-items: center; }
+  .nav-drop-toggle {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: none; border: none; padding: 0; margin: 0; cursor: pointer;
+    font: inherit; color: #9a978e; transition: color 0.2s;
+  }
+  .nav-drop-toggle:hover, .nav-drop.open .nav-drop-toggle { color: #fff; }
+  .nav-drop-toggle .caret {
+    border: solid currentColor; border-width: 0 1.5px 1.5px 0; padding: 2.5px;
+    transform: rotate(45deg); margin-bottom: 2px; transition: transform 0.2s;
+  }
+  .nav-drop.open .nav-drop-toggle .caret { transform: rotate(-135deg); }
+  .nav-drop-menu {
+    position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%);
+    min-width: 250px; margin: 0; padding: 8px; list-style: none;
+    background: rgba(16,16,16,0.98); border: 1px solid rgba(212,160,23,0.18);
+    border-radius: 10px; box-shadow: 0 24px 48px rgba(0,0,0,0.55);
+    display: none; z-index: 200; text-align: left;
+  }
+  .nav-drop-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+  .nav-drop:hover .nav-drop-menu,
+  .nav-drop:focus-within .nav-drop-menu,
+  .nav-drop.open .nav-drop-menu { display: block; }
+  .nav-drop-menu li { margin: 0; }
+  .nav-drop-menu a {
+    display: block; padding: 10px 12px; border-radius: 7px;
+    color: #f2f0eb; font-size: 0.88rem; line-height: 1.35; text-decoration: none;
+  }
+  .nav-drop-menu a::after { content: none; }
+  .nav-drop-menu a small { display: block; color: #9a978e; font-size: 0.74rem; }
+  .nav-drop-menu a:hover { background: rgba(212,160,23,0.12); color: #fff; }
+  @media (max-width: 720px) {
+    .nav-drop { position: static; }
+    .nav-drop-menu { left: 1rem; right: 1rem; transform: none; min-width: 0; }
+  }
+
+  /* Kopfzeile ueber den Seiteninhalt heben, sonst liegt das Menue hinter Fotos */
+  .site-nav, header.site-nav { position: relative; z-index: 80; }
+  .nav-links { align-items: center; }
+  .nav-drop { align-self: center; }
+  .nav-drop-toggle { line-height: 1.2; }
 </style>
 </head>
 <body>
@@ -162,7 +205,14 @@
   </a>
   <nav class="nav-links">
     <a href="/ueber-mich/" class="active">Über mich</a>
-    <a href="https://jakubpopluhar.com/#services">Angebote</a>
+    <div class="nav-drop" data-nav-drop>
+      <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Angebote <span class="caret"></span></button>
+      <ul class="nav-drop-menu">
+        <li><a href="/ki-personal-training/">One-on-One-Coaching<small>Einzeln, an Ihren echten Aufgaben</small></a></li>
+        <li><a href="/trainings/">Inhouse-Trainings<small>Ihr Team, ein Praxistag in Ihrem Haus</small></a></li>
+        <li><a href="/termine/">Standard-Trainings<small>Offene Seminare bei ARS und tecTrain</small></a></li>
+      </ul>
+    </div>
     <a href="https://jakubpopluhar.com/#proof">Ergebnisse</a>
     <a href="https://jakubpopluhar.com/blog/">Blog</a>
     <a href="#kontakt" class="nav-cta">Session buchen</a>
@@ -519,5 +569,30 @@
 <!-- Analytics: zentraler cookieless Beacon (+ Consent-gated Clarity). NICHT entfernen,
      sonst ist die Seite ungetrackt. Siehe assets/js/site.js. -->
 <script src="/assets/js/site.js" defer></script>
+
+<script>
+  // Hover und Tastaturfokus laufen ueber CSS, hier nur Tippen (Touch) und Escape.
+  document.querySelectorAll('[data-nav-drop]').forEach(function (drop) {
+    var toggle = drop.querySelector('.nav-drop-toggle');
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault(); e.stopPropagation();
+      var open = drop.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+      if (!drop.contains(e.target)) {
+        drop.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    drop.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        drop.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
+  });
+</script>
 </body>
 </html>
