@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jakub Popluhar | Business Lead bei Hill Digital & KI-Trainer</title>
-  <meta name="description" content="Business Lead bei Hill Digital und KI-Trainer für Führungskräfte, Teams und Unternehmen im DACH-Raum. Praxisnahe KI-Trainings, 1:1 Executive Sessions, Inhouse-Trainings, Keynotes. Human in the Lead. KI im Hintergrund.">
+  <meta name="description" content="Business Lead bei Hill Digital und KI-Trainer für Führungskräfte, Teams und Unternehmen im DACH-Raum. Praxisnahe KI-Trainings, KI-Personal-Training, Inhouse-Trainings, Keynotes. Human in the Lead. KI im Hintergrund.">
   <meta name="theme-color" content="#141414">
   <meta property="og:title" content="Jakub Popluhar | Business Lead bei Hill Digital & KI-Trainer">
   <meta property="og:description" content="Business Lead bei Hill Digital und KI-Trainer für Führungskräfte im DACH-Raum. Human in the Lead. KI im Hintergrund.">
@@ -1176,6 +1176,38 @@
       transform: translateY(-2px);
     }
 
+    /* ===== Verweise auf die Unterseiten ===== */
+    .service-note {
+      color: var(--white-muted);
+      font-size: 0.86rem;
+      margin: 14px 0 4px;
+    }
+
+    .service-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .about-more {
+      display: inline-flex;
+      margin-top: 20px;
+    }
+
+    /* ===== Angebots-Leiter: Personal, Inhouse, Offen ===== */
+    .service-ladder {
+      max-width: 1000px;
+      margin: 26px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 760px) {
+      .service-ladder { grid-template-columns: 1fr; gap: 14px; }
+    }
+
     /* ===== Link zur Termin-Unterseite ===== */
     .agenda-more {
       max-width: 1000px;
@@ -1902,7 +1934,7 @@
     "@type": "ProfessionalService",
     "name": "Jakub Popluhar - KI-Training & Konsumentenpsychologie",
     "url": "https://jakubpopluhar.com",
-    "description": "Praxisnahes KI-Training für Führungskräfte und Teams. 1:1 Executive Sessions, Inhouse-Trainings und Keynotes.",
+    "description": "Praxisnahes KI-Training für Führungskräfte und Teams. KI-Personal-Training, Inhouse-Trainings und Keynotes.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Wien",
@@ -1931,7 +1963,7 @@
       },
       "description": "DACH Region (Deutschland, Österreich, Schweiz)"
     },
-    "serviceType": ["KI-Training", "Executive Coaching", "Keynote Speaking", "Inhouse-Training", "Konsumentenpsychologie"]
+    "serviceType": ["KI-Training", "KI-Personal-Training", "Keynote Speaking", "Inhouse-Training", "Konsumentenpsychologie"]
   }
   </script>
 </head>
@@ -2078,6 +2110,7 @@
             <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
             <li><span class="check">&#10003;</span> Erster gesponserter Roundnet-Spieler Europas · ehem. Floorball-Nationalspieler · PADI Divemaster · Skydiver</li>
           </ul>
+          <a href="/ueber-mich/" class="btn btn-secondary about-more">Mein Weg, ausf&uuml;hrlich &rarr;</a>
         </div>
       </div>
     </section>
@@ -2192,7 +2225,7 @@
           </div>
           <div class="service-featured-content">
             <span class="service-badge">Premium</span>
-            <h3>1:1 Executive Training</h3>
+            <h3>KI-Personal-Training</h3>
             <p class="desc">Kein Frontalunterricht. Kein Standardprogramm. Wir arbeiten live und gemeinsam an genau Ihren Use Cases - ich komme zu Ihnen. Jede Session hat einen konkreten Output, den Sie sofort einsetzen können.</p>
             <ul class="service-points">
               <li><span class="icon">&#10003;</span> Live vor Ort - Ihr Büro, Ihr Rechner, Ihre Datensicherheit</li>
@@ -2200,7 +2233,27 @@
               <li><span class="icon">&#10003;</span> Hands-on mit den richtigen Tools für Ihr Business</li>
               <li><span class="icon">&#10003;</span> Psychologie + KI: verstehen, warum Teams KI ablehnen - und wie Sie das ändern</li>
             </ul>
-            <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Session buchen &rarr;</a>
+            <p class="service-note">Erste Session bevorzugt bei Ihnen vor Ort, danach live online.</p>
+            <div class="service-cta-row">
+              <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Kostenloses Erstgespr&auml;ch &rarr;</a>
+              <a href="/ki-personal-training/" class="btn btn-secondary">Ablauf und Preise ansehen, ab 290 &euro;/Std. &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-offers service-ladder">
+          <div class="cta-offer-card">
+            <span class="offer-badge">Team</span>
+            <h3>Inhouse-Training</h3>
+            <p>KI-Kompetenz und Konsumentenpsychologie für Ihr Team, bei Ihnen im Haus. Inklusive AI Literacy gemäß EU AI Act Art. 4.</p>
+            <a href="https://cal.eu/hilldigital/training" class="btn btn-secondary" target="_blank" rel="noopener">Ich interessiere mich f&uuml;r Trainings &rarr;</a>
+          </div>
+
+          <div class="cta-offer-card">
+            <span class="offer-badge">Gruppe</span>
+            <h3>Offene Seminare</h3>
+            <p>Feste Termine bei ARS und tecTrain, offen für Einzelanmeldungen. Sie buchen direkt beim Veranstalter.</p>
+            <a href="/termine/" class="btn btn-secondary">Alle Termine ansehen &rarr;</a>
           </div>
         </div>
 
@@ -2337,25 +2390,25 @@
         </div>
 
         <div class="cta-offers">
-          <div class="cta-offer-card">
-            <span class="offer-badge">Keynote</span>
-            <h3>„Sie wissen nicht, was Sie nicht wissen"</h3>
-            <p>Impulsvortrag über KI, Wandel und was sich jetzt verändert. Für Konferenzen und Events.</p>
-            <button class="btn btn-secondary" onclick="selectInterest('Keynote / Impulsvortrag')">Preis anfragen &rarr;</button>
-          </div>
-
           <div class="cta-offer-card cta-offer-featured">
             <span class="offer-badge">1:1</span>
-            <h3>Executive Session</h3>
-            <p>Persönliches KI-Training an Ihren Use Cases. Jede Session hat einen konkreten Output.</p>
-            <a href="https://cal.eu/hilldigital/training" class="btn btn-primary" target="_blank" rel="noopener">Session buchen &rarr;</a>
+            <h3>KI-Personal-Training</h3>
+            <p>Ihr Personal Trainer f&uuml;r die Arbeit mit KI. An Ihren echten Aufgaben, mit einem Ergebnis, das Sie behalten.</p>
+            <a href="/ki-personal-training/" class="btn btn-primary">Ablauf und Preise &rarr;</a>
           </div>
 
           <div class="cta-offer-card">
             <span class="offer-badge">Team</span>
             <h3>Inhouse-Training</h3>
-            <p>KI-Kompetenz + Konsumentenpsychologie für Ihr Team. Inklusive AI Literacy gem. EU AI Act Art. 4.</p>
+            <p>KI-Kompetenz + Konsumentenpsychologie f&uuml;r Ihr Team. Inklusive AI Literacy gem. EU AI Act Art. 4.</p>
             <a href="https://cal.eu/hilldigital/training" class="btn btn-secondary" target="_blank" rel="noopener">Ich interessiere mich f&uuml;r Trainings &rarr;</a>
+          </div>
+
+          <div class="cta-offer-card">
+            <span class="offer-badge">Gruppe</span>
+            <h3>Offene Seminare</h3>
+            <p>Feste Termine bei ARS und tecTrain, offen f&uuml;r Einzelanmeldungen. Buchung direkt beim Veranstalter.</p>
+            <a href="/termine/" class="btn btn-secondary">Alle Termine ansehen &rarr;</a>
           </div>
         </div>
 
@@ -2370,7 +2423,7 @@
             <div class="form-row">
               <select name="interest" required>
                 <option value="" disabled selected>Ich interessiere mich für... *</option>
-                <option value="1:1 Executive Session">1:1 Executive Session</option>
+                <option value="KI-Personal-Training">KI-Personal-Training</option>
                 <option value="Keynote / Impulsvortrag">Keynote / Impulsvortrag</option>
                 <option value="Inhouse-Training (Team)">Inhouse-Training (Team)</option>
                 <option value="Sonstiges">Sonstiges</option>

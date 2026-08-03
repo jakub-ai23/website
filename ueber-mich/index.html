@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Über mich · Jakub Popluhar, KI-Trainer</title>
+<meta name="description" content="KI-Trainer und Business Lead bei Hill Digital. Ausgebildeter Lehrer mit bayerischem Staatsexamen, dritte Trainergeneration, ehemaliger Leistungssportler. Spezialisiert auf Gruppen mit sehr unterschiedlichem Vorwissen.">
+<style>
+  @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+  :root {
+    --gold: #d4a017; --gold-light: #e8b84a; --gold-dark: #b8890f;
+    --charcoal: #0a0a0a; --ink: #f2f0eb; --muted: #9a978e;
+    --border: rgba(212,160,23,0.18);
+    --font-heading: 'Montserrat', Arial, sans-serif;
+    --font-body: 'Inter', Arial, sans-serif;
+    --font-script: 'Great Vibes', cursive;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--font-body); background: var(--charcoal); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+  h1, h2, h3 { font-family: var(--font-heading); margin: 0; }
+  a { color: var(--gold); }
+  p { margin: 0 0 0.9rem; }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+  .eyebrow { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 0.6rem; }
+
+  #ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.26; animation: drift 26s ease-in-out infinite; }
+  .blob.b1 { width: 480px; height: 480px; background: var(--gold); top: -140px; left: -120px; }
+  .blob.b2 { width: 420px; height: 420px; background: #7a4fd6; top: 45%; right: -160px; animation-delay: -8s; }
+  .blob.b3 { width: 380px; height: 380px; background: var(--gold-dark); bottom: -160px; left: 30%; animation-delay: -16s; }
+  @keyframes drift { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(40px,-30px) scale(1.08); } 66% { transform: translate(-30px,25px) scale(0.95); } }
+  @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }
+  main, header, footer { position: relative; z-index: 2; }
+
+  .site-nav { padding: 1.4rem 1.5rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .nav-links { display: flex; gap: 1.4rem; font-size: 0.86rem; }
+  .nav-links a { color: var(--muted); text-decoration: none; }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+  .nav-links a.nav-cta {
+    background: var(--gold); color: #141414; padding: 0.5rem 1.1rem; border-radius: 6px;
+    font-weight: 600; border: 2px solid var(--gold); transition: all 0.2s;
+  }
+  .nav-links a.nav-cta:hover { background: transparent; color: var(--gold); }
+  @media (max-width: 720px) { .nav-links { gap: 0.9rem; font-size: 0.78rem; flex-wrap: wrap; justify-content: flex-end; } }
+
+  header.hero { padding: 4.5rem 0 3.5rem; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3rem; align-items: center; }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+  .hero-badge { display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.78rem; color: var(--gold-light); margin-bottom: 1.4rem; }
+  h1.hero-name { font-size: clamp(2rem, 4.6vw, 3rem); font-weight: 800; line-height: 1.12; letter-spacing: -0.01em; }
+  h1.hero-name .script { font-family: var(--font-script); color: var(--gold); font-weight: 400; font-size: 0.52em; display: block; margin-top: 0.18em; }
+  .hero-role { font-size: 1.08rem; color: #d8d5cc; margin-top: 1.1rem; max-width: 600px; }
+  .hero-cta { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-portrait { display: flex; justify-content: center; }
+  .portrait-img { width: 100%; max-width: 380px; height: auto; display: block; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.6)); }
+
+  /* Buehne */
+  .stage-split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; }
+  @media (max-width: 860px) { .stage-split { grid-template-columns: 1fr; } }
+  .stage-photo { width: 100%; border-radius: 16px; display: block; box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,160,23,0.18); }
+  .stage-caption { margin-top: 0.9rem; font-size: 0.84rem; color: var(--muted); }
+  .stage-quote { font-family: var(--font-heading); font-weight: 700; font-size: 1.15rem; line-height: 1.4; margin: 1.4rem 0 0.6rem; }
+  .stage-quote-src { color: var(--muted); font-size: 0.86rem; }
+
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 48px; padding: 0 1.5rem; border-radius: 10px; font-weight: 700; font-family: var(--font-heading); font-size: 0.92rem; text-decoration: none; transition: transform 0.2s ease; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--gold); color: #141414; border: none; }
+  .btn-primary:hover { color: #141414; }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+
+  section { padding: 4rem 0; border-top: 1px solid var(--border); }
+  .section-head { max-width: 680px; margin-bottom: 2.6rem; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .section-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; }
+  .section-head p { color: var(--muted); margin-top: 0.8rem; }
+
+  /* claim */
+  .claim { text-align: center; max-width: 880px; margin: 0 auto; }
+  .claim blockquote { font-family: var(--font-heading); font-weight: 800; font-size: clamp(1.45rem, 3.6vw, 2.3rem); line-height: 1.3; margin: 0; }
+  .claim blockquote em { font-style: normal; color: var(--gold); }
+  .claim .sub { color: var(--muted); margin-top: 1.4rem; font-size: 1rem; }
+
+  /* ---------- TIMELINE ---------- */
+  .tl { position: relative; padding: 0.5rem 0; }
+  .tl::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, transparent, var(--border) 6%, var(--border) 94%, transparent); transform: translateX(-50%); }
+  .tl-item { position: relative; width: 50%; padding: 0 3rem 2.4rem 0; }
+  .tl-item:nth-child(even) { margin-left: 50%; padding: 0 0 2.4rem 3rem; text-align: left; }
+  .tl-item:nth-child(odd) { text-align: right; }
+  .tl-year { font-family: var(--font-heading); font-weight: 800; color: var(--gold); font-size: 1rem; letter-spacing: 0.04em; margin-bottom: 0.5rem; }
+  .tl-card { display: inline-block; text-align: left; padding: 1.2rem 1.3rem; border-radius: 14px; border: 1px solid var(--border); background: rgba(255,255,255,0.025); box-shadow: 0 18px 40px rgba(0,0,0,0.35); }
+  .tl-card h3 { font-size: 1rem; margin-bottom: 0.35rem; }
+  .tl-card p { font-size: 0.9rem; color: #cfccc3; margin: 0; }
+  .tl-dot { position: absolute; top: 0.15rem; width: 34px; height: 34px; border-radius: 50%; background: #141414; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+  .tl-item:nth-child(odd) .tl-dot { right: -17px; }
+  .tl-item:nth-child(even) .tl-dot { left: -17px; }
+  @media (max-width: 780px) {
+    .tl::before { left: 17px; }
+    .tl-item, .tl-item:nth-child(even), .tl-item:nth-child(odd) { width: 100%; margin-left: 0; padding: 0 0 2rem 3.2rem; text-align: left; }
+    .tl-item:nth-child(odd) .tl-dot, .tl-item:nth-child(even) .tl-dot { left: 0; right: auto; }
+  }
+
+  /* principles */
+  .prin-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  @media (max-width: 880px) { .prin-grid { grid-template-columns: 1fr; } }
+  .prin { padding: 1.7rem; border-radius: 16px; border: 1px solid var(--border); background: linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.005)); }
+  .prin .kanji { font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--gold); margin-bottom: 0.6rem; }
+  .prin h3 { font-size: 1.02rem; margin-bottom: 0.5rem; }
+  .prin p { font-size: 0.92rem; color: #cfccc3; margin: 0; }
+
+  /* levels */
+  .levels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem; margin-top: 1.6rem; }
+  @media (max-width: 760px) { .levels { grid-template-columns: repeat(2, 1fr); } }
+  .lvl { padding: 1.1rem 1rem; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+  .lvl .l { font-family: var(--font-heading); font-weight: 800; color: var(--gold); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .lvl p { font-size: 0.86rem; color: #cfccc3; margin: 0; }
+  .lvl.a { border-color: rgba(212,160,23,0.5); }
+
+  /* bio + hard facts */
+  .bio-split { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3rem; align-items: start; }
+  @media (max-width: 860px) { .bio-split { grid-template-columns: 1fr; } }
+  .facts-head { font-family: var(--font-heading); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.4rem; }
+  .facts { list-style: none; padding: 0; margin: 0.4rem 0 0; }
+  .facts li { padding: 0.6rem 0 0.6rem 1.6rem; border-bottom: 1px solid rgba(212,160,23,0.10); position: relative; font-size: 0.94rem; }
+  .facts li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+  .facts li:last-child { border-bottom: none; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+  .chip { padding: 0.35rem 0.8rem; border-radius: 999px; border: 1px solid var(--border); font-size: 0.82rem; color: var(--gold-light); }
+
+  /* references marquee */
+  .ref-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .ref-track { display: flex; align-items: center; gap: 3rem; width: max-content; animation: slide 34s linear infinite; }
+  @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .ref-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; } }
+  .ref-logo { height: 34px; width: auto; opacity: 0.7; filter: grayscale(1); }
+  .ref-item { display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.9rem; }
+
+  .video-wrap { text-align: center; }
+  .video-wrap h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); max-width: 700px; margin: 0 auto 2rem; }
+  .jump-video { width: 100%; max-width: 640px; border-radius: 16px; box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,160,23,0.18); display: block; margin: 0 auto; }
+  .video-ps { margin-top: 1.4rem; font-size: 0.86rem; color: var(--muted); max-width: 560px; margin-left: auto; margin-right: auto; }
+
+  .cta-band { text-align: center; }
+  .cta-band h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); max-width: 720px; margin: 0 auto 1.4rem; }
+  .cta-band p { color: var(--muted); max-width: 580px; margin: 0 auto 1.8rem; }
+
+  footer { padding: 2.5rem 0 3rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.86rem; text-align: center; }
+</style>
+</head>
+<body>
+<div id="ambient"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+
+<header class="site-nav">
+  <a href="https://jakubpopluhar.com" aria-label="Jakub Popluhar">
+    <img src="/images/logos/jakub-popluhar-logo.svg" alt="Jakub Popluhar" height="36">
+  </a>
+  <nav class="nav-links">
+    <a href="/ueber-mich/" class="active">Über mich</a>
+    <a href="https://jakubpopluhar.com/#services">Angebote</a>
+    <a href="https://jakubpopluhar.com/#proof">Ergebnisse</a>
+    <a href="https://jakubpopluhar.com/blog/">Blog</a>
+    <a href="#kontakt" class="nav-cta">Session buchen</a>
+  </nav>
+</header>
+
+<main>
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-badge">KI-Trainer · Business Lead bei Hill Digital</div>
+      <h1 class="hero-name">Vom Spielfeld in den Seminarraum<span class="script">Grundlagen schlagen Tricks</span></h1>
+      <p class="hero-role">
+        Ich bringe Menschen bei, mit Künstlicher Intelligenz zu arbeiten. Alle im Raum, nicht nur die Schnellsten.
+        Das habe ich nicht in einem Kurs gelernt. Das kommt aus zwanzig Jahren Sport und drei Generationen Trainerfamilie.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/ki-personal-training/">KI-Personal-Training ansehen →</a>
+        <a class="btn btn-ghost" href="#weg">Mein Weg ↓</a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <img src="/images/profile/15-web.png" alt="Jakub Popluhar" class="portrait-img">
+    </div>
+  </div>
+</header>
+
+<section id="satz">
+  <div class="container claim">
+    <blockquote>Der Trainer, bei dem <em>der mitkommt, der sich nicht einmal anmelden kann</em>, und der Profi trotzdem nicht einschläft.</blockquote>
+    <p class="sub">
+      In fast jedem Raum sitzen beide. Eine Person hat noch nie einen Account angelegt. Daneben sitzt jemand, der schon eigene Systemanweisungen schreibt.
+      Die meisten Trainings bedienen einen von beiden und verlieren dabei den anderen.
+    </p>
+  </div>
+</section>
+
+<section id="weg">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow">Mein Weg</div>
+      <h2>Sport, Schule, Künstliche Intelligenz.</h2>
+      <p>Drei Berufe, ein Handwerk: jemandem etwas beibringen, das er danach ohne mich kann.</p>
+    </div>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-dot">🥅</div>
+        <div class="tl-year">Kindheit</div>
+        <div class="tl-card">
+          <h3>Aufgewachsen zwischen Turnhalle und Klassenzimmer</h3>
+          <p>Dritte Generation Lehrer und Nationaltrainer. Bei uns zu Hause war Unterrichten Gesprächsthema beim Abendessen, kein Beruf.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🏒</div>
+        <div class="tl-year">2010 bis 2021</div>
+        <div class="tl-card">
+          <h3>Floorball-Nationalspieler, danach Roundnet</h3>
+          <p>Erster gesponserter Roundnet-Spieler Europas. Sportpsychologe im österreichischen Roundnet-Nationalteam. Wer selbst trainiert wurde, trainiert anders.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🍺</div>
+        <div class="tl-year">Zehn Jahre München</div>
+        <div class="tl-card">
+          <h3>Studium, und acht Jahre Stadtführer</h3>
+          <p>Angefangen als Erasmus-Student, geblieben für das Lehramt. Nebenher habe ich Gruppen durch München geführt und alles verkauft, was man als Student verkaufen kann. Wer acht Jahre lang fremde Menschen bei Laune hält, steht später in keinem Seminarraum verloren herum.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🎓</div>
+        <div class="tl-year">2016</div>
+        <div class="tl-card">
+          <h3>Bachelor Englisch und Sport, Masaryk-Universität Brno</h3>
+          <p>Im selben Jahr Sportmarketing und Sporternährung an der University of the Sunshine Coast, Australien.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🇩🇪</div>
+        <div class="tl-year">2019</div>
+        <div class="tl-card">
+          <h3>Bayerisches Staatsexamen, LMU und TU München</h3>
+          <p>Als einziger Nichtmuttersprachler meines Jahrgangs. Ich brauchte für dieselbe Prüfung viermal so lange wie meine Kommilitonen. Also lernte ich anders. Genau diese Fragen stelle ich heute der KI.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">📚</div>
+        <div class="tl-year">2020</div>
+        <div class="tl-card">
+          <h3>Sport- und Englischlehrer, Vienna European School</h3>
+          <p>Sechs Jahre Klassenzimmer. Dreißig Vierzehnjährige nach der Mittagspause sind ein härteres Publikum als zwanzig Erwachsene im Seminarraum.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🌍</div>
+        <div class="tl-year">2021</div>
+        <div class="tl-card">
+          <h3>Gründung Future Roundnet</h3>
+          <p>Eigene Firma für Sportevents. Das größte Roundnet-Trainingslager der Welt, Teilnehmende aus fünfzehn Nationen. Verkauf, Organisation und Automatisierung inklusive.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">✈️</div>
+        <div class="tl-year">2023 bis 2024</div>
+        <div class="tl-card">
+          <h3>Reiseleiter, Lebenslust Touristik</h3>
+          <p>Gruppenreisen im Fünf-Sterne-Segment. Vierzig Menschen, ein Zeitplan, kein Skript. Die beste Vorbereitung auf einen Seminartag, die ich je hatte.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🧠</div>
+        <div class="tl-year">Anfang 2025</div>
+        <div class="tl-card">
+          <h3>Mindworx Certified Trainer, Konsumentenpsychologie</h3>
+          <p>Erst als Teilnehmer, dann als Train the Trainer. Seitdem weiß ich: Der Grund, warum Teams KI nicht nutzen, ist fast nie technisch.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">⚡</div>
+        <div class="tl-year">Seit 2025</div>
+        <div class="tl-card">
+          <h3>Selbständiger KI-Trainer</h3>
+          <p>Referent an der ARS Akademie, nach eigenen Angaben dem größten privaten Seminaranbieter Österreichs, und bei tecTrain. Meist der jüngste Referent im Haus.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🎤</div>
+        <div class="tl-year">November 2025</div>
+        <div class="tl-card">
+          <h3>Speaker, President Ivanov's School for Young Leaders</h3>
+          <p>Ohrid, Nordmazedonien. Auf derselben Bühne wie Katalin Novák, ehemalige Präsidentin Ungarns, und Prof. Jeffrey Sachs von der Columbia University.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🚀</div>
+        <div class="tl-year">2026</div>
+        <div class="tl-card">
+          <h3>Workshop bei der ViennaUP</h3>
+          <p>KI-Workshop beim größten Startup-Festival Wiens, Teilnehmende aus über sechzig Ländern.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🏛️</div>
+        <div class="tl-year">2026</div>
+        <div class="tl-card">
+          <h3>Business Lead bei Hill Digital</h3>
+          <p>Der digitale Arm von Hill Woltron, Personalberatung seit drei Generationen. KI im HR-Alltag, von der Schulung bis zur Umsetzung.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">🎯</div>
+        <div class="tl-year">Heute</div>
+        <div class="tl-card">
+          <h3>Den Lehrerjob abgegeben</h3>
+          <p>Seit Juli 2026 mache ich das hier ganz. Kein Nebenjob, kein Absicherungsplan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prinzipien">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow">Prinzipien</div>
+      <h2>Drei Regeln aus dem Sport, die bei KI genauso gelten.</h2>
+    </div>
+    <div class="prin-grid">
+      <div class="prin">
+        <div class="kanji">01</div>
+        <h3>Grundlagen vor Tricks</h3>
+        <p>Niemand bringt einem Anfänger den Fallrückzieher bei. Werkzeuge wechseln im Monatstakt, die Grundlagen nicht. Wer nur Tools kennt, ist beim nächsten Update wieder Anfänger.</p>
+      </div>
+      <div class="prin">
+        <div class="kanji">02</div>
+        <h3>Jeder trainiert auf seinem Level</h3>
+        <p>Kein Verein lässt Anfänger und Kader dieselbe Einheit machen. Deshalb hat bei mir jede Übung mehrere Stufen. Die Schnellen arbeiten weiter, die Vorsichtigen kommen an.</p>
+      </div>
+      <div class="prin">
+        <div class="kanji">03</div>
+        <h3>Wiederholung schlägt Zuschauen</h3>
+        <p>Vom Zusehen wird niemand besser. Ich stehe selten vorne. Die Teilnehmenden tippen ab dem ersten Drittel selbst, ich gehe durch den Raum und schaue auf die Bildschirme.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="elearning">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Das Werkzeug dahinter</div>
+      <h2>Jedes Training hat eine eigene Übungsseite.</h2>
+      <p>
+        Folien sind Konsum. Deshalb läuft in meinen Trainings eine Begleitseite mit: Prompts zum Kopieren, Aufgaben in vier Stufen, Selbstcheck.
+        Wer schnell ist, macht drei Aufgaben. Die vorsichtige Person macht eine und hat trotzdem ein Ergebnis in der Hand.
+        Nach dem Training bleibt die Seite offen. Teilnehmende melden mir regelmäßig zurück, dass sie das von anderen Trainings nicht kennen.
+      </p>
+    </div>
+    <div class="levels">
+      <div class="lvl a"><div class="l">Stufe A</div><p>Prompt kopieren, ausführen, Ergebnis ansehen. Für alle machbar.</p></div>
+      <div class="lvl"><div class="l">Stufe B</div><p>Prompt anpassen, eigenes Beispiel einsetzen, Format vorgeben.</p></div>
+      <div class="lvl"><div class="l">Stufe C</div><p>Eigener Anwendungsfall, mehrere Schritte, Ergebnis prüfen und korrigieren.</p></div>
+      <div class="lvl"><div class="l">Stufe D</div><p>Eigenes Projekt mit Systemanweisung, wiederverwendbar für den Alltag.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="buehne">
+  <div class="container stage-split">
+    <div>
+      <div class="section-head">
+        <div class="eyebrow">Auf der Bühne</div>
+        <h2>Vor Präsidenten und vor Sachbearbeitern.</h2>
+      </div>
+      <p>
+        Im November 2025 war ich Speaker an der President Ivanov's School for Young Leaders in Ohrid, gemeinsam mit einer ehemaligen Staatspräsidentin
+        und einem Professor der Columbia University. Zwei Wochen später stand ich in einem Seminarraum und half jemandem, sich zum ersten Mal bei einem
+        KI-Werkzeug anzumelden.
+      </p>
+      <p>
+        Beides ist derselbe Beruf. Wer nur das eine kann, taugt für das andere nicht.
+      </p>
+      <div class="stage-quote">„Creative, interactive methods and practical insights into consumer psychology."</div>
+      <div class="stage-quote-src">Teilnehmer-Evaluation, bewertet als „among the most transformative sessions"</div>
+    </div>
+    <div>
+      <img src="/images/speaking/ivanov-certificate-web.jpg" alt="Präsident Dr. Gjorge Ivanov überreicht Jakub Popluhar das Zertifikat" class="stage-photo">
+      <p class="stage-caption">Präsident Dr. Gjorge Ivanov überreicht das Zertifikat, Ohrid, November 2025.</p>
+    </div>
+  </div>
+</section>
+
+<section id="brueckte-cta" style="border-top: none; padding-top: 0;">
+  <div class="container" style="text-align:center;">
+    <p style="color: var(--muted); max-width: 620px; margin: 0 auto 1.2rem;">
+      Wenn Sie das für sich allein wollen, statt in einer Gruppe: das gibt es als Einzeltraining.
+    </p>
+    <a class="btn btn-ghost" href="/ki-personal-training/">KI-Personal-Training ansehen →</a>
+  </div>
+</section>
+
+<section id="biografie">
+  <div class="container bio-split">
+    <div>
+      <div class="section-head">
+        <div class="eyebrow">Biografie</div>
+        <h2>Jakub Popluhar, M.Ed.</h2>
+      </div>
+      <p>
+        Ich bin ausgebildeter Lehrer, Konsumentenpsychologe und ehemaliger Leistungssportler. Heute trainiere ich Führungskräfte und Teams im deutschsprachigen Raum
+        im Umgang mit Künstlicher Intelligenz, für die ARS Akademie, für tecTrain, für Hill Digital und direkt in Unternehmen.
+      </p>
+      <p>
+        Rund achtzig Prozent meiner Arbeit am Rechner diktiere ich heute an KI-Agenten, gemessen an meiner eigenen Diktier-Statistik. Ich baue meine Websites, Auswertungen und Angebote damit selbst.
+        Deshalb rede ich in Trainings nicht über Theorie, sondern zeige, was ich am selben Tag gemacht habe.
+      </p>
+      <p>
+        Meine Trainings sind praktisch, laut und ergebnisorientiert. Am Ende hat jede Person etwas Fertiges auf dem eigenen Rechner. Nicht ein Skript zum Nachlesen.
+      </p>
+    </div>
+    <div>
+      <div class="facts-head">Fakten</div>
+      <ul class="facts">
+        <li>M.Ed., bayerisches Staatsexamen für Englisch und Sport, LMU und TU München</li>
+        <li>Mindworx Certified Trainer für Konsumentenpsychologie</li>
+        <li>Referent an der ARS Akademie und bei tecTrain</li>
+        <li>Business Lead bei Hill Digital</li>
+        <li>Dritte Generation Lehrer und Nationaltrainer</li>
+        <li>Ehemaliger Floorball-Nationalspieler, erster gesponserter Roundnet-Spieler Europas</li>
+        <li>Speaker, President Ivanov's School for Young Leaders</li>
+        <li>Fünf Sprachen, Trainings auf Deutsch und Englisch</li>
+        <li>PADI Divemaster, Fallschirmspringer, brasilianisches Jiu-Jitsu</li>
+      </ul>
+      <div class="chip-row">
+        <span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">Gemini</span>
+        <span class="chip">Microsoft Copilot</span><span class="chip">NotebookLM</span><span class="chip">n8n</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="container video-wrap">
+    <h2>Lass uns zusammen in die KI-Welt springen.</h2>
+    <video class="jump-video" controls playsinline muted loop preload="none" poster="../images/personal/ki-angebot-poster.jpg">
+      <source src="/images/personal/ki-angebot.mp4" type="video/mp4">
+      Ihr Browser kann dieses Video nicht abspielen.
+    </video>
+    <p class="video-ps">PS: Beim Absprung läuft nie alles sauber. Darum geht es auch nicht. Die eigentliche Fähigkeit ist das Stabilisieren, beim Sprung wie bei der KI.</p>
+  </div>
+</section>
+
+<section id="referenzen">
+  <div class="container">
+    <div class="section-head center">
+      <div class="eyebrow">Referenzen</div>
+      <h2>Wo ich trainiere.</h2>
+    </div>
+    <div class="ref-marquee">
+      <div class="ref-track">
+        <img src="/images/logos/ars-akademie.svg" alt="ARS Akademie" class="ref-logo">
+        <img src="/images/logos/tectrain.png" alt="tecTrain" class="ref-logo">
+        <img src="/images/logos/hill-digital-logo.svg" alt="Hill Digital" class="ref-logo">
+        <img src="/images/logos/innovatic-group.svg" alt="Innovatic Group" class="ref-logo">
+        <img src="/images/logos/ai-factory.png" alt="AI Factory Austria · ViennaUP" class="ref-logo">
+        <div class="ref-item"><img src="/images/logos/became-ai-icon.svg" alt="became ai" class="ref-logo"><span>became ai</span></div>
+        <img src="/images/logos/youknowmebest.svg" alt="YouKnowMeBest" class="ref-logo">
+        <img src="/images/logos/fitrock.svg" alt="FitRock" class="ref-logo">
+        <div class="ref-item"><img src="/images/logos/zr-bjj.svg" alt="ZR Team Vienna" class="ref-logo"><span>ZR Team Vienna</span></div>
+        <img src="/images/logos/ars-akademie.svg" alt="" class="ref-logo">
+        <img src="/images/logos/tectrain.png" alt="" class="ref-logo">
+        <img src="/images/logos/hill-digital-logo.svg" alt="" class="ref-logo">
+        <img src="/images/logos/innovatic-group.svg" alt="" class="ref-logo">
+        <img src="/images/logos/ai-factory.png" alt="" class="ref-logo">
+        <div class="ref-item"><img src="/images/logos/became-ai-icon.svg" alt="" class="ref-logo"><span>became ai</span></div>
+        <img src="/images/logos/youknowmebest.svg" alt="" class="ref-logo">
+        <img src="/images/logos/fitrock.svg" alt="" class="ref-logo">
+        <div class="ref-item"><img src="/images/logos/zr-bjj.svg" alt="" class="ref-logo"><span>ZR Team Vienna</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="cta-band">
+  <div class="container">
+    <h2>Zwanzig Minuten, in denen Sie nichts kaufen müssen.</h2>
+    <p>Im Vorgespräch klären wir, ob ein Einzeltraining, ein Inhouse-Tag oder gar nichts davon zu Ihrer Aufgabe passt. Wenn ein Seminar besser passt, sage ich Ihnen welches.</p>
+    <a class="btn btn-primary" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Vorgespräch buchen →</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    Jakub Popluhar · 1080 Wien · <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br>
+    <a href="/ki-personal-training/">KI-Personal-Training</a> · <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+<!-- Analytics: zentraler cookieless Beacon (+ Consent-gated Clarity). NICHT entfernen,
+     sonst ist die Seite ungetrackt. Siehe assets/js/site.js. -->
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

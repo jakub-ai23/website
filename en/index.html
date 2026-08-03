@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jakub Popluhar | Business Lead at Hill Digital & AI Trainer</title>
-  <meta name="description" content="Business Lead at Hill Digital and AI trainer for executives, teams and companies across the DACH region. Practical, hands-on AI training, 1:1 Executive Sessions, in-house training, keynotes. Human in the Lead. AI in Support.">
+  <meta name="description" content="Business Lead at Hill Digital and AI trainer for executives, teams and companies across the DACH region. Practical, hands-on AI training, AI Personal Coaching, in-house training, keynotes. Human in the Lead. AI in Support.">
   <meta name="theme-color" content="#141414">
   <meta property="og:title" content="Jakub Popluhar | Business Lead at Hill Digital & AI Trainer">
   <meta property="og:description" content="Business Lead at Hill Digital and AI trainer for executives across the DACH region. Human in the Lead. AI in Support.">
@@ -1176,6 +1176,24 @@
       transform: translateY(-2px);
     }
 
+    /* ===== Links to the subpages ===== */
+    .service-note { color: var(--white-muted); font-size: 0.86rem; margin: 14px 0 4px; }
+    .service-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    .about-more { display: inline-flex; margin-top: 20px; }
+
+    /* ===== Angebots-Leiter: Personal, Inhouse, Offen ===== */
+    .service-ladder {
+      max-width: 1000px;
+      margin: 26px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 760px) {
+      .service-ladder { grid-template-columns: 1fr; gap: 14px; }
+    }
+
     /* ===== Link to the dates subpage ===== */
     .agenda-more {
       max-width: 1000px;
@@ -1902,7 +1920,7 @@
     "@type": "ProfessionalService",
     "name": "Jakub Popluhar - AI Training & Consumer Psychology",
     "url": "https://jakubpopluhar.com/en/",
-    "description": "Practical, hands-on AI training for executives and teams. 1:1 Executive Sessions, in-house training and keynotes.",
+    "description": "Practical, hands-on AI training for executives and teams. AI Personal Coaching, in-house training and keynotes.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Vienna",
@@ -1931,7 +1949,7 @@
       },
       "description": "DACH region (Germany, Austria, Switzerland)"
     },
-    "serviceType": ["AI Training", "Executive Coaching", "Keynote Speaking", "In-house Training", "Consumer Psychology"]
+    "serviceType": ["AI Training", "AI Personal Coaching", "Keynote Speaking", "In-house Training", "Consumer Psychology"]
   }
   </script>
 </head>
@@ -2078,6 +2096,7 @@
             <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
             <li><span class="check">&#10003;</span> First sponsored roundnet player in Europe · Former national floorball player · PADI Divemaster · Skydiver</li>
           </ul>
+          <a href="/ueber-mich/" class="btn btn-secondary about-more">My path, in detail (German page) &rarr;</a>
         </div>
       </div>
     </section>
@@ -2192,7 +2211,7 @@
           </div>
           <div class="service-featured-content">
             <span class="service-badge">Premium</span>
-            <h3>1:1 Executive Training</h3>
+            <h3>AI Personal Coaching</h3>
             <p class="desc">No lectures. No off-the-shelf programme. We work live, together, on exactly your use cases - I come to you. Every session delivers a concrete output you can put to use immediately.</p>
             <ul class="service-points">
               <li><span class="icon">&#10003;</span> Live, on-site - your office, your machine, your data security</li>
@@ -2200,7 +2219,27 @@
               <li><span class="icon">&#10003;</span> Hands-on with the right tools for your business</li>
               <li><span class="icon">&#10003;</span> Psychology + AI: understand why teams resist AI - and how to change that</li>
             </ul>
-            <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
+            <p class="service-note">First session preferably on site with you, after that live online.</p>
+            <div class="service-cta-row">
+              <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Free intro call &rarr;</a>
+              <a href="/ki-personal-training/" class="btn btn-secondary">Format and prices, from &euro; 290/hr (German page) &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-offers service-ladder">
+          <div class="cta-offer-card">
+            <span class="offer-badge">Team</span>
+            <h3>In-house training</h3>
+            <p>AI skills and consumer psychology for your team, at your offices. Including AI literacy under EU AI Act Art. 4.</p>
+            <a href="https://cal.eu/hilldigital/training" class="btn btn-secondary" target="_blank" rel="noopener">I am interested in training &rarr;</a>
+          </div>
+
+          <div class="cta-offer-card">
+            <span class="offer-badge">Group</span>
+            <h3>Open seminars</h3>
+            <p>Fixed dates with ARS and tecTrain, open for individual registration. You book directly with the organiser.</p>
+            <a href="/en/termine/" class="btn btn-secondary">See all dates &rarr;</a>
           </div>
         </div>
 
@@ -2337,25 +2376,25 @@
         </div>
 
         <div class="cta-offers">
-          <div class="cta-offer-card">
-            <span class="offer-badge">Keynote</span>
-            <h3>"You don't know what you don't know"</h3>
-            <p>A keynote on AI, change, and what's shifting right now. For conferences and events.</p>
-            <button class="btn btn-secondary" onclick="selectInterest('Keynote / Impulsvortrag')">Request pricing &rarr;</button>
-          </div>
-
           <div class="cta-offer-card cta-offer-featured">
             <span class="offer-badge">1:1</span>
-            <h3>Executive Session</h3>
-            <p>Personalised AI training on your own use cases. Every session delivers a concrete output.</p>
-            <a href="https://cal.eu/hilldigital/training" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
+            <h3>AI Personal Coaching</h3>
+            <p>Your personal trainer for working with AI. On your real tasks, with a result you keep.</p>
+            <a href="/ki-personal-training/" class="btn btn-primary">Format and prices (German page) &rarr;</a>
           </div>
 
           <div class="cta-offer-card">
             <span class="offer-badge">Team</span>
-            <h3>In-house Training</h3>
-            <p>AI skills + consumer psychology for your team. Includes AI Literacy per EU AI Act Art. 4.</p>
-            <a href="https://cal.eu/hilldigital/training" class="btn btn-secondary" target="_blank" rel="noopener">I'm interested in trainings &rarr;</a>
+            <h3>In-house training</h3>
+            <p>AI skills and consumer psychology for your team. Including AI literacy under EU AI Act Art. 4.</p>
+            <a href="https://cal.eu/hilldigital/training" class="btn btn-secondary" target="_blank" rel="noopener">I am interested in training &rarr;</a>
+          </div>
+
+          <div class="cta-offer-card">
+            <span class="offer-badge">Group</span>
+            <h3>Open seminars</h3>
+            <p>Fixed dates with ARS and tecTrain, open for individual registration. Booking directly with the organiser.</p>
+            <a href="/en/termine/" class="btn btn-secondary">See all dates &rarr;</a>
           </div>
         </div>
 
@@ -2370,7 +2409,7 @@
             <div class="form-row">
               <select name="interest" required>
                 <option value="" disabled selected>I'm interested in... *</option>
-                <option value="1:1 Executive Session">1:1 Executive Session</option>
+                <option value="AI Personal Coaching">AI Personal Coaching</option>
                 <option value="Keynote / Impulsvortrag">Keynote</option>
                 <option value="Inhouse-Training (Team)">In-house Training (Team)</option>
                 <option value="Sonstiges">Other</option>
