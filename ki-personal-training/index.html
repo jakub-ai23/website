@@ -189,6 +189,39 @@
   .nav-links { align-items: center; }
   .nav-drop { align-self: center; }
   .nav-drop-toggle { line-height: 1.2; }
+
+  /* ---------- Mobiles Hamburger-Menue ----------
+     Unter 720px passen vier Menuepunkte plus CTA nicht in eine Zeile; ohne
+     dies bricht die Leiste in drei Zeilen um und schiebt den Seiteninhalt
+     unter die Falz. Gleiches Muster wie Startseite und Blog. */
+  .nav-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    padding: 8px; margin-left: auto; line-height: 0;
+  }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; border-radius: 2px; }
+  @media (max-width: 720px) {
+    .site-nav { flex-wrap: nowrap; }
+    .nav-toggle { display: block; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; align-items: flex-start; gap: 0;
+      background: rgba(16, 16, 16, 0.98); backdrop-filter: blur(20px);
+      padding: 0.4rem 1.5rem 1.2rem; border-bottom: 1px solid var(--border);
+      font-size: 0.95rem; text-align: left;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links > a, .nav-links > .nav-drop { width: 100%; padding: 0.7rem 0; }
+    .nav-links > a.nav-cta { width: auto; margin-top: 0.6rem; padding: 0.7rem 1.3rem; }
+    .nav-drop { position: static; }
+    .nav-drop > .nav-drop-toggle { width: 100%; justify-content: space-between; font-size: 0.95rem; }
+    .nav-drop-menu {
+      position: static; transform: none; min-width: 0; width: 100%;
+      margin-top: 0.5rem; box-shadow: none; background: rgba(255, 255, 255, 0.04);
+    }
+    /* Auf Touch kein Hover-Aufklappen, nur der Klick auf "Angebote" oeffnet. */
+    .nav-drop:hover > .nav-drop-menu, .nav-drop:focus-within > .nav-drop-menu { display: none; }
+    .nav-drop.open > .nav-drop-menu { display: block; }
+  }
 </style>
 </head>
 <body>
@@ -198,7 +231,7 @@
   <a href="https://jakubpopluhar.com" aria-label="Jakub Popluhar">
     <img src="/images/logos/jakub-popluhar-logo.svg" alt="Jakub Popluhar" height="36">
   </a>
-  <nav class="nav-links">
+  <nav class="nav-links" id="siteNavLinks">
     <div class="nav-drop" data-nav-drop>
       <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Angebote <span class="caret"></span></button>
       <ul class="nav-drop-menu">
@@ -212,6 +245,9 @@
     <a href="/ueber-mich/">Über mich</a>
     <a href="#kontakt" class="nav-cta">Session buchen</a>
   </nav>
+    <button class="nav-toggle" id="siteNavToggle" type="button" aria-label="Menue" aria-expanded="false" aria-controls="siteNavLinks">
+      <span></span><span></span><span></span>
+    </button>
 </header>
 
 <main>
@@ -559,5 +595,23 @@
     });
   });
 </script>
+<script>
+  /* Hamburger: oeffnet/schliesst die Menueleiste unter 720px. */
+  (function () {
+    var t = document.getElementById('siteNavToggle');
+    var l = document.getElementById('siteNavLinks');
+    if (!t || !l) return;
+    t.addEventListener('click', function () {
+      var open = l.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    l.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        l.classList.remove('open');
+        t.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
