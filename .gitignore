@@ -19,3 +19,10 @@ blog/_research/
 *-gatekeeper-*.md
 *-translation-mission-report.md
 zz-layouts.html
+# Uebersetzungs-Glossare und Projektplaene — interne Arbeitsdokumente, nie oeffentlich.
+# (2026-08-04: SK-TRANSLATION-PLAN.md und glossary_de_sk.md waren live abrufbar,
+#  glossary_de_en.md schon seit dem EN-Lauf im August. Namen passten auf kein Muster.)
+glossary_*.md
+*-PLAN.md
+*-plan.md
+
