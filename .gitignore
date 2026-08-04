@@ -26,3 +26,16 @@ glossary_*.md
 *-PLAN.md
 *-plan.md
 
+# 2026-08-04: Der Blacklist-Ansatz hat versagt. Ein .gitignore-Muster entfernt NICHT,
+# was schon committet ist, also blieben Dateien oeffentlich, deren Muster laengst existierte
+# (blog/posts/_off/, *-proofreader-*, *-translation-mission-report.md). 26 Dateien nachtraeglich
+# aus dem Index genommen. Vor jedem Commit in dieses Repo gilt: es IST die oeffentliche Seite.
+CLAUDE.md
+PORYGON_SKILLS.md
+CHANGES-*.md
+website-analysis-*.md
+website-crossover-concept*.md
+*-hormozi-*.md
+debriefs/
+blog/CLAUDE.md
+blog/ARCHITECTURE.md
