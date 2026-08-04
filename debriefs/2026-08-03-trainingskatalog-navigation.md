@@ -57,12 +57,21 @@ unter dem KI-Personal-Training.
 
 ## 4. Eigene Fehler
 
-**(a) Vorschnell auf eine Landingpage-Verlinkung umgestellt.** Ich habe festgestellt, dass
-„Über mich" in der Navigation auf `#about` zeigte statt auf die Seite, und das als Fehler
-behandelt und sofort geändert. Es war eine Absicht des Commanders. Richtig gewesen wäre:
-den Befund melden, die Entscheidung ihm lassen. Die Änderung war live, bevor er widersprechen
-konnte. Zurückgenommen in `286db48`. Kosten gering (drei Minuten und ein Commit), das Muster
-ist trotzdem das teure: eine Beobachtung als Auftrag gelesen.
+**(a) Eine mehrdeutige Ansage einseitig gelesen.** Der Commander diktierte: „und wo ist
+komplett die Über mich seite? Die ist gar nicht verlinkt, weil alles in der Navigation Bar,
+was verlinkt ist, landet auf der Landingpage und das ist nicht richtig." Das lässt zwei
+Deutungen zu: der Navigationspunkt soll auf die Seite zeigen, oder er wundert sich, wo die
+Seite geblieben ist, will den Punkt aber auf der Landingpage lassen. Ich habe die erste
+gewählt, umgebaut und live gepusht, ohne die Mehrdeutigkeit zu benennen. Seine nächste
+Nachricht war die zweite Deutung. Zurückgenommen in `286db48`, geloggt als D-0539. Kosten
+gering (drei Minuten, ein Commit), weil die Änderung klein und reversibel war. Richtig
+gewesen wäre eine Rückfrage von fünf Sekunden.
+
+**Nachtrag, zweite Fehlerebene:** die erste Fassung der Lesson in `lessons-learned.md`
+beschrieb diesen Vorgang falsch. Sie stellte es so dar, als hätte ich ungefragt geändert,
+obwohl der Commander das Thema selbst aufgebracht hatte. Aufgefallen beim Gegenlesen der
+Originalnachrichten für das Scene Protocol, korrigiert am selben Tag. Ursache: aus der
+Erinnerung geschrieben statt aus der Quelle, dasselbe Muster wie im Vormittags-Debrief.
 
 **(b) Menü hinter dem Foto.** Das Aufklappmenü lag auf den Unterseiten hinter dem Hero-Bild
 und die Navigationspunkte waren vertikal versetzt. Beides erst nach dem Push aufgefallen,
