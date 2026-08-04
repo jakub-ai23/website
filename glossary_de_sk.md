@@ -27,11 +27,25 @@ German uses *Training* for both the group courses and the 1:1 product. Slovak sp
 **This split is the single highest-impact choice in the document.** Alternative: use *tréning*
 everywhere for brand consistency and accept that the course pages read slightly off-register.
 
-### 1.2 · "KI" → **AI**, with "umelá inteligencia" on first mention per page
+### 1.2 · "KI" → **AI**, always. No "umelá inteligencia" anywhere.
 
-Slovak business usage is *AI*. **Never "UI"** — that reads as *užívateľské rozhranie*.
-Compounds follow: *KI-Trainer* → *AI tréner*, *KI-Helfer* → *AI pomocníci*,
-*KI am Schreibtisch* → *AI pri stole*.
+**Revised by the commander 2026-08-04** (original rule glossed the first mention per page as
+*umelá inteligencia*; that is now withdrawn). Every KI becomes **AI**, including first mention,
+headlines, meta descriptions, course titles and JSON-LD. **Never "UI"** — that reads as
+*užívateľské rozhranie*. Compounds follow: *KI-Trainer* → *AI tréner*, *KI-Helfer* →
+*AI pomocníci*, *KI am Schreibtisch* → *AI pri stole*.
+
+**AI is indeclinable in Slovak.** Every replacement is checked in context, never swept: the
+surrounding preposition and verb must carry the case the noun used to. `pre umelú inteligenciu`
+→ `pre AI`, `v ére umelej inteligencie` → `v ére AI`, `už umelú inteligenciu používajú` →
+`už AI používajú`.
+
+**Watch the density.** A literal swap can stack three `AI` in one sentence where the German had
+two. The trainer bio is the known case: DE `KI-Trainer und Implementierungsberater mit Fokus auf
+Künstliche Intelligenz und Konsumentenpsychologie` carries KI twice, so the Slovak carries AI
+twice — `AI tréner a implementačný poradca so zameraním na AI a spotrebiteľskú psychológiu`.
+Where the German itself repeats (`Grundlagen der Künstlichen Intelligenz: was KI ist`), the
+Slovak repetition is faithful and stays.
 
 ### 1.3 · "Ihr Trainer" → **Váš lektor**
 
