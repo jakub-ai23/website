@@ -1727,6 +1727,16 @@
     }
 
     /* Blog teaser slide */
+
+    /* Sprach-Marker: sagt vor dem Klick, in welcher Sprache die Zielseite ist. */
+    .lang-flag { display: inline-block; font-family: var(--font-heading); font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 1px; padding: 1px 5px; border-radius: 4px; vertical-align: middle;
+      border: 1px solid rgba(212, 160, 23, 0.45); color: var(--gold); background: rgba(212, 160, 23, 0.08); }
+    .blog-card-lang { font-family: var(--font-heading); font-size: 0.62rem; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--white-muted); margin-top: auto; padding-top: 0.5rem; }
+    .blog-lang-note { font-size: 0.85rem; color: var(--white-muted); margin: 0 0 1.1rem; }
+    .blog-all-btn + .blog-all-btn { margin-left: 0.6rem; }
+    @media (max-width: 560px) { .blog-all-btn + .blog-all-btn { margin-left: 0; margin-top: 0.6rem; } }
     .slide-blog { background: var(--charcoal); min-height: auto; padding: var(--section-y) 0; }
     .slide-blog .container { max-width: 1100px; width: 100%; text-align: center; }
     .blog-eyebrow { font-family: var(--font-heading); letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-size: 0.78rem; }
@@ -2114,13 +2124,13 @@
           <li class="nav-drop" data-nav-drop>
             <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Služby <span class="caret"></span></button>
             <ul class="nav-drop-menu">
-              <li><a href="/sk/ki-personal-training/">Koučing 1:1<small>Individuálne, na Vašich skutočných úlohách</small></a></li>
-              <li><a href="/sk/trainings/">Inhouse školenia<small>Váš tím, jeden praktický deň u Vás vo firme</small></a></li>
-              <li><a href="/termine/">Štandardné školenia<small>Otvorené semináre v ARS a tecTrain</small></a></li>
+              <li><a href="/ki-personal-training/">Koučing 1:1 <span class="lang-flag">DE</span><small>Individuálne, na Vašich skutočných úlohách</small></a></li>
+              <li><a href="/trainings/">Inhouse školenia <span class="lang-flag">DE</span><small>Váš tím, jeden praktický deň u Vás vo firme</small></a></li>
+              <li><a href="/termine/">Štandardné školenia <span class="lang-flag">DE</span><small>Otvorené semináre v ARS a tecTrain</small></a></li>
             </ul>
           </li>
           <li><a href="#proof" data-slide="7">Výsledky</a></li>
-          <li><a href="/sk/blog/">Blog</a></li>
+          <li><a href="/blog/">Blog <span class="lang-flag">DE</span></a></li>
           <li><a href="#about" data-slide="1">O mne</a></li>
           <li><a href="https://cal.eu/hilldigital/strategiegespraech" class="nav-cta" target="_blank" rel="noopener">Rezervovať sedenie</a></li>
         </ul>
@@ -2160,7 +2170,6 @@
             <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Rezervovať sedenie &rarr;</a>
             <a href="#about" class="btn btn-secondary" data-slide="1">Zistiť viac</a>
           </div>
-          <p class="hero-check">Radšej najprv zistiť, kde stojíte? <a href="/sk/ki-check/">AI check, 12 otázok, 2 minúty &rarr;</a></p>
         </div>
         <div class="hero-image slide-content">
           <img src="/images/profile/14-web.png" alt="Jakub Popluhar">
@@ -2353,20 +2362,20 @@
             <p class="service-note">Prvé sedenie prednostne u Vás na mieste, ďalšie naživo online.</p>
             <div class="service-cta-row">
               <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Bezplatný úvodný rozhovor &rarr;</a>
-              <a href="/sk/ki-personal-training/" class="btn btn-secondary">Pozrieť si priebeh a ceny, od 290 &euro;/hod. &rarr;</a>
+              <a href="/ki-personal-training/" class="btn btn-secondary">Pozrieť si priebeh a ceny, od 290 &euro;/hod. <span class="lang-flag">DE</span> &rarr;</a>
             </div>
           </div>
         </div>
 
         <div class="service-rungs">
-          <a href="/sk/trainings/" class="service-rung">
+          <a href="/trainings/" class="service-rung">
             <span class="rung-label">Inhouse školenia pre V&aacute;š t&iacute;m</span>
-            <span class="rung-desc">Šesť celodenných formátov</span>
+            <span class="rung-desc">Šesť celodenných formátov <span class="lang-flag">DE</span></span>
             <span class="rung-go">&rarr;</span>
           </a>
           <a href="/termine/" class="service-rung">
             <span class="rung-label">Štandardné školenia s pevným termínom</span>
-            <span class="rung-desc">ARS a tecTrain</span>
+            <span class="rung-desc">ARS a tecTrain <span class="lang-flag">DE</span></span>
             <span class="rung-go">&rarr;</span>
           </a>
         </div>
@@ -2422,7 +2431,7 @@
         </div>
 
         <div class="agenda-more">
-          <a href="/termine/">Pozrieť všetky termíny &rarr;</a>
+          <a href="/termine/">Pozrieť všetky termíny <span class="lang-flag">DE</span> &rarr;</a>
         </div>
 
         <div class="training-cta-note">
@@ -2487,12 +2496,14 @@
         <h2 class="blog-heading">Najnovšie články</h2>
         <div class="blog-teaser-grid">
         <!-- BLOG-TEASER:START -->
-        <a class="blog-card" href="/blog/diktieren-ist-orchestrieren/"><span class="blog-card-meta" style="color:#d4a017">27. júla 2026 &middot; Z praxe</span><span class="blog-card-title">Nepromptujem menej, promptujem inak</span></a>
-        <a class="blog-card" href="/blog/prozess-der-sich-selbst-repariert/"><span class="blog-card-meta" style="color:#d4a017">22. júla 2026 &middot; Z praxe</span><span class="blog-card-title">Dnes nechám rozprávať moju AI asistentku</span></a>
-        <a class="blog-card" href="/blog/prompt-ist-ein-lasso/"><span class="blog-card-meta" style="color:#6bbf8a">10. júla 2026 &middot; Jakub Trainings</span><span class="blog-card-title">Prompt nie je príkaz. Je to laso.</span></a>
+        <a class="blog-card" href="/blog/diktieren-ist-orchestrieren/"><span class="blog-card-meta" style="color:#d4a017">27. júla 2026 &middot; Z praxe</span><span class="blog-card-title">Nepromptujem menej, promptujem inak</span><span class="blog-card-lang">Po nemecky</span></a>
+        <a class="blog-card" href="/blog/prozess-der-sich-selbst-repariert/"><span class="blog-card-meta" style="color:#d4a017">22. júla 2026 &middot; Z praxe</span><span class="blog-card-title">Dnes nechám rozprávať moju AI asistentku</span><span class="blog-card-lang">Po nemecky</span></a>
+        <a class="blog-card" href="/blog/prompt-ist-ein-lasso/"><span class="blog-card-meta" style="color:#6bbf8a">10. júla 2026 &middot; Jakub Trainings</span><span class="blog-card-title">Prompt nie je príkaz. Je to laso.</span><span class="blog-card-lang">Po nemecky</span></a>
         <!-- BLOG-TEASER:END -->
         </div>
-        <a class="blog-all-btn" href="/sk/blog/">Na blog</a>
+        <p class="blog-lang-note">Články zatiaľ vychádzajú po nemecky a po anglicky. Slovenské pripravujem.</p>
+        <a class="blog-all-btn" href="/blog/">Na blog po nemecky</a>
+        <a class="blog-all-btn" href="/en/blog/">Na blog po anglicky</a>
       </div>
     </section>
 
@@ -2508,7 +2519,7 @@
             <span class="offer-badge">1:1</span>
             <h3>AI osobný tréning</h3>
             <p>V&aacute;š osobn&yacute; tr&eacute;ner pre pr&aacute;cu s AI. Na Vašich skutočných úlohách, s výsledkom, ktorý Vám zostane.</p>
-            <a href="/sk/ki-personal-training/" class="btn btn-primary">Priebeh a ceny &rarr;</a>
+            <a href="/ki-personal-training/" class="btn btn-primary">Priebeh a ceny <span class="lang-flag">DE</span> &rarr;</a>
           </div>
 
           <div class="cta-offer-card">
@@ -2522,7 +2533,7 @@
             <span class="offer-badge">Skupina</span>
             <h3>Otvorené semináre</h3>
             <p>Pevné termíny v ARS a tecTrain, otvorené pre individu&aacute;lne prihl&aacute;senie. Rezerv&aacute;cia priamo u organiz&aacute;tora.</p>
-            <a href="/termine/" class="btn btn-secondary">Pozrieť všetky termíny &rarr;</a>
+            <a href="/termine/" class="btn btn-secondary">Pozrieť všetky termíny <span class="lang-flag">DE</span> &rarr;</a>
           </div>
         </div>
 
