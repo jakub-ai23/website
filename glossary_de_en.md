@@ -6,9 +6,13 @@ Created: 2026-05-28 · **Updated 2026-07-03 (positioning change — see §0)**
 
 ## 0. POSITIONING UPDATE 2026-07-03 (overrides older entries below)
 
-The site was repositioned: **Business Lead at Hill Digital** now leads; **SURF™ / Mindworx REMOVED** everywhere; trainings shown as a 6-item agenda across ARS + Hill Digital + tecTrain; sport facts corrected (roundnet + floorball + PADI Divemaster, **no BJJ/martial arts**). Where entries below conflict, THIS section wins.
+The site was repositioned: **Business Lead at Hill Digital** now leads; **SURF™ / Mindworx REMOVED** everywhere; trainings shown as a 6-item agenda across ARS + Hill Digital + tecTrain; sport facts corrected (roundnet + floorball + PADI Divemaster; ~~no BJJ/martial arts~~ **struck 2026-08-04, BJJ is current**). Where entries below conflict, THIS section wins.
 
 **New stays-in-source (do NOT translate):** Hill Digital, Hill Woltron (with O — NEVER "Hill International"), tecTrain, Roundnet, Floorball, PADI Divemaster, cal.eu, Claude, DSGVO→**GDPR** (translate this one).
+
+> **CORRECTION 2026-08-04 (commander):** the clause below claiming the sport facts were corrected
+> to "**no BJJ/martial arts**" is **STALE and has been struck**. The live `ueber-mich` page lists
+> Brazilian jiu-jitsu and that is current. Do not remove BJJ from any page on the strength of §0.
 
 **New locked term map:**
 | German | English (locked) | Notes |
@@ -265,3 +269,177 @@ Locked punch lines:
 ### 9.6 Sources/tables/citations
 - Keep citation markers `[1] [2] [3] [4]` and all URLs verbatim. Translate the surrounding prose and the "Quellen" heading → "Sources". Keep the "Stand Juli 2026" note → "As of July 2026". Table structure identical; translate row/column labels (Klein, schnell → Small, fast etc.).
 - Image alt/caption: "Bild mit KI generiert" → "Image generated with AI".
+
+---
+
+## 10. NEW PAGES 2026-08-03 — trainings catalogue, one-on-one coaching, about page
+
+Governs the seven German pages added on 2026-08-03 and their `/en/` mirrors:
+`/trainings/` + the four course pages (`copilot`, `hr-kurs`, `ki-am-schreibtisch`,
+`konsumentenpsychologie`), `/ki-personal-training/`, `/ueber-mich/`.
+
+**Target dialect (confirmed by commander 2026-08-03): British English.** Consistent with
+the §6 spelling convention already in force: -ise/-isation, programme, behaviour,
+cooperation, organisation. No US spellings, no UK slang.
+
+**URL convention (confirmed 2026-08-03):** EN mirrors keep the **German slug**, matching
+`/en/termine/` and every EN blog article. So `/en/trainings/`, `/en/trainings/copilot/`,
+`/en/ki-personal-training/`, `/en/ueber-mich/`. Never invent English slugs for these
+without also migrating the existing EN pages and adding redirects.
+
+### 10.1 Recurring term map (locked — these appear on 4-7 of the new pages)
+
+| German | English (locked) | Notes |
+|---|---|---|
+| Praxistag | hands-on day | "jeweils ein Praxistag" → "one hands-on day each". Never "practice day". |
+| Inhouse-Training(s) | in-house training | Lower case in prose, "In-house training" as a heading/nav label. Matches en/index.html. |
+| Standard-Trainings | Open seminars | Nav dropdown + card. Matches the existing EN homepage h3 and points at `/en/termine/`. |
+| One-on-One-Coaching | One-on-one coaching | Nav dropdown label. The PAGE title stays "AI Personal Coaching" (already live on en/index.html) — two labels for one page, mirroring the German. |
+| Ihr Haus / in Ihrem Haus | your organisation / at your organisation | German idiom for the company. Never "your house". |
+| Maßgeschneiderte Trainings | Bespoke trainings | "Bespoke" over "tailor-made" — British register, matches the premium positioning. |
+| Vorgespräch | intro call | "Vorgespräch buchen" → "Book an intro call". |
+| Gespräch vereinbaren | Arrange a call | CTA. |
+| Ablauf | format / schedule | "Ablauf und Preise" → "the format and pricing"; "Ablauf" as a day plan → "schedule". |
+| KI-Helfer | AI helper(s) | Deliberately plainer than "assistant" — keeps the German's homely register. |
+| KI-Assistent(en) | AI assistant(s) | Where the source says Assistent, not Helfer. Keep the distinction. |
+| Sprachmodell | language model | |
+| Halluzination(en) | hallucination(s) | |
+| CITE(R)-Framework | CITE(R) framework | Method name, keep the acronym and the (R) exactly. |
+| 3-Sekunden-Regel / Drei-Sekunden-Regel | three-second rule | Source is inconsistent (digits vs word); EN normalises to words in prose. |
+| Modeling of Excellence | Modeling of Excellence | STAYS IN SOURCE. Proper method name (NLP). Do NOT britishise to "Modelling" — flag if it ever appears as a common noun instead. |
+| Human in the Loop / Human-in-the-Loop | Human in the Loop | Normalise to the unhyphenated form. |
+| Zero Trust | Zero Trust | Keep. |
+| DSGVO | GDPR | Per §0. "DSGVO-konform" → "GDPR-compliant". |
+| Teilnehmende / Teilnehmer | participants | Gender-neutral in German, plain "participants" in English. |
+| Mitarbeitende | staff / employees | Prefer "staff" for a body of people, "employees" where countable. |
+| Vorkenntnisse / Vorwissen | prior knowledge / prior experience | "ohne Vorkenntnisse" → "no prior knowledge needed". |
+| Referent | Trainer | The site's own English label for Jakub. Never "lecturer" or "speaker" here. |
+| Ihr Trainer | Your trainer | Section heading on course pages. |
+| Warum dieses Training? | Why this training? | Section heading, all four course pages. |
+| Für wen eignet sich dieses Training? | Who is this training for? | Section heading, all four course pages. |
+| Kursinhalte | Course content | |
+| Häufige Fragen | Frequently asked questions | |
+| Als PDF herunterladen ↓ | Download as PDF ↓ | Keep the arrow. |
+| Alle Trainings | All trainings | Back-link + footer. |
+| Trainingsangebot | Training offer | Eyebrow line above the course title. |
+| Entscheidungsbarrieren | decision barriers | Consumer-psychology term, keep literal. |
+| Staatsgeprüfter Gymnasiallehrer für Englisch und Sport (Bayern) | State-certified secondary school teacher of English and PE (Bavaria) | Credential. Do not inflate to "professor". |
+| Implementierungsberater | implementation consultant | |
+| Lernmaterial | learning material | |
+| Abo | paid subscription | "Kein kostenpflichtiges Abo nötig" → "No paid subscription needed". |
+| Beurteilung(sbögen) | appraisal(s) / appraisal forms | HR context. |
+| Stellenanzeige(n) | job advert(s) | British. Never "job ad posting". |
+| Absageschreiben | rejection letters | |
+| Wissensquelle | knowledge source | |
+| Live-Demo(s) | live demo(s) | |
+
+### 10.2 Locked-rhythm phrases (translate by hand, preserve punch)
+
+| German | English (locked) |
+|---|---|
+| "In jeder Gruppe sitzen zwei Sorten Menschen: der eine kann sich nicht einmal anmelden, der andere schreibt schon eigene Systemanweisungen." | "Every group holds two kinds of people: one cannot even sign in, the other is already writing their own system prompts." |
+| "Kein Tool-Feuerwerk" | "No firework display of tools" |
+| "am Ende des Tages hat jede Person etwas Fertiges in der Hand" | "by the end of the day every person has something finished in their hands" |
+| "Sechs Trainings, ein methodischer Kern" | "Six trainings, one methodical core" |
+| "Kein Rundflug über drei Produkte." | "No sightseeing tour across three products." |
+| "wie er tatsächlich Zeit spart statt nur zu blinken" | "how it actually saves time instead of just blinking" |
+| "Zwanzig Minuten, in denen Sie nichts kaufen müssen." | "Twenty minutes in which you have to buy nothing." |
+| "HR-Routine? KI übernimmt. Entscheidung? Der Mensch bleibt." | "HR routine? AI takes it. The decision? That stays human." |
+| "Was zwei Drittel Ihrer HR-Kollegen schon tun, und wie Sie es richtig machen" | "What two thirds of your HR colleagues already do, and how to do it properly" |
+| "bringt komplexe Technik so auf den Punkt, dass sie am Montag im Büro funktioniert" | "gets complex technology down to the point where it works in the office on Monday" |
+| "Human-in-the-Loop als Pflicht statt Kür" | "Human in the Loop as a duty, not a bonus" |
+| "Gut automatisierbar, wenn man weiß wie, und riskant, wenn man es nicht weiß" | "Easy to automate if you know how, and risky if you do not" |
+
+### 10.3 Semantic-weight phrases on these pages (verify meaning, not words)
+
+- "Nur als Inhouse-Training" → "Available as in-house training only" (an **exclusion**, not a preference — must stay a hard limit).
+- "Einzeln buchbar" → "Bookable individually" (per-seat booking, not "book a single day").
+- "Auf Anfrage" → "On request" (no listed price is promised).
+- "Kein kostenpflichtiges Abo nötig" → "No paid subscription needed" (a cost claim — keep the "paid").
+- "Für alle Inhalte genügen die kostenlosen Versionen." → "The free versions are enough for all the content." (keep the guarantee scope: ALL content).
+- "Keine technischen Vorkenntnisse nötig" → "No technical prior knowledge needed" (keep "technical" — it narrows the claim).
+- "Eigener Laptop empfohlen" → "Own laptop recommended" (recommended, NOT required — do not harden to "bring").
+- "Einen Laptop mit Internetzugang und einem aktiven Microsoft-365-Konto." → requirement list, keep "active" on the account.
+- "Zwei Drittel der österreichischen HR-Abteilungen" → "Two thirds of Austrian HR departments" (keep the population exactly: Austrian, HR departments).
+- "die höchste Anteil an persönlicher Zeit" → "the highest share of personal time" (comparative claim within his own formats, do not turn into an absolute).
+
+### 10.4 Structural notes for these pages
+
+- The course pages link to a **German PDF** (`*-Jakub-Popluhar.pdf`). The EN page keeps the same
+  href — the PDF is not translated. Label it so the reader is not surprised: keep "Download as PDF ↓"
+  but the PDF itself stays German until a translated one exists. **Flag for the commander.**
+- Legal links stay German: `/impressum.html`, `/datenschutz.html` (site-wide convention, see en/termine/).
+  Footer labels are English: Imprint / Privacy.
+- Logo on EN pages links to `/en/`, not `/`. (NB: `/en/termine/` still links to `/` — pre-existing, fix separately.)
+- Nav language switch `DE / EN` must be added to BOTH sides; the German pages had none before.
+- hreflang trio (de / en / x-default) on both sides; x-default points at the German page.
+- `og:locale` de_AT → en_GB. `<html lang="de">` → `<html lang="en">`.
+- Structural parity check per page: identical counts of h1/h2/h3/li/p **and `<a>`**. The DE/EN switch
+  is added to BOTH sides, so `<a>` counts match exactly. (Corrected 2026-08-03 by the gatekeeper: an
+  earlier version of this line said "+2 on the EN side", which would make a correct file look broken.)
+
+### 10.5 Currency (confirmed by commander 2026-08-03)
+
+`/ki-personal-training/` carries ten prices. German writes `1.120 €`; in English the dot is the
+DECIMAL separator, so the German form reads as 1.12 euros to a British reader. **Locked EN form:
+symbol first, comma as thousands separator, no space:** `240 €` → `€240`, `1.120 €` → `€1,120`,
+`2.320 €` → `€2,320`. Prices themselves are UNCHANGED (same offer, same numbers). This supersedes
+the "Currency: none on page" line in §6.
+
+**"netto" is a price qualifier and must survive every price.** `290 € pro Stunde netto` →
+`€290 per hour excl. VAT`. Dropping it turns a net price into a gross one and understates the
+invoice by 20% (AT VAT). Same for `Einzelpreis wäre 1.160 €` → `Individually that would be €1,160`
+(a comparison, not a charge). `Pakete ab 1.120 € netto` → `packages from €1,120 excl. VAT`.
+
+### 10.6 Correction 2026-08-03 (commander) — "Spielfeld"
+
+`Vom Spielfeld in den Seminarraum` was first rendered "From the pitch to the seminar room". **WRONG.**
+In English "pitch" reads first as a *business pitch*, which inverts the meaning of a headline about a
+sporting past. **Locked EN form: "From the court to the seminar room."** ("Court" also matches the
+actual sports on the page: roundnet and floorball.) NB: "pitch" IS correct on
+`konsumentenpsychologie` where the German source itself means a sales pitch ("im Pitch") - do not
+sweep-replace the word.
+
+### 10.7 Sanctioned second renderings (gatekeeper, 2026-08-03)
+
+- *Offene Seminare / Standard-Trainings* → **"Open seminars"** as the label, but the nav-dropdown
+  SUBTITLE uses **"Scheduled seminars with ARS and tecTrain"** to avoid an "Open seminars / Open
+  seminars" stutter directly under the label. Both are correct; keep them in these two roles.
+- *übermäßige Zustimmung* → **"sycophancy, the model simply agreeing with you"**. The bare literal
+  "excessive agreement" is not the established term for the model behaviour and the audience is being
+  taught AI literacy, so the real term earns its place with a plain-language gloss.
+- *Sachbearbeiter* → **"admin staff"**, NOT "case workers". In British English a case worker is a
+  social-services or immigration role; the line's rhetorical job is heads-of-state at one pole and
+  ordinary back-office staff at the other.
+- *Spielfeld* → see §10.6. *verlässlich fragen* → **"prompting reliably"**, never "asking reliably"
+  (no object, no domain in English).
+
+### 10.8 Open source-side contradictions (NOT translation defects — commander's call)
+
+1. **Konsumentenpsychologie duration.** `trainings/index.html` card says "Ein Praxistag";
+   `trainings/konsumentenpsychologie/index.html` says "Halbtags-Workshop (4 Stunden)". Both were
+   translated faithfully, so the contradiction now exists in English too.
+2. **ARS superlative, unhedged on one page, hedged on another.** `trainings/hr-kurs/index.html` says
+   "dem größten Seminaranbieter Österreichs" flat; `ueber-mich/index.html` says "nach eigenen Angaben
+   dem größten **privaten** Seminaranbieter". The translation mirrors each source exactly. Deciding
+   which is correct is a factual/legal question (an unattributed superlative about a partner has to be
+   substantiable), not a translation one.
+3. **BJJ.** §0 above declares "no BJJ/martial arts"; the live `ueber-mich` page lists Brazilian
+   jiu-jitsu. The translation follows the page. One of the two must be corrected.
+4. **"Für HR-Teams jeder Branchengröße"** is not standard German. Rendered as "of any company size",
+   which is an INTERPRETATION. If sector rather than size is meant: "For HR teams in any industry".
+
+### 10.9 Resolutions 2026-08-04 (commander answered §10.8)
+
+1. **Konsumentenpsychologie = HALF DAY, 4 hours.** The course page was right, the catalogue card was
+   wrong. Card corrected on both sides: "Ein halber Tag, 4 Stunden" / "Half a day, 4 hours".
+   **STILL OPEN:** `trainings/index.html` `<meta name="description">` says "Jeweils ein Praxistag",
+   which is now inaccurate for one of the six. Flagged, not silently rewritten.
+2. **ARS = "größter PRIVATER Seminaranbieter". "Private" is the important word** and is now on all
+   four pages (DE + EN, hr-kurs + ueber-mich). NOTE: `ueber-mich` additionally carries the hedge
+   "nach eigenen Angaben / by its own account"; `hr-kurs` does not. The commander confirmed "private"
+   but did not rule on the hedge, so it was neither added nor removed. Unify on request.
+3. **BJJ stays.** §0's "no BJJ" clause struck above.
+4. **"jeder Branchengröße" = jeder BRANCHE (industry, not company size).** Corrected on both sides:
+   "Für HR-Teams jeder Branche" / "For HR teams in any industry". The earlier "of any company size"
+   was iteration 1's interpretation and was wrong.
