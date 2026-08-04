@@ -148,3 +148,91 @@ function jpLoadClarity() {
     }, true);
   } catch (e) {}
 })();
+
+/* ===== Schicht 4: KI-Check-Popup, site-weit =====
+   Eckkarte nach 20 Sekunden, einmal pro Besucher (30 Tage Ruhe), oeffnet den
+   Check in einem neuen Tab. Zwei Ruecksichten:
+   1. Nicht auf Seiten, wo der Besucher schon in einer Aufgabe steckt (der Check
+      selbst, E-Learning- und Kursunterlagen, passwortgeschuetzte Angebotsseiten).
+   2. Nicht solange der Consent-Hinweis noch steht, sonst stapeln sich zwei
+      Kaesten uebereinander. Erst wenn der Besucher dort entschieden hat.
+   Test-Schalter: ?kicheck=now zeigt es sofort. */
+(function () {
+  try {
+    var path = location.pathname;
+    if (/(ki-check|weiter|community|ars[0-9]|hw[0-9]|sportunion|viennaup|techtrain|pmi|ewi|bfi-|-onepager|training\/)/i.test(path)) return;
+
+    var en = (document.documentElement.lang || 'de').toLowerCase().indexOf('en') === 0;
+    var T = en
+      ? { eb: 'Free &middot; 2 minutes', h: 'How fit are you really with AI?',
+          p: '12 questions, every one with the answer. You learn something either way.',
+          go: 'Start the check', later: 'Later, thanks', close: 'Close', url: '/en/ki-check/' }
+      : { eb: 'Kostenlos &middot; 2 Minuten', h: 'Wie fit sind Sie wirklich mit KI?',
+          p: '12 Fragen, jede mit Auflösung. Sie lernen so oder so etwas.',
+          go: 'Check starten', later: 'Später, danke', close: 'Schließen', url: '/ki-check/' };
+
+    var force = /[?&]kicheck=now/.test(location.search);
+    var KEY = 'jp_kicheck_seen';
+    var seen = 0;
+    try { seen = +localStorage.getItem(KEY) || 0; } catch (e) {}
+    if (!force && seen && (Date.now() - seen) < 30 * 864e5) return;
+    function markSeen() { try { localStorage.setItem(KEY, Date.now()); } catch (e) {} }
+
+    function build() {
+      var css =
+        '.jp-kcp{position:fixed;right:22px;bottom:22px;width:330px;max-width:calc(100vw - 32px);' +
+        'background:#141414;border:1px solid rgba(212,160,23,0.35);border-top:3px solid #d4a017;border-radius:12px;' +
+        'box-shadow:0 18px 50px rgba(0,0,0,.55);padding:18px 20px 16px;z-index:9998;' +
+        'transform:translateY(24px);opacity:0;pointer-events:none;transition:transform .35s ease,opacity .35s ease;' +
+        'font-family:Inter,Arial,sans-serif;color:#f2f0eb}' +
+        '.jp-kcp.show{transform:translateY(0);opacity:1;pointer-events:auto}' +
+        '.jp-kcp-x{position:absolute;top:6px;right:9px;background:none;border:none;font-size:1.3rem;line-height:1;color:#9a978e;cursor:pointer;padding:4px}' +
+        '.jp-kcp-x:hover{color:#fff}' +
+        '.jp-kcp .eb{color:#d4a017;text-transform:uppercase;letter-spacing:.12em;font-size:.66rem;font-weight:700;font-family:Montserrat,Arial,sans-serif}' +
+        '.jp-kcp h3{font-family:Montserrat,Arial,sans-serif;font-size:1.12rem;font-weight:700;margin:5px 0 6px;line-height:1.2;color:#f2f0eb}' +
+        '.jp-kcp p{color:#9a978e;font-size:.88rem;margin:0 0 13px;line-height:1.45}' +
+        '.jp-kcp-btn{display:inline-block;background:#d4a017;color:#141414;font-family:Montserrat,Arial,sans-serif;font-weight:600;' +
+        'font-size:.9rem;text-decoration:none;padding:9px 17px;border-radius:999px}' +
+        '.jp-kcp-btn:hover{background:#e8b84a}' +
+        '.jp-kcp-later{display:block;margin-top:9px;background:none;border:none;color:#9a978e;font-size:.8rem;' +
+        'text-decoration:underline;cursor:pointer;font-family:inherit;padding:2px}' +
+        '.jp-kcp-later:hover{color:#fff}' +
+        '@media(max-width:480px){.jp-kcp{right:12px;left:12px;bottom:12px;width:auto}}';
+      var style = document.createElement('style'); style.textContent = css; document.head.appendChild(style);
+      var box = document.createElement('div');
+      box.className = 'jp-kcp';
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-label', T.h);
+      box.innerHTML =
+        '<button class="jp-kcp-x" aria-label="' + T.close + '">&times;</button>' +
+        '<div class="eb">' + T.eb + '</div>' +
+        '<h3>' + T.h + '</h3>' +
+        '<p>' + T.p + '</p>' +
+        '<a class="jp-kcp-btn" href="' + T.url + '" target="_blank" rel="noopener">' + T.go + ' &rarr;</a>' +
+        '<button class="jp-kcp-later">' + T.later + '</button>';
+      document.body.appendChild(box);
+      var close = function () { box.classList.remove('show'); markSeen(); };
+      box.querySelector('.jp-kcp-x').addEventListener('click', close);
+      box.querySelector('.jp-kcp-later').addEventListener('click', close);
+      box.querySelector('.jp-kcp-btn').addEventListener('click', markSeen);
+      requestAnimationFrame(function () { box.classList.add('show'); });
+    }
+
+    // Erst wenn der Consent-Hinweis weg ist. Hoechstens 60 s warten, dann aufgeben.
+    // Die Wartezeit beginnt bewusst mit einer kurzen Gnadenfrist: sonst prueft der
+    // Testschalter (?kicheck=now, 300 ms) BEVOR der Hinweis ueberhaupt gerendert ist,
+    // sieht nichts und baut das Popup daneben. Gefunden beim Test am 2026-08-04.
+    function whenFree(fn) {
+      var waited = 0;
+      function decided() {
+        try { return !!localStorage.getItem(JP_CONSENT_KEY); } catch (e) { return false; }
+      }
+      setTimeout(function tick() {
+        if (decided() || !document.getElementById('jp-consent')) return fn();
+        if ((waited += 1000) > 60000) return;
+        setTimeout(tick, 1000);
+      }, 900);
+    }
+    setTimeout(function () { whenFree(build); }, force ? 300 : 20000);
+  } catch (e) {}
+})();

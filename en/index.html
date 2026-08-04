@@ -1901,7 +1901,13 @@
 
       .trust-track { animation: none; }
     }
-  </style>
+  
+    /* Leiser Einstieg zum KI-Check: bewusst KEIN dritter Knopf, damit die
+       Buchung im Hero der einzige starke Handlungsaufruf bleibt. */
+    .hero-check { margin-top: 14px; font-size: 0.88rem; color: var(--white-muted, #9a978e); }
+    .hero-check a { color: var(--gold, #d4a017); text-decoration: none; border-bottom: 1px solid rgba(212,160,23,0.4); }
+    .hero-check a:hover { border-bottom-color: var(--gold, #d4a017); }
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -2017,6 +2023,7 @@
             <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
             <a href="#about" class="btn btn-secondary" data-slide="1">Learn more</a>
           </div>
+          <p class="hero-check">Rather see where you stand first? <a href="/en/ki-check/">AI check, 12 questions, 2 minutes &rarr;</a></p>
         </div>
         <div class="hero-image slide-content">
           <img src="../images/profile/14-web.png" alt="Jakub Popluhar">
