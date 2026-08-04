@@ -39,9 +39,13 @@ function jpLoadClarity() {
 (function () {
   try {
     var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-    var EN = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0
-             || location.pathname.indexOf('/en/') === 0;
-    var T = EN ? {
+    var LANG = (document.documentElement.lang || '').toLowerCase();
+    var EN = LANG.indexOf('en') === 0 || location.pathname.indexOf('/en/') === 0;
+    var SK = LANG.indexOf('sk') === 0 || location.pathname.indexOf('/sk/') === 0;
+    var T = SK ? {
+      msg: 'Používame voliteľné analytické nástroje (Microsoft Clarity), aby sme rozumeli, ako sa stránka používa. Len s Vaším súhlasom.',
+      ok: 'Súhlasím', no: 'Odmietnuť', more: 'Ochrana osobných údajov', moreHref: '/datenschutz.html'
+    } : EN ? {
       msg: 'We use optional analytics (Microsoft Clarity) to understand how this site is used. Only with your consent.',
       ok: 'Accept', no: 'Decline', more: 'Privacy', moreHref: '/datenschutz.html'
     } : {
