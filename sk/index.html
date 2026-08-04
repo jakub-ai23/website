@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jakub Popluhar | Business Lead at Hill Digital & AI Trainer</title>
-  <meta name="description" content="Business Lead at Hill Digital and AI trainer for executives, teams and companies across the DACH region. Practical, hands-on AI training, AI Personal Coaching, in-house training, keynotes. Human in the Lead. AI in Support.">
+  <title>Jakub Popluhar | Business Lead v Hill Digital a AI tréner</title>
+  <meta name="description" content="Business Lead v Hill Digital a AI tréner pre manažérov, tímy a firmy v regióne DACH. Praktické AI školenia, AI osobný tréning, inhouse školenia, keynotes. Human in the Lead. AI v pozadí.">
   <meta name="theme-color" content="#141414">
-  <meta property="og:title" content="Jakub Popluhar | Business Lead at Hill Digital & AI Trainer">
-  <meta property="og:description" content="Business Lead at Hill Digital and AI trainer for executives across the DACH region. Human in the Lead. AI in Support.">
+  <meta property="og:title" content="Jakub Popluhar | Business Lead v Hill Digital a AI tréner">
+  <meta property="og:description" content="Business Lead v Hill Digital a AI tréner pre manažérov v regióne DACH. Human in the Lead. AI v pozadí.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jakubpopluhar.com/en/">
+  <meta property="og:url" content="https://jakubpopluhar.com/sk/">
   <meta property="og:image" content="https://jakubpopluhar.com/images/profile/14-web.png">
-  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale" content="sk_SK">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Jakub Popluhar | Business Lead at Hill Digital & AI Trainer">
-  <meta name="twitter:description" content="Business Lead at Hill Digital and AI trainer for executives across the DACH region. Human in the Lead. AI in Support.">
+  <meta name="twitter:title" content="Jakub Popluhar | Business Lead v Hill Digital a AI tréner">
+  <meta name="twitter:description" content="Business Lead v Hill Digital a AI tréner pre manažérov v regióne DACH. Human in the Lead. AI v pozadí.">
   <meta name="twitter:image" content="https://jakubpopluhar.com/images/profile/14-web.png">
-  <link rel="canonical" href="https://jakubpopluhar.com/en/">
+  <link rel="canonical" href="https://jakubpopluhar.com/sk/">
   <link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/">
   <link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/">
   <link rel="alternate" hreflang="sk" href="https://jakubpopluhar.com/sk/">
   <link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <style>
     /* Self-hosted fonts (no Google connection) */
-    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
-    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(fonts/montserrat.woff2) format('woff2'); }
 
     /* ========== RESET & BASE ========== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -174,6 +174,68 @@
     .nav-links a:not(.nav-cta).active::after {
       width: 100%;
     }
+
+    /* Angebote: Aufklappmenue. Oeffnet per Hover und per Tastaturfokus ueber CSS,
+       das Skript ergaenzt nur Tippen auf Touchgeraeten. */
+    .nav-drop { position: relative; display: flex; align-items: center; }
+    .nav-drop-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      transition: color 0.2s;
+    }
+    .nav-drop-toggle:hover,
+    .nav-drop.open .nav-drop-toggle { color: var(--white); }
+    .nav-drop-toggle .caret {
+      border: solid currentColor;
+      border-width: 0 1.5px 1.5px 0;
+      padding: 2.5px;
+      transform: rotate(45deg);
+      margin-bottom: 2px;
+      transition: transform 0.2s;
+    }
+    .nav-drop.open .nav-drop-toggle .caret { transform: rotate(-135deg); }
+    .nav-drop-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 250px;
+      margin: 0;
+      padding: 8px;
+      list-style: none;
+      background: rgba(16, 16, 16, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+      display: none;
+    }
+    /* unsichtbare Bruecke, damit der Zeiger den Weg nach unten ueberlebt */
+    .nav-drop-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+    .nav-drop:hover .nav-drop-menu,
+    .nav-drop:focus-within .nav-drop-menu,
+    .nav-drop.open .nav-drop-menu { display: block; }
+    .nav-drop-menu a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 7px;
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+    .nav-drop-menu a::after { content: none; }
+    .nav-drop-menu a small { display: block; color: var(--white-muted); font-size: 0.74rem; font-weight: 400; }
+    .nav-drop-menu a:hover { background: rgba(212, 160, 23, 0.12); }
 
     .nav-cta {
       background: var(--gold);
@@ -1070,7 +1132,7 @@
       text-align: center;
     }
 
-    /* ===== Agenda / schedule ===== */
+    /* ===== Agenda / Terminkalender ===== */
     .agenda {
       max-width: 1000px;
       margin: 0 auto;
@@ -1177,13 +1239,66 @@
       transform: translateY(-2px);
     }
 
-    /* ===== Links to the subpages ===== */
-    .service-note { color: var(--white-muted); font-size: 0.86rem; margin: 14px 0 4px; }
-    .service-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
-    .about-more { display: inline-flex; margin-top: 20px; }
+    /* ===== Verweise auf die Unterseiten ===== */
+    .service-note {
+      color: var(--white-muted);
+      font-size: 0.86rem;
+      margin: 14px 0 4px;
+    }
+
+    .service-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .about-more {
+      display: inline-flex;
+      margin-top: 20px;
+    }
+
+    /* ===== Weitere Angebotsstufen unter dem Hauptangebot ===== */
+    .service-rungs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .service-rung {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 12px;
+      background: rgba(20, 20, 20, 0.5);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .service-rung:hover { border-color: rgba(212, 160, 23, 0.5); transform: translateY(-2px); }
+    @media (prefers-reduced-motion: reduce) { .service-rung:hover { transform: none; } }
+    .service-rung .rung-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--white);
+    }
+    .service-rung .rung-desc {
+      font-size: 0.78rem;
+      color: var(--white-muted);
+      line-height: 1.4;
+    }
+    .service-rung .rung-go { margin-left: auto; color: var(--gold); font-size: 0.9rem; font-weight: 600; }
+    @media (max-width: 900px) {
+      .service-rung .rung-desc { display: none; }
+    }
+    @media (max-width: 640px) {
+      .service-rungs { grid-template-columns: 1fr; gap: 8px; }
+      .service-rung .rung-desc { display: inline; }
+    }
 
 
-    /* ===== Link to the dates subpage ===== */
+    /* ===== Link zur Termin-Unterseite ===== */
     .agenda-more {
       max-width: 1000px;
       margin: 22px auto 0;
@@ -1207,7 +1322,7 @@
       border-color: var(--gold-light);
     }
 
-    /* ===== Individual appointment prompt ===== */
+    /* ===== Individueller Termin prompt ===== */
     .training-cta-note {
       max-width: 1000px;
       margin: 34px auto 0;
@@ -1349,20 +1464,6 @@
       font-weight: 500;
       display: block;
     }
-
-    /* Blog teaser slide */
-    .slide-blog { background: var(--charcoal); min-height: auto; padding: 15vh 0; }
-    .slide-blog .container { max-width: 1100px; width: 100%; text-align: center; }
-    .blog-eyebrow { font-family: var(--font-heading); letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-size: 0.78rem; }
-    .blog-heading { font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0.6rem 0 2rem; }
-    .blog-teaser-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
-    .blog-card { display: flex; flex-direction: column; gap: 0.6rem; text-align: left; padding: 1.4rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: var(--charcoal-light); transition: border-color 0.2s, transform 0.2s; }
-    .blog-card:hover { border-color: var(--gold); transform: translateY(-3px); }
-    .blog-card-meta { font-family: var(--font-heading); font-size: 0.68rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); }
-    .blog-card-title { font-family: var(--font-heading); font-weight: 600; font-size: 1.05rem; line-height: 1.3; color: var(--white); }
-    .blog-all-btn { display: inline-block; font-family: var(--font-heading); font-weight: 600; padding: 0.8rem 2rem; border: 1px solid var(--gold); border-radius: 999px; color: var(--gold); transition: background 0.2s, color 0.2s; }
-    .blog-all-btn:hover { background: var(--gold); color: var(--charcoal); }
-    @media (max-width: 768px) { .blog-teaser-grid { grid-template-columns: 1fr; } }
 
     /* ========== SLIDE 7: CTA + FOOTER ========== */
     .slide-cta {
@@ -1619,6 +1720,20 @@
       border-color: var(--gold);
     }
 
+    /* Blog teaser slide */
+    .slide-blog { background: var(--charcoal); min-height: auto; padding: 15vh 0; }
+    .slide-blog .container { max-width: 1100px; width: 100%; text-align: center; }
+    .blog-eyebrow { font-family: var(--font-heading); letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-size: 0.78rem; }
+    .blog-heading { font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0.6rem 0 2rem; }
+    .blog-teaser-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+    .blog-card { display: flex; flex-direction: column; gap: 0.6rem; text-align: left; padding: 1.4rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: var(--charcoal-light); transition: border-color 0.2s, transform 0.2s; }
+    .blog-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .blog-card-meta { font-family: var(--font-heading); font-size: 0.68rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); }
+    .blog-card-title { font-family: var(--font-heading); font-weight: 600; font-size: 1.05rem; line-height: 1.3; color: var(--white); }
+    .blog-all-btn { display: inline-block; font-family: var(--font-heading); font-weight: 600; padding: 0.8rem 2rem; border: 1px solid var(--gold); border-radius: 999px; color: var(--gold); transition: background 0.2s, color 0.2s; }
+    .blog-all-btn:hover { background: var(--gold); color: var(--charcoal); }
+    @media (max-width: 768px) { .blog-teaser-grid { grid-template-columns: 1fr; } }
+
     /* Footer inside CTA slide */
     .slide-footer {
       width: 100%;
@@ -1699,7 +1814,7 @@
 
     .social-link:hover svg { fill: var(--gold); }
 
-    /* ========== SLIDE ANIMATIONS (disabled — content always visible) ========== */
+    /* ========== SLIDE ANIMATIONS (disabled - content always visible) ========== */
     .slide-content {
       opacity: 1;
       transform: none;
@@ -1853,6 +1968,19 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
 
+      /* Im Mobilmenue klappt Angebote im Fluss auf, nicht als schwebende Karte */
+      .nav-links.open .nav-drop { display: block; }
+      .nav-links.open .nav-drop-menu {
+        position: static;
+        transform: none;
+        min-width: 0;
+        margin-top: 10px;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .nav-links.open .nav-drop:hover .nav-drop-menu { display: none; }
+      .nav-links.open .nav-drop.open .nav-drop-menu { display: block; }
+
       .slide-hero h1 { font-size: 1.8rem; min-height: 4.1em; }
       .hero-sub { font-size: 1rem; }
       .hero-image img { max-height: 220px; }
@@ -1913,19 +2041,19 @@
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Jakub Popluhar - AI Training & Consumer Psychology",
-    "url": "https://jakubpopluhar.com/en/",
-    "description": "Practical, hands-on AI training for executives and teams. AI Personal Coaching, in-house training and keynotes.",
+    "name": "Jakub Popluhar - AI školenia a spotrebiteľská psychológia",
+    "url": "https://jakubpopluhar.com/sk/",
+    "description": "Praktické AI školenia pre manažérov a tímy. AI osobný tréning, inhouse školenia a keynotes.",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Vienna",
+      "addressLocality": "Viedeň",
       "addressCountry": "AT"
     },
     "founder": {
       "@type": "Person",
       "name": "Jakub Popluhar",
       "honorificSuffix": "M.Ed.",
-      "jobTitle": "Business Lead at Hill Digital & AI Trainer",
+      "jobTitle": "Business Lead v Hill Digital a AI tréner",
       "worksFor": {
         "@type": "Organization",
         "name": "Hill Digital",
@@ -1942,9 +2070,9 @@
         "latitude": 48.2082,
         "longitude": 16.3738
       },
-      "description": "DACH region (Germany, Austria, Switzerland)"
+      "description": "región DACH (Nemecko, Rakúsko, Švajčiarsko)"
     },
-    "serviceType": ["AI Training", "AI Personal Coaching", "Keynote Speaking", "In-house Training", "Consumer Psychology"]
+    "serviceType": ["AI školenie", "AI osobný tréning", "Keynote Speaking", "Inhouse školenie", "spotrebiteľská psychológia"]
   }
   </script>
 </head>
@@ -1978,13 +2106,20 @@
       </a>
       <div class="nav-right">
         <ul class="nav-links" id="navLinks">
-          <li><a href="#services" data-slide="5">Services</a></li>
-          <li><a href="#proof" data-slide="7">Results</a></li>
-          <li><a href="/en/blog/">Blog</a></li>
-          <li><a href="#about" data-slide="1">About</a></li>
-          <li><a href="https://cal.eu/hilldigital/strategiegespraech" class="nav-cta" target="_blank" rel="noopener">Book a session</a></li>
+          <li class="nav-drop" data-nav-drop>
+            <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Služby <span class="caret"></span></button>
+            <ul class="nav-drop-menu">
+              <li><a href="/sk/ki-personal-training/">Koučing 1:1<small>Individuálne, na Vašich skutočných úlohách</small></a></li>
+              <li><a href="/sk/trainings/">Inhouse školenia<small>Váš tím, jeden praktický deň u Vás vo firme</small></a></li>
+              <li><a href="/termine/">Štandardné školenia<small>Otvorené semináre v ARS a tecTrain</small></a></li>
+            </ul>
+          </li>
+          <li><a href="#proof" data-slide="7">Výsledky</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="#about" data-slide="1">O mne</a></li>
+          <li><a href="https://cal.eu/hilldigital/strategiegespraech" class="nav-cta" target="_blank" rel="noopener">Rezervovať sedenie</a></li>
         </ul>
-        <div class="nav-lang" aria-label="Language"><a href="/">DE</a><span class="nav-lang-sep">/</span><a href="/en/" class="active" aria-current="page">EN</a><span class="nav-lang-sep">/</span><a href="/sk/">SK</a></div>
+        <div class="nav-lang" aria-label="Jazyk"><a href="/">DE</a><span class="nav-lang-sep">/</span><a href="/en/">EN</a><span class="nav-lang-sep">/</span><a href="/sk/" class="active" aria-current="page">SK</a></div>
         <button class="nav-toggle" id="navToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -1994,16 +2129,16 @@
 
   <!-- ===== NAV DOTS ===== -->
   <div class="nav-dots" id="navDots">
-    <button class="nav-dot active" data-slide="0" aria-label="Slide 1"></button>
-    <button class="nav-dot" data-slide="1" aria-label="Slide 2"></button>
-    <button class="nav-dot" data-slide="2" aria-label="Slide 3"></button>
-    <button class="nav-dot" data-slide="3" aria-label="Slide 4"></button>
-    <button class="nav-dot" data-slide="4" aria-label="Slide 5"></button>
-    <button class="nav-dot" data-slide="5" aria-label="Slide 6"></button>
-    <button class="nav-dot" data-slide="6" aria-label="Slide 7"></button>
-    <button class="nav-dot" data-slide="7" aria-label="Slide 8"></button>
-    <button class="nav-dot" data-slide="8" aria-label="Slide 9"></button>
-    <button class="nav-dot" data-slide="9" aria-label="Slide 10"></button>
+    <button class="nav-dot active" data-slide="0" aria-label="Snímka 1"></button>
+    <button class="nav-dot" data-slide="1" aria-label="Snímka 2"></button>
+    <button class="nav-dot" data-slide="2" aria-label="Snímka 3"></button>
+    <button class="nav-dot" data-slide="3" aria-label="Snímka 4"></button>
+    <button class="nav-dot" data-slide="4" aria-label="Snímka 5"></button>
+    <button class="nav-dot" data-slide="5" aria-label="Snímka 6"></button>
+    <button class="nav-dot" data-slide="6" aria-label="Snímka 7"></button>
+    <button class="nav-dot" data-slide="7" aria-label="Snímka 8"></button>
+    <button class="nav-dot" data-slide="8" aria-label="Snímka 9"></button>
+    <button class="nav-dot" data-slide="9" aria-label="Snímka 10"></button>
   </div>
 
   <!-- ===== SNAP CONTAINER ===== -->
@@ -2013,40 +2148,40 @@
     <section class="slide slide-hero active" id="hero" data-index="0">
       <div class="hero-main">
         <div class="hero-content slide-content">
-          <div class="hero-badge">Business Lead at Hill Digital · AI Trainer</div>
-          <h1>"You don't know&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
-          <p class="hero-sub">You know AI is changing your business. You just don't know where to start. That's what I'm here for.</p>
+          <div class="hero-badge">Business Lead v Hill Digital · AI tréner</div>
+          <h1>„Neviete,&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
+          <p class="hero-sub">Viete, že umelá inteligencia mení Vaše podnikanie. Len neviete, kde začať. Presne na to som tu.</p>
           <div class="hero-ctas">
-            <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
-            <a href="#about" class="btn btn-secondary" data-slide="1">Learn more</a>
+            <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Rezervovať sedenie &rarr;</a>
+            <a href="#about" class="btn btn-secondary" data-slide="1">Zistiť viac</a>
           </div>
-          <p class="hero-check">Rather see where you stand first? <a href="/en/ki-check/">AI check, 12 questions, 2 minutes &rarr;</a></p>
+          <p class="hero-check">Radšej najprv zistiť, kde stojíte? <a href="/ki-check/">AI check, 12 otázok, 2 minúty &rarr;</a></p>
         </div>
         <div class="hero-image slide-content">
-          <img src="../images/profile/14-web.png" alt="Jakub Popluhar">
+          <img src="/images/profile/14-web.png" alt="Jakub Popluhar">
         </div>
       </div>
 
       <div class="hero-trust">
-        <p class="trust-bar-label">Trusted by</p>
+        <p class="trust-bar-label">Dôverujú mi</p>
         <div class="trust-marquee">
           <div class="trust-track">
-            <img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" class="trust-logo-img">
-            <img src="../images/logos/innovatic-group.svg" alt="Innovatic Group" class="trust-logo-img">
-            <div class="trust-item"><img src="../images/logos/became-ai-icon.svg" alt="became ai" class="trust-logo-img"><span class="trust-name">became ai</span></div>
-            <img src="../images/logos/sport-union.svg" alt="Sport Union" class="trust-logo-img">
-            <img src="../images/logos/youknowmebest.svg" alt="YouKnowMeBest" class="trust-logo-img">
-            <img src="../images/logos/fitrock.svg" alt="FitRock" class="trust-logo-img">
-            <div class="trust-item"><img src="../images/logos/zr-bjj.svg" alt="ZR Team Vienna" class="trust-logo-img"><span class="trust-name">ZR Team Vienna</span></div>
+            <img src="/images/logos/ars-akademie.svg" alt="ARS Akademie" class="trust-logo-img">
+            <img src="/images/logos/innovatic-group.svg" alt="Innovatic Group" class="trust-logo-img">
+            <div class="trust-item"><img src="/images/logos/became-ai-icon.svg" alt="became ai" class="trust-logo-img"><span class="trust-name">became ai</span></div>
+            <img src="/images/logos/sport-union.svg" alt="Sport Union" class="trust-logo-img">
+            <img src="/images/logos/youknowmebest.svg" alt="YouKnowMeBest" class="trust-logo-img">
+            <img src="/images/logos/fitrock.svg" alt="FitRock" class="trust-logo-img">
+            <div class="trust-item"><img src="/images/logos/zr-bjj.svg" alt="ZR Team Vienna" class="trust-logo-img"><span class="trust-name">ZR Team Vienna</span></div>
           </div>
           <div class="trust-track" aria-hidden="true">
-            <img src="../images/logos/ars-akademie.svg" alt="" class="trust-logo-img">
-            <img src="../images/logos/innovatic-group.svg" alt="" class="trust-logo-img">
-            <div class="trust-item"><img src="../images/logos/became-ai-icon.svg" alt="" class="trust-logo-img"><span class="trust-name">became ai</span></div>
-            <img src="../images/logos/sport-union.svg" alt="" class="trust-logo-img">
-            <img src="../images/logos/youknowmebest.svg" alt="" class="trust-logo-img">
-            <img src="../images/logos/fitrock.svg" alt="" class="trust-logo-img">
-            <img src="../images/logos/zr-bjj.svg" alt="" class="trust-logo-img">
+            <img src="/images/logos/ars-akademie.svg" alt="" class="trust-logo-img">
+            <img src="/images/logos/innovatic-group.svg" alt="" class="trust-logo-img">
+            <div class="trust-item"><img src="/images/logos/became-ai-icon.svg" alt="" class="trust-logo-img"><span class="trust-name">became ai</span></div>
+            <img src="/images/logos/sport-union.svg" alt="" class="trust-logo-img">
+            <img src="/images/logos/youknowmebest.svg" alt="" class="trust-logo-img">
+            <img src="/images/logos/fitrock.svg" alt="" class="trust-logo-img">
+            <img src="/images/logos/zr-bjj.svg" alt="" class="trust-logo-img">
           </div>
         </div>
       </div>
@@ -2057,16 +2192,16 @@
       <div class="container slide-content">
         <div class="about-image-wrapper">
           <div class="about-image">
-            <img src="../images/profile/7-web.png" alt="Jakub Popluhar" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+            <img src="/images/profile/7-web.png" alt="Jakub Popluhar" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
           </div>
           <div class="about-stats">
             <div class="about-stat">
               <span class="number">5</span>
-              <span class="label">Languages</span>
+              <span class="label">Jazykov</span>
             </div>
             <div class="about-stat">
               <span class="number">ARS</span>
-              <span class="label">Trainer</span>
+              <span class="label">Lektor</span>
             </div>
             <div class="about-stat">
               <span class="number">HD</span>
@@ -2076,38 +2211,38 @@
         </div>
 
         <div class="about-content">
-          <p class="section-label">Who I am</p>
-          <h2>I test everything on myself before I show it to you.</h2>
-          <p class="about-text">I'm Business Lead at Hill Digital, the digital arm of Hill Woltron, and an AI trainer for executives and teams across the DACH region. Tools change every month; the fundamentals don't - how you think with AI, prompt it, check it, keep control. Human in the Lead. AI in Support.</p>
+          <p class="section-label">Kto som</p>
+          <h2>Všetko najprv testujem na sebe, až potom Vám to ukážem.</h2>
+          <p class="about-text">Som Business Lead v Hill Digital, digitálnom ramene Hill Woltron, a AI tréner pre manažérov a tímy v regióne DACH. Nástroje sa menia každý mesiac, základy nie: ako s AI myslieť, ako ju promptovať, preverovať a udržať si nad ňou kontrolu. Human in the Lead. AI v pozadí.</p>
 
           <ul class="about-credentials">
-            <li><span class="check">&#10003;</span> Business Lead at Hill Digital (member of Hill Woltron)</li>
-            <li><span class="check">&#10003;</span> AI Trainer at ARS (Austria's largest private seminar provider) and tecTrain</li>
-            <li><span class="check">&#10003;</span> Linguistics & American Studies - semantics is the foundation of all AI communication</li>
-            <li><span class="check">&#10003;</span> Speaker, President Ivanov's School for Young Leaders</li>
+            <li><span class="check">&#10003;</span> Business Lead v Hill Digital (člen Hill Woltron)</li>
+            <li><span class="check">&#10003;</span> AI tréner v ARS (najväčší súkromný poskytovateľ seminárov v Rakúsku) a tecTrain</li>
+            <li><span class="check">&#10003;</span> Jazykoveda a amerikanistika: sémantika je základom každej komunikácie s AI</li>
+            <li><span class="check">&#10003;</span> Rečník, President Ivanov's School for Young Leaders</li>
             <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
-            <li><span class="check">&#10003;</span> First sponsored roundnet player in Europe · Former national floorball player · PADI Divemaster · Skydiver</li>
+            <li><span class="check">&#10003;</span> Prvý sponzorovaný hráč roundnetu v Európe · bývalý reprezentant vo florbale · PADI Divemaster · skydiver</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 3: SPEAKING (Option A — Split) -->
+    <!-- SLIDE 3: SPEAKING (Option A - Split) -->
     <section class="slide slide-speaking" id="speaking" data-index="2">
       <div class="container slide-content">
         <div class="speaking-split">
           <div class="speaking-text">
-            <p class="section-label">International Speaker</p>
-            <h2>On stage with heads of state</h2>
+            <p class="section-label">Medzinárodný rečník</p>
+            <h2>Na jednom pódiu s prezidentmi štátov</h2>
 
             <div class="speaking-event-a">
               <h3>President Ivanov's School for Young Leaders</h3>
-              <p class="speaking-subtitle">16th cohort · Ohrid, North Macedonia · November 2025</p>
+              <p class="speaking-subtitle">16. ročník · Ohrid, Severné Macedónsko · november 2025</p>
             </div>
 
-            <p class="podium-label" style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--white-muted); margin-bottom: 12px;">Shared Podium With</p>
+            <p class="podium-label" style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--white-muted); margin-bottom: 12px;">Spolu na pódiu s</p>
             <ul class="podium-list">
-              <li><span class="podium-name">Katalin Novák</span><span class="podium-title">Former President of Hungary</span></li>
+              <li><span class="podium-name">Katalin Novák</span><span class="podium-title">Bývalá prezidentka Maďarska</span></li>
               <li><span class="podium-name">Prof. Dr. Jeffrey Sachs</span><span class="podium-title">Columbia University</span></li>
               <li><span class="podium-name">Lt. Gen. Michael Dubie</span><span class="podium-title">Strategic Leadership</span></li>
               <li><span class="podium-name">Prof. Djordjija Petkoski</span><span class="podium-title">Wharton School · AI & Sustainability</span></li>
@@ -2116,15 +2251,15 @@
 
           <div class="speaking-photo-a">
             <div>
-              <img src="../images/speaking/ivanov-certificate-web.jpg" alt="Jakub Popluhar with President Dr. Gjorge Ivanov" loading="lazy">
-              <p class="photo-caption">President Dr. Gjorge Ivanov presents the certificate</p>
+              <img src="/images/speaking/ivanov-certificate-web.jpg" alt="Jakub Popluhar s prezidentom Dr. Gjorgem Ivanovom" loading="lazy">
+              <p class="photo-caption">Prezident Dr. Gjorge Ivanov odovzdáva certifikát</p>
             </div>
           </div>
         </div>
 
         <div class="speaking-eval-a">
-          <blockquote>"Creative, interactive methods and practical insights into consumer psychology."</blockquote>
-          <p class="eval-source">- Participant evaluation · Rated <strong>"among the most transformative sessions"</strong></p>
+          <blockquote>„Creative, interactive methods and practical insights into consumer psychology."</blockquote>
+          <p class="eval-source">- Hodnotenie účastníkov · Označené ako <strong>„among the most transformative sessions"</strong></p>
         </div>
       </div>
     </section>
@@ -2133,20 +2268,20 @@
     <section class="slide slide-transformation" id="transformation" data-index="3">
       <div class="container slide-content">
         <div class="section-header">
-          <p class="section-label">Transformation</p>
-          <h2>Before vs. After</h2>
-          <p>The difference after a single session.</p>
+          <p class="section-label">Transformácia</p>
+          <h2>Predtým vs. potom</h2>
+          <p>Rozdiel po jedinom sedení.</p>
         </div>
 
         <div class="transform-grid">
           <div class="transform-col transform-before">
-            <h3>Without training</h3>
+            <h3>Bez tréningu</h3>
             <table>
-              <tr><td class="icon-cell">&#10007;</td><td>Can't even find the app - clicks the wrong links</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Uses AI like Google - no structure, no context</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Chats scattered everywhere, time wasted every day</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Uploads screenshots and hopes it works</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>No idea what AI can do - and what it can't</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Ani nevie, kde je aplikácia, klikne na nesprávne odkazy</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Používa AI ako Google: žiadna štruktúra, žiadny kontext</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Chaty rozhádzané všade, každý deň stratený čas</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Nahrá screenshoty a dúfa, že to zafunguje</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Netuší, čo AI dokáže a čo nie</td></tr>
             </table>
           </div>
 
@@ -2155,13 +2290,13 @@
           </div>
 
           <div class="transform-col transform-after">
-            <h3>After one session</h3>
+            <h3>Po jednom sedení</h3>
             <table>
-              <tr><td class="icon-cell">&#10003;</td><td>Own projects with system prompts - the AI knows your business</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Master document: the AI understands context, goals and language</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Workspace organised - 40 minutes saved a day</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Knows which format works and which doesn't</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Uses the AI itself to write better prompts</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Vlastné projekty so systémovými promptmi: AI pozná Vaše podnikanie</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Master dokument: AI rozumie kontextu, cieľom a jazyku</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Zorganizovaný workspace: 40 ušetrených minút denne</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Vie, ktorý formát funguje a ktorý nie</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Používa samotnú AI na písanie lepších promptov</td></tr>
             </table>
           </div>
         </div>
@@ -2174,13 +2309,13 @@
         <div class="hero-testimonial-wrapper">
           <div class="hero-testimonial-quote">
             <div class="stars" style="font-size: 1.2rem; letter-spacing: 4px; margin-bottom: 24px; color: var(--gold);">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote>"It was incredible! It completely changed the way I see business - and how we should be doing business. I booked the second session on the spot."</blockquote>
+            <blockquote>„Bolo to neuveriteľné! Úplne som zmenila pohľad na biznis a na to, ako by sme mali biznis robiť. Hneď som si rezervovala druhé sedenie."</blockquote>
           </div>
           <div class="hero-testimonial-author">
-            <img class="hero-testimonial-img" src="../images/testimonials/katarzyna-pichler.jpg" alt="Katarzyna Renata Pichler" loading="lazy">
+            <img class="hero-testimonial-img" src="/images/testimonials/katarzyna-pichler.jpg" alt="Katarzyna Renata Pichler" loading="lazy">
             <div class="hero-testimonial-info">
               <span class="name">Katarzyna Renata Pichler</span>
-              <span class="role">Angel Investor of the Year 2025</span>
+              <span class="role">Angel investorka roka 2025</span>
               <span class="company">Innovatic Group</span>
             </div>
           </div>
@@ -2192,32 +2327,44 @@
     <section class="slide slide-services" id="services" data-index="5">
       <div class="container slide-content">
         <div class="section-header">
-          <p class="section-label">Services</p>
-          <h2>How I work with you</h2>
+          <p class="section-label">Služby</p>
+          <h2>Ako s Vami pracujem</h2>
         </div>
 
         <div class="service-featured">
           <div class="service-featured-image">
-            <img src="../images/profile/15-web.png" alt="Jakub Popluhar" loading="lazy">
+            <img src="/images/profile/15-web.png" alt="Jakub Popluhar" loading="lazy">
           </div>
           <div class="service-featured-content">
             <span class="service-badge">Premium</span>
-            <h3>AI Personal Coaching</h3>
-            <p class="desc">No lectures. No off-the-shelf programme. We work live, together, on exactly your use cases - I come to you. Every session delivers a concrete output you can put to use immediately.</p>
+            <h3>AI osobný tréning</h3>
+            <p class="desc">Žiadna frontálna výučba. Žiadny štandardný program. Pracujeme naživo a spoločne presne na Vašich prípadoch použitia, prídem za Vami. Každé sedenie má konkrétny výstup, ktorý viete hneď použiť.</p>
             <ul class="service-points">
-              <li><span class="icon">&#10003;</span> Live, on-site - your office, your machine, your data security</li>
-              <li><span class="icon">&#10003;</span> Highly personalised - your questions, your processes, your industry</li>
-              <li><span class="icon">&#10003;</span> Hands-on with the right tools for your business</li>
-              <li><span class="icon">&#10003;</span> Psychology + AI: understand why teams resist AI - and how to change that</li>
+              <li><span class="icon">&#10003;</span> Naživo u Vás na mieste: Vaša kancelária, Váš počítač, Vaša bezpečnosť dát</li>
+              <li><span class="icon">&#10003;</span> Maximálne personalizované: Vaše otázky, Vaše procesy, Vaše odvetvie</li>
+              <li><span class="icon">&#10003;</span> Hands-on so správnymi nástrojmi pre Vaše podnikanie</li>
+              <li><span class="icon">&#10003;</span> Psychológia + AI: pochopíte, prečo tímy AI odmietajú a ako to zmeníte</li>
             </ul>
-            <p class="service-note">First session preferably on site with you, after that live online.</p>
+            <p class="service-note">Prvé sedenie prednostne u Vás na mieste, ďalšie naživo online.</p>
             <div class="service-cta-row">
-              <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Free intro call &rarr;</a>
-              <a href="/ki-personal-training/" class="btn btn-secondary">Format and prices, from &euro; 290/hr (German page) &rarr;</a>
+              <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Bezplatný úvodný rozhovor &rarr;</a>
+              <a href="/sk/ki-personal-training/" class="btn btn-secondary">Pozrieť si priebeh a ceny, od 290 &euro;/hod. &rarr;</a>
             </div>
           </div>
         </div>
 
+        <div class="service-rungs">
+          <a href="/sk/trainings/" class="service-rung">
+            <span class="rung-label">Inhouse školenia pre V&aacute;š t&iacute;m</span>
+            <span class="rung-desc">Šesť celodenných formátov</span>
+            <span class="rung-go">&rarr;</span>
+          </a>
+          <a href="/termine/" class="service-rung">
+            <span class="rung-label">Štandardné školenia s pevným termínom</span>
+            <span class="rung-desc">ARS a tecTrain</span>
+            <span class="rung-go">&rarr;</span>
+          </a>
+        </div>
 
       </div>
     </section>
@@ -2226,56 +2373,56 @@
     <section class="slide slide-trainings" id="trainings" data-index="6">
       <div class="container slide-content">
         <div class="section-header">
-          <p class="section-label">Open seminars</p>
-          <h2>Learn AI in a group</h2>
+          <p class="section-label">Otvorené semináre</p>
+          <h2>Naučte sa AI v skupine</h2>
         </div>
 
         <div class="open-trainings-header">
-          <span>In cooperation with ARS and tecTrain</span>
+          <span>V spolupráci s ARS a tecTrain</span>
         </div>
 
         <div class="agenda">
           <div class="ag">
             <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">Sep</div></div>
             <div class="ag-body">
-              <div class="ag-prov"><img src="../images/logos/tectrain.png" alt="tecTrain"></div>
-              <div class="txt"><h4>Microsoft Copilot for Users</h4><p>Use Copilot safely and productively &middot; Full day</p></div>
+              <div class="ag-prov"><img src="/images/logos/tectrain.png" alt="tecTrain"></div>
+              <div class="txt"><h4>Microsoft Copilot pre používateľov</h4><p>Používať Copilot bezpečne a produktívne &middot; Celý deň</p></div>
             </div>
-            <a href="https://www.tectrain.at/kurskatalog/microsoft-technisch/microsoft-copilot/microsoft-copilot-fuer-anwender" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+            <a href="https://www.tectrain.at/kurskatalog/microsoft-technisch/microsoft-copilot/microsoft-copilot-fuer-anwender" class="btn-training" target="_blank" rel="noopener">Prihlásiť sa &rarr;</a>
           </div>
           <div class="ag">
             <div class="ag-date"><div class="ag-day">29</div><div class="ag-mon">Sep</div></div>
             <div class="ag-body">
-              <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
-              <div class="txt"><h4>AI for the everyday office (programme)</h4><p>Hands-on, Vienna &middot; 29&ndash;30 Sep 2026 &middot; 2 days</p></div>
+              <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
+              <div class="txt"><h4>Kurz AI pre kancelársku prax</h4><p>Hands-on, Viedeň &middot; 29. až 30. 9. 2026 &middot; 2 dni</p></div>
             </div>
-            <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+            <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Prihlásiť sa &rarr;</a>
           </div>
           <div class="ag">
-            <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">Okt</div></div>
             <div class="ag-body">
-              <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
-              <div class="txt"><h4>Use Microsoft 365 Copilot efficiently</h4><p>Data protection, AI governance, productive use &middot; Full day</p></div>
+              <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
+              <div class="txt"><h4>Efektívne používanie Microsoft 365 Copilot</h4><p>Ochrana osobných údajov, AI governance, produktívne používanie &middot; Celý deň</p></div>
             </div>
-            <a href="https://ars.at/seminar/332641/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+            <a href="https://ars.at/seminar/332641/" class="btn-training" target="_blank" rel="noopener">Prihlásiť sa &rarr;</a>
           </div>
           <div class="ag">
-            <div class="ag-date"><div class="ag-day">07</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-date"><div class="ag-day">07</div><div class="ag-mon">Okt</div></div>
             <div class="ag-body">
-              <div class="ag-prov"><img src="../images/logos/tectrain.png" alt="tecTrain"></div>
-              <div class="txt"><h4>AI Fundamentals with ChatGPT</h4><p>Practical applications with ChatGPT &middot; Full day</p></div>
+              <div class="ag-prov"><img src="/images/logos/tectrain.png" alt="tecTrain"></div>
+              <div class="txt"><h4>Základy AI s ChatGPT</h4><p>Praktické využitie ChatGPT &middot; Celý deň</p></div>
             </div>
-            <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/chatgpt-und-kuenstliche-intelligenz-in-der-praxis" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+            <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/chatgpt-und-kuenstliche-intelligenz-in-der-praxis" class="btn-training" target="_blank" rel="noopener">Prihlásiť sa &rarr;</a>
           </div>
         </div>
 
         <div class="agenda-more">
-          <a href="/en/termine/">See all dates &rarr;</a>
+          <a href="/termine/">Pozrieť všetky termíny &rarr;</a>
         </div>
 
         <div class="training-cta-note">
-          <p>No date that fits?<span>Would you like to request an individual appointment? Get in touch.</span></p>
-          <a href="https://cal.eu/hilldigital/training" class="btn-training" target="_blank" rel="noopener">Request an appointment &rarr;</a>
+          <p>Nenašli ste vhodný termín?<span>Chcete požiadať o individuálny termín? Ozvite sa mi.</span></p>
+          <a href="https://cal.eu/hilldigital/training" class="btn-training" target="_blank" rel="noopener">Požiadať o termín &rarr;</a>
         </div>
       </div>
     </section>
@@ -2284,16 +2431,16 @@
     <section class="slide slide-proof" id="proof" data-index="7">
       <div class="container slide-content">
         <div class="section-header">
-          <p class="section-label">Results</p>
-          <h2>It works.</h2>
+          <p class="section-label">Výsledky</p>
+          <h2>Funguje to.</h2>
         </div>
 
         <div class="proof-grid">
             <div class="testimonial-card">
               <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>"Before, my chats were scattered everywhere and unorganised. Now everything's sorted - marketing, training, SOPs, strategy. We organised and personalised my LLM so I don't have to write a prompt every single time. That alone saves me 40 minutes a day."</blockquote>
+              <blockquote>„Predtým som mal chaty rozhádzané všade a neusporiadané. Teraz mám všetko roztriedené: marketing, tréningy, SOP, stratégiu. Zorganizovali sme a personalizovali moje LLM tak, že nemusím zakaždým písať prompt. Len to mi ušetrí 40 minút denne."</blockquote>
               <div class="testimonial-author">
-                <img class="avatar-img" src="../images/testimonials/patrik-hubek-web.png" alt="Patrik Hubek" loading="lazy">
+                <img class="avatar-img" src="/images/testimonials/patrik-hubek-web.png" alt="Patrik Hubek" loading="lazy">
                 <div class="author-info">
                   <span class="name">Patrik Hubek</span>
                   <span class="role">FitRock | Health & Fitness</span>
@@ -2303,9 +2450,9 @@
 
             <div class="testimonial-card">
               <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>"I thought I knew how to use ChatGPT - until Jakub showed me what's really possible. No theory, just: do it yourself, try it, understand it. After one session I knew more than I had after months on my own."</blockquote>
+              <blockquote>„Myslela som si, že viem ChatGPT ovládať, kým mi Jakub neukázal, čo je naozaj možné. Žiadna teória, ale: robiť, skúšať, pochopiť. Po jednom sedení som vedela viac ako po mesiacoch sama."</blockquote>
               <div class="testimonial-author">
-                <img class="avatar-img" src="../images/testimonials/tea-shashaj-web.png" alt="Tea Shashaj" loading="lazy">
+                <img class="avatar-img" src="/images/testimonials/tea-shashaj-web.png" alt="Tea Shashaj" loading="lazy">
                 <div class="author-info">
                   <span class="name">Tea Shashaj</span>
                   <span class="role">YouKnowMeBest | E-Commerce</span>
@@ -2315,9 +2462,9 @@
 
             <div class="testimonial-card">
               <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>"I run a martial arts gym - tech isn't my world. I couldn't even find the app. Forty-five minutes later I had an AI project for bringing in new members - and the crazy part: the AI itself helped me ask the right questions. On my own I'd never have got there."</blockquote>
+              <blockquote>„Prevádzkujem štúdio bojových športov, technika nie je môj svet. Ani som nevedel, kde je tá aplikácia. O 45 minút neskôr som mal AI projekt na získavanie členov a to najbláznivejšie: samotná AI mi pomohla klásť tie správne otázky. Sám by som na to nikdy neprišiel."</blockquote>
               <div class="testimonial-author">
-                <img class="avatar-img" src="../images/testimonials/petar-pecija-web.png" alt="Petar Pecija" loading="lazy">
+                <img class="avatar-img" src="/images/testimonials/petar-pecija-web.png" alt="Petar Pecija" loading="lazy">
                 <div class="author-info">
                   <span class="name">Petar Pecija</span>
                   <span class="role">ZR Team Vienna | Sport</span>
@@ -2331,16 +2478,16 @@
     <!-- SLIDE 9: BLOG -->
     <section class="slide slide-blog" id="blog" data-index="8">
       <div class="container slide-content">
-        <span class="blog-eyebrow">From the blog</span>
-        <h2 class="blog-heading">Latest posts</h2>
+        <span class="blog-eyebrow">Z blogu</span>
+        <h2 class="blog-heading">Najnovšie články</h2>
         <div class="blog-teaser-grid">
         <!-- BLOG-TEASER:START -->
-        <a class="blog-card" href="/en/blog/diktieren-ist-orchestrieren/"><span class="blog-card-meta" style="color:#d4a017">Jul 27, 2026 &middot; From Practice</span><span class="blog-card-title">I don&#x27;t prompt less, I prompt differently</span></a>
-        <a class="blog-card" href="/en/blog/prozess-der-sich-selbst-repariert/"><span class="blog-card-meta" style="color:#d4a017">Jul 22, 2026 &middot; From Practice</span><span class="blog-card-title">Today I&#x27;m letting my AI assistant tell the story</span></a>
-        <a class="blog-card" href="/en/blog/prompt-ist-ein-lasso/"><span class="blog-card-meta" style="color:#6bbf8a">Jul 10, 2026 &middot; Jakub Trainings</span><span class="blog-card-title">A prompt is not a command. It is a lasso.</span></a>
+        <a class="blog-card" href="/blog/diktieren-ist-orchestrieren/"><span class="blog-card-meta" style="color:#d4a017">27. júla 2026 &middot; Z praxe</span><span class="blog-card-title">Nepromptujem menej, promptujem inak</span></a>
+        <a class="blog-card" href="/blog/prozess-der-sich-selbst-repariert/"><span class="blog-card-meta" style="color:#d4a017">22. júla 2026 &middot; Z praxe</span><span class="blog-card-title">Dnes nechám rozprávať moju AI asistentku</span></a>
+        <a class="blog-card" href="/blog/prompt-ist-ein-lasso/"><span class="blog-card-meta" style="color:#6bbf8a">10. júla 2026 &middot; Jakub Trainings</span><span class="blog-card-title">Prompt nie je príkaz. Je to laso.</span></a>
         <!-- BLOG-TEASER:END -->
         </div>
-        <a class="blog-all-btn" href="/en/blog/">Read the blog</a>
+        <a class="blog-all-btn" href="/blog/">Na blog</a>
       </div>
     </section>
 
@@ -2348,60 +2495,60 @@
     <section class="slide slide-cta" id="contact" data-index="9">
       <div class="container slide-content">
         <div class="cta-main-new">
-          <h2>How can your company adopt AI if you haven't done it yourself?</h2>
+          <h2>Ako má Vaša firma nasadiť AI, keď to Vy osobne nerobíte?</h2>
         </div>
 
         <div class="cta-offers">
           <div class="cta-offer-card cta-offer-featured">
             <span class="offer-badge">1:1</span>
-            <h3>AI Personal Coaching</h3>
-            <p>Your personal trainer for working with AI. On your real tasks, with a result you keep.</p>
-            <a href="/ki-personal-training/" class="btn btn-primary">Format and prices (German page) &rarr;</a>
+            <h3>AI osobný tréning</h3>
+            <p>V&aacute;š osobn&yacute; tr&eacute;ner pre pr&aacute;cu s AI. Na Vašich skutočných úlohách, s výsledkom, ktorý Vám zostane.</p>
+            <a href="/sk/ki-personal-training/" class="btn btn-primary">Priebeh a ceny &rarr;</a>
           </div>
 
           <div class="cta-offer-card">
-            <span class="offer-badge">Team</span>
-            <h3>In-house training</h3>
-            <p>AI skills and consumer psychology for your team. Including AI literacy under EU AI Act Art. 4.</p>
-            <a href="https://cal.eu/hilldigital/training" class="btn btn-secondary" target="_blank" rel="noopener">I am interested in training &rarr;</a>
+            <span class="offer-badge">Tím</span>
+            <h3>Inhouse školenie</h3>
+            <p>AI kompetencie + spotrebiteľská psychológia pre V&aacute;š t&iacute;m. Vrátane AI Literacy podľa článku 4 EU AI Act.</p>
+            <a href="https://cal.eu/hilldigital/training" class="btn btn-secondary" target="_blank" rel="noopener">M&aacute;m z&aacute;ujem o školenia &rarr;</a>
           </div>
 
           <div class="cta-offer-card">
-            <span class="offer-badge">Group</span>
-            <h3>Open seminars</h3>
-            <p>Fixed dates with ARS and tecTrain, open for individual registration. Booking directly with the organiser.</p>
-            <a href="/en/termine/" class="btn btn-secondary">See all dates &rarr;</a>
+            <span class="offer-badge">Skupina</span>
+            <h3>Otvorené semináre</h3>
+            <p>Pevné termíny v ARS a tecTrain, otvorené pre individu&aacute;lne prihl&aacute;senie. Rezerv&aacute;cia priamo u organiz&aacute;tora.</p>
+            <a href="/termine/" class="btn btn-secondary">Pozrieť všetky termíny &rarr;</a>
           </div>
         </div>
 
         <div class="contact-form-wrapper">
-          <h3>Get in touch</h3>
-          <p class="form-sub">I'll respond within 24 hours.</p>
+          <h3>Kontaktujte ma</h3>
+          <p class="form-sub">Ozvem sa do 24 hodín.</p>
           <form class="contact-form" id="contactForm" action="https://formspree.io/f/xzdaybpa" method="POST">
             <div class="form-row">
-              <input type="text" name="name" placeholder="First and last name *" required>
-              <input type="email" name="email" placeholder="Email address *" required>
+              <input type="text" name="name" placeholder="Meno a priezvisko *" required>
+              <input type="email" name="email" placeholder="E-mailová adresa *" required>
             </div>
             <div class="form-row">
               <select name="interest" required>
-                <option value="" disabled selected>I'm interested in... *</option>
-                <option value="AI Personal Coaching">AI Personal Coaching</option>
-                <option value="Keynote / Impulsvortrag">Keynote</option>
-                <option value="Inhouse-Training (Team)">In-house Training (Team)</option>
-                <option value="Sonstiges">Other</option>
+                <option value="" disabled selected>Mám záujem o... *</option>
+                <option value="KI-Personal-Training">AI osobný tréning</option>
+                <option value="Keynote / Impulsvortrag">Keynote / impulzová prednáška</option>
+                <option value="Inhouse-Training (Team)">Inhouse školenie (tím)</option>
+                <option value="Sonstiges">Iné</option>
               </select>
-              <input type="text" name="company" placeholder="Company / Position">
+              <input type="text" name="company" placeholder="Firma / pozícia">
             </div>
-            <textarea name="message" placeholder="Tell me briefly how I can help..."></textarea>
+            <textarea name="message" placeholder="Napíšte mi krátko, s čím Vám môžem pomôcť..."></textarea>
             <label class="form-consent">
               <input type="checkbox" name="consent">
-              <span>I agree that Jakub Popluhar and Hill Digital GmbH may contact me by email about my enquiry and relevant AI topics. My details will be stored at Hill Digital (Brevo) for this purpose. I can withdraw this consent at any time. More in the <a href="../datenschutz.html" target="_blank" rel="noopener">privacy policy</a>.</span>
+              <span>Súhlasím, aby ma Jakub Popluhar a Hill Digital GmbH kontaktovali e-mailom v súvislosti s mojou požiadavkou a k relevantným témam AI. Moje údaje budú na tento účel uložené v Hill Digital (Brevo). Súhlas môžem kedykoľvek odvolať. Viac v <a href="/datenschutz.html" target="_blank" rel="noopener">Zásadách ochrany osobných údajov</a>.</span>
             </label>
-            <button type="submit" class="btn-submit">Send message &rarr;</button>
+            <button type="submit" class="btn-submit">Odoslať správu &rarr;</button>
           </form>
-          <div class="form-success" id="formSuccess">Thank you! I'll be in touch.</div>
+          <div class="form-success" id="formSuccess">Ďakujem! Ozvem sa Vám.</div>
           <p style="text-align:center; margin-top:16px; margin-bottom:80px; color:var(--white-muted); font-size:0.85rem;">
-            Or reach me directly on
+            Alebo priamo na
             <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener noreferrer" style="color:var(--gold); font-weight:600;">LinkedIn</a>
           </p>
         </div>
@@ -2418,8 +2565,8 @@
         <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
       <ul class="footer-links">
-        <li><a href="../impressum.html">Impressum</a></li>
-        <li><a href="../datenschutz.html">Datenschutz</a></li>
+        <li><a href="/impressum.html">Kontaktné údaje</a></li>
+        <li><a href="/datenschutz.html">Ochrana osobných údajov</a></li>
       </ul>
       <p class="footer-copy">&copy; 2026 Jakub Popluhar</p>
     </div>
@@ -2432,16 +2579,16 @@
       (function typewriter() {
         const phrases = [
           [
-            { text: 'what ', hl: false },
-            { text: 'you don\'t know."', hl: true }
+            { text: 'čo ', hl: false },
+            { text: 'neviete."', hl: true }
           ],
           [
-            { text: 'where ', hl: false },
-            { text: 'to start."', hl: true }
+            { text: 'kde ', hl: false },
+            { text: 'máte začať."', hl: true }
           ],
           [
-            { text: 'what your competitors ', hl: false },
-            { text: 'already use."', hl: true }
+            { text: 'čo vaša konkurencia ', hl: false },
+            { text: 'už používa."', hl: true }
           ]
         ];
         const el = document.getElementById('typewriter');
@@ -2582,6 +2729,32 @@
         link.addEventListener('click', () => navLinks.classList.remove('open'));
       });
 
+      // ---- Angebote-Aufklappmenue ----
+      // Hover und Tastaturfokus laufen ueber CSS. Hier nur Tippen (Touch) und Escape,
+      // weil Touchgeraete kein Hover kennen.
+      document.querySelectorAll('[data-nav-drop]').forEach(drop => {
+        const toggle = drop.querySelector('.nav-drop-toggle');
+        toggle.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopPropagation();
+          const open = drop.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        document.addEventListener('click', e => {
+          if (!drop.contains(e.target)) {
+            drop.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+        drop.addEventListener('keydown', e => {
+          if (e.key === 'Escape') {
+            drop.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+          }
+        });
+      });
+
       // ---- Initialize first slide as active ----
       updateActive(0);
 
@@ -2601,10 +2774,10 @@
         contactForm.addEventListener('submit', async (e) => {
           e.preventDefault();
           const btn = contactForm.querySelector('.btn-submit');
-          btn.textContent = 'Sending...';
+          btn.textContent = 'Odosiela sa...';
           btn.disabled = true;
-          // Second sink (SPOF safeguard): durable lead record in Brevo, only with consent.
-          // Fire-and-forget -> never blocks/breaks the UX; success still keyed on Formspree.
+          // Zweiter Sink (SPOF-Absicherung): dauerhafter Lead-Datensatz in Brevo, NUR mit Einwilligung.
+          // Fire-and-forget -> blockiert/bricht die UX nie; Erfolg haengt weiter an Formspree.
           const fd = new FormData(contactForm);
           if (fd.get('consent') === 'on') {
             try {
@@ -2633,11 +2806,11 @@
               contactForm.style.display = 'none';
               document.getElementById('formSuccess').style.display = 'block';
             } else {
-              btn.textContent = 'Error - please try again';
+              btn.textContent = 'Chyba, skúste to prosím znova';
               btn.disabled = false;
             }
           } catch {
-            btn.textContent = 'Error - please try again';
+            btn.textContent = 'Chyba, skúste to prosím znova';
             btn.disabled = false;
           }
         });
