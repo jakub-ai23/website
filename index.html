@@ -142,6 +142,44 @@
     .nav-lang a.active { color: var(--gold); }
     .nav-lang-sep { color: rgba(255, 255, 255, 0.25); }
 
+    /* Sprachwahl: am Schreibtisch alle drei nebeneinander. Auf dem Handy nur die
+       aktuelle Sprache als Schalter, die anderen klappen darunter auf. Spart Platz
+       in der Leiste und macht aus 24px hohen Miniziel-Links echte Tippflaechen. */
+    .nav-lang { position: relative; }
+    .nav-lang-toggle { display: none; }
+    .nav-lang-list { display: inline-flex; align-items: center; gap: 6px; }
+
+    @media (max-width: 968px) {
+      .nav-lang-toggle {
+        display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+        min-height: 44px; min-width: 56px; padding: 0 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(212, 160, 23, 0.35); border-radius: 8px;
+        color: var(--gold); font-family: inherit; font-size: 0.8rem; font-weight: 600;
+        letter-spacing: 1px; cursor: pointer;
+      }
+      .nav-lang-caret {
+        width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
+        border-top: 5px solid currentColor; transition: transform 0.2s;
+      }
+      .nav-lang.open .nav-lang-caret { transform: rotate(180deg); }
+
+      .nav-lang-list {
+        display: none; position: absolute; top: calc(100% + 6px); right: 0;
+        flex-direction: column; align-items: stretch; gap: 0; min-width: 96px;
+        background: var(--charcoal); border: 1px solid rgba(212, 160, 23, 0.25);
+        border-radius: 10px; padding: 4px; z-index: 120;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+      }
+      .nav-lang.open .nav-lang-list { display: flex; }
+      .nav-lang-list a {
+        display: flex; align-items: center; min-height: 44px; padding: 0 14px;
+        border-radius: 6px; color: var(--white-muted);
+      }
+      .nav-lang-list a.active { color: var(--gold); background: rgba(212, 160, 23, 0.10); }
+      .nav-lang-sep { display: none; }
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -1846,7 +1884,10 @@
         padding: var(--section-y-tight) 0;
       }
 
-      .slide-hero { min-height: 100vh; padding: calc(var(--nav-height) / 8) 0 0; }
+      /* Die Leiste ist fixed: der Hero muss unter ihr ANFANGEN, sonst liegt
+         das Badge dahinter. Auf dem Handy passt der Inhalt ohnehin nicht in
+         eine Bildschirmhoehe, zentrieren hilft also nicht. */
+      .slide-hero { min-height: 100vh; padding: calc(var(--nav-height) + 20px) 0 0; }
 
       .slide-content {
         opacity: 1;
@@ -2124,7 +2165,7 @@
           <li><a href="#about" data-slide="1">Über mich</a></li>
           <li><a href="https://cal.eu/hilldigital/strategiegespraech" class="nav-cta" target="_blank" rel="noopener">Session buchen</a></li>
         </ul>
-        <div class="nav-lang" aria-label="Sprache"><a href="/" class="active" aria-current="page">DE</a><span class="nav-lang-sep">/</span><a href="/en/">EN</a><span class="nav-lang-sep">/</span><a href="/sk/">SK</a></div>
+        <div class="nav-lang" aria-label="Sprache"><button class="nav-lang-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Sprache wechseln">DE<span class="nav-lang-caret"></span></button><div class="nav-lang-list"><a href="/" class="active" aria-current="page">DE</a><span class="nav-lang-sep">/</span><a href="/en/">EN</a><span class="nav-lang-sep">/</span><a href="/sk/">SK</a></div></div>
         <button class="nav-toggle" id="navToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -2754,6 +2795,31 @@
         drop.addEventListener('keydown', e => {
           if (e.key === 'Escape') {
             drop.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+          }
+        });
+      });
+
+      // ---- Sprachwahl auf dem Handy: aufklappen statt drei Miniziele ----
+      document.querySelectorAll('.nav-lang').forEach(box => {
+        const toggle = box.querySelector('.nav-lang-toggle');
+        if (!toggle) return;
+        toggle.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopPropagation();
+          const open = box.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        document.addEventListener('click', e => {
+          if (!box.contains(e.target)) {
+            box.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+        box.addEventListener('keydown', e => {
+          if (e.key === 'Escape') {
+            box.classList.remove('open');
             toggle.setAttribute('aria-expanded', 'false');
             toggle.focus();
           }
