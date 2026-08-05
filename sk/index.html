@@ -142,43 +142,6 @@
     .nav-lang a.active { color: var(--gold); }
     .nav-lang-sep { color: rgba(255, 255, 255, 0.25); }
 
-    /* Sprachwahl: am Schreibtisch alle drei nebeneinander. Auf dem Handy nur die
-       aktuelle Sprache als Schalter, die anderen klappen darunter auf. Spart Platz
-       in der Leiste und macht aus 24px hohen Miniziel-Links echte Tippflaechen. */
-    .nav-lang { position: relative; }
-    .nav-lang-toggle { display: none; }
-    .nav-lang-list { display: inline-flex; align-items: center; gap: 6px; }
-
-    @media (max-width: 968px) {
-      .nav-lang-toggle {
-        display: inline-flex; align-items: center; justify-content: center; gap: 5px;
-        min-height: 44px; min-width: 56px; padding: 0 10px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(212, 160, 23, 0.35); border-radius: 8px;
-        color: var(--gold); font-family: inherit; font-size: 0.8rem; font-weight: 600;
-        letter-spacing: 1px; cursor: pointer;
-      }
-      .nav-lang-caret {
-        width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent;
-        border-top: 5px solid currentColor; transition: transform 0.2s;
-      }
-      .nav-lang.open .nav-lang-caret { transform: rotate(180deg); }
-
-      .nav-lang-list {
-        display: none; position: absolute; top: calc(100% + 6px); right: 0;
-        flex-direction: column; align-items: stretch; gap: 0; min-width: 96px;
-        background: var(--charcoal); border: 1px solid rgba(212, 160, 23, 0.25);
-        border-radius: 10px; padding: 4px; z-index: 120;
-        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
-      }
-      .nav-lang.open .nav-lang-list { display: flex; }
-      .nav-lang-list a {
-        display: flex; align-items: center; min-height: 44px; padding: 0 14px;
-        border-radius: 6px; color: var(--white-muted);
-      }
-      .nav-lang-list a.active { color: var(--gold); background: rgba(212, 160, 23, 0.10); }
-      .nav-lang-sep { display: none; }
-    }
 
     .nav-links {
       display: flex;
@@ -2092,7 +2055,39 @@
     .hero-check { margin-top: 14px; font-size: 0.88rem; color: var(--white-muted, #9a978e); }
     .hero-check a { color: var(--gold, #d4a017); text-decoration: none; border-bottom: 1px solid rgba(212,160,23,0.4); }
     .hero-check a:hover { border-bottom-color: var(--gold, #d4a017); }
-</style>
+
+    /* ---------- Sprachumschalter: Flaggen statt DE/EN/SK ----------
+       Kuerzer in der Leiste und auf jeder Seite gleich. Bewusst die
+       OESTERREICHISCHE Flagge fuer die deutsche Strecke: das Publikum ist
+       Oesterreich. Die slowakische traegt das Doppelkreuz, ohne das waere
+       sie von der russischen nicht zu unterscheiden. Inline-SVG, damit es
+       ohne externe Anfragen und auch auf Windows richtig aussieht. */
+    .nav-lang .flag, .lang-switch .flag {
+      width: 22px; height: 15px; display: block; border-radius: 2px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22);
+      opacity: 0.55; transition: opacity 0.2s, box-shadow 0.2s;
+    }
+    .nav-lang a, .lang-switch a { padding: 6px; display: inline-flex; align-items: center; }
+    .nav-lang a:hover .flag, .lang-switch a:hover .flag { opacity: 0.9; }
+    .nav-lang a.active .flag, .lang-switch a.active .flag {
+      opacity: 1; box-shadow: 0 0 0 1px var(--gold, #d4a017);
+    }
+    .nav-lang-sep, .lang-switch .sep { display: none; }
+
+    @media (max-width: 968px) {
+      /* Groessere Tippflaeche, ohne dass die Flagge selbst waechst. */
+      .nav-lang a, .lang-switch a { padding: 10px 7px; }
+    }
+  
+    /* Sprachumschalter VOR den Buchungsknopf. Der Knopf steckt im <ul>, der
+       Umschalter ist dessen Nachbar: 'order' greift nur unter Geschwistern,
+       also wandert der ganze Umschalter per order vor die Liste. Auf dem
+       Handy bleibt er wo er ist, dort ist er der einzige Punkt in der Leiste. */
+    @media (min-width: 969px) {
+      .nav-right, .site-nav header, .site-nav { align-items: center; }
+      .nav-lang, .lang-switch { order: -1; margin-right: 4px; }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -2173,9 +2168,9 @@
           <li><a href="#proof" data-slide="7">Výsledky</a></li>
           <li><a href="/blog/">Blog <span class="lang-flag">DE</span></a></li>
           <li><a href="#about" data-slide="1">O mne</a></li>
-          <li><a href="https://cal.eu/jakubpopluhar/uvodny-hovor" class="nav-cta" target="_blank" rel="noopener">Rezervovať sedenie</a></li>
+          <li><a href="https://cal.eu/jakubpopluhar/uvodny-hovor" class="nav-cta" target="_blank" rel="noopener">Book Call</a></li>
         </ul>
-        <div class="nav-lang" aria-label="Jazyk"><button class="nav-lang-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Zmeniť jazyk">SK<span class="nav-lang-caret"></span></button><div class="nav-lang-list"><a href="/">DE</a><span class="nav-lang-sep">/</span><a href="/en/">EN</a><span class="nav-lang-sep">/</span><a href="/sk/" class="active" aria-current="page">SK</a></div></div>
+        <div class="nav-lang" aria-label="Jazyk"><a href="/" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg></a><a href="/en/" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></a><a href="/sk/" class="active" aria-current="page" title="Slovenčina" aria-label="Slovenčina"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#fff"/><rect y="2" width="9" height="4" fill="#0B4EA2"/><rect y="4" width="9" height="2" fill="#EE1C25"/><path d="M1.9,1.25 h2.6 v2.2 c0,1.05 -1.3,1.6 -1.3,1.6 s-1.3,-0.55 -1.3,-1.6 z" fill="#EE1C25" stroke="#fff" stroke-width="0.26"/><path d="M3.05,1.75 h0.3 v0.5 h0.6 v0.32 h-0.6 v0.55 h0.78 v0.32 h-0.78 v0.9 h-0.3 v-0.9 h-0.78 v-0.32 h0.78 v-0.55 h-0.6 v-0.32 h0.6 z" fill="#fff"/></svg></a></div>
         <button class="nav-toggle" id="navToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -2806,31 +2801,6 @@
         drop.addEventListener('keydown', e => {
           if (e.key === 'Escape') {
             drop.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
-            toggle.focus();
-          }
-        });
-      });
-
-      // ---- Sprachwahl auf dem Handy: aufklappen statt drei Miniziele ----
-      document.querySelectorAll('.nav-lang').forEach(box => {
-        const toggle = box.querySelector('.nav-lang-toggle');
-        if (!toggle) return;
-        toggle.addEventListener('click', e => {
-          e.preventDefault();
-          e.stopPropagation();
-          const open = box.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        document.addEventListener('click', e => {
-          if (!box.contains(e.target)) {
-            box.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-        box.addEventListener('keydown', e => {
-          if (e.key === 'Escape') {
-            box.classList.remove('open');
             toggle.setAttribute('aria-expanded', 'false');
             toggle.focus();
           }
