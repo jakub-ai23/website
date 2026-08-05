@@ -234,36 +234,57 @@
   .nav-lang a.active { color: var(--gold); }
   .nav-lang-sep { color: rgba(255, 255, 255, 0.25); }
 
-    /* ---------- Sprachumschalter: Flaggen statt DE/EN/SK ----------
-       Kuerzer in der Leiste und auf jeder Seite gleich. Bewusst die
-       OESTERREICHISCHE Flagge fuer die deutsche Strecke: das Publikum ist
-       Oesterreich. Die slowakische traegt das Doppelkreuz, ohne das waere
-       sie von der russischen nicht zu unterscheiden. Inline-SVG, damit es
-       ohne externe Anfragen und auch auf Windows richtig aussieht. */
+    /* ---------- Sprachumschalter: nur die aktuelle Sprache ----------
+       Drei Flaggen nebeneinander haben in der Leiste zu viel Platz gefressen.
+       Sichtbar ist jetzt nur die aktive Sprache, ein Klick klappt die anderen
+       auf. Flaggen sind Inline-SVG: kein externer Abruf, und anders als
+       Flaggen-Emojis auf Windows werden sie ueberall als Flagge gezeichnet.
+       Die deutsche Strecke traegt die OESTERREICHISCHE Flagge (das Publikum
+       ist AT), die slowakische das Doppelkreuz, ohne das waere sie von der
+       russischen nicht zu unterscheiden. */
+    .nav-lang, .lang-switch { position: relative; display: inline-flex; }
     .nav-lang .flag, .lang-switch .flag {
       width: 22px; height: 15px; display: block; border-radius: 2px;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22);
-      opacity: 0.55; transition: opacity 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
     }
-    .nav-lang a, .lang-switch a { padding: 6px; display: inline-flex; align-items: center; }
-    .nav-lang a:hover .flag, .lang-switch a:hover .flag { opacity: 0.9; }
-    .nav-lang a.active .flag, .lang-switch a.active .flag {
-      opacity: 1; box-shadow: 0 0 0 1px var(--gold, #d4a017);
+    .nav-lang-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      min-height: 40px; padding: 0 8px;
+      background: none; border: 0; cursor: pointer; color: inherit;
+      -webkit-tap-highlight-color: transparent;
     }
+    .nav-lang-arrow {
+      width: 0; height: 0; border-left: 3.5px solid transparent;
+      border-right: 3.5px solid transparent; border-top: 4.5px solid currentColor;
+      opacity: 0.5; transition: transform 0.2s, opacity 0.2s;
+    }
+    .nav-lang-btn:hover .nav-lang-arrow { opacity: 0.9; }
+    .nav-lang.open .nav-lang-arrow, .lang-switch.open .nav-lang-arrow {
+      transform: rotate(180deg); opacity: 0.9;
+    }
+    .nav-lang-menu {
+      display: none; position: absolute; top: calc(100% + 4px); right: 0;
+      flex-direction: column; gap: 2px; padding: 5px;
+      background: var(--charcoal, #141414);
+      border: 1px solid rgba(212, 160, 23, 0.28); border-radius: 9px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55); z-index: 200;
+    }
+    .nav-lang.open .nav-lang-menu, .lang-switch.open .nav-lang-menu { display: flex; }
+    .nav-lang-menu a {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 40px; min-width: 44px; padding: 0 10px; border-radius: 6px;
+    }
+    .nav-lang-menu a:hover { background: rgba(212, 160, 23, 0.14); }
+    .nav-lang-menu a.active { background: rgba(212, 160, 23, 0.18); }
+    .nav-lang-menu a.active .flag { box-shadow: 0 0 0 1px var(--gold, #d4a017); }
     .nav-lang-sep, .lang-switch .sep { display: none; }
 
-    @media (max-width: 968px) {
-      /* Groessere Tippflaeche, ohne dass die Flagge selbst waechst. */
-      .nav-lang a, .lang-switch a { padding: 10px 7px; }
-    }
-  
-    /* Sprachumschalter VOR den Buchungsknopf. Der Knopf steckt im <ul>, der
-       Umschalter ist dessen Nachbar: 'order' greift nur unter Geschwistern,
-       also wandert der ganze Umschalter per order vor die Liste. Auf dem
-       Handy bleibt er wo er ist, dort ist er der einzige Punkt in der Leiste. */
+    /* Der Umschalter gehoert vor den Buchungsknopf. Der Knopf steckt im <ul>,
+       der Umschalter ist dessen Nachbar: 'order' greift nur unter
+       Geschwistern, er wandert daher vor die ganze Liste. */
     @media (min-width: 969px) {
-      .nav-right, .site-nav header, .site-nav { align-items: center; }
-      .nav-lang, .lang-switch { order: -1; margin-right: 4px; }
+      .nav-right, .site-nav { align-items: center; }
+      .nav-lang, .lang-switch { order: -1; margin-right: 6px; }
     }
   </style>
 </head>
@@ -287,7 +308,7 @@
     <a href="/en/blog/">Blog</a>
     <a href="#kontakt" class="nav-cta">Book Call</a>
   </nav>
-    <div class="nav-lang" aria-label="Language"><a href="/ki-personal-training/" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg></a><a href="/en/ki-personal-training/" class="active" aria-current="page" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></a></div>
+    <div class="nav-lang" aria-label="Language"><button class="nav-lang-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Change language"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg><span class="nav-lang-arrow"></span></button><div class="nav-lang-menu"><a href="/ki-personal-training/" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg></a><a href="/en/ki-personal-training/" class="active" aria-current="page" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></a></div></div>
     <button class="nav-toggle" id="siteNavToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="siteNavLinks">
       <span></span><span></span><span></span>
     </button>
@@ -647,5 +668,32 @@
     });
   })();
   </script>
+<script>
+/* Sprachumschalter: aufklappen, per Klick daneben und Escape wieder zu. */
+(function () {
+  document.querySelectorAll('.nav-lang, .lang-switch').forEach(function (box) {
+    var btn = box.querySelector('.nav-lang-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.preventDefault(); e.stopPropagation();
+      var open = box.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+      if (!box.contains(e.target)) {
+        box.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        box.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
