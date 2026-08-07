@@ -39,3 +39,8 @@ website-crossover-concept*.md
 debriefs/
 blog/CLAUDE.md
 blog/ARCHITECTURE.md
+
+# Interne Analyse-/Auditdokumente. Dieses Repo IST die oeffentliche Website:
+# committet waeren sie unter jakubpopluhar.com/<datei> abrufbar. Bleiben lokal.
+GEO-SEO-AUDIT.md
+*-audit-*.md
