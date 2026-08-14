@@ -4,9 +4,9 @@ slug: agenten-ohne-gedaechtnis
 date: 2026-07-05
 draft: false
 category: aus-der-praxis
-description: Zehn KI-Agenten, 27 Recherche-Missionen, und die vollständigen Berichte waren alle weg. Warum Agenten standardmäßig alles vergessen, was das kostet, und der Fix, der zehn Minuten dauert.
+description: Zehn KI-Agenten, 27 Recherche-Missionen, und die Berichte waren alle weg. Warum Agenten standardmäßig alles vergessen, und der Fix, der zehn Minuten dauert.
 lede: Ich habe herausgefunden, dass ich einen Geheimdienst betreibe, der seine eigenen Berichte schreddert.
-hero: /images/blog/agenten-ohne-gedaechtnis.png
+hero: /images/blog/agenten-ohne-gedaechtnis.webp
 caption: Bild mit KI generiert.
 ---
 

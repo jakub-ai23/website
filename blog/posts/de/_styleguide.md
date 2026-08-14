@@ -5,7 +5,7 @@ date: 2026-07-05
 draft: false
 description: Referenzseite. Zeigt jeden erlaubten Baustein eines Artikels, damit alles einheitlich bleibt.
 lede: Das ist der Untertitel (lede). Ein Satz, der reinzieht. Genau ein Standfirst pro Artikel.
-hero: /images/blog/swat-butterfly.png
+hero: /images/blog/swat-butterfly.webp
 caption: So sieht ein Hero-Bild mit Caption aus. Bild mit KI generiert.
 ---
 
@@ -54,6 +54,6 @@ Ein Trenner:
 
 Und ein Bild mit Caption mitten im Text:
 
-![Alt-Text](/images/blog/swat-butterfly.png "Bildunterschrift im Fließtext. Bild mit KI generiert.")
+![Alt-Text](/images/blog/swat-butterfly.webp "Bildunterschrift im Fließtext. Bild mit KI generiert.")
 
 Das war jeder Baustein. Mehr Elemente gibt es bewusst nicht, damit jeder Artikel gleich aussieht.

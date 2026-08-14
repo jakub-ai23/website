@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+"""
+submit-indexnow.py - push the sitemap's URLs to Bing (and Yandex, Naver, Seznam)
+via the IndexNow protocol.
+
+WHY THIS EXISTS
+Bing is the index behind ChatGPT Search and Copilot (GEO doctrine, Part 0). A small
+site with few inbound links can sit uncrawled by Bing for months, which makes it
+invisible to both, no matter how good the pages are. IndexNow is the one push
+channel that needs no login: the key file at the domain root proves ownership.
+
+PRECONDITION
+  https://jakubpopluhar.com/<key>.txt must be live and return the key. That means
+  the site has to be DEPLOYED before this is run, not just built locally.
+
+USAGE
+  python3 blog/submit-indexnow.py --dry-run     # show what would be sent
+  python3 blog/submit-indexnow.py               # actually submit
+"""
+import glob
+import json
+import os
+import re
+import sys
+import urllib.request
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SITE = "https://jakubpopluhar.com"
+HOST = "jakubpopluhar.com"
+ENDPOINT = "https://api.indexnow.org/IndexNow"
+
+
+def find_key():
+    keys = [os.path.basename(p)[:-4] for p in glob.glob(os.path.join(ROOT, "*.txt"))
+            if re.fullmatch(r"[0-9a-f]{8,128}", os.path.basename(p)[:-4])]
+    if not keys:
+        sys.exit("No IndexNow key file at the site root. Expected <32-hex>.txt")
+    return keys[0]
+
+
+def sitemap_urls():
+    path = os.path.join(ROOT, "sitemap.xml")
+    if not os.path.exists(path):
+        sys.exit("sitemap.xml missing. Run blog/build.py first.")
+    return re.findall(r"<loc>([^<]+)</loc>", open(path, encoding="utf-8").read())
+
+
+def verify_key_live(key):
+    """The endpoint rejects the whole batch if the key file is not reachable, so
+    check it first rather than reading a 403 and guessing why."""
+    url = f"{SITE}/{key}.txt"
+    try:
+        with urllib.request.urlopen(url, timeout=15) as r:
+            return r.read().decode().strip() == key
+    except Exception as e:
+        print(f"  key file not reachable at {url}: {e}")
+        return False
+
+
+def main():
+    dry = "--dry-run" in sys.argv
+    key = find_key()
+    urls = sitemap_urls()
+    print(f"key      : {key}")
+    print(f"urls     : {len(urls)}")
+    for u in urls[:5]:
+        print("           ", u)
+    if len(urls) > 5:
+        print(f"            ... and {len(urls)-5} more")
+
+    if dry:
+        print("\n[dry run] nothing submitted")
+        return
+
+    if not verify_key_live(key):
+        sys.exit("Key file is not live yet. Deploy the site first, then rerun.")
+
+    payload = json.dumps({
+        "host": HOST, "key": key, "keyLocation": f"{SITE}/{key}.txt", "urlList": urls,
+    }).encode()
+    req = urllib.request.Request(
+        ENDPOINT, data=payload,
+        headers={"Content-Type": "application/json; charset=utf-8"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        # 200 = accepted, 202 = accepted but key still being validated
+        print(f"\nHTTP {r.status} {r.reason}")
+        print("submitted" if r.status in (200, 202) else "unexpected response")
+
+
+if __name__ == "__main__":
+    main()

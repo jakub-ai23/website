@@ -1,12 +1,12 @@
 ---
 title: My AI agents had no memory
-slug: agenten-ohne-gedaechtnis
+slug: ai-agents-without-memory
 date: 2026-07-05
 draft: false
 category: aus-der-praxis
-description: Ten AI agents, 27 research missions, and the full reports were all gone. Why agents forget everything by default, what that costs, and the fix that takes ten minutes.
+description: Ten AI agents, 27 research missions, and the full reports were gone. Why agents forget everything by default, what that costs, and the fix that takes ten minutes.
 lede: I found out I was running an intelligence agency that shreds its own reports.
-hero: /images/blog/agenten-ohne-gedaechtnis.png
+hero: /images/blog/agenten-ohne-gedaechtnis.webp
 caption: Image generated with AI.
 ---
 

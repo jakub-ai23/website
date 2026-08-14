@@ -4,9 +4,9 @@ slug: diktieren-ist-orchestrieren
 date: 2026-07-27
 draft: false
 category: aus-der-praxis
-description: 79,5 Prozent meiner diktierten Wörter gehen in mein Terminal, laut Wispr Flow unter "Other Tasks" verbucht. Warum das die falsche Kategorie ist, und was Diktieren mit Orchestrieren zu tun hat.
+description: 79,5 Prozent meiner diktierten Wörter gehen ins Terminal, laut Wispr Flow unter "Other Tasks". Warum das die falsche Kategorie ist, und was Diktieren wirklich ist.
 lede: Mein Diktier-Tool kennt zwei Kategorien, AI Prompts und Other Tasks. Vier von fünf meiner gesprochenen Wörter fallen in keine von beiden richtig.
-hero: /images/blog/diktieren-ist-orchestrieren.png
+hero: /images/blog/diktieren-ist-orchestrieren.webp
 caption: Mein Wispr-Flow-Dashboard, Stand 26. Juli 2026. Screenshot.
 ---
 
@@ -56,7 +56,7 @@ Am ehesten wie ein Video-Analyst im Fußball, nicht wie ein Spieler. Ein Spieler
 
 Wispr Flow nennt mein Diktier-Profil übrigens von sich aus „Directive Manager", automatisch abgeleitet aus meinen eigenen Diktaten.
 
-![Directive Manager Voice-Profil](/images/blog/directive-manager-voice-profile.png "Mein Wispr-Flow-Voice-Profil, Stand 23. Juli 2026. Screenshot.|narrow")
+![Directive Manager Voice-Profil](/images/blog/directive-manager-voice-profile.webp "Mein Wispr-Flow-Voice-Profil, Stand 23. Juli 2026. Screenshot.|narrow")
 
 Passt zufällig gut. Ich diktiere, am Ende bedeutet das bei mir: Ich delegiere.
 

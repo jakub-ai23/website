@@ -1,12 +1,12 @@
 ---
 title: A prompt is not a command. It is a lasso.
-slug: prompt-ist-ein-lasso
+slug: a-prompt-is-a-lasso
 date: 2026-07-10
 draft: false
 category: jakub-trainings
-description: The first prompt rarely lands straight away, and that is exactly where most people give up. Why prompting is not a command but a lasso you pull tighter, and the one sentence that closes the loop fastest.
+description: The first prompt rarely lands straight away, and that is exactly where most people give up. Why prompting is not a command but a lasso you pull tighter.
 lede: The first throw rarely lands straight away. That is exactly where most people give up.
-hero: /images/blog/prompt-ist-ein-lasso.png
+hero: /images/blog/prompt-ist-ein-lasso.webp
 caption: Ten windows, 46 agents, at the same time.
 ---
 

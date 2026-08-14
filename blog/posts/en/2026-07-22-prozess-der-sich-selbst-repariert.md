@@ -1,12 +1,12 @@
 ---
 title: Today I'm letting my AI assistant tell the story
-slug: prozess-der-sich-selbst-repariert
+slug: process-that-repairs-itself
 date: 2026-07-22
 draft: false
 category: aus-der-praxis
-description: One morning my own handoff tool deleted real work twice. The quick fix failed the test, and the right idea didn't come from the AI. A story about how processes mature on the job, told from my assistant's point of view.
+description: One morning my own handoff tool deleted real work twice. A story about how processes mature on the job, told from my AI assistant's point of view.
 lede: An ordinary morning, told by my AI assistant herself.
-hero: /images/blog/prozess-der-sich-selbst-repariert-zoya.png
+hero: /images/blog/prozess-der-sich-selbst-repariert-zoya.webp
 caption: Zoya, my AI assistant. Image generated with AI.
 ---
 

@@ -1,48 +1,194 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://jakubpopluhar.com/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/agenten-ohne-gedaechtnis/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/aus-der-praxis/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/diktieren-ist-orchestrieren/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/jakub-trainings/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/ki-landkarte/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/ki-wissen/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/meine-agenten/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/prompt-ist-ein-lasso/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/prozess-der-sich-selbst-repariert/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/regel-gebrochen/</loc></url>
-  <url><loc>https://jakubpopluhar.com/blog/zehn-mitarbeiter-eine-frage/</loc></url>
-  <url><loc>https://jakubpopluhar.com/datenschutz.html</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/</loc></url>
-  <url><loc>https://jakubpopluhar.com/sk/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/agenten-ohne-gedaechtnis/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/aus-der-praxis/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/diktieren-ist-orchestrieren/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/jakub-trainings/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/ki-landkarte/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/ki-wissen/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/meine-agenten/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/prompt-ist-ein-lasso/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/prozess-der-sich-selbst-repariert/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/regel-gebrochen/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/blog/zehn-mitarbeiter-eine-frage/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/termine/</loc></url>
-  <url><loc>https://jakubpopluhar.com/impressum.html</loc></url>
-  <url><loc>https://jakubpopluhar.com/ki-personal-training/</loc></url>
-  <url><loc>https://jakubpopluhar.com/termine/</loc></url>
-  <url><loc>https://jakubpopluhar.com/trainings/</loc></url>
-  <url><loc>https://jakubpopluhar.com/trainings/copilot/</loc></url>
-  <url><loc>https://jakubpopluhar.com/trainings/hr-kurs/</loc></url>
-  <url><loc>https://jakubpopluhar.com/trainings/ki-am-schreibtisch/</loc></url>
-  <url><loc>https://jakubpopluhar.com/trainings/konsumentenpsychologie/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/trainings/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/trainings/copilot/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/trainings/hr-kurs/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/trainings/ki-am-schreibtisch/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/trainings/konsumentenpsychologie/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/ki-personal-training/</loc></url>
-  <url><loc>https://jakubpopluhar.com/ki-check/</loc></url>
-  <url><loc>https://jakubpopluhar.com/en/ki-check/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://jakubpopluhar.com/</loc>
+    <lastmod>2026-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/agenten-ohne-gedaechtnis/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/agenten-ohne-gedaechtnis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/ai-agents-without-memory/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/agenten-ohne-gedaechtnis/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/aus-der-praxis/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/aus-der-praxis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/from-practice/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/aus-der-praxis/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/diktieren-ist-orchestrieren/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/diktieren-ist-orchestrieren/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/dictating-is-orchestrating/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/diktieren-ist-orchestrieren/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/jakub-trainings/</loc>
+    <lastmod>2026-07-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/jakub-trainings/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/jakub-trainings/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/jakub-trainings/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/ki-landkarte/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/ki-landkarte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/ai-map-providers-models/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/ki-landkarte/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/ki-wissen/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/ki-wissen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/ai-knowledge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/ki-wissen/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/meine-agenten/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/meine-agenten/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/my-agents/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/meine-agenten/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/prompt-ist-ein-lasso/</loc>
+    <lastmod>2026-07-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/prompt-ist-ein-lasso/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/a-prompt-is-a-lasso/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/prompt-ist-ein-lasso/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/prozess-der-sich-selbst-repariert/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/prozess-der-sich-selbst-repariert/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/process-that-repairs-itself/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/prozess-der-sich-selbst-repariert/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/regel-gebrochen/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/regel-gebrochen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/ai-broke-my-rule/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/regel-gebrochen/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/zehn-mitarbeiter-eine-frage/</loc>
+    <lastmod>2026-03-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/zehn-mitarbeiter-eine-frage/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/ten-employees-one-question/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/zehn-mitarbeiter-eine-frage/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/datenschutz.html</loc>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/</loc>
+    <lastmod>2026-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/a-prompt-is-a-lasso/</loc>
+    <lastmod>2026-07-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/prompt-ist-ein-lasso/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/a-prompt-is-a-lasso/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/prompt-ist-ein-lasso/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/ai-agents-without-memory/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/agenten-ohne-gedaechtnis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/ai-agents-without-memory/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/agenten-ohne-gedaechtnis/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/ai-broke-my-rule/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/regel-gebrochen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/ai-broke-my-rule/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/regel-gebrochen/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/ai-knowledge/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/ki-wissen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/ai-knowledge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/ki-wissen/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/ai-map-providers-models/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/ki-landkarte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/ai-map-providers-models/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/ki-landkarte/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/dictating-is-orchestrating/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/diktieren-ist-orchestrieren/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/dictating-is-orchestrating/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/diktieren-ist-orchestrieren/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/from-practice/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/aus-der-praxis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/from-practice/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/aus-der-praxis/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/jakub-trainings/</loc>
+    <lastmod>2026-07-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/jakub-trainings/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/jakub-trainings/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/jakub-trainings/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/my-agents/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/meine-agenten/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/my-agents/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/meine-agenten/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/process-that-repairs-itself/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/prozess-der-sich-selbst-repariert/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/process-that-repairs-itself/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/prozess-der-sich-selbst-repariert/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/blog/ten-employees-one-question/</loc>
+    <lastmod>2026-03-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/zehn-mitarbeiter-eine-frage/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/ten-employees-one-question/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/zehn-mitarbeiter-eine-frage/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/termine/</loc>
+    <lastmod>2026-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/impressum.html</loc>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/termine/</loc>
+    <lastmod>2026-08-14</lastmod>
+  </url>
 </urlset>

@@ -4,9 +4,9 @@ slug: ki-landkarte
 date: 2026-07-05
 draft: false
 category: ki-wissen
-description: Eine Anwältin im Fitnessstudio hätte fast das falsche KI-Abo gekauft. Die Landkarte, damit dir das nicht passiert, Hersteller, App, Modell, Stufe. Für die meisten reicht das Mittelmodell.
+description: Eine Anwältin im Fitnessstudio hätte fast das falsche KI-Abo gekauft. Die Landkarte, damit dir das nicht passiert: Hersteller, App, Modell, Stufe.
 lede: Die KI-Landkarte für normale Nutzer: Hersteller, Modell, Abo. Eine Anwältin hätte fast falsch gekauft.
-hero: /images/blog/ki-landkarte-anbieter-modelle.png
+hero: /images/blog/ki-landkarte-anbieter-modelle.webp
 caption: Die KI-Landkarte: Hersteller, App, Modell, Stufe.
 ---
 
@@ -56,7 +56,7 @@ Den Datenschutz hatte sie sofort drauf, dafür ist sie Anwältin. Aber was sie d
 
 Damit dir das nicht passiert, hier die Landkarte in zwei Minuten:
 
-![KI-Landkarte: Hersteller, App, Modell, Stufe](/images/blog/ki-landkarte-anbieter-modelle.png "Die KI-Landkarte, Hersteller, App, Modell, Stufe. Für die meisten reicht das Mittelmodell.")
+![KI-Landkarte: Hersteller, App, Modell, Stufe](/images/blog/ki-landkarte-anbieter-modelle.webp "Die KI-Landkarte, Hersteller, App, Modell, Stufe. Für die meisten reicht das Mittelmodell.")
 
 ## 1. Es gibt nur eine Handvoll Hersteller
 

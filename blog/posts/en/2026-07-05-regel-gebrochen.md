@@ -1,12 +1,12 @@
 ---
 title: I wrote a rule. The AI broke it 20 minutes later.
-slug: regel-gebrochen
+slug: ai-broke-my-rule
 date: 2026-07-05
 draft: false
 category: meine-agenten
 description: I gave my AI assistant a firm rule to remember. 20 minutes later it broke it. Why a written-down rule creates a false sense of done.
 lede: Not despite the rule. After it.
-hero: /images/blog/regel-gebrochen-roboter.png
+hero: /images/blog/regel-gebrochen-roboter.webp
 caption: The robot writes the rule on the board and, in the same moment, plans the exact opposite. Image generated with AI.
 ---
 

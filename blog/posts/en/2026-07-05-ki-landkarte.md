@@ -1,12 +1,12 @@
 ---
 title: “Anthropic? What's that?”
-slug: ki-landkarte
+slug: ai-map-providers-models
 date: 2026-07-05
 draft: false
 category: ki-wissen
-description: A lawyer at the gym almost bought the wrong AI subscription. The map so this doesn't happen to you, maker, app, model, tier. For most people the middle model is enough.
+description: A lawyer at the gym almost bought the wrong AI subscription. The map so this doesn't happen to you: maker, app, model, tier. The middle model is usually enough.
 lede: The AI map for normal users: maker, model, subscription. A lawyer almost bought the wrong one.
-hero: /images/blog/ki-landkarte-anbieter-modelle-en.png
+hero: /images/blog/ki-landkarte-anbieter-modelle-en.webp
 caption: The AI map: provider, app, model, tier.
 ---
 
@@ -56,7 +56,7 @@ The data protection she had down cold, that's what she's a lawyer for. But what 
 
 So this doesn't happen to you, here's the map in two minutes:
 
-![AI map: maker, app, model, tier](/images/blog/ki-landkarte-anbieter-modelle-en.png "The AI map, maker, app, model, tier. For most people the middle model is enough.")
+![AI map: maker, app, model, tier](/images/blog/ki-landkarte-anbieter-modelle-en.webp "The AI map, maker, app, model, tier. For most people the middle model is enough.")
 
 ## 1. There are only a handful of makers
 

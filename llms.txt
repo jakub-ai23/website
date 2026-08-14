@@ -1,7 +1,32 @@
 # Jakub Popluhar
 
-> Business Lead at Hill Digital & AI trainer. Practical notes on working with AI.
+> Business Lead at Hill Digital and AI trainer, based in Vienna, Austria.
+> Corporate AI training in German and English across the DACH region.
+> Practical, first-hand notes on working with AI agents and assistants.
 
-- [Blog (DE)](https://jakubpopluhar.com/blog/)
-- [Blog (EN)](https://jakubpopluhar.com/en/blog/)
-- [About](https://jakubpopluhar.com/#about)
+## Site
+
+- [About](https://jakubpopluhar.com/#about): who he is, what he trains, references.
+- [Dates](https://jakubpopluhar.com/termine/): confirmed open seminars (ARS Akademie, tecTrain).
+- [Blog, German](https://jakubpopluhar.com/blog/)
+- [Blog, English](https://jakubpopluhar.com/en/blog/)
+
+## Articles (English)
+
+- [I don't prompt less, I prompt differently](https://jakubpopluhar.com/en/blog/dictating-is-orchestrating/): 79.5 percent of my dictated words go into my terminal, logged by Wispr Flow under "Other Tasks". Why that is the wrong category, and what dictating really is.
+- [Today I'm letting my AI assistant tell the story](https://jakubpopluhar.com/en/blog/process-that-repairs-itself/): One morning my own handoff tool deleted real work twice. A story about how processes mature on the job, told from my AI assistant's point of view.
+- [A prompt is not a command. It is a lasso.](https://jakubpopluhar.com/en/blog/a-prompt-is-a-lasso/): The first prompt rarely lands straight away, and that is exactly where most people give up. Why prompting is not a command but a lasso you pull tighter.
+- [I wrote a rule. The AI broke it 20 minutes later.](https://jakubpopluhar.com/en/blog/ai-broke-my-rule/): I gave my AI assistant a firm rule to remember. 20 minutes later it broke it. Why a written-down rule creates a false sense of done.
+- [“Anthropic? What's that?”](https://jakubpopluhar.com/en/blog/ai-map-providers-models/): A lawyer at the gym almost bought the wrong AI subscription. The map so this doesn't happen to you: maker, app, model, tier. The middle model is usually enough.
+- [My AI agents had no memory](https://jakubpopluhar.com/en/blog/ai-agents-without-memory/): Ten AI agents, 27 research missions, and the full reports were gone. Why agents forget everything by default, what that costs, and the fix that takes ten minutes.
+- [I sent 10 employees to answer one question today.](https://jakubpopluhar.com/en/blog/ten-employees-one-question/): Two AI agents, dozens of sources, a three-page report, for a question that would have fit in 90 seconds. A SWAT team for a butterfly.
+
+## Artikel (Deutsch)
+
+- [Ich prompte nicht weniger, ich prompte anders](https://jakubpopluhar.com/blog/diktieren-ist-orchestrieren/): 79,5 Prozent meiner diktierten Wörter gehen ins Terminal, laut Wispr Flow unter "Other Tasks". Warum das die falsche Kategorie ist, und was Diktieren wirklich ist.
+- [Ich lasse heute meine KI-Assistentin erzählen](https://jakubpopluhar.com/blog/prozess-der-sich-selbst-repariert/): An einem Vormittag löschte mein Übergabe-Werkzeug zweimal echte Arbeit. Eine Geschichte darüber, wie Prozesse im Betrieb reifen, erzählt von meiner Assistentin.
+- [Ein Prompt ist kein Befehl. Es ist ein Lasso.](https://jakubpopluhar.com/blog/prompt-ist-ein-lasso/): Der erste Prompt sitzt selten sofort, und genau da geben die meisten auf. Warum Prompten kein Befehl ist, sondern ein Lasso, das man enger zieht.
+- [Ich schrieb eine Regel. Die KI brach sie 20 Minuten später.](https://jakubpopluhar.com/blog/regel-gebrochen/): Ich gab meinem KI-Assistenten eine feste Regel. 20 Minuten später hat er sie gebrochen. Warum eine aufgeschriebene Regel ein falsches Gefühl von Erledigung erzeugt.
+- [„Anthropic? Was ist das?“](https://jakubpopluhar.com/blog/ki-landkarte/): Eine Anwältin im Fitnessstudio hätte fast das falsche KI-Abo gekauft. Die Landkarte, damit dir das nicht passiert: Hersteller, App, Modell, Stufe.
+- [Meine KI-Agenten hatten kein Gedächtnis](https://jakubpopluhar.com/blog/agenten-ohne-gedaechtnis/): Zehn KI-Agenten, 27 Recherche-Missionen, und die Berichte waren alle weg. Warum Agenten standardmäßig alles vergessen, und der Fix, der zehn Minuten dauert.
+- [Ich habe heute 10 Mitarbeiter losgeschickt, um eine Frage zu beantworten.](https://jakubpopluhar.com/blog/zehn-mitarbeiter-eine-frage/): Zwei KI-Agenten, dutzende Quellen, ein dreiseitiger Report, für eine Frage, die in 90 Sekunden gepasst hätte. Ein SWAT-Team für einen Schmetterling.

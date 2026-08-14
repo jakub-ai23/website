@@ -1,12 +1,13 @@
 ---
 title: Ich habe heute 10 Mitarbeiter losgeschickt, um eine Frage zu beantworten.
+title_seo: Ich habe 10 KI-Agenten auf eine Frage angesetzt
 slug: zehn-mitarbeiter-eine-frage
 date: 2026-03-20
 draft: false
 category: meine-agenten
 description: Zwei KI-Agenten, dutzende Quellen, ein dreiseitiger Report, für eine Frage, die in 90 Sekunden gepasst hätte. Ein SWAT-Team für einen Schmetterling.
 lede: Zwei KI-Agenten, dutzende Quellen, ein dreiseitiger Report, für eine Frage, die in 90 Sekunden gepasst hätte. Ein SWAT-Team für einen Schmetterling.
-hero: /images/blog/swat-butterfly.png
+hero: /images/blog/swat-butterfly.webp
 caption: Zehn Agenten für eine Mini-Aufgabe: ein SWAT-Team, das auf einen Schmetterling zielt. Bild mit KI generiert.
 ---
 

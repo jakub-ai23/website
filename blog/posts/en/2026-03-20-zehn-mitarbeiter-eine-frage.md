@@ -1,12 +1,12 @@
 ---
 title: I sent 10 employees to answer one question today.
-slug: zehn-mitarbeiter-eine-frage
+slug: ten-employees-one-question
 date: 2026-03-20
 draft: false
 category: meine-agenten
 description: Two AI agents, dozens of sources, a three-page report, for a question that would have fit in 90 seconds. A SWAT team for a butterfly.
 lede: Two AI agents, dozens of sources, a three-page report, for a question that would have fit in 90 seconds. A SWAT team for a butterfly.
-hero: /images/blog/swat-butterfly.png
+hero: /images/blog/swat-butterfly.webp
 caption: Ten agents for a tiny task: a SWAT team aiming at a butterfly. Image generated with AI.
 ---
 

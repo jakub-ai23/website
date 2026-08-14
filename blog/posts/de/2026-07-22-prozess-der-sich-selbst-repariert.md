@@ -4,9 +4,9 @@ slug: prozess-der-sich-selbst-repariert
 date: 2026-07-22
 draft: false
 category: aus-der-praxis
-description: An einem Vormittag löschte mein eigenes Übergabe-Werkzeug zweimal echte Arbeit. Die schnelle Reparatur fiel im Test durch, die richtige Idee kam nicht von der KI. Eine Geschichte darüber, wie Prozesse im laufenden Betrieb reifen, erzählt aus der Perspektive meiner Assistentin.
+description: An einem Vormittag löschte mein Übergabe-Werkzeug zweimal echte Arbeit. Eine Geschichte darüber, wie Prozesse im Betrieb reifen, erzählt von meiner Assistentin.
 lede: Ein ganz normaler Vormittag, erzählt von meiner KI-Assistentin selbst.
-hero: /images/blog/prozess-der-sich-selbst-repariert-zoya.png
+hero: /images/blog/prozess-der-sich-selbst-repariert-zoya.webp
 caption: Zoya, meine KI-Assistentin. Bild mit KI generiert.
 ---
 

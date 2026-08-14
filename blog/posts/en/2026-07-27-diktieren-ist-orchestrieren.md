@@ -1,12 +1,12 @@
 ---
 title: I don't prompt less, I prompt differently
-slug: diktieren-ist-orchestrieren
+slug: dictating-is-orchestrating
 date: 2026-07-27
 draft: false
 category: aus-der-praxis
-description: 79.5 percent of my dictated words go into my terminal, logged by Wispr Flow under "Other Tasks". Why that's the wrong category, and what dictating has to do with orchestrating.
+description: 79.5 percent of my dictated words go into my terminal, logged by Wispr Flow under "Other Tasks". Why that is the wrong category, and what dictating really is.
 lede: My dictation tool knows two categories, AI Prompts and Other Tasks. Four out of five words I speak fall into neither correctly.
-hero: /images/blog/diktieren-ist-orchestrieren.png
+hero: /images/blog/diktieren-ist-orchestrieren.webp
 caption: My Wispr Flow dashboard, as of 26 July 2026. Screenshot.
 ---
 
@@ -56,7 +56,7 @@ Closer to a video analyst in football than to a player. A player executes a shou
 
 Wispr Flow, by the way, calls my dictation profile "Directive Manager" on its own, derived automatically from my own dictations.
 
-![Directive Manager voice profile](/images/blog/directive-manager-voice-profile.png "My Wispr Flow voice profile, as of 23 July 2026. Screenshot.|narrow")
+![Directive Manager voice profile](/images/blog/directive-manager-voice-profile.webp "My Wispr Flow voice profile, as of 23 July 2026. Screenshot.|narrow")
 
 Fitting, by coincidence. I dictate. In the end, for me, that means: I delegate.
 

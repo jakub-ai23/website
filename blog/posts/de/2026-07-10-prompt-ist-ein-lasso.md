@@ -4,9 +4,9 @@ slug: prompt-ist-ein-lasso
 date: 2026-07-10
 draft: false
 category: jakub-trainings
-description: Der erste Prompt sitzt selten sofort, und genau da geben die meisten auf. Warum Prompten kein Befehl ist, sondern ein Lasso, das man enger zieht, und der eine Satz, der die Schlinge am schnellsten schliesst.
+description: Der erste Prompt sitzt selten sofort, und genau da geben die meisten auf. Warum Prompten kein Befehl ist, sondern ein Lasso, das man enger zieht.
 lede: Der erste Wurf sitzt selten sofort. Genau da geben die meisten auf.
-hero: /images/blog/prompt-ist-ein-lasso.png
+hero: /images/blog/prompt-ist-ein-lasso.webp
 caption: Zehn Fenster, 46 Agenten, gleichzeitig.
 ---
 
