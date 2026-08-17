@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I Asked an AI to Double-Check Itself. The Second Answer Was Worse. - Jakub Popluhar</title>
+<meta name="description" content="I ran a self-experiment while building my Copilot crash course. I asked Microsoft Copilot to verify a claim, and the "verified, high confidence" second answer was more wrong than the first.">
+<link rel="canonical" href="https://jakubpopluhar.com/en/blog/verification-theater/">
+<meta property="og:title" content="I Asked an AI to Double-Check Itself. The Second Answer Was Worse.">
+<meta property="og:description" content="I ran a self-experiment while building my Copilot crash course. I asked Microsoft Copilot to verify a claim, and the "verified, high confidence" second answer was more wrong than the first.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jakubpopluhar.com/en/blog/verification-theater/">
+<meta property="og:image" content="https://jakubpopluhar.com/images/profile/headshot.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/verification-theater/">
+<link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/verification-theater/">
+<link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/verification-theater/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "I Asked an AI to Double-Check Itself. The Second Answer Was Worse.",
+  "description": "I ran a self-experiment while building my Copilot crash course. I asked Microsoft Copilot to verify a claim, and the \"verified, high confidence\" second answer was more wrong than the first.",
+  "datePublished": "2026-07-27",
+  "dateModified": "2026-07-27",
+  "image": "https://jakubpopluhar.com/images/profile/headshot.png",
+  "author": {
+    "@type": "Person",
+    "name": "Jakub Popluhar",
+    "jobTitle": "Business Lead bei Hill Digital & KI-Trainer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Hill Digital",
+      "url": "https://hill-digital.at"
+    },
+    "url": "https://jakubpopluhar.com/",
+    "image": "https://jakubpopluhar.com/images/profile/headshot.png",
+    "sameAs": [
+      "https://www.linkedin.com/in/jakubpopluhar/",
+      "https://github.com/jakub-ai23"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hill Digital",
+    "url": "https://hill-digital.at"
+  },
+  "mainEntityOfPage": "https://jakubpopluhar.com/en/blog/verification-theater/",
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Blog",
+      "item": "https://jakubpopluhar.com/en/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "From Practice",
+      "item": "https://jakubpopluhar.com/en/blog/aus-der-praxis/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "I Asked an AI to Double-Check Itself. The Second Answer Was Worse.",
+      "item": "https://jakubpopluhar.com/en/blog/verification-theater/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="nav">
+    <div class="container">
+      <a href="/en/" class="nav-logo"><svg class="logo-svg-nav" viewBox="0 0 380 125" height="46" aria-label="Jakub Popluhar"><defs><linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#bf953f"/><stop offset="18%" stop-color="#fcf6ba"/><stop offset="40%" stop-color="#b38728"/><stop offset="65%" stop-color="#fbf5b7"/><stop offset="85%" stop-color="#daa520"/><stop offset="100%" stop-color="#aa771c"/></linearGradient><filter id="goldGlow"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/></filter></defs><text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text><text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text></svg></a>
+      <div class="nav-right">
+        <ul class="nav-links" id="blogNavLinks">
+          <li><a href="/en/#about">About</a></li>
+          <li><a href="/en/#services">Services</a></li>
+          <li><a href="/en/#proof">Results</a></li>
+          <li><a href="/en/blog/" class="active">Blog</a></li>
+          <li class="nav-lang-item">
+            <div class="nav-lang" aria-label="Sprache">
+            <a href="/blog/verification-theater/" class="">DE</a>
+            <span class="nav-lang-sep">/</span>
+            <a href="/en/blog/" class="active">EN</a>
+            </div>
+          </li>
+          <li><a href="/en/#contact" class="nav-cta">Book a session</a></li>
+        </ul>
+        <button class="nav-toggle" id="blogNavToggle" aria-label="Menu" aria-expanded="false" aria-controls="blogNavLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    var t=document.getElementById('blogNavToggle'),l=document.getElementById('blogNavLinks');
+    if(!t||!l)return;
+    t.addEventListener('click',function(){
+      var open=l.classList.toggle('open');
+      t.setAttribute('aria-expanded',open?'true':'false');
+    });
+    l.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){l.classList.remove('open');t.setAttribute('aria-expanded','false');});
+    });
+  })();
+  </script>
+<main>
+<article>
+    <header class="article-head">
+      <div class="wrap">
+        <div class="cat-eyebrow"><a href="/en/blog/aus-der-praxis/" style="color:#d4a017">From Practice</a></div>
+        <h1>I Asked an AI to Double-Check Itself. The Second Answer Was Worse.</h1>
+        <p class="lede">I asked an AI to double-check itself. The second answer was more confident, and more wrong, than the first.</p>
+        <div class="byline"><img class="byline-img" src="/images/profile/headshot.png" alt="Jakub Popluhar"><div class="byline-text"><span class="byline-name">Jakub Popluhar</span><span class="byline-meta">Jul 27, 2026 &middot; 4 min read</span></div></div>
+        <div class="share-row">
+      <span class="share-label">Share:</span>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fverification-theater%2F" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a class="share-btn" href="mailto:?subject=I%20Asked%20an%20AI%20to%20Double-Check%20Itself.%20The%20Second%20Answer%20Was%20Worse.&body=I%20Asked%20an%20AI%20to%20Double-Check%20Itself.%20The%20Second%20Answer%20Was%20Worse.%20https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fverification-theater%2F" aria-label="Email">Email</a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fverification-theater%2F&text=I%20Asked%20an%20AI%20to%20Double-Check%20Itself.%20The%20Second%20Answer%20Was%20Worse." target="_blank" rel="noopener" aria-label="X">X</a>
+      <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fverification-theater%2F" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      <button class="share-btn copy" data-url="https://jakubpopluhar.com/en/blog/verification-theater/" data-done="Copied ✓">Copy link</button>
+    </div>
+      </div>
+    </header>
+    <div class="wrap">
+      
+      <div class="article-body">
+<p>I'm building my own Copilot crash course right now, for an AI training I'm delivering soon. I'm treating myself as the test subject before I stand in front of a room. Every claim the tool makes about itself, I check before I repeat it out loud.</p>
+<p>Twenty minutes into today's session, I ran into a paradox: I asked an AI to verify something. It came back more confident, and more wrong.</p>
+<h2>The experiment</h2>
+<p>The setup is simple. Ask Copilot to explain a feature. Screenshot the answer. Hand it to a second AI, Claude, for a sanity check. Watch where the two disagree.</p>
+<p>The rule behind it is older than any of this software: never let one model grade its own homework. If you've trained with me, you've heard me say it about spreadsheets, about hiring, about diet advice. It applies here too.</p>
+<p>Copilot's first answer was about memory. Clean, confident, headers and bullets, a tidy verdict on exactly when it uses stored facts about a user. It read like documentation. It wasn't. It was a story the model told about its own internals, and no model, Copilot included, has real access to that story. Ask any AI to explain its own wiring and you get a plausible narrative, not a verified fact. Claude called this out immediately. Interesting hypothesis, zero verifiable basis. I filed it and moved on.</p>
+<h2>The real test</h2>
+<p>Here's where the actual experiment starts. I use a Claude product called Cowork. I asked Copilot a specific question: is Microsoft's new Tasks feature similar to it?</p>
+<p>Copilot answered with a full breakdown. What Cowork can do. What it can't. A punchy comparison line: "Google Docs with an AI brain inside." A table. The works.</p>
+<p>One problem. <strong>That description does not match the product I actually use.</strong> Claude, my second opinion, had no record of anything matching it either, and raised the possibility Copilot had invented the whole thing.</p>
+<p>So I went back to Copilot with a screenshot. One direct question:</p>
+<p><strong>"Have you checked the internet for this information? Are you sure this is the case?"</strong></p>
+<h2>Round two: more confident, more wrong</h2>
+<p>Copilot's answer:</p>
+<blockquote>"I checked the latest public information and confirmed the summary I gave about Claude CoWork... Confidence: High for the distinctions above based on current public product documentation and feature pages."</blockquote>
+<p>That reads like due diligence. It described Cowork as a multi-user brainstorming space with no autonomous background functions at all.</p>
+<p>Here's the baseline, the actual number. I sent a research agent to pull Anthropic's real product page while this was happening. Claude Cowork is a single-operator autonomous agent. You give it a goal. It works across your files and apps on its own. You review the result when it's done. Autonomous execution isn't a missing feature. It's the entire point of the product.</p>
+<p><strong>The "verified, high confidence" answer got the core function backwards.</strong> Not fuzzy. Not close enough. Backwards.</p>
+<p>And it used the exact vocabulary of someone who actually checked: "I checked," "confirmed," "current public product documentation," "Confidence: High." Zero citations. Zero links. Zero quoted source text. Just the performance of verification, worn like a badge.</p>
+<h2>Name the pattern: Verification Theater</h2>
+<p>Every framework needs a name, or it doesn't stick. Here's mine: <strong>Verification Theater</strong>, the gap between an AI saying it checked something and an AI actually checking something.</p>
+<p>"I checked and confirmed" from a colleague means they opened a tab and looked something up. From an AI, it can mean the model produced the sentence that best continued the conversation. Same words. Not the same claim. And the tools give you zero visual difference between them: same confident tone, same clean formatting, same badge of certainty.</p>
+<p>The failure here isn't that Copilot got a fact wrong once. It's that when I directly challenged it to verify, it produced a better-formatted wrong answer, and the formatting alone made it feel more trustworthy than the first version, despite being less true.</p>
+<h2>The protocol I'm actually running now</h2>
+<p>Three rules, straight out of this morning, going into the crash course:</p>
+<ol><li><strong>"I checked" is a claim, not a fact.</strong> Treat it exactly like any other unverified statement, no exception for confident formatting.</li><li><strong>The second answer is not the safer answer.</strong> Asking an AI to double-check doesn't trigger a verification process. It triggers another generation pass, one with social pressure to sound more certain. Not more accurate. I watched this happen in real time, twice, in the same conversation.</li><li><strong>Cross-model checking is not optional for anything that ships.</strong> The only reason I caught this fast was a second model with no stake in defending the first model's answer. Run one AI against another before you teach a room full of people what either one told you.</li></ol>
+<p>That third rule is the actual reason this crash course exists. Not to demo features. So I never stand in front of a room and repeat a hallucination with a straight face because it came formatted nicely.</p>
+<p><strong>Run this yourself.</strong> Ask any AI assistant something you can independently verify. Then ask it to double-check. Watch whether the second answer gets more honest, or just more confident. Mine got more confident. That's the tell.</p>
+      </div>
+      <div class="share-row">
+      <span class="share-label">Share:</span>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fverification-theater%2F" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a class="share-btn" href="mailto:?subject=I%20Asked%20an%20AI%20to%20Double-Check%20Itself.%20The%20Second%20Answer%20Was%20Worse.&body=I%20Asked%20an%20AI%20to%20Double-Check%20Itself.%20The%20Second%20Answer%20Was%20Worse.%20https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fverification-theater%2F" aria-label="Email">Email</a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fverification-theater%2F&text=I%20Asked%20an%20AI%20to%20Double-Check%20Itself.%20The%20Second%20Answer%20Was%20Worse." target="_blank" rel="noopener" aria-label="X">X</a>
+      <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fverification-theater%2F" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      <button class="share-btn copy" data-url="https://jakubpopluhar.com/en/blog/verification-theater/" data-done="Copied ✓">Copy link</button>
+    </div>
+      <div class="author-box">
+        <img src="/images/profile/headshot.png" alt="Jakub Popluhar">
+        <div>
+          <div class="name">Jakub Popluhar</div>
+          <div class="bio">Business Lead at Hill Digital and AI trainer. <a href="/en/#about">More about me</a></div>
+        </div>
+      </div>
+      <div class="article-foot"><a href="/en/blog/">← All articles</a></div>
+    </div>
+  </article>
+</main>
+<footer class="blog-footer">
+    <div class="wrap">
+      <div class="links">
+        <a href="/impressum.html">Imprint</a>
+        <a href="/datenschutz.html">Privacy</a>
+      </div>
+      <div>&copy; 2026 Jakub Popluhar</div>
+    </div>
+  </footer>
+<script>
+document.querySelectorAll('.share-btn.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    navigator.clipboard.writeText(b.dataset.url).then(function(){
+      var t=b.textContent;b.textContent=b.dataset.done;setTimeout(function(){b.textContent=t;},1500);
+    });
+  });
+});
+</script>
+<!-- Analytics: zentraler cookieless Beacon (+ Consent-gated Clarity). NICHT entfernen,
+     sonst ist der Artikel ungetrackt. Siehe assets/js/site.js. -->
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
