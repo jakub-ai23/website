@@ -2098,7 +2098,24 @@
       .nav-right, .site-nav { align-items: center; }
       .nav-lang, .lang-switch { order: -1; margin-right: 6px; }
     }
-  </style>
+  
+/* --- ersetzt durch Fahnenreihe --- */
+.langbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:22px 0 4px}
+.langbar .lead{font-family:var(--font-heading,inherit);font-size:13px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted,#9a978e);font-weight:600;margin-right:6px}
+.langbar .chip{display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--border,rgba(212,160,23,0.18));
+  border-radius:999px;padding:8px 15px;background:rgba(212,160,23,0.05)}
+.langbar .chip .name{font-family:var(--font-heading,inherit);font-weight:600;font-size:14px}
+.langbar .chip .flags{font-size:15px;letter-spacing:2px;line-height:1}
+.langbar .chip .hint{color:var(--muted,#9a978e);font-size:12px;font-weight:400}
+@media(max-width:520px){.langbar{gap:8px}.langbar .chip{padding:7px 12px}}
+
+/* --- Trainingssprachen: reine Fahnenreihe (Index-Seiten, 2026-08-18) --- */
+.langflags{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:24px 0 6px}
+.langflags .flag{font-size:30px;line-height:1;cursor:default}
+@media(max-width:520px){.langflags{gap:9px}.langflags .flag{font-size:25px}}
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -2215,6 +2232,15 @@
           <div class="hero-badge">Business Lead bei Hill Digital · KI-Trainer</div>
           <h1>„Sie wissen nicht,&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
           <p class="hero-sub">Sie wissen, dass KI Ihr Business verändert. Sie wissen nur nicht, wo Sie anfangen sollen. Dafür bin ich da.</p>
+
+<div class="langflags" aria-label="Trainingssprachen">
+  <span class="flag" role="img" aria-label="English" title="English">🇬🇧</span>
+  <span class="flag" role="img" aria-label="Deutsch (Österreich)" title="Deutsch (Österreich)">🇦🇹</span>
+  <span class="flag" role="img" aria-label="Deutsch (Deutschland)" title="Deutsch (Deutschland)">🇩🇪</span>
+  <span class="flag" role="img" aria-label="Deutsch (Schweiz)" title="Deutsch (Schweiz)">🇨🇭</span>
+  <span class="flag" role="img" aria-label="Slovenčina" title="Slovenčina">🇸🇰</span>
+</div>
+
           <div class="hero-ctas">
             <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Session buchen &rarr;</a>
             <a href="#about" class="btn btn-secondary" data-slide="1">Mehr erfahren</a>

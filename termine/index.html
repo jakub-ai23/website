@@ -186,7 +186,19 @@
       .nav-right, .site-nav { align-items: center; }
       .nav-lang, .lang-switch { order: -1; margin-right: 6px; }
     }
-  </style>
+  
+/* --- Trainingssprachen (Sprach-Chips, 2026-08-18) --- */
+.langbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:22px 0 4px}
+.langbar .lead{font-family:var(--font-heading,inherit);font-size:13px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted,#9a978e);font-weight:600;margin-right:6px}
+.langbar .chip{display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--border,rgba(212,160,23,0.18));
+  border-radius:999px;padding:8px 15px;background:rgba(212,160,23,0.05)}
+.langbar .chip .name{font-family:var(--font-heading,inherit);font-weight:600;font-size:14px}
+.langbar .chip .flags{font-size:15px;letter-spacing:2px;line-height:1}
+.langbar .chip .hint{color:var(--muted,#9a978e);font-size:12px;font-weight:400}
+@media(max-width:520px){.langbar{gap:8px}.langbar .chip{padding:7px 12px}}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -253,6 +265,15 @@
       <p class="eyebrow">Offene Seminare</p>
       <h1>Termine</h1>
       <p>Alle bestätigten offenen Seminare, in Kooperation mit ARS und tecTrain. Anmeldung direkt beim Veranstalter.</p>
+
+<div class="langbar" aria-label="Trainingssprachen">
+  <span class="lead">Trainingssprachen</span>
+  <span class="chip"><span class="flags" aria-hidden="true">🇦🇹🇩🇪🇨🇭</span><span class="name">Deutsch</span></span>
+  <span class="chip"><span class="flags" aria-hidden="true">🇬🇧🇺🇸</span><span class="name">English</span></span>
+  <span class="chip"><span class="flags" aria-hidden="true">🇸🇰</span><span class="name">Sloven&#269;ina</span></span>
+  <span class="chip"><span class="flags" aria-hidden="true">🇨🇿</span><span class="name">&#268;e&#353;tina</span><span class="hint">auf Anfrage</span></span>
+</div>
+
     </div>
   </header>
   <section class="wrap-wide">
