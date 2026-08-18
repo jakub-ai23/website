@@ -1987,6 +1987,21 @@
 .langflags{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:24px 0 6px}
 .langflags .flag{font-size:30px;line-height:1;cursor:default}
 @media(max-width:520px){.langflags{gap:9px}.langflags .flag{font-size:25px}}
+
+/* --- KI-Check: eigene Sektion unter dem ersten Testimonial (2026-08-18) --- */
+.kicheck-band{padding:var(--section-y,72px) 0;background:var(--charcoal,#0a0a0a);
+  border-top:1px solid var(--border,rgba(212,160,23,0.18));
+  border-bottom:1px solid var(--border,rgba(212,160,23,0.18))}
+.kicheck-inner{max-width:720px;margin:0 auto;text-align:center;padding:0 20px}
+.kicheck-eyebrow{font-family:var(--font-heading,inherit);font-size:12px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold,#d4a017);font-weight:700;margin:0 0 14px}
+.kicheck-title{font-family:var(--font-heading,inherit);font-size:clamp(1.5rem,3.4vw,2.2rem);
+  line-height:1.25;margin:0 0 14px;color:var(--ink,#f2f0eb)}
+.kicheck-sub{color:var(--muted,#9a978e);font-size:1.02rem;line-height:1.6;margin:0 0 26px}
+.kicheck-meta{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:20px;
+  color:var(--muted,#9a978e);font-size:.86rem;letter-spacing:.04em}
+.kicheck-meta span{display:inline-flex;align-items:center;gap:7px}
+@media(max-width:520px){.kicheck-meta{gap:14px;font-size:.8rem}}
 </style>
   <script type="application/ld+json">
   {
@@ -2097,7 +2112,10 @@
           <div class="hero-badge">Business Lead at Hill Digital · AI Trainer</div>
           <h1>"You don't know&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
           <p class="hero-sub">You know AI is changing your business. You just don't know where to start. That's what I'm here for.</p>
-
+<div class="hero-ctas">
+            <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
+            <a href="#about" class="btn btn-secondary" data-slide="1">Learn more</a>
+          </div>
 <div class="langflags" aria-label="Training languages">
   <span class="flag" role="img" aria-label="English" title="English">🇬🇧</span>
   <span class="flag" role="img" aria-label="German (Austria)" title="German (Austria)">🇦🇹</span>
@@ -2106,12 +2124,7 @@
   <span class="flag" role="img" aria-label="Slovak" title="Slovak">🇸🇰</span>
 </div>
 
-          <div class="hero-ctas">
-            <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
-            <a href="#about" class="btn btn-secondary" data-slide="1">Learn more</a>
-          </div>
-          <p class="hero-check">Rather see where you stand first? <a href="/en/ki-check/">AI check, 12 questions, 2 minutes &rarr;</a></p>
-        </div>
+</div>
         <div class="hero-image slide-content">
           <img src="../images/profile/14-web.png" alt="Jakub Popluhar">
         </div>
@@ -2277,6 +2290,20 @@
         </div>
       </div>
     </section>
+
+<section class="kicheck-band" id="ki-check-cta" aria-labelledby="kicheck-title">
+  <div class="kicheck-inner">
+    <p class="kicheck-eyebrow">Free &amp; no sign-up</p>
+    <h2 class="kicheck-title" id="kicheck-title">Rather see where you stand first?</h2>
+    <p class="kicheck-sub">Twelve questions on language models, prompting, everyday use and security.
+      At the end you know where you stand &ndash; and which training fits you.</p>
+    <a href="/en/ki-check/" class="btn btn-primary">Start the AI check &rarr;</a>
+    <div class="kicheck-meta">
+      <span>12 questions</span><span>2 minutes</span><span>Instant result</span>
+    </div>
+  </div>
+</section>
+
 
     <!-- SLIDE 6: SERVICES -->
     <section class="slide slide-services" id="services" data-index="5">
