@@ -173,6 +173,16 @@
   @media (max-width: 560px) { .cv-row { flex-direction: column; gap: 0.2rem; } .cv-row .when { flex: none; } }
   .chip-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.4rem; }
   .chip { padding: 0.35rem 0.8rem; border-radius: 999px; border: 1px solid var(--border); font-size: 0.82rem; color: var(--gold-light); }
+  .lang-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.75rem; }
+  #trainings .lang-row { margin-bottom: 2.4rem; }
+  .lang-item { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.42rem 0.9rem 0.42rem 0.55rem;
+               border-radius: 999px; border: 1px solid var(--border); background: rgba(212,160,23,0.05);
+               font-size: 0.86rem; color: var(--ink); line-height: 1; }
+  .lang-item .lvl { color: var(--muted); font-size: 0.78rem; }
+  .flag { width: 22px; height: 15px; border-radius: 2px; flex: none; box-shadow: 0 0 0 1px rgba(255,255,255,0.14); display: block; }
+  .lang-label { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-top: 1.4rem; }
+  #trainings .lang-label { margin-top: -1.1rem; }
+  @media (max-width: 520px) { .lang-item { font-size: 0.8rem; padding: 0.38rem 0.75rem 0.38rem 0.45rem; } .flag { width: 19px; height: 13px; } }
 
   .personal-photo-wrap { margin-top: 1.4rem; text-align: center; }
   .personal-photo { width: 100%; max-width: 360px; border-radius: 14px; box-shadow: 0 24px 55px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,160,23,0.15); }
@@ -208,6 +218,22 @@
   .train-card .train-more { position: relative; z-index: 3; margin-top: 1rem; font-size: 0.82rem; padding: 0.55rem 1rem; }
   .train-card .train-meta { margin-top: 0.9rem; font-size: 0.78rem; color: var(--muted); }
 
+  .namiru-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 2rem; }
+  @media (max-width: 860px) { .namiru-grid { grid-template-columns: 1fr; } }
+  .namiru-item { padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border);
+                 background: linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.005)); }
+  .namiru-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .namiru-item p { font-size: 0.88rem; color: #cfccc3; }
+  .namiru-num { font-family: var(--font-heading); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+                color: var(--gold-light); margin-bottom: 0.6rem; }
+  .namiru-example { margin-top: 2rem; padding: 1.6rem 1.8rem; border-radius: 16px;
+                    border: 1px solid rgba(212,160,23,0.35); background: rgba(212,160,23,0.06); }
+  .namiru-example .eyebrow { font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+                             letter-spacing: 0.1em; color: var(--gold-light); margin-bottom: 0.5rem; }
+  .namiru-example h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .namiru-example p { font-size: 0.9rem; color: #cfccc3; margin-bottom: 0; }
+  @media (max-width: 520px) { .namiru-example { padding: 1.3rem 1.2rem; } }
+
   .konsum-strip {
     margin-top: 1.4rem; display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 1.4rem;
     border-radius: 14px; border: 1px dashed var(--border); background: rgba(212,160,23,0.04); flex-wrap: wrap;
@@ -241,6 +267,29 @@
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="fl-de" viewBox="0 0 60 40"><rect width="60" height="40" fill="#000"/><rect y="13.33" width="60" height="13.33" fill="#DD0000"/><rect y="26.66" width="60" height="13.34" fill="#FFCE00"/></symbol>
+  <symbol id="fl-gb" viewBox="0 0 60 30">
+    <clipPath id="fl-gb-a"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+    <clipPath id="fl-gb-b"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+    <g clip-path="url(#fl-gb-a)">
+      <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+      <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#fl-gb-b)" stroke="#C8102E" stroke-width="4"/>
+      <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+      <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+    </g>
+  </symbol>
+  <symbol id="fl-sk" viewBox="0 0 90 60">
+    <rect width="90" height="60" fill="#fff"/><rect y="20" width="90" height="20" fill="#0B4EA2"/><rect y="40" width="90" height="20" fill="#EE1C25"/>
+    <path d="M20 13 h26 v20 c0 9-8 13-13 16-5-3-13-7-13-16z" fill="#fff"/>
+    <path d="M22 15 h22 v18 c0 8-7 11-11 14-4-3-11-6-11-14z" fill="#EE1C25"/>
+    <path d="M31.2 18 h3.6 v4.2 h4.6 v3.4 h-4.6 v3.4 h6.2 v3.4 h-6.2 v6.2 h-3.6 v-6.2 h-6.2 v-3.4 h6.2 v-3.4 h-4.6 v-3.4 h4.6 z" fill="#fff"/>
+    <path d="M22.5 41.5 c3.5-4 7-4 10.5 0 3.5-4 7-4 10.5 0 v5.5 c-3.5-4-7-4-10.5 0-3.5-4-7-4-10.5 0z" fill="#0B4EA2"/>
+  </symbol>
+  <symbol id="fl-cz" viewBox="0 0 90 60"><rect width="90" height="30" fill="#fff"/><rect y="30" width="90" height="30" fill="#D7141A"/><path d="M0 0 L45 30 L0 60 z" fill="#11457E"/></symbol>
+</svg>
+
 
 <div id="ambient"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 <div id="cursor-glow"></div>
@@ -491,6 +540,13 @@
         <h2>Moje školení</h2>
         <p>Každé školení vedu <strong>prezenčně, online i hybridně</strong>, německy, anglicky a slovensky, na přání i česky. Skupinově i jeden na jednoho. Součástí <strong>každého</strong> školení je i EU AI Act a pravidla bezpečného používání AI ve firmě.</p>
       </div>
+      <div class="lang-label">Školím v těchto jazycích</div>
+      <div class="lang-row">
+        <span class="lang-item"><svg class="flag" role="img" aria-label="Německo"><use href="#fl-de"/></svg>Německy <span class="lvl">C2</span></span>
+        <span class="lang-item"><svg class="flag" role="img" aria-label="Velká Británie"><use href="#fl-gb"/></svg>Anglicky <span class="lvl">C2</span></span>
+        <span class="lang-item"><svg class="flag" role="img" aria-label="Slovensko"><use href="#fl-sk"/></svg>Slovensky <span class="lvl">mateřský jazyk</span></span>
+        <span class="lang-item"><svg class="flag" role="img" aria-label="Česko"><use href="#fl-cz"/></svg>Česky <span class="lvl">na přání</span></span>
+      </div>
 
       <div class="train-grid">
         <div class="train-card reveal">
@@ -534,6 +590,40 @@
           <p>Žádný standardní program z police: obsah, hloubka a nástroj nastavené na to, co vaše firma opravdu potřebuje, bez ohledu na odvětví, vstupní znalosti či téma, od úplného začátku až po pokročilou úroveň pro zkušené týmy.</p>
           <div class="train-meta">Na požádání, přizpůsobené vaší firmě</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="namiru">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Nad rámec katalogu</div>
+        <h2>Kurz na míru, i pro pokročilé.</h2>
+        <p>Katalog nahoře je výchozí bod, ne strop. Když téma, hloubka nebo publikum sedí jinam, postavím školení od nuly. Prostor mám i směrem nahoru, k tématům, kde standardní kurzy končí.</p>
+      </div>
+
+      <div class="namiru-grid">
+        <div class="namiru-item reveal">
+          <div class="namiru-num">01</div>
+          <h3>AI agenti</h3>
+          <p>Vlastní sestava specializovaných agentů na rešerši, kontrolu kvality, obsah a weby. Kde agent dává smysl, kde stačí jeden dobrý prompt a kde je to jen drahá komplikace.</p>
+        </div>
+        <div class="namiru-item reveal d1">
+          <div class="namiru-num">02</div>
+          <h3>Claude Code</h3>
+          <p>Pracuji v něm denně. Není to demo na ukázku, je to systém, na kterém mi reálně běží provoz. Proto o něm umím mluvit i s lidmi, kteří v něm už něco postavili.</p>
+        </div>
+        <div class="namiru-item reveal d2">
+          <div class="namiru-num">03</div>
+          <h3>Propojení nástrojů</h3>
+          <p>Napojení přes MCP a API na Gmail, kalendář, Notion, n8n, Stripe nebo Cal.com. Moment, kdy AI přestane být chat a začne dělat práci.</p>
+        </div>
+      </div>
+
+      <div class="namiru-example reveal d3">
+        <div class="eyebrow">Příklad kurzu na míru</div>
+        <h3>AI pro manažery</h3>
+        <p>Ne aby si manažeři sami psali prompty, ale aby věděli, co je dnes reálné, co mohou po svých týmech chtít a kde jsou hranice a rizika. Stejnou logikou postavím kurz pro jakoukoli jinou cílovou skupinu.</p>
       </div>
     </div>
   </section>
