@@ -239,9 +239,57 @@
   .reveal.d1 { transition-delay: 0.08s; }
   .reveal.d2 { transition-delay: 0.16s; }
   .reveal.d3 { transition-delay: 0.24s; }
+  .lang-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.75rem; }
+  #trainings .lang-row { margin-bottom: 2.4rem; }
+  .lang-item { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.42rem 0.9rem 0.42rem 0.55rem;
+               border-radius: 999px; border: 1px solid var(--border); background: rgba(212,160,23,0.05);
+               font-size: 0.86rem; color: var(--ink); line-height: 1; }
+  .lang-item .lvl { color: var(--muted); font-size: 0.78rem; }
+  .flag { width: 22px; height: 15px; border-radius: 2px; flex: none; box-shadow: 0 0 0 1px rgba(255,255,255,0.14); display: block; }
+  .lang-label { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-top: 1.4rem; }
+  #trainings .lang-label { margin-top: -1.1rem; }
+  @media (max-width: 520px) { .lang-item { font-size: 0.8rem; padding: 0.38rem 0.75rem 0.38rem 0.45rem; } .flag { width: 19px; height: 13px; } }
+  .namiru-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 2rem; }
+  @media (max-width: 860px) { .namiru-grid { grid-template-columns: 1fr; } }
+  .namiru-item { padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border);
+                 background: linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.005)); }
+  .namiru-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .namiru-item p { font-size: 0.88rem; color: #cfccc3; }
+  .namiru-num { font-family: var(--font-heading); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+                color: var(--gold-light); margin-bottom: 0.6rem; }
+  .namiru-example { margin-top: 2rem; padding: 1.6rem 1.8rem; border-radius: 16px;
+                    border: 1px solid rgba(212,160,23,0.35); background: rgba(212,160,23,0.06); }
+  .namiru-example .eyebrow { font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+                             letter-spacing: 0.1em; color: var(--gold-light); margin-bottom: 0.5rem; }
+  .namiru-example h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .namiru-example p { font-size: 0.9rem; color: #cfccc3; margin-bottom: 0; }
+  @media (max-width: 520px) { .namiru-example { padding: 1.3rem 1.2rem; } }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="fl-de" viewBox="0 0 60 40"><rect width="60" height="40" fill="#000"/><rect y="13.33" width="60" height="13.33" fill="#DD0000"/><rect y="26.66" width="60" height="13.34" fill="#FFCE00"/></symbol>
+  <symbol id="fl-gb" viewBox="0 0 60 30">
+    <clipPath id="fl-gb-a"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+    <clipPath id="fl-gb-b"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+    <g clip-path="url(#fl-gb-a)">
+      <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+      <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#fl-gb-b)" stroke="#C8102E" stroke-width="4"/>
+      <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+      <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+    </g>
+  </symbol>
+  <symbol id="fl-sk" viewBox="0 0 90 60">
+    <rect width="90" height="60" fill="#fff"/><rect y="20" width="90" height="20" fill="#0B4EA2"/><rect y="40" width="90" height="20" fill="#EE1C25"/>
+    <path d="M20 13 h26 v20 c0 9-8 13-13 16-5-3-13-7-13-16z" fill="#fff"/>
+    <path d="M22 15 h22 v18 c0 8-7 11-11 14-4-3-11-6-11-14z" fill="#EE1C25"/>
+    <path d="M31.2 18 h3.6 v4.2 h4.6 v3.4 h-4.6 v3.4 h6.2 v3.4 h-6.2 v6.2 h-3.6 v-6.2 h-6.2 v-3.4 h6.2 v-3.4 h-4.6 v-3.4 h4.6 z" fill="#fff"/>
+    <path d="M22.5 41.5 c3.5-4 7-4 10.5 0 3.5-4 7-4 10.5 0 v5.5 c-3.5-4-7-4-10.5 0-3.5-4-7-4-10.5 0z" fill="#0B4EA2"/>
+  </symbol>
+  <symbol id="fl-cz" viewBox="0 0 90 60"><rect width="90" height="30" fill="#fff"/><rect y="30" width="90" height="30" fill="#D7141A"/><path d="M0 0 L45 30 L0 60 z" fill="#11457E"/></symbol>
+</svg>
+
 
 <div id="ambient"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 <div id="cursor-glow"></div>
@@ -492,6 +540,12 @@
         <h2>Meine Trainings</h2>
         <p>Jedes Training halte ich <strong>in Präsenz, online und hybrid</strong>, auf Deutsch, Englisch und Slowakisch. In der Gruppe und eins zu eins. Teil <strong>jedes</strong> Trainings sind auch der EU AI Act und die Regeln für den sicheren KI-Einsatz im Unternehmen.</p>
       </div>
+      <div class="lang-label">Ich trainiere in diesen Sprachen</div>
+      <div class="lang-row">
+        <span class="lang-item"><svg class="flag" role="img" aria-label="Deutschland"><use href="#fl-de"/></svg>Deutsch <span class="lvl">C2</span></span>
+        <span class="lang-item"><svg class="flag" role="img" aria-label="Vereinigtes Königreich"><use href="#fl-gb"/></svg>Englisch <span class="lvl">C2</span></span>
+        <span class="lang-item"><svg class="flag" role="img" aria-label="Slowakei"><use href="#fl-sk"/></svg>Slowakisch <span class="lvl">Muttersprache</span></span>
+      </div>
 
       <div class="train-grid">
         <div class="train-card reveal">
@@ -541,6 +595,40 @@
           <div class="train-meta">Auf Anfrage, zugeschnitten auf Ihr Haus</div>
           <a class="btn btn-ghost train-more" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Gespräch vereinbaren →</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="namiru">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Über den Katalog hinaus</div>
+        <h2>Training nach Maß, auch für Fortgeschrittene.</h2>
+        <p>Der Katalog oben ist der Ausgangspunkt, nicht die Decke. Wenn Thema, Tiefe oder Publikum woanders liegen, baue ich das Training von null. Nach oben ist Platz, zu Themen, an denen Standardkurse enden.</p>
+      </div>
+
+      <div class="namiru-grid">
+        <div class="namiru-item reveal">
+          <div class="namiru-num">01</div>
+          <h3>KI-Agenten</h3>
+          <p>Eine eigene Aufstellung spezialisierter Agenten für Recherche, Qualitätskontrolle, Inhalte und Websites. Wo ein Agent Sinn ergibt, wo ein guter Prompt reicht und wo er nur eine teure Komplikation ist.</p>
+        </div>
+        <div class="namiru-item reveal d1">
+          <div class="namiru-num">02</div>
+          <h3>Claude Code</h3>
+          <p>Ich arbeite täglich darin. Das ist kein Demo zum Vorzeigen, das ist das System, auf dem mein Betrieb wirklich läuft. Deshalb kann ich auch mit Leuten darüber reden, die schon etwas damit gebaut haben.</p>
+        </div>
+        <div class="namiru-item reveal d2">
+          <div class="namiru-num">03</div>
+          <h3>Werkzeuge verbinden</h3>
+          <p>Anbindung über MCP und API an Gmail, Kalender, Notion, n8n, Stripe oder Cal.com. Der Moment, in dem KI aufhört, Chat zu sein, und anfängt zu arbeiten.</p>
+        </div>
+      </div>
+
+      <div class="namiru-example reveal d3">
+        <div class="eyebrow">Beispiel für ein Training nach Maß</div>
+        <h3>KI für Führungskräfte</h3>
+        <p>Nicht damit Führungskräfte selbst Prompts schreiben, sondern damit sie wissen, was heute realistisch ist, was sie von ihren Teams verlangen können und wo Grenzen und Risiken liegen. Nach derselben Logik baue ich einen Kurs für jede andere Zielgruppe.</p>
       </div>
     </div>
   </section>
