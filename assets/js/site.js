@@ -240,3 +240,40 @@ function jpLoadClarity() {
     setTimeout(function () { whenFree(build); }, force ? 300 : 20000);
   } catch (e) {}
 })();
+
+/* --- Abgelaufene Termine ausblenden (2026-08-21) ---------------------------
+   Jede Terminzeile traegt data-date (Beginn) und bei mehrtaegigen Terminen
+   zusaetzlich data-end. Ein Termin gilt bis zum Ende seines letzten Tages als
+   aktuell und verschwindet erst danach.
+
+   Das ist die Sofortwirkung im Browser: ohne sie stuende am 1. September noch
+   der 31. August auf der Seite. Endgueltig aus dem HTML raeumt sie
+   tools/sync-termine-vorschau.py --prune; erst dieser Lauf fuellt die
+   Startseiten-Vorschau auch wieder auf fuenf Zeilen auf.
+
+   Faellt JS aus, bleibt die Liste vollstaendig sichtbar. Das ist der
+   gewuenschte Ausfall: lieber ein Termin zu viel als eine leere Seite. */
+(function () {
+  try {
+    var rows = document.querySelectorAll('.ag[data-date]');
+    if (!rows.length) return;
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var gone = 0;
+    for (var i = 0; i < rows.length; i++) {
+      var r = rows[i];
+      var last = r.getAttribute('data-end') || r.getAttribute('data-date');
+      var p = last.split('-');
+      if (p.length !== 3) continue;
+      var end = new Date(+p[0], +p[1] - 1, +p[2]);
+      if (end < today) { r.hidden = true; gone++; }
+    }
+    if (gone) {
+      /* Die Trennlinie sitzt auf .ag + .ag. Ist die erste sichtbare Zeile nicht
+         mehr die erste im DOM, traegt sie eine Linie ueber sich, die dort nicht
+         hingehoert. */
+      var first = document.querySelector('.ag[data-date]:not([hidden])');
+      if (first) first.style.borderTop = 'none';
+    }
+  } catch (e) {}
+})();

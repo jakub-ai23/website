@@ -198,6 +198,29 @@
 .langbar .chip .flags{font-size:15px;letter-spacing:2px;line-height:1}
 .langbar .chip .hint{color:var(--muted,#9a978e);font-size:12px;font-weight:400}
 @media(max-width:520px){.langbar{gap:8px}.langbar .chip{padding:7px 12px}}
+
+/* --- Sprachfahne pro Terminzeile (2026-08-21) --- */
+.ag .ag-lang{font-size:15px;line-height:1;margin-right:7px;cursor:default}
+@media(max-width:520px){.ag .ag-lang{font-size:14px;margin-right:5px}}
+
+/* --- Format-Zeichen pro Terminzeile: Praesenz / Online / beides (2026-08-21) --- */
+.ag .ag-fmt{display:inline-flex;align-items:center;gap:4px;margin-right:7px;vertical-align:-2px}
+.ag .ag-fmt svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;opacity:.8}
+@media(max-width:520px){.ag .ag-fmt svg{width:13px;height:13px}}
+
+/* --- Zeilenaufbau 2026-08-21: Logo in feste Spalte rechts, groesser ---
+   Vorher stand das Logo zwischen Datum und Titel; unterschiedlich breite
+   Anbieterlogos haben die Titel unterschiedlich weit eingerueckt. */
+.ag-prov{height:52px;width:150px;padding:6px 14px;border-radius:8px;flex:none;
+  margin-left:auto;box-sizing:border-box}
+.ag-prov img{height:34px;max-width:118px}
+.ag-prov img[src*="proeko"]{height:42px}
+.ag-body{display:block}
+@media(max-width:720px){
+  .ag-prov{margin-left:0;height:44px;width:auto;min-width:112px}
+  .ag-body{flex:1 1 100%}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -264,7 +287,7 @@
     <div class="wrap-wide">
       <p class="eyebrow">Offene Seminare</p>
       <h1>Termine</h1>
-      <p>Alle bestätigten offenen Seminare, in Kooperation mit ARS und tecTrain. Anmeldung direkt beim Veranstalter.</p>
+      <p>Alle bestätigten offenen Seminare, in Kooperation mit ARS, tecTrain, Hill Digital und PROEKO. Anmeldung direkt beim Veranstalter.</p>
 
 <div class="langbar" aria-label="Trainingssprachen">
   <span class="lead">Trainingssprachen</span>
@@ -278,248 +301,252 @@
   </header>
   <section class="wrap-wide">
     <div class="agenda">
-      <div class="ag">
+      <!-- ARS 333183 "HR-Praxis mit KI" laeuft bei ARS an vier Terminen:
+           31.08.2026, 21.10.2026, 17.02.2027, 19.05.2027.
+           NUR der 31.08. ist Jakubs Termin (Commander 2026-08-21).
+           Der 21.10. gehoert einem der anderen Referenten und wuerde mit dem
+           bestaetigten ARS-Lehrgang "KI Bueroalltag" 09:00-18:00 kollidieren.
+           Nicht eintragen. -->
+      <div class="ag" data-date="2026-08-31">
+        <div class="ag-date"><div class="ag-day">31</div><div class="ag-mon">Aug</div><div class="ag-yr">2026</div></div>
+        <div class="ag-body">
+          <div class="txt">
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> HR-Praxis mit KI</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Wien oder online &middot; Ganzer Tag &middot; 09:00&ndash;17:00 Uhr</p>
+            <span class="ag-note">Generative KI im HR-Alltag: Stellenanzeigen, Kompetenzprofile, EU AI Act und DSGVO im Hochrisiko-Bereich HR.</span>
+          </div>
+        </div>
+        <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
+        <a href="https://ars.at/seminar/333183/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+      </div>
+
+      <div class="ag" data-date="2026-09-15">
         <div class="ag-date"><div class="ag-day">15</div><div class="ag-mon">Sep</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
           <div class="txt">
-            <h2>KI am Schreibtisch</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag</p>
-            <span class="ag-note">Ausgebucht</span>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI am Schreibtisch</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Ganzer Tag</p>
           </div>
         </div>
-        <span class="btn-training" style="opacity:0.5;cursor:default;">Ausgebucht</span>
+        <div class="ag-prov"><img src="/images/logos/hill-digital-logo-2026.svg" alt="Hill Digital"></div>
+        <a href="https://hill-digital.at/ki-am-schreibtisch" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
+      <div class="ag" data-date="2026-09-17">
         <div class="ag-date"><div class="ag-day">17</div><div class="ag-mon">Sep</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
           <div class="txt">
-            <h2>KI im HR-Alltag</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag</p>
-            <span class="ag-note">Ausgebucht</span>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI im HR-Alltag</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Ganzer Tag</p>
           </div>
         </div>
-        <span class="btn-training" style="opacity:0.5;cursor:default;">Ausgebucht</span>
+        <div class="ag-prov"><img src="/images/logos/hill-digital-logo-2026.svg" alt="Hill Digital"></div>
+        <a href="https://hill-digital.at/ki-im-hr" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
+      <div class="ag" data-date="2026-09-29" data-end="2026-09-30">
         <div class="ag-date"><div class="ag-day range">29.&ndash;30.</div><div class="ag-mon">Sep</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
           <div class="txt">
-            <h2>Lehrgang Künstliche Intelligenz für den Büroalltag</h2>
-            <p>Wien, Präsenz &middot; 2 Tage &middot; jeweils 09:00&ndash;18:00 Uhr</p>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Lehrgang Künstliche Intelligenz für den Büroalltag</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; 2 Tage &middot; jeweils 09:00&ndash;18:00 Uhr</p>
             <span class="ag-note">Auch einzeln als Halbtags-Module buchbar: „Der erste Schritt zum Prompt Profi" (09:00&ndash;13:00) und „Mit KI-Assistenten die Produktivität steigern" (14:00&ndash;18:00).</span>
           </div>
         </div>
+        <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
         <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
+      <div class="ag" data-date="2026-10-01">
         <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
           <div class="txt">
-            <h2>Microsoft 365 Copilot effizient nutzen</h2>
-            <p>Wien oder online &middot; Ganzer Tag &middot; 09:00&ndash;17:00 Uhr</p>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Microsoft 365 Copilot effizient nutzen</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Wien oder online &middot; Ganzer Tag &middot; 09:00&ndash;17:00 Uhr</p>
             <span class="ag-note">Datenschutz, KI-Governance und produktive Nutzung im Arbeitsalltag.</span>
           </div>
         </div>
+        <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
         <a href="https://ars.at/seminar/332641/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
+      <div class="ag" data-date="2026-10-07">
         <div class="ag-date"><div class="ag-day">07</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/tectrain.png" alt="tecTrain"></div>
           <div class="txt">
-            <h2>KI-Grundlagen &amp; praxisnahe Anwendungen mit ChatGPT</h2>
-            <p>Wien &middot; Ganzer Tag</p>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI-Grundlagen &amp; praxisnahe Anwendungen mit ChatGPT</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Ganzer Tag</p>
             <span class="ag-note">Grundlagen, Prompting und Anwendungen im Arbeitsalltag.</span>
           </div>
         </div>
+        <div class="ag-prov"><img src="/images/logos/tectrain.png" alt="tecTrain"></div>
         <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/chatgpt-und-kuenstliche-intelligenz-in-der-praxis" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
-        <div class="ag-date"><div class="ag-day">08</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
+      <div class="ag" data-date="2026-10-09">
+        <div class="ag-date"><div class="ag-day">09</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
           <div class="txt">
-            <h2>KI am Schreibtisch</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag</p>
-            <span class="ag-note">1 Platz frei</span>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 1: z&aacute;klad, ktor&yacute; vydr&#382;&iacute; aj zmenu n&aacute;stroja</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p>
+            <span class="ag-note">Seminar auf Slowakisch, in Kooperation mit PROEKO s.r.o. Anmeldung direkt bei PROEKO.</span>
           </div>
         </div>
-        <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+        <div class="ag-prov"><img src="/images/logos/proeko.png" alt="PROEKO"></div>
+        <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-1-zaklad-ktory-vydrzi-aj-zmenu-nastroja/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
-        <div class="ag-date"><div class="ag-day">14</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
+      <div class="ag" data-date="2026-10-15">
+        <div class="ag-date"><div class="ag-day">15</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
           <div class="txt">
-            <h2>KI im HR-Alltag</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag</p>
-            <span class="ag-note">1 Platz frei</span>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 2: od n&aacute;stroja k vlastn&eacute;mu asistentovi</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p>
+            <span class="ag-note">Seminar auf Slowakisch, in Kooperation mit PROEKO s.r.o. Anmeldung direkt bei PROEKO.</span>
           </div>
         </div>
-        <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+        <div class="ag-prov"><img src="/images/logos/proeko.png" alt="PROEKO"></div>
+        <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
+      <div class="ag" data-date="2026-10-16">
         <div class="ag-date"><div class="ag-day">16</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
           <div class="txt">
-            <h2>Claude datenschutzkonform im Arbeitsalltag nutzen</h2>
-            <p>Wien oder online &middot; Ganzer Tag &middot; 09:00&ndash;17:00 Uhr</p>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Claude datenschutzkonform im Arbeitsalltag nutzen</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Wien oder online &middot; Ganzer Tag &middot; 09:00&ndash;17:00 Uhr</p>
             <span class="ag-note">DSGVO-konformer Einsatz von Claude im Unternehmen.</span>
           </div>
         </div>
+        <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
         <a href="https://ars.at/seminar/333220/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
+      <div class="ag" data-date="2026-10-20">
         <div class="ag-date"><div class="ag-day">20</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
           <div class="txt">
-            <h2>Copilot im Arbeitsalltag</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag</p>
-            <span class="ag-note">2 Plätze frei</span>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Copilot im Arbeitsalltag</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Ganzer Tag</p>
           </div>
         </div>
-        <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+        <div class="ag-prov"><img src="/images/logos/hill-digital-logo-2026.svg" alt="Hill Digital"></div>
+        <a href="https://hill-digital.at/copilot-im-arbeitsalltag" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
+      <div class="ag" data-date="2026-10-21">
         <div class="ag-date"><div class="ag-day">21</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
           <div class="txt">
-            <h2>Künstliche Intelligenz für den Büroalltag</h2>
-            <p>Online &middot; 1 Tag &middot; 09:00&ndash;18:00 Uhr</p>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Künstliche Intelligenz für den Büroalltag</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; 1 Tag &middot; 09:00&ndash;18:00 Uhr</p>
             <span class="ag-note">Beide Halbtags-Module an diesem Tag: „Der erste Schritt zum Prompt Profi" (09:00&ndash;13:00) und „Mit KI-Assistenten die Produktivität steigern" (14:00&ndash;18:00).</span>
           </div>
         </div>
+        <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
         <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
+      <div class="ag" data-date="2026-10-27">
         <div class="ag-date"><div class="ag-day">27</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
           <div class="txt">
-            <h2>KI am Schreibtisch</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag</p>
-            <span class="ag-note">2 Plätze frei</span>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI am Schreibtisch</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Ganzer Tag</p>
           </div>
         </div>
-        <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+        <div class="ag-prov"><img src="/images/logos/hill-digital-logo-2026.svg" alt="Hill Digital"></div>
+        <a href="https://hill-digital.at/ki-am-schreibtisch" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
-        <div class="ag-date"><div class="ag-day">28</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
-        <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
-          <div class="txt">
-            <h2>Copilot im Arbeitsalltag</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag</p>
-            <span class="ag-note">2 Plätze frei</span>
-          </div>
-        </div>
-        <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-      </div>
-
-      <div class="ag">
+      <div class="ag" data-date="2026-10-29">
         <div class="ag-date"><div class="ag-day">29</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
           <div class="txt">
-            <h2>KI im HR-Alltag</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag</p>
-            <span class="ag-note">2 Plätze frei</span>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI im HR-Alltag</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Ganzer Tag</p>
           </div>
         </div>
-        <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+        <div class="ag-prov"><img src="/images/logos/hill-digital-logo-2026.svg" alt="Hill Digital"></div>
+        <a href="https://hill-digital.at/ki-im-hr" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
+      <div class="ag" data-date="2026-10-30">
+        <div class="ag-date"><div class="ag-day">30</div><div class="ag-mon">Okt</div><div class="ag-yr">2026</div></div>
+        <div class="ag-body">
+          <div class="txt">
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI v HR praxi: od inzer&aacute;tu po hodnotenie</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p>
+            <span class="ag-note">Seminar auf Slowakisch, in Kooperation mit PROEKO s.r.o. Anmeldung direkt bei PROEKO.</span>
+          </div>
+        </div>
+        <div class="ag-prov"><img src="/images/logos/proeko.png" alt="PROEKO"></div>
+        <a href="https://proeko.sk/seminar/ai-v-hr-praxi-od-inzeratu-po-hodnotenie/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+      </div>
+
+      <div class="ag" data-date="2026-11-06">
         <div class="ag-date"><div class="ag-day">06</div><div class="ag-mon">Nov</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
           <div class="txt">
-            <h2>Konsumentenpsychologie im Zeitalter der Künstlichen Intelligenz</h2>
-            <p>Wien, Präsenz &middot; Halber Tag &middot; 09:00&ndash;13:00 Uhr</p>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Konsumentenpsychologie im Zeitalter der Künstlichen Intelligenz</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Halber Tag &middot; 09:00&ndash;13:00 Uhr</p>
             <span class="ag-note">Kaufentscheidungen verstehen, wenn KI mitredet.</span>
           </div>
         </div>
+        <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
         <a href="https://ars.at/seminar/333096/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
-        <div class="ag-date"><div class="ag-day">11</div><div class="ag-mon">Nov</div><div class="ag-yr">2026</div></div>
+      <div class="ag" data-date="2026-11-13">
+        <div class="ag-date"><div class="ag-day">13</div><div class="ag-mon">Nov</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
           <div class="txt">
-            <h2>Boutique: KI am Schreibtisch</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag &middot; max. 6 Personen</p>
-            <span class="ag-note">2 Plätze frei</span>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 1: z&aacute;klad, ktor&yacute; vydr&#382;&iacute; aj zmenu n&aacute;stroja</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p>
+            <span class="ag-note">Seminar auf Slowakisch, in Kooperation mit PROEKO s.r.o. Anmeldung direkt bei PROEKO.</span>
           </div>
         </div>
-        <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+        <div class="ag-prov"><img src="/images/logos/proeko.png" alt="PROEKO"></div>
+        <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-1-zaklad-ktory-vydrzi-aj-zmenu-nastroja/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
-        <div class="ag-date"><div class="ag-day">19</div><div class="ag-mon">Nov</div><div class="ag-yr">2026</div></div>
+      <div class="ag" data-date="2026-11-20">
+        <div class="ag-date"><div class="ag-day">20</div><div class="ag-mon">Nov</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
           <div class="txt">
-            <h2>Copilot im Arbeitsalltag</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag</p>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 2: od n&aacute;stroja k vlastn&eacute;mu asistentovi</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p>
+            <span class="ag-note">Seminar auf Slowakisch, in Kooperation mit PROEKO s.r.o. Anmeldung direkt bei PROEKO.</span>
           </div>
         </div>
-        <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+        <div class="ag-prov"><img src="/images/logos/proeko.png" alt="PROEKO"></div>
+        <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
-        <div class="ag-date"><div class="ag-day">24</div><div class="ag-mon">Nov</div><div class="ag-yr">2026</div></div>
-        <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
-          <div class="txt">
-            <h2>Boutique: KI im HR-Alltag</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag &middot; max. 6 Personen</p>
-          </div>
-        </div>
-        <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-      </div>
-
-      <div class="ag">
+      <div class="ag" data-date="2026-11-25">
         <div class="ag-date"><div class="ag-day">25</div><div class="ag-mon">Nov</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/digital-campus-vorarlberg.svg" alt="Digital Campus Vorarlberg"></div>
           <div class="txt">
-            <h2>KI im HR-Alltag</h2>
-            <p>Online &middot; Ganzer Tag &middot; 08:30&ndash;16:30 Uhr</p>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI im HR-Alltag</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; Ganzer Tag &middot; 08:30&ndash;16:30 Uhr</p>
             <span class="ag-note">Live-Online-Kurs</span>
           </div>
         </div>
+        <div class="ag-prov"><img src="/images/logos/digital-campus-vorarlberg.svg" alt="Digital Campus Vorarlberg"></div>
         <a href="https://www.digitalcampusvorarlberg.at/unser-kursangebot/ki-campus/ki-im-hr-alltag-6429#/2026FK642901" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
-      <div class="ag">
-        <div class="ag-date"><div class="ag-day">26</div><div class="ag-mon">Nov</div><div class="ag-yr">2026</div></div>
+      <div class="ag" data-date="2026-11-27">
+        <div class="ag-date"><div class="ag-day">27</div><div class="ag-mon">Nov</div><div class="ag-yr">2026</div></div>
         <div class="ag-body">
-          <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
           <div class="txt">
-            <h2>Copilot im Arbeitsalltag</h2>
-            <p>Wien, Präsenz &middot; Ganzer Tag</p>
+            <h2><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI v HR praxi: od inzer&aacute;tu po hodnotenie</h2>
+            <p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p>
+            <span class="ag-note">Seminar auf Slowakisch, in Kooperation mit PROEKO s.r.o. Anmeldung direkt bei PROEKO.</span>
           </div>
         </div>
-        <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+        <div class="ag-prov"><img src="/images/logos/proeko.png" alt="PROEKO"></div>
+        <a href="https://proeko.sk/seminar/ai-v-hr-praxi-od-inzeratu-po-hodnotenie/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
       </div>
 
     </div>
@@ -529,7 +556,7 @@
       <a href="https://cal.eu/hilldigital/training" class="btn-training" target="_blank" rel="noopener">Termin anfragen &rarr;</a>
     </div>
 
-    <p class="termine-foot">Gelistet sind ausschließlich Termine mit bestätigtem Status. Die Termine ab Jänner 2027 werden gerade mit den Veranstaltern fixiert und folgen hier, sobald sie stehen. Stand: 19. August 2026.</p>
+    <p class="termine-foot">Verfügbarkeit und Durchführung bestätigt der jeweilige Veranstalter, die Anmeldung läuft direkt bei ihm. Die Termine ab Jänner 2027 werden gerade fixiert und folgen hier, sobald sie stehen. Stand: 21. August 2026.</p>
   </section>
   <div class="termine-outro"></div>
 </main>
