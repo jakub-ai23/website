@@ -922,6 +922,10 @@ def render_article(lang, p):
             {"@type": "ListItem", "position": 3, "name": p["title"], "item": canonical},
         ]
         head += "\n" + jsonld({"@type": "BreadcrumbList", "itemListElement": crumbs})
+    # Entwuerfe nie indexieren lassen: die Datei kann live gehen, der Text ist
+    # aber noch nicht fertig. Faellt weg, sobald draft:false gesetzt ist.
+    if p.get("draft"):
+        head = '<meta name="robots" content="noindex, nofollow">\n' + head
     return PAGE.format(
         lang=lang, title=html.escape(page_title(p.get("title_seo") or p["title"])),
         description=clamp_description(p["description"] or p["lede"], lang, p["slug"]),

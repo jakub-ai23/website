@@ -44,3 +44,6 @@ blog/ARCHITECTURE.md
 # committet waeren sie unter jakubpopluhar.com/<datei> abrufbar. Bleiben lokal.
 GEO-SEO-AUDIT.md
 *-audit-*.md
+
+# Bild-Kandidaten aus der Generierung, nur Arbeitsstand (Spec: blog/_research/BLOG-IMAGE-PIPELINE-SPEC.md).
+images/blog/_candidates/
