@@ -7,7 +7,7 @@
   </url>
   <url>
     <loc>https://jakubpopluhar.com/blog/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/"/>
@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>https://jakubpopluhar.com/blog/aus-der-praxis/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/aus-der-praxis/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/from-practice/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/aus-der-praxis/"/>
@@ -53,6 +53,12 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/ki-wissen/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/ai-knowledge/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/ki-wissen/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/"/>
   </url>
   <url>
     <loc>https://jakubpopluhar.com/blog/meine-agenten/</loc>
