@@ -54,7 +54,7 @@ def parse(path):
         r'\s*<p>(.*?)</p>\n'
         r'(?:\s*<span class="ag-note">(.*?)</span>\n)?'
         r'\s*</div>\n\s*</div>\n'
-        r'\s*<div class="ag-prov"><img src="([^"]+)" alt="([^"]+)"></div>\n'
+        r'\s*<div class="ag-prov"><img src="([^"]+)" alt="([^"]+)"[^>]*></div>\n'
         r'\s*<a href="([^"]+)" class="btn-training"[^>]*>([^<]*?)\s*&rarr;</a>', h, re.S):
         date, end, day, mon, title, meta, note, logo, alt, url, cta = m.groups()
         rows.append(dict(date=date or "", end=end or date or "",
@@ -116,9 +116,9 @@ def render(rows, logo_prefix):
 '          <div class="ag">\n'
 '            <div class="ag-date"><div class="ag-day%s">%s</div><div class="ag-mon">%s</div></div>\n'
 '            <div class="ag-body">\n'
-'              <div class="txt"><h4>%s</h4><p>%s</p></div>\n'
+'              <div class="txt"><h3>%s</h3><p>%s</p></div>\n'
 '            </div>\n'
-'            <div class="ag-prov"><img src="%s" alt="%s"></div>\n'
+'            <div class="ag-prov"><img src="%s" alt="%s" loading="lazy" decoding="async"></div>\n'
 '            <a href="%s" class="btn-training" target="_blank" rel="noopener">%s &rarr;</a>\n'
 '          </div>\n'
             % (" range" if len(r["day"]) > 2 else "", r["day"], r["mon"],
