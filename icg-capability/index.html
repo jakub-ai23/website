@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Jakub Popluhar · Profil</title>
+<style>
+  @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/great-vibes-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/inter-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/inter-500.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/inter-600.woff2) format('woff2'); }
+  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(fonts/montserrat.woff2) format('woff2'); }
+
+  :root {
+    --gold: #d4a017;
+    --gold-light: #e8b84a;
+    --gold-dark: #b8890f;
+    --charcoal: #0a0a0a;
+    --charcoal-light: #141414;
+    --charcoal-lighter: #1e1e1e;
+    --ink: #f2f0eb;
+    --muted: #9a978e;
+    --border: rgba(212,160,23,0.18);
+    --font-heading: 'Montserrat', Arial, sans-serif;
+    --font-body: 'Inter', Arial, sans-serif;
+    --font-script: 'Great Vibes', cursive;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--charcoal);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 { font-family: var(--font-heading); margin: 0; }
+  a { color: var(--gold); }
+  p { margin: 0 0 0.9rem; color: var(--ink); }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+  .eyebrow { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 0.6rem; }
+
+  /* ambient background */
+  #ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.28; animation: drift 26s ease-in-out infinite; }
+  .blob.b1 { width: 480px; height: 480px; background: var(--gold); top: -140px; left: -120px; animation-delay: 0s; }
+  .blob.b2 { width: 420px; height: 420px; background: #7a4fd6; top: 40%; right: -160px; animation-delay: -8s; }
+  .blob.b3 { width: 380px; height: 380px; background: var(--gold-dark); bottom: -160px; left: 30%; animation-delay: -16s; }
+  @keyframes drift {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(40px,-30px) scale(1.08); }
+    66% { transform: translate(-30px,25px) scale(0.95); }
+  }
+  @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }
+
+  /* cursor glow */
+  #cursor-glow {
+    position: fixed; width: 380px; height: 380px; border-radius: 50%; pointer-events: none; z-index: 1;
+    background: radial-gradient(circle, rgba(212,160,23,0.10) 0%, transparent 70%);
+    transform: translate(-50%,-50%); transition: opacity 0.3s; opacity: 0;
+  }
+  @media (hover: hover) { #cursor-glow { opacity: 1; } }
+
+  main, header, footer { position: relative; z-index: 2; }
+
+  .site-nav { position: sticky; top: 0; z-index: 50; padding: 0.9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    background: rgba(12,12,12,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent; transition: border-color 0.25s ease, background 0.25s ease; }
+  .site-nav.scrolled { border-bottom-color: var(--border); background: rgba(12,12,12,0.9); }
+  .site-nav-logo .logo-svg-nav { display: block; height: 52px; width: auto; }
+  @media (max-width: 640px) { .site-nav-logo .logo-svg-nav { height: 42px; } }
+  section[id] { scroll-margin-top: 92px; }
+  .site-nav-links { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+  .site-nav-links a { font-family: var(--font-heading); font-size: 0.92rem; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
+  .site-nav-links a:hover { color: var(--gold-light); }
+  .site-nav-links .site-nav-cta { color: #141414; font-size: 0.86rem; padding: 0.6rem 1.1rem; }
+  .site-nav-links .site-nav-cta:hover { color: #141414; }
+  @media (max-width: 640px) {
+    .site-nav { justify-content: center; text-align: center; }
+    .site-nav-links { justify-content: center; gap: 1rem; }
+  }
+  .site-nav a { display: inline-flex; }
+  .site-nav img { display: block; }
+
+  /* ---------- GATE ---------- */
+  #gate {
+    position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 50% 30%, #1a1a1a 0%, #050505 75%);
+    transition: opacity 0.6s ease, visibility 0.6s;
+  }
+  #gate.unlocked { opacity: 0; visibility: hidden; pointer-events: none; }
+  .gate-card {
+    width: min(420px, 90vw); text-align: center; padding: 2.6rem 2rem; border: 1px solid var(--border);
+    border-radius: 18px; background: rgba(20,20,20,0.7); backdrop-filter: blur(14px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+  }
+  .gate-card .mono-name { font-family: var(--font-script); font-size: 2.6rem; color: var(--gold-light); line-height: 1; margin-bottom: 0.4rem; }
+  .gate-card p { color: var(--muted); font-size: 0.92rem; }
+  .eyes-only { font-family: var(--font-heading); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin: -0.2rem 0 1.1rem; }
+  .eyes-only strong { color: var(--gold-light); font-weight: 700; }
+  .gate-form { display: flex; gap: 0.6rem; margin-top: 1.4rem; }
+  .gate-form input {
+    flex: 1; min-height: 48px; padding: 0 1rem; border-radius: 10px; border: 1px solid var(--border);
+    background: #111; color: var(--ink); font-size: 1rem; font-family: var(--font-body);
+  }
+  .gate-form input:focus { outline: none; border-color: var(--gold); }
+  .gate-form button {
+    min-height: 48px; padding: 0 1.4rem; border-radius: 10px; border: none; cursor: pointer;
+    background: var(--gold); color: #141414; font-weight: 700; font-family: var(--font-heading);
+    transition: transform 0.15s, background 0.2s;
+  }
+  .gate-form button:hover { background: var(--gold-light); transform: translateY(-1px); }
+  #gate-error { color: #e8917a; font-size: 0.84rem; margin-top: 0.8rem; min-height: 1.2em; }
+
+  /* ---------- HERO ---------- */
+  header.hero { padding: 7rem 0 5rem; }
+  .hero-badge { display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.78rem; color: var(--gold-light); margin-bottom: 1.4rem; letter-spacing: 0.04em; }
+  .greeting { font-family: var(--font-heading); font-weight: 700; font-size: 2rem; color: var(--ink); margin-bottom: 0.4rem; min-height: 1.6em; }
+  .greeting-cursor { display: inline-block; color: var(--gold); animation: blink 0.9s step-end infinite; }
+  .greeting-cursor.done { display: none; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .greeting-sub { font-size: 0.92rem; color: var(--muted); margin-bottom: 1.6rem; opacity: 0; transition: opacity 0.6s ease; }
+  .greeting-sub.show { opacity: 1; }
+  h1.hero-name { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.01em; }
+  h1.hero-name .script { font-family: var(--font-script); color: var(--gold); font-weight: 400; font-size: 0.5em; display: block; margin-top: 0.15em; }
+  .hero-role { font-size: 1.15rem; color: var(--muted); margin-top: 0.6rem; max-width: 640px; }
+  .hero-lede { font-size: 1.05rem; max-width: 640px; margin-top: 1.4rem; color: #d8d5cc; }
+  .hero-cta { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: center; }
+  @media (max-width: 800px) { .hero-grid { grid-template-columns: 1fr; } }
+  .hero-photo-wrap { border-radius: 18px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,160,23,0.18); }
+  .hero-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .staerken-split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  @media (max-width: 800px) { .staerken-split { grid-template-columns: 1fr; } }
+  .staerken-photo-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .suit-photo { width: 100%; max-width: 420px; height: auto; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.55)); }
+  .staerken-grid { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.6rem; }
+  .degree-caption { margin-top: 1rem; font-size: 0.84rem; color: var(--muted); max-width: 320px; }
+  .staerke-item { padding: 1.6rem; border-radius: 14px; border: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+  .staerke-num { font-family: var(--font-heading); font-weight: 800; font-size: 1.6rem; color: var(--gold); margin-bottom: 0.6rem; }
+  .staerke-title { font-family: var(--font-heading); font-weight: 700; font-size: 1.02rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .staerke-item p { font-size: 0.92rem; color: #cfccc3; margin: 0; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem; min-height: 48px; padding: 0 1.5rem; border-radius: 10px;
+    font-weight: 700; font-family: var(--font-heading); font-size: 0.92rem; text-decoration: none; cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .btn-primary { background: var(--gold); color: #141414; border: none; }
+  .btn-primary:hover { color: #141414; }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+  .magnetic { will-change: transform; }
+
+  /* section shell */
+  section { padding: 4rem 0; border-top: 1px solid var(--border); }
+  .section-head { max-width: 640px; margin-bottom: 2.4rem; }
+  .section-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; }
+  .section-head p { margin-top: 0.7rem; font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+
+  /* ---------- CV ---------- */
+  .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  @media (max-width: 800px) { .cv-grid { grid-template-columns: 1fr; } }
+  .cv-block h3 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 1rem; }
+  .cv-row { display: flex; gap: 1rem; margin-bottom: 1.1rem; padding-left: 1rem; border-left: 2px solid var(--border); position: relative; }
+  .cv-row::before { content: ''; position: absolute; left: -5px; top: 0.3rem; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+  .cv-row .when { font-size: 0.78rem; color: var(--muted); font-weight: 600; white-space: nowrap; flex: 0 0 150px; padding-top: 0.1rem; }
+  .cv-row .what .t { font-weight: 700; font-size: 0.98rem; }
+  .cv-row .what .o { color: var(--muted); font-size: 0.86rem; font-style: italic; }
+  .cv-row .what ul { margin: 0.3rem 0 0; padding-left: 1.1rem; }
+  .cv-row .what li { font-size: 0.86rem; color: #cfccc3; margin-bottom: 0.15rem; }
+  @media (max-width: 560px) { .cv-row { flex-direction: column; gap: 0.2rem; } .cv-row .when { flex: none; } }
+  .chip-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 0.4rem; }
+  .chip { padding: 0.35rem 0.8rem; border-radius: 999px; border: 1px solid var(--border); font-size: 0.82rem; color: var(--gold-light); }
+
+  .personal-photo-wrap { margin-top: 1.4rem; text-align: center; }
+  .personal-photo { width: 100%; max-width: 360px; border-radius: 14px; box-shadow: 0 24px 55px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,160,23,0.15); }
+  .personal-photo-caption { margin-top: 0.8rem; font-size: 0.86rem; color: var(--muted); }
+
+  .jump-wrap { text-align: center; padding: 1rem 0 3rem; }
+  .jump-wrap h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); max-width: 700px; margin: 0 auto 2rem; }
+  .jump-video { width: 100%; max-width: 640px; min-width: min(100%, 50vw); border-radius: 16px; box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,160,23,0.18); display: block; margin: 0 auto; }
+  .jump-wrap .btn { margin-top: 2rem; }
+  .jump-ps { margin-top: 1.4rem; font-size: 0.86rem; color: var(--muted); max-width: 520px; margin-left: auto; margin-right: auto; }
+
+  /* ---------- TRAININGS (tilt cards) ---------- */
+  .train-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; perspective: 1200px; }
+  @media (max-width: 760px) { .train-grid { grid-template-columns: 1fr; } }
+  .train-card {
+    position: relative; padding: 1.8rem; border-radius: 16px; border: 1px solid var(--border);
+    background: linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.005));
+    transform-style: preserve-3d; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    overflow: hidden;
+  }
+  .train-card::after {
+    content: ''; position: absolute; inset: 0; border-radius: 16px; padding: 1px;
+    background: linear-gradient(120deg, transparent, rgba(212,160,23,0.5), transparent);
+    background-size: 220% 220%; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.3s; pointer-events: none;
+  }
+  .train-card:hover { box-shadow: 0 30px 60px rgba(0,0,0,0.5); border-color: rgba(212,160,23,0.4); }
+  .train-card:hover::after { opacity: 1; animation: sheen 2.4s linear infinite; }
+  @keyframes sheen { 0% { background-position: 0% 0%; } 100% { background-position: 220% 220%; } }
+  .train-tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-light); margin-bottom: 0.5rem; }
+  .train-card h3 { font-size: 1.18rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .train-card p { font-size: 0.9rem; color: #cfccc3; margin-bottom: 0; }
+  .train-card .train-more { position: relative; z-index: 3; margin-top: 1rem; font-size: 0.82rem; padding: 0.55rem 1rem; }
+  .train-card .train-meta { margin-top: 0.9rem; font-size: 0.78rem; color: var(--muted); }
+
+  .konsum-strip {
+    margin-top: 1.4rem; display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 1.4rem;
+    border-radius: 14px; border: 1px dashed var(--border); background: rgba(212,160,23,0.04); flex-wrap: wrap;
+  }
+  .konsum-strip .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); flex: none; }
+  .konsum-strip strong { color: var(--gold-light); }
+  .konsum-strip span.txt { flex: 1; min-width: 240px; font-size: 0.92rem; color: #d8d5cc; }
+
+  /* ---------- REFERENCES marquee ---------- */
+  .ref-marquee { overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .ref-track { display: flex; gap: 3rem; width: max-content; animation: scroll-x 24s linear infinite; align-items: center; }
+  .ref-track span { font-family: var(--font-heading); font-weight: 700; font-size: 1.05rem; color: var(--muted); white-space: nowrap; opacity: 0.8; }
+  .ref-logo { height: 34px; width: auto; flex-shrink: 0; opacity: 0.55; filter: grayscale(100%) brightness(2) contrast(0.5); transition: opacity 0.4s, filter 0.4s; }
+  .ref-marquee:hover .ref-logo { opacity: 0.8; }
+  .ref-item { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; white-space: nowrap; }
+  @keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .ref-track { animation: none; } }
+
+  /* ---------- CTA ---------- */
+  .cta-block { text-align: center; padding: 5rem 0; }
+  .cta-block h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); max-width: 700px; margin: 0 auto 1.6rem; }
+
+  footer { padding: 2.4rem 0 3rem; text-align: center; color: var(--muted); font-size: 0.82rem; }
+  footer a { color: var(--muted); text-decoration: underline; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal.d1 { transition-delay: 0.08s; }
+  .reveal.d2 { transition-delay: 0.16s; }
+  .reveal.d3 { transition-delay: 0.24s; }
+  .lang-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.75rem; }
+  #trainings .lang-row { margin-bottom: 2.4rem; }
+  .lang-item { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.42rem 0.9rem 0.42rem 0.55rem;
+               border-radius: 999px; border: 1px solid var(--border); background: rgba(212,160,23,0.05);
+               font-size: 0.86rem; color: var(--ink); line-height: 1; }
+  .lang-item .lvl { color: var(--muted); font-size: 0.78rem; }
+  .flag { width: 22px; height: 15px; border-radius: 2px; flex: none; box-shadow: 0 0 0 1px rgba(255,255,255,0.14); display: block; }
+  .lang-label { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-top: 1.4rem; }
+  #trainings .lang-label { margin-top: -1.1rem; }
+  @media (max-width: 520px) { .lang-item { font-size: 0.8rem; padding: 0.38rem 0.75rem 0.38rem 0.45rem; } .flag { width: 19px; height: 13px; } }
+  .namiru-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 2rem; }
+  @media (max-width: 860px) { .namiru-grid { grid-template-columns: 1fr; } }
+  .namiru-item { padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border);
+                 background: linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.005)); }
+  .namiru-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .namiru-item p { font-size: 0.88rem; color: #cfccc3; }
+  .namiru-num { font-family: var(--font-heading); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+                color: var(--gold-light); margin-bottom: 0.6rem; }
+  .namiru-example { margin-top: 2rem; padding: 1.6rem 1.8rem; border-radius: 16px;
+                    border: 1px solid rgba(212,160,23,0.35); background: rgba(212,160,23,0.06); }
+  .namiru-example .eyebrow { font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+                             letter-spacing: 0.1em; color: var(--gold-light); margin-bottom: 0.5rem; }
+  .namiru-example h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .namiru-example p { font-size: 0.9rem; color: #cfccc3; margin-bottom: 0; }
+  @media (max-width: 520px) { .namiru-example { padding: 1.3rem 1.2rem; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="fl-de" viewBox="0 0 60 40"><rect width="60" height="40" fill="#000"/><rect y="13.33" width="60" height="13.33" fill="#DD0000"/><rect y="26.66" width="60" height="13.34" fill="#FFCE00"/></symbol>
+  <symbol id="fl-gb" viewBox="0 0 60 30">
+    <clipPath id="fl-gb-a"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+    <clipPath id="fl-gb-b"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+    <g clip-path="url(#fl-gb-a)">
+      <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+      <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#fl-gb-b)" stroke="#C8102E" stroke-width="4"/>
+      <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+      <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+    </g>
+  </symbol>
+  <symbol id="fl-sk" viewBox="0 0 90 60">
+    <rect width="90" height="60" fill="#fff"/><rect y="20" width="90" height="20" fill="#0B4EA2"/><rect y="40" width="90" height="20" fill="#EE1C25"/>
+    <path d="M20 13 h26 v20 c0 9-8 13-13 16-5-3-13-7-13-16z" fill="#fff"/>
+    <path d="M22 15 h22 v18 c0 8-7 11-11 14-4-3-11-6-11-14z" fill="#EE1C25"/>
+    <path d="M31.2 18 h3.6 v4.2 h4.6 v3.4 h-4.6 v3.4 h6.2 v3.4 h-6.2 v6.2 h-3.6 v-6.2 h-6.2 v-3.4 h6.2 v-3.4 h-4.6 v-3.4 h4.6 z" fill="#fff"/>
+    <path d="M22.5 41.5 c3.5-4 7-4 10.5 0 3.5-4 7-4 10.5 0 v5.5 c-3.5-4-7-4-10.5 0-3.5-4-7-4-10.5 0z" fill="#0B4EA2"/>
+  </symbol>
+  <symbol id="fl-cz" viewBox="0 0 90 60"><rect width="90" height="30" fill="#fff"/><rect y="30" width="90" height="30" fill="#D7141A"/><path d="M0 0 L45 30 L0 60 z" fill="#11457E"/></symbol>
+</svg>
+
+
+<div id="ambient"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div id="cursor-glow"></div>
+
+<header class="site-nav">
+  <a class="site-nav-logo" href="https://jakubpopluhar.com" target="_blank" rel="noopener" aria-label="Jakub Popluhar">
+    <svg class="logo-svg-nav" viewBox="0 0 380 125" height="52" aria-label="Jakub Popluhar">
+      <defs>
+        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#bf953f"/>
+          <stop offset="18%" stop-color="#fcf6ba"/>
+          <stop offset="40%" stop-color="#b38728"/>
+          <stop offset="65%" stop-color="#fbf5b7"/>
+          <stop offset="85%" stop-color="#daa520"/>
+          <stop offset="100%" stop-color="#aa771c"/>
+        </linearGradient>
+        <filter id="goldGlow">
+          <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/>
+        </filter>
+      </defs>
+      <text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text>
+      <text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing:0.16em">POPLUHAR</text>
+    </svg>
+  </a>
+  <nav class="site-nav-links" aria-label="Navigace stránky">
+    <a href="#trainings">Školení</a>
+    <a href="#cv">Životopis</a>
+    <a href="https://jakubpopluhar.com" target="_blank" rel="noopener">Web ↗</a>
+    <a class="btn btn-primary site-nav-cta" href="https://cal.eu/jakubpopluhar/uvodni-hovor" target="_blank" rel="noopener">Rezervovat termín →</a>
+  </nav>
+</header>
+
+<div id="gate">
+  <div class="gate-card">
+    <div class="mono-name">Jakub Popluhar</div>
+    <p class="eyes-only"><strong>Pane Čadku</strong>, jen pro Vaše oči!</p>
+    <p>Heslo najdete ve svém e-mailu.</p>
+    <div class="gate-form">
+      <input type="password" id="gate-input" placeholder="Heslo" autocomplete="off" />
+      <button id="gate-btn" type="button">Zobrazit</button>
+    </div>
+    <div id="gate-error"></div>
+  </div>
+</div>
+
+<main id="content" style="display:none;">
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="greeting"><span id="greeting-text"></span><span class="greeting-cursor" id="greeting-cursor">|</span></p>
+        <p class="greeting-sub" id="greeting-sub">Příjemné čtení.</p>
+        <div class="hero-badge reveal">Osobní profil · ICG-Capability</div>
+        <h1 class="hero-name reveal d1">Jakub Popluhar<span class="script">Master of Education</span></h1>
+        <p class="hero-role reveal d2">AI školitel a zákaznický psycholog, sportovní kouč, event manažer a dobrodruh.</p>
+        <div class="hero-cta reveal d3">
+          <a class="btn btn-primary magnetic" href="https://cal.eu/jakubpopluhar/uvodni-hovor" target="_blank" rel="noopener">Rezervovat termín →</a>
+          <a class="btn btn-ghost" href="#cv">Na životopis ↓</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap reveal d2">
+        <img src="images/personal/jakub-viennaup-action.jpg" alt="Jakub Popluhar s účastníky na ViennaUP" class="hero-photo">
+      </div>
+    </div>
+  </header>
+
+  <section id="staerken">
+    <div class="container staerken-split">
+      <div class="staerken-text">
+        <div class="section-head reveal">
+          <div class="eyebrow">Čím se odlišuji</div>
+          <h2>Tři silné stránky.</h2>
+        </div>
+        <div class="staerken-grid">
+          <div class="staerke-item reveal">
+            <div class="staerke-num">01</div>
+            <div class="staerke-title">Heterogenní skupiny</div>
+            <p>Udržet pohromadě heterogenní skupinu, když se v jedné místnosti učí lidé s velmi rozdílnými vstupními znalostmi.</p>
+          </div>
+          <div class="staerke-item reveal d1">
+            <div class="staerke-num">02</div>
+            <div class="staerke-title">Individualizace</div>
+            <p>Stejně přesně i v homogenních skupinách, když obsah a hloubku připravím předem přesně na to, co firma opravdu chce dostat.</p>
+          </div>
+          <div class="staerke-item reveal d2">
+            <div class="staerke-num">03</div>
+            <div class="staerke-title">Prodej</div>
+            <p>Prodej: školení postavím tak, aby z něj navazující nabídky a cross-selling vznikaly samy.</p>
+          </div>
+        </div>
+      </div>
+      <div class="staerken-photo-wrap reveal d1">
+        <img src="images/personal/jakub-suit-trainer.png" alt="Jakub Popluhar jako školitel" class="suit-photo">
+        <p class="degree-caption">M.Ed. &middot; Ludwig-Maximilians-Universität München &amp; Technische Universität München</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Životopis</div>
+        <h2>Profesní dráha.</h2>
+      </div>
+      <div class="cv-block reveal">
+          <h3>Praxe</h3>
+
+          <div class="cv-row">
+            <div class="when">01/2025 – současnost</div>
+            <div class="what">
+              <div class="t">Samostatný školitel (živnost, Rakousko)</div>
+              <div class="o">Vídeň</div>
+              <ul>
+                <li>Workshopy a přednášky o digitálních nástrojích a využití AI v pracovním dni, na zakázku</li>
+                <li>Objednavatelé mimo jiné ARS Akademie, tecTrain, SPORTUNION Vídeň</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2024 – 07/2026</div>
+            <div class="what">
+              <div class="t">Učitel tělesné výchovy a angličtiny</div>
+              <div class="o">Vienna European School, Vídeň (na dobu určitou)</div>
+              <ul><li>Výuka tělesné výchovy a angličtiny, příprava hodin a vedení třídy</li></ul>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2020 – 2022</div>
+            <div class="what">
+              <div class="t">Učitel tělesné výchovy a angličtiny</div>
+              <div class="o">Sabel Realschule, Mnichov</div>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2025</div>
+            <div class="what">
+              <div class="t">Školitel a business development</div>
+              <div class="o">Mindworx s.r.o.</div>
+              <ul>
+                <li>Online i prezenční workshopy o zákaznické psychologii</li>
+                <li>Budování licenčních a certifikačních programů</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2021 – současnost</div>
+            <div class="what">
+              <div class="t">Zakladatel</div>
+              <div class="o">Future Roundnet</div>
+              <ul>
+                <li>Event management a projektový management pro tréninkové kempy a akce, 5 let po sobě největší roundnetový tréninkový kemp na světě, tvorba obsahu, podcast</li>
+                <li>Vývoj koučovací aplikace (iOS a Android)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">09/2023 – 06/2024</div>
+            <div class="what">
+              <div class="t">Průvodce zájezdů</div>
+              <div class="o">Lebenslust Touristik GmbH</div>
+              <ul><li>Doprovod seniorských skupin v cílových destinacích</li></ul>
+            </div>
+          </div>
+      </div>
+
+      <div class="cv-block reveal d1">
+          <h3>Vzdělání</h3>
+          <div class="cv-row">
+            <div class="when">2025</div>
+            <div class="what">
+              <div class="t">Mindworx Certified Trainer</div>
+              <div class="o">Mindworx s.r.o. &middot; světově vedoucí program zákaznické psychologie</div>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2019</div>
+            <div class="what">
+              <div class="t">Státní zkouška, učitelství angličtiny a tělesné výchovy (M.Ed.)</div>
+              <div class="o">Ludwig-Maximilians-Universität München &amp; TU München</div>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2016</div>
+            <div class="what">
+              <div class="t">Sportovní marketing a sportovní výživa</div>
+              <div class="o">University of the Sunshine Coast, Austrálie</div>
+            </div>
+          </div>
+          <div class="cv-row">
+            <div class="when">2016</div>
+            <div class="what">
+              <div class="t">Bakalář, angličtina a tělesná výchova</div>
+              <div class="o">Masarykova univerzita Brno, Česko</div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:2rem;">Jazyky a znalosti</h3>
+          <div class="chip-row">
+            <span class="chip">Němčina C2</span><span class="chip">Angličtina C2</span>
+            <span class="chip">Slovenština (mateřský jazyk)</span><span class="chip">Španělština B1</span>
+          </div>
+          <div class="chip-row">
+            <span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">Gemini</span>
+            <span class="chip">Perplexity</span><span class="chip">Zapier / n8n</span><span class="chip">MS Office &amp; Teams</span>
+          </div>
+
+          <h3 style="margin-top:2rem;">Zájmy</h3>
+          <div class="chip-row">
+            <span class="chip">Potápění (PADI Divemaster)</span><span class="chip">Seskoky padákem</span>
+            <span class="chip">Florbal</span><span class="chip">Roundnet</span><span class="chip">Brazilské jiu-jitsu</span>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="referenzen">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Reference</div>
+        <h2>Kde už školím.</h2>
+      </div>
+    </div>
+    <div class="ref-marquee reveal">
+      <div class="ref-track">
+        <img src="images/logos/ars-akademie.svg" alt="ARS Akademie" class="ref-logo">
+        <img src="images/logos/innovatic-group.svg" alt="Innovatic Group" class="ref-logo">
+        <img src="images/logos/ai-factory.png" alt="AI Factory Austria · ViennaUP" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/became-ai-icon.svg" alt="became ai" class="ref-logo"><span>became ai</span></div>
+        <img src="images/logos/sport-union.svg" alt="Sport Union" class="ref-logo">
+        <img src="images/logos/youknowmebest.svg" alt="YouKnowMeBest" class="ref-logo">
+        <img src="images/logos/fitrock.svg" alt="FitRock" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/zr-bjj.svg" alt="ZR Team Vienna" class="ref-logo"><span>ZR Team Vienna</span></div>
+        <img src="images/logos/ars-akademie.svg" alt="" class="ref-logo">
+        <img src="images/logos/innovatic-group.svg" alt="" class="ref-logo">
+        <img src="images/logos/ai-factory.png" alt="" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/became-ai-icon.svg" alt="" class="ref-logo"><span>became ai</span></div>
+        <img src="images/logos/sport-union.svg" alt="" class="ref-logo">
+        <img src="images/logos/youknowmebest.svg" alt="" class="ref-logo">
+        <img src="images/logos/fitrock.svg" alt="" class="ref-logo">
+        <div class="ref-item"><img src="images/logos/zr-bjj.svg" alt="" class="ref-logo"><span>ZR Team Vienna</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trainings">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Moje školení</h2>
+        <p>Každé školení vedu <strong>prezenčně, online i hybridně</strong>, německy, anglicky a slovensky, na přání i česky. Skupinově i jeden na jednoho. Součástí <strong>každého</strong> školení je i EU AI Act a pravidla bezpečného používání AI ve firmě.</p>
+      </div>
+      <div class="lang-label">Školím v těchto jazycích</div>
+      <div class="lang-row">
+        <span class="lang-item"><svg class="flag" role="img" aria-label="Německo"><use href="#fl-de"/></svg>Německy <span class="lvl">C2</span></span>
+        <span class="lang-item"><svg class="flag" role="img" aria-label="Velká Británie"><use href="#fl-gb"/></svg>Anglicky <span class="lvl">C2</span></span>
+        <span class="lang-item"><svg class="flag" role="img" aria-label="Slovensko"><use href="#fl-sk"/></svg>Slovensky <span class="lvl">mateřský jazyk</span></span>
+        <span class="lang-item"><svg class="flag" role="img" aria-label="Česko"><use href="#fl-cz"/></svg>Česky <span class="lvl">na přání</span></span>
+      </div>
+
+      <div class="train-grid">
+        <div class="train-card reveal">
+          <div class="train-tag">Základy · Jeden praktický den</div>
+          <h3>AI za pracovním stolem</h3>
+          <p>Jak jazykový model doopravdy funguje, framework CITE(R) pro spolehlivé prompty, ochrana údajů konkrétně (pravidlo tří sekund) a stavba vlastních AI pomocníků v NotebookLM a Custom GPTs. Nezávisle na nástroji: funguje s ChatGPT, Claude i Gemini.</p>
+          <div class="train-meta">Modul 1 Základy · Modul 2 AI pomocníci v produktivním nasazení</div>
+        </div>
+
+        <div class="train-card reveal d1">
+          <div class="train-tag">HR zaměření · Jeden praktický den</div>
+          <h3>AI v HR praxi</h3>
+          <p>Tentýž metodický základ, přizpůsobený inzerátům, komunikaci s uchazeči, onboardingu a hodnocením. Modeling of Excellence pro ideální HR personu, Human in the Loop u automatizovaných rozhodnutí, Zero Trust proti zfalšovaným životopisům.</p>
+          <div class="train-meta">Pro HR týmy v jakémkoli odvětví a velikosti</div>
+        </div>
+
+        <div class="train-card reveal d2">
+          <div class="train-tag">Prohloubení k nástroji</div>
+          <h3>Copilot v každodenní práci</h3>
+          <p>Pro firmy s Microsoft 365: jeden den přímo ve Wordu, Excelu, Teams a Outlooku. Kde je Copilot spolehlivý, kde ne, a kde reálně ušetří čas místo toho, aby jen blikal. Navazuje na základy z „AI za pracovním stolem“.</p>
+          <div class="train-meta">Jako firemní školení u klienta i jako otevřený kurz</div>
+        </div>
+
+        <div class="train-card reveal d3">
+          <div class="train-tag">Prohloubení k nástroji</div>
+          <h3>ChatGPT, Gemini nebo Claude</h3>
+          <p>Tři školení, jedno na každý nástroj. Objednáte si den na toho asistenta, se kterým vaše firma opravdu pracuje: jeho zvláštnosti, jeho hranice, jeho cesty, jak si postavit vlastní asistenty. Žádný rychlý přelet přes tři produkty.</p>
+          <div class="train-meta">Stejná stavba, stejné trvání, jeden nástroj</div>
+        </div>
+
+        <div class="train-card reveal d3">
+          <div class="train-tag">Zákaznická psychologie</div>
+          <h3>Zákaznická psychologie v éře umělé inteligence</h3>
+          <p>Moje vlastní školení o čtyřech rozhodovacích bariérách, které brání nákupu, a o tom, jak je cíleně rozpustit. K tomu, jak AI zesiluje komunikaci, v dobrém i ve zlém.</p>
+          <div class="train-meta">Jeden praktický den</div>
+        </div>
+
+        <div class="train-card reveal d3">
+          <div class="train-tag">Individuálně</div>
+          <h3>Školení na míru</h3>
+          <p>Žádný standardní program z police: obsah, hloubka a nástroj nastavené na to, co vaše firma opravdu potřebuje, bez ohledu na odvětví, vstupní znalosti či téma, od úplného začátku až po pokročilou úroveň pro zkušené týmy.</p>
+          <div class="train-meta">Na požádání, přizpůsobené vaší firmě</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="namiru">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Nad rámec katalogu</div>
+        <h2>Kurz na míru, i pro pokročilé.</h2>
+        <p>Katalog nahoře je výchozí bod, ne strop. Když téma, hloubka nebo publikum sedí jinam, postavím školení od nuly. Prostor mám i směrem nahoru, k tématům, kde standardní kurzy končí.</p>
+      </div>
+
+      <div class="namiru-grid">
+        <div class="namiru-item reveal">
+          <div class="namiru-num">01</div>
+          <h3>AI agenti</h3>
+          <p>Vlastní sestava specializovaných agentů na rešerši, kontrolu kvality, obsah a weby. Kde agent dává smysl, kde stačí jeden dobrý prompt a kde je to jen drahá komplikace.</p>
+        </div>
+        <div class="namiru-item reveal d1">
+          <div class="namiru-num">02</div>
+          <h3>Claude Code</h3>
+          <p>Pracuji v něm denně. Není to demo na ukázku, je to systém, na kterém mi reálně běží provoz. Proto o něm umím mluvit i s lidmi, kteří v něm už něco postavili.</p>
+        </div>
+        <div class="namiru-item reveal d2">
+          <div class="namiru-num">03</div>
+          <h3>Propojení nástrojů</h3>
+          <p>Napojení přes MCP a API na Gmail, kalendář, Notion, n8n, Stripe nebo Cal.com. Moment, kdy AI přestane být chat a začne dělat práci.</p>
+        </div>
+      </div>
+
+      <div class="namiru-example reveal d3">
+        <div class="eyebrow">Příklad kurzu na míru</div>
+        <h3>AI pro manažery</h3>
+        <p>Ne aby si manažeři sami psali prompty, ale aby věděli, co je dnes reálné, co mohou po svých týmech chtít a kde jsou hranice a rizika. Stejnou logikou postavím kurz pro jakoukoli jinou cílovou skupinu.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="jump" style="border-top: none;">
+    <div class="container jump-wrap">
+      <h2 class="reveal">Skočme do světa AI společně.</h2>
+      <video class="jump-video reveal d1" controls playsinline muted loop autoplay poster="images/personal/ki-angebot-poster.jpg">
+        <source src="images/personal/ki-angebot.mp4" type="video/mp4">
+      </video>
+      <a class="btn btn-primary magnetic reveal d2" href="https://cal.eu/jakubpopluhar/uvodni-hovor" target="_blank" rel="noopener">Rezervovat termín →</a>
+      <p class="jump-ps reveal d3">PS: Ne všechno jde čistě a bez chyb, ale přesně o to ani nejde. Skutečná dovednost je stabilizace, u AI stejně jako u seskoku.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Firma Jakub Popluhar · 1080 Vídeň · <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  // password gate
+  var PASSWORD = "ICGCAPABILITY2026";
+  var gate = document.getElementById('gate');
+  var input = document.getElementById('gate-input');
+  var btn = document.getElementById('gate-btn');
+  var err = document.getElementById('gate-error');
+  var content = document.getElementById('content');
+
+  function tryUnlock() {
+    if (input.value === PASSWORD) {
+      content.style.display = 'block';
+      gate.classList.add('unlocked');
+      initReveal();
+      typewriterGreeting();
+    } else {
+      err.textContent = 'Nesprávné heslo.';
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  function typewriterGreeting() {
+    var text = 'Dobrý den, pane Čadku';
+    var target = document.getElementById('greeting-text');
+    var cursor = document.getElementById('greeting-cursor');
+    var sub = document.getElementById('greeting-sub');
+    var i = 0;
+    (function type() {
+      if (i <= text.length) {
+        target.textContent = text.slice(0, i);
+        i++;
+        setTimeout(type, 110);
+      } else {
+        cursor.classList.add('done');
+        sub.classList.add('show');
+      }
+    })();
+  }
+  (function(){
+    var navEl = document.querySelector('.site-nav');
+    if (!navEl) return;
+    var onScroll = function(){ navEl.classList.toggle('scrolled', window.scrollY > 8); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+  btn.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+  input.focus();
+
+  // reveal-on-scroll
+  function initReveal() {
+    var els = document.querySelectorAll('.reveal');
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    els.forEach(function(el){ obs.observe(el); });
+  }
+
+  // cursor glow
+  var glow = document.getElementById('cursor-glow');
+  window.addEventListener('mousemove', function(e){
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+
+  // tilt cards
+  document.querySelectorAll('.train-card').forEach(function(card){
+    card.addEventListener('mousemove', function(e){
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(800px) rotateY(' + (x * 7) + 'deg) rotateX(' + (-y * 7) + 'deg) translateY(-4px)';
+    });
+    card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+  });
+
+  // magnetic buttons
+  document.querySelectorAll('.magnetic').forEach(function(btnEl){
+    btnEl.addEventListener('mousemove', function(e){
+      var r = btnEl.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      btnEl.style.transform = 'translate(' + (x * 10) + 'px,' + (y * 10) + 'px)';
+    });
+    btnEl.addEventListener('mouseleave', function(){ btnEl.style.transform = ''; });
+  });
+</script>
+
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
