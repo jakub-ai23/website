@@ -833,6 +833,11 @@
           </div>
         </div>
         <div class="llm-card">
+          <div class="llm-name">Perplexity</div>
+          <a class="llm-browser" href="https://www.perplexity.ai" target="_blank" rel="noopener">Im Browser öffnen →</a>
+          <p style="font-size:0.78rem; color:var(--white-muted); margin:6px 0 0;">Für Internet-Recherche. Antwortet mit Fundstelle, nicht aus dem Gedächtnis.</p>
+        </div>
+        <div class="llm-card">
           <div class="llm-name">Copilot</div>
           <a class="llm-browser" href="https://copilot.microsoft.com" target="_blank" rel="noopener">Im Browser öffnen →</a>
           <div class="llm-stores">
@@ -1298,13 +1303,14 @@ Text: [einfügen]</div>
       <div class="nav-section-label">Nachmittag</div>
       <a href="#ue-darfrein">5. Was darf rein</a>
       <a href="#ue-gesetz">6. Das KI-Gesetz selbst befragen</a>
-      <a href="#ue-werkstatt">7. Werkstatt: Ihre echte Stelle</a>
-      <a href="#ue6">8. Bericht aus Gesprächsnotizen</a>
-      <a href="#ue6b">8b. Berichtshelfer</a>
-      <a href="#ue6c">8c. Kürzen, aber messbar</a>
-      <a href="#ue7">9. Das Tribunal</a>
+      <a href="#ue-markt">7. Zahlen mit Quelle</a>
+      <a href="#ue-werkstatt">8. Werkstatt: Ihre echte Stelle</a>
+      <a href="#ue6">9. Bericht aus Gesprächsnotizen</a>
+      <a href="#ue6b">9b. Berichtshelfer</a>
+      <a href="#ue6c">9c. Kürzen, aber messbar</a>
+      <a href="#ue7">10. Das Tribunal</a>
       <a href="#mensch">Der Mensch bleibt</a>
-      <a href="#ue8">10. Die eigene Hausregel</a>
+      <a href="#ue8">11. Die eigene Hausregel</a>
       <a href="#fluency">Zum Abschluss. KI Fluency Check</a>
       <a href="#mitnehmen">Mitnehmen und Kontakt</a>
     </nav>
@@ -1448,9 +1454,42 @@ Text: [einfügen]</div>
       </div>
     </div>
 
-    <!-- ÜBUNG 7: WERKSTATT, IHRE ECHTE STELLE -->
-    <div class="exercise" id="ue-werkstatt">
+    <!-- ÜBUNG 7: ZAHLEN MIT QUELLE -->
+    <div class="exercise" id="ue-markt">
       <div class="exercise-number">Übung 7</div>
+      <h3>Zahlen mit Quelle: der Markt für Ihre Stelle</h3>
+      <p class="subtitle">Was Sie hier herausholen, brauchen Sie in zwanzig Minuten in der Werkstatt.</p>
+
+      <div class="context-block">
+        Für diese Übung nehmen Sie <strong>Perplexity</strong>
+        (<a href="https://www.perplexity.ai" target="_blank" rel="noopener">perplexity.ai</a>),
+        nicht Ihren normalen Chat. Der Unterschied ist nicht die Höflichkeit, sondern die
+        Fundstelle: ein Sprachmodell antwortet auf eine Gehaltsfrage flüssig aus dem Gedächtnis,
+        eine Suche mit Modell zeigt Ihnen, woher die Zahl kommt und von wann sie ist.
+      </div>
+
+      <p class="step-label">1. Was zahlt der Markt</p>
+      <div class="prompt-block">Was zahlt der Markt in Wien aktuell für [Rolle], [Stundenausmaß]? Nenn mir eine Spanne, die Quelle für jede Zahl und das Datum der Quelle. Wenn du für Österreich nichts Belastbares findest, sag das, statt eine Zahl aus einem anderen Land zu übernehmen.</div>
+
+      <p class="step-label">2. Wie die anderen dieselbe Stelle ausschreiben</p>
+      <div class="prompt-block">Such mir fünf aktuelle Stellenanzeigen für [Rolle] im Raum Wien. Was versprechen sie, was verlangen sie, und welche drei Dinge kommen in allen fünf vor? Verlink jede Anzeige.</div>
+
+      <div class="context-block">
+        <strong>Klicken Sie eine Quelle wirklich an, bevor Sie die Zahl verwenden.</strong>
+        Ein Link ist kein Beleg, solange ihn niemand geöffnet hat. Prüfen Sie zwei Dinge: steht
+        die Zahl dort wirklich, und von wann ist die Seite.
+      </div>
+
+      <div class="magic-box">
+        <div class="label">Kernsatz</div>
+        Eine Zahl ohne Fundstelle ist keine Information, sondern eine Behauptung mit
+        Nachkommastelle.
+      </div>
+    </div>
+
+    <!-- ÜBUNG 8: WERKSTATT, IHRE ECHTE STELLE -->
+    <div class="exercise" id="ue-werkstatt">
+      <div class="exercise-number">Übung 8</div>
       <h3>Werkstatt: Ihre echte Stelle</h3>
       <p class="subtitle">Der Block, an dem der Tag gemessen wird. Hier entsteht Ihr fertiges Ergebnis.</p>
 
@@ -1498,7 +1537,7 @@ Prüfung: Markier am Ende jede Aussage, die du nicht aus meinen Angaben ableiten
 
     <!-- ÜBUNG 8: BERICHT AUS GESPRÄCHSNOTIZEN -->
     <div class="exercise" id="ue6">
-      <div class="exercise-number">Übung 8</div>
+      <div class="exercise-number">Übung 9</div>
       <h3>Der Bericht aus Gesprächsnotizen</h3>
       <p class="subtitle">Wenn der Bericht länger dauert als vorher, liegt es fast nie am Prompt.</p>
 
@@ -1534,7 +1573,7 @@ Prüfung: Markier jede Aussage, die nicht in meiner Quelle steht. Wenn ein Absch
 
     <!-- ÜBUNG 8b: BERICHTSHELFER -->
     <div class="exercise" id="ue6b">
-      <div class="exercise-number">Übung 8b</div>
+      <div class="exercise-number">Übung 9b</div>
       <h3>Der wiederverwendbare Berichtshelfer</h3>
       <p class="subtitle">Ein Helfer, den Sie am Montag öffnen, statt eines Prompts, den Sie suchen.</p>
 
@@ -1565,7 +1604,7 @@ Prüfung: Markier jede Aussage, die nicht in meiner Quelle steht. Wenn ein Absch
 
     <!-- ÜBUNG 6c: KÜRZEN -->
     <div class="exercise" id="ue6c">
-      <div class="exercise-number">Übung 8c</div>
+      <div class="exercise-number">Übung 9c</div>
       <h3>Kürzen, aber messbar</h3>
       <p class="subtitle">Weiche Korrekturwörter durch prüfbare Vorgaben ersetzen.</p>
 
@@ -1596,7 +1635,7 @@ Text: [einfügen]</div>
 
     <!-- ÜBUNG 7: DAS TRIBUNAL -->
     <div class="exercise" id="ue7">
-      <div class="exercise-number">Übung 9</div>
+      <div class="exercise-number">Übung 10</div>
       <h3>Das Tribunal</h3>
       <p class="subtitle">Statt einer Antwort drei Rollen, die sich widersprechen dürfen.</p>
 
@@ -1672,7 +1711,7 @@ Vorlage: [einfügen, ohne Namen und ohne personenbezogene Daten]</div>
 
     <!-- ÜBUNG 8: DIE EIGENE HAUSREGEL -->
     <div class="exercise" id="ue8">
-      <div class="exercise-number">Übung 10</div>
+      <div class="exercise-number">Übung 11</div>
       <h3>Die eigene Hausregel</h3>
       <p class="subtitle">Ein Satz, der auch in einem halben Jahr noch gilt, wenn das Werkzeug ein anderes ist.</p>
 
@@ -1731,7 +1770,6 @@ Vorlage: [einfügen, ohne Namen und ohne personenbezogene Daten]</div>
         <li>Die Prompts auf dieser Seite bleiben nach dem Kurs erreichbar. Legen Sie sich die
         drei ab, die Sie am Montag brauchen.</li>
         <li>Ihre Hausregel gehört Ihnen, nicht dem Kurs.</li>
-        <li><a href="ressourcen/">Ressourcen und Werkzeuge</a></li>
       </ul>
 
       <div class="todo-box">
