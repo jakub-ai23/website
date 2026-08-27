@@ -1302,15 +1302,16 @@ Text: [einfügen]</div>
     <nav class="sidebar-nav" id="sidebar-nm">
       <div class="nav-section-label">Nachmittag</div>
       <a href="#ue-darfrein">5. Was darf rein</a>
-      <a href="#ue-gesetz">6. Das KI-Gesetz selbst befragen</a>
-      <a href="#ue-markt">7. Zahlen mit Quelle</a>
-      <a href="#ue-werkstatt">8. Werkstatt: Ihre echte Stelle</a>
-      <a href="#ue6">9. Bericht aus Gesprächsnotizen</a>
-      <a href="#ue6b">9b. Berichtshelfer</a>
-      <a href="#ue6c">9c. Kürzen, aber messbar</a>
+      <a href="#ue-projekt">6. Projekt und System-Prompt</a>
+      <a href="#ue-gesetz">7. Das KI-Gesetz selbst befragen</a>
+      <a href="#ue-markt">8. Zahlen mit Quelle</a>
+      <a href="#ue-werkstatt">9. Werkstatt: Ihre echte Stelle</a>
       <a href="#ue7">10. Das Tribunal</a>
       <a href="#mensch">Der Mensch bleibt</a>
       <a href="#ue8">11. Die eigene Hausregel</a>
+      <a href="#ue6">Extra 1. Bericht aus Gesprächsnotizen</a>
+      <a href="#ue6b">Extra 2. Berichtshelfer</a>
+      <a href="#ue6c">Extra 3. Kürzen, aber messbar</a>
       <a href="#fluency">Zum Abschluss. KI Fluency Check</a>
       <a href="#mitnehmen">Mitnehmen und Kontakt</a>
     </nav>
@@ -1325,7 +1326,7 @@ Text: [einfügen]</div>
       <a href="https://form.jotform.com/262384487133361" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 34px; border-radius:8px; font-weight:700; font-size:0.95rem; border:2px solid var(--gold); margin-top:6px;">Feedback Vormittag &rarr;</a>
     </div>
 
-    <!-- ÜBUNG 4: WAS DARF REIN -->
+    <!-- ÜBUNG 5: WAS DARF REIN -->
     <div class="exercise" id="ue-darfrein">
       <div class="exercise-number">Übung 5</div>
       <h3>Was darf rein: die drei Töpfe und die 3-Sekunden-Regel</h3>
@@ -1382,9 +1383,104 @@ Text: [einfügen]</div>
       </div>
     </div>
 
-    <!-- ÜBUNG 5: DAS KI-GESETZ SELBST BEFRAGEN -->
-    <div class="exercise" id="ue-gesetz">
+    <!-- ÜBUNG 6: PROJEKT ANLEGEN UND SYSTEM-PROMPT -->
+    <div class="exercise" id="ue-projekt">
       <div class="exercise-number">Übung 6</div>
+      <h3>Projekt anlegen + System-Prompt schreiben</h3>
+      <p class="subtitle">Machen Sie Ihre KI dauerhaft schlauer: ein Projekt mit eigener Datenbank und festen Regeln. Nehmen Sie Ihre Kontextdokumente vom Vormittag.</p>
+
+      <div class="context-block" style="border-color: rgba(212,160,23,0.35);">
+        <strong>Vorher die Ampel von eben anwenden.</strong> Was Sie hier hochladen, liegt ab
+        dann beim Anbieter. Grün und anonymisiertes Gelb dürfen hinein. Rot nicht, auch nicht
+        "nur zum Testen".
+      </div>
+
+      <p>Ein <strong>Projekt</strong> ist ein eigener Raum, in dem die KI Ihre Dokumente als feste <strong>Datenbank</strong> kennt und sich an Ihre Regeln (den <strong>System-Prompt</strong>) hält. Jede neue Konversation im Projekt startet mit diesem Wissen. Drei Schritte, egal welches Tool: Projekt anlegen, Datenbank hochladen, System-Prompt einfügen.</p>
+
+      <div class="magic-box" style="text-align:left; margin:16px 0;">
+        <div class="label">System-Prompt zum Kopieren</div>
+        <div class="prompt-block" style="margin:0;">Du bist mein KI-Assistent für [Firma / Abteilung / Rolle].
+
+Wissensbasis: Berücksichtige immer meine hochgeladenen Dokumente (Firma, Rolle, Prozesse) als festen Kontext.
+
+Verhalten: Antworte auf Deutsch, in Sie-Form, konkret und knapp (max. 300 Wörter), mit klaren nächsten Schritten. Wenn dir Informationen fehlen, frage nach, bevor du rätst.</div>
+      </div>
+
+      <p style="margin-bottom:6px;">Wählen Sie Ihr Tool:</p>
+
+      <details>
+        <summary>ChatGPT: Projekt anlegen</summary>
+        <div class="collapsible-content">
+          <p class="step-label">1. Projekt anlegen</p>
+          <p>Links in der Seitenleiste auf <strong>"Neues Projekt"</strong> (New Project). Namen vergeben (z.B. "Meine Firma").</p>
+          <p class="step-label">2. Datenbank hochladen</p>
+          <p>Laden Sie im Projekt Ihre <strong>Kontextdokumente vom Vormittag</strong> hoch (Unternehmen, Rolle, Prozess). Das ist die Wissensbasis.</p>
+          <p class="step-label">3. System-Prompt einfügen</p>
+          <p>Öffnen Sie die <strong>Projektanweisungen</strong> und fügen Sie den System-Prompt von oben ein. Passen Sie die [Klammern] an.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Claude: Projekt anlegen</summary>
+        <div class="collapsible-content">
+          <p class="step-label">1. Projekt anlegen</p>
+          <p>In der linken Seitenleiste auf <strong>"Projekte"</strong>, dann "Neues Projekt". Namen vergeben.</p>
+          <p class="step-label">2. Datenbank hochladen</p>
+          <p>Laden Sie Ihre Kontextdokumente in das <strong>Projektwissen</strong> hoch. Das ist Claudes fester Wissensspeicher.</p>
+          <p class="step-label">3. System-Prompt einfügen</p>
+          <p>Unter <strong>"Projektanweisungen"</strong> den System-Prompt von oben einfügen und anpassen.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Gemini: Gem anlegen</summary>
+        <div class="collapsible-content">
+          <p>Bei Gemini heißt das Projekt <strong>"Gem"</strong>: ein eigener, gespeicherter Assistent.</p>
+          <p class="step-label">1. Gem anlegen</p>
+          <p>Links auf <strong>"Gems verwalten"</strong> (Gem-Manager), dann <strong>"Neuer Gem"</strong>. Namen vergeben.</p>
+          <p class="step-label">2. Datenbank hochladen</p>
+          <p>Fügen Sie unter <strong>"Wissen"</strong> Ihre Kontextdokumente als Dateien hinzu.</p>
+          <p class="step-label">3. System-Prompt einfügen</p>
+          <p>In das <strong>Anweisungen</strong>-Feld den System-Prompt von oben einfügen. Speichern.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Microsoft Copilot: erst nachschauen, dann entscheiden</summary>
+        <div class="collapsible-content">
+          <p>Bei Copilot hängt es an Ihrer Lizenz, ob es einen eigenen Raum mit fester
+          Wissensbasis gibt und wie er heißt. Das ändert sich laufend und unterscheidet sich
+          von Haus zu Haus. <strong>Wir schauen im Raum gemeinsam nach, was Ihre Oberfläche
+          hergibt</strong>, statt es aus dem Gedächtnis zu behaupten.</p>
+          <p>Wenn Ihre Lizenz keinen solchen Raum hat, nehmen Sie die Rückfallebene unten. Die
+          funktioniert überall und überlebt jeden Anbieterwechsel.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Rückfallebene: das Projekt als Dokument</summary>
+        <div class="collapsible-content">
+          <p>Wenn Ihr Haus keine Projekte erlaubt oder Ihre Stufe sie nicht hat, bauen Sie
+          dasselbe von Hand. Es ist unbequemer und trotzdem robuster.</p>
+          <p class="step-label">1. Eine Datei anlegen</p>
+          <p>Word, OneNote, Notizen, egal. Oben hinein der System-Prompt, darunter Ihre
+          Kontextdokumente vom Vormittag.</p>
+          <p class="step-label">2. Bei jeder neuen Aufgabe</p>
+          <p>Die Datei öffnen, alles kopieren, als erste Nachricht in den frischen Chat, dann
+          erst die Aufgabe.</p>
+          <p class="step-label">3. Der Vorteil, den niemand erwähnt</p>
+          <p>Diese Datei gehört Ihnen. Sie funktioniert in jeder Gratisstufe, bei jedem
+          Anbieter, und sie verschwindet nicht, wenn eine Funktion hinter eine Bezahlschranke
+          rutscht.</p>
+        </div>
+      </details>
+
+      <p style="color: var(--gold); font-size: 0.85rem; margin-top:14px;">Ab jetzt kennt die KI in diesem Projekt Ihre Firma, Ihre Rolle und Ihren Stil, ohne dass Sie es jedes Mal neu erklären. Testen Sie es sofort mit einer echten Aufgabe.</p>
+    </div>
+
+    <!-- ÜBUNG 7: DAS KI-GESETZ SELBST BEFRAGEN -->
+    <div class="exercise" id="ue-gesetz">
+      <div class="exercise-number">Übung 7</div>
       <h3>Das KI-Gesetz selbst befragen</h3>
       <p class="subtitle">Nicht ich erzähle Ihnen das Gesetz. Sie fragen es, und Sie bekommen die Fundstelle dazu.</p>
 
@@ -1454,9 +1550,9 @@ Text: [einfügen]</div>
       </div>
     </div>
 
-    <!-- ÜBUNG 7: ZAHLEN MIT QUELLE -->
+    <!-- ÜBUNG 8: ZAHLEN MIT QUELLE -->
     <div class="exercise" id="ue-markt">
-      <div class="exercise-number">Übung 7</div>
+      <div class="exercise-number">Übung 8</div>
       <h3>Zahlen mit Quelle: der Markt für Ihre Stelle</h3>
       <p class="subtitle">Was Sie hier herausholen, brauchen Sie in zwanzig Minuten in der Werkstatt.</p>
 
@@ -1487,9 +1583,9 @@ Text: [einfügen]</div>
       </div>
     </div>
 
-    <!-- ÜBUNG 8: WERKSTATT, IHRE ECHTE STELLE -->
+    <!-- ÜBUNG 9: WERKSTATT, IHRE ECHTE STELLE -->
     <div class="exercise" id="ue-werkstatt">
-      <div class="exercise-number">Übung 8</div>
+      <div class="exercise-number">Übung 9</div>
       <h3>Werkstatt: Ihre echte Stelle</h3>
       <p class="subtitle">Der Block, an dem der Tag gemessen wird. Hier entsteht Ihr fertiges Ergebnis.</p>
 
@@ -1535,105 +1631,7 @@ Prüfung: Markier am Ende jede Aussage, die du nicht aus meinen Angaben ableiten
       </div>
     </div>
 
-    <!-- ÜBUNG 8: BERICHT AUS GESPRÄCHSNOTIZEN -->
-    <div class="exercise" id="ue6">
-      <div class="exercise-number">Übung 9</div>
-      <h3>Der Bericht aus Gesprächsnotizen</h3>
-      <p class="subtitle">Wenn der Bericht länger dauert als vorher, liegt es fast nie am Prompt.</p>
-
-      <p class="step-label">Drei Fragen, bevor Sie das Werkzeug öffnen</p>
-      <div class="context-block">
-        Denken Sie an einen Bericht, den Sie regelmäßig schreiben. Ein Gesprächsprotokoll, eine
-        Kandidatenzusammenfassung, ein Vermerk für die Führungskraft. Beantworten Sie zuerst
-        schriftlich, ohne Werkzeug, drei Fragen. <strong>Erstens:</strong> aus welcher Quelle
-        entsteht dieser Bericht heute, und in welcher Form liegt diese Quelle vor?
-        <strong>Zweitens:</strong> welche Abschnitte hat Ihr Bericht, immer, in derselben
-        Reihenfolge? <strong>Drittens:</strong> was steht in diesem Bericht, das nur Sie wissen
-        können, und nie in der Quelle steht? Erst danach öffnen Sie das Werkzeug.
-      </div>
-
-      <div class="prompt-block">Kontext: Ich arbeite in [Rolle] und schreibe regelmäßig [Art des Berichts] für [Empfänger]. Der Bericht entsteht aus [Art der Quelle, zum Beispiel Mitschrift, Aufzeichnung, Stichworte].
-Quelle: [Text einfügen]
-Auftrag: Bring diese Quelle in meine Berichtsstruktur.
-Ausführung: Die Struktur lautet: [Abschnitt 1], [Abschnitt 2], [Abschnitt 3]. Maximal [Zahl] Wörter je Abschnitt. Sachlich, keine Bewertung der Person, keine Empfehlung.
-Prüfung: Markier jede Aussage, die nicht in meiner Quelle steht. Wenn ein Abschnitt in der Quelle nicht belegt ist, schreib dort "keine Angabe" und erfinde nichts.</div>
-
-      <div class="context-block">
-        <strong>Erfolgskriterium:</strong> Sie können Ihre Berichtsstruktur in einem Satz
-        nennen, und im Ergebnis steht mindestens einmal "keine Angabe" statt einer erfundenen
-        Füllzeile.
-      </div>
-
-      <div class="magic-box">
-        <div class="label">Kernsatz</div>
-        Wenn der Bericht länger dauert als vorher, liegt es fast nie am Prompt, sondern daran,
-        in welcher Form die Notiz auf dem Tisch liegt.
-      </div>
-    </div>
-
-    <!-- ÜBUNG 8b: BERICHTSHELFER -->
-    <div class="exercise" id="ue6b">
-      <div class="exercise-number">Übung 9b</div>
-      <h3>Der wiederverwendbare Berichtshelfer</h3>
-      <p class="subtitle">Ein Helfer, den Sie am Montag öffnen, statt eines Prompts, den Sie suchen.</p>
-
-      <div class="context-block">
-        Legen Sie einen Helfer für genau eine Berichtsart an. Geben Sie ihm eine Anweisung, die
-        drei Dinge festlegt: wer er ist, welche Struktur er einhält, und was er niemals tut.
-        Legen Sie zwei alte Berichte dazu, aus denen Sie vorher jeden Namen, jede Firma und
-        jede Zahl entfernt haben, an der jemand erkennbar wäre. Testen Sie ihn einmal.
-      </div>
-
-      <div class="todo-box">
-        <span class="todo-label">Achtung, harte Grenze</span>
-        Die Vorlagen müssen <strong>vor</strong> dem Hochladen anonymisiert sein. Keine echten
-        Kandidatenberichte, auch nicht kurz zum Ausprobieren.
-      </div>
-
-      <p style="margin-bottom:4px;"><strong>Die Anweisung des Helfers:</strong></p>
-      <div class="prompt-block">Du bist mein Berichtshelfer für [Art des Berichts]. Du hältst immer diese Struktur ein: [Abschnitte]. Du schreibst sachlich und ohne Werbung. Du bewertest keine Person und sprichst keine Empfehlung aus, außer ich verlange sie ausdrücklich. Wenn eine Information fehlt, schreib "keine Angabe" und frag am Ende nach, statt sie zu ergänzen. Den Stil nimmst du aus den hinterlegten Vorlagen, nicht aus dem, was üblich klingt.</div>
-
-      <p style="margin-bottom:4px;"><strong>Am Ende der Übung, die Versionierung:</strong></p>
-      <div class="prompt-block">Fass unsere Anweisung in einer Fassung zusammen, die ich in ein Dokument kopieren kann. Setz oben "Version 1" und das heutige Datum. Nenn mir darunter die drei Stellen, an denen ich in vier Wochen vermutlich nachbessern werde.</div>
-
-      <div class="magic-box">
-        <div class="label">Kernsatz</div>
-        Der Prompt ist Ihr Eigentum. Wenn er nur im Chatverlauf steht, gehört er dem Verlauf.
-      </div>
-    </div>
-
-    <!-- ÜBUNG 6c: KÜRZEN -->
-    <div class="exercise" id="ue6c">
-      <div class="exercise-number">Übung 9c</div>
-      <h3>Kürzen, aber messbar</h3>
-      <p class="subtitle">Weiche Korrekturwörter durch prüfbare Vorgaben ersetzen.</p>
-
-      <div class="context-block">
-        Nehmen Sie einen Text, der Ihnen zu lang ist. Schreiben Sie <strong>nicht</strong>
-        "kürzer". Schreiben Sie drei Vorgaben, die man nachmessen kann: eine Länge, ein Format,
-        eine Lesezeit oder eine Zahl an Absätzen. Behalten Sie die lange Fassung. Lassen Sie
-        sich anschließend aus beiden Fassungen eine dritte bauen.
-      </div>
-
-      <div class="prompt-block">Kürz den folgenden Text auf [Zahl] Wörter, höchstens [Zahl] Absätze, Lesezeit unter [Zahl] Minuten. Streich zuerst alles, was auf jeden zweiten Text dieser Art passen würde. Die Fakten bleiben vollständig. Sag mir am Ende, welche zwei Aussagen du gestrichen hast und warum.
-
-Danach: Bau mir eine dritte Fassung, die den Aufhänger der langen Fassung mit der Länge der kurzen verbindet.
-
-Text: [einfügen]</div>
-
-      <div class="context-block">
-        <strong>Die dritte Fassung nicht überspringen.</strong> Der Sprung von lang auf kurz
-        verliert regelmäßig den besten Satz. Das Mischen ist die eigentliche Lehre, nicht das
-        Kürzen.
-      </div>
-
-      <div class="magic-box">
-        <div class="label">Kernsatz</div>
-        "Kürzer" ist ein Gefühl. "Ein Drittel weniger, eine Seite, zwei Minuten" ist ein Auftrag.
-      </div>
-    </div>
-
-    <!-- ÜBUNG 7: DAS TRIBUNAL -->
+    <!-- ÜBUNG 10: DAS TRIBUNAL -->
     <div class="exercise" id="ue7">
       <div class="exercise-number">Übung 10</div>
       <h3>Das Tribunal</h3>
@@ -1709,7 +1707,7 @@ Vorlage: [einfügen, ohne Namen und ohne personenbezogene Daten]</div>
       </div>
     </div>
 
-    <!-- ÜBUNG 8: DIE EIGENE HAUSREGEL -->
+    <!-- ÜBUNG 11: DIE EIGENE HAUSREGEL -->
     <div class="exercise" id="ue8">
       <div class="exercise-number">Übung 11</div>
       <h3>Die eigene Hausregel</h3>
@@ -1737,6 +1735,111 @@ Vorlage: [einfügen, ohne Namen und ohne personenbezogene Daten]</div>
       <div class="magic-box">
         <div class="label">Kernsatz des Tages</div>
         KI unterstützt. Die Entscheidung über einen Menschen bleibt bei einem Menschen.
+      </div>
+    </div>
+
+    <!-- EXTRAS, NUR WENN ZEIT BLEIBT -->
+    <div class="exercise" style="text-align:center; border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.02);">
+      <div class="exercise-number">Ab hier freiwillig</div>
+      <h3>Extras</h3>
+      <p class="subtitle" style="font-style:normal;">Die drei folgenden Blöcke gehören nicht zum Pflichtteil. Wir machen sie, wenn der Tag es hergibt, sonst nehmen Sie sie mit nach Hause.</p>
+    </div>
+
+    <!-- EXTRA 1: BERICHT AUS GESPRÄCHSNOTIZEN -->
+    <div class="exercise" id="ue6">
+      <div class="exercise-number">Extra 1 &middot; wenn Zeit bleibt</div>
+      <h3>Der Bericht aus Gesprächsnotizen</h3>
+      <p class="subtitle">Wenn der Bericht länger dauert als vorher, liegt es fast nie am Prompt.</p>
+
+      <p class="step-label">Drei Fragen, bevor Sie das Werkzeug öffnen</p>
+      <div class="context-block">
+        Denken Sie an einen Bericht, den Sie regelmäßig schreiben. Ein Gesprächsprotokoll, eine
+        Kandidatenzusammenfassung, ein Vermerk für die Führungskraft. Beantworten Sie zuerst
+        schriftlich, ohne Werkzeug, drei Fragen. <strong>Erstens:</strong> aus welcher Quelle
+        entsteht dieser Bericht heute, und in welcher Form liegt diese Quelle vor?
+        <strong>Zweitens:</strong> welche Abschnitte hat Ihr Bericht, immer, in derselben
+        Reihenfolge? <strong>Drittens:</strong> was steht in diesem Bericht, das nur Sie wissen
+        können, und nie in der Quelle steht? Erst danach öffnen Sie das Werkzeug.
+      </div>
+
+      <div class="prompt-block">Kontext: Ich arbeite in [Rolle] und schreibe regelmäßig [Art des Berichts] für [Empfänger]. Der Bericht entsteht aus [Art der Quelle, zum Beispiel Mitschrift, Aufzeichnung, Stichworte].
+Quelle: [Text einfügen]
+Auftrag: Bring diese Quelle in meine Berichtsstruktur.
+Ausführung: Die Struktur lautet: [Abschnitt 1], [Abschnitt 2], [Abschnitt 3]. Maximal [Zahl] Wörter je Abschnitt. Sachlich, keine Bewertung der Person, keine Empfehlung.
+Prüfung: Markier jede Aussage, die nicht in meiner Quelle steht. Wenn ein Abschnitt in der Quelle nicht belegt ist, schreib dort "keine Angabe" und erfinde nichts.</div>
+
+      <div class="context-block">
+        <strong>Erfolgskriterium:</strong> Sie können Ihre Berichtsstruktur in einem Satz
+        nennen, und im Ergebnis steht mindestens einmal "keine Angabe" statt einer erfundenen
+        Füllzeile.
+      </div>
+
+      <div class="magic-box">
+        <div class="label">Kernsatz</div>
+        Wenn der Bericht länger dauert als vorher, liegt es fast nie am Prompt, sondern daran,
+        in welcher Form die Notiz auf dem Tisch liegt.
+      </div>
+    </div>
+
+    <!-- EXTRA 2: BERICHTSHELFER -->
+    <div class="exercise" id="ue6b">
+      <div class="exercise-number">Extra 2 &middot; wenn Zeit bleibt</div>
+      <h3>Der wiederverwendbare Berichtshelfer</h3>
+      <p class="subtitle">Ein Helfer, den Sie am Montag öffnen, statt eines Prompts, den Sie suchen.</p>
+
+      <div class="context-block">
+        Legen Sie einen Helfer für genau eine Berichtsart an. Geben Sie ihm eine Anweisung, die
+        drei Dinge festlegt: wer er ist, welche Struktur er einhält, und was er niemals tut.
+        Legen Sie zwei alte Berichte dazu, aus denen Sie vorher jeden Namen, jede Firma und
+        jede Zahl entfernt haben, an der jemand erkennbar wäre. Testen Sie ihn einmal.
+      </div>
+
+      <div class="todo-box">
+        <span class="todo-label">Achtung, harte Grenze</span>
+        Die Vorlagen müssen <strong>vor</strong> dem Hochladen anonymisiert sein. Keine echten
+        Kandidatenberichte, auch nicht kurz zum Ausprobieren.
+      </div>
+
+      <p style="margin-bottom:4px;"><strong>Die Anweisung des Helfers:</strong></p>
+      <div class="prompt-block">Du bist mein Berichtshelfer für [Art des Berichts]. Du hältst immer diese Struktur ein: [Abschnitte]. Du schreibst sachlich und ohne Werbung. Du bewertest keine Person und sprichst keine Empfehlung aus, außer ich verlange sie ausdrücklich. Wenn eine Information fehlt, schreib "keine Angabe" und frag am Ende nach, statt sie zu ergänzen. Den Stil nimmst du aus den hinterlegten Vorlagen, nicht aus dem, was üblich klingt.</div>
+
+      <p style="margin-bottom:4px;"><strong>Am Ende der Übung, die Versionierung:</strong></p>
+      <div class="prompt-block">Fass unsere Anweisung in einer Fassung zusammen, die ich in ein Dokument kopieren kann. Setz oben "Version 1" und das heutige Datum. Nenn mir darunter die drei Stellen, an denen ich in vier Wochen vermutlich nachbessern werde.</div>
+
+      <div class="magic-box">
+        <div class="label">Kernsatz</div>
+        Der Prompt ist Ihr Eigentum. Wenn er nur im Chatverlauf steht, gehört er dem Verlauf.
+      </div>
+    </div>
+
+    <!-- EXTRA 3: KÜRZEN -->
+    <div class="exercise" id="ue6c">
+      <div class="exercise-number">Extra 3 &middot; wenn Zeit bleibt</div>
+      <h3>Kürzen, aber messbar</h3>
+      <p class="subtitle">Weiche Korrekturwörter durch prüfbare Vorgaben ersetzen.</p>
+
+      <div class="context-block">
+        Nehmen Sie einen Text, der Ihnen zu lang ist. Schreiben Sie <strong>nicht</strong>
+        "kürzer". Schreiben Sie drei Vorgaben, die man nachmessen kann: eine Länge, ein Format,
+        eine Lesezeit oder eine Zahl an Absätzen. Behalten Sie die lange Fassung. Lassen Sie
+        sich anschließend aus beiden Fassungen eine dritte bauen.
+      </div>
+
+      <div class="prompt-block">Kürz den folgenden Text auf [Zahl] Wörter, höchstens [Zahl] Absätze, Lesezeit unter [Zahl] Minuten. Streich zuerst alles, was auf jeden zweiten Text dieser Art passen würde. Die Fakten bleiben vollständig. Sag mir am Ende, welche zwei Aussagen du gestrichen hast und warum.
+
+Danach: Bau mir eine dritte Fassung, die den Aufhänger der langen Fassung mit der Länge der kurzen verbindet.
+
+Text: [einfügen]</div>
+
+      <div class="context-block">
+        <strong>Die dritte Fassung nicht überspringen.</strong> Der Sprung von lang auf kurz
+        verliert regelmäßig den besten Satz. Das Mischen ist die eigentliche Lehre, nicht das
+        Kürzen.
+      </div>
+
+      <div class="magic-box">
+        <div class="label">Kernsatz</div>
+        "Kürzer" ist ein Gefühl. "Ein Drittel weniger, eine Seite, zwei Minuten" ist ein Auftrag.
       </div>
     </div>
 
