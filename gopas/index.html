@@ -159,6 +159,16 @@
   .section-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; }
   .section-head p { margin-top: 0.7rem; font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
 
+  /* ---------- E-learning ---------- */
+  .elearning-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+  @media (max-width: 860px) { .elearning-grid { grid-template-columns: 1fr; } }
+  .elearning-shot-wrap { border-radius: 16px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,160,23,0.18); }
+  .elearning-shot { width: 100%; height: auto; display: block; }
+  .elearning-caption { margin-top: 0.8rem; font-size: 0.82rem; color: var(--muted); }
+  .elearning-list { list-style: none; margin: 1.2rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+  .elearning-list li { font-size: 0.94rem; color: #d8d5cc; padding-left: 1.3rem; position: relative; }
+  .elearning-list li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 700; }
+
   /* ---------- CV ---------- */
   .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   @media (max-width: 800px) { .cv-grid { grid-template-columns: 1fr; } }
@@ -315,6 +325,7 @@
   </a>
   <nav class="site-nav-links" aria-label="Navigace stránky">
     <a href="#trainings">Školení</a>
+    <a href="#elearning">E-learning</a>
     <a href="#cv">Životopis</a>
     <a href="https://jakubpopluhar.com" target="_blank" rel="noopener">Web ↗</a>
     <a class="btn btn-primary site-nav-cta" href="https://cal.eu/jakubpopluhar/uvodni-hovor" target="_blank" rel="noopener">Rezervovat termín →</a>
@@ -589,6 +600,32 @@
           <p>Žádný standardní program z police: obsah, hloubka a nástroj nastavené na to, co vaše firma opravdu potřebuje, bez ohledu na odvětví, vstupní znalosti či téma, od úplného začátku až po pokročilou úroveň pro zkušené týmy.</p>
           <div class="train-meta">Na požádání, přizpůsobené vaší firmě</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="elearning">
+    <div class="container elearning-grid">
+      <div class="elearning-text">
+        <div class="section-head reveal">
+          <div class="eyebrow">Víc než handout</div>
+          <h2>Vlastní e-learning ke každému kurzu.</h2>
+        </div>
+        <p class="reveal">Ke každému školení běží vlastní interaktivní stránka. Není to PDF s poznámkami, ale pracovní prostředí, ve kterém účastníci během kurzu skutečně pracují a do kterého jim přístup zůstává i po něm.</p>
+        <p class="reveal d1">Právě tady je vidět, jak řeším nestejnou vstupní úroveň ve skupině. Každé cvičení má doporučené vstupy A, B a C podle předchozí zkušenosti a pod nimi samostatnou úroveň pro pokročilé. Kdo s AI ještě nepracoval, jde po A až C a stíhá. Kdo už něco umí, pokračuje dál a nenudí se.</p>
+        <ul class="elearning-list reveal d1">
+          <li>Účastníci pracují živě na vlastních úkolech, ne na ukázkových slidech</li>
+          <li>Doporučené vstupy A, B, C plus „Další možnosti (pro pokročilé)"</li>
+          <li>Stránka zůstává online i po kurzu, jako příručka pro vlastní tempo</li>
+          <li>Jazyk i barvy přizpůsobuji zadavateli, pro GOPAS by to bylo v češtině</li>
+        </ul>
+      </div>
+      <div class="elearning-shot-wrap reveal d2">
+        <picture>
+          <source srcset="images/personal/elearning-begleitseite.webp" type="image/webp">
+          <img src="images/personal/elearning-begleitseite.png" alt="Výřez z doprovodné stránky ke školení: cvičení Vybudujte si znalostní bázi pro AI, s doporučenými vstupy A, B, C a samostatnou úrovní pro pokročilé" class="elearning-shot" loading="lazy" width="1520" height="877">
+        </picture>
+        <p class="elearning-caption">Výřez z doprovodné stránky ke školení: jedno cvičení, tři doporučené vstupy podle předchozí zkušenosti, plus vlastní úroveň pro pokročilé. Ukázka je v němčině, jazyk se nastavuje podle zadavatele.</p>
       </div>
     </div>
   </section>
