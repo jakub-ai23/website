@@ -1,0 +1,261 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>KI-Fluency Check, Auswertung Stand Vormittag</title>
+<link rel="icon" href="../favicon.svg"><link rel="icon" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+    :root{--gold:#d4a017;--gold-light:#e8b84a;--gold-dark:#b8890f;--charcoal:#141414;
+          --charcoal-light:#1a1a1a;--charcoal-lighter:#222222;--white:#f5f5f5;--white-muted:#b0b0b0;
+          --green:#5fa85f;--red:#c05a4a;
+          --font-heading:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+          --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--charcoal);color:var(--white);font-family:var(--font-body);
+         line-height:1.6;padding:0 0 80px}
+    .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+    header{border-bottom:1px solid rgba(212,160,23,.3);padding:48px 0 32px;margin-bottom:40px;
+           background:linear-gradient(180deg,rgba(212,160,23,.07),transparent)}
+    .eyebrow{font-family:var(--font-heading);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;
+             color:var(--gold);font-weight:700;margin-bottom:10px}
+    h1{font-family:var(--font-heading);font-size:2.1rem;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+    h2{font-family:var(--font-heading);font-size:1.25rem;font-weight:700;margin:44px 0 16px;
+       padding-bottom:8px;border-bottom:1px solid rgba(212,160,23,.25)}
+    h3{font-family:var(--font-heading);font-size:1rem;font-weight:700}
+    .sub{color:var(--white-muted);font-size:.92rem}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:26px}
+    .stat{background:var(--charcoal-lighter);border:1px solid rgba(212,160,23,.2);border-radius:10px;padding:18px}
+    .stat .num{font-family:var(--font-heading);font-size:1.9rem;font-weight:800;color:var(--gold);line-height:1.1}
+    .stat .lbl{font-size:.75rem;color:var(--white-muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+    .card{background:var(--charcoal-light);border:1px solid rgba(212,160,23,.22);border-radius:12px;padding:22px}
+    .card-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
+    .who{font-family:var(--font-heading);font-size:1.35rem;font-weight:800}
+    .zeit{font-size:.72rem;color:var(--white-muted);letter-spacing:1px}
+    .scorebox{text-align:right;flex-shrink:0}
+    .score{font-family:var(--font-heading);font-size:2.2rem;font-weight:800;color:var(--gold);line-height:1}
+    .score small{font-size:.9rem;color:var(--white-muted);font-weight:600}
+    .badge{display:inline-block;font-family:var(--font-heading);font-size:.68rem;font-weight:700;
+           letter-spacing:1.2px;text-transform:uppercase;padding:4px 10px;border-radius:99px;
+           border:1px solid var(--gold);color:var(--gold);background:rgba(212,160,23,.1);margin-top:6px}
+    .bar{height:8px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden;margin:6px 0 16px}
+    .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light))}
+    ul.qlist{list-style:none;font-size:.85rem}
+    ul.qlist li{padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:9px;align-items:flex-start}
+    ul.qlist li:last-child{border-bottom:none}
+    .ok{color:var(--green);font-weight:700;flex-shrink:0}
+    .no{color:var(--red);font-weight:700;flex-shrink:0}
+    .miss{color:var(--white-muted)}
+    table{width:100%;border-collapse:collapse;font-size:.86rem;margin-top:6px}
+    th,td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top}
+    th{font-family:var(--font-heading);font-size:.7rem;text-transform:uppercase;letter-spacing:1px;
+       color:var(--gold);font-weight:700}
+    td.c,th.c{text-align:center}
+    .tablewrap{overflow-x:auto;border:1px solid rgba(212,160,23,.18);border-radius:10px;
+               background:var(--charcoal-light);padding:4px 8px}
+    .note{border-left:3px solid var(--gold);background:rgba(212,160,23,.06);padding:14px 16px;
+          border-radius:0 8px 8px 0;margin:18px 0;font-size:.88rem;color:var(--white-muted)}
+    .note strong{color:var(--white)}
+    .quote{font-size:.9rem;color:var(--white);background:rgba(255,255,255,.03);
+           border-radius:8px;padding:10px 13px;margin-top:6px}
+    .flabel{font-family:var(--font-heading);font-size:.68rem;text-transform:uppercase;letter-spacing:1px;
+            color:var(--gold);font-weight:700;margin-top:14px}
+    footer{margin-top:56px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);
+           color:var(--white-muted);font-size:.78rem}
+    @media(max-width:640px){h1{font-size:1.6rem}.wrap{padding:0 16px}}
+    </style></head><body>
+<header><div class="wrap">
+<div class="eyebrow">HR-Praxis mit KI &middot; ARS 31.08.2026</div>
+<h1>KI-Fluency Check, die Auswertung</h1>
+<p class="sub">Stand Vormittag. 3 Personen haben abgeschickt. 11 wertbare Fragen, die Frage nach der System-Prompt-Erfahrung zählt nicht mit.</p>
+<div class="stats">
+<div class="stat"><div class="num">3</div><div class="lbl">Teilnehmer</div></div>
+<div class="stat"><div class="num">8.0<small style="font-size:1rem;color:var(--white-muted)">/11</small></div><div class="lbl">Schnitt</div></div>
+<div class="stat"><div class="num">10</div><div class="lbl">Bester Score</div></div>
+<div class="stat"><div class="num">0/3</div><div class="lbl">Schwächste Frage</div></div>
+</div></div></header>
+<div class="wrap">
+<h2>Score je Person</h2>
+<div class="cards">
+<div class="card"><div class="card-top"><div>
+<div class="who">Angelika</div>
+<div class="zeit">abgeschickt 09:32 Uhr</div>
+<div class="badge">KI-Souverän</div>
+</div><div class="scorebox">
+<div class="score">10<small>/11</small></div>
+</div></div>
+<div class="bar"><span style="width:91%"></span></div>
+<ul class="qlist">
+<li><span class="ok">&#10003;</span><span>Was ist ein KI-Assistent?</span></li>
+<li><span class="ok">&#10003;</span><span>Was ist ein KI-Agent?</span></li>
+<li><span class="ok">&#10003;</span><span>Kernunterschied Assistent und Agent</span></li>
+<li><span class="ok">&#10003;</span><span>Sycophancy abstellen</span></li>
+<li><span class="ok">&#10003;</span><span>Wann wird die Antwort präzise</span></li>
+<li><span class="ok">&#10003;</span><span>Wann Denk-Modell einschalten</span></li>
+<li><span class="no">&#10007;</span><span>Haiku, Sonnet, Opus <span class="miss">(weiß es nicht)</span></span></li>
+<li><span class="ok">&#10003;</span><span>Dauerhaft aus eigenen Dokumenten</span></li>
+<li><span class="ok">&#10003;</span><span>Rechte für einen Agenten</span></li>
+<li><span class="ok">&#10003;</span><span>Personenbezogene Daten ins Tool</span></li>
+<li><span class="ok">&#10003;</span><span>EU AI Act, Bewerbungen vorsortieren</span></li>
+</ul></div>
+<div class="card"><div class="card-top"><div>
+<div class="who">Claudia</div>
+<div class="zeit">abgeschickt 09:34 Uhr</div>
+<div class="badge">KI-Souverän</div>
+</div><div class="scorebox">
+<div class="score">10<small>/11</small></div>
+</div></div>
+<div class="bar"><span style="width:91%"></span></div>
+<ul class="qlist">
+<li><span class="ok">&#10003;</span><span>Was ist ein KI-Assistent?</span></li>
+<li><span class="ok">&#10003;</span><span>Was ist ein KI-Agent?</span></li>
+<li><span class="ok">&#10003;</span><span>Kernunterschied Assistent und Agent</span></li>
+<li><span class="ok">&#10003;</span><span>Sycophancy abstellen</span></li>
+<li><span class="ok">&#10003;</span><span>Wann wird die Antwort präzise</span></li>
+<li><span class="ok">&#10003;</span><span>Wann Denk-Modell einschalten</span></li>
+<li><span class="no">&#10007;</span><span>Haiku, Sonnet, Opus <span class="miss">(weiß es nicht)</span></span></li>
+<li><span class="ok">&#10003;</span><span>Dauerhaft aus eigenen Dokumenten</span></li>
+<li><span class="ok">&#10003;</span><span>Rechte für einen Agenten</span></li>
+<li><span class="ok">&#10003;</span><span>Personenbezogene Daten ins Tool</span></li>
+<li><span class="ok">&#10003;</span><span>EU AI Act, Bewerbungen vorsortieren</span></li>
+</ul></div>
+<div class="card"><div class="card-top"><div>
+<div class="who">Leila</div>
+<div class="zeit">abgeschickt 09:30 Uhr</div>
+<div class="badge">KI-Neugierig</div>
+</div><div class="scorebox">
+<div class="score">4<small>/11</small></div>
+</div></div>
+<div class="bar"><span style="width:36%"></span></div>
+<ul class="qlist">
+<li><span class="ok">&#10003;</span><span>Was ist ein KI-Assistent?</span></li>
+<li><span class="ok">&#10003;</span><span>Was ist ein KI-Agent?</span></li>
+<li><span class="ok">&#10003;</span><span>Kernunterschied Assistent und Agent</span></li>
+<li><span class="no">&#10007;</span><span>Sycophancy abstellen <span class="miss">(weiß es nicht)</span></span></li>
+<li><span class="no">&#10007;</span><span>Wann wird die Antwort präzise <span class="miss">(weiß es nicht)</span></span></li>
+<li><span class="no">&#10007;</span><span>Wann Denk-Modell einschalten <span class="miss">(weiß es nicht)</span></span></li>
+<li><span class="no">&#10007;</span><span>Haiku, Sonnet, Opus <span class="miss">(weiß es nicht)</span></span></li>
+<li><span class="no">&#10007;</span><span>Dauerhaft aus eigenen Dokumenten <span class="miss">(weiß es nicht)</span></span></li>
+<li><span class="no">&#10007;</span><span>Rechte für einen Agenten <span class="miss">(andere Antwort)</span></span></li>
+<li><span class="ok">&#10003;</span><span>Personenbezogene Daten ins Tool</span></li>
+<li><span class="no">&#10007;</span><span>EU AI Act, Bewerbungen vorsortieren <span class="miss">(weiß es nicht)</span></span></li>
+</ul></div>
+</div>
+<div class="note">Absichtlich steht hier nur, <strong>welche</strong> Frage sitzt und welche nicht, nicht warum. Die Begründung erarbeiten die Teilnehmer selbst, das ist der Zweck des Checks.</div>
+<h2>Frage für Frage</h2>
+<div class="tablewrap"><table><thead><tr>
+<th>Frage</th><th>Runde</th>
+<th class="c">Angelika</th>
+<th class="c">Claudia</th>
+<th class="c">Leila</th>
+<th class="c">Treffer</th></tr></thead><tbody>
+<tr><td>Haiku, Sonnet, Opus</td><td class="miss">Runde 3</td>
+<td class="c"><span class="no">&#10007;</span></td>
+<td class="c"><span class="no">&#10007;</span></td>
+<td class="c"><span class="no">&#10007;</span></td>
+<td class="c"><strong>0/3</strong></td></tr>
+<tr><td>Sycophancy abstellen</td><td class="miss">Runde 2</td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="no">&#10007;</span></td>
+<td class="c"><strong>2/3</strong></td></tr>
+<tr><td>Wann wird die Antwort präzise</td><td class="miss">Runde 2</td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="no">&#10007;</span></td>
+<td class="c"><strong>2/3</strong></td></tr>
+<tr><td>Wann Denk-Modell einschalten</td><td class="miss">Runde 3</td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="no">&#10007;</span></td>
+<td class="c"><strong>2/3</strong></td></tr>
+<tr><td>Dauerhaft aus eigenen Dokumenten</td><td class="miss">Runde 3</td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="no">&#10007;</span></td>
+<td class="c"><strong>2/3</strong></td></tr>
+<tr><td>Rechte für einen Agenten</td><td class="miss">Runde 4</td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="no">&#10007;</span></td>
+<td class="c"><strong>2/3</strong></td></tr>
+<tr><td>EU AI Act, Bewerbungen vorsortieren</td><td class="miss">Runde 4</td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="no">&#10007;</span></td>
+<td class="c"><strong>2/3</strong></td></tr>
+<tr><td>Was ist ein KI-Assistent?</td><td class="miss">Runde 1</td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><strong>3/3</strong></td></tr>
+<tr><td>Was ist ein KI-Agent?</td><td class="miss">Runde 1</td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><strong>3/3</strong></td></tr>
+<tr><td>Kernunterschied Assistent und Agent</td><td class="miss">Runde 1</td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><strong>3/3</strong></td></tr>
+<tr><td>Personenbezogene Daten ins Tool</td><td class="miss">Runde 4</td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><span class="ok">&#10003;</span></td>
+<td class="c"><strong>3/3</strong></td></tr>
+</tbody></table></div>
+<div class="note">Sortiert nach Schwierigkeit, oben steht, was im Raum am wenigsten sitzt. Das ist die Liste, die den Nachmittag steuert.</div>
+<h2>Was die Teilnehmer eingetragen haben</h2>
+<div class="cards">
+<div class="card">
+<div class="who" style="font-size:1.15rem;margin-bottom:4px">Angelika</div>
+<div class="flabel">Schon einmal einen System-Prompt gebaut?</div>
+<div class="quote">Ich habe es einmal kurz ausprobiert</div>
+<div class="flabel">Wie oft nutzen Sie KI pro Woche?</div>
+<div class="quote">täglich</div>
+<div class="flabel">Welche KI-Tools haben Sie bereits verwendet?</div>
+<div class="quote">ChatGPT</div>
+<div class="flabel">In welchen Bereichen Ihrer Arbeit möchten Sie KI gerne einsetzen?</div>
+<div class="quote">Recruiting</div>
+<div class="flabel">Was würden Sie gerne automatisieren?</div>
+<div class="quote">Agenten anlegen</div>
+<div class="flabel">Was sind die Hauptaufgaben Ihres Arbeitsalltags?</div>
+<div class="quote">Organisationsentwicklung / Recruiting</div>
+</div>
+<div class="card">
+<div class="who" style="font-size:1.15rem;margin-bottom:4px">Claudia</div>
+<div class="flabel">Schon einmal einen System-Prompt gebaut?</div>
+<div class="quote">Ich habe es einmal kurz ausprobiert</div>
+<div class="flabel">Wie oft nutzen Sie KI pro Woche?</div>
+<div class="quote">3–4-mal</div>
+<div class="flabel">Welche KI-Tools haben Sie bereits verwendet?</div>
+<div class="quote">Andere; ChatGPT</div>
+<div class="flabel">In welchen Bereichen Ihrer Arbeit möchten Sie KI gerne einsetzen?</div>
+<div class="quote">Generell im HR-Bereich, wo möglich.</div>
+<div class="flabel">Was würden Sie gerne automatisieren?</div>
+<div class="quote">Bewerbungen vorselektieren; Berichtslegung</div>
+<div class="flabel">Was sind die Hauptaufgaben Ihres Arbeitsalltags?</div>
+<div class="quote">Unternehmenskonzepte, Abarbeiten von Emails, Bewerbungen, unternehmensweite Qualifizierungen usw.</div>
+</div>
+<div class="card">
+<div class="who" style="font-size:1.15rem;margin-bottom:4px">Leila</div>
+<div class="flabel">Schon einmal einen System-Prompt gebaut?</div>
+<div class="quote">Nein, das habe ich noch nie gemacht</div>
+<div class="flabel">Wie oft nutzen Sie KI pro Woche?</div>
+<div class="quote">nie</div>
+<div class="flabel">Welche KI-Tools haben Sie bereits verwendet?</div>
+<div class="quote">ChatGPT</div>
+<div class="flabel">In welchen Bereichen Ihrer Arbeit möchten Sie KI gerne einsetzen?</div>
+<div class="quote">HR</div>
+<div class="flabel">Was würden Sie gerne automatisieren?</div>
+<div class="quote">HR Prozesse</div>
+<div class="flabel">Was sind die Hauptaufgaben Ihres Arbeitsalltags?</div>
+<div class="quote">HR</div>
+</div>
+</div>
+<footer>
+Auswertung erzeugt am 31.08.2026. Antwortschlüssel: 11 wertbare Fragen. Bänder: 0 bis 6 KI-Neugierig, 7 bis 9 KI-Anwender, 10 bis 11 KI-Souverän. Zeiten in Wiener Zeit, aus dem Jotform-Zeitstempel umgerechnet. Gematcht wird gegen den Antworttext, weil das Formular die Optionen mischt.
+</footer></div></body></html>
