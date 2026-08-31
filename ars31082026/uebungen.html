@@ -735,6 +735,80 @@
       .todo-box { padding: 12px 14px; }
     }
 
+    /* --- Workflow vs. KI, Nachtrag 31.08. aus der Vormittagsfrage --- */
+    .wf-kette {
+      display: flex; align-items: stretch; gap: 8px; margin: 4px 0 14px; flex-wrap: nowrap;
+    }
+    .wf-step {
+      flex: 1; background: var(--charcoal-lighter);
+      border: 1px solid rgba(212,160,23,0.18); border-top: 3px solid var(--gold);
+      border-radius: 8px; padding: 12px 13px;
+    }
+    .wf-step .lbl {
+      font-family: var(--font-heading); font-size: 0.6rem; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--white-muted); margin-bottom: 4px;
+    }
+    .wf-step .val { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
+    .wf-wait {
+      flex: 0.8; border: 1px dashed rgba(255,255,255,0.25); border-radius: 8px;
+      padding: 12px 13px; display: flex; align-items: center;
+      color: var(--white-muted); font-size: 0.9rem; font-weight: 600; line-height: 1.3;
+    }
+    .wf-cond {
+      flex: 1.4; background: var(--charcoal-lighter); border: 2px solid var(--gold);
+      border-radius: 8px; padding: 12px 13px;
+    }
+    .wf-cond .lbl {
+      font-family: var(--font-heading); font-size: 0.6rem; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 4px;
+    }
+    .wf-cond .val { font-size: 0.85rem; line-height: 1.5; }
+    .wf-arrow {
+      display: flex; align-items: center; color: var(--gold);
+      font-size: 1.1rem; font-weight: 700; flex-shrink: 0;
+    }
+    .wf-ki { display: flex; gap: 10px; margin: 4px 0 6px; }
+    .wf-ki-card {
+      flex: 1; background: rgba(212,160,23,0.07); border: 1px solid rgba(212,160,23,0.45);
+      border-radius: 8px; padding: 13px 14px;
+    }
+    .wf-ki-card .lbl {
+      font-family: var(--font-heading); font-size: 0.6rem; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 5px;
+    }
+    .wf-ki-card .val { font-size: 0.88rem; line-height: 1.4; }
+    .wf-merksatz {
+      border-left: 3px solid var(--gold); background: rgba(212,160,23,0.05);
+      padding: 12px 15px; border-radius: 0 8px 8px 0; margin: 16px 0 0;
+      font-size: 0.92rem; line-height: 1.5;
+    }
+    .det-grid { display: flex; gap: 16px; margin: 6px 0 0; }
+    .det-card { flex: 1; border-radius: 10px; padding: 18px 18px; }
+    .det-card.a { background: var(--charcoal-lighter); border: 1px solid rgba(255,255,255,0.1); border-top: 4px solid var(--white-muted); }
+    .det-card.b { background: rgba(212,160,23,0.07); border: 1px solid rgba(212,160,23,0.45); border-top: 4px solid var(--gold); }
+    .det-card h4 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; margin: 0; }
+    .det-card .kind {
+      font-family: var(--font-heading); font-size: 0.62rem; letter-spacing: 1.5px;
+      text-transform: uppercase; margin: 3px 0 14px;
+    }
+    .det-card.a .kind { color: var(--white-muted); }
+    .det-card.b .kind { color: var(--gold); }
+    .det-card .eingabe { font-size: 0.82rem; color: var(--white-muted); margin-bottom: 8px; }
+    .det-out { display: flex; flex-direction: column; gap: 7px; }
+    .det-out div {
+      background: rgba(0,0,0,0.28); border-radius: 6px; padding: 9px 12px; font-size: 0.86rem;
+    }
+    .det-card.a .det-out div { border: 1px solid rgba(255,255,255,0.12); }
+    .det-card.b .det-out div { border: 1px solid rgba(212,160,23,0.4); }
+    .det-card .fazit { font-size: 0.86rem; line-height: 1.45; margin: 14px 0 0; color: var(--white-muted); }
+    .det-card .fazit strong { color: var(--white); }
+    @media (max-width: 760px) {
+      .wf-kette { flex-direction: column; }
+      .wf-arrow { justify-content: center; transform: rotate(90deg); }
+      .wf-ki { flex-direction: column; }
+      .det-grid { flex-direction: column; }
+    }
+
   </style>
 </head>
 <body>
@@ -771,6 +845,7 @@
       <a href="#ue1">1. Prompten: Personalverrechnung</a>
       <a href="#ue2">2. CITE(R): Jobbeschreibung</a>
       <a href="#ue3">3. Ihre KI-Wissensbasis</a>
+      <a href="#workflow-ki">Workflow und KI</a>
       <a href="#folien-vm">Folien zum Download</a>
     </nav>
 
@@ -1240,6 +1315,93 @@ Text: [einfügen]</div>
       <p style="margin-top: 16px; color: var(--gold); font-size: 0.85rem;"><strong>Wichtig: Speichern Sie Ihre Dokumente!</strong> Wir verwenden sie gleich im nächsten Schritt, wenn wir Projekte anlegen.</p>
     </div>
 
+
+    <!-- WORKFLOW VS. KI, Nachtrag aus der Vormittagsfrage -->
+    <div class="exercise" id="workflow-ki">
+      <div class="exercise-number">Nachtrag</div>
+      <h3>Workflow und KI sind nicht dasselbe</h3>
+      <p class="subtitle">Die Frage aus der Vormittagspause, zum Nachlesen.</p>
+
+      <p class="step-label">Ein Workflow, wie ihn HubSpot, Brevo oder Mailchimp bauen</p>
+      <p>Jeder Schritt ist vorher festgelegt. Nichts davon denkt sich etwas aus.</p>
+
+      <div class="wf-kette">
+        <div class="wf-step"><div class="lbl">Schritt 1</div><div class="val">Anmeldung im Formular</div></div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step"><div class="lbl">Schritt 2</div><div class="val">Bestätigungsmail</div></div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-wait">3 Tage warten</div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-step"><div class="lbl">Schritt 3</div><div class="val">Mail 1 geht raus</div></div>
+        <div class="wf-arrow">&rarr;</div>
+        <div class="wf-cond">
+          <div class="lbl">Bedingung</div>
+          <div class="val">Mail geöffnet?<br><strong>ja</strong> &rarr; Angebot<br><strong>nein</strong> &rarr; Erinnerung</div>
+        </div>
+      </div>
+
+      <p><strong>Das ist der Workflow.</strong> Er entscheidet, <strong>wann</strong> etwas passiert und
+      <strong>in welcher Reihenfolge</strong>. Immer gleich, jedes Mal.</p>
+
+      <p class="step-label">Und hier hilft die KI</p>
+
+      <div class="wf-ki">
+        <div class="wf-ki-card">
+          <div class="lbl">Im Schritt 3</div>
+          <div class="val">schreibt den <strong>Entwurf</strong> für Mail 1, in Ihrem Ton</div>
+        </div>
+        <div class="wf-ki-card">
+          <div class="lbl">An der Bedingung</div>
+          <div class="val"><strong>liest</strong> die Antwort und schlägt vor, wohin sie gehört</div>
+        </div>
+        <div class="wf-ki-card">
+          <div class="lbl">Am Ende</div>
+          <div class="val"><strong>fasst zusammen</strong>, was 200 Leute geantwortet haben</div>
+        </div>
+      </div>
+
+      <div class="wf-merksatz">Die KI ersetzt den Workflow nicht. Sie sitzt <strong>in</strong> einzelnen
+      Schritten und füllt sie. Der Workflow bleibt die Schiene.</div>
+
+      <p class="step-label" style="margin-top:26px">Warum das so ist: deterministisch und nicht deterministisch</p>
+      <p>Derselbe Knopf, dreimal gedrückt. Das ist der ganze Unterschied.</p>
+
+      <div class="det-grid">
+        <div class="det-card a">
+          <h4>Der Workflow</h4>
+          <div class="kind">deterministisch</div>
+          <div class="eingabe">Dieselbe Eingabe &rarr;</div>
+          <div class="det-out">
+            <div>Mail 1, Wortlaut A</div>
+            <div>Mail 1, Wortlaut A</div>
+            <div>Mail 1, Wortlaut A</div>
+          </div>
+          <p class="fazit">Jedes Mal identisch. <strong>Testbar, protokollierbar, wiederholbar.</strong>
+          Wenn etwas kaputtgeht, geht es laut kaputt.</p>
+        </div>
+        <div class="det-card b">
+          <h4>Das Sprachmodell</h4>
+          <div class="kind">nicht deterministisch</div>
+          <div class="eingabe">Dieselbe Eingabe &rarr;</div>
+          <div class="det-out">
+            <div>Entwurf A</div>
+            <div>Entwurf B, anderer Aufbau</div>
+            <div>Entwurf C, anderer Ton</div>
+          </div>
+          <p class="fazit">Jedes Mal anders. <strong>Nicht wiederholbar, schwer zu testen.</strong>
+          Wenn etwas kaputtgeht, geht es leise kaputt.</p>
+        </div>
+      </div>
+
+      <div class="wf-merksatz">Deshalb kommt das Sprachmodell <strong>in</strong> den Workflow und nicht
+      <strong>an die Stelle</strong> des Workflows. Und deshalb steht ein Mensch dort, wo eine
+      Entscheidung fällt.</div>
+
+      <p style="margin-top:16px; font-size:0.85rem; color:var(--white-muted);">Für Ihren Alltag: das
+      Bewerbermanagementsystem ist der Workflow. Eingang, Eingangsbestätigung, Frist, Erinnerung an
+      die Fachabteilung, Absage. Feste Schritte. Die KI schreibt darin den Text und liest Freitext.
+      Sie verschiebt keine Frist und trifft keine Entscheidung.</p>
+    </div>
 
     <!-- FOLIEN DOWNLOAD VORMITTAG -->
     <div class="exercise" id="folien-vm" style="text-align:center; border-color: rgba(212,160,23,0.45); background: rgba(212,160,23,0.05);">
