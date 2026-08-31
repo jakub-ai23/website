@@ -77,6 +77,54 @@
     }
 
     /* ========== HERO ========== */
+    .qr-block {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      background: var(--charcoal-lighter);
+      border: 1px solid rgba(212, 160, 23, 0.28);
+      border-radius: 14px;
+      padding: 26px 30px;
+      margin: 34px 0 0;
+    }
+    .qr-panel {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 12px;
+      line-height: 0;
+      flex-shrink: 0;
+    }
+    .qr-panel img { display: block; width: 200px; height: 200px; }
+    .qr-eyebrow {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .qr-head {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0 0 10px;
+      letter-spacing: -0.3px;
+    }
+    .qr-text p { color: var(--white-muted); margin: 0 0 12px; font-size: 0.92rem; }
+    .qr-link {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      word-break: break-all;
+    }
+    @media (max-width: 640px) {
+      .qr-block { flex-direction: column; text-align: center; gap: 20px; padding: 22px 18px; }
+      .qr-panel img { width: 170px; height: 170px; }
+      .qr-link { word-break: break-all; }
+    }
+
     .hero {
       text-align: center;
     }
@@ -352,6 +400,20 @@
       <div class="badge">ARS Training &middot; 31.08.2026</div>
       <h1>HR-Praxis mit KI</h1>
       <p>Ihr Arbeitsblatt für heute</p>
+    </div>
+
+    <!-- QR: DIREKT ZU DEN ÜBUNGEN -->
+    <div class="qr-block">
+      <div class="qr-panel">
+        <img src="qr-uebungen.png" alt="QR-Code zu den Übungen und Prompts" width="200" height="200">
+      </div>
+      <div class="qr-text">
+        <div class="qr-eyebrow">Jetzt scannen</div>
+        <h2 class="qr-head">Direkt zu den Übungen</h2>
+        <p>Kamera aufs Bild halten, dann haben Sie alle Prompts des Tages am eigenen Gerät.
+        Ohne Anmeldung, ohne Installation.</p>
+        <a class="qr-link" href="uebungen.html">jakubpopluhar.com/ars31082026/uebungen.html</a>
+      </div>
     </div>
 
     <div class="divider"></div>
