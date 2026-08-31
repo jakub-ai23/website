@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do AI agents make mistakes? The two kinds and how to tell them apart</title>
+<meta name="description" content="In the break at my seminars I am often asked if my AI agents make mistakes. My answer: yes and no. Two kinds, and only one of them belongs to the agents.">
+<link rel="canonical" href="https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/">
+<meta property="og:title" content="Do my AI agents make mistakes? Yes and no">
+<meta property="og:description" content="In the break at my seminars I am often asked if my AI agents make mistakes. My answer: yes and no. Two kinds, and only one of them belongs to the agents.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/">
+<meta property="og:image" content="https://jakubpopluhar.com/images/blog/social/machen-ki-agenten-fehler.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/">
+<link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/">
+<link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Do my AI agents make mistakes? Yes and no",
+  "description": "In the break at my seminars I am often asked if my AI agents make mistakes. My answer: yes and no. Two kinds, and only one of them belongs to the agents.",
+  "datePublished": "2026-08-21",
+  "dateModified": "2026-08-21",
+  "image": "https://jakubpopluhar.com/images/blog/machen-ki-agenten-fehler.webp",
+  "author": {
+    "@type": "Person",
+    "name": "Jakub Popluhar",
+    "jobTitle": "Business Lead bei Hill Digital & KI-Trainer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Hill Digital",
+      "url": "https://hill-digital.at"
+    },
+    "url": "https://jakubpopluhar.com/",
+    "image": "https://jakubpopluhar.com/images/profile/headshot.png",
+    "sameAs": [
+      "https://www.linkedin.com/in/jakubpopluhar/",
+      "https://mindworx.net/team/jakub-popluhar/",
+      "https://ars.at/referenten/jakub-popluhar/"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hill Digital",
+    "url": "https://hill-digital.at"
+  },
+  "mainEntityOfPage": "https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/",
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Blog",
+      "item": "https://jakubpopluhar.com/en/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "From Practice",
+      "item": "https://jakubpopluhar.com/en/blog/from-practice/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Do my AI agents make mistakes? Yes and no",
+      "item": "https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="nav">
+    <div class="container">
+      <a href="/en/" class="nav-logo"><svg class="logo-svg-nav" viewBox="0 0 380 125" height="46" aria-label="Jakub Popluhar"><defs><linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#bf953f"/><stop offset="18%" stop-color="#fcf6ba"/><stop offset="40%" stop-color="#b38728"/><stop offset="65%" stop-color="#fbf5b7"/><stop offset="85%" stop-color="#daa520"/><stop offset="100%" stop-color="#aa771c"/></linearGradient><filter id="goldGlow"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/></filter></defs><text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text><text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text></svg></a>
+      <div class="nav-right">
+        <ul class="nav-links" id="blogNavLinks">
+          <li><a href="/en/#about">About</a></li>
+          <li><a href="/en/#services">Services</a></li>
+          <li><a href="/en/#proof">Results</a></li>
+          <li><a href="/en/blog/" class="active">Blog</a></li>
+          <li><a href="/en/#contact" class="nav-cta">Book a session</a></li>
+        </ul>
+        <div class="nav-lang" aria-label="Sprache">
+          <a href="/blog/machen-ki-agenten-fehler/" class="">DE</a>
+          <span class="nav-lang-sep">/</span>
+          <a href="/en/blog/" class="active">EN</a>
+        </div>
+        <button class="nav-toggle" id="blogNavToggle" aria-label="Menu" aria-expanded="false" aria-controls="blogNavLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    var t=document.getElementById('blogNavToggle'),l=document.getElementById('blogNavLinks');
+    if(!t||!l)return;
+    t.addEventListener('click',function(){
+      var open=l.classList.toggle('open');
+      t.setAttribute('aria-expanded',open?'true':'false');
+    });
+    l.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){l.classList.remove('open');t.setAttribute('aria-expanded','false');});
+    });
+  })();
+  </script>
+<main>
+<article>
+    <header class="article-head">
+      <div class="wrap">
+        <div class="cat-eyebrow"><a href="/en/blog/from-practice/" style="color:#d4a017">From Practice</a></div>
+        <h1>Do my AI agents make mistakes? Yes and no</h1>
+        <p class="lede">One kind of mistake looks like a mistake. The other looks like success, and that is why it is the expensive one.</p>
+        <div class="byline"><img class="byline-img" src="/images/profile/headshot.png" alt="Jakub Popluhar" width="480" height="480" decoding="async"><div class="byline-text"><span class="byline-name">Jakub Popluhar</span><span class="byline-meta">Aug 21, 2026 &middot; 4 min read</span></div></div>
+        <div class="share-row">
+      <span class="share-label">Share:</span>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fdo-ai-agents-make-mistakes%2F" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a class="share-btn" href="mailto:?subject=Do%20my%20AI%20agents%20make%20mistakes%3F%20Yes%20and%20no&body=Do%20my%20AI%20agents%20make%20mistakes%3F%20Yes%20and%20no%20https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fdo-ai-agents-make-mistakes%2F" aria-label="Email">Email</a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fdo-ai-agents-make-mistakes%2F&text=Do%20my%20AI%20agents%20make%20mistakes%3F%20Yes%20and%20no" target="_blank" rel="noopener" aria-label="X">X</a>
+      <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fdo-ai-agents-make-mistakes%2F" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      <button class="share-btn copy" data-url="https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/" data-done="Copied ✓">Copy link</button>
+    </div>
+      </div>
+    </header>
+    <div class="wrap">
+      <figure class="article-hero-fig"><img class="article-hero" src="/images/blog/machen-ki-agenten-fehler.webp" alt="A blue cartoon robot typing on a laptop with a calendar on screen, its free hand raised as if to ask a question." width="1600" height="800" decoding="async" fetchpriority="high"><figcaption class="article-hero-caption">It did exactly what the instruction said. Image generated with AI.</figcaption></figure>
+      <div class="article-body">
+<p>The question almost always comes in the break, never in the seminar room.</p>
+<p>In the room, people ask about tools. Which software, which version, what it costs. In the break, cup in hand, they ask about something else.</p>
+<p>That day, someone asked:</p>
+<p>"Your AI agents, the ones that work for you. Do they make mistakes?"</p>
+<h2>Do my AI agents make mistakes?</h2>
+<p>"Yes," I said. "And no."</p>
+<p>There are two kinds of mistake, and only one of them belongs to the agents. The first happens because the agent is missing context that a person inside the company would have automatically. The second happens because my instruction did not say what I meant. The first kind is obvious straight away. The second looks like success.</p>
+<h2>Which mistakes do the agents make themselves?</h2>
+<p>An agent only knows what is in its field of view.</p>
+<p>It sees the file I hand it. It doesn't see the conversation I had yesterday, or the reason something is set up one way and not another. It is missing the context a colleague picks up automatically after two years inside the company. I described how far that goes when <a href="/en/blog/ai-agents-without-memory/">my agents had no memory</a>.</p>
+<p>These mistakes are annoying, but they are easy to spot. Something comes back that doesn't fit, and I notice straight away. I add the missing context, and the second attempt is right.</p>
+<h2>And which mistakes are mine?</h2>
+<p>The other kind doesn't look like a mistake. It looks like success.</p>
+<p>Recently I wanted a particular seminar to appear on my home page. I told my website agent, and it did it. It wrote to tell me how it had done it.</p>
+<p>Half an hour later, a different seminar was missing from the page. My October course at <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/chatgpt-und-kuenstliche-intelligenz-in-der-praxis">tecTrain</a> (page in German), a full day in Vienna. Nobody had deleted it. It was still in the list, in the right place, with date, location and booking link.</p>
+<p>It just wasn't visible any more.</p>
+<p>What I asked for had a side effect I had not thought about. The agent did not cause it. It carried it out, cleanly and quickly and without a moment's hesitation.</p>
+<p>An instruction to a machine is not a command with exactly one meaning. It is more like <a href="/en/blog/a-prompt-is-a-lasso/">a lasso</a>: it catches everything within its reach, including the things I had not thought about.</p>
+<h2>Why is the second kind the expensive one?</h2>
+<p>The first kind announces itself. Something looks wrong, so I go and look.</p>
+<p>The second kind never announces itself. Everything looks right, because everything was carried out correctly. The only way to notice it is to check somewhere you have no reason to check.</p>
+<p>A colleague carrying out my instruction is a safeguard at this point. Not because they are cleverer, but because they sit in the same room and have the same list in front of them. They say: "Hang on, that drops the October date, is that what you want?"</p>
+<p>You stop hearing that sentence the moment execution runs cleanly.</p>
+<h2>How I fixed it</h2>
+<p>I didn't simply put it back. That would have looked fine for a day and left the cause in place.</p>
+<p>Instead I got rid of the point where I could choose anything at all. Today the date decides which events come first, and nobody else. That is less flexible. It is also less wrong.</p>
+<h2>The question I have handed back ever since</h2>
+<p>These days, when someone asks me in the break whether my agents make mistakes, I still say: yes and no.</p>
+<p>And then I ask a question back.</p>
+<p>Not: do you trust the machine. But: when did you last check whether what you tell it is what you actually mean?</p>
+<p>Because it will not check it for you. It will do it.</p>
+<h2>Common questions</h2>
+<p><strong>Do AI agents make mistakes?</strong> Yes, but not only their own. Some of the mistakes start with the agent, because it is missing context that a person inside the company brings automatically. The rest start with whoever gave the instruction, because it says something other than what was meant.</p>
+<p><strong>How do I tell one kind from the other?</strong> Agent mistakes look wrong: something comes back that does not fit. Instruction mistakes look right, because they were carried out correctly. They only surface when somebody checks somewhere they have no reason to check.</p>
+<p><strong>What helps against the second kind?</strong> Remove the point where things are picked by hand. As long as an exception is possible, sooner or later one gets built and then forgotten. A fixed rule is less flexible and less wrong.</p>
+<p><strong>So does an AI agent replace an employee?</strong> In execution, often yes. In asking back, no. A colleague carrying out an instruction says "Hang on, that drops the other one, is that what you want?" That question back is a safeguard, and it disappears the moment execution runs cleanly.</p>
+      </div>
+      <div class="share-row">
+      <span class="share-label">Share:</span>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fdo-ai-agents-make-mistakes%2F" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a class="share-btn" href="mailto:?subject=Do%20my%20AI%20agents%20make%20mistakes%3F%20Yes%20and%20no&body=Do%20my%20AI%20agents%20make%20mistakes%3F%20Yes%20and%20no%20https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fdo-ai-agents-make-mistakes%2F" aria-label="Email">Email</a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fdo-ai-agents-make-mistakes%2F&text=Do%20my%20AI%20agents%20make%20mistakes%3F%20Yes%20and%20no" target="_blank" rel="noopener" aria-label="X">X</a>
+      <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Fdo-ai-agents-make-mistakes%2F" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      <button class="share-btn copy" data-url="https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/" data-done="Copied ✓">Copy link</button>
+    </div>
+      <div class="author-box">
+        <img src="/images/profile/headshot.png" alt="Jakub Popluhar" width="480" height="480" loading="lazy" decoding="async">
+        <div>
+          <div class="name">Jakub Popluhar</div>
+          <div class="bio">Business Lead at Hill Digital and AI trainer. <a href="/en/#about">More about me</a></div>
+        </div>
+      </div>
+      <div class="article-foot"><a href="/en/blog/">← All articles</a></div>
+    </div>
+  </article>
+</main>
+<footer class="blog-footer">
+    <div class="wrap">
+      <div class="links">
+        <a href="/impressum.html">Imprint</a>
+        <a href="/datenschutz.html">Privacy</a>
+      </div>
+      <div>&copy; 2026 Jakub Popluhar</div>
+    </div>
+  </footer>
+<script>
+document.querySelectorAll('.share-btn.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    navigator.clipboard.writeText(b.dataset.url).then(function(){
+      var t=b.textContent;b.textContent=b.dataset.done;setTimeout(function(){b.textContent=t;},1500);
+    });
+  });
+});
+</script>
+<!-- Analytics: zentraler cookieless Beacon (+ Consent-gated Clarity). NICHT entfernen,
+     sonst ist der Artikel ungetrackt. Siehe assets/js/site.js. -->
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

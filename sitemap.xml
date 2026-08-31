@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jakubpopluhar.com/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-31</lastmod>
   </url>
   <url>
     <loc>https://jakubpopluhar.com/blog/</loc>
@@ -58,6 +58,7 @@
     <loc>https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/</loc>
     <lastmod>2026-08-21</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/"/>
   </url>
   <url>
@@ -100,11 +101,11 @@
   </url>
   <url>
     <loc>https://jakubpopluhar.com/en/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-31</lastmod>
   </url>
   <url>
     <loc>https://jakubpopluhar.com/en/blog/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/"/>
@@ -152,8 +153,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/diktieren-ist-orchestrieren/"/>
   </url>
   <url>
+    <loc>https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/"/>
+  </url>
+  <url>
     <loc>https://jakubpopluhar.com/en/blog/from-practice/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/aus-der-praxis/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/from-practice/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/aus-der-praxis/"/>
@@ -188,13 +196,13 @@
   </url>
   <url>
     <loc>https://jakubpopluhar.com/en/termine/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-31</lastmod>
   </url>
   <url>
     <loc>https://jakubpopluhar.com/impressum.html</loc>
   </url>
   <url>
     <loc>https://jakubpopluhar.com/termine/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-31</lastmod>
   </url>
 </urlset>

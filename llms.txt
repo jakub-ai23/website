@@ -13,6 +13,7 @@
 
 ## Articles (English)
 
+- [Do my AI agents make mistakes? Yes and no](https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/): In the break at my seminars I am often asked if my AI agents make mistakes. My answer: yes and no. Two kinds, and only one of them belongs to the agents.
 - [I don't prompt less, I prompt differently](https://jakubpopluhar.com/en/blog/dictating-is-orchestrating/): 79.5 percent of my dictated words go into my terminal, logged by Wispr Flow under "Other Tasks". Why that is the wrong category, and what dictating really is.
 - [Today I'm letting my AI assistant tell the story](https://jakubpopluhar.com/en/blog/process-that-repairs-itself/): One morning my own handoff tool deleted real work twice. A story about how processes mature on the job, told from my AI assistant's point of view.
 - [A prompt is not a command. It is a lasso.](https://jakubpopluhar.com/en/blog/a-prompt-is-a-lasso/): The first prompt rarely lands straight away, and that is exactly where most people give up. Why prompting is not a command but a lasso you pull tighter.
