@@ -1151,6 +1151,17 @@
       gap: 24px;
       padding: 18px 0;
     }
+    /* Der Ausblender in site.js setzt das hidden-Attribut. Die Regel .ag oben
+
+       setzt display und schlaegt damit die Browser-Voreinstellung
+
+       [hidden]{display:none}: die Zeile blieb sichtbar, obwohl sie als
+
+       versteckt markiert war. Genau daran stand der 31.08. noch im September
+
+       auf der Seite. */
+
+    .ag[hidden] { display: none !important; }
 
     .ag + .ag {
       border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -2185,7 +2196,7 @@
             <ul class="nav-drop-menu">
               <li><a href="/ki-personal-training/">Koučing 1:1 <span class="lang-flag">DE</span><small>Individuálne, na Vašich skutočných úlohách</small></a></li>
               <li><a href="/trainings/">Inhouse školenia <span class="lang-flag">DE</span><small>Váš tím, jeden praktický deň u Vás vo firme</small></a></li>
-              <li><a href="/termine/">Štandardné školenia <span class="lang-flag">DE</span><small>Otvorené semináre v ARS a tecTrain</small></a></li>
+              <li><a href="/termine/">Štandardné školenia<small>Otvorené semináre u mojich partnerov</small></a></li>
             </ul>
           </li>
           <li><a href="#proof" data-slide="7">Výsledky</a></li>
@@ -2240,6 +2251,10 @@
         <div class="trust-marquee">
           <div class="trust-track">
             <img src="/images/logos/ars-akademie.svg" alt="ARS Akademie" class="trust-logo-img">
+            <img src="/images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" class="trust-logo-img">
+            <div class="trust-item"><img src="/images/logos/x-sieben.png" alt="X SIEBEN" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
+            <img src="/images/logos/tsm.svg" alt="TSM" class="trust-logo-img">
+            <div class="trust-item"><img src="/images/logos/proeko.png" alt="PROEKO" class="trust-logo-img"><span class="trust-name">PROEKO</span></div>
             <img src="/images/logos/innovatic-group.svg" alt="Innovatic Group" class="trust-logo-img">
             <div class="trust-item"><img src="/images/logos/became-ai-icon.svg" alt="became ai" class="trust-logo-img"><span class="trust-name">became ai</span></div>
             <img src="/images/logos/sport-union.svg" alt="Sport Union" class="trust-logo-img">
@@ -2249,6 +2264,10 @@
           </div>
           <div class="trust-track" aria-hidden="true">
             <img src="/images/logos/ars-akademie.svg" alt="" class="trust-logo-img">
+            <img src="/images/logos/bfi-vorarlberg.png" alt="" class="trust-logo-img">
+            <div class="trust-item"><img src="/images/logos/x-sieben.png" alt="" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
+            <img src="/images/logos/tsm.svg" alt="" class="trust-logo-img">
+            <div class="trust-item"><img src="/images/logos/proeko.png" alt="" class="trust-logo-img"><span class="trust-name">PROEKO</span></div>
             <img src="/images/logos/innovatic-group.svg" alt="" class="trust-logo-img">
             <div class="trust-item"><img src="/images/logos/became-ai-icon.svg" alt="" class="trust-logo-img"><span class="trust-name">became ai</span></div>
             <img src="/images/logos/sport-union.svg" alt="" class="trust-logo-img">
@@ -2434,7 +2453,7 @@
           </a>
           <a href="/termine/" class="service-rung">
             <span class="rung-label">Štandardné školenia s pevným termínom</span>
-            <span class="rung-desc">ARS a tecTrain <span class="lang-flag">DE</span></span>
+            <span class="rung-desc">U mojich partnerov</span>
             <span class="rung-go">&rarr;</span>
           </a>
         </div>
@@ -2451,41 +2470,57 @@
         </div>
 
         <div class="open-trainings-header">
-          <span>V spolupráci s ARS, tecTrain a Hill Digital</span>
+          <span>V spolupráci s mojimi partnermi</span>
         </div>
 
-        <div class="agenda">
-          <div class="ag">
+        <div class="agenda" data-preview-limit="5">
+          <div class="ag" data-date="2026-09-23">
+            <div class="ag-date"><div class="ag-day">23</div><div class="ag-mon">Sep</div></div>
+            <div class="ag-body">
+              <div class="ag-prov"><img src="/images/logos/tsm.svg" alt="TSM"></div>
+              <div class="txt"><h4>AI za pracovn&yacute;m stolom</h4><p>Brno alebo online &middot; Cel&yacute; de&#328; &middot; &#269;e&#353;tina</p></div>
+            </div>
+            <a href="https://www.tsmkurzy.cz/kurzy/kurzy-ai/3319-ai-za-pracovnim-stolem-p.html?v=32135" class="btn-training" target="_blank" rel="noopener">Prihl&aacute;si&#357; sa &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-09-29" data-end="2026-09-30">
             <div class="ag-date"><div class="ag-day">29</div><div class="ag-mon">Sep</div></div>
             <div class="ag-body">
               <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
-              <div class="txt"><h4>Kurz AI pre kancelársku prax</h4><p>Hands-on, Viedeň &middot; 29. až 30. 9. 2026 &middot; 2 dni</p></div>
+              <div class="txt"><h4>Kurz AI pre kancel&aacute;rsku prax</h4><p>Viede&#328;, prezen&#269;ne &middot; 29. a&#382; 30. 9. 2026 &middot; 2 dni &middot; nem&#269;ina</p></div>
             </div>
-            <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Prihlásiť sa &rarr;</a>
+            <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Prihl&aacute;si&#357; sa &rarr;</a>
           </div>
-          <div class="ag">
-            <div class="ag-date"><div class="ag-day">08</div><div class="ag-mon">Okt</div></div>
+          <div class="ag" data-date="2026-10-09">
+            <div class="ag-date"><div class="ag-day">09</div><div class="ag-mon">Okt</div></div>
+            <div class="ag-body">
+              <div class="ag-prov"><img src="/images/logos/proeko.png" alt="PROEKO"></div>
+              <div class="txt"><h4>AI za pracovn&yacute;m stolom, modul 1</h4><p>Online alebo prezen&#269;ne &middot; Cel&yacute; de&#328; &middot; sloven&#269;ina</p></div>
+            </div>
+            <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-1-zaklad-ktory-vydrzi-aj-zmenu-nastroja/" class="btn-training" target="_blank" rel="noopener">Prihl&aacute;si&#357; sa &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-10-15">
+            <div class="ag-date"><div class="ag-day">15</div><div class="ag-mon">Okt</div></div>
+            <div class="ag-body">
+              <div class="ag-prov"><img src="/images/logos/proeko.png" alt="PROEKO"></div>
+              <div class="txt"><h4>AI za pracovn&yacute;m stolom, modul 2</h4><p>Online alebo prezen&#269;ne &middot; Cel&yacute; de&#328; &middot; sloven&#269;ina</p></div>
+            </div>
+            <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" class="btn-training" target="_blank" rel="noopener">Prihl&aacute;si&#357; sa &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-10-29">
+            <div class="ag-date"><div class="ag-day">29</div><div class="ag-mon">Okt</div></div>
             <div class="ag-body">
               <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
-              <div class="txt"><h4>AI za písacím stolom</h4><p>Viedeň, prezenčne &middot; Celý deň &middot; 1 miesto voľné</p></div>
+              <div class="txt"><h4>AI v HR</h4><p>Viede&#328;, prezen&#269;ne &middot; Cel&yacute; de&#328; &middot; nem&#269;ina</p></div>
             </div>
-            <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Prihlásiť sa &rarr;</a>
+            <a href="https://hill-digital.at/ki-im-hr" class="btn-training" target="_blank" rel="noopener">Prihl&aacute;si&#357; sa &rarr;</a>
           </div>
-          <div class="ag">
-            <div class="ag-date"><div class="ag-day">14</div><div class="ag-mon">Okt</div></div>
+          <div class="ag" data-date="2026-10-30">
+            <div class="ag-date"><div class="ag-day">30</div><div class="ag-mon">Okt</div></div>
             <div class="ag-body">
-              <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
-              <div class="txt"><h4>AI v HR</h4><p>Viedeň, prezenčne &middot; Celý deň &middot; 1 miesto voľné</p></div>
+              <div class="ag-prov"><img src="/images/logos/proeko.png" alt="PROEKO"></div>
+              <div class="txt"><h4>AI v HR praxi: od inzer&aacute;tu po hodnotenie</h4><p>Online alebo prezen&#269;ne &middot; Cel&yacute; de&#328; &middot; sloven&#269;ina</p></div>
             </div>
-            <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Prihlásiť sa &rarr;</a>
-          </div>
-          <div class="ag">
-            <div class="ag-date"><div class="ag-day">20</div><div class="ag-mon">Okt</div></div>
-            <div class="ag-body">
-              <div class="ag-prov"><img src="/images/logos/hill-digital.png" alt="Hill Digital"></div>
-              <div class="txt"><h4>Copilot v práci</h4><p>Viedeň, prezenčne &middot; Celý deň &middot; 2 miesta voľné</p></div>
-            </div>
-            <a href="https://hill-digital.at/trainings" class="btn-training" target="_blank" rel="noopener">Prihlásiť sa &rarr;</a>
+            <a href="https://proeko.sk/seminar/ai-v-hr-praxi-od-inzeratu-po-hodnotenie/" class="btn-training" target="_blank" rel="noopener">Prihl&aacute;si&#357; sa &rarr;</a>
           </div>
         </div>
 
@@ -2495,7 +2530,7 @@
 
         <div class="training-cta-note">
           <p>Nenašli ste vhodný termín?<span>Chcete požiadať o individuálny termín? Ozvite sa mi.</span></p>
-          <a href="https://cal.eu/hilldigital/training" class="btn-training" target="_blank" rel="noopener">Požiadať o termín <span class="lang-flag">DE</span> &rarr;</a>
+          <a href="https://cal.eu/jakubpopluhar/uvodny-hovor" class="btn-training" target="_blank" rel="noopener">Požiadať o termín <span class="lang-flag">DE</span> &rarr;</a>
         </div>
       </div>
     </section>
@@ -2585,13 +2620,13 @@
             <span class="offer-badge">Tím</span>
             <h3>Inhouse školenie</h3>
             <p>AI kompetencie + spotrebiteľská psychológia pre V&aacute;š t&iacute;m. Vrátane AI Literacy podľa článku 4 EU AI Act.</p>
-            <a href="https://cal.eu/hilldigital/training" class="btn btn-secondary" target="_blank" rel="noopener">M&aacute;m z&aacute;ujem o školenia <span class="lang-flag">DE</span> &rarr;</a>
+            <a href="https://cal.eu/jakubpopluhar/uvodny-hovor" class="btn btn-secondary" target="_blank" rel="noopener">M&aacute;m z&aacute;ujem o školenia <span class="lang-flag">DE</span> &rarr;</a>
           </div>
 
           <div class="cta-offer-card">
             <span class="offer-badge">Skupina</span>
             <h3>Otvorené semináre</h3>
-            <p>Pevné termíny v ARS a tecTrain, otvorené pre individu&aacute;lne prihl&aacute;senie. Rezerv&aacute;cia priamo u organiz&aacute;tora.</p>
+            <p>Pevné termíny u mojich partnerov, otvorené pre individu&aacute;lne prihl&aacute;senie. Rezerv&aacute;cia priamo u organiz&aacute;tora.</p>
             <a href="/termine/" class="btn btn-secondary">Pozrieť všetky termíny <span class="lang-flag">DE</span> &rarr;</a>
           </div>
         </div>

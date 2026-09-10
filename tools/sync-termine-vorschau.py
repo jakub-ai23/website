@@ -112,8 +112,11 @@ def render(rows, logo_prefix):
         if note and len(note) <= NOTE_MAX:
             meta += " &middot; " + r["note"]
         logo = logo_prefix + r["logo"].lstrip("/")
+        attrs = ' data-date="%s"' % r["date"] if r["date"] else ""
+        if r["end"] and r["end"] != r["date"]:
+            attrs += ' data-end="%s"' % r["end"]
         out.append(
-'          <div class="ag">\n'
+'          <div class="ag"%s>\n'
 '            <div class="ag-date"><div class="ag-day%s">%s</div><div class="ag-mon">%s</div></div>\n'
 '            <div class="ag-body">\n'
 '              <div class="txt"><h3>%s</h3><p>%s</p></div>\n'
@@ -121,7 +124,7 @@ def render(rows, logo_prefix):
 '            <div class="ag-prov"><img src="%s" alt="%s" loading="lazy" decoding="async"></div>\n'
 '            <a href="%s" class="btn-training" target="_blank" rel="noopener">%s &rarr;</a>\n'
 '          </div>\n'
-            % (" range" if len(r["day"]) > 2 else "", r["day"], r["mon"],
+            % (attrs, " range" if len(r["day"]) > 2 else "", r["day"], r["mon"],
                title, meta, logo, r["alt"], r["url"], r["cta"]))
     return "".join(out)
 
@@ -139,7 +142,9 @@ def sync(src, dst, logo_prefix, count):
     m = re.search(r'(<div class="agenda">\n)(.*?)(\n?        </div>\n\n        <div class="agenda-more">)', h, re.S)
     if not m:
         sys.exit("Vorschau-Block in %s nicht gefunden." % dst)
-    h = h[:m.start(2)] + render(rows[:count], logo_prefix).rstrip("\n") + h[m.end(2):]
+    h = h[:m.start(2)] + render(rows, logo_prefix).rstrip("\n") + h[m.end(2):]
+    h = re.sub(r'<div class="agenda"(?: data-preview-limit="\d+")?>',
+               '<div class="agenda" data-preview-limit="%d">' % count, h, count=1)
     # Der Link unter der Vorschau wird bei jedem Lauf neu gesetzt.
     h = re.sub(r'(<div class="agenda-more">\s*\n\s*<a href="[^"]*">)[^<]*(&rarr;</a>)',
                lambda mm: mm.group(1) + link_label(len(rows)) + " " + mm.group(2), h, count=1)

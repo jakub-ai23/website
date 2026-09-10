@@ -1089,6 +1089,17 @@
       gap: 24px;
       padding: 18px 0;
     }
+    /* Der Ausblender in site.js setzt das hidden-Attribut. Die Regel .ag oben
+
+       setzt display und schlaegt damit die Browser-Voreinstellung
+
+       [hidden]{display:none}: die Zeile blieb sichtbar, obwohl sie als
+
+       versteckt markiert war. Genau daran stand der 31.08. noch im September
+
+       auf der Seite. */
+
+    .ag[hidden] { display: none !important; }
 
     .ag + .ag {
       border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -2102,7 +2113,7 @@
           <li><a href="#proof" data-slide="7">Results</a></li>
           <li><a href="/en/blog/">Blog</a></li>
           <li><a href="#about" data-slide="1">About</a></li>
-          <li><a href="https://cal.eu/hilldigital/strategiegespraech" class="nav-cta" target="_blank" rel="noopener">Book Call</a></li>
+          <li><a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Book Call</a></li>
         </ul>
         <div class="nav-lang" aria-label="Language"><button class="nav-lang-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Change language"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg><span class="nav-lang-arrow"></span></button><div class="nav-lang-menu"><a href="/" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg></a><a href="/en/" class="active" aria-current="page" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></a><a href="/sk/" title="Slovenčina" aria-label="Slovenčina"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#fff"/><rect y="2" width="9" height="4" fill="#0B4EA2"/><rect y="4" width="9" height="2" fill="#EE1C25"/><path d="M1.9,1.25 h2.6 v2.2 c0,1.05 -1.3,1.6 -1.3,1.6 s-1.3,-0.55 -1.3,-1.6 z" fill="#EE1C25" stroke="#fff" stroke-width="0.26"/><path d="M3.05,1.75 h0.3 v0.5 h0.6 v0.32 h-0.6 v0.55 h0.78 v0.32 h-0.78 v0.9 h-0.3 v-0.9 h-0.78 v-0.32 h0.78 v-0.55 h-0.6 v-0.32 h0.6 z" fill="#fff"/></svg></a></div></div>
         <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -2137,7 +2148,7 @@
           <h1>"You don't know&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
           <p class="hero-sub">You know AI is changing your business. You just don't know where to start. That's what I'm here for.</p>
 <div class="hero-ctas">
-            <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
+            <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
             <a href="#about" class="btn btn-secondary" data-slide="1">Learn more</a>
           </div>
         </div>
@@ -2153,6 +2164,9 @@
             <img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" class="trust-logo-img">
             <img src="../images/logos/tectrain.png" alt="tecTrain" class="trust-logo-img">
             <img src="../images/logos/digital-campus-vorarlberg.svg" alt="Digital Campus Vorarlberg" class="trust-logo-img">
+            <img src="../images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" class="trust-logo-img">
+            <div class="trust-item"><img src="../images/logos/x-sieben.png" alt="X SIEBEN" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
+            <img src="../images/logos/tsm.svg" alt="TSM" class="trust-logo-img">
             <div class="trust-item"><img src="../images/logos/proeko.png" alt="PROEKO" class="trust-logo-img"><span class="trust-name">PROEKO</span></div>
             <img src="../images/logos/innovatic-group.svg" alt="Innovatic Group" class="trust-logo-img">
             <div class="trust-item"><img src="../images/logos/became-ai-icon.svg" alt="became ai" class="trust-logo-img"><span class="trust-name">became ai</span></div>
@@ -2165,6 +2179,9 @@
             <img src="../images/logos/ars-akademie.svg" alt="" class="trust-logo-img">
             <img src="../images/logos/tectrain.png" alt="" class="trust-logo-img">
             <img src="../images/logos/digital-campus-vorarlberg.svg" alt="" class="trust-logo-img">
+            <img src="../images/logos/bfi-vorarlberg.png" alt="" class="trust-logo-img">
+            <div class="trust-item"><img src="../images/logos/x-sieben.png" alt="" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
+            <img src="../images/logos/tsm.svg" alt="" class="trust-logo-img">
             <div class="trust-item"><img src="../images/logos/proeko.png" alt="" class="trust-logo-img"><span class="trust-name">PROEKO</span></div>
             <img src="../images/logos/innovatic-group.svg" alt="" class="trust-logo-img">
             <div class="trust-item"><img src="../images/logos/became-ai-icon.svg" alt="" class="trust-logo-img"><span class="trust-name">became ai</span></div>
@@ -2351,7 +2368,7 @@
             </ul>
             <p class="service-note">First session preferably on site with you, after that live online.</p>
             <div class="service-cta-row">
-              <a href="https://cal.eu/hilldigital/strategiegespraech" class="btn btn-primary" target="_blank" rel="noopener">Free intro call &rarr;</a>
+              <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Free intro call &rarr;</a>
               <a href="/ki-personal-training/" class="btn btn-secondary">Format and prices, from &euro; 290/hr (German page) &rarr;</a>
             </div>
           </div>
@@ -2370,27 +2387,11 @@
         </div>
 
         <div class="open-trainings-header">
-          <span>In cooperation with ARS, tecTrain, Hill Digital and PROEKO</span>
+          <span>In cooperation with my partners</span>
         </div>
 
-        <div class="agenda">
-          <div class="ag">
-            <div class="ag-date"><div class="ag-day">31</div><div class="ag-mon">Aug</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> HR practice with AI</h3><p><span class="ag-fmt" role="img" aria-label="On site or online" title="On site or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Vienna or online &middot; Full day &middot; 09:00&ndash;17:00</p></div>
-            </div>
-            <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
-            <a href="https://ars.at/seminar/333183/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
-          </div>
-          <div class="ag">
-            <div class="ag-date"><div class="ag-day">15</div><div class="ag-mon">Sep</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> AI at Your Desk</h3><p><span class="ag-fmt" role="img" aria-label="On site" title="On site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; Full day</p></div>
-            </div>
-            <div class="ag-prov"><img src="../images/logos/hill-digital-logo-2026.svg" alt="Hill Digital" loading="lazy" decoding="async"></div>
-            <a href="https://hill-digital.at/ki-am-schreibtisch-en" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
-          </div>
-          <div class="ag">
+        <div class="agenda" data-preview-limit="5">
+          <div class="ag" data-date="2026-09-17">
             <div class="ag-date"><div class="ag-day">17</div><div class="ag-mon">Sep</div></div>
             <div class="ag-body">
               <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> AI in HR</h3><p><span class="ag-fmt" role="img" aria-label="On site" title="On site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; Full day</p></div>
@@ -2398,7 +2399,15 @@
             <div class="ag-prov"><img src="../images/logos/hill-digital-logo-2026.svg" alt="Hill Digital" loading="lazy" decoding="async"></div>
             <a href="https://hill-digital.at/ki-im-hr-en" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
           </div>
-          <div class="ag">
+          <div class="ag" data-date="2026-09-23">
+            <div class="ag-date"><div class="ag-day">23</div><div class="ag-mon">Sep</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language Czech" title="Training language: Czech">🇨🇿</span> AI za pracovn&iacute;m stolem</h3><p><span class="ag-fmt" role="img" aria-label="On site or online" title="On site or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Brno or online &middot; Full day &middot; 09:00&ndash;15:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/tsm.svg" alt="TSM" loading="lazy" decoding="async"></div>
+            <a href="https://www.tsmkurzy.cz/kurzy/kurzy-ai/3319-ai-za-pracovnim-stolem-p.html?v=32135" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-09-29" data-end="2026-09-30">
             <div class="ag-date"><div class="ag-day range">29.&ndash;30.</div><div class="ag-mon">Sep</div></div>
             <div class="ag-body">
               <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> Programme: AI for the everyday office</h3><p><span class="ag-fmt" role="img" aria-label="On site" title="On site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; 2 days &middot; 09:00&ndash;18:00 each day</p></div>
@@ -2406,13 +2415,125 @@
             <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
             <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
           </div>
-          <div class="ag">
+          <div class="ag" data-date="2026-10-01">
             <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">Oct</div></div>
             <div class="ag-body">
               <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> Use Microsoft 365 Copilot efficiently</h3><p><span class="ag-fmt" role="img" aria-label="On site or online" title="On site or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Vienna or online &middot; Full day &middot; 09:00&ndash;17:00</p></div>
             </div>
             <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
             <a href="https://ars.at/seminar/332641/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-10-07">
+            <div class="ag-date"><div class="ag-day">07</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> AI fundamentals with ChatGPT</h3><p><span class="ag-fmt" role="img" aria-label="On site" title="On site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; Full day</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/tectrain.png" alt="tecTrain" loading="lazy" decoding="async"></div>
+            <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/chatgpt-und-kuenstliche-intelligenz-in-der-praxis" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-10-09">
+            <div class="ag-date"><div class="ag-day">09</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language Slovak" title="Seminar language: Slovak">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 1</h3><p><span class="ag-fmt" role="img" aria-label="On site or online" title="On site or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava or online &middot; Half day &middot; 09:00&ndash;12:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
+            <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-1-zaklad-ktory-vydrzi-aj-zmenu-nastroja/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-10-13">
+            <div class="ag-date"><div class="ag-day">13</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> AI agents and generative AI at work</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; Full day &middot; 09:00&ndash;16:10</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi-vorarlberg.at/de/kurs/16/2/127747/KI-Agenten-und-generative-KI-im-Unternehmensalltag" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-10-15">
+            <div class="ag-date"><div class="ag-day">15</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language Slovak" title="Seminar language: Slovak">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 2</h3><p><span class="ag-fmt" role="img" aria-label="On site or online" title="On site or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava or online &middot; Half day &middot; 09:00&ndash;12:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
+            <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-10-16">
+            <div class="ag-date"><div class="ag-day">16</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> Using Claude in a data-compliant way</h3><p><span class="ag-fmt" role="img" aria-label="On site or online" title="On site or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Vienna or online &middot; Full day &middot; 09:00&ndash;17:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
+            <a href="https://ars.at/seminar/333220/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-10-21">
+            <div class="ag-date"><div class="ag-day">21</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> AI for the everyday office</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; 1 day &middot; 09:00&ndash;18:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
+            <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-10-29">
+            <div class="ag-date"><div class="ag-day">29</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> AI in HR</h3><p><span class="ag-fmt" role="img" aria-label="On site" title="On site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; Full day</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/hill-digital-logo-2026.svg" alt="Hill Digital" loading="lazy" decoding="async"></div>
+            <a href="https://hill-digital.at/ki-im-hr-en" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-10-30">
+            <div class="ag-date"><div class="ag-day">30</div><div class="ag-mon">Oct</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language Slovak" title="Seminar language: Slovak">🇸🇰</span> AI v HR praxi</h3><p><span class="ag-fmt" role="img" aria-label="On site or online" title="On site or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava or online &middot; Half day &middot; 09:00&ndash;12:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
+            <a href="https://proeko.sk/seminar/ai-v-hr-praxi-od-inzeratu-po-hodnotenie/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-11-06">
+            <div class="ag-date"><div class="ag-day">06</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> Consumer psychology and AI</h3><p><span class="ag-fmt" role="img" aria-label="On site" title="On site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; Half day &middot; 09:00&ndash;13:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
+            <a href="https://ars.at/seminar/333096/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-11-12">
+            <div class="ag-date"><div class="ag-day">12</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> AI agents and generative AI at work</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; Full day &middot; 09:00&ndash;16:10</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi-vorarlberg.at/de/kurs/16/2/127747/KI-Agenten-und-generative-KI-im-Unternehmensalltag" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-11-13">
+            <div class="ag-date"><div class="ag-day">13</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language Slovak" title="Seminar language: Slovak">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 1</h3><p><span class="ag-fmt" role="img" aria-label="On site or online" title="On site or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava or online &middot; Half day &middot; 09:00&ndash;12:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
+            <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-1-zaklad-ktory-vydrzi-aj-zmenu-nastroja/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-11-20">
+            <div class="ag-date"><div class="ag-day">20</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language Slovak" title="Seminar language: Slovak">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 2</h3><p><span class="ag-fmt" role="img" aria-label="On site or online" title="On site or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava or online &middot; Half day &middot; 09:00&ndash;12:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
+            <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-11-25">
+            <div class="ag-date"><div class="ag-day">25</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> AI in HR</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; Full day &middot; 08:30&ndash;16:30 &middot; Live online course</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/digital-campus-vorarlberg.svg" alt="Digital Campus Vorarlberg" loading="lazy" decoding="async"></div>
+            <a href="https://www.digitalcampusvorarlberg.at/unser-kursangebot/ki-campus/ki-im-hr-alltag-6429#/2026FK642901" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-11-27">
+            <div class="ag-date"><div class="ag-day">27</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language Slovak" title="Seminar language: Slovak">🇸🇰</span> AI v HR praxi</h3><p><span class="ag-fmt" role="img" aria-label="On site or online" title="On site or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava or online &middot; Half day &middot; 09:00&ndash;12:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
+            <a href="https://proeko.sk/seminar/ai-v-hr-praxi-od-inzeratu-po-hodnotenie/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
           </div>
         </div>
 
@@ -2422,7 +2543,7 @@
 
         <div class="training-cta-note">
           <p>No date that fits?<span>Would you like to request an individual appointment? Get in touch.</span></p>
-          <a href="https://cal.eu/hilldigital/training" class="btn-training" target="_blank" rel="noopener">Request an appointment &rarr;</a>
+          <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn-training" target="_blank" rel="noopener">Request an appointment &rarr;</a>
         </div>
       </div>
     </section>
@@ -2510,13 +2631,13 @@
             <span class="offer-badge">Team</span>
             <h3>In-house training</h3>
             <p>AI skills and consumer psychology for your team. Including AI literacy under EU AI Act Art. 4.</p>
-            <a href="https://cal.eu/hilldigital/training" class="btn btn-secondary" target="_blank" rel="noopener">I am interested in training &rarr;</a>
+            <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-secondary" target="_blank" rel="noopener">I am interested in training &rarr;</a>
           </div>
 
           <div class="cta-offer-card">
             <span class="offer-badge">Group</span>
             <h3>Open seminars</h3>
-            <p>Fixed dates with ARS and tecTrain, open for individual registration. Booking directly with the organiser.</p>
+            <p>Fixed dates with my partners, open for individual registration. Booking directly with the organiser.</p>
             <a href="/en/termine/" class="btn btn-secondary">See all dates &rarr;</a>
           </div>
         </div>

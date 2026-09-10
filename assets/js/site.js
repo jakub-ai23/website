@@ -268,6 +268,19 @@ function jpLoadClarity() {
       var end = new Date(+p[0], +p[1] - 1, +p[2]);
       if (end < today) { r.hidden = true; gone++; }
     }
+    /* Die Startseiten-Vorschau traegt ALLE kommenden Termine im HTML, zeigt aber
+       nur data-preview-limit davon. Der Schnitt passiert erst hier, nach dem
+       Ausblenden: faellt ein Termin durch Zeitablauf weg, rueckt der naechste
+       von selbst nach. Ohne diesen Schritt schrumpfte die Vorschau mit jedem
+       vergangenen Termin, bis jemand den Generator startet. */
+    var boxes = document.querySelectorAll('.agenda[data-preview-limit]');
+    for (var b = 0; b < boxes.length; b++) {
+      var limit = parseInt(boxes[b].getAttribute('data-preview-limit'), 10);
+      if (!(limit > 0)) continue;
+      var live = boxes[b].querySelectorAll('.ag:not([hidden])');
+      for (var k = limit; k < live.length; k++) { live[k].hidden = true; gone++; }
+    }
+
     if (gone) {
       /* Die Trennlinie sitzt auf .ag + .ag. Ist die erste sichtbare Zeile nicht
          mehr die erste im DOM, traegt sie eine Linie ueber sich, die dort nicht
