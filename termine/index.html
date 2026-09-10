@@ -195,6 +195,12 @@
   
 /* --- Trainingssprachen (Sprach-Chips, 2026-08-18) --- */
 .langbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:22px 0 4px}
+/* Auf dieser Seite steht die Sprachleiste in einem zentrierten Kopf. Ohne
+   justify-content packt der Flexcontainer die Chips nach links, waehrend
+   Titel und Absatz darueber mittig stehen: rechts blieben 321px leer.
+   Bewusst nur hier, auf den Trainingsseiten sitzt dieselbe Leiste in einem
+   linksbuendigen Block und gehoert dort nach links. */
+.blog-head .langbar{justify-content:center}
 .langbar .lead{font-family:var(--font-heading,inherit);font-size:13px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--muted,#9a978e);font-weight:600;margin-right:6px}
 .langbar .chip{display:inline-flex;align-items:center;gap:9px;
