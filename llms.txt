@@ -1,13 +1,23 @@
 # Jakub Popluhar
 
 > Business Lead at Hill Digital and AI trainer, based in Vienna, Austria.
-> Corporate AI training in German and English across the DACH region.
+> Corporate AI training across the DACH region and Central Europe, delivered in
+> German, English, Slovak and Czech.
 > Practical, first-hand notes on working with AI agents and assistants.
 
 ## Site
 
 - [About](https://jakubpopluhar.com/#about): who he is, what he trains, references.
-- [Dates](https://jakubpopluhar.com/termine/): confirmed open seminars (ARS Akademie, tecTrain).
+- [Dates](https://jakubpopluhar.com/termine/): confirmed open seminars, run with ARS Akademie, tecTrain, BFI Vorarlberg, Digital Campus Vorarlberg, Hill Digital, TSM (Brno) and PROEKO (Bratislava).
+- [Training catalogue](https://jakubpopluhar.com/trainings/): the in-house formats, each with its own page.
+  - [AI at your desk](https://jakubpopluhar.com/trainings/ki-am-schreibtisch/)
+  - [AI in HR](https://jakubpopluhar.com/trainings/hr-kurs/)
+  - [Copilot at work](https://jakubpopluhar.com/trainings/copilot/)
+  - [Consumer psychology and AI](https://jakubpopluhar.com/trainings/konsumentenpsychologie/)
+- [AI Personal Training](https://jakubpopluhar.com/ki-personal-training/): one-to-one coaching on the participant's own tasks.
+- [AI check](https://jakubpopluhar.com/ki-check/): short self-assessment of where a team stands with AI.
+- [Slovak site](https://jakubpopluhar.com/sk/): the Slovak-language track.
+- [English site](https://jakubpopluhar.com/en/)
 - [Blog, German](https://jakubpopluhar.com/blog/)
 - [Blog, English](https://jakubpopluhar.com/en/blog/)
 

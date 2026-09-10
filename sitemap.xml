@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jakubpopluhar.com/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://jakubpopluhar.com/blog/</loc>
@@ -101,7 +101,7 @@
   </url>
   <url>
     <loc>https://jakubpopluhar.com/en/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://jakubpopluhar.com/en/blog/</loc>
@@ -196,13 +196,119 @@
   </url>
   <url>
     <loc>https://jakubpopluhar.com/en/termine/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://jakubpopluhar.com/impressum.html</loc>
   </url>
   <url>
     <loc>https://jakubpopluhar.com/termine/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/sk/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://jakubpopluhar.com/sk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/trainings/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/trainings/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/trainings/ki-am-schreibtisch/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/ki-am-schreibtisch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/ki-am-schreibtisch/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/ki-am-schreibtisch/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/trainings/ki-am-schreibtisch/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/ki-am-schreibtisch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/ki-am-schreibtisch/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/ki-am-schreibtisch/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/trainings/hr-kurs/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/hr-kurs/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/hr-kurs/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/hr-kurs/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/trainings/hr-kurs/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/hr-kurs/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/hr-kurs/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/hr-kurs/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/trainings/copilot/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/copilot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/copilot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/copilot/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/trainings/copilot/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/copilot/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/copilot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/copilot/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/trainings/konsumentenpsychologie/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/konsumentenpsychologie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/konsumentenpsychologie/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/konsumentenpsychologie/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/trainings/konsumentenpsychologie/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/konsumentenpsychologie/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/konsumentenpsychologie/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/konsumentenpsychologie/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/ki-check/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/ki-check/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/ki-check/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/ki-check/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/ki-check/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/ki-check/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/ki-check/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/ki-check/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/ki-personal-training/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/ki-personal-training/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/ki-personal-training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/ki-personal-training/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/en/ki-personal-training/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/ki-personal-training/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/ki-personal-training/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/ki-personal-training/"/>
   </url>
 </urlset>
