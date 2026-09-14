@@ -1257,6 +1257,17 @@
       transform: translateY(-2px);
     }
 
+    /* Ausgebuchte Termine: Knopf wird zum Hinweis, nicht klickbar (2026-09-14) */
+    .btn-training.is-full {
+      background: transparent;
+      color: var(--white-muted);
+      border: 1px solid #3a3a3a;
+      cursor: default;
+      pointer-events: none;
+      transform: none;
+    }
+
+
     /* ===== Verweise auf die Unterseiten ===== */
     .service-note {
       color: var(--white-muted);
@@ -2488,7 +2499,7 @@
               <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie"></div>
               <div class="txt"><h4>Kurz AI pre kancel&aacute;rsku prax</h4><p>Viede&#328;, prezen&#269;ne &middot; 29. a&#382; 30. 9. 2026 &middot; 2 dni &middot; nem&#269;ina</p></div>
             </div>
-            <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Prihl&aacute;si&#357; sa &rarr;</a>
+            <span class="btn-training is-full" aria-label="VYPREDAN&Eacute;">VYPREDAN&Eacute;</span>
           </div>
           <div class="ag" data-date="2026-10-09">
             <div class="ag-date"><div class="ag-day">09</div><div class="ag-mon">Okt</div></div>

@@ -66,6 +66,17 @@
     flex: none; transition: background 0.2s, transform 0.2s;
   }
   .btn-training:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    /* Ausgebuchte Termine: Knopf wird zum Hinweis, nicht klickbar (2026-09-14) */
+    .btn-training.is-full {
+      background: transparent;
+      color: var(--white-muted);
+      border: 1px solid #3a3a3a;
+      cursor: default;
+      pointer-events: none;
+      transform: none;
+    }
+
   .training-cta-note {
     max-width: 1000px; margin: 40px auto 0;
     display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
@@ -350,7 +361,7 @@
           </div>
         </div>
         <div class="ag-prov"><img src="/images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
-        <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+        <span class="btn-training is-full" aria-label="AUSGEBUCHT">AUSGEBUCHT</span>
       </div>
 
       <div class="ag" data-date="2026-10-01">

@@ -1196,6 +1196,17 @@
       transform: translateY(-2px);
     }
 
+    /* Ausgebuchte Termine: Knopf wird zum Hinweis, nicht klickbar (2026-09-14) */
+    .btn-training.is-full {
+      background: transparent;
+      color: var(--white-muted);
+      border: 1px solid #3a3a3a;
+      cursor: default;
+      pointer-events: none;
+      transform: none;
+    }
+
+
     /* ===== Links to the subpages ===== */
     .service-note { color: var(--white-muted); font-size: 0.86rem; margin: 14px 0 4px; }
     .service-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
@@ -2413,7 +2424,7 @@
               <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> Programme: AI for the everyday office</h3><p><span class="ag-fmt" role="img" aria-label="On site" title="On site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; 2 days &middot; 09:00&ndash;18:00 each day</p></div>
             </div>
             <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
-            <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+            <span class="btn-training is-full" aria-label="FULLY BOOKED">FULLY BOOKED</span>
           </div>
           <div class="ag" data-date="2026-10-01">
             <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">Oct</div></div>
