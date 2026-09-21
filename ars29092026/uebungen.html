@@ -697,8 +697,8 @@
 
     <nav class="sidebar-nav" id="sidebar-vm">
       <div class="nav-section-label">Vormittag</div>
-      <a href="#llm-start">Start. LLM öffnen</a>
-      <a href="#split">0.1 Bildschirm teilen</a>
+      <a href="#split">Start. Bildschirm teilen</a>
+      <a href="#llm-start">Danach. LLM öffnen</a>
       <a href="#ue0">1. Die Namensliste</a>
       <a href="#ue1">2. Prompten</a>
       <a href="#ue2">3. CITE Framework</a>
@@ -709,10 +709,66 @@
 
     <div>
 
+    <!-- ÜBUNG 0 -->
+    <!-- ÜBUNG 0.1: BILDSCHIRM TEILEN -->
+    <div class="exercise" id="split">
+      <div class="exercise-number">Start hier</div>
+      <h3>Den Bildschirm teilen</h3>
+      <p class="subtitle">Der wichtigste Handgriff des Tages, und er dauert zehn Sekunden. Links die Folien, rechts dieses Übungsblatt und Ihr LLM. So arbeiten Sie heute den ganzen Tag.</p>
+
+      <p class="step-label">Mac</p>
+      <p>Den <strong>grünen Knopf</strong> links oben im Fenster <strong>gedrückt halten</strong>, nicht klicken. Es erscheinen zwei Hälften. Die gewünschte Hälfte anklicken, dann aus der Liste das zweite Fenster wählen.</p>
+      <svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Mac: grünen Knopf gedrückt halten, dann Bildschirmhälfte wählen">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <circle cx="28" cy="37" r="5" fill="#ff5f57"/>
+        <circle cx="45" cy="37" r="5" fill="#febc2e"/>
+        <circle cx="62" cy="37" r="9" fill="#28c840"/>
+        <circle cx="62" cy="37" r="15" fill="none" stroke="var(--gold)" stroke-dasharray="4 3"/>
+        <text x="84" y="42" fill="var(--gold)" font-size="13" font-family="monospace">gedrückt halten</text>
+        <text x="20" y="110" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ein Fenster,</text>
+        <text x="20" y="130" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ganzer Bildschirm</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
+        <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
+        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ Ihr LLM</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. grün halten</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. Hälfte anklicken, Fenster wählen</text>
+      </svg>
+
+      <p class="step-label">Windows</p>
+      <p>Fenster anklicken, dann <strong>Windows-Taste + Pfeil links</strong>. Das Fenster springt in die linke Hälfte, und Windows zeigt die übrigen Fenster zur Auswahl für rechts. Das zweite Fenster anklicken.</p>
+      <svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Windows: Windows-Taste plus Pfeil links, dann zweites Fenster wählen">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <rect x="40" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="72" y="107" fill="var(--gold)" font-size="16" font-family="monospace" text-anchor="middle">&#8862;</text>
+        <text x="116" y="107" fill="var(--gold)" font-size="16" font-family="monospace">+</text>
+        <rect x="136" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="168" y="108" fill="var(--gold)" font-size="18" font-family="monospace" text-anchor="middle">&#8592;</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
+        <rect x="502" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <rect x="566" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <text x="560" y="128" fill="var(--gold)" font-size="12" font-family="monospace" text-anchor="middle">zweites Fenster wählen</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. Taste + Pfeil</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. rechts aus der Auswahl klicken</text>
+      </svg>
+
+      <p style="color: var(--white-muted); font-size:0.85rem;">Geht auf jedem Laptop, kein zweiter Monitor nötig. Wenn gar nichts klappt: Fenster mit der Maus an den linken oder rechten Bildschirmrand ziehen, bis eine Hälfte aufleuchtet, loslassen.</p>
+      <p style="color: var(--gold); font-size: 0.85rem;">Wer heute nicht teilt, klickt den ganzen Tag zwischen Folien und Übungsblatt hin und her und verliert bei jedem Wechsel den Faden.</p>
+    </div>
+
     <!-- START HIER: LLM ÖFFNEN -->
     <div class="exercise" id="llm-start">
-      <div class="exercise-number">Start hier</div>
-      <h3>Zuerst: Ihr LLM öffnen</h3>
+      <div class="exercise-number">Danach</div>
+      <h3>Ihr LLM öffnen</h3>
       <p>Noch kein LLM offen? Wählen Sie eines. Für dieses Training genügen die kostenlosen Versionen. Am Laptop am einfachsten "Im Browser öffnen".</p>
       <div class="llm-grid">
         <div class="llm-card">
@@ -772,62 +828,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- ÜBUNG 0 -->
-    <!-- ÜBUNG 0.1: BILDSCHIRM TEILEN -->
-    <div class="exercise" id="split">
-      <div class="exercise-number">Übung 0.1</div>
-      <h3>Den Bildschirm teilen</h3>
-      <p class="subtitle">Der wichtigste Handgriff des Tages, und er dauert zehn Sekunden. Links die Folien, rechts dieses Übungsblatt und Ihr LLM. So arbeiten Sie heute den ganzen Tag.</p>
-
-      <p class="step-label">Mac</p>
-      <p>Den <strong>grünen Knopf</strong> links oben im Fenster <strong>gedrückt halten</strong>, nicht klicken. Es erscheinen zwei Hälften. Die gewünschte Hälfte anklicken, dann aus der Liste das zweite Fenster wählen.</p>
-      <svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Mac: grünen Knopf gedrückt halten, dann Bildschirmhälfte wählen">
-        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
-        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
-        <circle cx="28" cy="37" r="5" fill="#ff5f57"/>
-        <circle cx="45" cy="37" r="5" fill="#febc2e"/>
-        <circle cx="62" cy="37" r="9" fill="#28c840"/>
-        <circle cx="62" cy="37" r="15" fill="none" stroke="var(--gold)" stroke-dasharray="4 3"/>
-        <text x="84" y="42" fill="var(--gold)" font-size="13" font-family="monospace">gedrückt halten</text>
-        <text x="20" y="110" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ein Fenster,</text>
-        <text x="20" y="130" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ganzer Bildschirm</text>
-        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
-        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
-        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
-        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
-        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
-        <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
-        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ Ihr LLM</text>
-        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. grün halten</text>
-        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. Hälfte anklicken, Fenster wählen</text>
-      </svg>
-
-      <p class="step-label">Windows</p>
-      <p>Fenster anklicken, dann <strong>Windows-Taste + Pfeil links</strong>. Das Fenster springt in die linke Hälfte, und Windows zeigt die übrigen Fenster zur Auswahl für rechts. Das zweite Fenster anklicken.</p>
-      <svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Windows: Windows-Taste plus Pfeil links, dann zweites Fenster wählen">
-        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
-        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
-        <rect x="40" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
-        <text x="72" y="107" fill="var(--gold)" font-size="16" font-family="monospace" text-anchor="middle">&#8862;</text>
-        <text x="116" y="107" fill="var(--gold)" font-size="16" font-family="monospace">+</text>
-        <rect x="136" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
-        <text x="168" y="108" fill="var(--gold)" font-size="18" font-family="monospace" text-anchor="middle">&#8592;</text>
-        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
-        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
-        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
-        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
-        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
-        <rect x="502" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
-        <rect x="566" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
-        <text x="560" y="128" fill="var(--gold)" font-size="12" font-family="monospace" text-anchor="middle">zweites Fenster wählen</text>
-        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. Taste + Pfeil</text>
-        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. rechts aus der Auswahl klicken</text>
-      </svg>
-
-      <p style="color: var(--white-muted); font-size:0.85rem;">Geht auf jedem Laptop, kein zweiter Monitor nötig. Wenn gar nichts klappt: Fenster mit der Maus an den linken oder rechten Bildschirmrand ziehen, bis eine Hälfte aufleuchtet, loslassen.</p>
-      <p style="color: var(--gold); font-size: 0.85rem;">Wer heute nicht teilt, klickt den ganzen Tag zwischen Folien und Übungsblatt hin und her und verliert bei jedem Wechsel den Faden.</p>
     </div>
 
     <div class="exercise" id="ue0">
