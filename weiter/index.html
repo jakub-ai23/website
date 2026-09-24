@@ -712,39 +712,29 @@
               <input type="text" id="arsHp" name="hp" tabindex="-1" autocomplete="off">
             </div>
 
-            <div class="form-row">
-              <input type="text" id="arsVorname" name="vorname" placeholder="Vorname *" required autocomplete="given-name">
-              <input type="text" id="arsNachname" name="nachname" placeholder="Nachname *" required autocomplete="family-name">
-            </div>
-            <input type="email" id="arsEmail" name="email" placeholder="E-Mail *" required autocomplete="email">
-            <div class="form-row">
-              <input type="text" id="arsFirma" name="firma" placeholder="Firma (optional)" autocomplete="organization">
-              <input type="text" inputmode="tel" id="arsTelefon" name="telefon" placeholder="Telefon (optional)" autocomplete="tel">
-            </div>
-
             <div>
               <div class="field-label">Was darf ich Ihnen schicken?</div>
               <div class="checkbox-group">
                 <label class="checkbox-item">
-                  <input type="checkbox" name="ars_interesse" value="Ressourcen und Übungen zum Training">
+                  <input type="checkbox" name="ars_interesse" value="Extra Ressourcen und Übungen zum Training">
                   <span class="checkbox-box">
                     <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                   </span>
-                  <span class="checkbox-label">Ressourcen und Übungen zum Training</span>
+                  <span class="checkbox-label">Extra Ressourcen und Übungen zum Training</span>
                 </label>
                 <label class="checkbox-item">
-                  <input type="checkbox" name="ars_interesse" value="Kostenloses Strategiegespräch (KI im Unternehmen)">
+                  <input type="checkbox" name="ars_interesse" value="Einzeltraining">
                   <span class="checkbox-box">
                     <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                   </span>
-                  <span class="checkbox-label">Kostenloses Strategiegespräch (KI im Unternehmen)</span>
+                  <span class="checkbox-label">Einzeltraining</span>
                 </label>
                 <label class="checkbox-item">
-                  <input type="checkbox" name="ars_interesse" value="Training für mich, mein Team oder weitere Trainings">
+                  <input type="checkbox" name="ars_interesse" value="Training für mein Team oder weitere Trainings (über die ARS Akademie)">
                   <span class="checkbox-box">
                     <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                   </span>
-                  <span class="checkbox-label">Training für mich, mein Team oder weitere Trainings</span>
+                  <span class="checkbox-label">Training für mein Team oder weitere Trainings (über die ARS Akademie)</span>
                 </label>
                 <label class="checkbox-item">
                   <input type="checkbox" name="ars_interesse" value="Rechtskonforme KI-Lösungen (Datenschutz, EU AI Act)">
@@ -755,6 +745,12 @@
                 </label>
               </div>
             </div>
+
+            <div class="form-row">
+              <input type="text" id="arsVorname" name="vorname" placeholder="Vorname *" required autocomplete="given-name">
+              <input type="text" id="arsNachname" name="nachname" placeholder="Nachname *" required autocomplete="family-name">
+            </div>
+            <input type="email" id="arsEmail" name="email" placeholder="E-Mail *" required autocomplete="email">
 
             <div>
               <label class="checkbox-item datenschutz-item" id="arsConsentLabel">
@@ -801,7 +797,7 @@
   </div>
 
   <script>
-    // ARS-Lead-Formular (Brevo, kind=ars)
+    // ARS-Lead-Formular (JP-Brevo, kind=ars, Kurs aus ?kurs=)
     (function () {
       var arsForm = document.getElementById('arsLeadForm');
       if (!arsForm) return;
@@ -816,8 +812,6 @@
         var vorname = document.getElementById('arsVorname').value.trim();
         var nachname = document.getElementById('arsNachname').value.trim();
         var email = document.getElementById('arsEmail').value.trim();
-        var firma = document.getElementById('arsFirma').value.trim();
-        var telefon = document.getElementById('arsTelefon').value.trim();
         var consent = document.getElementById('arsConsent').checked;
         var hp = document.getElementById('arsHp').value;
         var interesse = Array.prototype.slice
@@ -830,6 +824,11 @@
           arsErrorBox.style.display = 'block';
           return;
         }
+        if (!interesse) {
+          arsErrorBox.textContent = 'Bitte wählen Sie mindestens eine Option aus.';
+          arsErrorBox.style.display = 'block';
+          return;
+        }
         if (!consent) {
           arsErrorBox.textContent = 'Bitte kreuzen Sie das Kästchen an, damit ich Ihnen die Ressourcen schicken darf.';
           arsErrorBox.style.display = 'block';
@@ -839,7 +838,7 @@
         arsSubmitBtn.disabled = true;
         arsSubmitBtn.textContent = 'Wird gesendet …';
 
-        fetch('https://deflifeos.popluhar.at/api/brevo/subscribe', {
+        fetch('https://deflifeos.popluhar.at/api/brevo-jp/subscribe', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify({
@@ -847,9 +846,8 @@
             email: email,
             vorname: vorname,
             nachname: nachname,
-            firma: firma,
-            telefon: telefon,
             interesse: interesse,
+            kurs: (new URLSearchParams(location.search).get('kurs') || '').slice(0, 40),
             consent: consent,
             hp: hp,
           }),
