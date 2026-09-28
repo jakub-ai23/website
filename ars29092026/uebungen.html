@@ -697,6 +697,7 @@
 
     <nav class="sidebar-nav" id="sidebar-vm">
       <div class="nav-section-label">Vormittag</div>
+      <a href="#kicheck">Zu Beginn. KI-Check</a>
       <a href="#split">Start. Bildschirm teilen</a>
       <a href="#llm-start">Danach. LLM öffnen</a>
       <a href="#ue0">1. Die Namensliste</a>
@@ -708,6 +709,14 @@
     </nav>
 
     <div>
+
+    <!-- KI-CHECK ZU BEGINN -->
+    <div class="exercise" id="kicheck">
+      <div class="exercise-number">Zu Beginn</div>
+      <h3>Ihr KI-Check</h3>
+      <p class="subtitle">Ein kurzer Fragebogen, bevor wir anfangen. Es gibt keine falschen Antworten.</p>
+      <a href="https://form.jotform.com/262631354150348" target="_blank" rel="noopener" style="display:inline-block; background:var(--gold); color:var(--charcoal); font-family:var(--font-heading); font-weight:700; font-size:0.95rem; letter-spacing:0.5px; padding:14px 30px; border-radius:8px; text-decoration:none;">KI-Check öffnen &rarr;</a>
+    </div>
 
     <!-- ÜBUNG 0 -->
     <!-- ÜBUNG 0.1: BILDSCHIRM TEILEN -->
@@ -1020,18 +1029,6 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
       <h3>Ihre KI-Wissensbasis aufbauen</h3>
       <p class="subtitle">Erstellen Sie zwei Dokumente, die Ihre KI ab sofort schlauer machen. Kollegen aus der gleichen Firma: arbeiten Sie zusammen!</p>
 
-      <div class="magic-box" style="margin-bottom: 24px;">
-        <div class="label" style="animation: pulse 2s infinite;">Die Magische Formel</div>
-        <div class="prompt-block" style="text-align:left; margin:0; animation: float 3s ease-in-out infinite;">Bevor du antwortest: Stelle mir 3 bis 5 gezielte Fragen, um meine Situation besser zu verstehen. Warte mit dem Entwurf, bis ich geantwortet habe.</div>
-      </div>
-
-      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin-bottom: 24px;">
-        <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Pro-Tipp &middot; Der Zwischen-Check</div>
-        <p style="color: var(--white-muted); font-size:0.88rem; margin-bottom:0;">Bei längeren Aufgaben verliert die KI den roten Faden, ohne es zu sagen. Fragen Sie deshalb <strong>mittendrin</strong> nach, ob sie noch weiß, worum es geht:</p>
-        <div class="prompt-block" style="margin:12px 0 0;">Kurzer Check, bevor wir weitermachen: Woran arbeiten wir gerade, und was ist das Ziel? Fass es in deinen eigenen Worten zusammen.</div>
-        <p style="color:var(--gold); font-size:0.82rem; margin:12px 0 0;">Passt die Antwort nicht zu Ihrem Ziel, haben Sie die Abweichung gefunden, bevor sie im Ergebnis landet. Sie behalten die Kontrolle, nicht die KI.</p>
-      </div>
-
       <p><strong>Zwei Teile, beide gehören zusammen.</strong> <strong>1a</strong> ist Ihre Firma, die lässt die KI selbst recherchieren, Sie kopieren nur den Prompt. <strong>1b</strong> ist Ihre Rolle, die beschreiben Sie selbst. <strong>Speichern Sie beide Dokumente</strong>, wir verwenden sie gleich in einem Projekt.</p>
 
       <details open>
@@ -1061,6 +1058,11 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
         </div>
       </details>
 
+      <div class="magic-box" style="margin-bottom: 24px;">
+        <div class="label" style="animation: pulse 2s infinite;">Die Magische Formel</div>
+        <div class="prompt-block" style="text-align:left; margin:0; animation: float 3s ease-in-out infinite;">Bevor du antwortest: Stelle mir 3 bis 5 gezielte Fragen, um meine Situation besser zu verstehen. Warte mit dem Entwurf, bis ich geantwortet habe.</div>
+      </div>
+
       <details open>
         <summary>1b: Meine Rolle, die schreiben Sie selbst</summary>
         <div class="collapsible-content">
@@ -1074,11 +1076,6 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
             <div class="collapsible-content">
               <p class="step-label">Schritt 2:Dokument erstellen lassen</p>
               <div class="prompt-block">Erstelle jetzt das Kontextdokument basierend auf meinen Antworten. Schreibe es so, dass ich es in Zukunft am Anfang jeder Konversation einfügen kann, damit du sofort weißt, wer ich bin und was ich mache.</div>
-              <div style="border-left:3px solid var(--gold); background:rgba(212,160,23,0.05); padding:12px 14px; margin:14px 0; border-radius:0 8px 8px 0;">
-                <div style="font-family:var(--font-heading); font-weight:700; font-size:0.65rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin-bottom:6px;">Zwischen-Check</div>
-                <p style="color:var(--white-muted); font-size:0.82rem; margin-bottom:0;">Kurz prüfen, ob die KI noch auf Kurs ist:</p>
-                <div class="prompt-block" style="margin:10px 0 0;">Kurzer Check, bevor wir weitermachen: Woran arbeiten wir gerade, und was ist das Ziel? Fass es in deinen eigenen Worten zusammen.</div>
-              </div>
               <p class="step-label">Schritt 3:Verfeinern</p>
               <div class="prompt-block">Was fehlt in diesem Dokument, das für eine KI wichtig wäre? Schlage 3 Ergänzungen vor.</div>
               <p class="step-label">Schritt 4:Speichern</p>
@@ -1088,8 +1085,15 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
         </div>
       </details>
 
+      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin-bottom: 24px;">
+        <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Pro-Tipp &middot; Der Zwischen-Check</div>
+        <p style="color: var(--white-muted); font-size:0.88rem; margin-bottom:0;">Bei längeren Aufgaben verliert die KI den roten Faden, ohne es zu sagen. Fragen Sie deshalb <strong>mittendrin</strong> nach, ob sie noch weiß, worum es geht:</p>
+        <div class="prompt-block" style="margin:12px 0 0;">Kurzer Check, bevor wir weitermachen: Woran arbeiten wir gerade, und was ist das Ziel? Fass es in deinen eigenen Worten zusammen.</div>
+        <p style="color:var(--gold); font-size:0.82rem; margin:12px 0 0;">Passt die Antwort nicht zu Ihrem Ziel, haben Sie die Abweichung gefunden, bevor sie im Ergebnis landet. Sie behalten die Kontrolle, nicht die KI.</p>
+      </div>
+
       <details>
-        <summary>Optional: Ein Prozess aus meinem Alltag (wenn Sie schneller sind)</summary>
+        <summary>Optional 1: Ein Prozess aus meinem Alltag (wenn Sie schneller sind)</summary>
         <div class="collapsible-content">
           <p>Beschreiben Sie einen Prozess, den Sie regelmäßig durchführen (z.B. Genehmigung, Bestellung, Onboarding, Reporting).</p>
           <p class="step-label">Schritt 1:Kopieren und abschicken</p>
@@ -1115,7 +1119,7 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       </details>
 
       <details>
-        <summary>Weitere Optionen (für Fortgeschrittene)</summary>
+        <summary>Optional 2: Weitere Kontextdokumente (für Fortgeschrittene)</summary>
         <div class="collapsible-content">
           <p>Wenn 1a und 1b schon fertig sind oder Sie etwas anderes brauchen:</p>
           <ul>
