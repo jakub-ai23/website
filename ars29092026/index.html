@@ -299,20 +299,7 @@
       .cta-section { padding: 22px 18px 24px; }
     }
   </style>
-  <style>
-    .gate-note { max-width: 560px; margin: 0 auto 2.6rem; text-align: center; }
-    .gate-pill { display: inline-flex; align-items: center; gap: .55rem; padding: .55rem 1.1rem;
-      border: 1px solid var(--gold-dark); border-radius: 999px; color: var(--gold);
-      font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
-    .gate-note p { color: var(--white-muted); font-size: 1.02rem; line-height: 1.65; margin-top: 1.1rem; }
-    .link-card.locked { opacity: .45; cursor: default; pointer-events: none; }
-    .info { max-width: 560px; margin: 2.8rem auto 0; border-top: 1px solid var(--charcoal-lighter); padding-top: 1.8rem; }
-    .info-row { display: flex; gap: 1rem; padding: .55rem 0; font-size: .95rem; }
-    .info-row .k { color: var(--white-muted); min-width: 92px; }
-    .info-row .v { color: var(--white); }
-  </style>
 </head>
-
 <body>
 
   <!-- HEADER -->
@@ -322,68 +309,95 @@
     </a>
   </header>
 
+  <!-- MAIN -->
   <main>
 
+    <!-- HERO -->
     <div class="hero">
       <div class="badge">ARS Training &middot; 29.09.2026</div>
-      <h1>KI f&uuml;r den B&uuml;roalltag</h1>
-      <p>Ihr Arbeitsblatt f&uuml;r den Kurstag</p>
+      <h1>KI für den Büroalltag</h1>
+      <p>Ihr Arbeitsblatt für heute</p>
     </div>
 
     <div class="divider"></div>
 
-    <div class="gate-note">
-      <span class="gate-pill">Freischaltung am 29. September</span>
-      <p>Die &Uuml;bungen &ouml;ffnen am Kurstag, weil wir sie gemeinsam durchgehen.</p>
-    </div>
-
+    <!-- LINKS -->
     <div class="links">
-      <div class="link-card locked" aria-disabled="true">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h6a1 1 0 0 1 1 1v1h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V3a1 1 0 0 1 1-1z"/><line x1="9" y1="4" x2="15" y2="4"/><polyline points="8.5 13 10.5 15 15 10.5"/></svg></div>
+
+      <!-- 1. KI-Check (JotForm) — primary action -->
+      <a class="link-card primary"
+         href="https://form.jotform.com/262631354150348"
+         target="_blank"
+         rel="noopener noreferrer">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 2h6a1 1 0 0 1 1 1v1h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V3a1 1 0 0 1 1-1z"/>
+            <line x1="9" y1="4" x2="15" y2="4"/>
+            <polyline points="8.5 13 10.5 15 15 10.5"/>
+          </svg>
+        </div>
         <div class="card-text">
           <div class="card-label">KI-Check</div>
-          <div class="card-sub">&Ouml;ffnet am Kurstag</div>
+          <div class="card-sub">Kurzer Wissens-Check zu Beginn</div>
         </div>
         <div class="card-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
           </svg>
         </div>
-      </div>
-      <div class="link-card locked" aria-disabled="true">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      </a>
+
+      <!-- 2. Übungen & Prompts -->
+      <a class="link-card"
+         href="uebungen.html">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
         <div class="card-text">
-          <div class="card-label">&Uuml;bungen &amp; Prompts</div>
-          <div class="card-sub">&Ouml;ffnet am Kurstag</div>
+          <div class="card-label">Übungen &amp; Prompts</div>
+          <div class="card-sub">Alle Prompts zum Kopieren</div>
         </div>
         <div class="card-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
           </svg>
         </div>
-      </div>
-      <div class="link-card locked" aria-disabled="true">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      </a>
+
+      <!-- 3. Gemeinsames Arbeitsblatt -->
+      <a class="link-card"
+         href="https://docs.google.com/document/d/1wM0wWN91od7siPCviuThZ-uomI6tMHx2zNnXqNhH32U/edit?tab=t.0"
+         target="_blank"
+         rel="noopener noreferrer">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
         <div class="card-text">
           <div class="card-label">Gemeinsames Arbeitsblatt</div>
-          <div class="card-sub">&Ouml;ffnet am Kurstag</div>
+          <div class="card-sub">Google Doc &mdash; heute live bearbeiten</div>
         </div>
         <div class="card-arrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
           </svg>
         </div>
-      </div>
-    </div>
+      </a>
 
-    <div class="info">
-      <div class="info-row"><span class="k">Termin</span><span class="v">Dienstag, 29. September 2026</span></div>
-      <div class="info-row"><span class="k">Ort</span><span class="v">ARS Akademie, Uraniastra&szlig;e 4, 1010 Wien</span></div>
-      <div class="info-row"><span class="k">Mitbringen</span><span class="v">Laptop oder Tablet, ein kostenloser Gmail-Account, und ein Thema aus Ihrem eigenen Arbeitsalltag</span></div>
     </div>
-
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <p>
       Jakub Popluhar M.Ed.
