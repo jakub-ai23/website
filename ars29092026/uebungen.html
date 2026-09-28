@@ -1402,7 +1402,7 @@ Verhalten: Antworte auf Deutsch, in Sie-Form, konkret und knapp (max. 300 Wörte
       <div class="prompt-block">Welche KI-Systeme gelten als "hochriskant"? Nenne konkrete Beispiele aus dem Text.</div>
       <div class="prompt-block">Was passiert, wenn ein Unternehmen gegen das Gesetz verstößt? Nenne die Strafen.</div>
       <div class="prompt-block">Fasse die wichtigsten Punkte zusammen, die für ein mittelständisches Unternehmen in Österreich relevant sind. Max. 5 Bulletpoints.</div>
-      <p style="color: var(--gold); font-size: 0.85rem;">Achten Sie auf die Zitate (graue Ziffern) am Ende der Antworten. NotebookLM erfindet nichts, es zeigt Ihnen immer die Quelle.</p>
+      <p style="color: var(--gold); font-size: 0.85rem;">Achten Sie auf die Zitate (graue Ziffern) am Ende der Antworten. NotebookLM erfindet weniger, weil es sich an Ihre Quellen hält, aber nicht nichts. Klicken Sie auf eine Ziffer und prüfen Sie, ob die Stelle wirklich sagt, was in der Antwort steht.</p>
 
       <p class="step-label">Schritt 3b: Persönlich machen</p>
       <p>Laden Sie zusätzlich Ihr <strong>Kontextdokument vom Vormittag</strong> (Übung 4: Unternehmen oder Rolle) als zweite Quelle in dasselbe Notizbuch hoch. Jetzt kann NotebookLM beide Quellen gemeinsam lesen.</p>
@@ -1436,11 +1436,11 @@ Verhalten: Antworte auf Deutsch, in Sie-Form, konkret und knapp (max. 300 Wörte
     <!-- ÜBUNG 5b: SPLIT-SCREEN, GROUNDING VS. HALLUZINATION -->
     <div class="exercise" id="ue5b">
       <div class="exercise-number">Übung 7b</div>
-      <h3>Split-Screen: Quellentreue vs. Blindflug</h3>
-      <p class="subtitle">Zwei Fenster, dieselbe Frage. Sehen Sie live, wo eine KI ohne Quelle rät statt zu wissen.</p>
+      <h3>Split-Screen: dieselbe Quelle, zwei Werkzeuge</h3>
+      <p class="subtitle">Zwei Fenster, dasselbe Dokument, dieselbe Frage. Sehen Sie, wie zwei Werkzeuge mit derselben Quelle umgehen.</p>
 
       <p class="step-label">Aufbau</p>
-      <p>Öffnen Sie <strong>zwei Fenster nebeneinander</strong>: links Ihr NotebookLM von Übung 7 (EU AI Act geladen), rechts ein <strong>frischer Chat</strong> in ChatGPT, Claude oder Gemini <strong>ohne</strong> hochgeladenes Dokument. Stellen Sie beiden dieselbe Frage, gleichzeitig.</p>
+      <p>Öffnen Sie <strong>zwei Fenster nebeneinander</strong>: links Ihr NotebookLM von Übung 7 (EU AI Act geladen), rechts ein <strong>frischer Chat</strong> in ChatGPT, Claude oder Gemini. Laden Sie dort <strong>dasselbe EU-AI-Act-PDF</strong> hoch. Dann stellen Sie beiden dieselbe Frage, gleichzeitig.</p>
 
 
       <p class="step-label">Runde 1: Die Zahlen</p>
@@ -1449,46 +1449,13 @@ Verhalten: Antworte auf Deutsch, in Sie-Form, konkret und knapp (max. 300 Wörte
       <div class="prompt-block">Zähl mir alle Bereiche auf, in denen KI-Systeme laut Anhang III als hochriskant gelten.</div>
       <p style="color: var(--white-muted); font-size: 0.85rem;">Vergleichen Sie: zitiert eine Antwort die genaue Textstelle, oder klingt sie nur selbstbewusst? Notieren Sie, wo die Antworten auseinandergehen.</p>
 
-      <details>
-        <summary>Auflösung (erst aufklappen, wenn beide Antworten da sind)</summary>
-        <div class="collapsible-content">
-          <p><strong>Geldbuße:</strong> bis zu 35.000.000 EUR oder 7 % des weltweiten Jahresumsatzes, je nachdem was höher ist (Art. 99 Abs. 3). Viele KI-Modelle verwechseln das mit der DSGVO (4 % / 20 Mio. EUR) — ähnliche Größenordnung, anderes Gesetz.</p>
-          <p><strong>Termine:</strong> Verbote gelten bereits ab 2. Februar 2025, die Verordnung insgesamt ab 2. August 2026, die Pflichten für Hochrisiko-Systeme nach Artikel 6 Absatz 1 erst ab 2. August 2027. Ein Modell ohne Quelle nennt oft nur ein Datum für alles.</p>
-          <p><strong>Anhang III (8 Bereiche):</strong> Biometrie · Kritische Infrastruktur · Bildung · Beschäftigung · Zugänglichkeit & Grundversorgung (u.a. Kreditwürdigkeit, Versicherung, Notrufe) · Strafverfolgung · Migration/Asyl/Grenzkontrolle · Rechtspflege & demokratische Prozesse.</p>
-        </div>
-      </details>
-
-      <p class="step-label">Runde 2: Schatten-KI, dieselbe Probe</p>
-      <p>Fügen Sie im NotebookLM-Fenster eine neue Quelle hinzu: <a href="https://it-kenner.heise.de/it-summit-by-heise/ki-praxis/shadow-ai-wie-heimliche-ki-nutzung-unternehmensdaten-gefaehrdet/" target="_blank">Shadow AI: Heimliche KI-Nutzung gefährdet Unternehmensdaten (Heise)</a>. Stellen Sie wieder dieselbe Frage in beiden Fenstern:</p>
-      <div class="prompt-block">Wie viel Prozent der Mitarbeiter nutzen laut aktuellen Studien heimlich KI-Tools ohne Freigabe der IT-Abteilung?</div>
-      <details>
-        <summary>Auflösung</summary>
-        <div class="collapsible-content">
-          <p><strong>57 Prozent</strong> laut der Studie "Trust, Attitudes and Use of Artificial Intelligence: A Global Study 2025" (University of Melbourne / KPMG International), zitiert im Heise-Artikel. Ein Modell ohne diese Quelle rät meist eine andere, plausibel klingende Zahl.</p>
-        </div>
-      </details>
-
-      <p class="step-label">Runde 3: Eine Frage, die gar nicht im Dokument steht</p>
+      <p class="step-label">Runde 2: Eine Frage, die gar nicht im Dokument steht</p>
       <p>Wieder dieselbe Frage in beide Fenster:</p>
       <div class="prompt-block">Wer hat die Fußball-WM 2026 gewonnen?</div>
       <p style="color: var(--white-muted); font-size: 0.85rem;">Schauen Sie zuerst nach links, dann nach rechts. Achten Sie nicht auf die Antwort, sondern darauf, <strong>was jede Seite tut, wenn sie es nicht aus einer Quelle weiß</strong>.</p>
-      <details>
-        <summary>Auflösung</summary>
-        <div class="collapsible-content">
-          <p><strong>Links</strong> antwortet nicht. NotebookLM kennt nur seine Quellen, und in einem EU-Gesetz steht kein Fußballergebnis. Es sagt Ihnen das auch, statt sich etwas auszudenken.</p>
-          <p><strong>Rechts</strong> antwortet. Ob die Antwort stimmt, ist die zweite Frage: Hat das Modell nachgeschlagen, oder erinnert es sich an seinen Trainingsstand? Fragen Sie nach: "Woher weißt du das?"</p>
-          <p style="color:var(--gold);">Das ist kein Fehler des einen und kein Verdienst des anderen. Es sind zwei verschiedene Werkzeuge. Das eine antwortet nur aus dem, was Sie ihm geben. Das andere antwortet immer. Sie müssen wissen, vor welchem Sie gerade sitzen.</p>
-        </div>
-      </details>
-
-      <p class="step-label">Runde 4: Jetzt bekommt auch die rechte Seite das Dokument</p>
-      <p>Laden Sie das <strong>EU-AI-Act-PDF auch rechts hoch</strong>, in ChatGPT, Claude oder Gemini. Jetzt haben beide Seiten dieselbe Quelle. Stellen Sie noch einmal eine Frage von oben.</p>
-      <div class="prompt-block">Zähl mir alle Bereiche auf, in denen KI-Systeme laut Anhang III als hochriskant gelten. Zitiere die Textstellen.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Vergleichen Sie diesmal nicht richtig gegen falsch, sondern <strong>wie</strong> die beiden mit derselben Quelle umgehen: Wer zeigt Ihnen bei jedem Satz, woher er ihn hat? Wer fasst zusammen und mischt eigenes Wissen dazu? Und was passiert, wenn das Dokument sehr lang ist?</p>
 
       <p class="step-label">Die Frage an sich</p>
       <div class="prompt-block">Woran erkenne ich, dass eine Antwort erfunden ist, auch wenn sie selbstbewusst klingt?</div>
-      <p style="color: var(--gold); font-size: 0.85rem;">Genau das ist Schatten-KI im eigenen Unternehmen: Mitarbeiter fragen ein Modell ohne Quelle, bekommen eine selbstbewusste Antwort, und niemand prüft nach. Der Unterschied zwischen links und rechts in diesem Fenster ist der Unterschied zwischen kontrollierter und unkontrollierter KI-Nutzung.</p>
     </div>
 
     <!-- ÜBUNG 8: FORMAT-QUIZ, PLATZHALTER -->
