@@ -666,8 +666,9 @@
       .llm-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="quiz/quiz.css">
 </head>
-<body>
+<body data-quiz-seite="ars29092026-formate">
 
   <header class="site-header">
     <a href="https://jakubpopluhar.com" class="logo" aria-label="Jakub Popluhar"><img src="../images/logos/jakub-popluhar-logo-dark.png" alt="Jakub Popluhar" height="40" style="display:block;"></a>
@@ -1184,10 +1185,10 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <div class="nav-section-label">Nachmittag</div>
       <a href="#split-nm">Bildschirm teilen</a>
       <a href="#alltag">Ihr Arbeitsalltag</a>
+      <a href="#formate">Formate für die Maschine</a>
       <a href="#ue6b">6. Projekt anlegen</a>
       <a href="#ue5">7. EU AI Act + NotebookLM</a>
       <a href="#ue5b">7b. Split-Screen: Quellentreue</a>
-      <a href="#formate">8. Formate (Platzhalter)</a>
       <a href="#ue8">9. Prompt Layering</a>
       <a href="#ue8b">9b. Die Städtereise</a>
       <a href="#offen">Offener Übungsblock</a>
@@ -1269,6 +1270,142 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <script>try { window.jotformEmbedHandler("iframe[id='JotFormIFrame-262705879297071']", "https://form.jotform.com/"); } catch (e) {}</script>
     </div>
 
+    <!-- FORMATE, vor der Wissensbasis (Quiz aus mark/designs, Commander 2026-09-28) -->
+    <div class="exercise" id="formate">
+      <div class="exercise-number">Vor der Wissensbasis</div>
+      <h3>Welches Format versteht die Maschine?</h3>
+      <p class="subtitle">Gleich laden Sie Ihre Dokumente hoch. Vorher klären wir, welche Dateien eine KI überhaupt sauber lesen kann.</p>
+
+      <p class="step-label">Erst tippen</p>
+      <div class="quiz">
+<script type="application/json">
+{
+  "id": "format-tipp",
+  "typ": "tipp",
+  "etikett": "Vor dem Block",
+  "frage": "Welche Dateien kann eine KI Ihrer Meinung nach sauber lesen? Kreuzen Sie an, was Sie tippen.",
+  "hilfe": "Mehrfachauswahl. Aufgelöst wird nach dem Block.",
+  "optionen": ["Eine Textdatei", "Ein eingescanntes PDF", "Eine saubere Excel-Tabelle", "Eine PowerPoint-Folie", "Ein Word-Dokument mit echten Überschriften"],
+  "richtig": ["Eine Textdatei", "Eine saubere Excel-Tabelle", "Ein Word-Dokument mit echten Überschriften"],
+  "hinweis": "Der Scan ist ein Bild, der Text muss erst erkannt werden. Die Folie ist eine Sammlung von Kästen ohne sichere Reihenfolge.",
+  "auflösen": "später",
+  "mischen": true,
+  "punkte": 0
+}
+</script>
+</div>
+
+      <p class="step-label">Kurz zuhören</p>
+      <p>Ich erkläre Ihnen kurz, worauf es bei Dateien ankommt. Danach prüfen Sie sich selbst.</p>
+
+      <p class="step-label">Dann prüfen</p>
+      <div class="quiz">
+<script type="application/json">
+{
+  "id": "format-bester-text",
+  "typ": "einfach",
+  "etikett": "Nach dem Block",
+  "frage": "Sie haben einen langen Text, mit dem die KI dauerhaft arbeiten soll. Welches Format geben Sie ihr?",
+  "optionen": ["Eine Textdatei oder Markdown", "Ein hübsch gestaltetes Word-Dokument", "Ein PDF", "Eine PowerPoint-Zusammenfassung"],
+  "richtig": "Eine Textdatei oder Markdown",
+  "hinweis": "Bei Text steht die Struktur in den Zeichen selbst. Nichts muss geraten werden.",
+  "auflösen": "sofort",
+  "punkte": 1
+}
+</script>
+</div>
+
+      <div class="quiz">
+<script type="application/json">
+{
+  "id": "format-liste",
+  "typ": "einfach",
+  "frage": "Sie wollen 200 Kundendatensätze auswerten lassen. Was geben Sie?",
+  "optionen": ["Die Tabelle als CSV oder saubere Excel-Datei", "Einen Screenshot der Tabelle", "Das Ganze als PDF gedruckt", "Die Tabelle in ein Word-Dokument kopiert"],
+  "richtig": "Die Tabelle als CSV oder saubere Excel-Datei",
+  "hinweis": "Eine Zeile ist ein Datensatz, eine Spalte ist eine Eigenschaft. Alles andere zerlegt die Tabelle.",
+  "auflösen": "sofort",
+  "punkte": 1
+}
+</script>
+</div>
+
+      <div class="quiz">
+<script type="application/json">
+{
+  "id": "format-farbe",
+  "typ": "einfach",
+  "frage": "In Ihrer Liste sind die dringenden Fälle rot eingefärbt. Sie laden die Datei hoch und bitten um alle dringenden Fälle. Was passiert?",
+  "optionen": ["Die KI sieht kein dringend, weil die Farbe keine Information ist", "Die KI erkennt Rot und filtert korrekt", "Die KI fragt nach, was Rot bedeutet", "Die KI markiert die Zeilen ebenfalls rot"],
+  "richtig": "Die KI sieht kein dringend, weil die Farbe keine Information ist",
+  "hinweis": "Und sie sagt Ihnen nicht, dass ihr etwas fehlt. Mach eine Spalte daraus, dann steht es da.",
+  "auflösen": "sofort",
+  "punkte": 2
+}
+</script>
+</div>
+
+      <div class="quiz">
+<script type="application/json">
+{
+  "id": "format-word",
+  "typ": "einfach",
+  "frage": "Zwei Word-Dokumente, gleicher Text. In einem sind die Überschriften mit der Formatvorlage gesetzt, im anderen nur fett und größer. Was macht das für die KI aus?",
+  "optionen": ["Nur das erste hat für die KI eine erkennbare Gliederung", "Kein Unterschied, sie sieht in beiden dasselbe", "Das zweite ist besser lesbar, weil weniger Formatierung", "Die KI kann Word ohnehin nicht öffnen"],
+  "richtig": "Nur das erste hat für die KI eine erkennbare Gliederung",
+  "hinweis": "Fett und groß heißt für mich betont, nicht Kapitel. Dasselbe Dokument, zwei völlig verschiedene Ergebnisse.",
+  "auflösen": "sofort",
+  "punkte": 2
+}
+</script>
+</div>
+
+      <div class="quiz">
+<script type="application/json">
+{
+  "id": "format-excel-kaputt",
+  "typ": "tipp",
+  "frage": "Was macht eine Excel-Tabelle für die KI schwer? Kreuzen Sie alles an.",
+  "optionen": ["Verbundene Zellen", "Farbe statt einer eigenen Spalte", "Mehrere Tabellen auf einem Blatt", "Eine einzige Kopfzeile in Zeile 1", "Leerzeilen zwischen den Blöcken"],
+  "richtig": ["Verbundene Zellen", "Farbe statt einer eigenen Spalte", "Mehrere Tabellen auf einem Blatt", "Leerzeilen zwischen den Blöcken"],
+  "hinweis": "Die Probe: lässt sich die Tabelle als CSV speichern, ohne dass etwas fehlt, ist sie gut. Geht dabei etwas kaputt, war es keine Tabelle, sondern ein Bild aus Zellen.",
+  "auflösen": "sofort",
+  "punkte": 2
+}
+</script>
+</div>
+
+      <div class="quiz">
+<script type="application/json">
+{
+  "id": "format-pdf",
+  "typ": "einfach",
+  "frage": "Warum ist ein PDF für Menschen gut und für die Maschine schwer?",
+  "optionen": ["Weil im PDF steht, wo etwas auf der Seite liegt, aber nicht was es bedeutet", "Weil PDFs zu groß sind", "Weil PDFs verschlüsselt sind", "Weil PDFs keinen Text enthalten"],
+  "richtig": "Weil im PDF steht, wo etwas auf der Seite liegt, aber nicht was es bedeutet",
+  "hinweis": "Sie muss raten, was Überschrift ist und was Fließtext. Bei einem Scan wird es noch enger, das ist nur noch ein Bild.",
+  "auflösen": "sofort",
+  "punkte": 2
+}
+</script>
+</div>
+
+      <div class="quiz">
+<script type="application/json">
+{
+  "id": "format-eigenes",
+  "typ": "text",
+  "etikett": "Ihre Übertragung",
+  "frage": "Welche Datei geben Sie in Ihrem Alltag am häufigsten an eine KI? Und in welchem Format läge sie besser?",
+  "hilfe": "Ein Satz genügt.",
+  "hinweis": "Die Probe für jedes Format: Gib der Maschine das, was du am Telefon vorlesen könntest. Was beim Vorlesen verloren ginge, geht auch bei ihr verloren.",
+  "auflösen": "später",
+  "knopf": "Die Probe zeigen"
+}
+</script>
+</div>
+    </div>
+
     <!-- ÜBUNG 6b: PROJEKT ANLEGEN + SYSTEM-PROMPT -->
     <div class="exercise" id="ue6b">
       <div class="exercise-number">Übung 6</div>
@@ -1283,6 +1420,17 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
 
       <p class="step-label" style="margin-top:26px; font-size:0.8rem;">Schritt 2 &middot; Kurz erklärt: zwei Arten von Anweisungen</p>
       <p><strong>Der System-Prompt</strong> gilt in <strong>jedem</strong> Chat. Er steht in den Einstellungen Ihres Tools (bei ChatGPT unter Personalisierung) und sagt der KI, wer Sie sind und wie sie grundsätzlich antworten soll.</p>
+      <div class="magic-box" style="text-align:left; margin:16px 0;">
+        <div class="label">System-Prompt zum Kopieren</div>
+        <div class="prompt-block" style="margin:0;">Sag mir lieber „Das weiß ich nicht", als zu raten. Trenne klar, was du sicher weißt und was du vermutest, und kennzeichne Vermutungen. Erfinde keine Zahlen, Namen, Zitate oder Quellen.
+
+Wenn meine Anfrage unklar ist oder dir wichtige Informationen fehlen, stell mir zuerst kurze Rückfragen, bevor du antwortest.
+
+Gib mir nicht einfach recht. Wenn ich mich irre oder etwas übersehe, sag es direkt und begründe es.
+
+Ich bin [Rolle] bei [Firma oder Branche] und kümmere mich vor allem um [zwei, drei Hauptaufgaben]. Antworte mir auf Deutsch, per [Du oder Sie], kurz und so, dass ich es direkt verwenden kann.</div>
+      </div>
+      <p>Den System-Prompt tragen Sie in die <strong>Einstellungen</strong> Ihres Tools ein, bei ChatGPT unter <strong>Personalisierung</strong>. Die [Klammern] im letzten Absatz füllen Sie selbst aus, zwei Sätze reichen.</p>
       <p><strong>Der Projekt-Prompt</strong> gilt <strong>nur in einem Projekt</strong>. Ein Projekt ist ein eigener Raum: Ihre Dokumente liegen dort als feste Wissensbasis, und die Projektanweisungen legen fest, wie die KI damit arbeitet. Jeder neue Chat im Projekt startet mit diesem Wissen.</p>
       <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin: 24px 0;">
         <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Wo gilt was &middot; die drei Ebenen</div>
@@ -1456,20 +1604,6 @@ Verhalten: Antworte auf Deutsch, in Sie-Form, konkret und knapp (max. 300 Wörte
 
       <p class="step-label">Die Frage an sich</p>
       <div class="prompt-block">Woran erkenne ich, dass eine Antwort erfunden ist, auch wenn sie selbstbewusst klingt?</div>
-    </div>
-
-    <!-- ÜBUNG 8: FORMAT-QUIZ, PLATZHALTER -->
-    <div class="exercise" id="formate">
-      <div class="exercise-number">Übung 8</div>
-      <h3>Welches Format versteht die Maschine?</h3>
-      <p class="subtitle">PLATZHALTER. Inhalt wird noch ausgearbeitet.</p>
-      <p>Geplant: ein kurzes Quiz dazu, in welcher Form man einer KI etwas gibt und in welcher Form man etwas zurückverlangt. HTML, Markdown, reiner Text, Screenshot, PDF, Tabelle.</p>
-      <ul>
-        <li>Was gebe ich hinein: abgetippter Text, Screenshot, PDF, Link?</li>
-        <li>Was verlange ich zurück: Fließtext, Markdown, Tabelle, HTML?</li>
-        <li>Wann ist ein Screenshot besser als Text, und wann ist er das Gegenteil?</li>
-      </ul>
-      <p style="color: var(--gold); font-size: 0.85rem;">Offen: Quizfragen, Antworten, Zeitbox. Kommt von Jakub.</p>
     </div>
 
     <!-- ÜBUNG 8 -->
@@ -1817,6 +1951,6 @@ Erstelle jetzt die Lösung basierend auf diesen Fakten. Nutze konsequent den Sti
 <script src="/assets/js/site.js" defer></script>
 
 <!-- DEV-ONLY: Klick-Sonde, vor dem Veroeffentlichen entfernen -->
-<script src="_dev-click-probe.js"></script>
+<script src="quiz/quiz.js"></script>
 </body>
 </html>
