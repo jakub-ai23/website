@@ -1282,11 +1282,21 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
 {
   "id": "format-tipp",
   "typ": "tipp",
-  "etikett": "Vor dem Block",
-  "frage": "Welche Dateien kann eine KI Ihrer Meinung nach sauber lesen? Kreuzen Sie an, was Sie tippen.",
-  "hilfe": "Mehrfachauswahl. Aufgelöst wird nach dem Block.",
-  "optionen": ["Eine Textdatei", "Ein eingescanntes PDF", "Eine saubere Excel-Tabelle", "Eine PowerPoint-Folie", "Ein Word-Dokument mit echten Überschriften"],
-  "richtig": ["Eine Textdatei", "Eine saubere Excel-Tabelle", "Ein Word-Dokument mit echten Überschriften"],
+  "etikett": "Frage 1",
+  "frage": "Welche Dateien kann eine KI Ihrer Meinung nach am einfachsten lesen? Klicken Sie alle an, die Sie für richtig halten.",
+  "hilfe": "Mehrfachauswahl. Die Auflösung sehen Sie mit dem Knopf darunter.",
+  "optionen": [
+    "Eine Textdatei",
+    "Ein eingescanntes PDF",
+    "Eine saubere Excel-Tabelle",
+    "Eine PowerPoint-Folie",
+    "Ein Word-Dokument mit echten Überschriften"
+  ],
+  "richtig": [
+    "Eine Textdatei",
+    "Eine saubere Excel-Tabelle",
+    "Ein Word-Dokument mit echten Überschriften"
+  ],
   "hinweis": "Der Scan ist ein Bild, der Text muss erst erkannt werden. Die Folie ist eine Sammlung von Kästen ohne sichere Reihenfolge.",
   "auflösen": "später",
   "mischen": true,
@@ -1295,18 +1305,20 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
 </script>
 </div>
 
-      <p class="step-label">Kurz zuhören</p>
-      <p>Ich erkläre Ihnen kurz, worauf es bei Dateien ankommt. Danach prüfen Sie sich selbst.</p>
-
       <p class="step-label">Dann prüfen</p>
       <div class="quiz">
 <script type="application/json">
 {
   "id": "format-bester-text",
   "typ": "einfach",
-  "etikett": "Nach dem Block",
+  "etikett": "Frage 2",
   "frage": "Sie haben einen langen Text, mit dem die KI dauerhaft arbeiten soll. Welches Format geben Sie ihr?",
-  "optionen": ["Eine Textdatei oder Markdown", "Ein hübsch gestaltetes Word-Dokument", "Ein PDF", "Eine PowerPoint-Zusammenfassung"],
+  "optionen": [
+    "Eine Textdatei oder Markdown",
+    "Ein hübsch gestaltetes Word-Dokument",
+    "Ein PDF",
+    "Eine PowerPoint-Zusammenfassung"
+  ],
   "richtig": "Eine Textdatei oder Markdown",
   "hinweis": "Bei Text steht die Struktur in den Zeichen selbst. Nichts muss geraten werden.",
   "auflösen": "sofort",
@@ -1321,11 +1333,17 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
   "id": "format-liste",
   "typ": "einfach",
   "frage": "Sie wollen 200 Kundendatensätze auswerten lassen. Was geben Sie?",
-  "optionen": ["Die Tabelle als CSV oder saubere Excel-Datei", "Einen Screenshot der Tabelle", "Das Ganze als PDF gedruckt", "Die Tabelle in ein Word-Dokument kopiert"],
+  "optionen": [
+    "Die Tabelle als CSV oder saubere Excel-Datei",
+    "Einen Screenshot der Tabelle",
+    "Das Ganze als PDF gedruckt",
+    "Die Tabelle in ein Word-Dokument kopiert"
+  ],
   "richtig": "Die Tabelle als CSV oder saubere Excel-Datei",
   "hinweis": "Eine Zeile ist ein Datensatz, eine Spalte ist eine Eigenschaft. Alles andere zerlegt die Tabelle.",
   "auflösen": "sofort",
-  "punkte": 1
+  "punkte": 1,
+  "etikett": "Frage 3"
 }
 </script>
 </div>
@@ -1336,59 +1354,25 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
   "id": "format-farbe",
   "typ": "einfach",
   "frage": "In Ihrer Liste sind die dringenden Fälle rot eingefärbt. Sie laden die Datei hoch und bitten um alle dringenden Fälle. Was passiert?",
-  "optionen": ["Die KI sieht kein dringend, weil die Farbe keine Information ist", "Die KI erkennt Rot und filtert korrekt", "Die KI fragt nach, was Rot bedeutet", "Die KI markiert die Zeilen ebenfalls rot"],
+  "optionen": [
+    "Die KI sieht kein dringend, weil die Farbe keine Information ist",
+    "Die KI erkennt Rot und filtert korrekt",
+    "Die KI fragt nach, was Rot bedeutet",
+    "Die KI markiert die Zeilen ebenfalls rot"
+  ],
   "richtig": "Die KI sieht kein dringend, weil die Farbe keine Information ist",
   "hinweis": "Und sie sagt Ihnen nicht, dass ihr etwas fehlt. Mach eine Spalte daraus, dann steht es da.",
   "auflösen": "sofort",
-  "punkte": 2
+  "punkte": 2,
+  "etikett": "Frage 4"
 }
 </script>
 </div>
 
-      <div class="quiz">
-<script type="application/json">
-{
-  "id": "format-word",
-  "typ": "einfach",
-  "frage": "Zwei Word-Dokumente, gleicher Text. In einem sind die Überschriften mit der Formatvorlage gesetzt, im anderen nur fett und größer. Was macht das für die KI aus?",
-  "optionen": ["Nur das erste hat für die KI eine erkennbare Gliederung", "Kein Unterschied, sie sieht in beiden dasselbe", "Das zweite ist besser lesbar, weil weniger Formatierung", "Die KI kann Word ohnehin nicht öffnen"],
-  "richtig": "Nur das erste hat für die KI eine erkennbare Gliederung",
-  "hinweis": "Fett und groß heißt für mich betont, nicht Kapitel. Dasselbe Dokument, zwei völlig verschiedene Ergebnisse.",
-  "auflösen": "sofort",
-  "punkte": 2
-}
-</script>
-</div>
-
-      <div class="quiz">
-<script type="application/json">
-{
-  "id": "format-excel-kaputt",
-  "typ": "tipp",
-  "frage": "Was macht eine Excel-Tabelle für die KI schwer? Kreuzen Sie alles an.",
-  "optionen": ["Verbundene Zellen", "Farbe statt einer eigenen Spalte", "Mehrere Tabellen auf einem Blatt", "Eine einzige Kopfzeile in Zeile 1", "Leerzeilen zwischen den Blöcken"],
-  "richtig": ["Verbundene Zellen", "Farbe statt einer eigenen Spalte", "Mehrere Tabellen auf einem Blatt", "Leerzeilen zwischen den Blöcken"],
-  "hinweis": "Die Probe: lässt sich die Tabelle als CSV speichern, ohne dass etwas fehlt, ist sie gut. Geht dabei etwas kaputt, war es keine Tabelle, sondern ein Bild aus Zellen.",
-  "auflösen": "sofort",
-  "punkte": 2
-}
-</script>
-</div>
-
-      <div class="quiz">
-<script type="application/json">
-{
-  "id": "format-pdf",
-  "typ": "einfach",
-  "frage": "Warum ist ein PDF für Menschen gut und für die Maschine schwer?",
-  "optionen": ["Weil im PDF steht, wo etwas auf der Seite liegt, aber nicht was es bedeutet", "Weil PDFs zu groß sind", "Weil PDFs verschlüsselt sind", "Weil PDFs keinen Text enthalten"],
-  "richtig": "Weil im PDF steht, wo etwas auf der Seite liegt, aber nicht was es bedeutet",
-  "hinweis": "Sie muss raten, was Überschrift ist und was Fließtext. Bei einem Scan wird es noch enger, das ist nur noch ein Bild.",
-  "auflösen": "sofort",
-  "punkte": 2
-}
-</script>
-</div>
+      <div class="magic-box" style="text-align:left; margin:24px 0;">
+        <div class="label">Kurz aufpassen</div>
+        <p style="margin:0;">Werfen Sie einen Blick zurück auf die Folien.</p>
+      </div>
 
       <div class="quiz">
 <script type="application/json">
