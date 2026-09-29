@@ -1234,7 +1234,8 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <a href="#ue6c">8. Suno: Songtexte</a>
       <a href="#ue7">9. Modelling of Excellence</a>
       <a href="#ue8">10. Prompt Layering</a>
-      <a href="#ue8b">10b. Die Städtereise</a>
+      <a href="#demo-folien">Demo: Folien mit KI</a>
+      <a href="#skills">Einführung: Skills</a>
       <a href="#offen">Offener Übungsblock</a>
       <a href="#kicheck-ende">Zum Schluss. KI-Check</a>
       <a href="#feedback">Zum Schluss. Feedback</a>
@@ -1718,28 +1719,58 @@ Schreibe dann die finale E-Mail an alle Mitarbeiter.
 Die Mail soll professionell, motivierend und klar sein.</div>
     </div>
 
-    <!-- ÜBUNG 10b: PROMPT LAYERING, DIE STÄDTEREISE -->
-    <div class="exercise" id="ue8b">
-      <div class="exercise-number">Übung 10b</div>
-      <h3>Prompt Layering: Die Städtereise</h3>
-      <p class="subtitle">Wie Übung 10, aber diesmal mit einer festen Einschränkung von Anfang an. Kopieren Sie die Prompts nacheinander in denselben Chat.</p>
+    <!-- DEMO: FOLIEN MIT KI ERSTELLEN -->
+    <div class="exercise" id="demo-folien">
+      <div class="exercise-number">Demo</div>
+      <h3>Folien mit KI erstellen</h3>
+      <p class="subtitle">Sie schauen zu, ich zeige es live. Kein Mitmachen nötig.</p>
+      <p>Folien sind die Aufgabe, bei der KI am meisten verspricht und am häufigsten enttäuscht. Achten Sie während der Demo auf diese Stellen:</p>
+      <ul>
+        <li><strong>Bild statt Text.</strong> Viele Werkzeuge liefern Folien als Bild. Sieht fertig aus, aber kein Wort lässt sich mehr ändern.</li>
+        <li><strong>Ihr Design fehlt.</strong> Firmenvorlage, Schrift, Farben und Logo kennt die KI nicht, solange Sie sie ihr nicht geben.</li>
+        <li><strong>Zu viel Text.</strong> Die KI schreibt Absätze, wo eine Zeile reicht. Text läuft über den Rand.</li>
+        <li><strong>Erfundene Zahlen und Quellen.</strong> Eine Statistik auf einer Folie wirkt immer glaubwürdig, auch wenn sie nicht stimmt.</li>
+        <li><strong>Alles sieht gleich aus.</strong> Die zehnte Folie hat dasselbe Raster wie die erste.</li>
+      </ul>
+      <p style="color: var(--gold); font-size: 0.85rem;">Die Frage dahinter: Wie bringe ich der KI bei, es beim nächsten Mal richtig zu machen, ohne alles neu zu erklären? Die Antwort steht im nächsten Block.</p>
+    </div>
 
-      <p class="step-label">Schritt 1: Der Rahmen</p>
-      <div class="prompt-block">Ich plane eine 3-tägige Familienreise nach Prag. Wichtige Einschränkungen: kinderfreundlich (Kinder 6 und 9 Jahre), wir lieben Abenteuer, und ich lebe vegan.
+    <!-- EINFÜHRUNG: WAS IST EIN SKILL? -->
+    <div class="exercise" id="skills">
+      <div class="exercise-number">Einführung</div>
+      <h3>Was ist ein Skill?</h3>
+      <p class="subtitle">Eine Anleitung, die sich die KI selbst aus der Schublade holt, sobald die Aufgabe passt.</p>
 
-Schlage mir ein grobes Tagesprogramm für 3 Tage vor: je 1 Vormittags- und 1 Nachmittagsaktivität pro Tag.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Tauschen Sie Stadt und Urlaubsart gerne gegen Ihre eigene — Hauptsache, es bleiben echte, konkrete Einschränkungen drin (nicht nur "schöner Urlaub").</p>
+      <p>Ein Skill ist ein aufgeschriebenes Vorgehen: was zu tun ist, in welcher Reihenfolge, nach welchen Regeln, mit welchen Vorlagen. Sie schreiben es einmal. Danach erkennt die KI selbst, wann sie es braucht, und arbeitet danach. In Claude heißt das genau so, <em>Skills</em>.</p>
 
-      <p class="step-label">Schritt 2: Anreichern</p>
-      <div class="prompt-block">Ergänze zu jedem Tag ein passendes veganes oder vegan-freundliches Restaurant in der Nähe der jeweiligen Aktivitäten. Nenne den Namen und warum es zu Kindern und Abenteuerlust passt.</div>
+      <p class="step-label">Prompt, Projekt, Skill: der Unterschied</p>
+      <ul>
+        <li><strong>Prompt:</strong> gilt für diese eine Nachricht.</li>
+        <li><strong>Projekt-Prompt (Übung 6):</strong> gilt für jeden Chat in diesem einen Projekt.</li>
+        <li><strong>Skill:</strong> gilt überall, wird aber nur geladen, wenn die Aufgabe dazu passt. Zehn Skills stören sich nicht gegenseitig.</li>
+      </ul>
 
-      <p class="step-label">Schritt 3: Reality-Check</p>
-      <div class="prompt-block">Prüfe deinen eigenen Vorschlag: Sind die genannten Restaurants wirklich vegan-freundlich, und sind die Aktivitäten wirklich für 6- und 9-Jährige geeignet, oder hast du das nur angenommen? Woher weißt du das? Wenn du dir bei einem Punkt nicht sicher bist, sag es klar.</div>
-      <p style="color: var(--gold); font-size: 0.85rem;">Das ist derselbe Trick wie beim Split-Screen heute Mittag: mehrere Einschränkungen gleichzeitig, die die KI ernst nehmen MUSS. Ein erfundenes veganes Restaurant oder eine Aktivität, die für ein 6-Jähriges viel zu gefährlich ist, sind genau die Art Fehler, die im echten Leben peinlich oder teuer werden.</p>
+      <p class="step-label">Was drinsteht</p>
+      <ul>
+        <li><strong>Eine Beschreibung:</strong> wofür der Skill da ist und wann er greifen soll. Daran erkennt die KI, ob sie ihn braucht.</li>
+        <li><strong>Die Anleitung:</strong> Schritte, Regeln, was verboten ist.</li>
+        <li><strong>Material:</strong> Vorlagen, Beispiele, Ihr Firmendesign, bei Bedarf auch kleine Programme.</li>
+      </ul>
 
-      <p class="step-label">Schritt 4: Zusammenfassen</p>
-      <div class="prompt-block">Fasse den gesamten Plan übersichtlich zusammen: Tag, Vormittag, Nachmittag, Restaurant-Tipp. Tabellenform.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Weiterdenken (nicht heute, für zu Hause): denselben fertigen Plan als Prompt an ein Bild-Tool geben und sich ein Moodboard der Reise erstellen lassen.</p>
+      <p class="step-label">Beispiel: der Folien-Skill</p>
+      <p>Alle Probleme aus der Demo lassen sich in einen Skill schreiben: „Nutze immer diese Vorlage. Nie Bilder statt Text. Höchstens drei Zeilen pro Folie. Keine Zahl ohne Quelle.“ Ab dann bekommen Sie beim Wort „Folie“ jedes Mal dieses Vorgehen, ohne es neu zu erklären.</p>
+
+      <p class="step-label">So fangen Sie an</p>
+      <p>Machen Sie eine Aufgabe einmal gründlich mit der KI. Wenn das Ergebnis stimmt, lassen Sie sich daraus die Anleitung schreiben:</p>
+      <div class="prompt-block">Wir haben gerade gemeinsam [Aufgabe] erledigt. Schreib daraus eine Anleitung, die eine KI beim nächsten Mal ohne Rückfrage befolgen kann:
+
+1. Zweck: wofür ist sie da, und bei welchen Anfragen soll sie greifen?
+2. Schritte: in welcher Reihenfolge?
+3. Regeln: was ist Pflicht, was ist verboten?
+4. Ein Beispiel für ein gutes Ergebnis.
+
+Kurz und klar, keine Einleitung.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Diese Anleitung ist der Kern jedes Skills. Auch ohne Skill-Funktion hilft sie: als Projekt-Prompt oder als Datei, die Sie am Anfang eines Chats hochladen.</p>
     </div>
 
     <!-- OFFENER ÜBUNGSBLOCK -->
