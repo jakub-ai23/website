@@ -680,6 +680,61 @@
     @media (max-width: 600px) {
       .llm-grid { grid-template-columns: 1fr; }
     }
+    /* ===== LIVE-LEISTE "Jetzt im Raum" (2026-09-30) =====
+       Der Trainer setzt den Abschnitt, die Seite fragt alle 5 Sekunden nach.
+       Ohne Verbindung bleibt die Leiste einfach weg, die Seite funktioniert wie vorher. */
+    .live-leiste {
+      position: sticky;
+      top: var(--kopf-h, 70px);
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 9px 24px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+      color: var(--charcoal);
+    }
+    .live-leiste[hidden] { display: none; }
+    .live-leiste.neu { animation: live-neu 1.2s ease-out; }
+    @keyframes live-neu { 0% { filter: brightness(1.45); } 100% { filter: none; } }
+    .live-inhalt { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
+    .live-marke { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; opacity: 0.75; }
+    .live-text { font-weight: 600; font-size: 0.92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .live-dorthin {
+      flex: 0 0 auto;
+      background: var(--charcoal);
+      color: var(--gold-light);
+      border: 0;
+      border-radius: 99px;
+      padding: 8px 16px;
+      font: 600 0.8rem var(--font-body);
+      cursor: pointer;
+    }
+    .live-dorthin:hover { color: var(--white); }
+    .sidebar-nav { top: calc(var(--kopf-h, 70px) + var(--leiste-h, 0px) + 10px); }
+    .exercise { scroll-margin-top: calc(var(--kopf-h, 70px) + var(--leiste-h, 0px) + 14px); }
+    .exercise.jetzt-im-raum { position: relative; border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+    .exercise.jetzt-im-raum::before {
+      content: 'Jetzt im Raum';
+      position: absolute;
+      top: -11px;
+      right: 18px;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 99px;
+    }
+    .sidebar-nav a.jetzt-im-raum { color: var(--gold); }
+    .sidebar-nav a.jetzt-im-raum::after { content: ' ●'; font-size: 0.6rem; }
+    @media (max-width: 500px) {
+      .live-leiste { padding: 8px 16px; gap: 10px; }
+      .live-text { font-size: 0.86rem; }
+      .live-dorthin { padding: 8px 13px; }
+    }
   </style>
   <link rel="stylesheet" href="quiz/quiz.css">
 </head>
@@ -692,6 +747,15 @@
       Zurück
     </a>
   </header>
+
+  <!-- LIVE-LEISTE: erscheint nur, wenn der Trainer einen Abschnitt gesetzt hat -->
+  <div class="live-leiste" id="live-leiste" hidden aria-live="polite">
+    <div class="live-inhalt">
+      <span class="live-marke">Jetzt im Raum</span>
+      <span class="live-text"></span>
+    </div>
+    <button type="button" class="live-dorthin">Dorthin</button>
+  </div>
 
   <main>
 
@@ -1051,7 +1115,7 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
 
     </div>
 
-    <!-- PROMPTS SPEICHERN UND TEILEN (Recherche 2026-09-30, knowledge/raw/2026-09-30-copilot-shared-prompts.md) -->
+    <!-- PROMPTS SPEICHERN UND TEILEN (Recherche 2026-09-30, knowledge/ai-training/2026-09-30-copilot-shared-prompts.md) -->
     <div class="exercise" id="promptkatalog">
       <div class="exercise-number">Trick</div>
       
@@ -1737,12 +1801,17 @@ Ausführung: Tabellenformat, klare Sprache, sofort umsetzbar. Kein Fachjargon.</
       });
     });
 
-    // Accordion: within each exercise, only one details open at a time
+    // Accordion: within each exercise, only one details open at a time.
+    // Nur nach einem echten Klick. Die zwei <details open> in Übung 6 feuern beim
+    // Laden selbst "toggle", und ohne diese Sperre sprang die Seite danach von
+    // allein in Übung 6 (gemessen 2026-09-30, nicht bei jedem Laden).
+    let letzterKlick = 0;
+    document.addEventListener('click', e => { if (e.target.closest('summary')) letzterKlick = Date.now(); }, true);
     document.querySelectorAll('.exercise').forEach(exercise => {
       const allDetails = exercise.querySelectorAll(':scope > details, .collapsible-content > details');
       allDetails.forEach(det => {
         det.addEventListener('toggle', () => {
-          if (det.open) {
+          if (det.open && Date.now() - letzterKlick < 1000) {
             // Close siblings (same parent)
             const siblings = det.parentElement.querySelectorAll(':scope > details');
             siblings.forEach(sib => {
@@ -1754,6 +1823,72 @@ Ausführung: Tabellenformat, klare Sprache, sofort umsetzbar. Kein Fachjargon.</
         });
       });
     });
+  </script>
+
+  <script>
+    // Live-Leiste "Jetzt im Raum". Der Trainer setzt den Abschnitt auf seiner
+    // Steuerseite, hier wird nur gelesen. Es wird nichts über die Person gesendet.
+    (function () {
+      var KOHORTE = 'ars-01-10';
+      var BASIS = 'https://deflifeos.popluhar.at/reise-live/jetzt.json';
+      var q = new URLSearchParams(location.search);
+      if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && q.get('liveBasis')) BASIS = q.get('liveBasis');
+      var leiste = document.getElementById('live-leiste');
+      var kopf = document.querySelector('.site-header');
+      var ziel = null, takt = null;
+
+      function hoehen() {
+        var r = document.documentElement.style;
+        r.setProperty('--kopf-h', kopf.offsetHeight + 'px');
+        r.setProperty('--leiste-h', leiste.hidden ? '0px' : leiste.offsetHeight + 'px');
+      }
+      function abschnitt(id) {
+        var el = id && document.getElementById(id);
+        return el && el.classList.contains('exercise') ? el : null;
+      }
+      function zeigen(neu) {
+        if (neu === ziel) return;
+        document.querySelectorAll('.jetzt-im-raum').forEach(function (e) { e.classList.remove('jetzt-im-raum'); });
+        ziel = neu;
+        var el = abschnitt(neu);
+        if (!el) { leiste.hidden = true; hoehen(); return; }
+        var nr = (el.querySelector('.exercise-number') || {}).textContent || '';
+        var titel = ((el.querySelector('h3') || {}).textContent || '').trim().replace(/\s+/g, ' ');
+        nr = nr.trim().replace(/ · .*/, '');
+        leiste.querySelector('.live-text').textContent = (nr ? nr + ' · ' : '') + titel;
+        el.classList.add('jetzt-im-raum');
+        document.querySelectorAll('.sidebar-nav a[href="#' + neu + '"]').forEach(function (a) { a.classList.add('jetzt-im-raum'); });
+        leiste.hidden = false;
+        leiste.classList.remove('neu'); void leiste.offsetWidth; leiste.classList.add('neu');
+        hoehen();
+      }
+      function dorthin() {
+        var el = abschnitt(ziel);
+        if (!el) return;
+        var tab = el.closest('.tab-content');
+        if (tab && !tab.classList.contains('active')) {
+          var name = tab.id.replace(/^tab-/, '');
+          document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.tab === name); });
+          document.querySelectorAll('.tab-content').forEach(function (t) { t.classList.toggle('active', t === tab); });
+        }
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      function abfragen() {
+        fetch(BASIS + '?k=' + KOHORTE, { cache: 'no-store' })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) { if (d) zeigen(d.ziel || null); })
+          .catch(function () { /* ohne Verbindung bleibt alles, wie es ist */ });
+      }
+      function starten() {
+        clearInterval(takt); takt = null;
+        if (!document.hidden) { abfragen(); takt = setInterval(abfragen, 5000); }
+      }
+      leiste.querySelector('.live-dorthin').addEventListener('click', dorthin);
+      document.addEventListener('visibilitychange', starten);
+      window.addEventListener('resize', hoehen);
+      hoehen();
+      starten();
+    })();
   </script>
 
 <script src="/assets/js/site.js" defer></script>
