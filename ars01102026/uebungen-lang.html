@@ -8,8 +8,6 @@
   <meta name="theme-color" content="#141414">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" href="../favicon.png">
-  <!-- ERZEUGT von personal-drafts/elearning-prototypen/_build_kurs.py aus uebungen-lang.html.
-       Inhalt dort aendern, dann neu bauen. Nicht hier von Hand pflegen. -->
   <style>
     @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
@@ -737,96 +735,67 @@
       .live-text { font-size: 0.86rem; }
       .live-dorthin { padding: 8px 13px; }
     }
-  
-
-body{margin:0}
-.player{display:grid;grid-template-columns:320px 1fr;min-height:100vh}.player>*{min-width:0}
-.side{border-right:1px solid rgba(255,255,255,.08);padding:20px 16px 40px;position:sticky;top:0;height:100vh;overflow:auto;background:rgba(255,255,255,.02)}
-.side .zurueck{font-size:.78rem;color:var(--white-muted);text-decoration:none;display:inline-block;margin-bottom:14px}
-.side .zurueck:hover{color:var(--gold)}
-.side h1{font-family:var(--font-heading);font-size:1rem;margin:0 0 4px;line-height:1.35}
-.side .sub{color:var(--white-muted);font-size:.78rem;margin-bottom:14px}
-.balken{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}.balken i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
-.stand{font-size:.75rem;color:var(--white-muted);margin:6px 0 10px}
-.teil{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:18px 6px 8px}
-.zeile{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;cursor:pointer;font-size:.86rem;line-height:1.35;color:var(--white);text-decoration:none}
-.zeile:hover{background:rgba(255,255,255,.05);color:var(--white)}.zeile.aktiv{background:rgba(212,160,23,.12)}
-.zeile .n{flex:0 0 26px;font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700;text-align:right}
-.zeile .lab{flex:0 0 auto;align-self:center;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--white-muted);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:1px 5px;margin-left:0}
-.zeile.art-uebung{font-weight:500}
-.zeile .t{flex:1;min-width:0}
-.zeile .opt{color:var(--white-muted);font-size:.72rem;display:block;font-weight:400}
-.zeile .ck{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);margin-top:1px}
-.zeile.erledigt .ck{background:var(--gold);border-color:var(--gold)}.zeile.erledigt .t{color:var(--white-muted)}
-.zeile .jetzt{display:none;font-size:.56rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;background:var(--gold);color:#141414;border-radius:99px;padding:2px 6px;align-self:center}
-.zeile.im-raum .jetzt{display:inline-block}
-/* margin:0 ist Pflicht: das Seiten-CSS gibt <main> "margin:0 auto", und ein Rasterelement
-   mit auto-Rand schrumpft nicht mit. Auf 390 px stand es dann 551 px breit. */
-.main{margin:0;padding:0 56px 130px;max-width:900px;overflow-wrap:anywhere}
-.kopfzeile{padding-top:34px}
-.crumb{color:var(--white-muted);font-size:.8rem;margin-bottom:6px}
-.main h2.lektion-titel{font-family:var(--font-heading);font-size:1.9rem;margin:6px 0 16px;line-height:1.25}
-.tag{display:inline-block;font-size:.66rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,160,23,.4);color:var(--gold);margin-right:6px}
-.tag.leise{border-color:rgba(255,255,255,.25);color:var(--white-muted)}
-.lektion .exercise{background:none;border:0;padding:0;margin:0;box-shadow:none}
-.lektion .exercise > .exercise-number{display:none}
-.lektion .exercise > h3:first-of-type{display:none}
-.lektion table{display:block;overflow-x:auto;max-width:100%}
-.lektion img{max-width:100%}
-.prompt-block.copied{outline:2px solid var(--gold)}
-.nav{position:fixed;bottom:0;left:320px;right:0;display:flex;justify-content:space-between;gap:10px;padding:14px 56px;background:rgba(20,20,20,.96);border-top:1px solid rgba(255,255,255,.08);z-index:15}
-.knopf{border:1px solid rgba(255,255,255,.2);background:none;color:var(--white);padding:12px 22px;border-radius:8px;font:600 .92rem var(--font-body);cursor:pointer}
-.knopf:disabled{opacity:.35;cursor:default}
-.knopf.los{background:var(--gold);color:#141414;border-color:var(--gold)}
-.schublade{display:none}
-/* Live-Leiste im Player */
-.live-leiste{position:sticky;top:0;z-index:12;display:flex;align-items:center;gap:14px;margin:0 -56px;padding:10px 56px;background:linear-gradient(90deg,var(--gold-dark),var(--gold));color:var(--charcoal)}
-.live-leiste[hidden]{display:none}
-.live-leiste.neu{animation:live-neu 1.2s ease-out}
-@keyframes live-neu{0%{filter:brightness(1.45)}100%{filter:none}}
-.live-inhalt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
-.live-marke{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.75}
-.live-text{font-weight:600;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.live-dorthin{flex:0 0 auto;background:var(--charcoal);color:var(--gold-light);border:0;border-radius:99px;padding:8px 16px;font:600 .8rem var(--font-body);cursor:pointer}
-.live-dorthin[hidden]{display:none}
-.live-hier{flex:0 0 auto;font-size:.75rem;font-weight:700}
-@media(max-width:860px){
- .player{grid-template-columns:1fr}
- .side{position:fixed;inset:0;z-index:30;height:auto;transform:translateX(-100%);transition:transform .25s;background:#161616}
- .side.offen{transform:none}
- .side .schliessen{display:block}
- .schublade{display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:20;background:#141414;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
- .main{padding:0 16px 110px}
- .kopfzeile{padding-top:18px}
- .live-leiste{top:var(--schublade-h,57px);margin:0 -16px;padding:8px 16px;gap:10px}
- .live-text{font-size:.86rem}
- .nav{left:0;padding:12px 16px}.knopf{padding:12px 14px}
- .main h2.lektion-titel{font-size:1.45rem}
-}
-.side .schliessen{display:none;float:right;background:none;border:0;color:var(--white-muted);font-size:1.4rem;cursor:pointer;line-height:1}
-</style>
+  </style>
   <link rel="stylesheet" href="quiz/quiz.css">
 </head>
-<body>
-<div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Inhalt</button><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
-<div class="player">
-  <aside class="side" id="side">
-    <button class="schliessen" id="schliessen" type="button" aria-label="Inhalt schließen">×</button>
-    <a href="./" class="zurueck">← Zurück zur Kursseite</a>
-    <h1>Microsoft 365 Copilot effizient nutzen</h1>
-    <div class="sub">ARS Akademie · 01.10.2026</div>
-    <div class="balken"><i id="balken"></i></div>
-    <div class="stand" id="stand"></div>
-    <div class="teil">Vormittag: Copilot Chat &amp; Prompten</div><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Ihr KI-Check</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#split" data-id="split"><span class="lab">Trick</span><span class="t">Den Bildschirm teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#copilot-start" data-id="copilot-start"><span class="lab">Info</span><span class="t">Copilot Chat öffnen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue0" data-id="ue0"><span class="n">1</span><span class="t">Die Namensliste</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#anweisungen" data-id="anweisungen"><span class="n">2</span><span class="t">Ihre eigenen Anweisungen: einmal sagen, immer gültig</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#gedaechtnis" data-id="gedaechtnis"><span class="n">3</span><span class="t">Was weißt du über mich?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue1" data-id="ue1"><span class="n">4</span><span class="t">Prompten: Homeoffice-Regelung</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue2" data-id="ue2"><span class="n">5</span><span class="t">CITE(R) Framework: Jetzt sind Sie dran!</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#promptkatalog" data-id="promptkatalog"><span class="lab">Trick</span><span class="t">Gute Prompts speichern und teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#pii" data-id="pii"><span class="lab">Takeaway</span><span class="t">Kurz vorher: die 3-Sekunden-Regel</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue3" data-id="ue3"><span class="n">6</span><span class="t">Ihre KI-Wissensbasis aufbauen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue4" data-id="ue4"><span class="n">7</span><span class="t">Die Flughöhe</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback-vm" data-id="feedback-vm"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Vormittag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><div class="teil">Nachmittag: Notizbücher &amp; Agenten</div><a class="zeile" href="#split-nm" data-id="split-nm"><span class="lab">Trick</span><span class="t">Kurz vorher: Bildschirm wieder teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#notizbuch" data-id="notizbuch"><span class="n">8</span><span class="t">Quelle gegen Blindflug: Notizbuch und Chat nebeneinander</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#agent" data-id="agent"><span class="n">9</span><span class="t">Ihr erster Agent</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#formate" data-id="formate"><span class="n">10</span><span class="t">Welches Format versteht die Maschine?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue7" data-id="ue7"><span class="n">11</span><span class="t">Modelling of Excellence<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue8" data-id="ue8"><span class="n">12</span><span class="t">Prompt Layering: Das &quot;Tribunal&quot;<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Check</span><span class="t">Ihr KI-Check, zweiter Durchgang</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback" data-id="feedback"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Nachmittag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#ue6" data-id="ue6"><span class="lab">Bonus</span><span class="t">KI-Werkstatt: Ihr eigenes Problem lösen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a>
-  </aside>
-  <main class="main">
-    <div class="live-leiste" id="live-leiste" hidden aria-live="polite">
-      <div class="live-inhalt"><span class="live-marke">Jetzt im Raum</span><span class="live-text" id="live-text"></span></div>
-      <button type="button" class="live-dorthin" id="live-dorthin">Dorthin</button>
-      <span class="live-hier" id="live-hier" hidden>Sie sind hier</span>
+<body data-quiz-seite="ars01102026-formate">
+
+  <header class="site-header">
+    <a href="https://jakubpopluhar.com" class="logo" aria-label="Jakub Popluhar"><img src="../images/logos/jakub-popluhar-logo-dark.png" alt="Jakub Popluhar" height="40" style="display:block;"></a>
+    <a href="./" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Zurück
+    </a>
+  </header>
+
+  <!-- LIVE-LEISTE: erscheint nur, wenn der Trainer einen Abschnitt gesetzt hat -->
+  <div class="live-leiste" id="live-leiste" hidden aria-live="polite">
+    <div class="live-inhalt">
+      <span class="live-marke">Jetzt im Raum</span>
+      <span class="live-text"></span>
     </div>
-    <div class="kopfzeile"><div class="crumb" id="crumb"></div><div id="tags"></div><h2 class="lektion-titel" id="ttl"></h2></div>
-    <section class="lektion" data-id="kicheck" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="kicheck">
+    <button type="button" class="live-dorthin">Dorthin</button>
+  </div>
+
+  <main>
+
+    <div class="hero">
+      <div class="badge">ARS Training &middot; 01.10.2026</div>
+      <h1>Übungen & Prompts</h1>
+      <p>Tippen Sie auf einen Prompt-Block, um ihn zu kopieren.</p>
+    </div>
+
+    <!-- TAB SWITCHER -->
+    <div class="tab-switcher">
+      <button class="tab-btn active" data-tab="vm">Vormittag: Copilot Chat & Prompten</button>
+      <button class="tab-btn" data-tab="nm">Nachmittag: Notizbücher & Agenten</button>
+    </div>
+
+    <!-- ==================== VORMITTAG ==================== -->
+    <div class="tab-content active" id="tab-vm">
+    <div class="page-layout">
+
+    <nav class="sidebar-nav" id="sidebar-vm">
+      <div class="nav-section-label">Vormittag</div>
+      <a href="#kicheck">Check · KI-Check</a>
+      <a href="#split">Trick · Bildschirm teilen</a>
+      <a href="#copilot-start">Info · Copilot Chat öffnen</a>
+      <a href="#ue0">1. Die Namensliste</a>
+      <a href="#anweisungen">2. Eigene Anweisungen</a>
+      <a href="#gedaechtnis">3. Was weißt du über mich?</a>
+      <a href="#ue1">4. Prompten</a>
+      <a href="#ue2">5. CITE Framework</a>
+      <a href="#promptkatalog">Trick · Prompts speichern</a>
+      <a href="#pii">Takeaway · 3-Sekunden-Regel</a>
+      <a href="#ue3">6. Wissensbasis</a>
+      <a href="#ue4">7. Die Flughöhe</a>
+      <a href="#feedback-vm">Feedback · Vormittag</a>
+    </nav>
+
+    <div>
+
+    <!-- KI-CHECK ZU BEGINN -->
+    <div class="exercise" id="kicheck">
       <div class="exercise-number">Check</div>
       
       <h3>Ihr KI-Check</h3>
@@ -835,7 +804,11 @@ body{margin:0}
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262631354150348" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
       <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
       <script>try { window.jotformEmbedHandler("iframe[id='JotFormIFrame-262631354150348']", "https://form.jotform.com/"); } catch (e) {}</script>
-    </div></section><section class="lektion" data-id="split" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="split">
+    </div>
+
+    <!-- ÜBUNG 0 -->
+    <!-- ÜBUNG 0.1: BILDSCHIRM TEILEN -->
+    <div class="exercise" id="split">
       <div class="exercise-number">Trick</div>
       
       <h3>Den Bildschirm teilen</h3>
@@ -889,7 +862,10 @@ body{margin:0}
 
       <p style="color: var(--white-muted); font-size:0.85rem;">Geht auf jedem Laptop, kein zweiter Monitor nötig. Wenn gar nichts klappt: Fenster mit der Maus an den linken oder rechten Bildschirmrand ziehen, bis eine Hälfte aufleuchtet, loslassen.</p>
       <p style="color: var(--gold); font-size: 0.85rem;">Wer heute nicht teilt, klickt den ganzen Tag zwischen Folien und Übungsblatt hin und her und verliert bei jedem Wechsel den Faden.</p>
-    </div></section><section class="lektion" data-id="copilot-start" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="copilot-start">
+    </div>
+
+    <!-- COPILOT CHAT OEFFNEN -->
+    <div class="exercise" id="copilot-start">
       <div class="exercise-number">Info</div>
       
       <h3>Copilot Chat öffnen</h3>
@@ -918,7 +894,10 @@ body{margin:0}
       <p>Schreiben Sie in den Teams-Chat des Kurses, was bei Ihnen unten links steht. Vor Ort sagen Sie es einfach laut.</p>
       <p style="color: var(--gold); font-size: 0.9rem;">Arbeiten Sie heute nur dort, wo „Work“ steht.</p>
       <p style="color: var(--white-muted); font-size: 0.82rem;">Je nach Spracheinstellung sind die Beschriftungen bei Ihnen deutsch oder englisch.</p>
-    </div></section><section class="lektion" data-id="ue0" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="ue0">
+    </div>
+
+
+    <div class="exercise" id="ue0">
       <div class="exercise-number">Übung 1</div>
       <h3>Die Namensliste</h3>
       <p class="subtitle">Derselbe Prompt, drei Nachbarländer, und ein Blick in den Teams-Chat. Achten Sie nicht darauf, ob die Namen stimmen. Achten Sie darauf, welche Namen kommen. 10 Minuten.</p>
@@ -955,7 +934,10 @@ Vorname, Nachname, Abteilung.</div>
           <p style="color: var(--gold); font-size: 0.9rem;">Die KI hat sich diese Namen nicht ausgedacht. Sie hat ausgerechnet, welche Namen am häufigsten vorkommen. Deshalb steht neben Ihnen fast dieselbe Liste.</p>
         </div>
       </details>
-    </div></section><section class="lektion" data-id="anweisungen" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="anweisungen">
+    </div>
+
+    <!-- EIGENE ANWEISUNGEN (Deck 38/39) -->
+    <div class="exercise" id="anweisungen">
       <div class="exercise-number">Übung 2</div>
       <h3>Ihre eigenen Anweisungen: einmal sagen, immer gültig</h3>
       <p class="subtitle">Was Copilot über Sie wissen soll, schreiben Sie einmal hinein. Ab dann gilt es in jedem neuen Chat. 10 Minuten.</p>
@@ -975,7 +957,10 @@ Gib mir nicht einfach recht. Wenn ich mich irre, sag es direkt und begründe es.
       <div class="prompt-block">Beschreib mir in drei Sätzen, wie du mir bei meiner Arbeit helfen kannst.</div>
       <p>Prüfen Sie: Spricht Copilot Sie mit Sie an? Kennt es Ihre Rolle? Ist die Antwort kurz?</p>
       <p style="color: var(--gold); font-size: 0.9rem;">Das ist der Kontext aus CITE, nur einmal geschrieben.</p>
-    </div></section><section class="lektion" data-id="gedaechtnis" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="gedaechtnis">
+    </div>
+
+    <!-- GEDAECHTNIS (Deck 36/37/40) -->
+    <div class="exercise" id="gedaechtnis">
       <div class="exercise-number">Übung 3</div>
       <h3>Was weißt du über mich?</h3>
       <p class="subtitle">Mit dem Arbeitskonto trainiert Microsoft kein Modell mit Ihren Eingaben. Merken tut sich Copilot trotzdem etwas. Schauen Sie nach, was. 5 Minuten.</p>
@@ -993,7 +978,12 @@ Gib mir nicht einfach recht. Wenn ich mich irre, sag es direkt und begründe es.
         <tr><td>Ohne Spuren arbeiten</td><td>Temporärer Chat, Knopf oben rechts</td><td>Ihre Firma kann trotzdem aufbewahren</td></tr>
       </table>
       <p style="color: var(--gold); font-size: 0.9rem;">Ausschalten ist nicht Löschen. Chat löschen ist auch nicht Löschen.</p>
-    </div></section><section class="lektion" data-id="ue1" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="ue1">
+    </div>
+
+
+
+    <!-- ÜBUNG 1 -->
+    <div class="exercise" id="ue1">
       <div class="exercise-number">Übung 4</div>
       <h3>Prompten: Homeoffice-Regelung</h3>
       <p class="subtitle">Jede Person promptet für sich in Copilot Chat. Danach vergleichen wir zwei Ergebnisse gemeinsam am Bildschirm.</p>
@@ -1060,7 +1050,10 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
           <p style="color: var(--white-muted); font-size:0.85rem;">Zwei davon sind keine Spielerei. Beim Dialekt merken Sie, wo die KI dünn wird. Beim letzten haben Sie etwas in der Hand, das Sie morgen wirklich verschicken könnten.</p>
         </div>
       </details>
-    </div></section><section class="lektion" data-id="ue2" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="ue2">
+    </div>
+
+    <!-- ÜBUNG 2 -->
+    <div class="exercise" id="ue2">
       <div class="exercise-number">Übung 5</div>
       <h3>CITE(R) Framework:Jetzt sind Sie dran!</h3>
       <p class="subtitle">Sie planen eine Reise. Kurze Nachrichten, jede legt eine Schicht drauf. Mittendrin ändert sich etwas, und danach ändert es sich zurück. Um die Reise geht es nicht.</p>
@@ -1120,7 +1113,10 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
       <p class="sub-step">Zum Schluss: Eine Zeile aufschreiben</p>
       <p>Wann haben Sie zuletzt einen Chat weggeworfen und von vorne angefangen, weil etwas schiefgelaufen war? Was hätten Sie stattdessen sagen können?</p>
 
-    </div></section><section class="lektion" data-id="promptkatalog" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="promptkatalog">
+    </div>
+
+    <!-- PROMPTS SPEICHERN UND TEILEN (Recherche 2026-09-30, AI jakub-training/research/inhalte/2026-09-30-copilot-shared-prompts.md) -->
+    <div class="exercise" id="promptkatalog">
       <div class="exercise-number">Trick</div>
       
       <h3>Gute Prompts speichern und teilen</h3>
@@ -1130,7 +1126,11 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
       <p class="step-label">Teilen</p>
       <p>Über dieselbe Nachricht <strong>Prompt-Link kopieren</strong> und in den Teams-Chat einfügen. Oder im Katalog unter Ihre Prompts: <strong>Prompt freigeben → Für Team freigeben</strong>, dann sehen alle Mitglieder eines Teams-Teams den Prompt unter <strong>Team-Prompts</strong>.</p>
       <p style="color: var(--white-muted); font-size: 0.85rem;">Ob diese Knöpfe bei Ihnen erscheinen, hängt von Lizenz und IT-Einstellung ab. Gespeicherte und geteilte Prompts kann Ihre IT auswerten: keine Kundendaten hineinschreiben.</p>
-    </div></section><section class="lektion" data-id="pii" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="pii">
+    </div>
+
+
+    <!-- 3-SEKUNDEN-REGEL, vor der ersten Uebung mit echten Firmendaten -->
+    <div class="exercise" id="pii">
       <div class="exercise-number">Takeaway</div>
       <h3>Kurz vorher: die 3-Sekunden-Regel</h3>
       <p>Ab hier arbeiten Sie mit Material aus Ihrer eigenen Firma. Mit dem Arbeitskonto trainiert Microsoft kein Modell mit Ihren Eingaben. Trotzdem merkt sich Copilot Dinge, und heute ist Ihr Bildschirm oft geteilt. Drei Sekunden, bevor Sie Enter drücken:</p>
@@ -1140,7 +1140,10 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
         <li><strong>Strategien und Interna</strong> raus. Abstrahieren, nicht abschreiben.</li>
       </ul>
       <p style="color: var(--gold); font-size: 0.85rem;">Die Faustregel: Behandeln Sie die KI wie einen Praktikanten, der im öffentlichen Bus sitzt. Er ist hilfreich, aber er sitzt nicht allein da.</p>
-    </div></section><section class="lektion" data-id="ue3" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="ue3">
+    </div>
+
+    <!-- ÜBUNG 3 -->
+    <div class="exercise" id="ue3">
       <div class="exercise-number">Übung 6</div>
       <h3>Ihre KI-Wissensbasis aufbauen</h3>
       <p class="subtitle">Erstellen Sie zwei Dokumente, die Ihre KI ab sofort schlauer machen. Kollegen aus der gleichen Firma: arbeiten Sie zusammen!</p>
@@ -1249,7 +1252,10 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       </details>
 
       <p style="margin-top: 16px; color: var(--gold); font-size: 0.85rem;"><strong>Wichtig: Speichern Sie Ihre Dokumente!</strong> Wir verwenden sie am Nachmittag im Notizbuch und in Ihrem ersten Agenten.</p>
-    </div></section><section class="lektion" data-id="ue4" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="ue4">
+    </div>
+
+    <!-- ÜBUNG 4 -->
+    <div class="exercise" id="ue4">
       <div class="exercise-number">Übung 7</div>
       <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin: 24px 0;">
         <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Die Flughöhe &middot; dieselbe Sache, zwei Stufen</div>
@@ -1275,7 +1281,10 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
         <tr><td><strong>Nutzen</strong></td><td>Nichts gelernt.</td><td><strong>Wissen aufgebaut.</strong></td></tr>
       </table>
 
-    </div></section><section class="lektion" data-id="feedback-vm" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="feedback-vm">
+    </div>
+
+    <!-- FEEDBACK ZUM VORMITTAG (Jotform 262707000784050), letzter Block vor der Mittagspause -->
+    <div class="exercise" id="feedback-vm">
       <div class="exercise-number">Feedback</div>
       
       <h3>Ihr Feedback zum Vormittag</h3>
@@ -1284,7 +1293,41 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262707000784050" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
       <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
       <script>try { window.jotformEmbedHandler("iframe[id='JotFormIFrame-262707000784050']", "https://form.jotform.com/"); } catch (e) {}</script>
-    </div></section><section class="lektion" data-id="split-nm" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="split-nm">
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align:center; margin: 48px 0 24px; padding: 32px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
+      <p style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; margin-bottom: 8px;">Mahlzeit.</p>
+      <p style="font-size: 1rem; margin-bottom: 20px;">Wir sehen uns nach der Mittagspause.</p>
+      <p style="font-size: 0.9rem; color: var(--white-muted); margin-bottom: 18px; line-height: 1.6;">P.S. Falls Sie uns schon am Vormittag verlassen: kurz eintragen, dann schicke ich Ihnen die Unterlagen nach.</p>
+      <a href="https://jakubpopluhar.com/weiter/?kurs=ars01102026" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; transition: all 0.2s; border: 2px solid var(--gold); margin:6px; min-width:260px; text-align:center;">Unterlagen anfordern &rarr;</a>
+    </div>
+
+    </div><!-- close VM inner -->
+    </div><!-- close page-layout -->
+    </div><!-- close tab-vm -->
+
+    <!-- ==================== NACHMITTAG ==================== -->
+    <div class="tab-content" id="tab-nm">
+    <div class="page-layout">
+
+    <nav class="sidebar-nav" id="sidebar-nm">
+      <div class="nav-section-label">Nachmittag</div>
+      <a href="#split-nm">Trick · Bildschirm teilen</a>
+      <a href="#notizbuch">8. Notizbuch</a>
+      <a href="#agent">9. Ihr erster Agent</a>
+      <a href="#formate">10. Formate für die Maschine</a>
+      <a href="#ue7">11. Modelling of Excellence</a>
+      <a href="#ue8">12. Prompt Layering</a>
+      <a href="#kicheck-ende">Check · zum Schluss</a>
+      <a href="#feedback">Feedback · Nachmittag</a>
+      <a href="#ue6">Bonus · KI-Werkstatt</a>
+    </nav>
+
+    <div>
+
+    <!-- NACHMITTAG: ERINNERUNG BILDSCHIRM TEILEN -->
+    <div class="exercise" id="split-nm">
       <div class="exercise-number">Trick</div>
       <h3>Kurz vorher: Bildschirm wieder teilen</h3>
       <p>Wie am Vormittag: links die Folien, rechts dieses Übungsblatt und Copilot Chat. Am Nachmittag brauchen Sie es öfter, weil zwei Fenster nebeneinander stehen.</p>
@@ -1334,7 +1377,10 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       </svg>
         </div>
       </details>
-    </div></section><section class="lektion" data-id="notizbuch" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="notizbuch">
+    </div>
+
+    <!-- NOTIZBUCH: QUELLE GEGEN BLINDFLUG (Deck 73-76) -->
+    <div class="exercise" id="notizbuch">
       <div class="exercise-number">Übung 8</div>
       <h3>Quelle gegen Blindflug: Notizbuch und Chat nebeneinander</h3>
       <p class="subtitle">Ein Notizbuch antwortet aus den Dateien, die Sie hineinlegen. Der normale Chat antwortet aus dem Modell und aus dem Web. Dieselbe Frage an beide.</p>
@@ -1371,7 +1417,10 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
         </ul>
         <p style="color: var(--white-muted); font-size: 0.82rem; margin:8px 0 0;">Ohne Lizenz passen bis zu 50 Quellen in ein Notizbuch. Teilen geht nur innerhalb Ihrer Organisation, und Ihre IT kann Notizbücher ganz abschalten.</p>
       </div>
-    </div></section><section class="lektion" data-id="agent" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="agent">
+    </div>
+
+    <!-- IHR ERSTER AGENT (Deck 77-80) -->
+    <div class="exercise" id="agent">
       <div class="exercise-number">Übung 9</div>
       <h3>Ihr erster Agent</h3>
       <p class="subtitle">Ein Agent ist Ihr eigener Copilot für eine wiederkehrende Aufgabe. Einmal einrichten, immer wieder nutzen. Das Gegenstück zum Custom GPT. 20 Minuten.</p>
@@ -1405,7 +1454,10 @@ Kontext über mich:
 
       <p style="color: var(--white-muted); font-size: 0.85rem;">Sie sehen kein „New agent“? Dann ist es bei Ihnen abgeschaltet oder noch nicht sichtbar. Schauen Sie bei der Vorführung zu und nehmen Sie die Vorlage für Ihre eigenen Anweisungen aus Übung 2.</p>
       <p style="color: var(--gold); font-size: 0.9rem;">Wer Ihren Agenten nutzen darf, sieht auch alles, was darin steckt. Keine echten Namen, Zahlen oder Interna in die Anweisungen.</p>
-    </div></section><section class="lektion" data-id="formate" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="formate">
+    </div>
+
+    <!-- FORMATE, vor der Wissensbasis (Quiz aus mark/designs, Commander 2026-09-28) -->
+    <div class="exercise" id="formate">
       <div class="exercise-number">Übung 10</div>
       <h3>Welches Format versteht die Maschine?</h3>
       <p class="subtitle">Welche Dateien liest Copilot sauber? Das entscheidet, was Sie in Notizbücher und Agenten legen.</p>
@@ -1522,7 +1574,13 @@ Kontext über mich:
 }
 </script>
 </div>
-    </div></section><section class="lektion" data-id="ue7" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="ue7">
+    </div>
+
+
+
+
+    <!-- ÜBUNG 9: MODELLING OF EXCELLENCE (Deck PM 29-30) -->
+    <div class="exercise" id="ue7">
       <div class="exercise-number">Übung 11 · wenn Zeit bleibt</div>
       <h3>Modelling of Excellence</h3>
       <p class="subtitle">Vom Hausarzt zum Spezialisten</p>
@@ -1543,7 +1601,10 @@ WICHTIG: Schreibe noch KEINE Lösung! Stelle mir stattdessen erst 3 bis 5 geziel
 2. ...
 
 Erstelle jetzt die Lösung basierend auf diesen Fakten. Nutze konsequent den Stil und die Strategien von [Name des Experten].</div>
-    </div></section><section class="lektion" data-id="ue8" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="ue8">
+    </div>
+
+    <!-- ÜBUNG 10: PROMPT LAYERING, DAS TRIBUNAL -->
+    <div class="exercise" id="ue8">
       <div class="exercise-number">Übung 12 · wenn Zeit bleibt</div>
       <h3>Prompt Layering: Das "Tribunal"</h3>
       <p class="subtitle">a.k.a. Salami-Taktik. Kopieren Sie die Prompts nacheinander in denselben Chat.</p>
@@ -1580,7 +1641,10 @@ Schreibe dann die finale E-Mail an alle Mitarbeiter.
 - Nutze die starken Argumente des CEOs (Warum), adressiere ehrlich die Platzprobleme des Controllers (Wie) und nutze den empathischen Tonfall von HR.
 
 Die Mail soll professionell, motivierend und klar sein.</div>
-    </div></section><section class="lektion" data-id="kicheck-ende" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="kicheck-ende">
+    </div>
+
+    <!-- KI-CHECK ZUM SCHLUSS, vor Bonus und vor dem CTA (derselbe Fragebogen wie am Morgen) -->
+    <div class="exercise" id="kicheck-ende">
       <div class="exercise-number">Check</div>
       
       <h3>Ihr KI-Check, zweiter Durchgang</h3>
@@ -1589,7 +1653,10 @@ Die Mail soll professionell, motivierend und klar sein.</div>
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262631354150348" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
       <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
       <script>try { window.jotformEmbedHandler("iframe[id='JotFormIFrame-262631354150348-ende']", "https://form.jotform.com/"); } catch (e) {}</script>
-    </div></section><section class="lektion" data-id="feedback" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="feedback">
+    </div>
+
+    <!-- FEEDBACK ZUM TAG (Jotform 262705845415056), nach dem Abschluss-Check, vor Bonus und CTA -->
+    <div class="exercise" id="feedback">
       <div class="exercise-number">Feedback</div>
       
       <h3>Ihr Feedback zum Nachmittag</h3>
@@ -1598,7 +1665,11 @@ Die Mail soll professionell, motivierend und klar sein.</div>
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262705845415056" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
       <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
       <script>try { window.jotformEmbedHandler("iframe[id='JotFormIFrame-262705845415056']", "https://form.jotform.com/"); } catch (e) {}</script>
-    </div></section><section class="lektion" data-id="ue6" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="ue6">
+    </div>
+
+    <!-- BONUS, immer am Ende der Seite -->
+    <!-- ÜBUNG 6: KI-Werkstatt -->
+    <div class="exercise" id="ue6">
       <div class="exercise-number">Bonus</div>
       <h3>KI-Werkstatt: Ihr eigenes Problem lösen</h3>
       <p class="subtitle">Jetzt arbeiten Sie an einem echten Pain Point aus Ihrem Arbeitsalltag. Kollegen aus der gleichen Firma: arbeiten Sie zusammen!</p>
@@ -1677,123 +1748,151 @@ Ausführung: Tabellenformat, klare Sprache, sofort umsetzbar. Kein Fachjargon.</
           <div class="prompt-block">Prüfe diesen Plan kritisch: Was ist unrealistisch? Was fehlt? Was würde mein skeptischster Kollege daran bemängeln?</div>
         </div>
       </details>
-    </div></section>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align:center; margin: 48px 0 24px; padding: 32px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
+      <p style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; margin-bottom: 16px;">Das Training ist vorbei. Die Reise nicht.</p>
+      <a href="https://jakubpopluhar.com/weiter/?kurs=ars01102026" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; transition: all 0.2s; border: 2px solid var(--gold);">In Kontakt bleiben &rarr;</a>
+    </div>
+
+    </div><!-- close NM inner -->
+    </div><!-- close page-layout -->
+    </div><!-- close tab-nm -->
+
   </main>
-</div>
-<div class="nav"><button class="knopf" id="prev" type="button">← Zurück</button><button class="knopf los" id="next" type="button">Erledigt, weiter →</button></div>
-<script>
-const M = [{"id": "kicheck", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check"}, {"id": "split", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Trick", "opt": false, "titel": "Den Bildschirm teilen"}, {"id": "copilot-start", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Info", "opt": false, "titel": "Copilot Chat öffnen"}, {"id": "ue0", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "1", "art": "Übung", "opt": false, "titel": "Die Namensliste"}, {"id": "anweisungen", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "2", "art": "Übung", "opt": false, "titel": "Ihre eigenen Anweisungen: einmal sagen, immer gültig"}, {"id": "gedaechtnis", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "3", "art": "Übung", "opt": false, "titel": "Was weißt du über mich?"}, {"id": "ue1", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "4", "art": "Übung", "opt": false, "titel": "Prompten: Homeoffice-Regelung"}, {"id": "ue2", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "5", "art": "Übung", "opt": false, "titel": "CITE(R) Framework: Jetzt sind Sie dran!"}, {"id": "promptkatalog", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Trick", "opt": false, "titel": "Gute Prompts speichern und teilen"}, {"id": "pii", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Takeaway", "opt": false, "titel": "Kurz vorher: die 3-Sekunden-Regel"}, {"id": "ue3", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "6", "art": "Übung", "opt": false, "titel": "Ihre KI-Wissensbasis aufbauen"}, {"id": "ue4", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "7", "art": "Übung", "opt": false, "titel": "Die Flughöhe"}, {"id": "feedback-vm", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Vormittag"}, {"id": "split-nm", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Trick", "opt": false, "titel": "Kurz vorher: Bildschirm wieder teilen"}, {"id": "notizbuch", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "8", "art": "Übung", "opt": false, "titel": "Quelle gegen Blindflug: Notizbuch und Chat nebeneinander"}, {"id": "agent", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "9", "art": "Übung", "opt": false, "titel": "Ihr erster Agent"}, {"id": "formate", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "10", "art": "Übung", "opt": false, "titel": "Welches Format versteht die Maschine?"}, {"id": "ue7", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "11", "art": "Übung", "opt": true, "titel": "Modelling of Excellence"}, {"id": "ue8", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "12", "art": "Übung", "opt": true, "titel": "Prompt Layering: Das \"Tribunal\""}, {"id": "kicheck-ende", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check, zweiter Durchgang"}, {"id": "feedback", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Nachmittag"}, {"id": "ue6", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Bonus", "opt": false, "titel": "KI-Werkstatt: Ihr eigenes Problem lösen"}];
-const KOHORTE = 'ars-01-10';
-const SPEICHER = 'kurs.' + KOHORTE;
-const S = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
-            set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
-const $ = id => document.getElementById(id);
-let erledigt = new Set(S.get(SPEICHER + '.erledigt', []));
-let cur = null, imRaum = null;
 
-function beschriftung(m) { return (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + m.titel; }
+  <footer>
+    <p>
+      <a href="https://jakubpopluhar.com/weiter/?kurs=ars01102026">jakubpopluhar.com/weiter</a>
+      &nbsp;&middot;&nbsp;
+      Jakub Popluhar M.Ed.
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+    </p>
+  </footer>
 
-function zeigen(id, scrollen) {
-  const m = M.find(x => x.id === id) || M[0];
-  cur = m.id; S.set(SPEICHER + '.cur', cur);
-  if (location.hash.slice(1) !== cur) history.replaceState(null, '', '#' + cur);
-  document.querySelectorAll('.lektion').forEach(s => s.hidden = s.dataset.id !== cur);
-  const i = M.indexOf(m);
-  $('ttl').textContent = m.titel;
-  $('crumb').textContent = m.teilname;
-  $('tags').innerHTML = '<span class="tag">' + (m.nr ? 'Übung ' + m.nr : m.art) + '</span>' + (m.opt ? '<span class="tag leise">wenn Zeit bleibt</span>' : '');
-  document.querySelectorAll('.zeile').forEach(z => {
-    z.classList.toggle('aktiv', z.dataset.id === cur);
-    z.classList.toggle('erledigt', erledigt.has(z.dataset.id));
-  });
-  const p = Math.round(erledigt.size / M.length * 100);
-  $('balken').style.width = p + '%';
-  $('stand').textContent = erledigt.size + ' von ' + M.length + ' erledigt';
-  $('dstand').textContent = (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + erledigt.size + '/' + M.length + ' erledigt';
-  $('prev').disabled = i === 0;
-  $('next').textContent = i === M.length - 1 ? 'Erledigt ✓' : 'Erledigt, weiter →';
-  $('side').classList.remove('offen');
-  leisteZeichnen();
-  if (scrollen !== false) window.scrollTo(0, 0);
-}
-
-document.querySelectorAll('.zeile').forEach(z => z.addEventListener('click', e => { e.preventDefault(); zeigen(z.dataset.id); }));
-$('prev').onclick = () => { const i = M.findIndex(x => x.id === cur); if (i > 0) zeigen(M[i - 1].id); };
-$('next').onclick = () => {
-  erledigt.add(cur); S.set(SPEICHER + '.erledigt', [...erledigt]);
-  const i = M.findIndex(x => x.id === cur); zeigen(M[Math.min(i + 1, M.length - 1)].id);
-};
-$('oeffnen').onclick = () => $('side').classList.add('offen');
-$('schliessen').onclick = () => $('side').classList.remove('offen');
-window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (h && h !== cur && M.some(x => x.id === h)) zeigen(h); });
-
-// Kopieren per Klick auf einen Prompt-Block
-document.querySelectorAll('.prompt-block').forEach(block => {
-  block.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(block.textContent.trim());
-      block.classList.add('copied'); setTimeout(() => block.classList.remove('copied'), 1500);
-    } catch (e) {
-      const r = document.createRange(); r.selectNodeContents(block);
-      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
-    }
-  });
-});
-
-// Akkordeon: je Uebung nur ein Feld offen, und nur nach einem echten Klick
-let letzterKlick = 0;
-document.addEventListener('click', e => { if (e.target.closest('summary')) letzterKlick = Date.now(); }, true);
-document.querySelectorAll('.exercise').forEach(ex => {
-  ex.querySelectorAll(':scope > details, .collapsible-content > details').forEach(det => {
-    det.addEventListener('toggle', () => {
-      if (det.open && Date.now() - letzterKlick < 1000) {
-        det.parentElement.querySelectorAll(':scope > details').forEach(sib => { if (sib !== det && sib.open) sib.open = false; });
-        setTimeout(() => det.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
-      }
+  <script>
+    // Copy prompt on click
+    document.querySelectorAll('.prompt-block').forEach(block => {
+      block.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(block.textContent.trim());
+          block.classList.add('copied');
+          setTimeout(() => block.classList.remove('copied'), 1500);
+        } catch (e) {
+          const range = document.createRange();
+          range.selectNodeContents(block);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      });
     });
-  });
-});
 
-// Live-Leiste "Jetzt im Raum": nur lesen, es wird nichts ueber die Person gesendet
-let BASIS = 'https://deflifeos.popluhar.at/reise-live/jetzt.json';
-const q = new URLSearchParams(location.search);
-if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && q.get('liveBasis')) BASIS = q.get('liveBasis');
-function leisteZeichnen() {
-  const leiste = $('live-leiste');
-  const m = imRaum && M.find(x => x.id === imRaum);
-  document.querySelectorAll('.zeile').forEach(z => z.classList.toggle('im-raum', !!m && z.dataset.id === imRaum));
-  if (!m) { leiste.hidden = true; return; }
-  leiste.hidden = false;
-  $('live-text').textContent = beschriftung(m);
-  const hier = imRaum === cur;
-  $('live-dorthin').hidden = hier;
-  $('live-hier').hidden = !hier;
-}
-function abfragen() {
-  fetch(BASIS + '?k=' + KOHORTE, { cache: 'no-store' })
-    .then(r => r.ok ? r.json() : null)
-    .then(d => {
-      if (!d) return;
-      const neu = d.ziel || null;
-      if (neu === imRaum) return;
-      imRaum = neu; leisteZeichnen();
-      const l = $('live-leiste'); l.classList.remove('neu'); void l.offsetWidth; l.classList.add('neu');
-    })
-    .catch(() => { /* ohne Verbindung bleibt alles, wie es ist */ });
-}
-let takt = null;
-function starten() { clearInterval(takt); takt = null; if (!document.hidden) { abfragen(); takt = setInterval(abfragen, 5000); } }
-$('live-dorthin').onclick = () => { if (imRaum) zeigen(imRaum); };
-document.addEventListener('visibilitychange', starten);
-function schubladeHoehe() { document.documentElement.style.setProperty('--schublade-h', $('schublade').offsetHeight + 'px'); }
-window.addEventListener('resize', schubladeHoehe);
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
 
-schubladeHoehe();
-const start = location.hash.slice(1);
-zeigen(M.some(x => x.id === start) ? start : S.get(SPEICHER + '.cur', M[0].id), false);
-starten();
-</script>
+    // Accordion: within each exercise, only one details open at a time.
+    // Nur nach einem echten Klick. Die zwei <details open> in Übung 6 feuern beim
+    // Laden selbst "toggle", und ohne diese Sperre sprang die Seite danach von
+    // allein in Übung 6 (gemessen 2026-09-30, nicht bei jedem Laden).
+    let letzterKlick = 0;
+    document.addEventListener('click', e => { if (e.target.closest('summary')) letzterKlick = Date.now(); }, true);
+    document.querySelectorAll('.exercise').forEach(exercise => {
+      const allDetails = exercise.querySelectorAll(':scope > details, .collapsible-content > details');
+      allDetails.forEach(det => {
+        det.addEventListener('toggle', () => {
+          if (det.open && Date.now() - letzterKlick < 1000) {
+            // Close siblings (same parent)
+            const siblings = det.parentElement.querySelectorAll(':scope > details');
+            siblings.forEach(sib => {
+              if (sib !== det && sib.open) sib.open = false;
+            });
+            // Smooth scroll to opened section
+            setTimeout(() => det.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+    // Live-Leiste "Jetzt im Raum". Der Trainer setzt den Abschnitt auf seiner
+    // Steuerseite, hier wird nur gelesen. Es wird nichts über die Person gesendet.
+    (function () {
+      var KOHORTE = 'ars-01-10';
+      var BASIS = 'https://deflifeos.popluhar.at/reise-live/jetzt.json';
+      var q = new URLSearchParams(location.search);
+      if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && q.get('liveBasis')) BASIS = q.get('liveBasis');
+      var leiste = document.getElementById('live-leiste');
+      var kopf = document.querySelector('.site-header');
+      var ziel = null, takt = null;
+
+      function hoehen() {
+        var r = document.documentElement.style;
+        r.setProperty('--kopf-h', kopf.offsetHeight + 'px');
+        r.setProperty('--leiste-h', leiste.hidden ? '0px' : leiste.offsetHeight + 'px');
+      }
+      function abschnitt(id) {
+        var el = id && document.getElementById(id);
+        return el && el.classList.contains('exercise') ? el : null;
+      }
+      function zeigen(neu) {
+        if (neu === ziel) return;
+        document.querySelectorAll('.jetzt-im-raum').forEach(function (e) { e.classList.remove('jetzt-im-raum'); });
+        ziel = neu;
+        var el = abschnitt(neu);
+        if (!el) { leiste.hidden = true; hoehen(); return; }
+        var nr = (el.querySelector('.exercise-number') || {}).textContent || '';
+        var titel = ((el.querySelector('h3') || {}).textContent || '').trim().replace(/\s+/g, ' ');
+        nr = nr.trim().replace(/ · .*/, '');
+        leiste.querySelector('.live-text').textContent = (nr ? nr + ' · ' : '') + titel;
+        el.classList.add('jetzt-im-raum');
+        document.querySelectorAll('.sidebar-nav a[href="#' + neu + '"]').forEach(function (a) { a.classList.add('jetzt-im-raum'); });
+        leiste.hidden = false;
+        leiste.classList.remove('neu'); void leiste.offsetWidth; leiste.classList.add('neu');
+        hoehen();
+      }
+      function dorthin() {
+        var el = abschnitt(ziel);
+        if (!el) return;
+        var tab = el.closest('.tab-content');
+        if (tab && !tab.classList.contains('active')) {
+          var name = tab.id.replace(/^tab-/, '');
+          document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.tab === name); });
+          document.querySelectorAll('.tab-content').forEach(function (t) { t.classList.toggle('active', t === tab); });
+        }
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      function abfragen() {
+        fetch(BASIS + '?k=' + KOHORTE, { cache: 'no-store' })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) { if (d) zeigen(d.ziel || null); })
+          .catch(function () { /* ohne Verbindung bleibt alles, wie es ist */ });
+      }
+      function starten() {
+        clearInterval(takt); takt = null;
+        if (!document.hidden) { abfragen(); takt = setInterval(abfragen, 5000); }
+      }
+      leiste.querySelector('.live-dorthin').addEventListener('click', dorthin);
+      document.addEventListener('visibilitychange', starten);
+      window.addEventListener('resize', hoehen);
+      hoehen();
+      starten();
+    })();
+  </script>
+
 <script src="/assets/js/site.js" defer></script>
+
 <script src="quiz/quiz.js"></script>
 </body>
 </html>
