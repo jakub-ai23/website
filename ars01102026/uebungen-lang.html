@@ -788,7 +788,8 @@
       <a href="#promptkatalog">Trick · Prompts speichern</a>
       <a href="#pii">Takeaway · 3-Sekunden-Regel</a>
       <a href="#ue3">6. Wissensbasis</a>
-      <a href="#ue4">7. Die Flughöhe</a>
+      <a href="#formate">7. Formate für die Maschine</a>
+      <a href="#ue4">8. Die Flughöhe</a>
       <a href="#feedback-vm">Feedback · Vormittag</a>
     </nav>
 
@@ -1254,214 +1255,9 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <p style="margin-top: 16px; color: var(--gold); font-size: 0.85rem;"><strong>Wichtig: Speichern Sie Ihre Dokumente!</strong> Wir verwenden sie am Nachmittag im Notizbuch und in Ihrem ersten Agenten.</p>
     </div>
 
-    <!-- ÜBUNG 4 -->
-    <div class="exercise" id="ue4">
-      <div class="exercise-number">Übung 7</div>
-      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin: 24px 0;">
-        <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Die Flughöhe &middot; dieselbe Sache, zwei Stufen</div>
-        <p style="color: var(--white-muted); font-size:0.88rem;">Schauen Sie sich das hier an. Zehn Sekunden.</p>
-        <img src="balmer-formel.png" alt="Formel" style="display:block; width:100%; max-width:360px; margin:16px auto; border-radius:8px;">
-        <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie das jetzt nicht erklären können: genau darum geht es. Schicken Sie die zwei Prompts nacheinander ab und achten Sie darauf, wie sich die Antwort verändert.</p>
-        <div class="prompt-block">Erklär mir diese Formel, als wäre ich eine Fachkraft mit einem PhD in Physik:
-
-ν̄ = R · (1/2² − 1/n²)</div>
-        <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie bei dieser Antwort nichts verstanden haben, ist alles richtig gelaufen. Jetzt dieselbe Formel noch einmal:</p>
-        <div class="prompt-block">Und jetzt noch einmal dieselbe Formel, als wäre ich 10 Jahre alt.</div>
-        <p style="color:var(--gold); font-size:0.82rem;">Nicht die Physik ist hier die Lehre, sondern die Flughöhe. Die Stufe stellen Sie ein, nicht die KI. Und keine Sorge: ob die Physik stimmt, kann hier niemand im Raum prüfen. Das ist bei Ihren eigenen Themen anders.</p>
-      </div>
-
-      <h3>Lieferant vs. Tutor</h3>
-      <p class="subtitle">Person A = Lieferant-Modus, Person B = Tutor-Modus. Gleiche Aufgabe, verschiedene Ergebnisse.</p>
-
-      <table class="compare-table">
-        <tr><th></th><th>Der Lieferant</th><th>Der Tutor</th></tr>
-        <tr><td><strong>Wunsch</strong></td><td>"Ich muss schnell wissen, was '20' auf Englisch heißt."</td><td>"Ich will verstehen, wie die englischen Zahlen funktionieren."</td></tr>
-        <tr><td><strong>Prompt</strong></td><td>"Was heißt '20' auf Englisch?"</td><td>"Du bist mein Englischlehrer. Bring mir bei, wie man zählt. Gib mir nicht sofort die Lösung, sondern erkläre mir die Regel und lass mich üben."</td></tr>
-        <tr><td><strong>Antwort</strong></td><td>"Twenty." (Ende)</td><td>"Gerne! Im Englischen enden die Zehnerzahlen meist auf '-ty'&hellip; Jetzt du: Was heißt '60'?"</td></tr>
-        <tr><td><strong>Nutzen</strong></td><td>Nichts gelernt.</td><td><strong>Wissen aufgebaut.</strong></td></tr>
-      </table>
-
-    </div>
-
-    <!-- FEEDBACK ZUM VORMITTAG (Jotform 262707000784050), letzter Block vor der Mittagspause -->
-    <div class="exercise" id="feedback-vm">
-      <div class="exercise-number">Feedback</div>
-      
-      <h3>Ihr Feedback zum Vormittag</h3>
-      <p class="subtitle">Zwei Minuten. Ihr Aha-Moment, Ihre wichtigste Erkenntnis und was ich am Nachmittag besser machen soll. Name und Firma sind freiwillig, helfen mir aber sehr.</p>
-      <iframe id="JotFormIFrame-262707000784050" src="https://form.jotform.com/262707000784050" title="Ihr Feedback zum Vormittag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" allow="fullscreen"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262707000784050" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
-      <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-      <script>try { window.jotformEmbedHandler("iframe[id='JotFormIFrame-262707000784050']", "https://form.jotform.com/"); } catch (e) {}</script>
-    </div>
-
-    <!-- CTA -->
-    <div style="text-align:center; margin: 48px 0 24px; padding: 32px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
-      <p style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; margin-bottom: 8px;">Mahlzeit.</p>
-      <p style="font-size: 1rem; margin-bottom: 20px;">Wir sehen uns nach der Mittagspause.</p>
-      <p style="font-size: 0.9rem; color: var(--white-muted); margin-bottom: 18px; line-height: 1.6;">P.S. Falls Sie uns schon am Vormittag verlassen: kurz eintragen, dann schicke ich Ihnen die Unterlagen nach.</p>
-      <a href="https://jakubpopluhar.com/weiter/?kurs=ars01102026" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; transition: all 0.2s; border: 2px solid var(--gold); margin:6px; min-width:260px; text-align:center;">Unterlagen anfordern &rarr;</a>
-    </div>
-
-    </div><!-- close VM inner -->
-    </div><!-- close page-layout -->
-    </div><!-- close tab-vm -->
-
-    <!-- ==================== NACHMITTAG ==================== -->
-    <div class="tab-content" id="tab-nm">
-    <div class="page-layout">
-
-    <nav class="sidebar-nav" id="sidebar-nm">
-      <div class="nav-section-label">Nachmittag</div>
-      <a href="#split-nm">Trick · Bildschirm teilen</a>
-      <a href="#notizbuch">8. Notizbuch</a>
-      <a href="#agent">9. Ihr erster Agent</a>
-      <a href="#formate">10. Formate für die Maschine</a>
-      <a href="#ue7">11. Modelling of Excellence</a>
-      <a href="#ue8">12. Prompt Layering</a>
-      <a href="#kicheck-ende">Check · zum Schluss</a>
-      <a href="#feedback">Feedback · Nachmittag</a>
-      <a href="#ue6">Bonus · KI-Werkstatt</a>
-    </nav>
-
-    <div>
-
-    <!-- NACHMITTAG: ERINNERUNG BILDSCHIRM TEILEN -->
-    <div class="exercise" id="split-nm">
-      <div class="exercise-number">Trick</div>
-      <h3>Kurz vorher: Bildschirm wieder teilen</h3>
-      <p>Wie am Vormittag: links die Folien, rechts dieses Übungsblatt und Copilot Chat. Am Nachmittag brauchen Sie es öfter, weil zwei Fenster nebeneinander stehen.</p>
-      <details>
-        <summary>Erinnerung: so teilen Sie den Bildschirm</summary>
-        <div class="collapsible-content">
-          <p><strong>Mac:</strong> den grünen Knopf links oben gedrückt halten, nicht klicken. Hälfte anklicken, zweites Fenster wählen.</p>
-      <svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Mac: grünen Knopf gedrückt halten, dann Bildschirmhälfte wählen">
-        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
-        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
-        <circle cx="28" cy="37" r="5" fill="#ff5f57"/>
-        <circle cx="45" cy="37" r="5" fill="#febc2e"/>
-        <circle cx="62" cy="37" r="9" fill="#28c840"/>
-        <circle cx="62" cy="37" r="15" fill="none" stroke="var(--gold)" stroke-dasharray="4 3"/>
-        <text x="84" y="42" fill="var(--gold)" font-size="13" font-family="monospace">gedrückt halten</text>
-        <text x="20" y="110" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ein Fenster,</text>
-        <text x="20" y="130" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ganzer Bildschirm</text>
-        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
-        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
-        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
-        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
-        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
-        <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
-        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ Copilot</text>
-        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. grün halten</text>
-        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. Hälfte anklicken, Fenster wählen</text>
-      </svg>
-          <p><strong>Windows:</strong> Fenster anklicken, dann Windows-Taste + Pfeil links. Dann rechts das zweite Fenster aus der Auswahl klicken.</p>
-      <svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Windows: Windows-Taste plus Pfeil links, dann zweites Fenster wählen">
-        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
-        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
-        <rect x="40" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
-        <text x="72" y="107" fill="var(--gold)" font-size="16" font-family="monospace" text-anchor="middle">&#8862;</text>
-        <text x="116" y="107" fill="var(--gold)" font-size="16" font-family="monospace">+</text>
-        <rect x="136" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
-        <text x="168" y="108" fill="var(--gold)" font-size="18" font-family="monospace" text-anchor="middle">&#8592;</text>
-        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
-        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
-        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
-        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
-        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
-        <rect x="502" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
-        <rect x="566" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
-        <text x="560" y="128" fill="var(--gold)" font-size="12" font-family="monospace" text-anchor="middle">zweites Fenster wählen</text>
-        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. Taste + Pfeil</text>
-        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. rechts aus der Auswahl klicken</text>
-      </svg>
-        </div>
-      </details>
-    </div>
-
-    <!-- NOTIZBUCH: QUELLE GEGEN BLINDFLUG (Deck 73-76) -->
-    <div class="exercise" id="notizbuch">
-      <div class="exercise-number">Übung 8</div>
-      <h3>Quelle gegen Blindflug: Notizbuch und Chat nebeneinander</h3>
-      <p class="subtitle">Ein Notizbuch antwortet aus den Dateien, die Sie hineinlegen. Der normale Chat antwortet aus dem Modell und aus dem Web. Dieselbe Frage an beide.</p>
-
-      <p class="step-label">Schritt 1: Die Quelle holen</p>
-      <p><a href="EU-AI-Act-DE.pdf" download style="color:var(--gold);">EU AI Act (Deutsch) herunterladen</a>. Ein echtes EU-Dokument, das Sie selbst prüfen können.</p>
-
-      <p class="step-label">Schritt 2: Notizbuch anlegen</p>
-      <p>Linke Leiste, unter <strong>Library</strong>: <strong>Notebooks</strong> bzw. „Notizbücher“. Ein neues Notizbuch anlegen und das PDF als Quelle hochladen.</p>
-
-      <p class="step-label">Schritt 3: Zwei Fenster nebeneinander</p>
-      <p>Links das Notizbuch, rechts ein <strong>neuer Chat</strong> in Copilot Chat, ohne Datei. Stellen Sie beiden dieselbe Frage.</p>
-
-      <p class="step-label">Runde 1: Die Zahlen</p>
-      <div class="prompt-block">Wie hoch ist die maximale Geldbuße beim Verstoß gegen ein verbotenes KI-System (Artikel 5) laut EU AI Act?</div>
-      <div class="prompt-block">Ab wann gelten die Vorschriften zu verbotenen KI-Praktiken, und ab wann gilt die Verordnung vollständig?</div>
-      <div class="prompt-block">Zähl mir alle Bereiche auf, in denen KI-Systeme laut Anhang III als hochriskant gelten.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Vergleichen Sie: Zeigt eine Antwort die genaue Textstelle, oder klingt sie nur selbstbewusst? Notieren Sie, wo die Antworten auseinandergehen.</p>
-
-      <p class="step-label">Runde 2: Eine Frage, die gar nicht im Dokument steht</p>
-      <div class="prompt-block">Wer hat die Fußball-WM 2026 gewonnen?</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Achten Sie nicht auf die Antwort, sondern darauf, <strong>was jede Seite tut, wenn sie es nicht aus einer Quelle weiß</strong>.</p>
-
-      <!-- UPLOAD: wird im Kurs-Player zum Upload-Kasten (Bild landet in Jakubs Drive). Auf der langen Seite unsichtbar. -->
-      <div class="upload-kasten" data-uebung="Übung 8"></div>
-
-      <p class="step-label">Wenn Sie früher fertig sind</p>
-      <p>Legen Sie Ihr Firmen- oder Rollendokument aus Übung 6 als zweite Quelle ins Notizbuch und fragen Sie:</p>
-      <div class="prompt-block">Eine meiner Quellen beschreibt mein Unternehmen bzw. meine Rolle. Worauf muss ich laut EU AI Act besonders achten? Zitiere die Stellen.</div>
-
-      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin-top: 20px;">
-        <p style="margin-bottom:8px;"><strong>Drei Dinge vor dem Teilen eines Notizbuchs</strong></p>
-        <ul style="margin:0;">
-          <li>Wer das Notizbuch bekommt, bekommt die Dateien darin. Vorher prüfen, was drinliegt.</li>
-          <li>Geteilt wird immer mit Bearbeitungsrecht. Nur lesen gibt es nicht.</li>
-          <li>Gelöscht ist gelöscht. Es gibt keinen Papierkorb.</li>
-        </ul>
-        <p style="color: var(--white-muted); font-size: 0.82rem; margin:8px 0 0;">Ohne Lizenz passen bis zu 50 Quellen in ein Notizbuch. Teilen geht nur innerhalb Ihrer Organisation, und Ihre IT kann Notizbücher ganz abschalten.</p>
-      </div>
-    </div>
-
-    <!-- IHR ERSTER AGENT (Deck 77-80) -->
-    <div class="exercise" id="agent">
-      <div class="exercise-number">Übung 9</div>
-      <h3>Ihr erster Agent</h3>
-      <p class="subtitle">Ein Agent ist Ihr eigener Copilot für eine wiederkehrende Aufgabe. Einmal einrichten, immer wieder nutzen. Das Gegenstück zum Custom GPT. 20 Minuten.</p>
-
-      <p class="step-label">Schritt 1: Anlegen</p>
-      <p>Linke Leiste, Abschnitt <strong>Agents</strong>: <strong>New agent</strong> bzw. „Neuer Agent“. Dann <strong>Skip to configure</strong>, damit Sie die Felder selbst ausfüllen.</p>
-
-      <p class="step-label">Schritt 2: Die Felder</p>
-      <table class="compare-table">
-        <tr><th style="width:24%">Feld</th><th>Was Sie eintragen</th><th style="width:18%">Grenze</th></tr>
-        <tr><td><strong>Name</strong></td><td>Protokoll-Assistent</td><td>30 Zeichen</td></tr>
-        <tr><td><strong>Beschreibung</strong></td><td>Macht aus meinen Stichpunkten ein sauberes Besprechungsprotokoll.</td><td>1.000 Zeichen</td></tr>
-        <tr><td><strong>Anweisungen</strong></td><td>Die Vorlage unten</td><td>8.000 Zeichen</td></tr>
-      </table>
-
-      <div class="prompt-block">Du bist mein Protokoll-Assistent.
-Aufgabe: Aus Stichpunkten, die ich dir gebe, machst du ein sauberes Besprechungsprotokoll.
-Aufbau: Datum und Teilnehmende, Themen, Entscheidungen, Aufgaben mit Wer und Bis wann.
-Regeln: Sprich mich mit Sie an. Erfinde nichts, was nicht in meinen Stichpunkten steht. Fehlt eine Angabe, schreib [fehlt]. Keine Einleitung, keine Nachbemerkung.
-
-Kontext über mich:
-[Fügen Sie hier Ihr Rollen-Dokument aus Übung 6 ein]</div>
-
-      <p class="step-label">Schritt 3: Wissen</p>
-      <p><strong>Ohne Lizenz steckt das Wissen Ihres Agenten in den Anweisungen.</strong> Deshalb kommt Ihr Rollen-Dokument direkt in das Anweisungsfeld. Websuche oder bis zu vier öffentliche Websites gehen auch ohne Lizenz. Eigene Dateien hochladen geht nur, wenn Ihre IT das freigeschaltet hat.</p>
-
-      <p class="step-label">Schritt 4: Testen, dann speichern</p>
-      <p>Rechts unter <strong>Try it</strong> testen, dann <strong>Create</strong>.</p>
-      <div class="prompt-block">Stichpunkte: Teamrunde Dienstag, anwesend A, B, C. Budget Q4 besprochen. B klärt das Angebot bis Freitag. Messestand abgesagt.</div>
-      <p>Prüfen Sie: Hat der Agent etwas erfunden? Steht bei fehlenden Angaben [fehlt]?</p>
-
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Sie sehen kein „New agent“? Dann ist es bei Ihnen abgeschaltet oder noch nicht sichtbar. Schauen Sie bei der Vorführung zu und nehmen Sie die Vorlage für Ihre eigenen Anweisungen aus Übung 2.</p>
-      <p style="color: var(--gold); font-size: 0.9rem;">Wer Ihren Agenten nutzen darf, sieht auch alles, was darin steckt. Keine echten Namen, Zahlen oder Interna in die Anweisungen.</p>
-    </div>
-
     <!-- FORMATE, vor der Wissensbasis (Quiz aus mark/designs, Commander 2026-09-28) -->
     <div class="exercise" id="formate">
-      <div class="exercise-number">Übung 10</div>
+      <div class="exercise-number">Übung 7</div>
       <h3>Welches Format versteht die Maschine?</h3>
       <p class="subtitle">Welche Dateien liest Copilot sauber? Das entscheidet, was Sie in Notizbücher und Agenten legen.</p>
 
@@ -1578,6 +1374,211 @@ Kontext über mich:
 </script>
 </div>
     </div>
+
+    <!-- ÜBUNG 4 -->
+    <div class="exercise" id="ue4">
+      <div class="exercise-number">Übung 8</div>
+      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin: 24px 0;">
+        <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Die Flughöhe &middot; dieselbe Sache, zwei Stufen</div>
+        <p style="color: var(--white-muted); font-size:0.88rem;">Schauen Sie sich das hier an. Zehn Sekunden.</p>
+        <img src="balmer-formel.png" alt="Formel" style="display:block; width:100%; max-width:360px; margin:16px auto; border-radius:8px;">
+        <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie das jetzt nicht erklären können: genau darum geht es. Schicken Sie die zwei Prompts nacheinander ab und achten Sie darauf, wie sich die Antwort verändert.</p>
+        <div class="prompt-block">Erklär mir diese Formel, als wäre ich eine Fachkraft mit einem PhD in Physik:
+
+ν̄ = R · (1/2² − 1/n²)</div>
+        <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie bei dieser Antwort nichts verstanden haben, ist alles richtig gelaufen. Jetzt dieselbe Formel noch einmal:</p>
+        <div class="prompt-block">Und jetzt noch einmal dieselbe Formel, als wäre ich 10 Jahre alt.</div>
+        <p style="color:var(--gold); font-size:0.82rem;">Nicht die Physik ist hier die Lehre, sondern die Flughöhe. Die Stufe stellen Sie ein, nicht die KI. Und keine Sorge: ob die Physik stimmt, kann hier niemand im Raum prüfen. Das ist bei Ihren eigenen Themen anders.</p>
+      </div>
+
+      <h3>Lieferant vs. Tutor</h3>
+      <p class="subtitle">Person A = Lieferant-Modus, Person B = Tutor-Modus. Gleiche Aufgabe, verschiedene Ergebnisse.</p>
+
+      <table class="compare-table">
+        <tr><th></th><th>Der Lieferant</th><th>Der Tutor</th></tr>
+        <tr><td><strong>Wunsch</strong></td><td>"Ich muss schnell wissen, was '20' auf Englisch heißt."</td><td>"Ich will verstehen, wie die englischen Zahlen funktionieren."</td></tr>
+        <tr><td><strong>Prompt</strong></td><td>"Was heißt '20' auf Englisch?"</td><td>"Du bist mein Englischlehrer. Bring mir bei, wie man zählt. Gib mir nicht sofort die Lösung, sondern erkläre mir die Regel und lass mich üben."</td></tr>
+        <tr><td><strong>Antwort</strong></td><td>"Twenty." (Ende)</td><td>"Gerne! Im Englischen enden die Zehnerzahlen meist auf '-ty'&hellip; Jetzt du: Was heißt '60'?"</td></tr>
+        <tr><td><strong>Nutzen</strong></td><td>Nichts gelernt.</td><td><strong>Wissen aufgebaut.</strong></td></tr>
+      </table>
+
+    </div>
+
+    <!-- FEEDBACK ZUM VORMITTAG (Jotform 262707000784050), letzter Block vor der Mittagspause -->
+    <div class="exercise" id="feedback-vm">
+      <div class="exercise-number">Feedback</div>
+      
+      <h3>Ihr Feedback zum Vormittag</h3>
+      <p class="subtitle">Zwei Minuten. Ihr Aha-Moment, Ihre wichtigste Erkenntnis und was ich am Nachmittag besser machen soll. Name und Firma sind freiwillig, helfen mir aber sehr.</p>
+      <iframe id="JotFormIFrame-262707000784050" src="https://form.jotform.com/262707000784050" title="Ihr Feedback zum Vormittag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" allow="fullscreen"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262707000784050" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+      <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+      <script>try { window.jotformEmbedHandler("iframe[id='JotFormIFrame-262707000784050']", "https://form.jotform.com/"); } catch (e) {}</script>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align:center; margin: 48px 0 24px; padding: 32px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
+      <p style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; margin-bottom: 8px;">Mahlzeit.</p>
+      <p style="font-size: 1rem; margin-bottom: 20px;">Wir sehen uns nach der Mittagspause.</p>
+      <p style="font-size: 0.9rem; color: var(--white-muted); margin-bottom: 18px; line-height: 1.6;">P.S. Falls Sie uns schon am Vormittag verlassen: kurz eintragen, dann schicke ich Ihnen die Unterlagen nach.</p>
+      <a href="https://jakubpopluhar.com/weiter/?kurs=ars01102026" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; transition: all 0.2s; border: 2px solid var(--gold); margin:6px; min-width:260px; text-align:center;">Unterlagen anfordern &rarr;</a>
+    </div>
+
+    </div><!-- close VM inner -->
+    </div><!-- close page-layout -->
+    </div><!-- close tab-vm -->
+
+    <!-- ==================== NACHMITTAG ==================== -->
+    <div class="tab-content" id="tab-nm">
+    <div class="page-layout">
+
+    <nav class="sidebar-nav" id="sidebar-nm">
+      <div class="nav-section-label">Nachmittag</div>
+      <a href="#split-nm">Trick · Bildschirm teilen</a>
+      <a href="#notizbuch">9. Notizbuch</a>
+      <a href="#agent">10. Ihr erster Agent</a>
+      <a href="#ue7">11. Modelling of Excellence</a>
+      <a href="#ue8">12. Prompt Layering</a>
+      <a href="#kicheck-ende">Check · zum Schluss</a>
+      <a href="#feedback">Feedback · Nachmittag</a>
+      <a href="#ue6">Bonus · KI-Werkstatt</a>
+    </nav>
+
+    <div>
+
+    <!-- NACHMITTAG: ERINNERUNG BILDSCHIRM TEILEN -->
+    <div class="exercise" id="split-nm">
+      <div class="exercise-number">Trick</div>
+      <h3>Kurz vorher: Bildschirm wieder teilen</h3>
+      <p>Wie am Vormittag: links die Folien, rechts dieses Übungsblatt und Copilot Chat. Am Nachmittag brauchen Sie es öfter, weil zwei Fenster nebeneinander stehen.</p>
+      <details>
+        <summary>Erinnerung: so teilen Sie den Bildschirm</summary>
+        <div class="collapsible-content">
+          <p><strong>Mac:</strong> den grünen Knopf links oben gedrückt halten, nicht klicken. Hälfte anklicken, zweites Fenster wählen.</p>
+      <svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Mac: grünen Knopf gedrückt halten, dann Bildschirmhälfte wählen">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <circle cx="28" cy="37" r="5" fill="#ff5f57"/>
+        <circle cx="45" cy="37" r="5" fill="#febc2e"/>
+        <circle cx="62" cy="37" r="9" fill="#28c840"/>
+        <circle cx="62" cy="37" r="15" fill="none" stroke="var(--gold)" stroke-dasharray="4 3"/>
+        <text x="84" y="42" fill="var(--gold)" font-size="13" font-family="monospace">gedrückt halten</text>
+        <text x="20" y="110" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ein Fenster,</text>
+        <text x="20" y="130" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ganzer Bildschirm</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
+        <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
+        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ Copilot</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. grün halten</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. Hälfte anklicken, Fenster wählen</text>
+      </svg>
+          <p><strong>Windows:</strong> Fenster anklicken, dann Windows-Taste + Pfeil links. Dann rechts das zweite Fenster aus der Auswahl klicken.</p>
+      <svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Windows: Windows-Taste plus Pfeil links, dann zweites Fenster wählen">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <rect x="40" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="72" y="107" fill="var(--gold)" font-size="16" font-family="monospace" text-anchor="middle">&#8862;</text>
+        <text x="116" y="107" fill="var(--gold)" font-size="16" font-family="monospace">+</text>
+        <rect x="136" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="168" y="108" fill="var(--gold)" font-size="18" font-family="monospace" text-anchor="middle">&#8592;</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
+        <rect x="502" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <rect x="566" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <text x="560" y="128" fill="var(--gold)" font-size="12" font-family="monospace" text-anchor="middle">zweites Fenster wählen</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. Taste + Pfeil</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. rechts aus der Auswahl klicken</text>
+      </svg>
+        </div>
+      </details>
+    </div>
+
+    <!-- NOTIZBUCH: QUELLE GEGEN BLINDFLUG (Deck 73-76) -->
+    <div class="exercise" id="notizbuch">
+      <div class="exercise-number">Übung 9</div>
+      <h3>Quelle gegen Blindflug: Notizbuch und Chat nebeneinander</h3>
+      <p class="subtitle">Ein Notizbuch antwortet aus den Dateien, die Sie hineinlegen. Der normale Chat antwortet aus dem Modell und aus dem Web. Dieselbe Frage an beide.</p>
+
+      <p class="step-label">Schritt 1: Die Quelle holen</p>
+      <p><a href="EU-AI-Act-DE.pdf" download style="color:var(--gold);">EU AI Act (Deutsch) herunterladen</a>. Ein echtes EU-Dokument, das Sie selbst prüfen können.</p>
+
+      <p class="step-label">Schritt 2: Notizbuch anlegen</p>
+      <p>Linke Leiste, unter <strong>Library</strong>: <strong>Notebooks</strong> bzw. „Notizbücher“. Ein neues Notizbuch anlegen und das PDF als Quelle hochladen.</p>
+
+      <p class="step-label">Schritt 3: Zwei Fenster nebeneinander</p>
+      <p>Links das Notizbuch, rechts ein <strong>neuer Chat</strong> in Copilot Chat, ohne Datei. Stellen Sie beiden dieselbe Frage.</p>
+
+      <p class="step-label">Runde 1: Die Zahlen</p>
+      <div class="prompt-block">Wie hoch ist die maximale Geldbuße beim Verstoß gegen ein verbotenes KI-System (Artikel 5) laut EU AI Act?</div>
+      <div class="prompt-block">Ab wann gelten die Vorschriften zu verbotenen KI-Praktiken, und ab wann gilt die Verordnung vollständig?</div>
+      <div class="prompt-block">Zähl mir alle Bereiche auf, in denen KI-Systeme laut Anhang III als hochriskant gelten.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Vergleichen Sie: Zeigt eine Antwort die genaue Textstelle, oder klingt sie nur selbstbewusst? Notieren Sie, wo die Antworten auseinandergehen.</p>
+
+      <p class="step-label">Runde 2: Eine Frage, die gar nicht im Dokument steht</p>
+      <div class="prompt-block">Wer hat die Fußball-WM 2026 gewonnen?</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Achten Sie nicht auf die Antwort, sondern darauf, <strong>was jede Seite tut, wenn sie es nicht aus einer Quelle weiß</strong>.</p>
+
+      <!-- UPLOAD: wird im Kurs-Player zum Upload-Kasten (Bild landet in Jakubs Drive). Auf der langen Seite unsichtbar. -->
+      <div class="upload-kasten" data-uebung="Übung 9"></div>
+
+      <p class="step-label">Wenn Sie früher fertig sind</p>
+      <p>Legen Sie Ihr Firmen- oder Rollendokument aus Übung 6 als zweite Quelle ins Notizbuch und fragen Sie:</p>
+      <div class="prompt-block">Eine meiner Quellen beschreibt mein Unternehmen bzw. meine Rolle. Worauf muss ich laut EU AI Act besonders achten? Zitiere die Stellen.</div>
+
+      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin-top: 20px;">
+        <p style="margin-bottom:8px;"><strong>Drei Dinge vor dem Teilen eines Notizbuchs</strong></p>
+        <ul style="margin:0;">
+          <li>Wer das Notizbuch bekommt, bekommt die Dateien darin. Vorher prüfen, was drinliegt.</li>
+          <li>Geteilt wird immer mit Bearbeitungsrecht. Nur lesen gibt es nicht.</li>
+          <li>Gelöscht ist gelöscht. Es gibt keinen Papierkorb.</li>
+        </ul>
+        <p style="color: var(--white-muted); font-size: 0.82rem; margin:8px 0 0;">Ohne Lizenz passen bis zu 50 Quellen in ein Notizbuch. Teilen geht nur innerhalb Ihrer Organisation, und Ihre IT kann Notizbücher ganz abschalten.</p>
+      </div>
+    </div>
+
+    <!-- IHR ERSTER AGENT (Deck 77-80) -->
+    <div class="exercise" id="agent">
+      <div class="exercise-number">Übung 10</div>
+      <h3>Ihr erster Agent</h3>
+      <p class="subtitle">Ein Agent ist Ihr eigener Copilot für eine wiederkehrende Aufgabe. Einmal einrichten, immer wieder nutzen. Das Gegenstück zum Custom GPT. 20 Minuten.</p>
+
+      <p class="step-label">Schritt 1: Anlegen</p>
+      <p>Linke Leiste, Abschnitt <strong>Agents</strong>: <strong>New agent</strong> bzw. „Neuer Agent“. Dann <strong>Skip to configure</strong>, damit Sie die Felder selbst ausfüllen.</p>
+
+      <p class="step-label">Schritt 2: Die Felder</p>
+      <table class="compare-table">
+        <tr><th style="width:24%">Feld</th><th>Was Sie eintragen</th><th style="width:18%">Grenze</th></tr>
+        <tr><td><strong>Name</strong></td><td>Protokoll-Assistent</td><td>30 Zeichen</td></tr>
+        <tr><td><strong>Beschreibung</strong></td><td>Macht aus meinen Stichpunkten ein sauberes Besprechungsprotokoll.</td><td>1.000 Zeichen</td></tr>
+        <tr><td><strong>Anweisungen</strong></td><td>Die Vorlage unten</td><td>8.000 Zeichen</td></tr>
+      </table>
+
+      <div class="prompt-block">Du bist mein Protokoll-Assistent.
+Aufgabe: Aus Stichpunkten, die ich dir gebe, machst du ein sauberes Besprechungsprotokoll.
+Aufbau: Datum und Teilnehmende, Themen, Entscheidungen, Aufgaben mit Wer und Bis wann.
+Regeln: Sprich mich mit Sie an. Erfinde nichts, was nicht in meinen Stichpunkten steht. Fehlt eine Angabe, schreib [fehlt]. Keine Einleitung, keine Nachbemerkung.
+
+Kontext über mich:
+[Fügen Sie hier Ihr Rollen-Dokument aus Übung 6 ein]</div>
+
+      <p class="step-label">Schritt 3: Wissen</p>
+      <p><strong>Ohne Lizenz steckt das Wissen Ihres Agenten in den Anweisungen.</strong> Deshalb kommt Ihr Rollen-Dokument direkt in das Anweisungsfeld. Websuche oder bis zu vier öffentliche Websites gehen auch ohne Lizenz. Eigene Dateien hochladen geht nur, wenn Ihre IT das freigeschaltet hat.</p>
+
+      <p class="step-label">Schritt 4: Testen, dann speichern</p>
+      <p>Rechts unter <strong>Try it</strong> testen, dann <strong>Create</strong>.</p>
+      <div class="prompt-block">Stichpunkte: Teamrunde Dienstag, anwesend A, B, C. Budget Q4 besprochen. B klärt das Angebot bis Freitag. Messestand abgesagt.</div>
+      <p>Prüfen Sie: Hat der Agent etwas erfunden? Steht bei fehlenden Angaben [fehlt]?</p>
+
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Sie sehen kein „New agent“? Dann ist es bei Ihnen abgeschaltet oder noch nicht sichtbar. Schauen Sie bei der Vorführung zu und nehmen Sie die Vorlage für Ihre eigenen Anweisungen aus Übung 2.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Wer Ihren Agenten nutzen darf, sieht auch alles, was darin steckt. Keine echten Namen, Zahlen oder Interna in die Anweisungen.</p>
+    </div>
+
 
 
 
