@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Übungen & Prompts:KI für den Büroalltag</title>
+  <title>Übungen & Prompts: Microsoft 365 Copilot effizient nutzen</title>
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#141414">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -703,8 +703,8 @@
 
     <!-- TAB SWITCHER -->
     <div class="tab-switcher">
-      <button class="tab-btn active" data-tab="vm">Vormittag: Prompt Profis</button>
-      <button class="tab-btn" data-tab="nm">Nachmittag: KI-Assistenten</button>
+      <button class="tab-btn active" data-tab="vm">Vormittag: Copilot Chat & Prompten</button>
+      <button class="tab-btn" data-tab="nm">Nachmittag: Notizbücher & Agenten</button>
     </div>
 
     <!-- ==================== VORMITTAG ==================== -->
@@ -713,23 +713,27 @@
 
     <nav class="sidebar-nav" id="sidebar-vm">
       <div class="nav-section-label">Vormittag</div>
-      <a href="#kicheck">Zu Beginn. KI-Check</a>
-      <a href="#split">Start. Bildschirm teilen</a>
-      <a href="#llm-start">Danach. LLM öffnen</a>
+      <a href="#kicheck">Check · KI-Check</a>
+      <a href="#split">Trick · Bildschirm teilen</a>
+      <a href="#copilot-start">Info · Copilot Chat öffnen</a>
       <a href="#ue0">1. Die Namensliste</a>
-      <a href="#ue1">2. Prompten</a>
-      <a href="#ue2">3. CITE Framework</a>
-      <a href="#pii">3-Sekunden-Regel</a>
-      <a href="#ue3">4. Wissensbasis</a>
-      <a href="#ue4">5. Die Flughöhe</a>
-      <a href="#feedback-vm">Vor der Pause. Feedback</a>
+      <a href="#anweisungen">2. Eigene Anweisungen</a>
+      <a href="#gedaechtnis">3. Was weißt du über mich?</a>
+      <a href="#ue1">4. Prompten</a>
+      <a href="#ue2">5. CITE Framework</a>
+      <a href="#promptkatalog">Trick · Prompts speichern</a>
+      <a href="#pii">Takeaway · 3-Sekunden-Regel</a>
+      <a href="#ue3">6. Wissensbasis</a>
+      <a href="#ue4">7. Die Flughöhe</a>
+      <a href="#feedback-vm">Feedback · Vormittag</a>
     </nav>
 
     <div>
 
     <!-- KI-CHECK ZU BEGINN -->
     <div class="exercise" id="kicheck">
-      <div class="exercise-number">Zu Beginn</div>
+      <div class="exercise-number">Check</div>
+      
       <h3>Ihr KI-Check</h3>
       <p class="subtitle">Ein kurzer Fragebogen, bevor wir anfangen. Es gibt keine falschen Antworten.</p>
       <iframe id="JotFormIFrame-262631354150348" src="https://form.jotform.com/262631354150348" title="KI-Check" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" allow="fullscreen"></iframe>
@@ -741,9 +745,11 @@
     <!-- ÜBUNG 0 -->
     <!-- ÜBUNG 0.1: BILDSCHIRM TEILEN -->
     <div class="exercise" id="split">
-      <div class="exercise-number">Start hier</div>
+      <div class="exercise-number">Trick</div>
+      
       <h3>Den Bildschirm teilen</h3>
-      <p class="subtitle">Der wichtigste Handgriff des Tages, und er dauert zehn Sekunden. Links die Folien, rechts dieses Übungsblatt und Ihr LLM. So arbeiten Sie heute den ganzen Tag.</p>
+      <p class="subtitle">Der wichtigste Handgriff des Tages, und er dauert zehn Sekunden. Links die Folien, rechts dieses Übungsblatt und Copilot Chat. So arbeiten Sie heute den ganzen Tag.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Online dabei? Teams läuft bei Ihnen zusätzlich. Am besten Teams auf einem zweiten Gerät, sonst als drittes Fenster, das Sie bei Bedarf nach vorne holen.</p>
 
       <p class="step-label">Mac</p>
       <p>Den <strong>grünen Knopf</strong> links oben im Fenster <strong>gedrückt halten</strong>, nicht klicken. Es erscheinen zwei Hälften. Die gewünschte Hälfte anklicken, dann aus der Liste das zweite Fenster wählen.</p>
@@ -763,7 +769,7 @@
         <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
         <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
         <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
-        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ Ihr LLM</text>
+        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ Copilot</text>
         <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. grün halten</text>
         <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. Hälfte anklicken, Fenster wählen</text>
       </svg>
@@ -794,94 +800,50 @@
       <p style="color: var(--gold); font-size: 0.85rem;">Wer heute nicht teilt, klickt den ganzen Tag zwischen Folien und Übungsblatt hin und her und verliert bei jedem Wechsel den Faden.</p>
     </div>
 
-    <!-- START HIER: LLM ÖFFNEN -->
-    <div class="exercise" id="llm-start">
-      <div class="exercise-number">Danach</div>
-      <h3>Ihr LLM öffnen</h3>
-      <p>Noch kein LLM offen? Wählen Sie eines und öffnen Sie es im Browser. Für dieses Training genügen die kostenlosen Versionen.</p>
+    <!-- COPILOT CHAT OEFFNEN -->
+    <div class="exercise" id="copilot-start">
+      <div class="exercise-number">Info</div>
+      
+      <h3>Copilot Chat öffnen</h3>
+      <p class="subtitle">Heute arbeiten alle im selben Werkzeug: Copilot Chat mit Ihrem Arbeitskonto, im Browser.</p>
       <div class="llm-grid">
         <div class="llm-card">
-          <div class="llm-name">ChatGPT</div>
-          <a class="llm-browser" href="https://chatgpt.com" target="_blank" rel="noopener">Im Browser öffnen →</a>
-          <details class="llm-apps">
-            <summary>App für Handy oder Tablet</summary>
-          <div class="llm-stores">
-            <a class="llm-store-btn" href="https://apps.apple.com/app/chatgpt/id6448311069" target="_blank" rel="noopener" aria-label="ChatGPT im App Store laden">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-              <span class="store-meta"><small>Laden im</small><strong>App Store</strong></span>
-            </a>
-            <a class="llm-store-btn" href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank" rel="noopener" aria-label="ChatGPT bei Google Play holen">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.039 12l2.659-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/></svg>
-              <span class="store-meta"><small>Jetzt bei</small><strong>Google Play</strong></span>
-            </a>
-          </div>
-          </details>
-        </div>
-        <div class="llm-card">
-          <div class="llm-name">Claude</div>
-          <a class="llm-browser" href="https://claude.ai" target="_blank" rel="noopener">Im Browser öffnen →</a>
-          <details class="llm-apps">
-            <summary>App für Handy oder Tablet</summary>
-          <div class="llm-stores">
-            <a class="llm-store-btn" href="https://apps.apple.com/app/claude-by-anthropic/id6473753684" target="_blank" rel="noopener" aria-label="Claude im App Store laden">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-              <span class="store-meta"><small>Laden im</small><strong>App Store</strong></span>
-            </a>
-            <a class="llm-store-btn" href="https://play.google.com/store/apps/details?id=com.anthropic.claude" target="_blank" rel="noopener" aria-label="Claude bei Google Play holen">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.039 12l2.659-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/></svg>
-              <span class="store-meta"><small>Jetzt bei</small><strong>Google Play</strong></span>
-            </a>
-          </div>
-          </details>
-        </div>
-        <div class="llm-card">
-          <div class="llm-name">Gemini</div>
-          <a class="llm-browser" href="https://gemini.google.com" target="_blank" rel="noopener">Im Browser öffnen →</a>
-          <details class="llm-apps">
-            <summary>App für Handy oder Tablet</summary>
-          <div class="llm-stores">
-            <a class="llm-store-btn" href="https://apps.apple.com/app/google-gemini/id6477489729" target="_blank" rel="noopener" aria-label="Gemini im App Store laden">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-              <span class="store-meta"><small>Laden im</small><strong>App Store</strong></span>
-            </a>
-            <a class="llm-store-btn" href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard" target="_blank" rel="noopener" aria-label="Gemini bei Google Play holen">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.039 12l2.659-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/></svg>
-              <span class="store-meta"><small>Jetzt bei</small><strong>Google Play</strong></span>
-            </a>
-          </div>
-          </details>
-        </div>
-        <div class="llm-card">
-          <div class="llm-name">Copilot</div>
-          <a class="llm-browser" href="https://copilot.microsoft.com" target="_blank" rel="noopener">Im Browser öffnen →</a>
-          <details class="llm-apps">
-            <summary>App für Handy oder Tablet</summary>
-          <div class="llm-stores">
-            <a class="llm-store-btn" href="https://apps.apple.com/at/app/microsoft-copilot/id541164041" target="_blank" rel="noopener" aria-label="Copilot im App Store laden">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-              <span class="store-meta"><small>Laden im</small><strong>App Store</strong></span>
-            </a>
-            <a class="llm-store-btn" href="https://play.google.com/store/apps/details?id=com.microsoft.office.officehubrow" target="_blank" rel="noopener" aria-label="Copilot bei Google Play holen">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.039 12l2.659-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/></svg>
-              <span class="store-meta"><small>Jetzt bei</small><strong>Google Play</strong></span>
-            </a>
-          </div>
-          </details>
+          <div class="llm-name">Microsoft Copilot Chat</div>
+          <a class="llm-browser" href="https://m365.cloud.microsoft" target="_blank" rel="noopener">Im Browser öffnen →</a>
         </div>
       </div>
+
+      <p class="step-label">Schritt 1: Mit dem Arbeitskonto anmelden</p>
+      <p>Melden Sie sich mit Ihrer <strong>Firmen-E-Mail-Adresse</strong> an, nicht mit einem privaten Microsoft-Konto.</p>
+
+      <p class="step-label">Schritt 2: Unten links nachschauen</p>
+      <p>Unten links, unter Ihrem Namen, steht, mit welchem Konto und welcher Lizenz Sie gerade arbeiten.</p>
+      <table class="compare-table">
+        <tr><th style="width:34%">Was dort steht</th><th>Was es bedeutet</th></tr>
+        <tr><td><strong>Work</strong></td><td>Ihr Arbeitskonto. Hier arbeiten wir heute.</td></tr>
+        <tr><td><strong>Personal</strong>, dazu „Upgrade“</td><td>Der private Copilot. Nicht für Firmendaten.</td></tr>
+        <tr><td><strong>Copilot Chat (Basic)</strong></td><td>Kostenlos mit dem Arbeitskonto: Chat, Gedächtnis, Notizbücher, einfache Agenten. Das haben die meisten von Ihnen.</td></tr>
+        <tr><td><strong>M365 Copilot (Premium)</strong></td><td>Bezahlte Lizenz. Zusätzlich Copilot in Word, Excel, Outlook und Teams.</td></tr>
+      </table>
+
+      <p class="step-label">Schritt 3: Kurz melden</p>
+      <p>Schreiben Sie in den Teams-Chat des Kurses, was bei Ihnen unten links steht. Vor Ort sagen Sie es einfach laut.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Arbeiten Sie heute nur dort, wo „Work“ steht.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem;">Je nach Spracheinstellung sind die Beschriftungen bei Ihnen deutsch oder englisch.</p>
     </div>
+
 
     <div class="exercise" id="ue0">
       <div class="exercise-number">Übung 1</div>
       <h3>Die Namensliste</h3>
-      <p class="subtitle">Derselbe Prompt, drei Nachbarländer, und ein Blick auf den Bildschirm neben Ihnen. Achten Sie nicht darauf, ob die Namen stimmen. Achten Sie darauf, welche Namen kommen. 10 Minuten.</p>
+      <p class="subtitle">Derselbe Prompt, drei Nachbarländer, und ein Blick in den Teams-Chat. Achten Sie nicht darauf, ob die Namen stimmen. Achten Sie darauf, welche Namen kommen. 10 Minuten.</p>
 
       <p class="step-label">Schritt 1: Runde 1, Österreich</p>
       <div class="prompt-block">Erstelle mir eine Liste von 10 Mitarbeitern einer fiktiven Firma in Österreich.
 Vorname, Nachname, Abteilung.</div>
 
-      <p class="step-label">Schritt 2: Zum Nachbarn schauen</p>
-      <p>Ihr Sitznachbar hat denselben Prompt abgeschickt. Bevor Sie hinüberschauen, schätzen Sie: Wie viele der 10 <strong>Nachnamen</strong> stehen auf beiden Listen?</p>
+      <p class="step-label">Schritt 2: In den Teams-Chat schauen</p>
+      <p>Alle haben denselben Prompt abgeschickt. Posten Sie Ihre 10 Nachnamen in den Teams-Chat. Bevor Sie die anderen Listen lesen, schätzen Sie: Wie viele Ihrer 10 <strong>Nachnamen</strong> stehen auch auf der Liste einer anderen Person?</p>
       <p style="color: var(--gold); font-size: 0.9rem;">Meine Schätzung: ________ von 10 &nbsp;&nbsp;·&nbsp;&nbsp; Tatsächlich: ________ von 10</p>
 
       <p class="step-label">Schritt 3: Runde 2 und 3, im selben Chat weiterschreiben</p>
@@ -910,11 +872,57 @@ Vorname, Nachname, Abteilung.</div>
       </details>
     </div>
 
+    <!-- EIGENE ANWEISUNGEN (Deck 38/39) -->
+    <div class="exercise" id="anweisungen">
+      <div class="exercise-number">Übung 2</div>
+      <h3>Ihre eigenen Anweisungen: einmal sagen, immer gültig</h3>
+      <p class="subtitle">Was Copilot über Sie wissen soll, schreiben Sie einmal hinein. Ab dann gilt es in jedem neuen Chat. 10 Minuten.</p>
+
+      <p class="step-label">Schritt 1: Das Feld finden</p>
+      <p><strong>Chat settings → Personalisation → Custom instructions → Edit instructions</strong>. Bei deutscher Oberfläche heißen die Punkte entsprechend.</p>
+
+      <p class="step-label">Schritt 2: Vorlage kopieren und die Klammern ausfüllen</p>
+      <div class="prompt-block">Ich bin [Rolle] bei [Firma oder Branche] und kümmere mich vor allem um [zwei, drei Hauptaufgaben].
+Antworte mir auf Deutsch, sprich mich mit Sie an, halte dich kurz und schreib so, dass ich es direkt verwenden kann.
+Sag mir lieber „Das weiß ich nicht“, als zu raten. Trenne klar, was du sicher weißt und was du vermutest. Erfinde keine Zahlen, Namen, Zitate oder Quellen.
+Wenn meine Anfrage unklar ist, stell mir zuerst kurze Rückfragen.
+Gib mir nicht einfach recht. Wenn ich mich irre, sag es direkt und begründe es.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Drei Dinge gehören hinein: wer Sie sind, wie Copilot antworten soll, und was Copilot nie tun soll. Die Vorschläge unter dem Feld lassen sich zusätzlich anklicken.</p>
+
+      <p class="step-label">Schritt 3: Testen, in einem neuen Chat</p>
+      <div class="prompt-block">Beschreib mir in drei Sätzen, wie du mir bei meiner Arbeit helfen kannst.</div>
+      <p>Prüfen Sie: Spricht Copilot Sie mit Sie an? Kennt es Ihre Rolle? Ist die Antwort kurz?</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Das ist der Kontext aus CITE, nur einmal geschrieben.</p>
+    </div>
+
+    <!-- GEDAECHTNIS (Deck 36/37/40) -->
+    <div class="exercise" id="gedaechtnis">
+      <div class="exercise-number">Übung 3</div>
+      <h3>Was weißt du über mich?</h3>
+      <p class="subtitle">Mit dem Arbeitskonto trainiert Microsoft kein Modell mit Ihren Eingaben. Merken tut sich Copilot trotzdem etwas. Schauen Sie nach, was. 5 Minuten.</p>
+
+      <p class="step-label">Schritt 1: Fragen</p>
+      <div class="prompt-block">Was weißt du über mich? Liste alles auf, was du über mich gespeichert hast oder aus früheren Chats ableitest.</div>
+
+      <p class="step-label">Schritt 2: Nachschauen</p>
+      <p><strong>Chat settings → Personalisation → Saved memories → Manage saved memories</strong>. Dort sehen Sie jede Erinnerung einzeln und können sie löschen.</p>
+
+      <table class="compare-table">
+        <tr><th style="width:32%">Was Sie wollen</th><th>Wo</th><th>Achtung</th></tr>
+        <tr><td>Nichts mehr merken</td><td>Schalter bei Saved memories aus</td><td>Ausschalten löscht nichts</td></tr>
+        <tr><td>Alte Chats nicht nutzen</td><td>Schalter bei Chat history aus</td><td></td></tr>
+        <tr><td>Ohne Spuren arbeiten</td><td>Temporärer Chat, Knopf oben rechts</td><td>Ihre Firma kann trotzdem aufbewahren</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.9rem;">Ausschalten ist nicht Löschen. Chat löschen ist auch nicht Löschen.</p>
+    </div>
+
+
+
     <!-- ÜBUNG 1 -->
     <div class="exercise" id="ue1">
-      <div class="exercise-number">Übung 2</div>
+      <div class="exercise-number">Übung 4</div>
       <h3>Prompten: Homeoffice-Regelung</h3>
-      <p class="subtitle">Arbeiten Sie zu zweit. Beide prompten, danach vergleichen Sie Ihre Ergebnisse.</p>
+      <p class="subtitle">Jede Person promptet für sich in Copilot Chat. Danach vergleichen wir zwei Ergebnisse gemeinsam am Bildschirm.</p>
 
       <p class="step-label">Schritt 1: Der einfache Prompt</p>
       <p>Kopieren Sie diesen Prompt und schauen Sie, was die KI daraus macht:</p>
@@ -982,7 +990,7 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
 
     <!-- ÜBUNG 2 -->
     <div class="exercise" id="ue2">
-      <div class="exercise-number">Übung 3</div>
+      <div class="exercise-number">Übung 5</div>
       <h3>CITE(R) Framework:Jetzt sind Sie dran!</h3>
       <p class="subtitle">Sie planen eine Reise. Kurze Nachrichten, jede legt eine Schicht drauf. Mittendrin ändert sich etwas, und danach ändert es sich zurück. Um die Reise geht es nicht.</p>
 
@@ -1043,10 +1051,25 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
 
     </div>
 
+    <!-- PROMPTS SPEICHERN UND TEILEN (Recherche 2026-09-30, knowledge/raw/2026-09-30-copilot-shared-prompts.md) -->
+    <div class="exercise" id="promptkatalog">
+      <div class="exercise-number">Trick</div>
+      
+      <h3>Gute Prompts speichern und teilen</h3>
+      <p class="subtitle">Ein Prompt, der funktioniert, gehört nicht in einen alten Chat, sondern in den Promptkatalog.</p>
+      <p class="step-label">Speichern</p>
+      <p>Prompt absenden, dann mit der Maus über Ihre gesendete Nachricht fahren und <strong>Prompt speichern</strong> wählen. Wiederfinden: im Promptkatalog (Prompt Gallery) unter <strong>Ihre Prompts</strong>, nur für Sie sichtbar.</p>
+      <p class="step-label">Teilen</p>
+      <p>Über dieselbe Nachricht <strong>Prompt-Link kopieren</strong> und in den Teams-Chat einfügen. Oder im Katalog unter Ihre Prompts: <strong>Prompt freigeben → Für Team freigeben</strong>, dann sehen alle Mitglieder eines Teams-Teams den Prompt unter <strong>Team-Prompts</strong>.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Ob diese Knöpfe bei Ihnen erscheinen, hängt von Lizenz und IT-Einstellung ab. Gespeicherte und geteilte Prompts kann Ihre IT auswerten: keine Kundendaten hineinschreiben.</p>
+    </div>
+
+
     <!-- 3-SEKUNDEN-REGEL, vor der ersten Uebung mit echten Firmendaten -->
     <div class="exercise" id="pii">
+      <div class="exercise-number">Takeaway</div>
       <h3>Kurz vorher: die 3-Sekunden-Regel</h3>
-      <p>Ab hier arbeiten Sie mit Material aus Ihrer eigenen Firma. Drei Sekunden, bevor Sie Enter drücken:</p>
+      <p>Ab hier arbeiten Sie mit Material aus Ihrer eigenen Firma. Mit dem Arbeitskonto trainiert Microsoft kein Modell mit Ihren Eingaben. Trotzdem merkt sich Copilot Dinge, und heute ist Ihr Bildschirm oft geteilt. Drei Sekunden, bevor Sie Enter drücken:</p>
       <ul>
         <li><strong>Namen</strong> raus. Aus Frau Gruber wird "eine Kollegin aus dem Einkauf".</li>
         <li><strong>Zahlen</strong> raus. Aus 47.500 Euro wird "ein mittlerer fünfstelliger Betrag".</li>
@@ -1057,7 +1080,7 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
 
     <!-- ÜBUNG 3 -->
     <div class="exercise" id="ue3">
-      <div class="exercise-number">Übung 4</div>
+      <div class="exercise-number">Übung 6</div>
       <h3>Ihre KI-Wissensbasis aufbauen</h3>
       <p class="subtitle">Erstellen Sie zwei Dokumente, die Ihre KI ab sofort schlauer machen. Kollegen aus der gleichen Firma: arbeiten Sie zusammen!</p>
 
@@ -1073,7 +1096,7 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
 Schreibe daraus ein Kontextdokument, das ich in Zukunft an den Anfang jeder Konversation setzen kann: Branche, Größe, Produkte, Kunden, Standorte, Besonderheiten.
 
 Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst, schreibst du nicht hin, sondern listest es am Ende unter "offen".</div>
-          <p style="color: var(--white-muted); font-size: 0.85rem;">Ihr LLM braucht dafür Internetzugang. Bei ChatGPT, Copilot, Gemini und Claude ist der in den kostenlosen Versionen dabei.</p>
+          <p style="color: var(--white-muted); font-size: 0.85rem;">Copilot Chat sucht dafür im Web. Kommt keine Websuche zustande, hat Ihre IT sie vielleicht abgeschaltet. Dann schreiben Sie 1a wie 1b selbst, mit Rückfragen der KI.</p>
           <details>
             <summary>Schritte 2-4 (erst aufklappen wenn Schritt 1 fertig)</summary>
             <div class="collapsible-content">
@@ -1084,7 +1107,7 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
               <p class="step-label">Schritt 3:Verfeinern</p>
               <div class="prompt-block">Was fehlt in diesem Dokument, das für eine KI wichtig wäre? Schlage 3 Ergänzungen vor.</div>
               <p class="step-label">Schritt 4:Speichern</p>
-              <p>Kopieren Sie das fertige Dokument und speichern Sie es (z.B. in einer Notiz-App, Word, oder direkt in den Custom Instructions Ihres LLMs).</p>
+              <p>Kopieren Sie das fertige Dokument und speichern Sie es als Word-Datei in Ihrem OneDrive. Am Nachmittag brauchen Sie es für Notizbuch und Agent.</p>
             </div>
           </details>
         </div>
@@ -1164,12 +1187,12 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
         </div>
       </details>
 
-      <p style="margin-top: 16px; color: var(--gold); font-size: 0.85rem;"><strong>Wichtig: Speichern Sie Ihre Dokumente!</strong> Wir verwenden sie gleich im nächsten Schritt, wenn wir Projekte anlegen.</p>
+      <p style="margin-top: 16px; color: var(--gold); font-size: 0.85rem;"><strong>Wichtig: Speichern Sie Ihre Dokumente!</strong> Wir verwenden sie am Nachmittag im Notizbuch und in Ihrem ersten Agenten.</p>
     </div>
 
     <!-- ÜBUNG 4 -->
     <div class="exercise" id="ue4">
-      <div class="exercise-number">Übung 5</div>
+      <div class="exercise-number">Übung 7</div>
       <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin: 24px 0;">
         <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Die Flughöhe &middot; dieselbe Sache, zwei Stufen</div>
         <p style="color: var(--white-muted); font-size:0.88rem;">Schauen Sie sich das hier an. Zehn Sekunden.</p>
@@ -1198,7 +1221,8 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
 
     <!-- FEEDBACK ZUM VORMITTAG (Jotform 262707000784050), letzter Block vor der Mittagspause -->
     <div class="exercise" id="feedback-vm">
-      <div class="exercise-number">Vor der Mittagspause</div>
+      <div class="exercise-number">Feedback</div>
+      
       <h3>Ihr Feedback zum Vormittag</h3>
       <p class="subtitle">Zwei Minuten. Ihr Aha-Moment, Ihre wichtigste Erkenntnis und was ich am Nachmittag besser machen soll. Name und Firma sind freiwillig, helfen mir aber sehr.</p>
       <iframe id="JotFormIFrame-262707000784050" src="https://form.jotform.com/262707000784050" title="Ihr Feedback zum Vormittag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" allow="fullscreen"></iframe>
@@ -1225,28 +1249,24 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
 
     <nav class="sidebar-nav" id="sidebar-nm">
       <div class="nav-section-label">Nachmittag</div>
-      <a href="#split-nm">Bildschirm teilen</a>
-      <a href="#alltag">Ihr Arbeitsalltag</a>
-      <a href="#formate">Formate für die Maschine</a>
-      <a href="#ue6b">6. Projekt anlegen</a>
-      <a href="#ue5">7. EU AI Act + NotebookLM</a>
-      <a href="#ue5b">7b. Split-Screen: zwei Werkzeuge</a>
-      <a href="#ue6c">8. Suno: Songtexte</a>
-      <a href="#ue7">9. Modelling of Excellence</a>
-      <a href="#ue8">10. Prompt Layering</a>
-      <a href="#ue8b">10b. Die Städtereise</a>
-      <a href="#offen">Offener Übungsblock</a>
-      <a href="#kicheck-ende">Zum Schluss. KI-Check</a>
-      <a href="#feedback">Zum Schluss. Feedback</a>
-      <a href="#ue6">Bonus. KI-Werkstatt</a>
+      <a href="#split-nm">Trick · Bildschirm teilen</a>
+      <a href="#notizbuch">8. Notizbuch</a>
+      <a href="#agent">9. Ihr erster Agent</a>
+      <a href="#formate">10. Formate für die Maschine</a>
+      <a href="#ue7">11. Modelling of Excellence</a>
+      <a href="#ue8">12. Prompt Layering</a>
+      <a href="#kicheck-ende">Check · zum Schluss</a>
+      <a href="#feedback">Feedback · Nachmittag</a>
+      <a href="#ue6">Bonus · KI-Werkstatt</a>
     </nav>
 
     <div>
 
     <!-- NACHMITTAG: ERINNERUNG BILDSCHIRM TEILEN -->
     <div class="exercise" id="split-nm">
+      <div class="exercise-number">Trick</div>
       <h3>Kurz vorher: Bildschirm wieder teilen</h3>
-      <p>Wie am Vormittag: links die Folien, rechts dieses Übungsblatt und Ihr Werkzeug. Am Nachmittag brauchen Sie es öfter, weil zwei Fenster nebeneinander stehen.</p>
+      <p>Wie am Vormittag: links die Folien, rechts dieses Übungsblatt und Copilot Chat. Am Nachmittag brauchen Sie es öfter, weil zwei Fenster nebeneinander stehen.</p>
       <details>
         <summary>Erinnerung: so teilen Sie den Bildschirm</summary>
         <div class="collapsible-content">
@@ -1267,7 +1287,7 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
         <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
         <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
         <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
-        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ Ihr LLM</text>
+        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ Copilot</text>
         <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. grün halten</text>
         <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. Hälfte anklicken, Fenster wählen</text>
       </svg>
@@ -1295,22 +1315,88 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       </details>
     </div>
 
-    <!-- ARBEITSALLTAG (Jotform 262705879297071), vor dem Projekt mit der Wissensbasis -->
-    <div class="exercise" id="alltag">
-      <div class="exercise-number">Nach der Pause</div>
-      <h3>Zwei Minuten: Ihr Arbeitsalltag</h3>
-      <p class="subtitle">Bevor wir mit Ihrer Wissensbasis weiterbauen: Wo drückt der Schuh? Es gibt keine falschen Antworten.</p>
-      <iframe id="JotFormIFrame-262705879297071" src="https://form.jotform.com/262705879297071" title="Ihr Arbeitsalltag" style="width:100%; height:1500px; min-height:1500px; border:0; border-radius:8px; background:#fff; margin-top:8px;" allow="fullscreen"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262705879297071" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
-      <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-      <script>try { window.jotformEmbedHandler("iframe[id='JotFormIFrame-262705879297071']", "https://form.jotform.com/"); } catch (e) {}</script>
+    <!-- NOTIZBUCH: QUELLE GEGEN BLINDFLUG (Deck 73-76) -->
+    <div class="exercise" id="notizbuch">
+      <div class="exercise-number">Übung 8</div>
+      <h3>Quelle gegen Blindflug: Notizbuch und Chat nebeneinander</h3>
+      <p class="subtitle">Ein Notizbuch antwortet aus den Dateien, die Sie hineinlegen. Der normale Chat antwortet aus dem Modell und aus dem Web. Dieselbe Frage an beide.</p>
+
+      <p class="step-label">Schritt 1: Die Quelle holen</p>
+      <p><a href="EU-AI-Act-DE.pdf" download style="color:var(--gold);">EU AI Act (Deutsch) herunterladen</a>. Ein echtes EU-Dokument, das Sie selbst prüfen können.</p>
+
+      <p class="step-label">Schritt 2: Notizbuch anlegen</p>
+      <p>Linke Leiste, unter <strong>Library</strong>: <strong>Notebooks</strong> bzw. „Notizbücher“. Ein neues Notizbuch anlegen und das PDF als Quelle hochladen.</p>
+
+      <p class="step-label">Schritt 3: Zwei Fenster nebeneinander</p>
+      <p>Links das Notizbuch, rechts ein <strong>neuer Chat</strong> in Copilot Chat, ohne Datei. Stellen Sie beiden dieselbe Frage.</p>
+
+      <p class="step-label">Runde 1: Die Zahlen</p>
+      <div class="prompt-block">Wie hoch ist die maximale Geldbuße beim Verstoß gegen ein verbotenes KI-System (Artikel 5) laut EU AI Act?</div>
+      <div class="prompt-block">Ab wann gelten die Vorschriften zu verbotenen KI-Praktiken, und ab wann gilt die Verordnung vollständig?</div>
+      <div class="prompt-block">Zähl mir alle Bereiche auf, in denen KI-Systeme laut Anhang III als hochriskant gelten.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Vergleichen Sie: Zeigt eine Antwort die genaue Textstelle, oder klingt sie nur selbstbewusst? Notieren Sie, wo die Antworten auseinandergehen.</p>
+
+      <p class="step-label">Runde 2: Eine Frage, die gar nicht im Dokument steht</p>
+      <div class="prompt-block">Wer hat die Fußball-WM 2026 gewonnen?</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Achten Sie nicht auf die Antwort, sondern darauf, <strong>was jede Seite tut, wenn sie es nicht aus einer Quelle weiß</strong>.</p>
+
+      <p class="step-label">Wenn Sie früher fertig sind</p>
+      <p>Legen Sie Ihr Firmen- oder Rollendokument aus Übung 6 als zweite Quelle ins Notizbuch und fragen Sie:</p>
+      <div class="prompt-block">Eine meiner Quellen beschreibt mein Unternehmen bzw. meine Rolle. Worauf muss ich laut EU AI Act besonders achten? Zitiere die Stellen.</div>
+
+      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin-top: 20px;">
+        <p style="margin-bottom:8px;"><strong>Drei Dinge vor dem Teilen eines Notizbuchs</strong></p>
+        <ul style="margin:0;">
+          <li>Wer das Notizbuch bekommt, bekommt die Dateien darin. Vorher prüfen, was drinliegt.</li>
+          <li>Geteilt wird immer mit Bearbeitungsrecht. Nur lesen gibt es nicht.</li>
+          <li>Gelöscht ist gelöscht. Es gibt keinen Papierkorb.</li>
+        </ul>
+        <p style="color: var(--white-muted); font-size: 0.82rem; margin:8px 0 0;">Ohne Lizenz passen bis zu 50 Quellen in ein Notizbuch. Teilen geht nur innerhalb Ihrer Organisation, und Ihre IT kann Notizbücher ganz abschalten.</p>
+      </div>
+    </div>
+
+    <!-- IHR ERSTER AGENT (Deck 77-80) -->
+    <div class="exercise" id="agent">
+      <div class="exercise-number">Übung 9</div>
+      <h3>Ihr erster Agent</h3>
+      <p class="subtitle">Ein Agent ist Ihr eigener Copilot für eine wiederkehrende Aufgabe. Einmal einrichten, immer wieder nutzen. Das Gegenstück zum Custom GPT. 20 Minuten.</p>
+
+      <p class="step-label">Schritt 1: Anlegen</p>
+      <p>Linke Leiste, Abschnitt <strong>Agents</strong>: <strong>New agent</strong> bzw. „Neuer Agent“. Dann <strong>Skip to configure</strong>, damit Sie die Felder selbst ausfüllen.</p>
+
+      <p class="step-label">Schritt 2: Die Felder</p>
+      <table class="compare-table">
+        <tr><th style="width:24%">Feld</th><th>Was Sie eintragen</th><th style="width:18%">Grenze</th></tr>
+        <tr><td><strong>Name</strong></td><td>Protokoll-Assistent</td><td>30 Zeichen</td></tr>
+        <tr><td><strong>Beschreibung</strong></td><td>Macht aus meinen Stichpunkten ein sauberes Besprechungsprotokoll.</td><td>1.000 Zeichen</td></tr>
+        <tr><td><strong>Anweisungen</strong></td><td>Die Vorlage unten</td><td>8.000 Zeichen</td></tr>
+      </table>
+
+      <div class="prompt-block">Du bist mein Protokoll-Assistent.
+Aufgabe: Aus Stichpunkten, die ich dir gebe, machst du ein sauberes Besprechungsprotokoll.
+Aufbau: Datum und Teilnehmende, Themen, Entscheidungen, Aufgaben mit Wer und Bis wann.
+Regeln: Sprich mich mit Sie an. Erfinde nichts, was nicht in meinen Stichpunkten steht. Fehlt eine Angabe, schreib [fehlt]. Keine Einleitung, keine Nachbemerkung.
+
+Kontext über mich:
+[Fügen Sie hier Ihr Rollen-Dokument aus Übung 6 ein]</div>
+
+      <p class="step-label">Schritt 3: Wissen</p>
+      <p><strong>Ohne Lizenz steckt das Wissen Ihres Agenten in den Anweisungen.</strong> Deshalb kommt Ihr Rollen-Dokument direkt in das Anweisungsfeld. Websuche oder bis zu vier öffentliche Websites gehen auch ohne Lizenz. Eigene Dateien hochladen geht nur, wenn Ihre IT das freigeschaltet hat.</p>
+
+      <p class="step-label">Schritt 4: Testen, dann speichern</p>
+      <p>Rechts unter <strong>Try it</strong> testen, dann <strong>Create</strong>.</p>
+      <div class="prompt-block">Stichpunkte: Teamrunde Dienstag, anwesend A, B, C. Budget Q4 besprochen. B klärt das Angebot bis Freitag. Messestand abgesagt.</div>
+      <p>Prüfen Sie: Hat der Agent etwas erfunden? Steht bei fehlenden Angaben [fehlt]?</p>
+
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Sie sehen kein „New agent“? Dann ist es bei Ihnen abgeschaltet oder noch nicht sichtbar. Schauen Sie bei der Vorführung zu und nehmen Sie die Vorlage für Ihre eigenen Anweisungen aus Übung 2.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Wer Ihren Agenten nutzen darf, sieht auch alles, was darin steckt. Keine echten Namen, Zahlen oder Interna in die Anweisungen.</p>
     </div>
 
     <!-- FORMATE, vor der Wissensbasis (Quiz aus mark/designs, Commander 2026-09-28) -->
     <div class="exercise" id="formate">
-      <div class="exercise-number">Vor der Wissensbasis</div>
+      <div class="exercise-number">Übung 10</div>
       <h3>Welches Format versteht die Maschine?</h3>
-      <p class="subtitle">Gleich laden Sie Ihre Dokumente hoch. Vorher klären wir, welche Dateien eine KI überhaupt sauber lesen kann.</p>
+      <p class="subtitle">Welche Dateien liest Copilot sauber? Das entscheidet, was Sie in Notizbücher und Agenten legen.</p>
 
       <p class="step-label">Erst tippen</p>
       <div class="quiz">
@@ -1426,237 +1512,12 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
 </div>
     </div>
 
-    <!-- ÜBUNG 6b: PROJEKT ANLEGEN + SYSTEM-PROMPT -->
-    <div class="exercise" id="ue6b">
-      <div class="exercise-number">Übung 6</div>
-      <h3>Projekt anlegen: System-Prompt und Projekt-Prompt</h3>
-      <p class="subtitle">Machen Sie Ihre KI dauerhaft schlauer: ein Projekt mit Ihren Dokumenten und festen Regeln. Nehmen Sie Ihre Kontextdokumente vom Vormittag.</p>
-
-      <p class="step-label" style="margin-top:26px; font-size:0.8rem;">Schritt 1 &middot; Erst zuschauen</p>
-      <div class="magic-box" style="text-align:left; margin:10px 0 0;">
-        <div class="label">Demo</div>
-        <p style="margin:0;">Ich zeige es Ihnen zuerst einmal vor. <strong>Schauen Sie nur zu, noch nichts kopieren und nichts anlegen.</strong></p>
-      </div>
-
-      <p class="step-label" style="margin-top:26px; font-size:0.8rem;">Schritt 2 &middot; Kurz erklärt: zwei Arten von Anweisungen</p>
-      <p><strong>Der System-Prompt</strong> gilt in <strong>jedem</strong> Chat. Er steht in den Einstellungen Ihres Tools (bei ChatGPT unter Personalisierung) und sagt der KI, wer Sie sind und wie sie grundsätzlich antworten soll.</p>
-      <div class="magic-box" style="text-align:left; margin:16px 0;">
-        <div class="label">System-Prompt zum Kopieren</div>
-        <div class="prompt-block" style="margin:0;">Sag mir lieber „Das weiß ich nicht", als zu raten. Trenne klar, was du sicher weißt und was du vermutest, und kennzeichne Vermutungen. Erfinde keine Zahlen, Namen, Zitate oder Quellen.
-
-Wenn meine Anfrage unklar ist oder dir wichtige Informationen fehlen, stell mir zuerst kurze Rückfragen, bevor du antwortest.
-
-Gib mir nicht einfach recht. Wenn ich mich irre oder etwas übersehe, sag es direkt und begründe es.
-
-Ich bin [Rolle] bei [Firma oder Branche] und kümmere mich vor allem um [zwei, drei Hauptaufgaben]. Antworte mir auf Deutsch, per [Du oder Sie], kurz und so, dass ich es direkt verwenden kann.</div>
-      </div>
-      <p>Den System-Prompt tragen Sie in die <strong>Einstellungen</strong> Ihres Tools ein, bei ChatGPT unter <strong>Personalisierung</strong>. Die [Klammern] im letzten Absatz füllen Sie selbst aus, zwei Sätze reichen.</p>
-      <p><strong>Der Projekt-Prompt</strong> gilt <strong>nur in einem Projekt</strong>. Ein Projekt ist ein eigener Raum: Ihre Dokumente liegen dort als feste Wissensbasis, und die Projektanweisungen legen fest, wie die KI damit arbeitet. Jeder neue Chat im Projekt startet mit diesem Wissen.</p>
-      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin: 24px 0;">
-        <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Wo gilt was &middot; die drei Ebenen</div>
-        <svg viewBox="0 0 620 360" style="width:100%; display:block; margin:8px auto;" role="img" aria-label="Drei ineinanderliegende Ebenen: System-Prompt und allgemeine Wissensbasis gelten ueberall, Projekt-Anweisung und Projekt-Wissensbasis nur im Projekt, die aktuelle Nachricht nur in diesem Chat">
-          <rect x="8" y="8" width="604" height="344" rx="14" fill="rgba(212,160,23,0.05)" stroke="var(--gold)" stroke-opacity="0.55"/>
-          <text x="26" y="34" fill="var(--gold)" font-size="13" font-family="monospace" letter-spacing="1">GILT ÜBERALL, IN JEDEM CHAT</text>
-          <rect x="26" y="46" width="270" height="46" rx="8" fill="rgba(212,160,23,0.12)" stroke="var(--gold)" stroke-opacity="0.5"/>
-          <text x="40" y="66" fill="#f2e6c2" font-size="14" font-family="monospace">System-Prompt</text>
-          <text x="40" y="84" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">"Custom Instructions"</text>
-          <rect x="312" y="46" width="282" height="46" rx="8" fill="rgba(212,160,23,0.12)" stroke="var(--gold)" stroke-opacity="0.5"/>
-          <text x="326" y="66" fill="#f2e6c2" font-size="14" font-family="monospace">Allgemeine Wissensbasis</text>
-          <text x="326" y="84" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">was sich die KI über Sie merkt</text>
-
-          <rect x="34" y="112" width="552" height="160" rx="12" fill="rgba(212,160,23,0.06)" stroke="var(--gold)" stroke-opacity="0.75"/>
-          <text x="52" y="138" fill="var(--gold)" font-size="13" font-family="monospace" letter-spacing="1">GILT NUR IN DIESEM PROJEKT</text>
-          <rect x="52" y="150" width="244" height="46" rx="8" fill="rgba(212,160,23,0.16)" stroke="var(--gold)" stroke-opacity="0.6"/>
-          <text x="66" y="170" fill="#f2e6c2" font-size="14" font-family="monospace">Projekt-Prompt</text>
-          <text x="66" y="188" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">Ihre Anweisungen fürs Projekt</text>
-          <rect x="312" y="150" width="256" height="46" rx="8" fill="rgba(212,160,23,0.16)" stroke="var(--gold)" stroke-opacity="0.6"/>
-          <text x="326" y="170" fill="#f2e6c2" font-size="14" font-family="monospace">Projekt-Wissensbasis</text>
-          <text x="326" y="188" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">Ihre hochgeladenen Dokumente</text>
-
-          <rect x="60" y="212" width="500" height="46" rx="10" fill="rgba(212,160,23,0.22)" stroke="var(--gold)"/>
-          <text x="78" y="232" fill="var(--gold)" font-size="13" font-family="monospace" letter-spacing="1">GILT NUR IN DIESEM CHAT</text>
-          <text x="78" y="250" fill="#f2e6c2" font-size="14" font-family="monospace">das laufende Gespräch und Ihre aktuelle Nachricht</text>
-
-          <path d="M300 292 L300 330" stroke="var(--gold)" stroke-width="2"/>
-          <path d="M300 330 l-6 -9 h12 z" fill="var(--gold)"/>
-          <text x="316" y="318" fill="var(--gold)" font-size="13" font-family="monospace">je weiter innen, desto mehr Gewicht</text>
-        </svg>
-        <p style="color: var(--white-muted); font-size:0.85rem; margin-bottom:0;">Zwei Sachen folgen daraus. Was Sie im Projekt einstellen, gilt auch in jedem <strong>neuen</strong> Chat dieses Projekts, ohne dass Sie es wiederholen. Und wenn sich zwei Ebenen widersprechen, gewinnt fast immer die innere, also Ihre aktuelle Nachricht.</p>
-      </div>
 
 
-      <p class="step-label" style="margin-top:26px; font-size:0.8rem;">Schritt 3 &middot; Jetzt Sie: Projekt anlegen</p>
-      <p style="margin-bottom:6px;">Projekt anlegen und Ihre Kontextdokumente vom Vormittag hochladen. Wählen Sie Ihr Tool:</p>
-
-      <details>
-        <summary>ChatGPT: Projekt anlegen</summary>
-        <div class="collapsible-content">
-          <p class="step-label">1. Projekt anlegen</p>
-          <p>Links in der Seitenleiste auf <strong>"Neues Projekt"</strong> (New Project). Namen vergeben (z.B. "Meine Firma").</p>
-          <p class="step-label">2. Datenbank hochladen</p>
-          <p>Laden Sie im Projekt Ihre <strong>Kontextdokumente vom Vormittag</strong> hoch (Unternehmen, Rolle, Prozess). Das ist die Wissensbasis.</p>
-          <p class="step-label">3. Anweisungen finden</p>
-          <p>Suchen Sie das Feld für die <strong>Anweisungen</strong>. Noch leer lassen, der Text kommt in Schritt 4.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Claude: Projekt anlegen</summary>
-        <div class="collapsible-content">
-          <p class="step-label">1. Projekt anlegen</p>
-          <p>In der linken Seitenleiste auf <strong>"Projekte"</strong>, dann "Neues Projekt". Namen vergeben.</p>
-          <p class="step-label">2. Datenbank hochladen</p>
-          <p>Laden Sie Ihre Kontextdokumente in das <strong>Projektwissen</strong> hoch. Das ist Claudes fester Wissensspeicher.</p>
-          <p class="step-label">3. Anweisungen finden</p>
-          <p>Suchen Sie das Feld für die <strong>Anweisungen</strong>. Noch leer lassen, der Text kommt in Schritt 4.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Gemini: Gem anlegen</summary>
-        <div class="collapsible-content">
-          <p>Bei Gemini heißt das Projekt <strong>"Gem"</strong>: ein eigener, gespeicherter Assistent.</p>
-          <p class="step-label">1. Gem anlegen</p>
-          <p>Links auf <strong>"Gems verwalten"</strong> (Gem-Manager), dann <strong>"Neuer Gem"</strong>. Namen vergeben.</p>
-          <p class="step-label">2. Datenbank hochladen</p>
-          <p>Fügen Sie unter <strong>"Wissen"</strong> Ihre Kontextdokumente als Dateien hinzu.</p>
-          <p class="step-label">3. Anweisungen finden</p>
-          <p>Suchen Sie das Feld für die <strong>Anweisungen</strong>. Noch leer lassen, der Text kommt in Schritt 4.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Copilot: persönlichen Assistenten anlegen</summary>
-        <div class="collapsible-content">
-          <p class="step-label">1. Notebook/Page anlegen</p>
-          <p>Eigenen, dauerhaften Assistenten anlegen und benennen.</p>
-          <p class="step-label">2. Datenbank hochladen</p>
-          <p>Kontextdokumente als Dateien/Quellen hinzufügen.</p>
-          <p class="step-label">3. Anweisungen finden</p>
-          <p>Suchen Sie das Feld für die <strong>Anweisungen</strong>. Noch leer lassen, der Text kommt in Schritt 4.</p>
-        </div>
-      </details>
-
-
-      <p class="step-label" style="margin-top:26px; font-size:0.8rem;">Schritt 4 &middot; Erst jetzt kopieren: mein Projekt-Prompt</p>
-      <div class="magic-box" style="text-align:left; margin:10px 0 16px;">
-        <div class="label">Projekt-Prompt zum Kopieren</div>
-        <div class="prompt-block" style="margin:0;">Du bist mein KI-Assistent für [Firma / Abteilung / Rolle].
-
-Wissensbasis: Berücksichtige immer meine hochgeladenen Dokumente (Firma, Rolle, Prozesse) als festen Kontext.
-
-Verhalten: Antworte auf Deutsch, in Sie-Form, konkret und knapp (max. 300 Wörter), mit klaren nächsten Schritten. Wenn dir Informationen fehlen, frage nach, bevor du rätst.</div>
-      </div>
-      <p>Fügen Sie ihn in die <strong>Anweisungen</strong> Ihres Projekts ein. <strong>Er ist ein Beispiel, kein Rezept:</strong> Schreiben Sie die [Klammern] auf sich um, sonst antwortet Ihnen ein Assistent für jemand anderen. Dann speichern.</p>
-
-      <p style="color: var(--gold); font-size: 0.85rem; margin-top:14px;">Ab jetzt kennt die KI in diesem Projekt Ihre Firma, Ihre Rolle und Ihren Stil, ohne dass Sie es jedes Mal neu erklären. Testen Sie es sofort mit einer echten Aufgabe.</p>
-    </div>
-
-    <!-- ÜBUNG 5: EU AI Act + NotebookLM -->
-    <div class="exercise" id="ue5">
-      <div class="exercise-number">Übung 7</div>
-      <h3>EU AI Act + NotebookLM</h3>
-      <p class="subtitle">Ihre erste "sichere Wissensdatenbank": Ein echtes EU-Dokument, keine Halluzinationen.</p>
-
-      <p class="step-label">Schritt 1: PDF herunterladen</p>
-      <p><a href="EU-AI-Act-DE.pdf" target="_blank" style="display:inline-block; background:rgba(212,160,23,0.12); border:1px solid rgba(212,160,23,0.3); padding:12px 20px; border-radius:8px; font-weight:600; color:var(--gold); margin: 8px 0;">EU AI Act (Deutsch) herunterladen</a></p>
-
-      <p class="step-label">Schritt 2: NotebookLM öffnen</p>
-      <p>Gehen Sie auf <strong><a href="https://notebooklm.google.com" target="_blank">notebooklm.google.com</a></strong>. Erstellen Sie ein neues Notizbuch. Laden Sie das PDF hoch.</p>
-
-      <p class="step-label">Schritt 3: Fragen stellen</p>
-      <div class="prompt-block">Was sind die wichtigsten Pflichten für Unternehmen laut diesem Gesetz?</div>
-      <div class="prompt-block">Welche KI-Systeme gelten als "hochriskant"? Nenne konkrete Beispiele aus dem Text.</div>
-      <div class="prompt-block">Was passiert, wenn ein Unternehmen gegen das Gesetz verstößt? Nenne die Strafen.</div>
-      <div class="prompt-block">Fasse die wichtigsten Punkte zusammen, die für ein mittelständisches Unternehmen in Österreich relevant sind. Max. 5 Bulletpoints.</div>
-      <p style="color: var(--gold); font-size: 0.85rem;">Achten Sie auf die Zitate (graue Ziffern) am Ende der Antworten. NotebookLM erfindet weniger, weil es sich an Ihre Quellen hält, aber nicht nichts. Klicken Sie auf eine Ziffer und prüfen Sie, ob die Stelle wirklich sagt, was in der Antwort steht.</p>
-
-      <p class="step-label">Schritt 3b: Persönlich machen</p>
-      <p>Laden Sie zusätzlich Ihr <strong>Kontextdokument vom Vormittag</strong> (Übung 4: Unternehmen oder Rolle) als zweite Quelle in dasselbe Notizbuch hoch. Jetzt kann NotebookLM beide Quellen gemeinsam lesen.</p>
-      <div class="prompt-block">Eine meiner Quellen beschreibt mein Unternehmen bzw. meine Rolle. Worauf muss ich in diesem Kontext laut EU AI Act besonders achten? Zitiere die relevanten Stellen.</div>
-      <div class="prompt-block">Könnte mein Unternehmen laut meiner Beschreibung ein "hochriskantes" KI-System im Sinne von Anhang III einsetzen oder planen? Begründe mit Zitat, und nenne die betroffene Kategorie.</div>
-      <p style="color: var(--gold); font-size: 0.85rem;">Der Unterschied zu vorhin: nicht mehr "was sagt das Gesetz allgemein", sondern "was heißt das Gesetz für mich".</p>
-
-
-      <p class="step-label">Schritt 4: In Gruppen, drei Werkstücke</p>
-      <p>NotebookLM kann aus Ihren Quellen selbst etwas bauen. Öffnen Sie im Notizbuch rechts das <strong>Studio</strong>. Jede Gruppe macht etwas anderes und zeigt es danach kurz her.</p>
-
-      <div class="role-grid">
-        <div class="role-card"><strong>Gruppe A &middot; Infografik</strong>Im Studio "Infografik" wählen. Eine Seite, die man in 30 Sekunden versteht.</div>
-        <div class="role-card"><strong>Gruppe B &middot; Mindmap</strong>Im Studio "Mindmap" wählen. Die Struktur des Gesetzes auf einen Blick.</div>
-        <div class="role-card"><strong>Gruppe C &middot; Karteikarten</strong>Im Studio "Lernhilfe" wählen. Karteikarten und Quizfragen zum Abfragen.</div>
-      </div>
-
-      <p class="step-label">Die Prompts dazu</p>
-      <div class="prompt-block">Bau mir eine Übersicht der Risikostufen aus diesem Gesetz: welche Stufe, was sie bedeutet, ein Beispiel dazu. So, dass eine Kollegin sie in 30 Sekunden versteht.</div>
-      <div class="prompt-block">Erstelle eine hierarchische Struktur des Gesetzes: die großen Blöcke, darunter die Unterpunkte, ohne Paragrafennummern.</div>
-      <div class="prompt-block">Mach mir Karteikarten zu den wichtigsten Begriffen und Fristen aus diesem Gesetz. Vorderseite Frage, Rückseite Antwort, maximal zwei Sätze.</div>
-
-      <p class="step-label">Schritt 5: Herzeigen</p>
-      <p>Laden Sie Ihr Werkstück herunter und hängen Sie es in das gemeinsame Dokument:</p>
-      <p><a href="https://docs.google.com/document/d/1rzLrkgZZD2cADFz73oo5b6KsFjWLdNEBFjqXFQh2L4Q/edit?usp=sharing" target="_blank" style="display:inline-block; background:rgba(212,160,23,0.12); border:1px solid rgba(212,160,23,0.3); padding:12px 20px; border-radius:8px; font-weight:600; color:var(--gold); margin: 8px 0;">Gemeinsames Dokument öffnen &rarr;</a></p>
-      <p>Dann stellt jede Gruppe ihr Werkstück in <strong>einem Satz</strong> vor: was haben wir gebaut, und wofür würde man es benutzen.</p>
-      <p style="color: var(--gold); font-size: 0.85rem;">Dieselbe Quelle, drei völlig verschiedene Ergebnisse. Nicht das Dokument entscheidet, was herauskommt, sondern das, was Sie bestellen.</p>
-
-    </div>
-
-    <!-- ÜBUNG 5b: SPLIT-SCREEN, GROUNDING VS. HALLUZINATION -->
-    <div class="exercise" id="ue5b">
-      <div class="exercise-number">Übung 7b</div>
-      <h3>Split-Screen: dieselbe Quelle, zwei Werkzeuge</h3>
-      <p class="subtitle">Zwei Fenster, dasselbe Dokument, dieselbe Frage. Sehen Sie, wie zwei Werkzeuge mit derselben Quelle umgehen.</p>
-
-      <p class="step-label">Aufbau</p>
-      <p>Öffnen Sie <strong>zwei Fenster nebeneinander</strong>: links Ihr NotebookLM von Übung 7 (EU AI Act geladen), rechts ein <strong>frischer Chat</strong> in ChatGPT, Claude oder Gemini. Laden Sie dort <strong>dasselbe EU-AI-Act-PDF</strong> hoch. Dann stellen Sie beiden dieselbe Frage, gleichzeitig.</p>
-
-
-      <p class="step-label">Runde 1: Die Zahlen</p>
-      <div class="prompt-block">Wie hoch ist die maximale Geldbuße beim Verstoß gegen ein verbotenes KI-System (Artikel 5) laut EU AI Act?</div>
-      <div class="prompt-block">Ab wann gelten die Vorschriften zu verbotenen KI-Praktiken, und ab wann gilt die Verordnung vollständig?</div>
-      <div class="prompt-block">Zähl mir alle Bereiche auf, in denen KI-Systeme laut Anhang III als hochriskant gelten.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Vergleichen Sie: zitiert eine Antwort die genaue Textstelle, oder klingt sie nur selbstbewusst? Notieren Sie, wo die Antworten auseinandergehen.</p>
-
-      <p class="step-label">Runde 2: Eine Frage, die gar nicht im Dokument steht</p>
-      <p>Wieder dieselbe Frage in beide Fenster:</p>
-      <div class="prompt-block">Wer hat die Fußball-WM 2026 gewonnen?</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Schauen Sie zuerst nach links, dann nach rechts. Achten Sie nicht auf die Antwort, sondern darauf, <strong>was jede Seite tut, wenn sie es nicht aus einer Quelle weiß</strong>.</p>
-
-      <p class="step-label">Die Frage an sich</p>
-      <div class="prompt-block">Woran erkenne ich, dass eine Antwort erfunden ist, auch wenn sie selbstbewusst klingt?</div>
-    </div>
-
-    <!-- ÜBUNG 8: SUNO, SONGTEXT-PROJEKT (Deck PM 27-28) -->
-    <div class="exercise" id="ue6c">
-      <div class="exercise-number">Übung 8 &middot; Talent-Show</div>
-      <h3>Songtext-Projekt für Suno AI</h3>
-      <p class="subtitle">Ein Projekt, das jedes Thema in einen fertigen Songtext verwandelt und Sie immer zuerst nach dem Stil fragt. Danach: ab in Suno und anhören.</p>
-
-      <div class="magic-box" style="text-align:left; margin:16px 0;">
-        <div class="label">System-Prompt zum Kopieren</div>
-        <div class="prompt-block" style="margin:0;">Du bist mein Songtext-Autor für Suno AI.
-
-Deine Aufgabe: Ich gebe dir ein Thema, du schreibst daraus einen fertigen Songtext, den ich direkt in Suno einfügen kann.
-
-Wichtig: Frage mich IMMER zuerst nach dem Stil (z.B. Pop, Rap, Schlager, Rock-Ballade, Techno, Musical), bevor du schreibst. Fang erst an, wenn ich den Stil genannt habe.
-
-Format: Struktur mit [Verse], [Chorus], [Bridge], wie Suno es versteht. Auf Deutsch, außer ich sage etwas anderes. Der Refrain soll eingängig und wiederholbar sein.</div>
-      </div>
-
-      <p class="step-label">1. Projekt anlegen</p>
-      <p>Legen Sie wie in Übung 6 ein <strong>neues Projekt</strong> an (ChatGPT, Claude oder Gemini-Gem). Name z.B. "Songtexte".</p>
-      <p class="step-label">2. System-Prompt einfügen</p>
-      <p>Fügen Sie den System-Prompt von oben in die Projektanweisungen ein. Ab jetzt fragt die KI in diesem Projekt immer zuerst nach dem Stil.</p>
-      <p class="step-label">3. Thema geben</p>
-      <div class="prompt-block">Schreib einen Song über [Ihr Thema, z.B. den Montag im Büro, Ihre Abteilung, das Training heute].</div>
-      <p class="step-label">4. In Suno anhören</p>
-      <p>Öffnen Sie <strong><a href="https://suno.com" target="_blank">suno.com</a></strong>, klicken Sie auf "Create", fügen Sie den Songtext ein, geben Sie den Stil als Beschreibung an und erzeugen Sie den Song.</p>
-
-      <p style="color: var(--gold); font-size: 0.85rem; margin-top:14px;">Für die Talent-Show: Wer traut sich, seinen Song vorzuspielen?</p>
-    </div>
 
     <!-- ÜBUNG 9: MODELLING OF EXCELLENCE (Deck PM 29-30) -->
     <div class="exercise" id="ue7">
-      <div class="exercise-number">Übung 9</div>
+      <div class="exercise-number">Übung 11 · wenn Zeit bleibt</div>
       <h3>Modelling of Excellence</h3>
       <p class="subtitle">Vom Hausarzt zum Spezialisten</p>
 
@@ -1680,7 +1541,7 @@ Erstelle jetzt die Lösung basierend auf diesen Fakten. Nutze konsequent den Sti
 
     <!-- ÜBUNG 10: PROMPT LAYERING, DAS TRIBUNAL -->
     <div class="exercise" id="ue8">
-      <div class="exercise-number">Übung 10</div>
+      <div class="exercise-number">Übung 12 · wenn Zeit bleibt</div>
       <h3>Prompt Layering: Das "Tribunal"</h3>
       <p class="subtitle">a.k.a. Salami-Taktik. Kopieren Sie die Prompts nacheinander in denselben Chat.</p>
 
@@ -1718,48 +1579,10 @@ Schreibe dann die finale E-Mail an alle Mitarbeiter.
 Die Mail soll professionell, motivierend und klar sein.</div>
     </div>
 
-    <!-- ÜBUNG 10b: PROMPT LAYERING, DIE STÄDTEREISE -->
-    <div class="exercise" id="ue8b">
-      <div class="exercise-number">Übung 10b</div>
-      <h3>Prompt Layering: Die Städtereise</h3>
-      <p class="subtitle">Wie Übung 10, aber diesmal mit einer festen Einschränkung von Anfang an. Kopieren Sie die Prompts nacheinander in denselben Chat.</p>
-
-      <p class="step-label">Schritt 1: Der Rahmen</p>
-      <div class="prompt-block">Ich plane eine 3-tägige Familienreise nach Prag. Wichtige Einschränkungen: kinderfreundlich (Kinder 6 und 9 Jahre), wir lieben Abenteuer, und ich lebe vegan.
-
-Schlage mir ein grobes Tagesprogramm für 3 Tage vor: je 1 Vormittags- und 1 Nachmittagsaktivität pro Tag.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Tauschen Sie Stadt und Urlaubsart gerne gegen Ihre eigene — Hauptsache, es bleiben echte, konkrete Einschränkungen drin (nicht nur "schöner Urlaub").</p>
-
-      <p class="step-label">Schritt 2: Anreichern</p>
-      <div class="prompt-block">Ergänze zu jedem Tag ein passendes veganes oder vegan-freundliches Restaurant in der Nähe der jeweiligen Aktivitäten. Nenne den Namen und warum es zu Kindern und Abenteuerlust passt.</div>
-
-      <p class="step-label">Schritt 3: Reality-Check</p>
-      <div class="prompt-block">Prüfe deinen eigenen Vorschlag: Sind die genannten Restaurants wirklich vegan-freundlich, und sind die Aktivitäten wirklich für 6- und 9-Jährige geeignet, oder hast du das nur angenommen? Woher weißt du das? Wenn du dir bei einem Punkt nicht sicher bist, sag es klar.</div>
-      <p style="color: var(--gold); font-size: 0.85rem;">Das ist derselbe Trick wie beim Split-Screen heute Mittag: mehrere Einschränkungen gleichzeitig, die die KI ernst nehmen MUSS. Ein erfundenes veganes Restaurant oder eine Aktivität, die für ein 6-Jähriges viel zu gefährlich ist, sind genau die Art Fehler, die im echten Leben peinlich oder teuer werden.</p>
-
-      <p class="step-label">Schritt 4: Zusammenfassen</p>
-      <div class="prompt-block">Fasse den gesamten Plan übersichtlich zusammen: Tag, Vormittag, Nachmittag, Restaurant-Tipp. Tabellenform.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Weiterdenken (nicht heute, für zu Hause): denselben fertigen Plan als Prompt an ein Bild-Tool geben und sich ein Moodboard der Reise erstellen lassen.</p>
-    </div>
-
-    <!-- OFFENER ÜBUNGSBLOCK -->
-    <div class="exercise" id="offen">
-      <div class="exercise-number">Offener Übungsblock</div>
-      <h3>Jetzt üben Sie, was SIE wollen</h3>
-      <p class="subtitle">Zeit für Ihren eigenen Fall. Wählen Sie eine Nummer und legen Sie los. Jakub kommt an jeden Tisch.</p>
-      <ul>
-        <li><strong>A) Eigenes Projekt fertig bauen</strong> &ndash; Projekt + System-Prompt aus Übung 6 vervollständigen.</li>
-        <li><strong>B) Eigener Use Case durch CITE(R)</strong> &ndash; eine echte Aufgabe von A bis Z.</li>
-        <li><strong>C) Ein Tool auf Ihre echte Aufgabe</strong> &ndash; NotebookLM, Perplexity oder ein Assistent.</li>
-        <li><strong>D) Das Tribunal (Übung 10)</strong> &ndash; für eine wichtige Entscheidung, mehrere Perspektiven.</li>
-        <li><strong>E) Ihre eigene Frage</strong> &ndash; was Sie schon immer mit KI lösen wollten.</li>
-      </ul>
-      <p style="color: var(--gold); font-size: 0.85rem;">Am Ende: 2-3 Freiwillige zeigen ihren Durchlauf, live gecoacht.</p>
-    </div>
-
     <!-- KI-CHECK ZUM SCHLUSS, vor Bonus und vor dem CTA (derselbe Fragebogen wie am Morgen) -->
     <div class="exercise" id="kicheck-ende">
-      <div class="exercise-number">Zum Schluss</div>
+      <div class="exercise-number">Check</div>
+      
       <h3>Ihr KI-Check, zweiter Durchgang</h3>
       <p class="subtitle">Dieselben Fragen wie heute Morgen. So messen wir, was Sie heute dazugelernt haben. Bitte denselben Vornamen wie am Morgen eintragen.</p>
       <iframe id="JotFormIFrame-262631354150348-ende" src="https://form.jotform.com/262631354150348" title="KI-Check" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" allow="fullscreen"></iframe>
@@ -1770,7 +1593,8 @@ Schlage mir ein grobes Tagesprogramm für 3 Tage vor: je 1 Vormittags- und 1 Nac
 
     <!-- FEEDBACK ZUM TAG (Jotform 262705845415056), nach dem Abschluss-Check, vor Bonus und CTA -->
     <div class="exercise" id="feedback">
-      <div class="exercise-number">Zum Schluss</div>
+      <div class="exercise-number">Feedback</div>
+      
       <h3>Ihr Feedback zum Nachmittag</h3>
       <p class="subtitle">Zwei Minuten. Ihr Aha-Moment vom Nachmittag, Ihre wichtigste Erkenntnis und was ich beim nächsten Mal besser machen soll. Name und Firma sind freiwillig, helfen mir aber sehr.</p>
       <iframe id="JotFormIFrame-262705845415056" src="https://form.jotform.com/262705845415056" title="Ihr Feedback zum Nachmittag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" allow="fullscreen"></iframe>
@@ -1836,7 +1660,7 @@ Typische Texte: Mandantenmails, Fristerinnerungen, Unterlagenanforderungen, inte
       <details>
         <summary>Schritt 2: Lösung bauen mit CITE (aufklappen wenn bereit)</summary>
         <div class="collapsible-content">
-          <p>Nutzen Sie Ihr <strong>Kontextdokument vom Vormittag</strong> aus Übung 4:</p>
+          <p>Nutzen Sie Ihr <strong>Kontextdokument vom Vormittag</strong> aus Übung 6:</p>
           <div class="prompt-block">Kontext: [Fügen Sie Ihr Unternehmens-Dokument vom Vormittag ein]
 
 Ziel: Eine konkrete, umsetzbare Lösung für folgendes Problem: [Ihr Problem]
@@ -1866,7 +1690,6 @@ Ausführung: Tabellenformat, klare Sprache, sofort umsetzbar. Kein Fachjargon.</
     <div style="text-align:center; margin: 48px 0 24px; padding: 32px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
       <p style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; margin-bottom: 16px;">Das Training ist vorbei. Die Reise nicht.</p>
       <a href="https://jakubpopluhar.com/weiter/?kurs=ars01102026" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; transition: all 0.2s; border: 2px solid var(--gold);">In Kontakt bleiben &rarr;</a>
-      <p style="margin-top:16px; font-size:0.85rem;"><a href="/ars01102026/ressourcen/" style="color:var(--gold);">Alle Werkzeuge und Quellen von heute &rarr;</a></p>
     </div>
 
     </div><!-- close NM inner -->
