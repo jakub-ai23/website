@@ -2176,6 +2176,74 @@
   .ag-prov{margin-left:0;height:44px;width:auto;min-width:112px}
   .ag-body{flex:1 1 100%}
 }
+/* ===== VORSCHAU, Desktop zuerst (2026-09-15) ===== */
+
+/* --- Hero: Bild randlos --- */
+.slide-hero { padding: 0 !important; display: block; }
+.hero-ohrid {
+  position: relative; display: flex; align-items: flex-end;
+  width: 100%; max-width: none; margin: 0; padding: 0;
+  aspect-ratio: 1440 / 830; max-height: 900px; overflow: hidden; background: var(--charcoal);
+}
+.hero-ohrid-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 46%; }
+.hero-ohrid-veil { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(0deg, rgba(12,12,12,.96) 0%, rgba(12,12,12,.88) 20%, rgba(12,12,12,.5) 40%, rgba(12,12,12,.08) 62%, rgba(12,12,12,0) 78%),
+              linear-gradient(90deg, rgba(12,12,12,.74) 0%, rgba(12,12,12,.32) 34%, rgba(12,12,12,0) 58%); }
+.hero-ohrid-content { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px 60px; text-align: left; }
+
+/* Zwei Zeilen, auch bei der laengsten Wechselzeile ("...was Ihre Konkurrenz schon nutzt.", 50 Zeichen) */
+.hero-ohrid-content h1 {
+  max-width: 27ch;
+  min-height: 2.25em;
+  font-size: clamp(2.2rem, 3.4vw, 3.3rem);
+  line-height: 1.12;
+  text-shadow: 0 2px 30px rgba(0,0,0,.7);
+}
+.hero-ohrid-content .hero-sub { max-width: 46ch; text-shadow: 0 1px 16px rgba(0,0,0,.8); }
+.hero-ohrid-content .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+
+/* --- Divider: die Logoleiste stand absolut und lag ueber dem Foto. Jetzt eigene Bank darunter. --- */
+.slide-hero .hero-trust {
+  position: static;
+  background: var(--charcoal);
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  padding: 26px 0;
+  opacity: 1;
+}
+
+/* --- Ueber mich: Text links, Bild rechts. Symmetrie wie im Referenzbeispiel. --- */
+.slide-about .container { grid-template-columns: 1.2fr 0.8fr; }
+.slide-about .about-image-wrapper { order: 2; justify-self: end; }
+.slide-about .about-content { order: 1; }
+.about-image, .about-stats { margin-left: auto; }
+
+/* Schmal: das Bild bleibt liegen, der Text bleibt DARUEBER. Nur der Ausschnitt
+   wandert und der Schleier wird dichter, weil kleine Schrift auf einem vollen
+   Foto sonst nicht lesbar ist. */
+@media (max-width: 820px) {
+  .hero-ohrid { aspect-ratio: 3 / 4; max-height: none; min-height: 86svh; }
+  .hero-ohrid-bg { object-position: 38% 64%; }
+  .hero-ohrid-veil {
+    background: linear-gradient(0deg, rgba(12,12,12,.95) 0%, rgba(12,12,12,.93) 30%, rgba(12,12,12,.86) 46%, rgba(12,12,12,.6) 58%, rgba(12,12,12,.25) 70%, rgba(12,12,12,0) 86%);
+  }
+  .hero-ohrid-content { padding: 0 22px 36px; text-align: left; }
+  .hero-ohrid-content h1 { max-width: 100%; min-height: 0; font-size: clamp(1.9rem, 7.4vw, 2.6rem); }
+  .hero-ohrid-content .hero-sub { max-width: 100%; }
+  .hero-ohrid-content .hero-ctas { gap: 10px; margin-top: 20px; }
+  /* Das Badge liegt auf der hellsten Stelle des Fotos, es braucht eigenen Grund. */
+  .hero-ohrid-content .hero-badge { background: rgba(12,12,12,.55); backdrop-filter: blur(3px); }
+  .slide-about .about-image-wrapper { order: 1; } .slide-about .about-content { order: 2; }
+  .about-image, .about-stats { margin-left: 0; }
+}
+
+/* Sehr schmal: hochkant, damit der Raum nicht zum Streifen wird. */
+@media (max-width: 480px) {
+  .hero-ohrid { aspect-ratio: 5 / 7; min-height: 88svh; }
+  .hero-ohrid-bg { object-position: 36% 66%; }
+  .hero-ohrid-content .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-ohrid-content .hero-ctas .btn { justify-content: center; }
+}
 </style>
   <script type="application/ld+json">
   {
@@ -2288,8 +2356,10 @@
 
     <!-- SLIDE 1: HERO + TRUST -->
     <section class="slide slide-hero active" id="hero" data-index="0">
-      <div class="hero-main">
-        <div class="hero-content slide-content">
+      <div class="hero-main hero-ohrid">
+        <img class="hero-ohrid-bg" src="images/hero-raum.jpg" alt="Jakub Popluhar vor einer Gruppe, School for Young Leaders, Ohrid">
+        <div class="hero-ohrid-veil"></div>
+        <div class="hero-content slide-content hero-ohrid-content">
           <div class="hero-badge">Business Lead bei Hill Digital · KI-Trainer</div>
           <h1>„Sie wissen nicht,&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
           <p class="hero-sub">Sie wissen, dass KI Ihr Business verändert. Sie wissen nur nicht, wo Sie anfangen sollen. Dafür bin ich da.</p>
@@ -2297,9 +2367,6 @@
             <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Session buchen &rarr;</a>
             <a href="#about" class="btn btn-secondary" data-slide="1">Mehr erfahren</a>
           </div>
-        </div>
-        <div class="hero-image slide-content">
-          <img src="images/profile/14-web.png" alt="Jakub Popluhar">
         </div>
       </div>
 
@@ -2349,16 +2416,16 @@
           </div>
           <div class="about-stats">
             <div class="about-stat">
-              <span class="number">5</span>
-              <span class="label">Sprachen</span>
+              <span class="number">612 h</span>
+              <span class="label">in Claude Code</span>
             </div>
             <div class="about-stat">
-              <span class="number">ARS</span>
-              <span class="label">Trainer</span>
+              <span class="number">932</span>
+              <span class="label">Sitzungen</span>
             </div>
             <div class="about-stat">
-              <span class="number">HD</span>
-              <span class="label">Business Lead</span>
+              <span class="number">192/210</span>
+              <span class="label">Tage daran</span>
             </div>
           </div>
         </div>
@@ -2423,7 +2490,7 @@
         <div class="section-header">
           <p class="section-label">Transformation</p>
           <h2>Vorher vs. Nachher</h2>
-          <p>Der Unterschied nach einer einzigen Session.</p>
+          <p>So arbeiten wir im Paket, Schritt für Schritt.</p>
         </div>
 
         <div class="transform-grid">
@@ -2465,11 +2532,9 @@
             <blockquote>„Es war unglaublich! Ich habe meinen Blick auf Business komplett verändert - und darauf, wie wir Business machen sollten. Ich habe sofort die zweite Session gebucht."</blockquote>
           </div>
           <div class="hero-testimonial-author">
-            <img class="hero-testimonial-img" src="images/testimonials/katarzyna-pichler.jpg" alt="Katarzyna Renata Pichler" loading="lazy">
             <div class="hero-testimonial-info">
-              <span class="name">Katarzyna Renata Pichler</span>
-              <span class="role">Angel Investor des Jahres 2025</span>
-              <span class="company">Innovatic Group</span>
+              <span class="name">Managing Partner</span>
+              <span class="role">Private Equity</span>
             </div>
           </div>
         </div>
@@ -2515,7 +2580,7 @@
             <p class="service-note">Erste Session bevorzugt bei Ihnen vor Ort, danach live online.</p>
             <div class="service-cta-row">
               <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Kostenloses Erstgespr&auml;ch &rarr;</a>
-              <a href="/ki-personal-training/" class="btn btn-secondary">Ablauf und Preise ansehen, ab 290 &euro;/Std. &rarr;</a>
+              <a href="/ki-personal-training/" class="btn btn-secondary">Ablauf und Preise ansehen, Einstieg 390 &euro; &rarr;</a>
             </div>
           </div>
         </div>
