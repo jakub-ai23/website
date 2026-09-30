@@ -804,6 +804,21 @@ body{margin:0}
  .main h2.lektion-titel{font-size:1.45rem}
 }
 .side .schliessen{display:none;float:right;background:none;border:0;color:var(--white-muted);font-size:1.4rem;cursor:pointer;line-height:1}
+.side .kontakt{margin-top:28px;padding:14px 8px 0;border-top:1px solid rgba(255,255,255,.08);font-size:.78rem;color:var(--white-muted);line-height:1.6}
+.side .kontakt a{color:var(--white-muted)}.side .kontakt a:hover{color:var(--gold)}
+/* Upload-Kasten (Bild landet in Jakubs Google Drive, nur er sieht es) */
+.upload-kasten{border:1px solid rgba(212,160,23,.45);background:rgba(212,160,23,.05);border-radius:12px;padding:20px;margin:22px 0}
+.upload-kasten h4{font-family:var(--font-heading);font-size:1.05rem;margin:0 0 6px;color:var(--white)}
+.upload-kasten .hinweis{font-size:.82rem;color:var(--white-muted);margin:0 0 14px}
+.upload-kasten .reihe{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.upload-kasten input[type=text]{flex:1 1 180px;min-width:0;background:#1f1f1f;border:1px solid rgba(255,255,255,.15);border-radius:8px;color:var(--white);padding:11px 12px;font:400 .92rem var(--font-body)}
+.upload-kasten .waehlen{flex:0 0 auto}
+.upload-kasten input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.upload-kasten ul{list-style:none;padding:0;margin:12px 0 0;font-size:.85rem}
+.upload-kasten li{padding:6px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:10px;align-items:center}
+.upload-kasten li .st{margin-left:auto;font-weight:600;white-space:nowrap}
+.upload-kasten li.ok .st{color:#6fae5f}.upload-kasten li.fehler .st{color:#e07a6a}
+.upload-kasten li .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style>
   <link rel="stylesheet" href="quiz/quiz.css">
 </head>
@@ -812,12 +827,13 @@ body{margin:0}
 <div class="player">
   <aside class="side" id="side">
     <button class="schliessen" id="schliessen" type="button" aria-label="Inhalt schließen">×</button>
-    <a href="./" class="zurueck">← Zurück zur Kursseite</a>
+    <a href="https://jakubpopluhar.com" class="zurueck">jakubpopluhar.com</a>
     <h1>Microsoft 365 Copilot effizient nutzen</h1>
     <div class="sub">ARS Akademie · 01.10.2026</div>
     <div class="balken"><i id="balken"></i></div>
     <div class="stand" id="stand"></div>
     <div class="teil">Vormittag: Copilot Chat &amp; Prompten</div><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Ihr KI-Check</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#split" data-id="split"><span class="lab">Trick</span><span class="t">Den Bildschirm teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#copilot-start" data-id="copilot-start"><span class="lab">Info</span><span class="t">Copilot Chat öffnen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue0" data-id="ue0"><span class="n">1</span><span class="t">Die Namensliste</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#anweisungen" data-id="anweisungen"><span class="n">2</span><span class="t">Ihre eigenen Anweisungen: einmal sagen, immer gültig</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#gedaechtnis" data-id="gedaechtnis"><span class="n">3</span><span class="t">Was weißt du über mich?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue1" data-id="ue1"><span class="n">4</span><span class="t">Prompten: Homeoffice-Regelung</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue2" data-id="ue2"><span class="n">5</span><span class="t">CITE(R) Framework: Jetzt sind Sie dran!</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#promptkatalog" data-id="promptkatalog"><span class="lab">Trick</span><span class="t">Gute Prompts speichern und teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#pii" data-id="pii"><span class="lab">Takeaway</span><span class="t">Kurz vorher: die 3-Sekunden-Regel</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue3" data-id="ue3"><span class="n">6</span><span class="t">Ihre KI-Wissensbasis aufbauen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue4" data-id="ue4"><span class="n">7</span><span class="t">Die Flughöhe</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback-vm" data-id="feedback-vm"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Vormittag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><div class="teil">Nachmittag: Notizbücher &amp; Agenten</div><a class="zeile" href="#split-nm" data-id="split-nm"><span class="lab">Trick</span><span class="t">Kurz vorher: Bildschirm wieder teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#notizbuch" data-id="notizbuch"><span class="n">8</span><span class="t">Quelle gegen Blindflug: Notizbuch und Chat nebeneinander</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#agent" data-id="agent"><span class="n">9</span><span class="t">Ihr erster Agent</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#formate" data-id="formate"><span class="n">10</span><span class="t">Welches Format versteht die Maschine?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue7" data-id="ue7"><span class="n">11</span><span class="t">Modelling of Excellence<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue8" data-id="ue8"><span class="n">12</span><span class="t">Prompt Layering: Das &quot;Tribunal&quot;<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Check</span><span class="t">Ihr KI-Check, zweiter Durchgang</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback" data-id="feedback"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Nachmittag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#ue6" data-id="ue6"><span class="lab">Bonus</span><span class="t">KI-Werkstatt: Ihr eigenes Problem lösen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a>
+    <div class="kontakt">Fragen nach dem Kurs:<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br><a href="tel:+436641386498">+43 664 138 64 98</a></div>
   </aside>
   <main class="main">
     <div class="live-leiste" id="live-leiste" hidden aria-live="polite">
@@ -1358,6 +1374,9 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <div class="prompt-block">Wer hat die Fußball-WM 2026 gewonnen?</div>
       <p style="color: var(--white-muted); font-size: 0.85rem;">Achten Sie nicht auf die Antwort, sondern darauf, <strong>was jede Seite tut, wenn sie es nicht aus einer Quelle weiß</strong>.</p>
 
+      <!-- UPLOAD: wird im Kurs-Player zum Upload-Kasten (Bild landet in Jakubs Drive). Auf der langen Seite unsichtbar. -->
+      <div class="upload-kasten" data-uebung="Übung 8"><h4>Ihr Ergebnis hochladen</h4><p class="hinweis">Screenshot oder Grafik aus dieser Übung. Das Bild sieht nur Jakub Popluhar, ausgewählte besprechen wir gemeinsam. Bitte keine Namen, Kundendaten oder Interna im Bild: denken Sie an die 3-Sekunden-Regel.</p><div class="reihe"><input type="text" class="vorname" maxlength="30" placeholder="Vorname (freiwillig)" autocomplete="given-name"><label class="knopf los waehlen">Bild wählen und hochladen<input type="file" accept="image/*" multiple></label></div><ul class="liste-upload" aria-live="polite"></ul></div>
+
       <p class="step-label">Wenn Sie früher fertig sind</p>
       <p>Legen Sie Ihr Firmen- oder Rollendokument aus Übung 6 als zweite Quelle ins Notizbuch und fragen Sie:</p>
       <div class="prompt-block">Eine meiner Quellen beschreibt mein Unternehmen bzw. meine Rolle. Worauf muss ich laut EU AI Act besonders achten? Zitiere die Stellen.</div>
@@ -1751,6 +1770,45 @@ document.querySelectorAll('.exercise').forEach(ex => {
         setTimeout(() => det.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
       }
     });
+  });
+});
+
+// Bild-Upload in Jakubs Drive. Geht an denselben Dienst wie die Live-Leiste.
+let UPLOAD = 'https://deflifeos.popluhar.at/reise-live/upload';
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && new URLSearchParams(location.search).get('uploadUrl'))
+  UPLOAD = new URLSearchParams(location.search).get('uploadUrl');
+document.querySelectorAll('.upload-kasten').forEach(kasten => {
+  const vn = kasten.querySelector('.vorname'), feld = kasten.querySelector('input[type=file]'), liste = kasten.querySelector('.liste-upload');
+  vn.value = S.get(SPEICHER + '.vorname', '');
+  vn.addEventListener('change', () => S.set(SPEICHER + '.vorname', vn.value.trim()));
+  function eins(datei) {
+    const li = document.createElement('li');
+    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = datei.name || 'Bild';
+    const st = document.createElement('span'); st.className = 'st'; st.textContent = 'wird hochgeladen…';
+    li.append(nm, st); liste.prepend(li);
+    if (datei.size > 12 * 1024 * 1024) { li.className = 'fehler'; st.textContent = 'zu groß (max. 12 MB)'; return Promise.resolve(); }
+    return new Promise(fertig => {
+      const x = new XMLHttpRequest();
+      x.open('POST', UPLOAD);
+      x.setRequestHeader('Content-Type', 'application/octet-stream');
+      x.setRequestHeader('X-Kohorte', KOHORTE);
+      x.setRequestHeader('X-Uebung', encodeURIComponent(kasten.dataset.uebung || ''));
+      x.setRequestHeader('X-Vorname', encodeURIComponent(vn.value.trim()));
+      x.upload.onprogress = e => { if (e.lengthComputable) st.textContent = Math.round(e.loaded / e.total * 100) + ' %'; };
+      x.onload = () => {
+        let d = {}; try { d = JSON.parse(x.responseText); } catch (e) {}
+        if (x.status === 200) { li.className = 'ok'; st.textContent = 'angekommen ✓'; }
+        else { li.className = 'fehler'; st.textContent = d.fehler || ('Fehler ' + x.status); }
+        fertig();
+      };
+      x.onerror = () => { li.className = 'fehler'; st.textContent = 'keine Verbindung, bitte nochmal'; fertig(); };
+      x.send(datei);
+    });
+  }
+  feld.addEventListener('change', async () => {
+    S.set(SPEICHER + '.vorname', vn.value.trim());
+    for (const d of [...feld.files].slice(0, 5)) await eins(d);
+    feld.value = '';
   });
 });
 
