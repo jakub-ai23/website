@@ -1445,7 +1445,8 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       
       <a href="#kicheck-ende">Check · zum Schluss</a>
       <a href="#feedback">Feedback · Nachmittag</a>
-      <a href="#weiter">Wie es weitergeht</a><a href="#ue7">Bonus · Modelling of Excellence</a><a href="#ue8">Bonus · Prompt Layering</a>
+      <a href="#weiter">Wie es weitergeht</a><a href="#datenanalyse">Bonus · Datenanalyse</a>
+      <a href="#ue7">Bonus · Modelling of Excellence</a><a href="#ue8">Bonus · Prompt Layering</a>
       <a href="#ue6">Bonus · KI-Werkstatt</a>
     </nav>
 
@@ -1577,6 +1578,69 @@ Kontext über mich:
         <a href="https://jakubpopluhar.com/weiter/?kurs=ars01102026" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; transition: all 0.2s; border: 2px solid var(--gold);">In Kontakt bleiben &rarr;</a>
         <p style="margin-top:16px; font-size:0.85rem;"><a href="/ars01102026/ressourcen/" style="color:var(--gold);">Alle Werkzeuge und Quellen von heute &rarr;</a></p>
       </div>
+    </div>
+
+    <!-- BONUS 1: DATENANALYSE (Excel + Prompt zum Download) -->
+    <div class="exercise" id="datenanalyse">
+      <div class="exercise-number">Bonus</div>
+      <h3>Datenanalyse: Rohdaten bereinigen lassen</h3>
+      <p class="subtitle">Eine Excel-Tabelle mit rund 1.000 Zeilen Finanzdaten, voller typischer Fehler. Copilot findet sie, räumt auf und dokumentiert, was er geändert hat. Erst zeige ich es vor, dann machen Sie es selbst.</p>
+
+      <p class="step-label">Schritt 1: Beide Dateien herunterladen</p>
+      <p>
+        <a href="downloads/finanzdaten-rohdaten.xlsx" download style="display:inline-block; background:var(--gold); color:#141414; padding:12px 24px; border-radius:8px; font-weight:700; font-size:0.92rem; border: 2px solid var(--gold); margin:6px 8px 6px 0;">Excel: Finanzdaten (Rohdaten) &darr;</a>
+        <a href="downloads/prompt-datenbereinigung.docx" download style="display:inline-block; background:var(--gold); color:#141414; padding:12px 24px; border-radius:8px; font-weight:700; font-size:0.92rem; border: 2px solid var(--gold); margin:6px 8px 6px 0;">Word: Der Prompt &darr;</a>
+      </p>
+
+      <p class="step-label">Schritt 2: Zuschauen</p>
+      <p>Ich mache die Übung einmal komplett vor. Achten Sie darauf, welche Fehler Copilot findet und wie er seine Entscheidungen begründet.</p>
+
+      <p class="step-label">Schritt 3: Selbst machen</p>
+      <p>Öffnen Sie Copilot und laden Sie die Excel-Datei hoch. Dann den Prompt aus der Word-Datei einfügen oder direkt hier kopieren und absenden:</p>
+      <div class="prompt-block">Analysiere das hochgeladene Excel-Sheet (nur Sheet 1) als Rohdatenblatt und erstelle daraus ein bereinigtes zweites Sheet mit hoher Datenqualität.
+
+Deine Aufgaben:
+
+1. Lies das vorhandene Sheet 1 vollständig ein.
+2. Untersuche die Daten systematisch auf Qualitätsprobleme, insbesondere:
+   - fehlende Werte
+   - falsche oder uneinheitliche Datentypen
+   - fehlerhafte oder unsaubere Spaltennamen
+   - Dubletten
+   - inkonsistente Schreibweisen
+   - unplausible Werte
+   - unnötige, redundante oder ableitbare Spalten
+   - Formatierungsfehler
+3. Bereinige die Daten eigenständig nach sinnvollen Data-Cleaning-Regeln.
+4. Erstelle daraus ein neues bereinigtes Sheet 2 mit folgenden Eigenschaften:
+   - saubere und einheitliche Spaltennamen
+   - konsistente Datentypen
+   - möglichst vollständige und plausible Werte
+   - reduzierte, relevante, analytisch saubere Struktur
+   - redundante oder unnötige Spalten entfernt
+   - Dubletten und klar fehlerhafte Datensätze bereinigt oder entfernt
+   - insgesamt minimierter, qualitativ hochwertiger Datensatz
+5. Triff sinnvolle eigenständige Entscheidungen zur Bereinigung, auch wenn nicht jeder Schritt explizit vorgegeben ist.
+6. Dokumentiere transparent, was du geändert hast.
+
+Ausgabe:
+- Erzeuge ein neues bereinigtes Sheet 2.
+- Gib zusätzlich eine strukturierte Zusammenfassung aus mit:
+  - „Gefundene Probleme in Sheet 1“
+  - „Durchgeführte Bereinigungsschritte“
+  - „Entfernte oder geänderte Spalten“
+  - „Behandelte fehlende Werte“
+  - „Anzahl entfernter Zeilen“
+  - „Qualitätsverbesserung im Ergebnis“
+
+Wichtig:
+- Arbeite konkret anhand der hochgeladenen Datei.
+- Handle wie ein Data Analyst / Data Cleaner.
+- Ziel ist ein sauberes, reduziertes, konsistentes Sheet 2 mit hoher Datenqualität.
+- Falls mehrere Bereinigungsoptionen möglich sind, wähle die fachlich sinnvollste und erkläre sie kurz.</div>
+
+      <p class="step-label">Schritt 4: Nachprüfen</p>
+      <p>Glauben Sie der Zusammenfassung nicht blind. Nehmen Sie zwei Stichproben: Stimmt die Zahl der entfernten Zeilen? Und ist eine Spalte, die Copilot als „vereinheitlicht“ meldet, wirklich einheitlich? Sie bleiben verantwortlich für das Ergebnis, nicht die KI.</p>
     </div>
 
     <!-- ÜBUNG 9: MODELLING OF EXCELLENCE (Deck PM 29-30) -->
