@@ -723,18 +723,18 @@
                   <span class="checkbox-label">Extra Ressourcen und Übungen zum Training</span>
                 </label>
                 <label class="checkbox-item">
-                  <input type="checkbox" name="ars_interesse" value="Einzeltraining">
+                  <input type="checkbox" name="ars_interesse" value="Individuelles Einzeltraining">
                   <span class="checkbox-box">
                     <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                   </span>
-                  <span class="checkbox-label">Einzeltraining</span>
+                  <span class="checkbox-label">Individuelles Einzeltraining</span>
                 </label>
                 <label class="checkbox-item">
-                  <input type="checkbox" name="ars_interesse" value="Training für mein Team oder weitere Trainings (über die ARS Akademie)">
+                  <input type="checkbox" name="ars_interesse" id="arsTeamInput" value="Training für mein Team oder weitere Trainings (über die ARS Akademie)">
                   <span class="checkbox-box">
                     <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                   </span>
-                  <span class="checkbox-label">Training für mein Team oder weitere Trainings (über die ARS Akademie)</span>
+                  <span class="checkbox-label" id="arsTeamLabel">Training für mein Team oder weitere Trainings (über die ARS Akademie)</span>
                 </label>
                 <label class="checkbox-item">
                   <input type="checkbox" name="ars_interesse" value="Rechtskonforme KI-Lösungen (Datenschutz, EU AI Act)">
@@ -751,6 +751,10 @@
               <input type="text" id="arsNachname" name="nachname" placeholder="Nachname *" required autocomplete="family-name">
             </div>
             <input type="email" id="arsEmail" name="email" placeholder="E-Mail *" required autocomplete="email">
+            <div class="form-row">
+              <input type="text" id="arsFirma" name="firma" placeholder="Firma (optional)" autocomplete="organization">
+              <input type="text" inputmode="tel" id="arsTelefon" name="telefon" placeholder="Handynummer (optional)" autocomplete="tel">
+            </div>
 
             <div>
               <label class="checkbox-item datenschutz-item" id="arsConsentLabel">
@@ -801,6 +805,15 @@
     (function () {
       var arsForm = document.getElementById('arsLeadForm');
       if (!arsForm) return;
+
+      // Nur ARS-Kurse (kurs=ars...) verweisen auf die ARS Akademie. Alle anderen
+      // (z. B. tecTrain, kurs=tt07102026) gehen direkt an Jakub. Commander 04.10.2026.
+      var kursParam = (new URLSearchParams(location.search).get('kurs') || '').toLowerCase();
+      if (kursParam.indexOf('ars') !== 0) {
+        var teamText = 'Training für mein Team oder weitere Trainings';
+        document.getElementById('arsTeamInput').value = teamText;
+        document.getElementById('arsTeamLabel').textContent = teamText;
+      }
       var arsErrorBox = document.getElementById('arsFormError');
       var arsSubmitBtn = document.getElementById('arsSubmitBtn');
       var arsSuccess = document.getElementById('arsFormSuccess');
@@ -812,6 +825,8 @@
         var vorname = document.getElementById('arsVorname').value.trim();
         var nachname = document.getElementById('arsNachname').value.trim();
         var email = document.getElementById('arsEmail').value.trim();
+        var firma = document.getElementById('arsFirma').value.trim();
+        var telefon = document.getElementById('arsTelefon').value.trim();
         var consent = document.getElementById('arsConsent').checked;
         var hp = document.getElementById('arsHp').value;
         var interesse = Array.prototype.slice
@@ -846,6 +861,8 @@
             email: email,
             vorname: vorname,
             nachname: nachname,
+            firma: firma,
+            telefon: telefon,
             interesse: interesse,
             kurs: (new URLSearchParams(location.search).get('kurs') || '').slice(0, 40),
             consent: consent,

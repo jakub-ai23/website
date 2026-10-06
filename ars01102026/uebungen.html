@@ -741,6 +741,10 @@
 
 body{margin:0}
 .player{display:grid;grid-template-columns:320px 1fr;min-height:100vh}.player>*{min-width:0}
+/* Logoreihe: Veranstalter links, JP-Monogramm rechts daneben, beide gleich hoch (Symmetrieregel). */
+.logos{display:flex;align-items:center;gap:12px;margin:12px 0 14px}
+.logos .v-logo{margin:0;width:auto;height:46px;max-width:170px;object-fit:contain}
+.logos .t-logo{display:block;height:46px;width:auto}
 .side{border-right:1px solid rgba(255,255,255,.08);padding:20px 16px 40px;position:sticky;top:0;height:100vh;overflow:auto;background:rgba(255,255,255,.02)}
 .side .zurueck{font-size:.78rem;color:var(--white-muted);text-decoration:none;display:inline-block;margin-bottom:14px}
 .side .zurueck:hover{color:var(--gold)}
@@ -774,7 +778,10 @@ body{margin:0}
 .lektion table{display:block;overflow-x:auto;max-width:100%}
 .lektion img{max-width:100%}
 .prompt-block.copied{outline:2px solid var(--gold)}
-.nav{position:fixed;bottom:0;left:320px;right:0;display:flex;justify-content:space-between;gap:10px;padding:14px 56px;background:rgba(20,20,20,.96);border-top:1px solid rgba(255,255,255,.08);z-index:15}
+/* Die Leiste geht über die ganze Breite, die Knöpfe stehen in derselben Spalte wie der Inhalt.
+   Vorher standen sie bei Vollbild an den äußersten Bildschirmrändern (Commander 06.10.). */
+.nav{position:fixed;bottom:0;left:320px;right:0;padding:14px 0;background:rgba(20,20,20,.96);border-top:1px solid rgba(255,255,255,.08);z-index:15}
+.nav-innen{display:flex;justify-content:space-between;gap:10px;max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
 .knopf{border:1px solid rgba(255,255,255,.2);background:none;color:var(--white);padding:12px 22px;border-radius:8px;font:600 .92rem var(--font-body);cursor:pointer}
 .knopf:disabled{opacity:.35;cursor:default}
 .knopf.los{background:var(--gold);color:#141414;border-color:var(--gold)}
@@ -800,7 +807,7 @@ body{margin:0}
  .kopfzeile{padding-top:18px}
  .live-leiste{top:var(--schublade-h,57px);margin:0 -16px;padding:8px 16px;gap:10px}
  .live-text{font-size:.86rem}
- .nav{left:0;padding:12px 16px}.knopf{padding:12px 14px}
+ .nav{left:0;padding:12px 0}.nav-innen{padding:0 16px}.knopf{padding:12px 14px}
  .main h2.lektion-titel{font-size:1.45rem}
 }
 .side .schliessen{display:none;float:right;background:none;border:0;color:var(--white-muted);font-size:1.4rem;cursor:pointer;line-height:1}
@@ -811,6 +818,8 @@ body{margin:0}
 .leiste-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 @media(min-width:861px){
  .player{transition:grid-template-columns .2s ease}
+ /* Inhalt mittig in der Spalte, sonst klebt er bei Vollbild links und rechts bleibt die Hälfte leer. */
+ .main{width:100%;justify-self:center}
  body.leiste-zu .player{grid-template-columns:56px 1fr}
  body.leiste-zu .side{padding:16px 10px;overflow:hidden}
  body.leiste-zu .side > *:not(.leiste-knopf){display:none}
@@ -846,6 +855,7 @@ body{margin:0}
     <button class="schliessen" id="schliessen" type="button" aria-label="Inhalt schließen">×</button>
     <button class="leiste-knopf" id="leisteKnopf" type="button" aria-label="Seitenleiste einklappen" aria-expanded="true" title="Seitenleiste ein- und ausklappen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/><path d="M15 10l-2 2 2 2"/></svg></button>
     <a href="https://jakubpopluhar.com" class="zurueck">jakubpopluhar.com</a>
+    <div class="logos"><img class="t-logo" src="jp-logo.png" alt="Jakub Popluhar"></div>
     <h1>Microsoft 365 Copilot effizient nutzen</h1>
     <div class="sub">ARS Akademie · 01.10.2026</div>
     <div class="balken"><i id="balken"></i></div>
@@ -1746,7 +1756,7 @@ Ausführung: Tabellenformat, klare Sprache, sofort umsetzbar. Kein Fachjargon.</
     </div></section>
   </main>
 </div>
-<div class="nav"><button class="knopf" id="prev" type="button">← Zurück</button><button class="knopf los" id="next" type="button">Erledigt, weiter →</button></div>
+<div class="nav"><div class="nav-innen"><button class="knopf" id="prev" type="button">← Zurück</button><button class="knopf los" id="next" type="button">Erledigt, weiter →</button></div></div>
 <script>
 const M = [{"id": "kicheck", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check"}, {"id": "split", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Trick", "opt": false, "titel": "Den Bildschirm teilen"}, {"id": "copilot-start", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Info", "opt": false, "titel": "Copilot Chat öffnen"}, {"id": "ue0", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "1", "art": "Übung", "opt": false, "titel": "Die Namensliste"}, {"id": "anweisungen", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "2", "art": "Übung", "opt": false, "titel": "Ihre eigenen Anweisungen: einmal sagen, immer gültig"}, {"id": "gedaechtnis", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "3", "art": "Übung", "opt": false, "titel": "Was weißt du über mich?"}, {"id": "ue1", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "4", "art": "Übung", "opt": false, "titel": "Prompten: Homeoffice-Regelung"}, {"id": "ue2", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "5", "art": "Übung", "opt": false, "titel": "CITE(R) Framework: Jetzt sind Sie dran!"}, {"id": "promptkatalog", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Trick", "opt": false, "titel": "Gute Prompts speichern und teilen"}, {"id": "pii", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Takeaway", "opt": false, "titel": "Kurz vorher: die 3-Sekunden-Regel"}, {"id": "arbeitsalltag", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Umfrage", "opt": false, "titel": "Ihr Arbeitsalltag"}, {"id": "ue3", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "6", "art": "Übung", "opt": false, "titel": "Ihre KI-Wissensbasis aufbauen"}, {"id": "formate", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "7", "art": "Übung", "opt": false, "titel": "Welches Format versteht die Maschine?"}, {"id": "ue4", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "8", "art": "Übung", "opt": false, "titel": "Die Flughöhe"}, {"id": "feedback-vm", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Training"}, {"id": "split-nm", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Trick", "opt": false, "titel": "Kurz vorher: Bildschirm wieder teilen"}, {"id": "agent", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "9", "art": "Übung", "opt": false, "titel": "Ihr erster „Agent“"}, {"id": "kicheck-ende", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check, zweiter Durchgang"}, {"id": "feedback", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Training"}, {"id": "weiter", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Weiter", "opt": false, "titel": "Wie es weitergeht"}, {"id": "datenanalyse", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Bonus", "opt": false, "titel": "Datenanalyse: Rohdaten bereinigen lassen"}, {"id": "ue7", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Bonus", "opt": true, "titel": "Modelling of Excellence"}, {"id": "ue8", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Bonus", "opt": true, "titel": "Prompt Layering: Das \"Tribunal\""}, {"id": "ue6", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Bonus", "opt": false, "titel": "KI-Werkstatt: Ihr eigenes Problem lösen"}];
 const KOHORTE = 'ars-01-10';

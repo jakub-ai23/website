@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Übungen & Prompts: Microsoft 365 Copilot effizient nutzen</title>
+  <title>Übungen & Prompts: KI-Grundlagen &amp; praxisnahe Anwendungen mit ChatGPT</title>
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#141414">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -741,6 +741,7 @@
 
 body{margin:0}
 .player{display:grid;grid-template-columns:320px 1fr;min-height:100vh}.player>*{min-width:0}
+.v-logo{display:block;background:#fff;padding:8px 12px;border-radius:6px;max-width:170px;width:100%;box-sizing:border-box;margin:12px 0 14px}
 /* Logoreihe: Veranstalter links, JP-Monogramm rechts daneben, beide gleich hoch (Symmetrieregel). */
 .logos{display:flex;align-items:center;gap:12px;margin:12px 0 14px}
 .logos .v-logo{margin:0;width:auto;height:46px;max-width:170px;object-fit:contain}
@@ -855,12 +856,12 @@ body{margin:0}
     <button class="schliessen" id="schliessen" type="button" aria-label="Inhalt schließen">×</button>
     <button class="leiste-knopf" id="leisteKnopf" type="button" aria-label="Seitenleiste einklappen" aria-expanded="true" title="Seitenleiste ein- und ausklappen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/><path d="M15 10l-2 2 2 2"/></svg></button>
     <a href="https://jakubpopluhar.com" class="zurueck">jakubpopluhar.com</a>
-    <div class="logos"><img class="t-logo" src="jp-logo.png" alt="Jakub Popluhar"></div>
-    <h1>Microsoft 365 Copilot effizient nutzen</h1>
-    <div class="sub">ARS Akademie · 01.10.2026</div>
+    <div class="logos"><img class="v-logo" src="tectrain-logo.png" alt="tecTrain"><img class="t-logo" src="jp-logo.png" alt="Jakub Popluhar"></div>
+    <h1>KI-Grundlagen &amp; praxisnahe Anwendungen mit ChatGPT</h1>
+    <div class="sub">tecTrain · 07.10.2026</div>
     <div class="balken"><i id="balken"></i></div>
     <div class="stand" id="stand"></div>
-    <div class="teil">Vormittag: Copilot Chat &amp; Prompten</div><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Ihr KI-Check</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#split" data-id="split"><span class="lab">Trick</span><span class="t">Den Bildschirm teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#copilot-start" data-id="copilot-start"><span class="lab">Info</span><span class="t">Copilot Chat öffnen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue0" data-id="ue0"><span class="n">1</span><span class="t">Die Namensliste</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#anweisungen" data-id="anweisungen"><span class="n">2</span><span class="t">Ihre eigenen Anweisungen: einmal sagen, immer gültig</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#gedaechtnis" data-id="gedaechtnis"><span class="n">3</span><span class="t">Was weißt du über mich?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue1" data-id="ue1"><span class="n">4</span><span class="t">Prompten: Homeoffice-Regelung</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue2" data-id="ue2"><span class="n">5</span><span class="t">CITE(R) Framework: Jetzt sind Sie dran!</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#promptkatalog" data-id="promptkatalog"><span class="lab">Trick</span><span class="t">Gute Prompts speichern und teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#pii" data-id="pii"><span class="lab">Takeaway</span><span class="t">Kurz vorher: die 3-Sekunden-Regel</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#arbeitsalltag" data-id="arbeitsalltag"><span class="lab">Umfrage</span><span class="t">Ihr Arbeitsalltag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue3" data-id="ue3"><span class="n">6</span><span class="t">Ihre KI-Wissensbasis aufbauen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#formate" data-id="formate"><span class="n">7</span><span class="t">Welches Format versteht die Maschine?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue4" data-id="ue4"><span class="n">8</span><span class="t">Die Flughöhe</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback-vm" data-id="feedback-vm"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Training</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><div class="teil">Nachmittag: Notizbücher &amp; Agenten</div><a class="zeile" href="#split-nm" data-id="split-nm"><span class="lab">Trick</span><span class="t">Kurz vorher: Bildschirm wieder teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#agent" data-id="agent"><span class="n">9</span><span class="t">Ihr erster „Agent“</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Check</span><span class="t">Ihr KI-Check, zweiter Durchgang</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback" data-id="feedback"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Training</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#weiter" data-id="weiter"><span class="lab">Weiter</span><span class="t">Wie es weitergeht</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#datenanalyse" data-id="datenanalyse"><span class="lab">Bonus</span><span class="t">Datenanalyse: Rohdaten bereinigen lassen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#ue7" data-id="ue7"><span class="lab">Bonus</span><span class="t">Modelling of Excellence<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#ue8" data-id="ue8"><span class="lab">Bonus</span><span class="t">Prompt Layering: Das &quot;Tribunal&quot;<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#ue6" data-id="ue6"><span class="lab">Bonus</span><span class="t">KI-Werkstatt: Ihr eigenes Problem lösen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a>
+    <div class="teil">Vormittag: ChatGPT &amp; Prompten</div><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Ihr KI-Check</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#split" data-id="split"><span class="lab">Trick</span><span class="t">Den Bildschirm teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#chatgpt-start" data-id="chatgpt-start"><span class="lab">Info</span><span class="t">ChatGPT öffnen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue0" data-id="ue0"><span class="n">1</span><span class="t">Die Namensliste</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#anweisungen" data-id="anweisungen"><span class="n">2</span><span class="t">Ihre eigenen Anweisungen: einmal sagen, immer gültig</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kontextfenster" data-id="kontextfenster"><span class="lab">Info</span><span class="t">Das Kontextfenster: Alles wird jedes Mal gelesen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#gedaechtnis" data-id="gedaechtnis"><span class="n">3</span><span class="t">Was weißt du über mich?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#erinnerung" data-id="erinnerung"><span class="lab">Info</span><span class="t">Wie sich ChatGPT an Sie erinnert</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue1" data-id="ue1"><span class="n">4</span><span class="t">Prompten: Homeoffice-Regelung</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue2" data-id="ue2"><span class="n">5</span><span class="t">CITE(R) Framework: Jetzt sind Sie dran!</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#pii" data-id="pii"><span class="lab">Takeaway</span><span class="t">Kurz vorher: die 3-Sekunden-Regel</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#arbeitsalltag" data-id="arbeitsalltag"><span class="lab">Umfrage</span><span class="t">Ihr Arbeitsalltag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue3" data-id="ue3"><span class="n">6</span><span class="t">Ihre KI-Wissensbasis aufbauen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#formate" data-id="formate"><span class="n">7</span><span class="t">Welches Format versteht die Maschine?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback-vm" data-id="feedback-vm"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Training</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><div class="teil">Nachmittag: Projekte, Quellen &amp; Recht</div><a class="zeile" href="#split-nm" data-id="split-nm"><span class="lab">Trick</span><span class="t">Kurz vorher: Bildschirm wieder teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue4" data-id="ue4"><span class="n">8</span><span class="t">Flughöhe, Lieferant oder Tutor</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#projekt" data-id="projekt"><span class="n">9</span><span class="t">Ihr Projekt: der Assistent für Ihren Büroalltag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#notebooklm" data-id="notebooklm"><span class="n">10</span><span class="t">EU AI Act + Gemini Notebook</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#rag-vergleich" data-id="rag-vergleich"><span class="n">11</span><span class="t">Mit Quelle, ohne Quelle: Gemini Notebook gegen ChatGPT</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#assistent-agent" data-id="assistent-agent"><span class="lab">Info</span><span class="t">Assistent oder Agent?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Check</span><span class="t">Ihr KI-Check, zweiter Durchgang</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback" data-id="feedback"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Training</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#weiter" data-id="weiter"><span class="lab">Weiter</span><span class="t">Wie es weitergeht</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#skills" data-id="skills"><span class="lab">Bonus</span><span class="t">Was ist ein Skill?<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#datenanalyse" data-id="datenanalyse"><span class="lab">Bonus</span><span class="t">Datenanalyse: Rohdaten bereinigen lassen<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#ue7" data-id="ue7"><span class="lab">Bonus</span><span class="t">Modelling of Excellence<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#ue8" data-id="ue8"><span class="lab">Bonus</span><span class="t">Prompt Layering: Das &quot;Tribunal&quot;<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#ue6" data-id="ue6"><span class="lab">Bonus</span><span class="t">KI-Werkstatt: Ihr eigenes Problem lösen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a>
     <div class="kontakt">Fragen nach dem Kurs:<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br><a href="tel:+436641386498">+43 664 138 64 98</a></div>
   </aside>
   <main class="main">
@@ -870,18 +871,18 @@ body{margin:0}
       <span class="live-hier" id="live-hier" hidden>Sie sind hier</span>
     </div>
     <div class="kopfzeile"><div class="crumb" id="crumb"></div><div id="tags"></div><h2 class="lektion-titel" id="ttl"></h2></div>
-    <section class="lektion" data-id="kicheck" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="kicheck">
+    <section class="lektion" data-id="kicheck" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="kicheck">
       <div class="exercise-number">Check</div>
       
       <h3>Ihr KI-Check</h3>
       <p class="subtitle">Ein kurzer Fragebogen, bevor wir anfangen. Es gibt keine falschen Antworten.</p>
-      <iframe id="GoogleForm-262631354150348" src="https://docs.google.com/forms/d/e/1FAIpQLScWbKznFwcYeHRQdwUR3nSZ8Bca6yYK6ftaDvz2XSYxHE8jFA/viewform?embedded=true" title="KI-Check" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLScWbKznFwcYeHRQdwUR3nSZ8Bca6yYK6ftaDvz2XSYxHE8jFA/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
-    </div></section><section class="lektion" data-id="split" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="split">
+      <iframe id="GoogleForm-kicheck" src="https://docs.google.com/forms/d/e/1FAIpQLSd8RkB6t82IgnYrq9vUoVUSKhi243oKTXO01DaZSTR8eANs_A/viewform?embedded=true" title="KI-Check" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8RkB6t82IgnYrq9vUoVUSKhi243oKTXO01DaZSTR8eANs_A/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div></section><section class="lektion" data-id="split" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="split">
       <div class="exercise-number">Trick</div>
       
       <h3>Den Bildschirm teilen</h3>
-      <p class="subtitle">Der wichtigste Handgriff des Tages, und er dauert zehn Sekunden. Links die Folien, rechts dieses Übungsblatt und Copilot Chat. So arbeiten Sie heute den ganzen Tag.</p>
+      <p class="subtitle">Der wichtigste Handgriff des Tages, und er dauert zehn Sekunden. Links die Folien, rechts dieses Übungsblatt und ChatGPT. So arbeiten Sie heute den ganzen Tag.</p>
       <p style="color: var(--white-muted); font-size: 0.85rem;">Online dabei? Teams läuft bei Ihnen zusätzlich. Am besten Teams auf einem zweiten Gerät, sonst als drittes Fenster, das Sie bei Bedarf nach vorne holen.</p>
 
       <p class="step-label">Mac</p>
@@ -902,7 +903,7 @@ body{margin:0}
         <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
         <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
         <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
-        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ Copilot</text>
+        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ ChatGPT</text>
         <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. grün halten</text>
         <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. Hälfte anklicken, Fenster wählen</text>
       </svg>
@@ -931,46 +932,40 @@ body{margin:0}
 
       <p style="color: var(--white-muted); font-size:0.85rem;">Geht auf jedem Laptop, kein zweiter Monitor nötig. Wenn gar nichts klappt: Fenster mit der Maus an den linken oder rechten Bildschirmrand ziehen, bis eine Hälfte aufleuchtet, loslassen.</p>
       <p style="color: var(--gold); font-size: 0.85rem;">Wer heute nicht teilt, klickt den ganzen Tag zwischen Folien und Übungsblatt hin und her und verliert bei jedem Wechsel den Faden.</p>
-    </div></section><section class="lektion" data-id="copilot-start" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="copilot-start">
+    </div></section><section class="lektion" data-id="chatgpt-start" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="chatgpt-start">
       <div class="exercise-number">Info</div>
-      
-      <h3>Copilot Chat öffnen</h3>
-      <p class="subtitle">Heute arbeiten alle im selben Werkzeug: Copilot Chat mit Ihrem Arbeitskonto, im Browser.</p>
+      <h3>ChatGPT öffnen</h3>
+      <p class="subtitle">Heute arbeiten alle im selben Werkzeug: ChatGPT im Browser, mit dem Konto, das tecTrain für Sie angelegt hat.</p>
       <div class="llm-grid">
         <div class="llm-card">
-          <div class="llm-name">Microsoft Copilot Chat</div>
-          <a class="llm-browser" href="https://m365.cloud.microsoft" target="_blank" rel="noopener">Im Browser öffnen →</a>
+          <div class="llm-name">ChatGPT</div>
+          <a class="llm-browser" href="https://chatgpt.com" target="_blank" rel="noopener">Im Browser öffnen →</a>
         </div>
       </div>
 
-      <p class="step-label">Schritt 1: Mit dem Arbeitskonto anmelden</p>
-      <p>Melden Sie sich mit Ihrer <strong>Firmen-E-Mail-Adresse</strong> an, nicht mit einem privaten Microsoft-Konto.</p>
+      <p class="step-label">Schritt 1: Anmelden</p>
+      <p>Melden Sie sich mit den Zugangsdaten an, die Sie von tecTrain bekommen haben. Kein Zugang? Kurz melden, vor Ort laut, online im Teams-Chat.</p>
 
-      <p class="step-label">Schritt 2: Unten links nachschauen</p>
-      <p>Unten links, unter Ihrem Namen, steht, mit welchem Konto und welcher Lizenz Sie gerade arbeiten.</p>
+      <p class="step-label">Schritt 2: Der Regler „Thinking effort“</p>
+      <p>Im Eingabefeld sitzt ein Menü „Thinking effort“ mit einem Schieberegler. Er legt fest, wie lange ChatGPT nachdenkt, bevor es antwortet. Voreingestellt ist „Medium“. Links: schneller und gut genug für den Alltag. Rechts: langsamer, dafür gründlicher.</p>
       <table class="compare-table">
-        <tr><th style="width:34%">Was dort steht</th><th>Was es bedeutet</th></tr>
-        <tr><td><strong>Work</strong></td><td>Ihr Arbeitskonto. Hier arbeiten wir heute.</td></tr>
-        <tr><td><strong>Personal</strong>, dazu „Upgrade“</td><td>Der private Copilot. Nicht für Firmendaten.</td></tr>
-        <tr><td><strong>Copilot Chat (Basic)</strong></td><td>Kostenlos mit dem Arbeitskonto: Chat, Gedächtnis, Notizbücher, einfache Agenten. Das haben die meisten von Ihnen.</td></tr>
-        <tr><td><strong>M365 Copilot (Premium)</strong></td><td>Bezahlte Lizenz. Zusätzlich Copilot in Word, Excel, Outlook und Teams.</td></tr>
+        <tr><th style="width:34%">Aufgabe</th><th>Regler</th></tr>
+        <tr><td>Mail umformulieren, kurze Frage, Übersetzung</td><td>lassen</td></tr>
+        <tr><td>Plan, Vergleich, Abwägung vorbereiten, längeres Dokument</td><td><strong>nach rechts</strong></td></tr>
       </table>
-
-      <p class="step-label">Schritt 3: Kurz melden</p>
-      <p>Schreiben Sie in den Teams-Chat des Kurses, was bei Ihnen unten links steht. Vor Ort sagen Sie es einfach laut.</p>
-      <p style="color: var(--gold); font-size: 0.9rem;">Arbeiten Sie heute nur dort, wo „Work“ steht.</p>
-      <p style="color: var(--white-muted); font-size: 0.82rem;">Je nach Spracheinstellung sind die Beschriftungen bei Ihnen deutsch oder englisch.</p>
-    </div></section><section class="lektion" data-id="ue0" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="ue0">
+      <p style="color: var(--gold); font-size: 0.9rem;">Die Regel: normal anfangen, nach rechts schieben, wenn die Antwort zu flach ist. Entscheiden tun Sie, die KI bereitet vor.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem;">Je nach Version und Sprache kann der Regler bei Ihnen anders heißen. Gemeint ist immer dasselbe: wie viel die KI nachdenkt.</p>
+    </div></section><section class="lektion" data-id="ue0" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="ue0">
       <div class="exercise-number">Übung 1</div>
       <h3>Die Namensliste</h3>
-      <p class="subtitle">Derselbe Prompt, drei Nachbarländer, und ein Blick in den Teams-Chat. Achten Sie nicht darauf, ob die Namen stimmen. Achten Sie darauf, welche Namen kommen. 10 Minuten.</p>
+      <p class="subtitle">Derselbe Prompt, drei Nachbarländer, und ein Blick zum Nachbarn. Achten Sie nicht darauf, ob die Namen stimmen. Achten Sie darauf, welche Namen kommen. 10 Minuten.</p>
 
       <p class="step-label">Schritt 1: Runde 1, Österreich</p>
       <div class="prompt-block">Erstelle mir eine Liste von 10 Mitarbeitern einer fiktiven Firma in Österreich.
 Vorname, Nachname, Abteilung.</div>
 
-      <p class="step-label">Schritt 2: In den Teams-Chat schauen</p>
-      <p>Alle haben denselben Prompt abgeschickt. Posten Sie Ihre 10 Nachnamen in den Teams-Chat. Bevor Sie die anderen Listen lesen, schätzen Sie: Wie viele Ihrer 10 <strong>Nachnamen</strong> stehen auch auf der Liste einer anderen Person?</p>
+      <p class="step-label">Schritt 2: Vergleichen</p>
+      <p>Alle haben denselben Prompt abgeschickt. Vor Ort zeigen Sie Ihre Liste dem Nachbarn, online posten Sie Ihre 10 Nachnamen in den Teams-Chat. Bevor Sie die anderen Listen lesen, schätzen Sie: Wie viele Ihrer 10 <strong>Nachnamen</strong> stehen auch auf der Liste einer anderen Person?</p>
       <p style="color: var(--gold); font-size: 0.9rem;">Meine Schätzung: ________ von 10 &nbsp;&nbsp;·&nbsp;&nbsp; Tatsächlich: ________ von 10</p>
 
       <p class="step-label">Schritt 3: Runde 2 und 3, im selben Chat weiterschreiben</p>
@@ -997,48 +992,71 @@ Vorname, Nachname, Abteilung.</div>
           <p style="color: var(--gold); font-size: 0.9rem;">Die KI hat sich diese Namen nicht ausgedacht. Sie hat ausgerechnet, welche Namen am häufigsten vorkommen. Deshalb steht neben Ihnen fast dieselbe Liste.</p>
         </div>
       </details>
-    </div></section><section class="lektion" data-id="anweisungen" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="anweisungen">
+    </div></section><section class="lektion" data-id="anweisungen" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="anweisungen">
       <div class="exercise-number">Übung 2</div>
       <h3>Ihre eigenen Anweisungen: einmal sagen, immer gültig</h3>
-      <p class="subtitle">Was Copilot über Sie wissen soll, schreiben Sie einmal hinein. Ab dann gilt es in jedem neuen Chat. 10 Minuten.</p>
+      <p class="subtitle">Was ChatGPT über Sie wissen soll, schreiben Sie einmal hinein. Ab dann gilt es in jedem neuen Chat. 10 Minuten.</p>
 
       <p class="step-label">Schritt 1: Das Feld finden</p>
-      <p><strong>Chat settings → Personalisation → Custom instructions → Edit instructions</strong>. Bei deutscher Oberfläche heißen die Punkte entsprechend.</p>
+      <p>Profilbild, dann <strong>Einstellungen → Personalisierung</strong>. Schalter <strong>„Anpassung aktivieren“</strong> an, dann ins Feld <strong>„Benutzerdefinierte Anweisungen“</strong>. Im Gratiskonto passen 1.500 Zeichen hinein.</p>
 
-      <p class="step-label">Schritt 2: Vorlage kopieren und die Klammern ausfüllen</p>
-      <div class="prompt-block">Ich bin [Rolle] bei [Firma oder Branche] und kümmere mich vor allem um [zwei, drei Hauptaufgaben].
-Antworte mir auf Deutsch, sprich mich mit Sie an, halte dich kurz und schreib so, dass ich es direkt verwenden kann.
-Sag mir lieber „Das weiß ich nicht“, als zu raten. Trenne klar, was du sicher weißt und was du vermutest. Erfinde keine Zahlen, Namen, Zitate oder Quellen.
-Wenn meine Anfrage unklar ist, stell mir zuerst kurze Rückfragen.
-Gib mir nicht einfach recht. Wenn ich mich irre, sag es direkt und begründe es.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Drei Dinge gehören hinein: wer Sie sind, wie Copilot antworten soll, und was Copilot nie tun soll. Die Vorschläge unter dem Feld lassen sich zusätzlich anklicken.</p>
+      <p class="step-label">Schritt 2: Drei einfache Regeln hineinschreiben</p>
+      <div class="prompt-block">Antworte mir auf Deutsch und sprich mich mit Sie an.
+Halte dich an höchstens 200 Wörter, außer ich bitte ausdrücklich um mehr.
+Antworte detailliert und konkret, mit einem Beispiel.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Fangen Sie einfach an: Sprache, Länge, Detailgrad. Ergänzen können Sie später jederzeit.</p>
 
       <p class="step-label">Schritt 3: Testen, in einem neuen Chat</p>
-      <div class="prompt-block">Beschreib mir in drei Sätzen, wie du mir bei meiner Arbeit helfen kannst.</div>
-      <p>Prüfen Sie: Spricht Copilot Sie mit Sie an? Kennt es Ihre Rolle? Ist die Antwort kurz?</p>
+      <div class="prompt-block">Beschreib mir, wie du mir bei meiner Arbeit helfen kannst.</div>
+      <p>Prüfen Sie: Spricht ChatGPT Sie mit Sie an? Bleibt es unter 200 Wörtern? Ist ein Beispiel dabei?</p>
       <p style="color: var(--gold); font-size: 0.9rem;">Das ist der Kontext aus CITE, nur einmal geschrieben.</p>
-    </div></section><section class="lektion" data-id="gedaechtnis" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="gedaechtnis">
+    </div></section><section class="lektion" data-id="kontextfenster" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="kontextfenster">
+      <div class="exercise-number">Info</div>
+      <h3>Das Kontextfenster: Alles wird jedes Mal gelesen</h3>
+      <p class="subtitle">Bevor ChatGPT antwortet, liest es den ganzen Chat noch einmal: Ihre Anweisungen, alle bisherigen Nachrichten, alle Antworten, Ihre neue Nachricht.</p>
+      <p>20 Nachrichten in einem Chat sind kein Problem, ChatGPT liest sie alle, jedes Mal. Erst ein Chat über mehrere Tage oder mit sehr langen Dokumenten füllt das Fenster. Dann gerät der Anfang aus dem Blick, ohne Hinweis.</p>
+      <table class="compare-table">
+        <tr><th style="width:34%">Regel</th><th>Warum</th></tr>
+        <tr><td>Ein Chat über Tage ist oft suboptimal</td><td>Altes Gerede kostet Platz und lenkt die Antwort ab.</td></tr>
+        <tr><td>Neues Thema, neuer Chat</td><td>Ein frischer Chat liest nur, was zur Aufgabe gehört.</td></tr>
+        <tr><td>Wichtiges nach vorne</td><td>Was immer gelten soll, gehört in die Anweisungen oder ins Projekt, nicht in Nachricht 1.</td></tr>
+        <tr><td>Löschen hilft nicht</td><td>Alte Chats zu löschen entlastet den laufenden Chat nicht. Ein neuer Chat schon.</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.9rem;">Ein langer Chat wird nicht klüger, sondern vergesslicher.</p>
+      <p style="color: var(--white-muted); font-size: 0.78rem;">ChatGPT-Gratiskonto: Kontextfenster 27K Token (OpenAI-Preisseite, abgerufen 04.10.2026).</p>
+    </div></section><section class="lektion" data-id="gedaechtnis" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="gedaechtnis">
       <div class="exercise-number">Übung 3</div>
       <h3>Was weißt du über mich?</h3>
-      <p class="subtitle">Mit dem Arbeitskonto trainiert Microsoft kein Modell mit Ihren Eingaben. Merken tut sich Copilot trotzdem etwas. Schauen Sie nach, was. 5 Minuten.</p>
+      <p class="subtitle">ChatGPT merkt sich Dinge über Sie, und im Gratiskonto darf es Ihre Chats standardmäßig zum Training verwenden. Beides schauen Sie jetzt nach. 5 Minuten.</p>
 
       <p class="step-label">Schritt 1: Fragen</p>
       <div class="prompt-block">Was weißt du über mich? Liste alles auf, was du über mich gespeichert hast oder aus früheren Chats ableitest.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Ihr Konto ist neu, die Liste ist vermutlich kurz. Fragen Sie am Ende des Tages noch einmal.</p>
 
       <p class="step-label">Schritt 2: Nachschauen</p>
-      <p><strong>Chat settings → Personalisation → Saved memories → Manage saved memories</strong>. Dort sehen Sie jede Erinnerung einzeln und können sie löschen.</p>
-
       <table class="compare-table">
         <tr><th style="width:32%">Was Sie wollen</th><th>Wo</th><th>Achtung</th></tr>
-        <tr><td>Nichts mehr merken</td><td>Schalter bei Saved memories aus</td><td>Ausschalten löscht nichts</td></tr>
-        <tr><td>Alte Chats nicht nutzen</td><td>Schalter bei Chat history aus</td><td></td></tr>
-        <tr><td>Ohne Spuren arbeiten</td><td>Temporärer Chat, Knopf oben rechts</td><td>Ihre Firma kann trotzdem aufbewahren</td></tr>
+        <tr><td>Nicht mittrainieren</td><td>Einstellungen → Datenkontrollen → „Das Modell für alle verbessern“ aus</td><td>Wirkt nur nach vorne</td></tr>
+        <tr><td>Erinnerungen sehen und löschen</td><td>Einstellungen → Personalisierung → Erinnerung</td><td>Ausschalten löscht Ihre Chats nicht. Erinnerungen löschen Sie einzeln.</td></tr>
+        <tr><td>Ohne Spuren arbeiten</td><td>„Temporär“ wählen, vor der ersten Nachricht, dazu „Nicht personalisiert“</td><td>Nicht im Verlauf, nicht fürs Training. OpenAI darf eine Kopie bis zu 30 Tage aufbewahren.</td></tr>
       </table>
       <p style="color: var(--gold); font-size: 0.9rem;">Ausschalten ist nicht Löschen. Chat löschen ist auch nicht Löschen.</p>
-    </div></section><section class="lektion" data-id="ue1" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="ue1">
+    </div></section><section class="lektion" data-id="erinnerung" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="erinnerung">
+      <div class="exercise-number">Info</div>
+      <h3>Wie sich ChatGPT an Sie erinnert</h3>
+      <p class="subtitle">Drei Dinge, die oft verwechselt werden. Zu finden unter Einstellungen → Personalisierung → Erinnerung.</p>
+      <table class="compare-table">
+        <tr><th style="width:32%">Was</th><th>Was es tut</th></tr>
+        <tr><td>Gespeicherte Erinnerungen</td><td>Einzelne Fakten über Sie, zum Beispiel Ihre Rolle. Sie sehen sie als Liste und löschen sie einzeln.</td></tr>
+        <tr><td>Chatverlauf berücksichtigen</td><td>Zieht Wissen aus früheren Chats, ohne Liste. Im Gratiskonto eingeschränkt.</td></tr>
+        <tr><td>Temporärer Chat</td><td>Nicht im Verlauf, nicht fürs Training. Mit „Nicht personalisiert“ auch ohne Ihre Erinnerungen.</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.9rem;">Chat löschen löscht die Erinnerung nicht.</p>
+      <p style="color: var(--white-muted); font-size: 0.78rem;">Die Menüs können je nach Konto etwas anders aussehen.</p>
+    </div></section><section class="lektion" data-id="ue1" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="ue1">
       <div class="exercise-number">Übung 4</div>
       <h3>Prompten: Homeoffice-Regelung</h3>
-      <p class="subtitle">Jede Person promptet für sich in Copilot Chat. Danach vergleichen wir zwei Ergebnisse gemeinsam am Bildschirm.</p>
+      <p class="subtitle">Jede Person promptet für sich in ChatGPT. Danach vergleichen wir zwei Ergebnisse gemeinsam am Bildschirm.</p>
 
       <p class="step-label">Schritt 1: Der einfache Prompt</p>
       <p>Kopieren Sie diesen Prompt und schauen Sie, was die KI daraus macht:</p>
@@ -1102,7 +1120,7 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
           <p style="color: var(--white-muted); font-size:0.85rem;">Zwei davon sind keine Spielerei. Beim Dialekt merken Sie, wo die KI dünn wird. Beim letzten haben Sie etwas in der Hand, das Sie morgen wirklich verschicken könnten.</p>
         </div>
       </details>
-    </div></section><section class="lektion" data-id="ue2" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="ue2">
+    </div></section><section class="lektion" data-id="ue2" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="ue2">
       <div class="exercise-number">Übung 5</div>
       <h3>CITE(R) Framework:Jetzt sind Sie dran!</h3>
       <p class="subtitle">Sie planen eine Reise. Kurze Nachrichten, jede legt eine Schicht drauf. Mittendrin ändert sich etwas, und danach ändert es sich zurück. Um die Reise geht es nicht.</p>
@@ -1157,39 +1175,40 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
       <p class="step-label">Schritt 4 (E = Execution): Die Ausführung nachschieben</p>
       <div class="prompt-block">Format: Tag für Tag, pro Tag höchstens drei Zeilen. Max. 300 Wörter. Keine Einleitung, keine Nachbemerkung.</div>
 
+      <p class="step-label">Schritt 5 (R = Reality): Die KI prüft sich selbst</p>
+      <div class="prompt-block">Prüfe deinen eigenen Plan: Was davon ist unsicher, veraltet oder nur geraten? Markiere es und sag mir, was ich selbst nachprüfen muss.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Das R steht für Reality, nicht für Rolle. Sie entscheiden, was stimmt, nicht die KI.</p>
+
       <p style="color: var(--gold); font-size: 0.85rem;">Sie haben nichts wiederholt. Ein paar kurze Nachrichten, und am Ende steht ein vollständiger Auftrag. Den Kontext trägt das Gespräch, nicht die einzelne Nachricht.</p>
+
+      <details>
+        <summary>Bonus: Jetzt verkaufen Sie die Reise</summary>
+        <div class="collapsible-content">
+          <div class="prompt-block">Schreib mir eine kurze Nachricht, mit der ich diese Reise meiner Frau / meinem Mann / meiner besten Freundin verkaufe. Drei Sätze, und sie soll sofort Ja sagen wollen.</div>
+          <p style="color: var(--white-muted); font-size:0.85rem;">Derselbe Chat, derselbe Plan, ein völlig anderer Text. Den Inhalt bestimmt das Gespräch, die Wirkung bestimmt der letzte Auftrag.</p>
+        </div>
+      </details>
 
       <p class="sub-step">Zum Schluss: Eine Zeile aufschreiben</p>
       <p>Wann haben Sie zuletzt einen Chat weggeworfen und von vorne angefangen, weil etwas schiefgelaufen war? Was hätten Sie stattdessen sagen können?</p>
 
-    </div></section><section class="lektion" data-id="promptkatalog" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="promptkatalog">
-      <div class="exercise-number">Trick</div>
-      
-      <h3>Gute Prompts speichern und teilen</h3>
-      <p class="subtitle">Ein Prompt, der funktioniert, gehört nicht in einen alten Chat, sondern in den Promptkatalog.</p>
-      <p class="step-label">Speichern</p>
-      <p>Prompt absenden, dann mit der Maus über Ihre gesendete Nachricht fahren und <strong>Prompt speichern</strong> wählen. Wiederfinden: im Promptkatalog (Prompt Gallery) unter <strong>Ihre Prompts</strong>, nur für Sie sichtbar.</p>
-      <p class="step-label">Teilen</p>
-      <p>Über dieselbe Nachricht <strong>Prompt-Link kopieren</strong> und in den Teams-Chat einfügen. Oder im Katalog unter Ihre Prompts: <strong>Prompt freigeben → Für Team freigeben</strong>, dann sehen alle Mitglieder eines Teams-Teams den Prompt unter <strong>Team-Prompts</strong>.</p>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Ob diese Knöpfe bei Ihnen erscheinen, hängt von Lizenz und IT-Einstellung ab. Gespeicherte und geteilte Prompts kann Ihre IT auswerten: keine Kundendaten hineinschreiben.</p>
-    </div></section><section class="lektion" data-id="pii" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="pii">
+    </div></section><section class="lektion" data-id="pii" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="pii">
       <div class="exercise-number">Takeaway</div>
       <h3>Kurz vorher: die 3-Sekunden-Regel</h3>
-      <p>Ab hier arbeiten Sie mit Material aus Ihrer eigenen Firma. Mit dem Arbeitskonto trainiert Microsoft kein Modell mit Ihren Eingaben. Trotzdem merkt sich Copilot Dinge, und heute ist Ihr Bildschirm oft geteilt. Drei Sekunden, bevor Sie Enter drücken:</p>
+      <p>Ab hier arbeiten Sie mit Material aus Ihrer eigenen Firma. Das Konto heute ist ein Gratiskonto, das nicht Ihrer Firma gehört, und ChatGPT merkt sich Dinge. Drei Sekunden, bevor Sie Enter drücken:</p>
       <ul>
         <li><strong>Namen</strong> raus. Aus Frau Gruber wird "eine Kollegin aus dem Einkauf".</li>
         <li><strong>Zahlen</strong> raus. Aus 47.500 Euro wird "ein mittlerer fünfstelliger Betrag".</li>
         <li><strong>Strategien und Interna</strong> raus. Abstrahieren, nicht abschreiben.</li>
       </ul>
       <p style="color: var(--gold); font-size: 0.85rem;">Die Faustregel: Behandeln Sie die KI wie einen Praktikanten, der im öffentlichen Bus sitzt. Er ist hilfreich, aber er sitzt nicht allein da.</p>
-    </div></section><section class="lektion" data-id="arbeitsalltag" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="arbeitsalltag">
+    </div></section><section class="lektion" data-id="arbeitsalltag" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="arbeitsalltag">
       <div class="exercise-number">Umfrage</div>
-      
       <h3>Ihr Arbeitsalltag</h3>
       <p class="subtitle">Zwei Minuten, bevor wir bauen. Welche Aufgabe kostet Sie am meisten Zeit? Genau daran arbeiten wir gleich weiter.</p>
-      <iframe id="GoogleForm-arbeitsalltag" src="https://docs.google.com/forms/d/e/1FAIpQLSfgqmQITfOJEQP_zo5uBXjWt4xD_AKq1Gtxmik1pKzTEeAEOw/viewform?embedded=true" title="Ihr Arbeitsalltag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgqmQITfOJEQP_zo5uBXjWt4xD_AKq1Gtxmik1pKzTEeAEOw/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
-    </div></section><section class="lektion" data-id="ue3" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="ue3">
+      <iframe id="GoogleForm-arbeitsalltag" src="https://docs.google.com/forms/d/e/1FAIpQLSd8zmp7WKsRmJwh2JY6YDPTBVUm61yWUG1dtXH5u6Kci6d7uA/viewform?embedded=true" title="Ihr Arbeitsalltag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8zmp7WKsRmJwh2JY6YDPTBVUm61yWUG1dtXH5u6Kci6d7uA/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div></section><section class="lektion" data-id="ue3" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="ue3">
       <div class="exercise-number">Übung 6</div>
       <h3>Ihre KI-Wissensbasis aufbauen</h3>
       <p class="subtitle">Erstellen Sie zwei Dokumente, die Ihre KI ab sofort schlauer machen. Kollegen aus der gleichen Firma: arbeiten Sie zusammen!</p>
@@ -1206,7 +1225,7 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
 Schreibe daraus ein Kontextdokument, das ich in Zukunft an den Anfang jeder Konversation setzen kann: Branche, Größe, Produkte, Kunden, Standorte, Besonderheiten.
 
 Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst, schreibst du nicht hin, sondern listest es am Ende unter "offen".</div>
-          <p style="color: var(--white-muted); font-size: 0.85rem;">Copilot Chat sucht dafür im Web. Kommt keine Websuche zustande, hat Ihre IT sie vielleicht abgeschaltet. Dann schreiben Sie 1a wie 1b selbst, mit Rückfragen der KI.</p>
+          <p style="color: var(--white-muted); font-size: 0.85rem;">ChatGPT sucht dafür im Web. Sucht es nicht von selbst, schalten Sie die Suche im Eingabefeld zu (Tippen Sie „/“ und wählen Sie die Suche). Klappt es gar nicht, schreiben Sie 1a wie 1b selbst, mit Rückfragen der KI.</p>
           <details>
             <summary>Schritte 2-4 (erst aufklappen wenn Schritt 1 fertig)</summary>
             <div class="collapsible-content">
@@ -1217,7 +1236,7 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
               <p class="step-label">Schritt 3:Verfeinern</p>
               <div class="prompt-block">Was fehlt in diesem Dokument, das für eine KI wichtig wäre? Schlage 3 Ergänzungen vor.</div>
               <p class="step-label">Schritt 4:Speichern</p>
-              <p>Kopieren Sie das fertige Dokument und speichern Sie es als Word-Datei in Ihrem OneDrive. Am Nachmittag brauchen Sie es für Notizbuch und Agent.</p>
+              <p>Kopieren Sie das fertige Dokument und speichern Sie es als Textdatei oder Word-Datei auf Ihrem Rechner. Am Nachmittag brauchen Sie es für Ihr Projekt und für Gemini Notebook (früher NotebookLM).</p>
             </div>
           </details>
         </div>
@@ -1297,11 +1316,11 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
         </div>
       </details>
 
-      <p style="margin-top: 16px; color: var(--gold); font-size: 0.85rem;"><strong>Wichtig: Speichern Sie Ihre Dokumente!</strong> Wir verwenden sie am Nachmittag im Notizbuch und in Ihrem ersten Agenten.</p>
-    </div></section><section class="lektion" data-id="formate" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="formate">
+      <p style="margin-top: 16px; color: var(--gold); font-size: 0.85rem;"><strong>Wichtig: Speichern Sie Ihre Dokumente!</strong> Wir verwenden sie am Nachmittag in Ihrem Projekt und in Gemini Notebook.</p>
+    </div></section><section class="lektion" data-id="formate" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="formate">
       <div class="exercise-number">Übung 7</div>
       <h3>Welches Format versteht die Maschine?</h3>
-      <p class="subtitle">Welche Dateien liest Copilot sauber? Das entscheidet, was Sie in Notizbücher und Agenten legen.</p>
+      <p class="subtitle">Welche Dateien liest ChatGPT sauber? Das entscheidet, was Sie am Nachmittag in Ihr Projekt und in Gemini Notebook legen.</p>
 
       <p class="step-label">Erst tippen</p>
       <div class="quiz">
@@ -1415,43 +1434,17 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
 }
 </script>
 </div>
-    </div></section><section class="lektion" data-id="ue4" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="ue4">
-      <div class="exercise-number">Übung 8</div>
-      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin: 24px 0;">
-        <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Die Flughöhe &middot; dieselbe Sache, zwei Stufen</div>
-        <p style="color: var(--white-muted); font-size:0.88rem;">Schauen Sie sich das hier an. Zehn Sekunden.</p>
-        <img src="balmer-formel.png" alt="Formel" style="display:block; width:100%; max-width:360px; margin:16px auto; border-radius:8px;">
-        <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie das jetzt nicht erklären können: genau darum geht es. Schicken Sie die zwei Prompts nacheinander ab und achten Sie darauf, wie sich die Antwort verändert.</p>
-        <div class="prompt-block">Erklär mir diese Formel, als wäre ich eine Fachkraft mit einem PhD in Physik:
-
-ν̄ = R · (1/2² − 1/n²)</div>
-        <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie bei dieser Antwort nichts verstanden haben, ist alles richtig gelaufen. Jetzt dieselbe Formel noch einmal:</p>
-        <div class="prompt-block">Und jetzt noch einmal dieselbe Formel, als wäre ich 10 Jahre alt.</div>
-        <p style="color:var(--gold); font-size:0.82rem;">Nicht die Physik ist hier die Lehre, sondern die Flughöhe. Die Stufe stellen Sie ein, nicht die KI. Und keine Sorge: ob die Physik stimmt, kann hier niemand im Raum prüfen. Das ist bei Ihren eigenen Themen anders.</p>
-      </div>
-
-      <h3>Lieferant vs. Tutor</h3>
-      <p class="subtitle">Person A = Lieferant-Modus, Person B = Tutor-Modus. Gleiche Aufgabe, verschiedene Ergebnisse.</p>
-
-      <table class="compare-table">
-        <tr><th></th><th>Der Lieferant</th><th>Der Tutor</th></tr>
-        <tr><td><strong>Wunsch</strong></td><td>"Ich muss schnell wissen, was '20' auf Englisch heißt."</td><td>"Ich will verstehen, wie die englischen Zahlen funktionieren."</td></tr>
-        <tr><td><strong>Prompt</strong></td><td>"Was heißt '20' auf Englisch?"</td><td>"Du bist mein Englischlehrer. Bring mir bei, wie man zählt. Gib mir nicht sofort die Lösung, sondern erkläre mir die Regel und lass mich üben."</td></tr>
-        <tr><td><strong>Antwort</strong></td><td>"Twenty." (Ende)</td><td>"Gerne! Im Englischen enden die Zehnerzahlen meist auf '-ty'&hellip; Jetzt du: Was heißt '60'?"</td></tr>
-        <tr><td><strong>Nutzen</strong></td><td>Nichts gelernt.</td><td><strong>Wissen aufgebaut.</strong></td></tr>
-      </table>
-
-    </div></section><section class="lektion" data-id="feedback-vm" data-teil="vm" data-teil-name="Vormittag: Copilot Chat &amp; Prompten" hidden><div class="exercise" data-ex="feedback-vm">
+    </div></section><section class="lektion" data-id="feedback-vm" data-teil="vm" data-teil-name="Vormittag: ChatGPT &amp; Prompten" hidden><div class="exercise" data-ex="feedback-vm">
       <div class="exercise-number">Feedback</div>
       
       <h3>Ihr Feedback zum Training</h3>
-      <p class="subtitle">Ein Formular für den ganzen Tag, bitte am Ende ausfüllen: Ihr Feedback zum Teil Recht (Manuel Modifian) und zum Teil KI-Praxis (Jakub Popluhar). Name und Firma sind freiwillig.</p>
-      <iframe id="GoogleForm-262707000784050" src="https://docs.google.com/forms/d/e/1FAIpQLSeiNo6y9SCnOlNgksU-ALcGmC4z2JuItUaoW7UUTo-_0uo_FA/viewform?embedded=true" title="Ihr Feedback zum Training" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeiNo6y9SCnOlNgksU-ALcGmC4z2JuItUaoW7UUTo-_0uo_FA/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
-    </div></section><section class="lektion" data-id="split-nm" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="split-nm">
+      <p class="subtitle">Zwei Minuten, ein Formular für den ganzen Tag. Wer schon zu Mittag geht, füllt es jetzt aus, alle anderen am Ende. Name und Firma sind freiwillig.</p>
+      <iframe id="GoogleForm-feedback" src="https://docs.google.com/forms/d/e/1FAIpQLSfqZbj-vtV_6s0Hb95k8Wyb7B-u_HwvhRDXqkVoNcyaRzmejg/viewform?embedded=true" title="Ihr Feedback zum Training" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZbj-vtV_6s0Hb95k8Wyb7B-u_HwvhRDXqkVoNcyaRzmejg/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div></section><section class="lektion" data-id="split-nm" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="split-nm">
       <div class="exercise-number">Trick</div>
       <h3>Kurz vorher: Bildschirm wieder teilen</h3>
-      <p>Wie am Vormittag: links die Folien, rechts dieses Übungsblatt und Copilot Chat. Am Nachmittag brauchen Sie es öfter, weil zwei Fenster nebeneinander stehen.</p>
+      <p>Wie am Vormittag: links die Folien, rechts dieses Übungsblatt und ChatGPT. Am Nachmittag brauchen Sie es öfter, weil zwei Fenster nebeneinander stehen.</p>
       <details>
         <summary>Erinnerung: so teilen Sie den Bildschirm</summary>
         <div class="collapsible-content">
@@ -1472,7 +1465,7 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
         <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
         <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Folien</text>
         <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
-        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ Copilot</text>
+        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">+ ChatGPT</text>
         <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. grün halten</text>
         <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. Hälfte anklicken, Fenster wählen</text>
       </svg>
@@ -1498,68 +1491,256 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       </svg>
         </div>
       </details>
-    </div></section><section class="lektion" data-id="agent" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="agent">
-      <div class="exercise-number">Übung 9</div>
-      <h3>Ihr erster „Agent“</h3>
-      <p class="subtitle">Ein Agent ist Ihr eigener Copilot für eine wiederkehrende Aufgabe. Einmal einrichten, immer wieder nutzen. Das Gegenstück zum Custom GPT. 20 Minuten.</p>
+    </div></section><section class="lektion" data-id="ue4" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="ue4">
+      <div class="exercise-number">Übung 8</div>
+      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin: 24px 0;">
+        <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Die Flughöhe &middot; dieselbe Sache, zwei Stufen</div>
+        <p style="color: var(--white-muted); font-size:0.88rem;">Schauen Sie sich das hier an. Zehn Sekunden.</p>
+        <img src="balmer-formel.png" alt="Formel" style="display:block; width:100%; max-width:360px; margin:16px auto; border-radius:8px;">
+        <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie das jetzt nicht erklären können: genau darum geht es. Schicken Sie die zwei Prompts nacheinander ab und achten Sie darauf, wie sich die Antwort verändert.</p>
+        <div class="prompt-block">Erklär mir diese Formel, als wäre ich eine Fachkraft mit einem PhD in Physik:
 
-      <p class="step-label">Schritt 1: Anlegen</p>
-      <p>Linke Leiste, Abschnitt <strong>Agents</strong>: <strong>New agent</strong> bzw. „Neuer Agent“. Dann <strong>Skip to configure</strong>, damit Sie die Felder selbst ausfüllen.</p>
+ν̄ = R · (1/2² − 1/n²)</div>
+        <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie bei dieser Antwort nichts verstanden haben, ist alles richtig gelaufen. Jetzt dieselbe Formel noch einmal:</p>
+        <div class="prompt-block">Und jetzt noch einmal dieselbe Formel, als wäre ich 10 Jahre alt.</div>
+        <p style="color:var(--gold); font-size:0.82rem;">Nicht die Physik ist hier die Lehre, sondern die Flughöhe. Die Stufe stellen Sie ein, nicht die KI. Und keine Sorge: ob die Physik stimmt, kann hier niemand im Raum prüfen. Das ist bei Ihren eigenen Themen anders.</p>
+      </div>
 
-      <p class="step-label">Schritt 2: Die Felder</p>
+      <h3>Lieferant vs. Tutor</h3>
+      <p class="subtitle">Person A = Lieferant-Modus, Person B = Tutor-Modus. Gleiche Aufgabe, verschiedene Ergebnisse.</p>
+
       <table class="compare-table">
-        <tr><th style="width:24%">Feld</th><th>Was Sie eintragen</th><th style="width:18%">Grenze</th></tr>
-        <tr><td><strong>Name</strong></td><td>Protokoll-Assistent</td><td>30 Zeichen</td></tr>
-        <tr><td><strong>Beschreibung</strong></td><td>Macht aus meinen Stichpunkten ein sauberes Besprechungsprotokoll.</td><td>1.000 Zeichen</td></tr>
-        <tr><td><strong>Anweisungen</strong></td><td>Die Vorlage unten</td><td>8.000 Zeichen</td></tr>
+        <tr><th></th><th>Der Lieferant</th><th>Der Tutor</th></tr>
+        <tr><td><strong>Wunsch</strong></td><td>"Ich muss schnell wissen, was '20' auf Englisch heißt."</td><td>"Ich will verstehen, wie die englischen Zahlen funktionieren."</td></tr>
+        <tr><td><strong>Prompt</strong></td><td>"Was heißt '20' auf Englisch?"</td><td>"Du bist mein Englischlehrer. Bring mir bei, wie man zählt. Gib mir nicht sofort die Lösung, sondern erkläre mir die Regel und lass mich üben."</td></tr>
+        <tr><td><strong>Antwort</strong></td><td>"Twenty." (Ende)</td><td>"Gerne! Im Englischen enden die Zehnerzahlen meist auf '-ty'&hellip; Jetzt du: Was heißt '60'?"</td></tr>
+        <tr><td><strong>Nutzen</strong></td><td>Nichts gelernt.</td><td><strong>Wissen aufgebaut.</strong></td></tr>
       </table>
 
-      <div class="prompt-block">Du bist mein Protokoll-Assistent.
-Aufgabe: Aus Stichpunkten, die ich dir gebe, machst du ein sauberes Besprechungsprotokoll.
-Aufbau: Datum und Teilnehmende, Themen, Entscheidungen, Aufgaben mit Wer und Bis wann.
-Regeln: Sprich mich mit Sie an. Erfinde nichts, was nicht in meinen Stichpunkten steht. Fehlt eine Angabe, schreib [fehlt]. Keine Einleitung, keine Nachbemerkung.
+    </div></section><section class="lektion" data-id="projekt" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="projekt">
+      <div class="exercise-number">Übung 9</div>
+      <h3>Ihr Projekt: der Assistent für Ihren Büroalltag</h3>
+      <p class="subtitle">Ein Projekt ist ein eigener Raum in ChatGPT: Ihre Dokumente liegen dort als feste Wissensbasis, und Ihre Anweisungen gelten in jedem neuen Chat darin. Nehmen Sie Ihre Kontextdokumente vom Vormittag. 25 Minuten.</p>
 
-Kontext über mich:
-[Fügen Sie hier Ihr Rollen-Dokument aus Übung 6 ein]</div>
+      <p class="step-label" style="margin-top:26px; font-size:0.8rem;">Schritt 1 &middot; Erst zuschauen</p>
+      <div class="magic-box" style="text-align:left; margin:10px 0 0;">
+        <div class="label">Demo</div>
+        <p style="margin:0;">Ich zeige es Ihnen zuerst einmal vor. <strong>Schauen Sie nur zu, noch nichts kopieren und nichts anlegen.</strong></p>
+      </div>
 
-      <p class="step-label">Schritt 3: Wissen</p>
-      <p><strong>Ohne Lizenz steckt das Wissen Ihres Agenten in den Anweisungen.</strong> Deshalb kommt Ihr Rollen-Dokument direkt in das Anweisungsfeld. Websuche oder bis zu vier öffentliche Websites gehen auch ohne Lizenz. Eigene Dateien hochladen geht nur, wenn Ihre IT das freigeschaltet hat.</p>
+      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin: 24px 0;">
+        <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Wo gilt was &middot; die drei Ebenen</div>
+        <svg viewBox="0 0 620 360" style="width:100%; display:block; margin:8px auto;" role="img" aria-label="Drei ineinanderliegende Ebenen: System-Prompt und allgemeine Wissensbasis gelten ueberall, Projekt-Anweisung und Projekt-Wissensbasis nur im Projekt, die aktuelle Nachricht nur in diesem Chat">
+          <rect x="8" y="8" width="604" height="344" rx="14" fill="rgba(212,160,23,0.05)" stroke="var(--gold)" stroke-opacity="0.55"/>
+          <text x="26" y="34" fill="var(--gold)" font-size="13" font-family="monospace" letter-spacing="1">GILT ÜBERALL, IN JEDEM CHAT</text>
+          <rect x="26" y="46" width="270" height="46" rx="8" fill="rgba(212,160,23,0.12)" stroke="var(--gold)" stroke-opacity="0.5"/>
+          <text x="40" y="66" fill="#f2e6c2" font-size="14" font-family="monospace">System-Prompt</text>
+          <text x="40" y="84" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">"Custom Instructions"</text>
+          <rect x="312" y="46" width="282" height="46" rx="8" fill="rgba(212,160,23,0.12)" stroke="var(--gold)" stroke-opacity="0.5"/>
+          <text x="326" y="66" fill="#f2e6c2" font-size="14" font-family="monospace">Allgemeine Wissensbasis</text>
+          <text x="326" y="84" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">was sich die KI über Sie merkt</text>
 
-      <p class="step-label">Schritt 4: Testen, dann speichern</p>
-      <p>Rechts unter <strong>Try it</strong> testen, dann <strong>Create</strong>.</p>
-      <div class="prompt-block">Stichpunkte: Teamrunde Dienstag, anwesend A, B, C. Budget Q4 besprochen. B klärt das Angebot bis Freitag. Messestand abgesagt.</div>
-      <p>Prüfen Sie: Hat der Agent etwas erfunden? Steht bei fehlenden Angaben [fehlt]?</p>
+          <rect x="34" y="112" width="552" height="160" rx="12" fill="rgba(212,160,23,0.06)" stroke="var(--gold)" stroke-opacity="0.75"/>
+          <text x="52" y="138" fill="var(--gold)" font-size="13" font-family="monospace" letter-spacing="1">GILT NUR IN DIESEM PROJEKT</text>
+          <rect x="52" y="150" width="244" height="46" rx="8" fill="rgba(212,160,23,0.16)" stroke="var(--gold)" stroke-opacity="0.6"/>
+          <text x="66" y="170" fill="#f2e6c2" font-size="14" font-family="monospace">Projekt-Prompt</text>
+          <text x="66" y="188" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">Ihre Anweisungen fürs Projekt</text>
+          <rect x="312" y="150" width="256" height="46" rx="8" fill="rgba(212,160,23,0.16)" stroke="var(--gold)" stroke-opacity="0.6"/>
+          <text x="326" y="170" fill="#f2e6c2" font-size="14" font-family="monospace">Projekt-Wissensbasis</text>
+          <text x="326" y="188" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">Ihre hochgeladenen Dokumente</text>
 
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Sie sehen kein „New agent“? Dann ist es bei Ihnen abgeschaltet oder noch nicht sichtbar. Schauen Sie bei der Vorführung zu und nehmen Sie die Vorlage für Ihre eigenen Anweisungen aus Übung 2.</p>
-      <p style="color: var(--gold); font-size: 0.9rem;">Wer Ihren Agenten nutzen darf, sieht auch alles, was darin steckt. Keine echten Namen, Zahlen oder Interna in die Anweisungen.</p>
-    </div></section><section class="lektion" data-id="kicheck-ende" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="kicheck-ende">
+          <rect x="60" y="212" width="500" height="46" rx="10" fill="rgba(212,160,23,0.22)" stroke="var(--gold)"/>
+          <text x="78" y="232" fill="var(--gold)" font-size="13" font-family="monospace" letter-spacing="1">GILT NUR IN DIESEM CHAT</text>
+          <text x="78" y="250" fill="#f2e6c2" font-size="14" font-family="monospace">das laufende Gespräch und Ihre aktuelle Nachricht</text>
+
+          <path d="M300 292 L300 330" stroke="var(--gold)" stroke-width="2"/>
+          <path d="M300 330 l-6 -9 h12 z" fill="var(--gold)"/>
+          <text x="316" y="318" fill="var(--gold)" font-size="13" font-family="monospace">je weiter innen, desto mehr Gewicht</text>
+        </svg>
+        <p style="color: var(--white-muted); font-size:0.85rem; margin-bottom:0;">Zwei Sachen folgen daraus. Was Sie im Projekt einstellen, gilt auch in jedem <strong>neuen</strong> Chat dieses Projekts, ohne dass Sie es wiederholen. Belegt ist: Die Projekt-Anweisung hat Vorrang vor Ihren allgemeinen Anweisungen. Als Faustregel gilt: je weiter innen, desto mehr Gewicht.</p>
+      </div>
+
+      <p class="step-label" style="margin-top:26px; font-size:0.8rem;">Schritt 2 &middot; Projekt anlegen</p>
+      <p><strong>1.</strong> Links in der Seitenleiste auf <strong>„Neues Projekt“</strong>. Name: „Mein Büroalltag“.</p>
+      <p><strong>2.</strong> Kopieren Sie Firma und Rolle vom Vormittag <strong>in eine einzige Datei</strong> und laden Sie nur diese ins Projekt hoch. Das ist die Wissensbasis.</p>
+      <p style="color: var(--gold); font-size: 0.85rem;">Das Gratiskonto erlaubt nur 3 Datei-Uploads pro Tag. Eine Datei statt zwei lässt Ihnen Luft für den Rest des Nachmittags.</p>
+      <p><strong>3.</strong> Im Projekt das Menü <strong>•••</strong> öffnen, dann <strong>Projekteinstellungen</strong>. Ins Feld für die Anweisungen kommt jetzt:</p>
+
+      <div class="magic-box" style="text-align:left; margin:10px 0 16px;">
+        <div class="label">Projekt-Anweisung zum Kopieren</div>
+        <div class="prompt-block" style="margin:0;">Du bist mein Assistent für KI im Büroalltag. Ich bin [Rolle] bei [Firma].
+
+Wissensbasis: Nutze immer meine hochgeladenen Dokumente über meine Firma und meine Rolle als festen Kontext. Wenn eine Antwort meinen Dokumenten widerspricht, sag es mir.
+
+Verhalten: Antworte auf Deutsch, in Sie-Form, konkret und knapp, mit klaren nächsten Schritten. Wenn dir Informationen fehlen, frag nach, bevor du rätst. Erfinde keine Zahlen, Namen oder Quellen.</div>
+      </div>
+      <p>Die [Klammern] schreiben Sie auf sich um, dann speichern. <strong>Er ist ein Beispiel, kein Rezept.</strong></p>
+
+      <p class="step-label" style="margin-top:26px; font-size:0.8rem;">Schritt 3 &middot; Testen, in einem neuen Chat im Projekt</p>
+      <div class="prompt-block">Was weißt du über meine Arbeit, und bei welchen drei Aufgaben diese Woche könntest du mir konkret helfen?</div>
+      <p>Prüfen Sie: Kennt der Assistent Ihre Firma und Rolle, ohne dass Sie etwas erklärt haben?</p>
+
+      <details>
+        <summary>Schritt 4 &middot; Die Farbe bleibt (wenn Sie schneller sind)</summary>
+        <div class="collapsible-content">
+          <p>Hausfarbe, Vorlage, Tonfall: Was die KI behalten soll, muss an einem Ort stehen, der bleibt. Probieren Sie es mit einer Farbe aus.</p>
+          <div class="prompt-block">Bau mir eine Folie als HTML: Überschrift „Unsere drei Ziele für 2027“, drei Punkte, Hausfarbe Weinrot #9B1828, Schrift Titillium Web.</div>
+          <p>Öffnen Sie jetzt einen <strong>neuen Chat im selben Projekt</strong> und bitten Sie um eine zweite Folie, ohne die Farbe zu nennen. Welche Farbe kommt?</p>
+          <p>Dann schreiben Sie die Farbe in die <strong>Projekt-Anweisung</strong>:</p>
+          <div class="prompt-block">Design: Hausfarbe Weinrot #9B1828, Schrift Titillium Web, weißer Hintergrund.</div>
+          <p>Neuer Chat, zweite Folie, wieder ohne Farbe. Jetzt bleibt sie.</p>
+          <p style="color: var(--gold); font-size: 0.85rem;">Was nur im Chat steht, kann bleiben, muss aber nicht. Verlässlich bleibt nur, was in der Anweisung steht.</p>
+        </div>
+      </details>
+    </div></section><section class="lektion" data-id="notebooklm" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="notebooklm">
+      <div class="exercise-number">Übung 10</div>
+      <h3>EU AI Act + Gemini Notebook</h3>
+      <p class="subtitle">Das zweite Werkzeug des Tages, und das einzige außer ChatGPT. Gemini Notebook antwortet nur aus den Quellen, die Sie hineinlegen. Sie brauchen dafür ein Google-Konto.</p>
+
+      <p class="step-label">Schritt 1: PDF herunterladen</p>
+      <p><a href="EU-AI-Act-DE.pdf" target="_blank" style="display:inline-block; background:rgba(212,160,23,0.12); border:1px solid rgba(212,160,23,0.3); padding:12px 20px; border-radius:8px; font-weight:600; color:var(--gold); margin: 8px 0;">EU AI Act (Deutsch) herunterladen</a></p>
+
+      <p class="step-label">Schritt 2: Gemini Notebook öffnen</p>
+      <p>Gehen Sie auf <strong><a href="https://notebooklm.google.com" target="_blank">notebooklm.google.com</a></strong>. Erstellen Sie ein neues Notizbuch. Laden Sie das PDF hoch.</p>
+
+      <p class="step-label">Schritt 3: Fragen stellen</p>
+      <div class="prompt-block">Was sind die wichtigsten Pflichten für Unternehmen laut diesem Gesetz?</div>
+      <div class="prompt-block">Welche KI-Systeme gelten als "hochriskant"? Nenne konkrete Beispiele aus dem Text.</div>
+      <div class="prompt-block">Was passiert, wenn ein Unternehmen gegen das Gesetz verstößt? Nenne die Strafen.</div>
+      <div class="prompt-block">Fasse die wichtigsten Punkte zusammen, die für ein mittelständisches Unternehmen in Österreich relevant sind. Max. 5 Bulletpoints.</div>
+      <p style="color: var(--gold); font-size: 0.85rem;">Achten Sie auf die Zitate (graue Ziffern) am Ende der Antworten. Gemini Notebook erfindet weniger, weil es sich an Ihre Quellen hält, aber nicht nichts. Klicken Sie auf eine Ziffer und prüfen Sie, ob die Stelle wirklich sagt, was in der Antwort steht.</p>
+
+      <p class="step-label">Schritt 3b: Persönlich machen</p>
+      <p>Laden Sie zusätzlich Ihr <strong>Kontextdokument vom Vormittag</strong> (Unternehmen oder Rolle) als zweite Quelle in dasselbe Notizbuch hoch. Jetzt kann Gemini Notebook beide Quellen gemeinsam lesen.</p>
+      <div class="prompt-block">Eine meiner Quellen beschreibt mein Unternehmen bzw. meine Rolle. Worauf muss ich in diesem Kontext laut EU AI Act besonders achten? Zitiere die relevanten Stellen.</div>
+      <div class="prompt-block">Könnte mein Unternehmen laut meiner Beschreibung ein "hochriskantes" KI-System im Sinne von Anhang III einsetzen oder planen? Begründe mit Zitat, und nenne die betroffene Kategorie.</div>
+      <p style="color: var(--gold); font-size: 0.85rem;">Der Unterschied zu vorhin: nicht mehr "was sagt das Gesetz allgemein", sondern "was heißt das Gesetz für mich".</p>
+
+
+      <p class="step-label">Schritt 4: In Gruppen, drei Werkstücke</p>
+      <p>Gemini Notebook kann aus Ihren Quellen selbst etwas bauen. Öffnen Sie im Notizbuch rechts das <strong>Studio</strong>. Jede Gruppe macht etwas anderes und zeigt es danach kurz her.</p>
+
+      <div class="role-grid">
+        <div class="role-card"><strong>Gruppe A &middot; Infografik</strong>Im Studio "Infografik" wählen. Eine Seite, die man in 30 Sekunden versteht.</div>
+        <div class="role-card"><strong>Gruppe B &middot; Mindmap</strong>Im Studio "Mindmap" wählen. Die Struktur des Gesetzes auf einen Blick.</div>
+        <div class="role-card"><strong>Gruppe C &middot; Karteikarten</strong>Im Studio "Lernhilfe" wählen. Karteikarten und Quizfragen zum Abfragen.</div>
+      </div>
+
+      <p class="step-label">Die Prompts dazu</p>
+      <div class="prompt-block">Bau mir eine Übersicht der Risikostufen aus diesem Gesetz: welche Stufe, was sie bedeutet, ein Beispiel dazu. So, dass eine Kollegin sie in 30 Sekunden versteht.</div>
+      <div class="prompt-block">Erstelle eine hierarchische Struktur des Gesetzes: die großen Blöcke, darunter die Unterpunkte, ohne Paragrafennummern.</div>
+      <div class="prompt-block">Mach mir Karteikarten zu den wichtigsten Begriffen und Fristen aus diesem Gesetz. Vorderseite Frage, Rückseite Antwort, maximal zwei Sätze.</div>
+
+      <p class="step-label">Schritt 5: Herzeigen</p>
+      <p>Jede Gruppe stellt ihr Werkstück in <strong>einem Satz</strong> vor: was haben wir gebaut, und wofür würde man es benutzen.</p>
+      <p style="color: var(--gold); font-size: 0.85rem;">Dieselbe Quelle, drei völlig verschiedene Ergebnisse. Nicht das Dokument entscheidet, was herauskommt, sondern das, was Sie bestellen.</p>
+
+    </div></section><section class="lektion" data-id="rag-vergleich" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="rag-vergleich">
+      <div class="exercise-number">Übung 11</div>
+      <h3>Mit Quelle, ohne Quelle: Gemini Notebook gegen ChatGPT</h3>
+      <p class="subtitle">Zwei Fenster, dieselbe Frage. Links antwortet ein Werkzeug aus Ihrer Quelle, rechts eines aus seinem Gedächtnis. 15 Minuten.</p>
+
+      <p class="step-label">Aufbau</p>
+      <p>Öffnen Sie <strong>zwei Fenster nebeneinander</strong>: links Ihr Gemini Notebook mit dem EU AI Act, rechts ein <strong>neuer Chat in ChatGPT, ohne Dokument</strong>. Stellen Sie beiden dieselbe Frage.</p>
+
+
+      <p class="step-label">Runde 1: Die Zahlen</p>
+      <div class="prompt-block">Wie hoch ist die maximale Geldbuße beim Verstoß gegen ein verbotenes KI-System (Artikel 5) laut EU AI Act?</div>
+      <div class="prompt-block">Ab wann gelten die Vorschriften zu verbotenen KI-Praktiken, und ab wann gilt die Verordnung vollständig?</div>
+      <div class="prompt-block">Zähl mir alle Bereiche auf, in denen KI-Systeme laut Anhang III als hochriskant gelten.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Vergleichen Sie: zitiert eine Antwort die genaue Textstelle, oder klingt sie nur selbstbewusst? Notieren Sie, wo die Antworten auseinandergehen.</p>
+
+      <p class="step-label">Runde 2: Eine Frage, die gar nicht im Dokument steht</p>
+      <p>Wieder dieselbe Frage in beide Fenster:</p>
+      <div class="prompt-block">Wie hoch war der Umsatz der Firma Huber Bürobedarf GmbH in Linz im Jahr 2025?</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Die Firma ist erfunden. Es gibt die Antwort nirgends.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Schauen Sie zuerst nach links, dann nach rechts. Achten Sie darauf, <strong>was jede Seite tut, wenn sie es nicht aus einer Quelle weiß</strong>: zugeben, suchen oder erfinden?</p>
+
+      <p class="step-label">Runde 3: Jetzt mit Quelle</p>
+      <p>Laden Sie das EU-AI-Act-PDF jetzt auch rechts in ChatGPT hoch und stellen Sie die Frage aus Runde 1 noch einmal. Was ändert sich?</p>
+
+      <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin: 24px 0;">
+        <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Mit Quelle und ohne Quelle</div>
+        <p style="color: var(--white-muted); font-size:0.88rem; margin-bottom:0;"><strong>Ohne Quelle</strong> antwortet die KI aus dem, was sie im Training gesehen hat, und klingt dabei immer gleich sicher. <strong>Mit Quelle</strong> sucht sie zuerst die passende Stelle in Ihrem Dokument und antwortet daraus. Fachleute nennen das RAG, abrufgestützte Antwort. Daran erkennen Sie es: an der Fundstelle. Gemini Notebook zeigt sie als graue Ziffer, auf die Sie klicken können.</p>
+      </div>
+
+      <p class="step-label">Die Frage an sich</p>
+      <div class="prompt-block">Woran erkenne ich, dass eine Antwort erfunden ist, auch wenn sie selbstbewusst klingt?</div>
+    </div></section><section class="lektion" data-id="assistent-agent" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="assistent-agent">
+      <div class="exercise-number">Info</div>
+      <h3>Assistent oder Agent?</h3>
+      <p class="subtitle">Ihr Projekt von vorhin ist ein Assistent. Ein Agent ist die nächste Stufe.</p>
+      <table class="compare-table">
+        <tr><th style="width:24%">Stufe</th><th>Was es tut</th><th style="width:26%">Heute</th></tr>
+        <tr><td><strong>Sprachmodell</strong></td><td>Sagt das wahrscheinlichste nächste Wort voraus.</td><td>Vormittag</td></tr>
+        <tr><td><strong>Assistent</strong> (Projekt)</td><td>Kennt Ihre Dokumente und Regeln, antwortet, wenn Sie fragen.</td><td>Nachmittag, Ihr Projekt</td></tr>
+        <tr><td><strong>Agent</strong></td><td>Erledigt Schritte selbst: sucht, klickt, füllt aus, entscheidet zwischendurch.</td><td>Vorführung</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.95rem;">Ein Assistent kann etwas Falsches sagen. Ein Agent kann etwas Falsches tun.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">In ChatGPT heißt das heute „Work“ und gibt es nur in bezahlten Plänen, deshalb sehen Sie es als Vorführung. Beim Agenten gilt noch strenger: Sie bleiben im Ablauf. Was Geld kostet, verschickt wird oder Daten preisgibt, bestätigen Sie selbst.</p>
+    </div></section><section class="lektion" data-id="kicheck-ende" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="kicheck-ende">
       <div class="exercise-number">Check</div>
       
       <h3>Ihr KI-Check, zweiter Durchgang</h3>
       <p class="subtitle">Dieselben Fragen wie heute Morgen. So messen wir, was Sie heute dazugelernt haben. Bitte denselben Vornamen wie am Morgen eintragen.</p>
-      <iframe id="GoogleForm-262631354150348-ende" src="https://docs.google.com/forms/d/e/1FAIpQLScWbKznFwcYeHRQdwUR3nSZ8Bca6yYK6ftaDvz2XSYxHE8jFA/viewform?embedded=true" title="KI-Check" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLScWbKznFwcYeHRQdwUR3nSZ8Bca6yYK6ftaDvz2XSYxHE8jFA/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
-    </div></section><section class="lektion" data-id="feedback" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="feedback">
+      <iframe id="GoogleForm-kicheck-ende" src="https://docs.google.com/forms/d/e/1FAIpQLSd8RkB6t82IgnYrq9vUoVUSKhi243oKTXO01DaZSTR8eANs_A/viewform?embedded=true" title="KI-Check" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8RkB6t82IgnYrq9vUoVUSKhi243oKTXO01DaZSTR8eANs_A/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div></section><section class="lektion" data-id="feedback" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="feedback">
       <div class="exercise-number">Feedback</div>
       
       <h3>Ihr Feedback zum Training</h3>
-      <p class="subtitle">Ein Formular für den ganzen Tag, bitte am Ende ausfüllen: Ihr Feedback zum Teil Recht (Manuel Modifian) und zum Teil KI-Praxis (Jakub Popluhar). Name und Firma sind freiwillig.</p>
-      <iframe id="GoogleForm-262705845415056" src="https://docs.google.com/forms/d/e/1FAIpQLSeiNo6y9SCnOlNgksU-ALcGmC4z2JuItUaoW7UUTo-_0uo_FA/viewform?embedded=true" title="Ihr Feedback zum Training" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeiNo6y9SCnOlNgksU-ALcGmC4z2JuItUaoW7UUTo-_0uo_FA/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
-    </div></section><section class="lektion" data-id="weiter" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="weiter">
+      <p class="subtitle">Zwei Minuten, ein Formular für den ganzen Tag. Wer schon zu Mittag geht, füllt es jetzt aus, alle anderen am Ende. Name und Firma sind freiwillig.</p>
+      <iframe id="GoogleForm-feedback-ende" src="https://docs.google.com/forms/d/e/1FAIpQLSfqZbj-vtV_6s0Hb95k8Wyb7B-u_HwvhRDXqkVoNcyaRzmejg/viewform?embedded=true" title="Ihr Feedback zum Training" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZbj-vtV_6s0Hb95k8Wyb7B-u_HwvhRDXqkVoNcyaRzmejg/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div></section><section class="lektion" data-id="weiter" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="weiter">
       <div class="exercise-number">Weiter</div>
-      
       <h3>Wie es weitergeht</h3>
-      <p class="subtitle">Danke für Ihr Feedback. Wenn Sie dranbleiben wollen: hier entlang.</p>
       <div style="text-align:center; margin: 24px 0; padding: 32px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
         <p style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; margin-bottom: 16px;">Das Training ist vorbei. Die Reise nicht.</p>
-        <a href="https://jakubpopluhar.com/weiter/?kurs=ars01102026" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; transition: all 0.2s; border: 2px solid var(--gold);">In Kontakt bleiben &rarr;</a>
-        <p style="margin-top:16px; font-size:0.85rem;"><a href="/ars01102026/ressourcen/" style="color:var(--gold);">Alle Werkzeuge und Quellen von heute &rarr;</a></p>
+        <a href="https://jakubpopluhar.com/weiter/?kurs=tt07102026" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; transition: all 0.2s; border: 2px solid var(--gold);">In Kontakt bleiben &rarr;</a>
+        <p style="margin-top:16px; font-size:0.85rem;"><a href="/tt07102026/ressourcen/" style="color:var(--gold);">Alle Werkzeuge und Quellen von heute &rarr;</a></p>
       </div>
-    </div></section><section class="lektion" data-id="datenanalyse" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="datenanalyse">
-      <div class="exercise-number">Bonus</div>
+    </div></section><section class="lektion" data-id="skills" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="skills">
+      <div class="exercise-number">Bonus · wenn Zeit bleibt</div>
+      <h3>Was ist ein Skill?</h3>
+      <p class="subtitle">Eine Anleitung, die sich die KI selbst aus der Schublade holt, sobald die Aufgabe passt.</p>
+
+      <p>Ein Skill ist ein aufgeschriebenes Vorgehen: was zu tun ist, in welcher Reihenfolge, nach welchen Regeln, mit welchen Vorlagen. Sie schreiben es einmal. Danach arbeitet die KI jedes Mal danach, ohne dass Sie es neu erklären. ChatGPT hat dafür eine Funktion <em>Skills</em> in bezahlten Firmenplänen. Im Gratiskonto nehmen wir die Projekt-Anweisung, sie leistet dasselbe für ein Projekt.</p>
+
+      <p class="step-label">Prompt, Projekt, Skill: der Unterschied</p>
+      <ul>
+        <li><strong>Prompt:</strong> gilt für diese eine Nachricht.</li>
+        <li><strong>Projekt-Anweisung (Ihr Projekt von vorhin):</strong> gilt für jeden Chat in diesem einen Projekt.</li>
+        <li><strong>Skill:</strong> gilt überall, wird aber nur geladen, wenn die Aufgabe dazu passt. Zehn Skills stören sich nicht gegenseitig.</li>
+      </ul>
+
+      <p class="step-label">Was drinsteht</p>
+      <ul>
+        <li><strong>Eine Beschreibung:</strong> wofür der Skill da ist und wann er greifen soll. Daran erkennt die KI, ob sie ihn braucht.</li>
+        <li><strong>Die Anleitung:</strong> Schritte, Regeln, was verboten ist.</li>
+        <li><strong>Material:</strong> Vorlagen, Beispiele, Ihr Firmendesign, bei Bedarf auch kleine Programme.</li>
+      </ul>
+
+      <p class="step-label">Beispiel: der Folien-Skill</p>
+      <p>Alles, was bei Folien immer wieder schiefgeht, lässt sich in einen Skill schreiben: „Nutze immer diese Vorlage. Nie Bilder statt Text. Höchstens drei Zeilen pro Folie. Keine Zahl ohne Quelle.“ Ab dann bekommen Sie beim Wort „Folie“ jedes Mal dieses Vorgehen, ohne es neu zu erklären.</p>
+
+      <p class="step-label">So fangen Sie an</p>
+      <p>Machen Sie eine Aufgabe einmal gründlich mit der KI. Wenn das Ergebnis stimmt, lassen Sie sich daraus die Anleitung schreiben:</p>
+      <div class="prompt-block">Wir haben gerade gemeinsam [Aufgabe] erledigt. Schreib daraus eine Anleitung, die eine KI beim nächsten Mal ohne Rückfrage befolgen kann:
+
+1. Zweck: wofür ist sie da, und bei welchen Anfragen soll sie greifen?
+2. Schritte: in welcher Reihenfolge?
+3. Regeln: was ist Pflicht, was ist verboten?
+4. Ein Beispiel für ein gutes Ergebnis.
+
+Kurz und klar, keine Einleitung.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Diese Anleitung ist der Kern jedes Skills. Auch ohne Skill-Funktion hilft sie: als Projekt-Prompt oder als Datei, die Sie am Anfang eines Chats hochladen.</p>
+    </div></section><section class="lektion" data-id="datenanalyse" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="datenanalyse">
+      <div class="exercise-number">Bonus · wenn Zeit bleibt</div>
       <h3>Datenanalyse: Rohdaten bereinigen lassen</h3>
-      <p class="subtitle">Eine Excel-Tabelle mit rund 1.000 Zeilen Finanzdaten, voller typischer Fehler. Copilot findet sie, räumt auf und dokumentiert, was er geändert hat. Erst zeige ich es vor, dann machen Sie es selbst.</p>
+      <p class="subtitle">Eine Excel-Tabelle mit rund 1.000 Zeilen Finanzdaten, voller typischer Fehler. ChatGPT findet sie, räumt auf und dokumentiert, was es geändert hat. Erst zeige ich es vor, dann machen Sie es selbst.</p>
+
+      <p style="color: var(--gold); font-size: 0.85rem;">Achtung: Der Excel-Upload zählt zu den 3 Uploads pro Tag im Gratiskonto. Ob ChatGPT Ihnen eine fertige Excel-Datei zurückgibt oder die Tabelle im Chat zeigt, hängt vom Konto ab.</p>
 
       <p class="step-label">Schritt 1: Beide Dateien herunterladen</p>
       <p>
@@ -1568,10 +1749,10 @@ Kontext über mich:
       </p>
 
       <p class="step-label">Schritt 2: Zuschauen</p>
-      <p>Ich mache die Übung einmal komplett vor. Achten Sie darauf, welche Fehler Copilot findet und wie er seine Entscheidungen begründet.</p>
+      <p>Ich mache die Übung einmal komplett vor. Achten Sie darauf, welche Fehler ChatGPT findet und wie es seine Entscheidungen begründet.</p>
 
       <p class="step-label">Schritt 3: Selbst machen</p>
-      <p>Öffnen Sie Copilot und laden Sie die Excel-Datei hoch. Dann den Prompt aus der Word-Datei einfügen oder direkt hier kopieren und absenden:</p>
+      <p>Öffnen Sie ChatGPT und laden Sie die Excel-Datei hoch. Dann den Prompt aus der Word-Datei einfügen oder direkt hier kopieren und absenden:</p>
       <div class="prompt-block">Analysiere das hochgeladene Excel-Sheet (nur Sheet 1) als Rohdatenblatt und erstelle daraus ein bereinigtes zweites Sheet mit hoher Datenqualität.
 
 Deine Aufgaben:
@@ -1615,8 +1796,8 @@ Wichtig:
 - Falls mehrere Bereinigungsoptionen möglich sind, wähle die fachlich sinnvollste und erkläre sie kurz.</div>
 
       <p class="step-label">Schritt 4: Nachprüfen</p>
-      <p>Glauben Sie der Zusammenfassung nicht blind. Nehmen Sie zwei Stichproben: Stimmt die Zahl der entfernten Zeilen? Und ist eine Spalte, die Copilot als „vereinheitlicht“ meldet, wirklich einheitlich? Sie bleiben verantwortlich für das Ergebnis, nicht die KI.</p>
-    </div></section><section class="lektion" data-id="ue7" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="ue7">
+      <p>Glauben Sie der Zusammenfassung nicht blind. Nehmen Sie zwei Stichproben: Stimmt die Zahl der entfernten Zeilen? Und ist eine Spalte, die ChatGPT als „vereinheitlicht“ meldet, wirklich einheitlich? Sie bleiben verantwortlich für das Ergebnis, nicht die KI.</p>
+    </div></section><section class="lektion" data-id="ue7" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="ue7">
       <div class="exercise-number">Bonus · wenn Zeit bleibt</div>
       <h3>Modelling of Excellence</h3>
       <p class="subtitle">Vom Hausarzt zum Spezialisten</p>
@@ -1637,7 +1818,7 @@ WICHTIG: Schreibe noch KEINE Lösung! Stelle mir stattdessen erst 3 bis 5 geziel
 2. ...
 
 Erstelle jetzt die Lösung basierend auf diesen Fakten. Nutze konsequent den Stil und die Strategien von [Name des Experten].</div>
-    </div></section><section class="lektion" data-id="ue8" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="ue8">
+    </div></section><section class="lektion" data-id="ue8" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="ue8">
       <div class="exercise-number">Bonus · wenn Zeit bleibt</div>
       <h3>Prompt Layering: Das "Tribunal"</h3>
       <p class="subtitle">a.k.a. Salami-Taktik. Kopieren Sie die Prompts nacheinander in denselben Chat.</p>
@@ -1674,7 +1855,7 @@ Schreibe dann die finale E-Mail an alle Mitarbeiter.
 - Nutze die starken Argumente des CEOs (Warum), adressiere ehrlich die Platzprobleme des Controllers (Wie) und nutze den empathischen Tonfall von HR.
 
 Die Mail soll professionell, motivierend und klar sein.</div>
-    </div></section><section class="lektion" data-id="ue6" data-teil="nm" data-teil-name="Nachmittag: Notizbücher &amp; Agenten" hidden><div class="exercise" data-ex="ue6">
+    </div></section><section class="lektion" data-id="ue6" data-teil="nm" data-teil-name="Nachmittag: Projekte, Quellen &amp; Recht" hidden><div class="exercise" data-ex="ue6">
       <div class="exercise-number">Bonus</div>
       <h3>KI-Werkstatt: Ihr eigenes Problem lösen</h3>
       <p class="subtitle">Jetzt arbeiten Sie an einem echten Pain Point aus Ihrem Arbeitsalltag. Kollegen aus der gleichen Firma: arbeiten Sie zusammen!</p>
@@ -1729,7 +1910,7 @@ Typische Texte: Mandantenmails, Fristerinnerungen, Unterlagenanforderungen, inte
       <details>
         <summary>Schritt 2: Lösung bauen mit CITE (aufklappen wenn bereit)</summary>
         <div class="collapsible-content">
-          <p>Nutzen Sie Ihr <strong>Kontextdokument vom Vormittag</strong> aus Übung 6:</p>
+          <p>Nutzen Sie Ihr <strong>Kontextdokument vom Vormittag</strong>, oder arbeiten Sie gleich in Ihrem Projekt:</p>
           <div class="prompt-block">Kontext: [Fügen Sie Ihr Unternehmens-Dokument vom Vormittag ein]
 
 Ziel: Eine konkrete, umsetzbare Lösung für folgendes Problem: [Ihr Problem]
@@ -1758,8 +1939,8 @@ Ausführung: Tabellenformat, klare Sprache, sofort umsetzbar. Kein Fachjargon.</
 </div>
 <div class="nav"><div class="nav-innen"><button class="knopf" id="prev" type="button">← Zurück</button><button class="knopf los" id="next" type="button">Erledigt, weiter →</button></div></div>
 <script>
-const M = [{"id": "kicheck", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check"}, {"id": "split", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Trick", "opt": false, "titel": "Den Bildschirm teilen"}, {"id": "copilot-start", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Info", "opt": false, "titel": "Copilot Chat öffnen"}, {"id": "ue0", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "1", "art": "Übung", "opt": false, "titel": "Die Namensliste"}, {"id": "anweisungen", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "2", "art": "Übung", "opt": false, "titel": "Ihre eigenen Anweisungen: einmal sagen, immer gültig"}, {"id": "gedaechtnis", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "3", "art": "Übung", "opt": false, "titel": "Was weißt du über mich?"}, {"id": "ue1", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "4", "art": "Übung", "opt": false, "titel": "Prompten: Homeoffice-Regelung"}, {"id": "ue2", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "5", "art": "Übung", "opt": false, "titel": "CITE(R) Framework: Jetzt sind Sie dran!"}, {"id": "promptkatalog", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Trick", "opt": false, "titel": "Gute Prompts speichern und teilen"}, {"id": "pii", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Takeaway", "opt": false, "titel": "Kurz vorher: die 3-Sekunden-Regel"}, {"id": "arbeitsalltag", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Umfrage", "opt": false, "titel": "Ihr Arbeitsalltag"}, {"id": "ue3", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "6", "art": "Übung", "opt": false, "titel": "Ihre KI-Wissensbasis aufbauen"}, {"id": "formate", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "7", "art": "Übung", "opt": false, "titel": "Welches Format versteht die Maschine?"}, {"id": "ue4", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "8", "art": "Übung", "opt": false, "titel": "Die Flughöhe"}, {"id": "feedback-vm", "teil": "vm", "teilname": "Vormittag: Copilot Chat & Prompten", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Training"}, {"id": "split-nm", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Trick", "opt": false, "titel": "Kurz vorher: Bildschirm wieder teilen"}, {"id": "agent", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "9", "art": "Übung", "opt": false, "titel": "Ihr erster „Agent“"}, {"id": "kicheck-ende", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check, zweiter Durchgang"}, {"id": "feedback", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Training"}, {"id": "weiter", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Weiter", "opt": false, "titel": "Wie es weitergeht"}, {"id": "datenanalyse", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Bonus", "opt": false, "titel": "Datenanalyse: Rohdaten bereinigen lassen"}, {"id": "ue7", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Bonus", "opt": true, "titel": "Modelling of Excellence"}, {"id": "ue8", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Bonus", "opt": true, "titel": "Prompt Layering: Das \"Tribunal\""}, {"id": "ue6", "teil": "nm", "teilname": "Nachmittag: Notizbücher & Agenten", "nr": "", "art": "Bonus", "opt": false, "titel": "KI-Werkstatt: Ihr eigenes Problem lösen"}];
-const KOHORTE = 'ars-01-10';
+const M = [{"id": "kicheck", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check"}, {"id": "split", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "", "art": "Trick", "opt": false, "titel": "Den Bildschirm teilen"}, {"id": "chatgpt-start", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "", "art": "Info", "opt": false, "titel": "ChatGPT öffnen"}, {"id": "ue0", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "1", "art": "Übung", "opt": false, "titel": "Die Namensliste"}, {"id": "anweisungen", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "2", "art": "Übung", "opt": false, "titel": "Ihre eigenen Anweisungen: einmal sagen, immer gültig"}, {"id": "kontextfenster", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "", "art": "Info", "opt": false, "titel": "Das Kontextfenster: Alles wird jedes Mal gelesen"}, {"id": "gedaechtnis", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "3", "art": "Übung", "opt": false, "titel": "Was weißt du über mich?"}, {"id": "erinnerung", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "", "art": "Info", "opt": false, "titel": "Wie sich ChatGPT an Sie erinnert"}, {"id": "ue1", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "4", "art": "Übung", "opt": false, "titel": "Prompten: Homeoffice-Regelung"}, {"id": "ue2", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "5", "art": "Übung", "opt": false, "titel": "CITE(R) Framework: Jetzt sind Sie dran!"}, {"id": "pii", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "", "art": "Takeaway", "opt": false, "titel": "Kurz vorher: die 3-Sekunden-Regel"}, {"id": "arbeitsalltag", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "", "art": "Umfrage", "opt": false, "titel": "Ihr Arbeitsalltag"}, {"id": "ue3", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "6", "art": "Übung", "opt": false, "titel": "Ihre KI-Wissensbasis aufbauen"}, {"id": "formate", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "7", "art": "Übung", "opt": false, "titel": "Welches Format versteht die Maschine?"}, {"id": "feedback-vm", "teil": "vm", "teilname": "Vormittag: ChatGPT & Prompten", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Training"}, {"id": "split-nm", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "", "art": "Trick", "opt": false, "titel": "Kurz vorher: Bildschirm wieder teilen"}, {"id": "ue4", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "8", "art": "Übung", "opt": false, "titel": "Flughöhe, Lieferant oder Tutor"}, {"id": "projekt", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "9", "art": "Übung", "opt": false, "titel": "Ihr Projekt: der Assistent für Ihren Büroalltag"}, {"id": "notebooklm", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "10", "art": "Übung", "opt": false, "titel": "EU AI Act + Gemini Notebook"}, {"id": "rag-vergleich", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "11", "art": "Übung", "opt": false, "titel": "Mit Quelle, ohne Quelle: Gemini Notebook gegen ChatGPT"}, {"id": "assistent-agent", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "", "art": "Info", "opt": false, "titel": "Assistent oder Agent?"}, {"id": "kicheck-ende", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check, zweiter Durchgang"}, {"id": "feedback", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Training"}, {"id": "weiter", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "", "art": "Weiter", "opt": false, "titel": "Wie es weitergeht"}, {"id": "skills", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "", "art": "Bonus", "opt": true, "titel": "Was ist ein Skill?"}, {"id": "datenanalyse", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "", "art": "Bonus", "opt": true, "titel": "Datenanalyse: Rohdaten bereinigen lassen"}, {"id": "ue7", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "", "art": "Bonus", "opt": true, "titel": "Modelling of Excellence"}, {"id": "ue8", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "", "art": "Bonus", "opt": true, "titel": "Prompt Layering: Das \"Tribunal\""}, {"id": "ue6", "teil": "nm", "teilname": "Nachmittag: Projekte, Quellen & Recht", "nr": "", "art": "Bonus", "opt": false, "titel": "KI-Werkstatt: Ihr eigenes Problem lösen"}];
+const KOHORTE = 'tt07102026';
 const SPEICHER = 'kurs.' + KOHORTE;
 const S = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
             set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
