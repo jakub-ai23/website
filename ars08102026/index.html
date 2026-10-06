@@ -105,7 +105,8 @@
         var rest = start - Date.now();
         if (rest <= 0) {
           popis.textContent = 'Das E-Learning ist geöffnet';
-          wert.textContent = 'Bitte laden Sie die Seite neu.';
+          wert.innerHTML = '<a href="kurs.html" style="color:inherit">Zum E-Learning →</a>';
+          location.replace('kurs.html');
           return;
         }
         var min = Math.floor(rest / 60000);

@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Übungen & Prompts: KI Workflows erstellen und effizienter arbeiten</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <!-- ERZEUGT von personal-drafts/elearning-prototypen/_build_kurs.py aus uebungen-lang.html.
+       Inhalt dort aendern, dann neu bauen. Nicht hier von Hand pflegen. -->
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* HEADER */
+    .site-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+
+    .logo { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: var(--white); text-decoration: none; }
+    .logo:hover { color: var(--white); }
+    .logo span { color: var(--gold); }
+
+    .back-link {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    /* MAIN */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero p { font-size: 0.95rem; color: var(--white-muted); }
+
+    /* SECTION DIVIDERS */
+    .section-divider {
+      text-align: center;
+      margin: 56px 0 40px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* EXERCISE CARDS */
+    .exercise {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .exercise-number {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .exercise h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .exercise .subtitle {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .exercise p, .exercise li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .exercise ul, .exercise ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .exercise li { margin-bottom: 6px; }
+
+    /* PROMPT BLOCKS (copyable) */
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      margin: 14px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: pre-line;
+    }
+
+    .prompt-block:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    .prompt-block::after {
+      content: 'Kopieren';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover::after { opacity: 1; }
+
+    .prompt-block.copied::after {
+      content: 'Kopiert!';
+      opacity: 1;
+    }
+
+    /* CONTEXT BLOCKS */
+    .context-block {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 14px 0;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+    }
+
+    .context-block strong { color: var(--white); }
+
+    /* STEP LABELS */
+    .step-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin: 18px 0 6px;
+    }
+
+    /* Unterschritt: gehoert zu keinem CITE-Buchstaben */
+    .sub-step {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 20px 0 6px;
+      padding-left: 12px;
+      border-left: 2px solid rgba(255,255,255,0.2);
+    }
+
+    /* COMPARISON TABLE */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.82rem;
+    }
+
+    .compare-table th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .compare-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+    }
+
+    /* ROLE CARDS (for Task Force) */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .role-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.82rem;
+    }
+
+    .role-card strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-size: 0.78rem;
+    }
+
+    /* MAGIC FORMULA */
+    .magic-box {
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 14px 0;
+      text-align: center;
+    }
+
+    .magic-box .label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 20px 24px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* COLLAPSIBLE SECTIONS */
+    details {
+      margin: 14px 0;
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details summary {
+      padding: 14px 18px;
+      background: rgba(212, 160, 23, 0.06);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    details summary:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: '+';
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    details .collapsible-content {
+      padding: 16px 18px;
+      border-top: 1px solid rgba(212, 160, 23, 0.1);
+    }
+
+    details .collapsible-content p,
+    details .collapsible-content li {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: var(--white-muted);
+    }
+
+    details .collapsible-content strong {
+      color: var(--white);
+    }
+
+    /* FLOAT ANIMATION */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* TAB SWITCHER */
+    .tab-switcher {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--charcoal-light);
+      border: none;
+      color: var(--white-muted);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:first-child { border-right: 1px solid rgba(212, 160, 23, 0.3); }
+
+    .tab-btn.active {
+      background: rgba(212, 160, 23, 0.12);
+      color: var(--gold);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: var(--charcoal-lighter);
+      color: var(--white);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* LAYOUT WITH SIDEBAR */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+    }
+
+    /* SIDEBAR NAV */
+    .sidebar-nav {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.06);
+      border-left-color: var(--gold);
+    }
+
+    .sidebar-nav .nav-section-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 12px 14px 4px;
+      opacity: 0.7;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .sidebar-nav a {
+        padding: 8px 12px;
+        font-size: 0.72rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 6px;
+        background: var(--charcoal-light);
+      }
+
+      .sidebar-nav a:hover,
+      .sidebar-nav a.active {
+        border-left: none;
+        border-bottom-color: var(--gold);
+      }
+
+      .sidebar-nav .nav-section-label {
+        width: 100%;
+        padding: 8px 0 2px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      main { padding: 32px 16px 64px; }
+      .exercise { padding: 22px 18px; }
+      .prompt-block { padding: 14px 14px; }
+      .role-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 0.75rem; }
+      .compare-table td, .compare-table th { padding: 8px; }
+    }
+
+    /* HIERARCHIE-STACK (System-Prompt vs. Projekt vs. Chat) */
+    .hierarchy-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 14px 0 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.25);
+    }
+    .hierarchy-level {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+    }
+    .hierarchy-level:last-child { border-bottom: none; }
+    .hierarchy-level .h-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+    .hierarchy-level .h-desc {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+    }
+    .hierarchy-level.l1 { background: rgba(212, 160, 23, 0.03); padding-left: 18px; }
+    .hierarchy-level.l2 { background: rgba(212, 160, 23, 0.06); padding-left: 32px; }
+    .hierarchy-level.l3 { background: rgba(212, 160, 23, 0.10); padding-left: 46px; }
+    .hierarchy-level.l4 { background: rgba(212, 160, 23, 0.14); padding-left: 60px; }
+
+    /* LLM-Karten (Start hier) */
+    .llm-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 560px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Zwei Spalten: selbst ausfuellen vs. fertiges Beispiel */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 14px 0;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+    .col-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .two-col .prompt-block { margin-top: 0; }
+    .llm-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .llm-card .llm-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .llm-card .llm-browser {
+      display: block;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #141414;
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 13px 16px;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+    .llm-card .llm-browser:hover,
+    .llm-card .llm-browser:focus { filter: brightness(1.08); }
+    .llm-apps summary {
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      list-style-position: inside;
+    }
+    .llm-apps[open] summary { margin-bottom: 8px; }
+    .llm-card .llm-stores {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .llm-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      flex: 1;
+      justify-content: center;
+      min-height: 40px;
+    }
+    .llm-store-btn:hover,
+    .llm-store-btn:focus {
+      border-color: var(--gold);
+      background: rgba(212, 160, 23, 0.08);
+      color: var(--white);
+    }
+    .llm-store-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .llm-store-btn .store-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      align-items: flex-start;
+    }
+    .llm-store-btn .store-meta small {
+      font-size: 0.62rem;
+      color: var(--white-muted);
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+    .llm-store-btn .store-meta strong {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    @media (max-width: 600px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+    /* ===== LIVE-LEISTE "Jetzt im Raum" (2026-09-30) =====
+       Der Trainer setzt den Abschnitt, die Seite fragt alle 5 Sekunden nach.
+       Ohne Verbindung bleibt die Leiste einfach weg, die Seite funktioniert wie vorher. */
+    .live-leiste {
+      position: sticky;
+      top: var(--kopf-h, 70px);
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 9px 24px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+      color: var(--charcoal);
+    }
+    .live-leiste[hidden] { display: none; }
+    .live-leiste.neu { animation: live-neu 1.2s ease-out; }
+    @keyframes live-neu { 0% { filter: brightness(1.45); } 100% { filter: none; } }
+    .live-inhalt { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
+    .live-marke { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; opacity: 0.75; }
+    .live-text { font-weight: 600; font-size: 0.92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .live-dorthin {
+      flex: 0 0 auto;
+      background: var(--charcoal);
+      color: var(--gold-light);
+      border: 0;
+      border-radius: 99px;
+      padding: 8px 16px;
+      font: 600 0.8rem var(--font-body);
+      cursor: pointer;
+    }
+    .live-dorthin:hover { color: var(--white); }
+    .sidebar-nav { top: calc(var(--kopf-h, 70px) + var(--leiste-h, 0px) + 10px); }
+    .exercise { scroll-margin-top: calc(var(--kopf-h, 70px) + var(--leiste-h, 0px) + 14px); }
+    .exercise.jetzt-im-raum { position: relative; border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+    .exercise.jetzt-im-raum::before {
+      content: 'Jetzt im Raum';
+      position: absolute;
+      top: -11px;
+      right: 18px;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 99px;
+    }
+    .sidebar-nav a.jetzt-im-raum { color: var(--gold); }
+    .sidebar-nav a.jetzt-im-raum::after { content: ' ●'; font-size: 0.6rem; }
+    @media (max-width: 500px) {
+      .live-leiste { padding: 8px 16px; gap: 10px; }
+      .live-text { font-size: 0.86rem; }
+      .live-dorthin { padding: 8px 13px; }
+    }
+  
+
+body{margin:0}
+.player{display:grid;grid-template-columns:320px 1fr;min-height:100vh}.player>*{min-width:0}
+.v-logo{display:block;background:#fff;padding:8px 12px;border-radius:6px;max-width:170px;width:100%;box-sizing:border-box;margin:12px 0 14px}
+/* Logoreihe: Veranstalter links, JP-Monogramm rechts daneben, beide gleich hoch (Symmetrieregel). */
+.logos{display:flex;align-items:center;gap:12px;margin:12px 0 14px}
+.logos .v-logo{margin:0;width:auto;height:46px;max-width:170px;object-fit:contain}
+.logos .t-logo{display:block;height:46px;width:auto}
+.side{border-right:1px solid rgba(255,255,255,.08);padding:20px 16px 40px;position:sticky;top:0;height:100vh;overflow:auto;background:rgba(255,255,255,.02)}
+.side .zurueck{font-size:.78rem;color:var(--white-muted);text-decoration:none;display:inline-block;margin-bottom:14px}
+.side .zurueck:hover{color:var(--gold)}
+.side h1{font-family:var(--font-heading);font-size:1rem;margin:0 0 4px;line-height:1.35}
+.side .sub{color:var(--white-muted);font-size:.78rem;margin-bottom:14px}
+.balken{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}.balken i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.stand{font-size:.75rem;color:var(--white-muted);margin:6px 0 10px}
+.teil{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:18px 6px 8px}
+.zeile{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;cursor:pointer;font-size:.86rem;line-height:1.35;color:var(--white);text-decoration:none}
+.zeile:hover{background:rgba(255,255,255,.05);color:var(--white)}.zeile.aktiv{background:rgba(212,160,23,.12)}
+.zeile .n{flex:0 0 26px;font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700;text-align:right}
+.zeile .lab{flex:0 0 auto;align-self:center;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--white-muted);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:1px 5px;margin-left:0}
+.zeile.art-uebung{font-weight:500}
+.zeile .t{flex:1;min-width:0}
+.zeile .opt{color:var(--white-muted);font-size:.72rem;display:block;font-weight:400}
+.zeile .ck{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);margin-top:1px}
+.zeile.erledigt .ck{background:var(--gold);border-color:var(--gold)}.zeile.erledigt .t{color:var(--white-muted)}
+.zeile .jetzt{display:none;font-size:.56rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;background:var(--gold);color:#141414;border-radius:99px;padding:2px 6px;align-self:center}
+.zeile.im-raum .jetzt{display:inline-block}
+/* margin:0 ist Pflicht: das Seiten-CSS gibt <main> "margin:0 auto", und ein Rasterelement
+   mit auto-Rand schrumpft nicht mit. Auf 390 px stand es dann 551 px breit. */
+.main{margin:0;padding:0 56px 130px;max-width:900px;overflow-wrap:anywhere}
+.kopfzeile{padding-top:34px}
+.crumb{color:var(--white-muted);font-size:.8rem;margin-bottom:6px}
+.main h2.lektion-titel{font-family:var(--font-heading);font-size:1.9rem;margin:6px 0 16px;line-height:1.25}
+.tag{display:inline-block;font-size:.66rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,160,23,.4);color:var(--gold);margin-right:6px}
+.tag.leise{border-color:rgba(255,255,255,.25);color:var(--white-muted)}
+.lektion .exercise{background:none;border:0;padding:0;margin:0;box-shadow:none}
+.lektion .exercise > .exercise-number{display:none}
+.lektion .exercise > h3:first-of-type{display:none}
+.lektion table{display:block;overflow-x:auto;max-width:100%}
+.lektion img{max-width:100%}
+.prompt-block.copied{outline:2px solid var(--gold)}
+/* Die Leiste geht über die ganze Breite, die Knöpfe stehen in derselben Spalte wie der Inhalt.
+   Vorher standen sie bei Vollbild an den äußersten Bildschirmrändern (Commander 06.10.). */
+.nav{position:fixed;bottom:0;left:320px;right:0;padding:14px 0;background:rgba(20,20,20,.96);border-top:1px solid rgba(255,255,255,.08);z-index:15}
+.nav-innen{display:flex;justify-content:space-between;gap:10px;max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.knopf{border:1px solid rgba(255,255,255,.2);background:none;color:var(--white);padding:12px 22px;border-radius:8px;font:600 .92rem var(--font-body);cursor:pointer}
+.knopf:disabled{opacity:.35;cursor:default}
+.knopf.los{background:var(--gold);color:#141414;border-color:var(--gold)}
+.schublade{display:none}
+/* Live-Leiste im Player */
+.live-leiste{position:sticky;top:0;z-index:12;display:flex;align-items:center;gap:14px;margin:0 -56px;padding:10px 56px;background:linear-gradient(90deg,var(--gold-dark),var(--gold));color:var(--charcoal)}
+.live-leiste[hidden]{display:none}
+.live-leiste.neu{animation:live-neu 1.2s ease-out}
+@keyframes live-neu{0%{filter:brightness(1.45)}100%{filter:none}}
+.live-inhalt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.live-marke{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.75}
+.live-text{font-weight:600;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live-dorthin{flex:0 0 auto;background:var(--charcoal);color:var(--gold-light);border:0;border-radius:99px;padding:8px 16px;font:600 .8rem var(--font-body);cursor:pointer}
+.live-dorthin[hidden]{display:none}
+.live-hier{flex:0 0 auto;font-size:.75rem;font-weight:700}
+@media(max-width:860px){
+ .player{grid-template-columns:1fr}
+ .side{position:fixed;inset:0;z-index:30;height:auto;transform:translateX(-100%);transition:transform .25s;background:#161616}
+ .side.offen{transform:none}
+ .side .schliessen{display:block}
+ .schublade{display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:20;background:#141414;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+ .main{padding:0 16px 110px}
+ .kopfzeile{padding-top:18px}
+ .live-leiste{top:var(--schublade-h,57px);margin:0 -16px;padding:8px 16px;gap:10px}
+ .live-text{font-size:.86rem}
+ .nav{left:0;padding:12px 0}.nav-innen{padding:0 16px}.knopf{padding:12px 14px}
+ .main h2.lektion-titel{font-size:1.45rem}
+}
+.side .schliessen{display:none;float:right;background:none;border:0;color:var(--white-muted);font-size:1.4rem;cursor:pointer;line-height:1}
+/* Seitenleiste einklappbar (Desktop), wie bei ChatGPT/Claude. Zu bleibt eine 56-px-Schiene
+   mit dem Knopf. Auf dem Handy gilt weiter die Schublade, deshalb nur ab 861 px. */
+.leiste-knopf{float:right;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin:-6px -4px 0 8px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:none;color:var(--white-muted);cursor:pointer;padding:0}
+.leiste-knopf:hover{color:var(--gold);border-color:rgba(212,160,23,.5)}
+.leiste-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(min-width:861px){
+ .player{transition:grid-template-columns .2s ease}
+ /* Inhalt mittig in der Spalte, sonst klebt er bei Vollbild links und rechts bleibt die Hälfte leer. */
+ .main{width:100%;justify-self:center}
+ body.leiste-zu .player{grid-template-columns:56px 1fr}
+ body.leiste-zu .side{padding:16px 10px;overflow:hidden}
+ body.leiste-zu .side > *:not(.leiste-knopf){display:none}
+ body.leiste-zu .leiste-knopf{float:none;margin:0}
+ body.leiste-zu .leiste-knopf svg{transform:scaleX(-1)}
+ body.leiste-zu .main{width:100%;justify-self:center}
+ body.leiste-zu .nav{left:56px}
+ .nav{transition:left .2s ease}
+}
+@media(max-width:860px){.leiste-knopf{display:none}}
+.side .kontakt{margin-top:28px;padding:14px 8px 0;border-top:1px solid rgba(255,255,255,.08);font-size:.78rem;color:var(--white-muted);line-height:1.6}
+.side .kontakt a{color:var(--white-muted)}.side .kontakt a:hover{color:var(--gold)}
+/* Upload-Kasten (Bild landet in Jakubs Google Drive, nur er sieht es) */
+.upload-kasten{border:1px solid rgba(212,160,23,.45);background:rgba(212,160,23,.05);border-radius:12px;padding:20px;margin:22px 0}
+.upload-kasten h4{font-family:var(--font-heading);font-size:1.05rem;margin:0 0 6px;color:var(--white)}
+.upload-kasten .hinweis{font-size:.82rem;color:var(--white-muted);margin:0 0 14px}
+.upload-kasten .reihe{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.upload-kasten input[type=text]{flex:1 1 180px;min-width:0;background:#1f1f1f;border:1px solid rgba(255,255,255,.15);border-radius:8px;color:var(--white);padding:11px 12px;font:400 .92rem var(--font-body)}
+.upload-kasten .waehlen{flex:0 0 auto}
+.upload-kasten input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.upload-kasten ul{list-style:none;padding:0;margin:12px 0 0;font-size:.85rem}
+.upload-kasten li{padding:6px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:10px;align-items:center}
+.upload-kasten li .st{margin-left:auto;font-weight:600;white-space:nowrap}
+.upload-kasten li.ok .st{color:#6fae5f}.upload-kasten li.fehler .st{color:#e07a6a}
+.upload-kasten li .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+</style>
+  <link rel="stylesheet" href="quiz/quiz.css">
+</head>
+<body>
+<div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Inhalt</button><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
+<div class="player">
+  <aside class="side" id="side">
+    <button class="schliessen" id="schliessen" type="button" aria-label="Inhalt schließen">×</button>
+    <button class="leiste-knopf" id="leisteKnopf" type="button" aria-label="Seitenleiste einklappen" aria-expanded="true" title="Seitenleiste ein- und ausklappen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/><path d="M15 10l-2 2 2 2"/></svg></button>
+    <a href="https://jakubpopluhar.com" class="zurueck">jakubpopluhar.com</a>
+    <div class="logos"><img class="t-logo" src="jp-logo.png" alt="Jakub Popluhar"></div>
+    <h1>KI Workflows erstellen und effizienter arbeiten</h1>
+    <div class="sub">ARS Akademie · 08.10.2026</div>
+    <div class="balken"><i id="balken"></i></div>
+    <div class="stand" id="stand"></div>
+    <div class="teil">09:00 Ankommen und wie die Maschine denkt</div><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Ihr KI-Check</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#aufgabe" data-id="aufgabe"><span class="lab">Start</span><span class="t">Ihre wiederkehrende Aufgabe</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#split" data-id="split"><span class="lab">Trick</span><span class="t">Den Bildschirm teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#werkzeug" data-id="werkzeug"><span class="lab">Info</span><span class="t">Ihr KI-Werkzeug öffnen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue1" data-id="ue1"><span class="n">1</span><span class="t">Die Namensliste</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kontextfenster" data-id="kontextfenster"><span class="lab">Info</span><span class="t">Das Kontextfenster: Alles wird jedes Mal gelesen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><div class="teil">10:15 Prompten wie ein Profi</div><a class="zeile art-uebung" href="#ue2" data-id="ue2"><span class="n">2</span><span class="t">Flughöhe, Lieferant oder Tutor</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue3" data-id="ue3"><span class="n">3</span><span class="t">Die Reise mit CITE(R)</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#pii" data-id="pii"><span class="lab">Takeaway</span><span class="t">Die 3-Sekunden-Regel und welches Konto</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#formate" data-id="formate"><span class="lab">Info</span><span class="t">Welches Format versteht die Maschine?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><div class="teil">11:30 Vom Projekt zum Skill</div><a class="zeile art-uebung" href="#s1" data-id="s1"><span class="n">4</span><span class="t">Ihr Projekt: die Basis für Ihren Skill</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#prosa" data-id="prosa"><span class="lab">Info</span><span class="t">Skript gegen Prosa: Bitte oder Regel?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#skill-entsteht" data-id="skill-entsteht"><span class="lab">Info</span><span class="t">Wovon entsteht ein Skill?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#skill-wohnt" data-id="skill-wohnt"><span class="lab">Info</span><span class="t">Wo Ihr Skill wohnt</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#notizbuch" data-id="notizbuch"><span class="lab">Info</span><span class="t">Notizbuch oder Agent in Copilot?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><div class="teil">13:30 Ihr eigener Skill, Agenten</div><a class="zeile art-uebung" href="#s2" data-id="s2"><span class="n">5</span><span class="t">Ihr Skill für Ihre wiederkehrende Aufgabe</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#agent" data-id="agent"><span class="lab">Info</span><span class="t">Was heißt hier Agent?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><div class="teil">14:45 Skills finden, Routinen</div><a class="zeile" href="#skills-finden" data-id="skills-finden"><span class="lab">Info</span><span class="t">Wo findet man Skills?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#s3" data-id="s3"><span class="n">6</span><span class="t">Ihr Skill nach Wahl</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#briefing" data-id="briefing"><span class="n">7</span><span class="t">Ihr Briefing als Routine</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#automationen" data-id="automationen"><span class="lab">Info</span><span class="t">Welche Automationen ich nutze</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><div class="teil">16:00 Version 2 und Abschluss</div><a class="zeile art-uebung" href="#v2" data-id="v2"><span class="n">8</span><span class="t">Version 2</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#karte" data-id="karte"><span class="lab">Vorlage</span><span class="t">Ihre Skill-Karte</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Check</span><span class="t">Ihr KI-Check, zweiter Durchgang</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback" data-id="feedback"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Training</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#zeit" data-id="zeit"><span class="lab">Nach dem Training</span><span class="t">Wie viel Zeit spart Ihnen Ihr Skill?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a>
+    <div class="kontakt">Fragen nach dem Kurs:<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br><a href="tel:+436641386498">+43 664 138 64 98</a></div>
+  </aside>
+  <main class="main">
+    <div class="live-leiste" id="live-leiste" hidden aria-live="polite">
+      <div class="live-inhalt"><span class="live-marke">Jetzt im Raum</span><span class="live-text" id="live-text"></span></div>
+      <button type="button" class="live-dorthin" id="live-dorthin">Dorthin</button>
+      <span class="live-hier" id="live-hier" hidden>Sie sind hier</span>
+    </div>
+    <div class="kopfzeile"><div class="crumb" id="crumb"></div><div id="tags"></div><h2 class="lektion-titel" id="ttl"></h2></div>
+    <section class="lektion" data-id="kicheck" data-teil="b1" data-teil-name="09:00 Ankommen und wie die Maschine denkt" hidden><div class="exercise" data-ex="kicheck">
+      <div class="exercise-number">Check</div>
+      <h3>Ihr KI-Check</h3>
+      <p class="subtitle">Kein Test, eine Standortbestimmung. Bitte wählen Sie bei „Durchgang“ jetzt <strong>Morgen</strong>. Am Ende des Tages füllen Sie denselben Fragebogen noch einmal aus. Es gibt keine falschen Antworten.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Ihr Kürzel: Vorname und erster Buchstabe des Nachnamens, zum Beispiel „Anna M.“. Am Schluss bitte genau gleich schreiben.</p>
+      <iframe id="GoogleForm-kicheck" src="https://docs.google.com/forms/d/e/1FAIpQLSfpQRr2jvRIFLK3PtH386bv5MXxDfsJrnqhPhmMOQqYJZtWVg/viewform?embedded=true" title="KI-Check" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://forms.gle/QNSigDxm2Prxetiq8" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div></section><section class="lektion" data-id="aufgabe" data-teil="b1" data-teil-name="09:00 Ankommen und wie die Maschine denkt" hidden><div class="exercise" data-ex="aufgabe">
+      <div class="exercise-number">Start</div>
+      <h3>Ihre wiederkehrende Aufgabe</h3>
+      <p class="subtitle">Ein Satz genügt. Daraus wird heute Ihr erster eigener Skill. 3 Minuten.</p>
+      <table class="compare-table">
+        <tr><th style="width:42%">Frage</th><th>Ihre Antwort, auf Papier oder in einer Notiz</th></tr>
+        <tr><td>Welche Aufgabe kommt immer wieder?</td><td>zum Beispiel ein Bericht, eine Prüfung, eine Antwort</td></tr>
+        <tr><td>Wie oft?</td><td>pro Woche, pro Monat oder pro Jahr</td></tr>
+        <tr><td>Wie lange dauert sie heute?</td><td>Minuten, geschätzt genügt</td></tr>
+        <tr><td>Welches KI-Werkzeug dürfen Sie dafür nutzen?</td><td>Firmenkonto oder privat</td></tr>
+      </table>
+      <p class="step-label">Was Sie mir vorab geschrieben haben</p>
+      <p>Fünf Antworten, ohne Namen. Erkennen Sie Ihren Fall?</p>
+      <table class="compare-table">
+        <tr><th style="width:72%">Fall</th><th>Werkzeug</th></tr>
+        <tr><td>Organigramm und Kalender aus einer Excel-Liste, Folien aus einer Vorgabe</td><td>ChatGPT, Copilot</td></tr>
+        <tr><td>Zwei Listen abgleichen, Berichtstexte mit einem Agenten, Fragebögen für Ratings</td><td>Copilot</td></tr>
+        <tr><td>Eingereichte Texte nach Kriterien prüfen, passende Zeitschrift vorschlagen</td><td>Claude</td></tr>
+        <tr><td>Berichte aus vielen Unterlagen, Recruiting</td><td>ChatGPT</td></tr>
+        <tr><td>Förderungen recherchieren und Änderungen melden</td><td>Copilot</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.9rem;">Fünf Fälle, ein Muster: wiederkehrende Arbeit in einem festen Format. Dafür sind Skills da.</p>
+    </div></section><section class="lektion" data-id="split" data-teil="b1" data-teil-name="09:00 Ankommen und wie die Maschine denkt" hidden><div class="exercise" data-ex="split">
+      <div class="exercise-number">Trick</div>
+      <h3>Den Bildschirm teilen</h3>
+      <p class="subtitle">Der wichtigste Handgriff des Tages, er dauert zehn Sekunden. Links die Folien, rechts dieses E-Learning und Ihr KI-Werkzeug.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Online dabei? Die Videokonferenz läuft bei Ihnen zusätzlich. Am besten auf einem zweiten Gerät, sonst als drittes Fenster.</p>
+      <p class="step-label">Mac</p>
+      <p>Den <strong>grünen Knopf</strong> links oben im Fenster <strong>gedrückt halten</strong>, nicht klicken. Es erscheinen zwei Hälften. Die gewünschte Hälfte anklicken, dann aus der Liste das zweite Fenster wählen.</p>
+      <p class="step-label">Windows</p>
+      <p>Fenster anklicken, dann <strong>Windows-Taste + Pfeil links</strong>. Das Fenster springt in die linke Hälfte, Windows zeigt die übrigen Fenster zur Auswahl für rechts. Das zweite Fenster anklicken.</p>
+      <p style="color: var(--white-muted); font-size:0.85rem;">Wenn gar nichts klappt: Fenster mit der Maus an den linken oder rechten Bildschirmrand ziehen, bis eine Hälfte aufleuchtet, loslassen.</p>
+    </div></section><section class="lektion" data-id="werkzeug" data-teil="b1" data-teil-name="09:00 Ankommen und wie die Maschine denkt" hidden><div class="exercise" data-ex="werkzeug">
+      <div class="exercise-number">Info</div>
+      <h3>Ihr KI-Werkzeug öffnen</h3>
+      <p class="subtitle">Sie arbeiten heute mit dem Werkzeug, das Sie auch im Büro nutzen dürfen. Setzen Sie sich zu den Kolleginnen und Kollegen mit demselben Werkzeug: Dann helfen Sie sich bei den Klickwegen.</p>
+      <div class="llm-grid">
+        <div class="llm-card"><div class="llm-name">Microsoft Copilot</div><a class="llm-browser" href="https://m365.cloud.microsoft" target="_blank" rel="noopener">Im Browser öffnen →</a></div>
+        <div class="llm-card"><div class="llm-name">ChatGPT</div><a class="llm-browser" href="https://chatgpt.com" target="_blank" rel="noopener">Im Browser öffnen →</a></div>
+        <div class="llm-card"><div class="llm-name">Claude</div><a class="llm-browser" href="https://claude.ai" target="_blank" rel="noopener">Im Browser öffnen →</a></div>
+        <div class="llm-card"><div class="llm-name">Gemini</div><a class="llm-browser" href="https://gemini.google.com" target="_blank" rel="noopener">Im Browser öffnen →</a></div>
+      </div>
+      <p class="step-label">Welchen Copilot haben Sie?</p>
+      <p>Unten links auf m365.cloud.microsoft, unter Ihrem Namen, steht Ihre Lizenz.</p>
+      <table class="compare-table">
+        <tr><th style="width:30%">Stufe</th><th>Was das heißt</th></tr>
+        <tr><td>Copilot Chat (Basic)</td><td>Kostenlos mit dem Arbeitskonto. Chat, Gedächtnis, Notizbücher, einfache Agenten.</td></tr>
+        <tr><td>M365 Copilot (Basic)</td><td>Zwischenstufe, der Umfang hängt vom Vertrag Ihrer Firma ab.</td></tr>
+        <tr><td>M365 Copilot (Premium)</td><td>Bezahlte Lizenz. Zusätzlich Copilot in Word, Excel, Outlook und Teams, greift auf Mails, Chats und Dateien zu.</td></tr>
+      </table>
+      <p class="step-label">Schnell oder gründlich</p>
+      <p>Die meisten Werkzeuge lassen Sie wählen, wie lange die KI nachdenkt, je nach Werkzeug als Regler, Modus oder Modellwahl. Die Regel: normal anfangen, auf gründlich stellen, wenn die Antwort zu flach ist.</p>
+    </div></section><section class="lektion" data-id="ue1" data-teil="b1" data-teil-name="09:00 Ankommen und wie die Maschine denkt" hidden><div class="exercise" data-ex="ue1">
+      <div class="exercise-number">Übung 1</div>
+      <h3>Die Namensliste</h3>
+      <p class="subtitle">Derselbe Prompt bei allen, und ein Blick zum Nachbarn. Achten Sie nicht darauf, ob die Namen stimmen, sondern welche kommen. 5 Minuten.</p>
+      <p class="step-label">Schritt 1: Neuer Chat, dieser Prompt</p>
+      <div class="prompt-block">Erstelle mir eine Liste von 10 Mitarbeitern einer fiktiven Firma in Österreich.
+Vorname, Nachname, Abteilung.</div>
+      <p class="step-label">Schritt 2: Vergleichen</p>
+      <p>Vor Ort zeigen Sie Ihre Liste dem Nachbarn, online posten Sie Ihre 10 Nachnamen in den Chat. Wie viele Ihrer Nachnamen stehen auch auf einer anderen Liste?</p>
+      <p class="step-label">Schritt 3: Im selben Chat weiter</p>
+      <div class="prompt-block">Gleiche Aufgabe, aber die Firma ist in Deutschland.</div>
+      <details>
+        <summary>Auflösung (erst aufklappen, wenn Sie verglichen haben)</summary>
+        <div class="collapsible-content">
+          <p style="color: var(--gold); font-size: 0.9rem;">Die KI hat sich diese Namen nicht ausgedacht. Sie hat ausgerechnet, welche Namen am häufigsten vorkommen. Deshalb steht neben Ihnen fast dieselbe Liste.</p>
+        </div>
+      </details>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">So sieht es aus, wenn es geklappt hat: Ihre Liste und die Ihres Nachbarn überschneiden sich deutlich. Online: „Namen fertig“ in den Chat.</p>
+    </div></section><section class="lektion" data-id="kontextfenster" data-teil="b1" data-teil-name="09:00 Ankommen und wie die Maschine denkt" hidden><div class="exercise" data-ex="kontextfenster">
+      <div class="exercise-number">Info</div>
+      <h3>Das Kontextfenster: Alles wird jedes Mal gelesen</h3>
+      <p class="subtitle">Bevor die KI antwortet, liest sie den ganzen Chat noch einmal: Ihre Anweisungen, alle bisherigen Nachrichten, alle Antworten, Ihre neue Nachricht.</p>
+      <p>20 Nachrichten in einem Chat sind kein Problem. Erst ein Chat über mehrere Tage oder mit sehr langen Dokumenten füllt das Fenster. Dann gerät der Anfang aus dem Blick, ohne Hinweis.</p>
+      <table class="compare-table">
+        <tr><th style="width:34%">Regel</th><th>Warum</th></tr>
+        <tr><td>Ein Chat über Tage ist oft suboptimal</td><td>Altes Gerede kostet Platz und lenkt die Antwort ab.</td></tr>
+        <tr><td>Neues Thema, neuer Chat</td><td>Ein frischer Chat liest nur, was zur Aufgabe gehört.</td></tr>
+        <tr><td>Wichtiges nach vorne</td><td>Was immer gelten soll, gehört in die Anweisungen, ins Projekt oder in einen Skill, nicht in Nachricht 1.</td></tr>
+        <tr><td>Löschen hilft nicht</td><td>Alte Chats zu löschen entlastet den laufenden Chat nicht. Ein neuer Chat schon.</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.9rem;">Ein langer Chat wird nicht klüger, sondern vergesslicher. Und lange Chats verbrauchen mehr von Ihrem Kontingent.</p>
+      <p style="color: var(--white-muted); font-size: 0.78rem;">ChatGPT-Gratiskonto: Kontextfenster 27K Token (OpenAI-Preisseite, abgerufen 04.10.2026). Gemini mit Google AI Pro: 1 Mio. Token (Google-Hilfeseite, 30.09.2026).</p>
+    </div></section><section class="lektion" data-id="ue2" data-teil="b2" data-teil-name="10:15 Prompten wie ein Profi" hidden><div class="exercise" data-ex="ue2">
+      <div class="exercise-number">Übung 2</div>
+      <h3>Flughöhe, Lieferant oder Tutor</h3>
+      <p class="subtitle">Die Stufe stellen Sie ein, nicht die KI. Und die KI kann Sie ausfragen, statt Ihnen nur zu liefern. Genau so bauen wir heute Ihre Skills. 15 Minuten.</p>
+      <p class="step-label">Schritt 1: Die Flughöhe</p>
+      <img src="balmer-formel.png" alt="Formel" style="display:block; width:100%; max-width:360px; margin:16px auto; border-radius:8px;">
+      <div class="prompt-block">Erklär mir diese Formel, als wäre ich eine Fachkraft mit einem PhD in Physik:
+
+ν̄ = R · (1/2² − 1/n²)</div>
+      <div class="prompt-block">Und jetzt noch einmal dieselbe Formel, als wäre ich 10 Jahre alt.</div>
+      <p class="step-label">Schritt 2: Lieferant oder Tutor</p>
+      <table class="compare-table">
+        <tr><th></th><th>Der Lieferant</th><th>Der Tutor</th></tr>
+        <tr><td><strong>Wunsch</strong></td><td>„Ich muss schnell wissen, was 20 auf Englisch heißt.“</td><td>„Ich will verstehen, wie die englischen Zahlen funktionieren.“</td></tr>
+        <tr><td><strong>Nutzen</strong></td><td>Eine Antwort.</td><td><strong>Wissen aufgebaut.</strong></td></tr>
+      </table>
+      <div class="prompt-block">Du bist mein Englischlehrer. Bring mir bei, wie man auf Englisch zählt. Gib mir nicht sofort die Lösung, sondern erkläre mir die Regel und lass mich üben.</div>
+      <p class="step-label">Schritt 3: Die magische Formel</p>
+      <p>Hängen Sie diesen Satz an einen beliebigen Auftrag an:</p>
+      <div class="prompt-block">Bevor du antwortest: Stelle mir 3 bis 5 gezielte Fragen, um meine Situation besser zu verstehen. Warte mit dem Entwurf, bis ich geantwortet habe.</div>
+      <p style="color: var(--gold); font-size: 0.9rem;">Der Tutor fragt Sie aus. So entsteht nachher Ihr Skill: Die KI fragt, Sie antworten, sie schreibt es auf.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">So sieht es aus, wenn es geklappt hat: zwei völlig verschiedene Erklärungen derselben Formel, und eine KI, die Ihnen Fragen stellt. Online: „Tutor fertig“ in den Chat.</p>
+    </div></section><section class="lektion" data-id="ue3" data-teil="b2" data-teil-name="10:15 Prompten wie ein Profi" hidden><div class="exercise" data-ex="ue3">
+      <div class="exercise-number">Übung 3</div>
+      <h3>Die Reise mit CITE(R)</h3>
+      <p class="subtitle">Kurze Nachrichten, jede legt eine Schicht drauf. Mittendrin ändert sich etwas, danach ändert es sich zurück. Um die Reise geht es nicht. 25 Minuten.</p>
+      <table class="compare-table">
+        <tr><th style="width:30%">Baustein</th><th>Frage</th></tr>
+        <tr><td><strong>C</strong> = Context</td><td>Was ist die Ausgangssituation?</td></tr>
+        <tr><td><strong>I</strong> = Intent</td><td>Was genau will ich erreichen?</td></tr>
+        <tr><td><strong>T</strong> = Task</td><td>Was soll die KI machen?</td></tr>
+        <tr><td><strong>E</strong> = Execution</td><td>Wie soll sie es machen? (Format, Ton, Länge)</td></tr>
+        <tr><td><strong>R</strong> = Reality</td><td>Stimmt das Ergebnis? Was muss ich prüfen?</td></tr>
+      </table>
+      <p class="step-label">Schritt 1 (T = Task): Nur die Aufgabe</p>
+      <div class="two-col">
+        <div><div class="col-label">Ihre eigene Reise</div><div class="prompt-block">Plane mir eine Reise nach ________.</div></div>
+        <div><div class="col-label">Falls Inspiration fehlt:</div><div class="prompt-block">Plane mir eine Reise nach München.</div></div>
+      </div>
+      <p class="step-label">Schritt 2 (C = Context): Wer fährt mit</p>
+      <div class="prompt-block">Wir sind 4 Erwachsene.</div>
+      <p class="sub-step">Dazwischen: Es ändert sich etwas</p>
+      <div class="prompt-block">Es sind doch nicht 4 Erwachsene. Wir sind 2 Erwachsene und 2 Kinder, 6 und 9 Jahre alt. Wie würdest du die Reise umplanen?</div>
+      <p class="sub-step">Dazwischen: Stopp, nicht weitertippen</p>
+      <p>Die Kinder kommen doch nicht mit. <strong>Was machen Sie jetzt?</strong> Überlegen Sie kurz, bevor Sie aufklappen.</p>
+      <details>
+        <summary>Erst überlegen, dann hier aufklappen</summary>
+        <div class="collapsible-content">
+          <div class="prompt-block">Vergiss die letzte Nachricht. Es bleibt doch bei 4 Erwachsenen ohne Kinder. Plane zurück auf den Stand davor.</div>
+          <p style="color: var(--white-muted); font-size:0.85rem;">Gelöscht ist nichts. Die Nachricht steht weiter da und die KI liest sie mit. Sie haben ihr nur gesagt, wie sie damit umgehen soll.</p>
+        </div>
+      </details>
+      <p class="step-label">Schritt 3 (I = Intent): Das Ziel nachschieben</p>
+      <div class="prompt-block">Ziel: Ich will am Ende einen Plan, den ich genau so weiterschicken kann, ohne etwas nachzubessern.</div>
+      <p class="step-label">Schritt 4 (E = Execution): Die Ausführung nachschieben</p>
+      <div class="prompt-block">Format: Tag für Tag, pro Tag höchstens drei Zeilen. Max. 300 Wörter. Keine Einleitung, keine Nachbemerkung.</div>
+      <p class="step-label">Schritt 5 (R = Reality): Die KI prüft sich selbst</p>
+      <div class="prompt-block">Prüfe deinen eigenen Plan: Was davon ist unsicher, veraltet oder nur geraten? Markiere es und sag mir, was ich selbst nachprüfen muss.</div>
+      <p style="color: var(--gold); font-size: 0.9rem;">Diesen Chat nicht schließen. Er wird heute Nachmittag ein Skill.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">So sieht es aus, wenn es geklappt hat: ein Plan in Ihrem Format, mit markierten Stellen zum Nachprüfen. Online: „Reise fertig“ in den Chat.</p>
+    </div></section><section class="lektion" data-id="pii" data-teil="b2" data-teil-name="10:15 Prompten wie ein Profi" hidden><div class="exercise" data-ex="pii">
+      <div class="exercise-number">Takeaway</div>
+      <h3>Die 3-Sekunden-Regel und welches Konto</h3>
+      <p>Drei Sekunden, bevor Sie Enter drücken:</p>
+      <ul>
+        <li><strong>Namen</strong> raus. Aus Frau Gruber wird „eine Kollegin aus dem Einkauf“.</li>
+        <li><strong>Zahlen</strong> raus. Aus 47.500 Euro wird „ein mittlerer fünfstelliger Betrag“.</li>
+        <li><strong>Strategien und Interna</strong> raus. Abstrahieren, nicht abschreiben.</li>
+      </ul>
+      <p class="step-label">Und eine Frage dazu: Wem gehört das Konto?</p>
+      <table class="compare-table">
+        <tr><th style="width:26%">Konto</th><th>Was hinein darf</th></tr>
+        <tr><td>Firmenkonto</td><td>Firmendokumente, soweit Ihre Firma es freigibt.</td></tr>
+        <tr><td>Privates Abo, auch Plus und Pro</td><td>Keine Angebote, Verträge, Manuskripte oder Kundendaten.</td></tr>
+        <tr><td>Gratiskonto</td><td>Zum Üben und für Öffentliches. Nur abstrahierte Beispiele, Training ausschalten.</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.9rem;">Firmendokumente gehören ins Firmenkonto, nie ins private Abo.</p>
+    </div></section><section class="lektion" data-id="formate" data-teil="b2" data-teil-name="10:15 Prompten wie ein Profi" hidden><div class="exercise" data-ex="formate">
+      <div class="exercise-number">Info</div>
+      <h3>Welches Format versteht die Maschine?</h3>
+      <p class="subtitle">Inhalt vor Aussehen. Farbe, verbundene Zellen und Textfelder helfen dem Auge. Für die Maschine sind sie Lärm.</p>
+      <table class="compare-table">
+        <tr><th>Gebaut, um gelesen zu werden</th><th>Gebaut, um angeschaut zu werden</th></tr>
+        <tr><td>1 Markdown, reiner Text</td><td>5 Word mit echten Überschriften</td></tr>
+        <tr><td>2 CSV</td><td>6 Excel als saubere Tabelle</td></tr>
+        <tr><td>3 HTML</td><td>7 PowerPoint</td></tr>
+        <tr><td>4 JSON</td><td>8 PDF mit Textebene · 9 PDF als Scan oder Foto</td></tr>
+      </table>
+      <ul>
+        <li><strong>Farbe ist keine Information.</strong> Heißt Rot „dringend“, sieht die Maschine kein „dringend“. Machen Sie eine Spalte daraus.</li>
+        <li><strong>Eine Zeile, ein Datensatz.</strong> Sobald eine Tabelle als Zeichenfläche benutzt wird, fällt sie auseinander.</li>
+      </ul>
+      <p style="color: var(--gold); font-size: 0.9rem;">HTML trägt Farbe und Form. Das brauchen Sie gleich.</p>
+    </div></section><section class="lektion" data-id="s1" data-teil="b3" data-teil-name="11:30 Vom Projekt zum Skill" hidden><div class="exercise" data-ex="s1">
+      <div class="exercise-number">Übung 4</div>
+      <h3>Ihr Projekt: die Basis für Ihren Skill</h3>
+      <p class="subtitle">Erst sehen Sie, wie die KI etwas vergisst. Dann geben Sie ihr einen festen Raum mit vier Angaben, in dem sie es nicht mehr vergisst. 30 Minuten.</p>
+      <p class="step-label">Schritt 1: Eine PowerPoint-Folie mit Hausfarbe</p>
+      <div class="prompt-block">Erstelle mir eine PowerPoint-Folie (.pptx): Überschrift „Unsere drei Ziele für 2027“, drei kurze Punkte, Hausfarbe Dunkelblau #003366 für Überschrift und Linien, Schrift Arial, weißer Hintergrund.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Erzeugt Ihr Werkzeug keine PowerPoint-Datei, nehmen Sie den Rückfall: „Bau mir die Folie als HTML“, Code kopieren, als folie.html speichern und im Browser öffnen.</p>
+      <p class="step-label">Schritt 2: Neuer Chat, ohne Farbe</p>
+      <div class="prompt-block">Erstelle mir eine PowerPoint-Folie (.pptx): Überschrift „Was wir im ersten Quartal ändern“, drei kurze Punkte.</div>
+      <p>Welche Farbe kommt? Online in den Chat: „blau“ oder „andere“. <strong>Warum?</strong> Behalten Sie Ihre Antwort, wir lösen gleich auf.</p>
+      <p class="step-label">Schritt 3: Vier Angaben, die KI fragt Sie</p>
+      <p>Kein Firmendokument nötig. Neuer Chat:</p>
+      <div class="prompt-block">Du bist mein Tutor. Ich will eine Projekt-Anweisung für meine Arbeit schreiben. Frag mich nacheinander, immer nur eine Frage:
+1. Meine Rolle und für wen ich schreibe.
+2. Mein Format: Wie sollen meine Berichte, Folien oder Mails aussehen?
+3. Mein Hausstil: Farbe, Schrift, Länge, Anrede.
+4. Meine Regeln: Was gilt immer, was darf nie passieren?
+Fass danach alles als Projekt-Anweisung zusammen, höchstens 150 Wörter.</div>
+      <p class="step-label">Schritt 4: Projekt anlegen, Anweisung einfügen</p>
+      <p>Diese Vorlage können Sie statt Schritt 3 auch direkt ausfüllen:</p>
+      <div class="prompt-block">Du bist mein Assistent für [Aufgabe]. Ich bin [Rolle]. Halte dich bei jeder Datei an meinen Hausstil: [Farbe, Schrift, Länge]. Mein Format: [Aufbau]. Regeln: [immer / nie].
+Fehlt dir etwas, frag nach. Bestätige am Ende in einer Zeile: Hausstil eingehalten.</div>
+      <table class="compare-table">
+        <tr><th style="width:26%">Werkzeug</th><th>Wo die Anweisung hinkommt</th></tr>
+        <tr><td>ChatGPT</td><td>Seitenleiste „Neues Projekt“, dann ••• → Projekteinstellungen, Feld für die Anweisungen</td></tr>
+        <tr><td>Claude</td><td>Ein Projekt anlegen und die Anweisung in die Projekt-Anweisungen einfügen</td></tr>
+        <tr><td>Copilot</td><td>Einen Agenten anlegen und die Anweisung in die Anweisungen einfügen (siehe „Notizbuch oder Agent“)</td></tr>
+        <tr><td>Gemini</td><td>Einen Gem anlegen und die Anweisung dort einfügen</td></tr>
+      </table>
+      <p class="step-label">Schritt 5: Test, neuer Chat im Projekt</p>
+      <div class="prompt-block">Erstelle mir eine PowerPoint-Folie (.pptx): Überschrift „Was wir im ersten Quartal ändern“, drei kurze Punkte.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">So sieht es aus, wenn es geklappt hat: Die Folie ist dunkelblau, und am Ende steht die Bestätigungszeile. Online: „Projekt fertig“ in den Chat.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Die Frage, die offen bleibt: Ist die Farbe jetzt sicher, oder nur wahrscheinlicher?</p>
+    </div></section><section class="lektion" data-id="prosa" data-teil="b3" data-teil-name="11:30 Vom Projekt zum Skill" hidden><div class="exercise" data-ex="prosa">
+      <div class="exercise-number">Info</div>
+      <h3>Skript gegen Prosa: Bitte oder Regel?</h3>
+      <p class="subtitle">Dieselbe Folie, dreimal. Eine Bitte kann man überlesen, eine Codezeile nicht.</p>
+      <table class="compare-table">
+        <tr><th style="width:24%">Wie</th><th>Was mit der Farbe passiert</th></tr>
+        <tr><td>1 Gebeten</td><td>Im Chat gesagt. Neuer Chat: Farbe weg.</td></tr>
+        <tr><td>2 Aufgeschrieben</td><td>In der Projekt-Anweisung oder im Skill. Hält meistens, die KI liest mit und kann überlesen.</td></tr>
+        <tr><td>3 Im Code</td><td>Ein Skill mit Skript: Die Farbe steht in der Datei. Kann nicht vergessen werden.</td></tr>
+      </table>
+      <p class="step-label">Die Leiter: Wer sorgt dafür, dass es passiert?</p>
+      <table class="compare-table">
+        <tr><th style="width:24%">Sprosse</th><th>Was es heißt</th></tr>
+        <tr><td>1 Bitte</td><td>Sie sagen es, jedes Mal.</td></tr>
+        <tr><td>2 Aufgeschrieben</td><td>Die KI liest mit und kann überlesen.</td></tr>
+        <tr><td>3 Geprüft</td><td>Ein Prüfpunkt: Die KI oder jemand hakt ab.</td></tr>
+        <tr><td>4 Eingebaut</td><td>Die Regel steckt im Material, zum Beispiel eine Vorlage, die schon blau ist.</td></tr>
+        <tr><td>5 Automatisch</td><td>Ein Skript oder eine Maschine erledigt es.</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.9rem;">Steht „immer“ oder „nie“ davor und ist ein Fehler teuer, darf es keine Bitte bleiben.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem;">Anthropic: „instructions for flexible guidance, code for reliability“ (Plattformdoku Agent Skills, abgerufen 06.10.2026).</p>
+      <p class="step-label">Dasselbe an Daten: zwei Listen, neue Nummern</p>
+      <p>Alte und neue Excel-Liste, die IDs haben sich geändert, die Inhalte teilweise nicht.</p>
+      <div class="two-col">
+        <div><div class="col-label">Als Bitte (rät)</div><div class="prompt-block">Lies beide Listen und ordne die Einträge einander zu.</div></div>
+        <div><div class="col-label">Als Regel (prüfbar)</div><div class="prompt-block">Schreib mir eine Excel-Formel, die die Einträge der beiden Listen nach ihrem Text zuordnet, und markiere alle unsicheren Treffer, damit ich nur diese prüfen muss.</div></div>
+      </div>
+      <p style="color: var(--gold); font-size: 0.9rem;">Die KI schreibt die Regel. Die Regel macht die Arbeit.</p>
+    </div></section><section class="lektion" data-id="skill-entsteht" data-teil="b3" data-teil-name="11:30 Vom Projekt zum Skill" hidden><div class="exercise" data-ex="skill-entsteht">
+      <div class="exercise-number">Info</div>
+      <h3>Wovon entsteht ein Skill?</h3>
+      <p class="subtitle">Ein Skill ist eine Anleitung als Datei, die die KI aufruft, sobald Ihre Anfrage dazu passt.</p>
+      <table class="compare-table">
+        <tr><th style="width:30%">Woraus</th><th>Wie</th></tr>
+        <tr><td>Aus einer Aufgabe</td><td>die Sie schon mehrmals gleich erklärt haben</td></tr>
+        <tr><td>Aus einem gelungenen Chat</td><td>„Schreib daraus eine Anleitung, die eine KI beim nächsten Mal ohne Rückfrage befolgen kann.“</td></tr>
+        <tr><td>Aus einem Gespräch</td><td>„Ich möchte einen Skill für …“ Die KI fragt, baut, Sie speichern.</td></tr>
+      </table>
+      <p class="step-label">Die Vorstufen</p>
+      <table class="compare-table">
+        <tr><th style="width:30%">Stufe</th><th>Wo es gilt</th></tr>
+        <tr><td>Prompt</td><td>nur in diesem Chat</td></tr>
+        <tr><td>Anweisungen in den Einstellungen</td><td>in jedem Chat</td></tr>
+        <tr><td>Projekt mit Anweisung und Angaben</td><td>in jedem Chat dieses Projekts</td></tr>
+        <tr><td>Skill</td><td>sobald er passt, und er zieht in andere Werkzeuge um</td></tr>
+      </table>
+      <p class="step-label">Was in einem Skill steht</p>
+      <ul>
+        <li><strong>Name</strong>, kurz, zum Beispiel „statusbericht“</li>
+        <li><strong>Beschreibung:</strong> was der Skill tut und <strong>wann</strong> er greift</li>
+        <li><strong>Anleitung:</strong> Schritte, Regeln, ein Beispiel</li>
+        <li><strong>Prüfpunkt:</strong> was vor der Ausgabe kontrolliert und bestätigt wird</li>
+        <li>optional Vorlagen und Skripte</li>
+      </ul>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Ein offener Standard: dieselbe Datei lässt sich in Claude, Gemini, Copilot und ChatGPT hochladen, wo das Konto Skills hat.</p>
+    </div></section><section class="lektion" data-id="skill-wohnt" data-teil="b3" data-teil-name="11:30 Vom Projekt zum Skill" hidden><div class="exercise" data-ex="skill-wohnt">
+      <div class="exercise-number">Info</div>
+      <h3>Wo Ihr Skill wohnt</h3>
+      <p class="subtitle">In der Reihenfolge, in der die Werkzeuge im Raum sind. Was bei Ihnen geht, hängt vom Konto ab.</p>
+      <table class="compare-table">
+        <tr><th style="width:28%">Ihr Werkzeug</th><th>Wo der Skill wohnt</th><th>Hinweis</th></tr>
+        <tr><td>Copilot mit Premium-Lizenz</td><td>Skill</td><td>Copilot baut den Skill und führt ihn aus (getestet 06.10.2026)</td></tr>
+        <tr><td>Copilot ohne Lizenz</td><td>Agent mit Anweisungen</td><td>Copilot erzeugt hier nur eine .md-Datei. Deren Text kommt in die Anweisungen eines Agenten.</td></tr>
+        <tr><td>ChatGPT mit Firmenlizenz</td><td>Skill, sonst Projekt</td><td>laut Hersteller in Firmenplänen</td></tr>
+        <tr><td>ChatGPT Plus oder gratis</td><td>Projekt-Anweisung</td><td>geht immer</td></tr>
+        <tr><td>Claude</td><td>Skill</td><td>Datei- und Code-Ausführung muss eingeschaltet sein</td></tr>
+        <tr><td>Gemini, privates Konto</td><td>Skill</td><td>laut Hersteller</td></tr>
+      </table>
+      <p class="step-label">Rückfall, geht in jedem Werkzeug</p>
+      <div class="prompt-block">Arbeite in diesem Chat nach folgender Anleitung:
+[Inhalt Ihrer Skill-Datei einfügen]</div>
+      <p class="step-label">Die Datei speichern</p>
+      <p>Text der Anleitung kopieren, in eine leere Textdatei einfügen, als <strong>name-des-skills.md</strong> speichern. Mac: TextEdit, vorher Format → In reinen Text umwandeln. Windows: Editor. Die Datei gehört Ihnen und zieht in jedes Werkzeug um.</p>
+    </div></section><section class="lektion" data-id="notizbuch" data-teil="b3" data-teil-name="11:30 Vom Projekt zum Skill" hidden><div class="exercise" data-ex="notizbuch">
+      <div class="exercise-number">Info</div>
+      <h3>Notizbuch oder Agent in Copilot?</h3>
+      <p class="subtitle">Beide kennen Ihre Dateien. Sie sind für verschiedene Arbeit gebaut.</p>
+      <table class="compare-table">
+        <tr><th style="width:22%"></th><th>Notizbuch</th><th>Agent</th></tr>
+        <tr><td>Wofür</td><td>ein Thema oder Projekt bearbeiten</td><td>eine wiederkehrende Aufgabe erledigen</td></tr>
+        <tr><td>Was drin ist</td><td>Ihre Quellen, Chats und Notizen</td><td>Rolle, Anweisungen, Wissen, Startfragen</td></tr>
+        <tr><td>Wie er antwortet</td><td>nur aus Ihren Quellen</td><td>nach Ihren Anweisungen</td></tr>
+        <tr><td>Teilen</td><td>wie einen Ordner, immer mit Bearbeitungsrecht</td><td>als fertiges Werkzeug für Kollegen</td></tr>
+        <tr><td>Vergleichbar mit</td><td>ChatGPT-Projekt, Gemini Notebook</td><td>Custom GPT, Gem, Skill</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.9rem;">Notizbuch: ein Ordner mit Gedächtnis. Agent: ein Kollege mit Auftrag.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem;">Einen Agenten legen Sie in Copilot in der linken Leiste unter „Neuer Agent“ an. Anweisungen bis 8.000 Zeichen, Wissen bis 20 Quellen (Microsoft Learn, Stand 28.09.2026).</p>
+    </div></section><section class="lektion" data-id="s2" data-teil="b4" data-teil-name="13:30 Ihr eigener Skill, Agenten" hidden><div class="exercise" data-ex="s2">
+      <div class="exercise-number">Übung 5</div>
+      <h3>Ihr Skill für Ihre wiederkehrende Aufgabe</h3>
+      <p class="subtitle">Aus Ihrer Aufgabe vom Morgen wird ein Skill mit Prüfpunkt, an seinem Ort, zweimal gelaufen, einmal gestoppt. Ohne eigene Aufgabe nehmen Sie einen der beiden Musterfälle. 30 Minuten.</p>
+      <details>
+        <summary>Musterfall 1: der Statusbericht</summary>
+        <div class="collapsible-content">
+          <div class="prompt-block">---
+name: statusbericht
+description: Schreibt meinen wöchentlichen Statusbericht aus meinen Stichpunkten. Greift, wenn ich „Statusbericht“ schreibe.
+---
+Format: drei Teile: Erledigt, Läuft, Brauche Entscheidung. Je Punkt ein Satz. Höchstens 150 Wörter.
+Regeln: Nie Kundennamen. Nie ein Termin oder eine Zahl, die nicht in meinen Stichpunkten steht.
+Prüfpunkt: Bestätige am Ende in einer Zeile: keine Kundennamen, keine erfundenen Zahlen, unter 150 Wörtern.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Musterfall 2: die Prüfung nach Kriterien</summary>
+        <div class="collapsible-content">
+          <div class="prompt-block">---
+name: einreichung-pruefen
+description: Prüft eine Einreichung gegen unsere formalen und inhaltlichen Kriterien. Greift, wenn ich „prüfen“ schreibe und eine Datei anhänge.
+---
+Schritte: 1. Jedes Kriterium einzeln prüfen: erfüllt, nicht erfüllt, unklar, mit Fundstelle. 2. Gesamturteil in einem Satz. 3. Vorschlag, wohin die Einreichung am besten passt, mit Begründung.
+Regeln: Nie ein Kriterium als erfüllt markieren ohne Fundstelle. Bei Unklarheit „unklar“, nie raten.
+Prüfpunkt: Am Ende die Zahl der geprüften Kriterien gegen die Zahl in der Liste.</div>
+        </div>
+      </details>
+      <p class="step-label">Schritt 1: Das Tutor-Interview</p>
+      <div class="prompt-block">Du bist mein Tutor, nicht mein Lieferant. Ich will eine Aufgabe, die ich regelmäßig erledige, als Skill für eine KI aufschreiben. Die Aufgabe: [Ihr Satz vom Morgen].
+Frag mich nacheinander, immer nur eine Frage auf einmal:
+1. Wann und wodurch startet die Aufgabe, und wie oft?
+2. Was bekomme ich als Input?
+3. Welche Schritte mache ich, in welcher Reihenfolge?
+4. Welche Regeln gelten immer oder nie?
+5. Wie sieht ein gutes Ergebnis aus?
+6. Woran erkenne ich einen Fehler, bevor es rausgeht?
+Fass erst zusammen, wenn ich „fertig“ schreibe.</div>
+      <p class="step-label">Schritt 2: Den Skill bauen lassen</p>
+      <div class="two-col">
+        <div><div class="col-label">Ihr Konto hat Skills</div><div class="prompt-block">Mach aus unserem Gespräch jetzt einen Skill mit Name, Beschreibung (was er tut und wann er greift), Input, Schritten, Regeln, Prüfpunkt und einem kurzen Beispiel.</div></div>
+        <div><div class="col-label">Ohne Skills</div><div class="prompt-block">Schreib aus unserem Gespräch eine Anleitung im Aufbau eines Skills:
+1. Name (kurz, Kleinbuchstaben mit Bindestrichen) und Beschreibung: was der Skill tut und bei welchen Anfragen er greift, höchstens 200 Zeichen.
+2. Input: was ich jedes Mal mitgebe.
+3. Schritte, nummeriert.
+4. Regeln: was Pflicht ist, was verboten ist.
+5. Prüfpunkt: was du vor der Ausgabe kontrollierst und mir in einer Zeile bestätigst.
+6. Ein kurzes Beispiel für ein gutes Ergebnis.
+Kurz, ohne Einleitung.</div></div>
+      </div>
+      <p class="step-label">Schritt 3: Bitte oder Regel?</p>
+      <div class="prompt-block">Markiere in der Anleitung jede Regel, die mit „immer“ oder „nie“ beginnt oder so gemeint ist. Ergänze für jede einen Prüfschritt: Du bestätigst vor der Ausgabe in einer Zeile, dass sie eingehalten ist. Gib mir die ganze Anleitung neu.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Auf Ihre Karte: Welche dieser Regeln wäre so teuer, dass sie in eine Vorlage gehört statt in die Anleitung?</p>
+      <p class="step-label">Schritt 4: Speichern und einbauen</p>
+      <p>Als Datei speichern und an seinen Ort bringen, siehe „Wo Ihr Skill wohnt“ im Block davor.</p>
+      <p class="step-label">Schritt 5: Lauf 1, neuer Chat</p>
+      <div class="prompt-block">Hier ist mein Input für diesmal: [einfügen]. Arbeite nach meinem Skill [Name].</div>
+      <p class="step-label">Schritt 6: Lauf 2, gestoppt</p>
+      <p>Stoppuhr am Handy, derselbe Auftrag mit anderem Input. Minuten auf die Karte. Was ist anders als bei Lauf 1? Hat die Prüfzeile gestimmt?</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">So sieht es aus, wenn es geklappt hat: zwei Ergebnisse, beide mit Prüfzeile, eine Zahl auf der Karte. Online: „Skill fertig, [Minuten]“ in den Chat.</p>
+    </div></section><section class="lektion" data-id="agent" data-teil="b4" data-teil-name="13:30 Ihr eigener Skill, Agenten" hidden><div class="exercise" data-ex="agent">
+      <div class="exercise-number">Info</div>
+      <h3>Was heißt hier Agent?</h3>
+      <p class="subtitle">Das Wort meint zwei verschiedene Dinge.</p>
+      <table class="compare-table">
+        <tr><th></th><th>Agent in Copilot</th><th>Handelnder Agent</th></tr>
+        <tr><td>Was er ist</td><td>Ein Assistent mit Namen und Auftrag: Anweisungen, Wissen, Startfragen</td><td>Bekommt ein Ziel und tut selbst etwas: klickt, füllt aus, verschickt</td></tr>
+        <tr><td>Was er tut</td><td>Er antwortet. Er handelt nicht selbst.</td><td>Er handelt, auch wenn Sie nicht hinschauen.</td></tr>
+        <tr><td>Beispiele</td><td>Copilot-Agent, früher bei ChatGPT „Custom GPT“</td><td>Claude in Chrome, ChatGPT Work, OpenClaw</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.9rem;">Ein Copilot-Agent ist ein Assistent mit Namen. Ein echter Agent handelt.</p>
+      <p class="step-label">Ausblick: Heute bleiben wir bei Skills</p>
+      <table class="compare-table">
+        <tr><th style="width:30%">Agent</th><th>Was er ist</th></tr>
+        <tr><td>OpenClaw</td><td>Open-Source-Agent des Österreichers Peter Steinberger. Bis März 2026: 169 Sicherheitsmeldungen (Cloud Security Alliance).</td></tr>
+        <tr><td>Hermes Agent</td><td>Von Nous Research. Schreibt sich Gelerntes selbst als Skill auf.</td></tr>
+        <tr><td>Claude in Chrome, Cowork</td><td>Liest Seiten, klickt, füllt aus, arbeitet mit Ihren Dateien.</td></tr>
+        <tr><td>ChatGPT Work, Perplexity Comet</td><td>Erledigen Aufgaben im Browser selbst.</td></tr>
+      </table>
+      <p><strong>Faustregel:</strong> Ein Agent, der Anträge ausfüllt oder Mails verschickt, braucht seine Regeln ganz oben auf der Leiter: geprüft, eingebaut, automatisch. Und ein Mensch prüft, bevor etwas rausgeht.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Der Unterschied zwischen Chat und Agent ist nicht die KI, sondern der Zugriff.</p>
+    </div></section><section class="lektion" data-id="skills-finden" data-teil="b5" data-teil-name="14:45 Skills finden, Routinen" hidden><div class="exercise" data-ex="skills-finden">
+      <div class="exercise-number">Info</div>
+      <h3>Wo findet man Skills?</h3>
+      <p class="subtitle">Fertige Skills gibt es viele. Nicht alle sind harmlos.</p>
+      <table class="compare-table">
+        <tr><th style="width:28%">Wo</th><th>Was Sie dort finden</th></tr>
+        <tr><td>Im Werkzeug</td><td>Das Verzeichnis Ihres Anbieters. Erste Wahl.</td></tr>
+        <tr><td>Beim Hersteller</td><td><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener" style="color:var(--gold);">github.com/anthropics/skills</a>: Skills von Anthropic, zur Demonstration und zum Lernen.</td></tr>
+        <tr><td>Marktplätze</td><td>Lesen, nicht installieren. Dort prüft niemand, was drin ist.</td></tr>
+      </table>
+      <p class="step-label">Erst lesen, dann installieren</p>
+      <ul>
+        <li>Nur Skills, die Sie selbst geschrieben haben oder die aus dem Verzeichnis Ihres Anbieters stammen.</li>
+        <li>Fremde Skills vorher lesen: Internetadressen, „ignoriere …“, Passwörter, Dateien versenden? Dann nicht.</li>
+        <li>Echte Firmendaten erst nach Rücksprache mit Ihrer IT.</li>
+      </ul>
+      <p>Der Prüf-Prompt, bevor Sie einen fremden Skill nutzen:</p>
+      <div class="prompt-block">Hier ist ein Skill. Erklär mir in fünf Sätzen, was er tut, welche Daten er anfasst, ob er Skripte enthält und was mich daran stutzig machen sollte. Installiere nichts.
+[Text des Skills einfügen]</div>
+      <p style="color: var(--white-muted); font-size: 0.82rem;">Sicherheitsforscher fanden im Februar 2026 unter 3.984 Skills auf Entwickler-Marktplätzen 76 bösartige (Snyk).</p>
+    </div></section><section class="lektion" data-id="s3" data-teil="b5" data-teil-name="14:45 Skills finden, Routinen" hidden><div class="exercise" data-ex="s3">
+      <div class="exercise-number">Übung 6</div>
+      <h3>Ihr Skill nach Wahl</h3>
+      <p class="subtitle">Offene Übung: Sie wählen aus dem Menü oder bauen einen eigenen. Pflicht ist nur der Prüfpunkt. Alle Ideen gehen ohne Zugriff auf Mail oder Kalender. 25 Minuten.</p>
+      <p class="step-label">Beispielprompt für jede eigene Idee</p>
+      <div class="prompt-block">Ich möchte einen Skill für [Aufgabe]. Frag mich zuerst nacheinander: Wann startet die Aufgabe, was ist der Input, welche Schritte, welche Regeln gelten immer oder nie, wie sieht ein gutes Ergebnis aus, woran erkenne ich einen Fehler? Dann bau den Skill mit einem Prüfpunkt.</div>
+      <p class="step-label">Das Menü</p>
+      <p class="sub-step">Prüfung nach Kriterien mit Fundstelle</p>
+      <div class="prompt-block">Ich möchte einen Skill, der eine Einreichung gegen meine Kriterien prüft: je Kriterium erfüllt, nicht erfüllt oder unklar, immer mit Fundstelle. Regel: nie „erfüllt“ ohne Fundstelle. Prüfpunkt: Zahl der geprüften Kriterien gegen die Zahl in der Liste. Hier sind meine Kriterien: [einfügen]. Frag nach, dann bau den Skill.</div>
+      <p class="sub-step">Bericht aus Unterlagen im festen Format</p>
+      <div class="prompt-block">Ich möchte einen Skill, der aus mehreren Unterlagen einen Bericht in meinem festen Format schreibt: [Gliederung]. Regeln: Jede Aussage mit Quelle aus den Unterlagen, keine Zahl, die nicht in den Unterlagen steht. Prüfpunkt: am Ende die Liste aller Zahlen mit Fundstelle. Frag nach, dann bau den Skill.</div>
+      <p class="sub-step">Fragebogen beantworten: Frage, Fundstelle, Antwort</p>
+      <div class="prompt-block">Ich möchte einen Skill, der einen Fragebogen aus meinen Dokumenten beantwortet: je Frage die passende Fundstelle und ein Antwortvorschlag. Regel: Findet sich nichts, schreibst du „keine Fundstelle“ und erfindest nichts. Prüfpunkt: Zahl der beantworteten und der offenen Fragen. Frag nach, dann bau den Skill.</div>
+      <p class="sub-step">Präsentation im Hausstil aus Stichpunkten</p>
+      <div class="prompt-block">Ich möchte einen Skill, der aus meinen Stichpunkten eine PowerPoint im Hausstil erstellt: Farbe [Farbe], Schrift [Schrift], höchstens drei Punkte je Folie. Regel: nichts hinzufügen, was nicht in den Stichpunkten steht. Prüfpunkt: am Ende eine Zeile, dass Farbe und Schrift eingehalten sind. Frag nach, dann bau den Skill.</div>
+      <p class="sub-step">Fach-Briefing als Routine, nur mit Quelle</p>
+      <div class="prompt-block">Ich möchte einen Skill, der mir die wichtigsten Neuigkeiten zu [Ihr Thema] zusammenfasst: je Meldung ein Satz, was passiert ist, ein Satz, was es für meine Arbeit heißt, Quelle mit Link und Datum. Regel: keine Meldung ohne Quelle. Prüfpunkt: Zahl der Meldungen mit Quelle. Frag nach, dann bau den Skill.</div>
+      <p class="sub-step">Social-Media-Beitrag aus Ihren Notizen</p>
+      <div class="prompt-block">Ich möchte einen Skill, der aus meinen Notizen einen LinkedIn-Beitrag macht: ein Aufhänger in einem Satz, die Kernaussage, ein Beispiel aus meinen Notizen. Regeln: nie Namen von Kunden oder Kollegen, nichts, was nicht in den Notizen steht. Prüfpunkt: zu jeder Aussage die Notiz, aus der sie kommt. Frag nach, dann bau den Skill.</div>
+      <p class="sub-step">Der Reise-Skill aus Ihrem Chat vom Vormittag</p>
+      <div class="prompt-block">Wir haben in diesem Chat eine Reise geplant und umgeplant. Mach daraus einen Skill, mit dem eine KI künftig Dienstreisen nach meinen Regeln plant: Beschreibung mit „wann greift er“, Input, Schritte, Regeln, Prüfpunkt, ein Beispiel. Nimm die Regeln, die ich im Gespräch nachgeschoben habe, als Pflicht auf.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">So sieht es aus, wenn es geklappt hat: ein dritter Skill mit Prüfpunkt, an seinem Ort. Online: „Skill 3 fertig“ in den Chat.</p>
+    </div></section><section class="lektion" data-id="briefing" data-teil="b5" data-teil-name="14:45 Skills finden, Routinen" hidden><div class="exercise" data-ex="briefing">
+      <div class="exercise-number">Übung 7</div>
+      <h3>Ihr Briefing als Routine</h3>
+      <p class="subtitle">Wer hat heute früh nach Neuigkeiten in seinem Fach geschaut? Ab morgen erledigt das eine Routine. Das Thema wählen Sie selbst. 20 Minuten.</p>
+      <p class="step-label">Schritt 1: Den Auftrag einmal laufen lassen</p>
+      <div class="prompt-block">Erstelle mir ein Briefing über die letzten 24 Stunden zu [Ihr Thema, zum Beispiel KI-Werkzeuge, Förderungen, Ihre Branche]: die fünf wichtigsten Neuigkeiten, die für meine Arbeit in Österreich relevant sind. Je Meldung: ein Satz, was passiert ist, ein Satz, was es für meine Arbeit heißt, und die Quelle mit Link und Datum. Keine Meldung ohne Quelle. Gibt es nichts Relevantes, sag das.</div>
+      <p>Prüfpunkt sofort: zwei Quellen anklicken. Stimmen Datum und Inhalt?</p>
+      <p class="step-label">Schritt 2a: Für alle, geht immer</p>
+      <p>Kalendereintrag morgen 08:00, 15 Minuten, Titel „Briefing“. In die Beschreibung den Auftrag aus Schritt 1 und den Link zu Ihrem Werkzeug. Wiederholung werktags.</p>
+      <p class="step-label">Schritt 2b: Zeitgesteuert, wo Ihr Konto es kann</p>
+      <table class="compare-table">
+        <tr><th style="width:22%">Werkzeug</th><th>Funktion</th><th>Voraussetzung</th></tr>
+        <tr><td>ChatGPT</td><td>Geplante Aufgaben, Seitenleiste „Geplant“</td><td>Plus: genaue Uhrzeit. Gratis: höchstens einmal am Tag, nur Zeitfenster wie „morgens“</td></tr>
+        <tr><td>Gemini</td><td>Geplante Aktionen</td><td>privates Konto</td></tr>
+        <tr><td>Claude</td><td>Geplante Aufgaben</td><td>bezahlter Plan</td></tr>
+        <tr><td>Copilot</td><td>Geplante Prompts</td><td>Copilot-Lizenz</td></tr>
+      </table>
+      <p>Diesen Auftrag geben Sie dem Werkzeug, das Aufgaben planen kann. Mit genauer Uhrzeit:</p>
+      <div class="prompt-block">Lege eine geplante Aufgabe an: jeden Werktag, Montag bis Freitag, um 07:00 Uhr.
+Kontext: Ich bin [Rolle] in Österreich.
+Ziel: Ich will in zwei Minuten wissen, was sich seit gestern bei [Ihr Thema] geändert hat.
+Aufgabe: Suche im Web nach Neuigkeiten der letzten 24 Stunden (am Montag: seit Freitagfrüh) und wähle die fünf wichtigsten aus.
+Ausführung: Deutsch, höchstens 250 Wörter. Je Meldung: eine fette Zeile als Titel, ein Satz, was passiert ist, ein Satz, was es für meine Arbeit heißt, darunter die Quelle mit Link und Datum.
+Regeln: Nur Meldungen mit Quelle aus den letzten 24 Stunden. Keine Gerüchte, keine Werbung. Gibt es nichts Relevantes, schreib nur: „Heute nichts Wichtiges.“
+Prüfpunkt: Prüfe vor dem Absenden jede Meldung auf Link und Datum, sonst streich sie. Schließe mit: „Geprüft: [Anzahl] Meldungen, alle mit Quelle und Datum.“</div>
+      <details>
+        <summary>Fassung für das ChatGPT-Gratiskonto (Zeitfenster statt Uhrzeit)</summary>
+        <div class="collapsible-content">
+          <div class="prompt-block">Lege eine geplante Aufgabe an: jeden Tag am Morgen.
+Kontext: Ich bin [Rolle] in Österreich.
+Ziel: Ich will in zwei Minuten wissen, was sich seit gestern bei [Ihr Thema] geändert hat.
+Aufgabe: Suche im Web nach Neuigkeiten der letzten 24 Stunden und wähle die fünf wichtigsten aus.
+Ausführung: Deutsch, höchstens 250 Wörter. Je Meldung: eine fette Zeile als Titel, ein Satz, was passiert ist, ein Satz, was es für meine Arbeit heißt, darunter die Quelle mit Link und Datum.
+Regeln: Nur Meldungen mit Quelle aus den letzten 24 Stunden. Keine Gerüchte, keine Werbung. Gibt es nichts Relevantes, schreib nur: „Heute nichts Wichtiges.“
+Prüfpunkt: Prüfe vor dem Absenden jede Meldung auf Link und Datum, sonst streich sie. Schließe mit: „Geprüft: [Anzahl] Meldungen, alle mit Quelle und Datum.“</div>
+        </div>
+      </details>
+      <p class="step-label">Schritt 3: Ihre eigene Routine</p>
+      <p>Ein Wann-Wo-Satz für Ihren Skill, auf die Karte und als Kalendereintrag:</p>
+      <div class="prompt-block">Wenn [Tag, Uhrzeit, Situation], dann starte ich [Name meines Skills] mit [Startauftrag].</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">So sieht es aus, wenn es geklappt hat: ein Kalendereintrag oder eine geplante Aufgabe mit Uhrzeit, und morgen früh liegt ein Briefing da. Online: „Routine fertig“ in den Chat.</p>
+    </div></section><section class="lektion" data-id="automationen" data-teil="b5" data-teil-name="14:45 Skills finden, Routinen" hidden><div class="exercise" data-ex="automationen">
+      <div class="exercise-number">Info</div>
+      <h3>Welche Automationen ich nutze</h3>
+      <p class="subtitle">Was im Hintergrund läuft, ohne dass jemand daran denken muss.</p>
+      <table class="compare-table">
+        <tr><th style="width:34%">Zeitpläne</th><th>Regeln, die die KI nicht überlesen kann</th></tr>
+        <tr><td>Täglich 07:00: Abgleich zweier Ablagen</td><td>Vor jedem Kalendereintrag: Regelprüfung</td></tr>
+        <tr><td>Täglich 08:30: Morgenmeldung</td><td>Vor jedem Mailentwurf: Absenderprüfung</td></tr>
+        <tr><td>Freitags 18:00: Wochenrotation</td><td>Nach jeder Datei: Floskelprüfung</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.9rem;">Die Kalenderregel stand als Bitte im Text und wurde trotzdem gebrochen. Seither blockiert eine Maschine.</p>
+      <p class="step-label">Zapier, Make, n8n: gezeigt, nicht geübt</p>
+      <p>Diese Werkzeuge verbinden Apps ohne Code: Wenn A passiert, tu B. Der Engpass im Büro ist meistens nicht die Bedienung, sondern die Freigabe durch die IT. Heute bauen Sie die Anleitung, nicht die Verkabelung.</p>
+    </div></section><section class="lektion" data-id="v2" data-teil="b6" data-teil-name="16:00 Version 2 und Abschluss" hidden><div class="exercise" data-ex="v2">
+      <div class="exercise-number">Übung 8</div>
+      <h3>Version 2</h3>
+      <p class="subtitle">Ein echter Fehler, eine Regel nachgetragen, ein gestoppter Lauf. Offene Übung mit einem Ihrer Skills. 20 Minuten.</p>
+      <p class="step-label">Schritt 1: Den Fehler benennen und die Regel nachtragen</p>
+      <div class="prompt-block">In diesem Lauf ist folgendes schiefgegangen: [ein Satz]. Ergänze meinen Skill um eine Regel und einen Prüfschritt, die das künftig verhindern. Gib mir die ganze Anleitung neu, oben mit „Version 2, [Datum]“.</div>
+      <p class="step-label">Schritt 2: Am Ort ersetzen, Lauf stoppen</p>
+      <p>Die neue Fassung an die Stelle der alten setzen, denselben Input noch einmal laufen lassen, Minuten auf die Karte.</p>
+      <details>
+        <summary>Bonus: einen fremden Skill lesen statt installieren</summary>
+        <div class="collapsible-content">
+          <p>Öffnen Sie <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener" style="color:var(--gold);">github.com/anthropics/skills</a>, wählen Sie einen Skill, kopieren Sie den Text der SKILL.md und nutzen Sie den Prüf-Prompt aus „Wo findet man Skills“.</p>
+        </div>
+      </details>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">So sieht es aus, wenn es geklappt hat: Ihr Skill trägt oben „Version 2“, und der Fehler kommt im neuen Lauf nicht mehr vor. Online: „V2 fertig“ in den Chat.</p>
+    </div></section><section class="lektion" data-id="karte" data-teil="b6" data-teil-name="16:00 Version 2 und Abschluss" hidden><div class="exercise" data-ex="karte">
+      <div class="exercise-number">Vorlage</div>
+      <h3>Ihre Skill-Karte</h3>
+      <p class="subtitle">Was Sie heute mitnehmen, auf einer Seite. 10 Minuten.</p>
+      <table class="compare-table">
+        <tr><th style="width:34%">Je Skill</th><th>Was Sie eintragen</th></tr>
+        <tr><td>Name und Ort</td><td>wie er heißt und wo er wohnt</td></tr>
+        <tr><td>Prüfpunkt und Sprosse</td><td>was er kontrolliert, Sprosse 2, 3 oder 4</td></tr>
+        <tr><td>Minuten</td><td>heute früh geschätzt, im gestoppten Lauf gemessen</td></tr>
+        <tr><td>Teilen</td><td>mit wem Sie den Skill teilen</td></tr>
+      </table>
+      <p>Die KI kann die Karte für Sie zusammenfassen:</p>
+      <div class="prompt-block">Fasse die Skills, die wir heute gebaut haben, als Skill-Karte zusammen: je Skill Name, wo er wohnt, Prüfpunkt, Sprosse auf der Leiter (Bitte, aufgeschrieben, geprüft, eingebaut, automatisch) und eine leere Zeile für meine Minuten.</div>
+      <p class="step-label">Pflicht: Ihr Wann-Wo-Satz</p>
+      <div class="prompt-block">Wenn [Tag, Uhrzeit, Situation], dann starte ich [Name meines Skills] mit [Startauftrag].</div>
+    </div></section><section class="lektion" data-id="kicheck-ende" data-teil="b6" data-teil-name="16:00 Version 2 und Abschluss" hidden><div class="exercise" data-ex="kicheck-ende">
+      <div class="exercise-number">Check</div>
+      <h3>Ihr KI-Check, zweiter Durchgang</h3>
+      <p class="subtitle">Derselbe Fragebogen wie heute Morgen. Bitte bei „Durchgang“ jetzt <strong>Schluss</strong> wählen und dasselbe Kürzel eintragen wie am Morgen.</p>
+      <iframe id="GoogleForm-kicheck-ende" src="https://docs.google.com/forms/d/e/1FAIpQLSfpQRr2jvRIFLK3PtH386bv5MXxDfsJrnqhPhmMOQqYJZtWVg/viewform?embedded=true" title="KI-Check, zweiter Durchgang" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://forms.gle/QNSigDxm2Prxetiq8" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div></section><section class="lektion" data-id="feedback" data-teil="b6" data-teil-name="16:00 Version 2 und Abschluss" hidden><div class="exercise" data-ex="feedback">
+      <div class="exercise-number">Feedback</div>
+      <h3>Ihr Feedback zum Training</h3>
+      <p class="subtitle">Zwei Minuten. Ehrlich hilft mir mehr als nett. Name und Firma sind freiwillig.</p>
+      <iframe id="GoogleForm-feedback" src="https://docs.google.com/forms/d/e/1FAIpQLSerUKgUsQyWfO-d6ZDY6UznsVOPri81l_HFv6vDlLjlA_Rxlg/viewform?embedded=true" title="Ihr Feedback zum Training" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://forms.gle/kfo7UPKBq5iZFhow6" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div></section><section class="lektion" data-id="zeit" data-teil="b6" data-teil-name="16:00 Version 2 und Abschluss" hidden><div class="exercise" data-ex="zeit">
+      <div class="exercise-number">Nach dem Training</div>
+      <h3>Wie viel Zeit spart Ihnen Ihr Skill?</h3>
+      <p class="subtitle">Bitte nach etwa zwei Wochen ausfüllen, wenn Sie Ihren Skill einige Male benutzt haben. Ehrliche Zahlen helfen mehr als schöne.</p>
+      <table class="compare-table">
+        <tr><th>Beispiel</th><th>je Einheit</th><th>wie oft</th></tr>
+        <tr><td>Vorher</td><td>60 Minuten je Bericht</td><td>10 pro Woche</td></tr>
+        <tr><td>Mit Skill</td><td>Ihre gemessenen Minuten</td><td>10 pro Woche</td></tr>
+      </table>
+      <p>Bis dahin: bei jedem Lauf die Minuten notieren, inklusive Nachkontrolle. Die Häufigkeit können Sie pro Woche, Monat oder Jahr angeben.</p>
+      <p style="text-align:center; margin: 24px 0;"><a href="https://forms.gle/Aq1zFB3eYuDt1a8V9" target="_blank" rel="noopener" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700;">Zum Zeitformular</a></p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Ihre Zahl: gemessen, nicht geschätzt. Danke, ich melde mich mit der Auswertung aller Teilnehmenden.</p>
+    </div></section>
+  </main>
+</div>
+<div class="nav"><div class="nav-innen"><button class="knopf" id="prev" type="button">← Zurück</button><button class="knopf los" id="next" type="button">Erledigt, weiter →</button></div></div>
+<script>
+const M = [{"id": "kicheck", "teil": "b1", "teilname": "09:00 Ankommen und wie die Maschine denkt", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check"}, {"id": "aufgabe", "teil": "b1", "teilname": "09:00 Ankommen und wie die Maschine denkt", "nr": "", "art": "Start", "opt": false, "titel": "Ihre wiederkehrende Aufgabe"}, {"id": "split", "teil": "b1", "teilname": "09:00 Ankommen und wie die Maschine denkt", "nr": "", "art": "Trick", "opt": false, "titel": "Den Bildschirm teilen"}, {"id": "werkzeug", "teil": "b1", "teilname": "09:00 Ankommen und wie die Maschine denkt", "nr": "", "art": "Info", "opt": false, "titel": "Ihr KI-Werkzeug öffnen"}, {"id": "ue1", "teil": "b1", "teilname": "09:00 Ankommen und wie die Maschine denkt", "nr": "1", "art": "Übung", "opt": false, "titel": "Die Namensliste"}, {"id": "kontextfenster", "teil": "b1", "teilname": "09:00 Ankommen und wie die Maschine denkt", "nr": "", "art": "Info", "opt": false, "titel": "Das Kontextfenster: Alles wird jedes Mal gelesen"}, {"id": "ue2", "teil": "b2", "teilname": "10:15 Prompten wie ein Profi", "nr": "2", "art": "Übung", "opt": false, "titel": "Flughöhe, Lieferant oder Tutor"}, {"id": "ue3", "teil": "b2", "teilname": "10:15 Prompten wie ein Profi", "nr": "3", "art": "Übung", "opt": false, "titel": "Die Reise mit CITE(R)"}, {"id": "pii", "teil": "b2", "teilname": "10:15 Prompten wie ein Profi", "nr": "", "art": "Takeaway", "opt": false, "titel": "Die 3-Sekunden-Regel und welches Konto"}, {"id": "formate", "teil": "b2", "teilname": "10:15 Prompten wie ein Profi", "nr": "", "art": "Info", "opt": false, "titel": "Welches Format versteht die Maschine?"}, {"id": "s1", "teil": "b3", "teilname": "11:30 Vom Projekt zum Skill", "nr": "4", "art": "Übung", "opt": false, "titel": "Ihr Projekt: die Basis für Ihren Skill"}, {"id": "prosa", "teil": "b3", "teilname": "11:30 Vom Projekt zum Skill", "nr": "", "art": "Info", "opt": false, "titel": "Skript gegen Prosa: Bitte oder Regel?"}, {"id": "skill-entsteht", "teil": "b3", "teilname": "11:30 Vom Projekt zum Skill", "nr": "", "art": "Info", "opt": false, "titel": "Wovon entsteht ein Skill?"}, {"id": "skill-wohnt", "teil": "b3", "teilname": "11:30 Vom Projekt zum Skill", "nr": "", "art": "Info", "opt": false, "titel": "Wo Ihr Skill wohnt"}, {"id": "notizbuch", "teil": "b3", "teilname": "11:30 Vom Projekt zum Skill", "nr": "", "art": "Info", "opt": false, "titel": "Notizbuch oder Agent in Copilot?"}, {"id": "s2", "teil": "b4", "teilname": "13:30 Ihr eigener Skill, Agenten", "nr": "5", "art": "Übung", "opt": false, "titel": "Ihr Skill für Ihre wiederkehrende Aufgabe"}, {"id": "agent", "teil": "b4", "teilname": "13:30 Ihr eigener Skill, Agenten", "nr": "", "art": "Info", "opt": false, "titel": "Was heißt hier Agent?"}, {"id": "skills-finden", "teil": "b5", "teilname": "14:45 Skills finden, Routinen", "nr": "", "art": "Info", "opt": false, "titel": "Wo findet man Skills?"}, {"id": "s3", "teil": "b5", "teilname": "14:45 Skills finden, Routinen", "nr": "6", "art": "Übung", "opt": false, "titel": "Ihr Skill nach Wahl"}, {"id": "briefing", "teil": "b5", "teilname": "14:45 Skills finden, Routinen", "nr": "7", "art": "Übung", "opt": false, "titel": "Ihr Briefing als Routine"}, {"id": "automationen", "teil": "b5", "teilname": "14:45 Skills finden, Routinen", "nr": "", "art": "Info", "opt": false, "titel": "Welche Automationen ich nutze"}, {"id": "v2", "teil": "b6", "teilname": "16:00 Version 2 und Abschluss", "nr": "8", "art": "Übung", "opt": false, "titel": "Version 2"}, {"id": "karte", "teil": "b6", "teilname": "16:00 Version 2 und Abschluss", "nr": "", "art": "Vorlage", "opt": false, "titel": "Ihre Skill-Karte"}, {"id": "kicheck-ende", "teil": "b6", "teilname": "16:00 Version 2 und Abschluss", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check, zweiter Durchgang"}, {"id": "feedback", "teil": "b6", "teilname": "16:00 Version 2 und Abschluss", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Training"}, {"id": "zeit", "teil": "b6", "teilname": "16:00 Version 2 und Abschluss", "nr": "", "art": "Nach dem Training", "opt": false, "titel": "Wie viel Zeit spart Ihnen Ihr Skill?"}];
+const KOHORTE = 'ars08102026';
+const SPEICHER = 'kurs.' + KOHORTE;
+const S = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
+            set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+const $ = id => document.getElementById(id);
+let erledigt = new Set(S.get(SPEICHER + '.erledigt', []));
+let cur = null, imRaum = null;
+
+function beschriftung(m) { return (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + m.titel; }
+
+function zeigen(id, scrollen) {
+  const m = M.find(x => x.id === id) || M[0];
+  cur = m.id; S.set(SPEICHER + '.cur', cur);
+  if (location.hash.slice(1) !== cur) history.replaceState(null, '', '#' + cur);
+  document.querySelectorAll('.lektion').forEach(s => s.hidden = s.dataset.id !== cur);
+  const i = M.indexOf(m);
+  $('ttl').textContent = m.titel;
+  $('crumb').textContent = m.teilname;
+  $('tags').innerHTML = '<span class="tag">' + (m.nr ? 'Übung ' + m.nr : m.art) + '</span>' + (m.opt ? '<span class="tag leise">wenn Zeit bleibt</span>' : '');
+  document.querySelectorAll('.zeile').forEach(z => {
+    z.classList.toggle('aktiv', z.dataset.id === cur);
+    z.classList.toggle('erledigt', erledigt.has(z.dataset.id));
+  });
+  const p = Math.round(erledigt.size / M.length * 100);
+  $('balken').style.width = p + '%';
+  $('stand').textContent = erledigt.size + ' von ' + M.length + ' erledigt';
+  $('dstand').textContent = (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + erledigt.size + '/' + M.length + ' erledigt';
+  $('prev').disabled = i === 0;
+  $('next').textContent = i === M.length - 1 ? 'Erledigt ✓' : 'Erledigt, weiter →';
+  $('side').classList.remove('offen');
+  leisteZeichnen();
+  if (scrollen !== false) window.scrollTo(0, 0);
+}
+
+document.querySelectorAll('.zeile').forEach(z => z.addEventListener('click', e => { e.preventDefault(); zeigen(z.dataset.id); }));
+$('prev').onclick = () => { const i = M.findIndex(x => x.id === cur); if (i > 0) zeigen(M[i - 1].id); };
+$('next').onclick = () => {
+  erledigt.add(cur); S.set(SPEICHER + '.erledigt', [...erledigt]);
+  const i = M.findIndex(x => x.id === cur); zeigen(M[Math.min(i + 1, M.length - 1)].id);
+};
+$('oeffnen').onclick = () => $('side').classList.add('offen');
+function leisteSetzen(zu) {
+  document.body.classList.toggle('leiste-zu', zu);
+  $('leisteKnopf').setAttribute('aria-expanded', String(!zu));
+  $('leisteKnopf').setAttribute('aria-label', zu ? 'Seitenleiste ausklappen' : 'Seitenleiste einklappen');
+  S.set(SPEICHER + '.leisteZu', zu);
+}
+$('leisteKnopf').onclick = () => leisteSetzen(!document.body.classList.contains('leiste-zu'));
+leisteSetzen(!!S.get(SPEICHER + '.leisteZu', false));
+$('schliessen').onclick = () => $('side').classList.remove('offen');
+window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (h && h !== cur && M.some(x => x.id === h)) zeigen(h); });
+
+// Kopieren per Klick auf einen Prompt-Block
+document.querySelectorAll('.prompt-block').forEach(block => {
+  block.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(block.textContent.trim());
+      block.classList.add('copied'); setTimeout(() => block.classList.remove('copied'), 1500);
+    } catch (e) {
+      const r = document.createRange(); r.selectNodeContents(block);
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    }
+  });
+});
+
+// Akkordeon: je Uebung nur ein Feld offen, und nur nach einem echten Klick
+let letzterKlick = 0;
+document.addEventListener('click', e => { if (e.target.closest('summary')) letzterKlick = Date.now(); }, true);
+document.querySelectorAll('.exercise').forEach(ex => {
+  ex.querySelectorAll(':scope > details, .collapsible-content > details').forEach(det => {
+    det.addEventListener('toggle', () => {
+      if (det.open && Date.now() - letzterKlick < 1000) {
+        det.parentElement.querySelectorAll(':scope > details').forEach(sib => { if (sib !== det && sib.open) sib.open = false; });
+        setTimeout(() => det.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+      }
+    });
+  });
+});
+
+// Bild-Upload in Jakubs Drive. Geht an denselben Dienst wie die Live-Leiste.
+let UPLOAD = 'https://deflifeos.popluhar.at/reise-live/upload';
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && new URLSearchParams(location.search).get('uploadUrl'))
+  UPLOAD = new URLSearchParams(location.search).get('uploadUrl');
+document.querySelectorAll('.upload-kasten').forEach(kasten => {
+  const vn = kasten.querySelector('.vorname'), feld = kasten.querySelector('input[type=file]'), liste = kasten.querySelector('.liste-upload');
+  vn.value = S.get(SPEICHER + '.vorname', '');
+  vn.addEventListener('change', () => S.set(SPEICHER + '.vorname', vn.value.trim()));
+  function eins(datei) {
+    const li = document.createElement('li');
+    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = datei.name || 'Bild';
+    const st = document.createElement('span'); st.className = 'st'; st.textContent = 'wird hochgeladen…';
+    li.append(nm, st); liste.prepend(li);
+    if (datei.size > 12 * 1024 * 1024) { li.className = 'fehler'; st.textContent = 'zu groß (max. 12 MB)'; return Promise.resolve(); }
+    return new Promise(fertig => {
+      const x = new XMLHttpRequest();
+      x.open('POST', UPLOAD);
+      x.setRequestHeader('Content-Type', 'application/octet-stream');
+      x.setRequestHeader('X-Kohorte', KOHORTE);
+      x.setRequestHeader('X-Uebung', encodeURIComponent(kasten.dataset.uebung || ''));
+      x.setRequestHeader('X-Vorname', encodeURIComponent(vn.value.trim()));
+      x.upload.onprogress = e => { if (e.lengthComputable) st.textContent = Math.round(e.loaded / e.total * 100) + ' %'; };
+      x.onload = () => {
+        let d = {}; try { d = JSON.parse(x.responseText); } catch (e) {}
+        if (x.status === 200) { li.className = 'ok'; st.textContent = 'angekommen ✓'; }
+        else { li.className = 'fehler'; st.textContent = d.fehler || ('Fehler ' + x.status); }
+        fertig();
+      };
+      x.onerror = () => { li.className = 'fehler'; st.textContent = 'keine Verbindung, bitte nochmal'; fertig(); };
+      x.send(datei);
+    });
+  }
+  feld.addEventListener('change', async () => {
+    S.set(SPEICHER + '.vorname', vn.value.trim());
+    for (const d of [...feld.files].slice(0, 5)) await eins(d);
+    feld.value = '';
+  });
+});
+
+// Live-Leiste "Jetzt im Raum": nur lesen, es wird nichts ueber die Person gesendet
+let BASIS = 'https://deflifeos.popluhar.at/reise-live/jetzt.json';
+const q = new URLSearchParams(location.search);
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && q.get('liveBasis')) BASIS = q.get('liveBasis');
+function leisteZeichnen() {
+  const leiste = $('live-leiste');
+  const m = imRaum && M.find(x => x.id === imRaum);
+  document.querySelectorAll('.zeile').forEach(z => z.classList.toggle('im-raum', !!m && z.dataset.id === imRaum));
+  if (!m) { leiste.hidden = true; return; }
+  leiste.hidden = false;
+  $('live-text').textContent = beschriftung(m);
+  const hier = imRaum === cur;
+  $('live-dorthin').hidden = hier;
+  $('live-hier').hidden = !hier;
+}
+function abfragen() {
+  fetch(BASIS + '?k=' + KOHORTE, { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (!d) return;
+      const neu = d.ziel || null;
+      if (neu === imRaum) return;
+      imRaum = neu; leisteZeichnen();
+      const l = $('live-leiste'); l.classList.remove('neu'); void l.offsetWidth; l.classList.add('neu');
+    })
+    .catch(() => { /* ohne Verbindung bleibt alles, wie es ist */ });
+}
+let takt = null;
+function starten() { clearInterval(takt); takt = null; if (!document.hidden) { abfragen(); takt = setInterval(abfragen, 5000); } }
+$('live-dorthin').onclick = () => { if (imRaum) zeigen(imRaum); };
+document.addEventListener('visibilitychange', starten);
+function schubladeHoehe() { document.documentElement.style.setProperty('--schublade-h', $('schublade').offsetHeight + 'px'); }
+window.addEventListener('resize', schubladeHoehe);
+
+schubladeHoehe();
+const start = location.hash.slice(1);
+zeigen(M.some(x => x.id === start) ? start : S.get(SPEICHER + '.cur', M[0].id), false);
+starten();
+</script>
+<script src="/assets/js/site.js" defer></script>
+<script src="quiz/quiz.js"></script>
+</body>
+</html>
