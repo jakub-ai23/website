@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI za pracovným stolom · e-learning · PROEKO</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <style>
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+    :root {
+      --gold: #d4a017;
+      --charcoal: #141414;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      background: var(--charcoal);
+      color: var(--white);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      border-left: 8px solid var(--gold);
+    }
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 72px 24px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    h1 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2rem, 5.5vw, 3.4rem);
+      line-height: 1.1;
+      text-wrap: balance;
+    }
+    h1 span { color: var(--gold); }
+    .lead { font-size: 1.15rem; line-height: 1.6; color: var(--white-muted); max-width: 60ch; }
+    .odpocet {
+      align-self: flex-start;
+      background: var(--charcoal-lighter);
+      border-top: 4px solid var(--gold);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .odpocet-popis { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-muted); font-weight: 600; }
+    .odpocet-hodnota { font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.2rem); font-variant-numeric: tabular-nums; }
+    footer {
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 24px 40px;
+      font-size: 0.9rem;
+      color: var(--white-muted);
+    }
+    footer a { color: var(--white-muted); }
+    footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">PROEKO · AI za pracovným stolom · modul 1</p>
+    <h1>E-learning sa otvorí v piatok <span>9. 10. 2026 o 8.35 hod.</span></h1>
+    <p class="lead">Nájdete tu všetky úlohy, prompty a materiály k školeniu. Uložte si túto adresu, v piatok ju budete potrebovať.</p>
+    <div class="odpocet" aria-live="polite">
+      <p class="odpocet-popis" id="odpocet-popis">Do otvorenia zostáva</p>
+      <p class="odpocet-hodnota" id="odpocet-hodnota">9. 10. 2026, 8.35 hod.</p>
+    </div>
+  </main>
+  <footer>Jakub Popluhár, M.Ed. · <a href="https://jakubpopluhar.com/">jakubpopluhar.com</a></footer>
+  <script>
+    (function () {
+      // Freitag 09.10.2026, 08:35 Wien (Sommerzeit, UTC+2)
+      var otvorenie = Date.parse('2026-10-09T08:35:00+02:00');
+      var popis = document.getElementById('odpocet-popis');
+      var hodnota = document.getElementById('odpocet-hodnota');
+      function obnov() {
+        var zostava = otvorenie - Date.now();
+        if (zostava <= 0) {
+          popis.textContent = 'E-learning je otvorený';
+          hodnota.textContent = 'Obnovte, prosím, stránku.';
+          return;
+        }
+        var min = Math.floor(zostava / 60000);
+        var d = Math.floor(min / 1440), h = Math.floor((min % 1440) / 60), m = min % 60;
+        hodnota.textContent = (d ? d + ' d ' : '') + h + ' h ' + m + ' min';
+        setTimeout(obnov, 15000);
+      }
+      obnov();
+    })();
+  </script>
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>
