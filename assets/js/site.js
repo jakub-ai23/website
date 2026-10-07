@@ -164,7 +164,7 @@ function jpLoadClarity() {
 (function () {
   try {
     var path = location.pathname;
-    if (/(ki-check|weiter|community|ars[0-9]|hw[0-9]|sportunion|viennaup|techtrain|pmi|ewi|bfi-|-onepager|training\/)/i.test(path)) return;
+    if (/(ki-check|weiter|community|ars[0-9]|tt[0-9]|hw[0-9]|sportunion|viennaup|techtrain|pmi|ewi|bfi-|-onepager|training\/)/i.test(path)) return;
 
     var en = (document.documentElement.lang || 'de').toLowerCase().indexOf('en') === 0;
     var T = en

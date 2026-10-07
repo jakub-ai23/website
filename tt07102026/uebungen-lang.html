@@ -788,11 +788,12 @@
       <a href="#erinnerung">Info · Wie sich ChatGPT erinnert</a>
       <a href="#ue1">4. Prompten</a>
       <a href="#ue2">5. CITE(R): die Reise</a>
+      <a href="#thinking">Info · Thinking effort</a>
       <a href="#pii">Takeaway · 3-Sekunden-Regel</a>
-      <a href="#arbeitsalltag">Umfrage · Ihr Arbeitsalltag</a>
       <a href="#ue3">6. Wissensbasis</a>
       <a href="#formate">7. Formate für die Maschine</a>
       <a href="#feedback-vm">Feedback · wer mittags geht</a>
+      <a href="#arbeitsalltag">Umfrage · Ihr Arbeitsalltag</a>
     </nav>
 
     <div>
@@ -812,14 +813,14 @@
 
       <p class="step-label">Der Tag</p>
       <table class="compare-table">
-        <tr><th style="width:22%">Vormittag</th><th></th></tr>
+        <tr><th style="width:22%; white-space:nowrap">Vormittag</th><th></th></tr>
         <tr><td>09:00</td><td>Ankommen, KI-Check</td></tr>
         <tr><td>09:50</td><td>Wie die Maschine denkt</td></tr>
         <tr><td>10:45</td><td>ChatGPT einstellen</td></tr>
         <tr><td>11:05</td><td>Prompten mit CITE(R)</td></tr>
         <tr><td>11:55</td><td>Ihre Wissensbasis</td></tr>
         <tr><td>12:15</td><td>Formate für die Maschine</td></tr>
-        <tr><th>Nachmittag</th><th></th></tr>
+        <tr><th style="white-space:nowrap">Nachmittag</th><th></th></tr>
         <tr><td>13:30</td><td>Flughöhe, Lieferant oder Tutor</td></tr>
         <tr><td>13:45</td><td>Ihr eigener Assistent</td></tr>
         <tr><td>14:25</td><td>Recht und EU AI Act</td></tr>
@@ -913,25 +914,16 @@
         </div>
       </div>
 
-      <p class="step-label">Schritt 1: Anmelden</p>
+      <p class="step-label">Anmelden</p>
       <p>Melden Sie sich mit den Zugangsdaten an, die Sie von tecTrain bekommen haben. Kein Zugang? Kurz melden, vor Ort laut, online im Teams-Chat.</p>
 
-      <p class="step-label">Schritt 2: Der Regler „Thinking effort“</p>
-      <p>Im Eingabefeld sitzt ein Menü „Thinking effort“ mit einem Schieberegler. Er legt fest, wie lange ChatGPT nachdenkt, bevor es antwortet. Voreingestellt ist „Medium“. Links: schneller und gut genug für den Alltag. Rechts: langsamer, dafür gründlicher.</p>
-      <table class="compare-table">
-        <tr><th style="width:34%">Aufgabe</th><th>Regler</th></tr>
-        <tr><td>Mail umformulieren, kurze Frage, Übersetzung</td><td>lassen</td></tr>
-        <tr><td>Plan, Vergleich, Abwägung vorbereiten, längeres Dokument</td><td><strong>nach rechts</strong></td></tr>
-      </table>
-      <p style="color: var(--gold); font-size: 0.9rem;">Die Regel: normal anfangen, nach rechts schieben, wenn die Antwort zu flach ist. Entscheiden tun Sie, die KI bereitet vor.</p>
-      <p style="color: var(--white-muted); font-size: 0.82rem;">Je nach Version und Sprache kann der Regler bei Ihnen anders heißen. Gemeint ist immer dasselbe: wie viel die KI nachdenkt.</p>
     </div>
 
 
     <div class="exercise" id="ue0">
       <div class="exercise-number">Übung 1</div>
       <h3>Die Namensliste</h3>
-      <p class="subtitle">Derselbe Prompt, drei Nachbarländer, und ein Blick zum Nachbarn. Achten Sie nicht darauf, ob die Namen stimmen. Achten Sie darauf, welche Namen kommen. 10 Minuten.</p>
+      <p class="subtitle">Derselbe Prompt, drei Länder, und ein Blick zum Nachbarn. Achten Sie nicht darauf, ob die Namen stimmen. Achten Sie darauf, welche Namen kommen. 10 Minuten.</p>
 
       <p class="step-label">Schritt 1: Runde 1, Österreich</p>
       <div class="prompt-block">Erstelle mir eine Liste von 10 Mitarbeitern einer fiktiven Firma in Österreich.
@@ -944,8 +936,8 @@ Vorname, Nachname, Abteilung.</div>
       <p class="step-label">Schritt 3: Runde 2 und 3, im selben Chat weiterschreiben</p>
       <p>Schicken Sie die beiden Nachrichten nacheinander. Warten Sie jedes Mal die Antwort ab.</p>
       <div class="prompt-block">Gleiche Aufgabe, aber die Firma ist in Deutschland.</div>
-      <div class="prompt-block">Gleiche Aufgabe, aber die Firma ist in Polen.</div>
-      <p>Drei Nachbarländer, zwei davon mit derselben Sprache. Trotzdem drei verschiedene Listen.</p>
+      <div class="prompt-block">Gleiche Aufgabe, aber die Firma ist in den USA.</div>
+      <p>Drei Länder, zwei davon mit derselben Sprache. Trotzdem drei verschiedene Listen.</p>
 
       <p class="step-label">Schritt 4: Vergleichen</p>
       <ul>
@@ -955,9 +947,10 @@ Vorname, Nachname, Abteilung.</div>
       </ul>
 
       <p class="step-label">Wenn Sie früher fertig sind</p>
-      <p>Hängen Sie im selben Chat noch zwei Runden an:</p>
-      <div class="prompt-block">Gleiche Aufgabe, aber die Firma ist in den USA.</div>
-      <div class="prompt-block">Gleiche Aufgabe, aber die Firma ist in Ägypten.</div>
+      <p>Fragen Sie die KI im selben Chat, warum ihre Listen so aussehen, und schauen Sie, was sie antwortet:</p>
+      <div class="prompt-block">Erklär mir, warum in deinen Listen so viele häufige Namen vorkommen.</div>
+      <p>Optional, noch eine Runde:</p>
+      <div class="prompt-block">Gleiche Aufgabe, aber die Firma ist in Polen.</div>
 
       <details>
         <summary>Auflösung (erst aufklappen, wenn Sie verglichen haben)</summary>
@@ -1096,15 +1089,15 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
         <div class="collapsible-content">
           <p>Jetzt lassen Sie die KI den gleichen Inhalt in völlig verschiedenen Stilen umschreiben:</p>
 
-          <div class="prompt-block">Schreibe die Homeoffice-Regelung als Disney-Märchen. Beginne mit "Es war einmal", und gib der Geschichte einen Helden, ein Hindernis und ein gutes Ende. Maximal 200 Wörter.</div>
+          <div class="prompt-block">Schreibe die Homeoffice-Regelung als Disney-Märchen. Beginne mit "Es war einmal", und gib der Geschichte einen Helden, ein Hindernis und ein gutes Ende. Maximal 350 Wörter.</div>
 
-          <div class="prompt-block">Formuliere die Homeoffice-Regelung als Rap-Battle zwischen CEO und Betriebsrat. Maximal 200 Wörter.</div>
+          <div class="prompt-block">Formuliere die Homeoffice-Regelung als Rap-Battle zwischen CEO und Betriebsrat. Maximal 350 Wörter.</div>
 
-          <div class="prompt-block">Schreibe einen dramatischen Netflix-Trailer-Text über die Einführung einer neuen Homeoffice-Regelung, ohne Regieanweisungen, nur gesprochener Text des Erzählers. Maximal 200 Wörter.</div>
+          <div class="prompt-block">Schreibe einen dramatischen Netflix-Trailer-Text über die Einführung einer neuen Homeoffice-Regelung, ohne Regieanweisungen, nur gesprochener Text des Erzählers. Maximal 350 Wörter.</div>
 
-          <div class="prompt-block">Schreibe die Homeoffice-Regelung in meinem Dialekt. Ich komme aus ________. Maximal 200 Wörter.</div>
+          <div class="prompt-block">Schreibe die Homeoffice-Regelung in meinem Dialekt. Ich komme aus ________. Maximal 350 Wörter.</div>
 
-          <div class="prompt-block">Erkläre die Homeoffice-Regelung so, dass unser neuer Lehrling sie am ersten Arbeitstag versteht. Maximal 200 Wörter.</div>
+          <div class="prompt-block">Erkläre die Homeoffice-Regelung so, dass unser neuer Lehrling sie am ersten Arbeitstag versteht. Maximal 350 Wörter.</div>
 
 
           <p style="color: var(--gold); margin-top: 12px;"><strong>Erkenntnis:</strong> Die KI imitiert Muster, sie "denkt" nicht. Und: Tonalität im Prompt steuert alles.</p>
@@ -1191,6 +1184,20 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
     
 
 
+    <!-- THINKING EFFORT (Deck 68/69, hinter Pilot/Autopilot, Commander 05.10.; aus „ChatGPT öffnen“ hierher verschoben 07.10.) -->
+    <div class="exercise" id="thinking">
+      <div class="exercise-number">Info</div>
+      <h3>Thinking effort: wie lange die KI nachdenkt</h3>
+      <p class="subtitle">Pilot und Autopilot gibt es nicht nur im Kopf. Im Eingabefeld von ChatGPT sitzt ein Menü „Thinking effort“ mit einem Schieberegler. Er legt fest, wie lange ChatGPT nachdenkt, bevor es antwortet. Voreingestellt ist „Medium“.</p>
+      <table class="compare-table">
+        <tr><th style="width:34%">Regler</th><th>Was passiert</th></tr>
+        <tr><td><strong>links</strong> = Autopilot</td><td>Schreibt sofort los, Wort für Wort. Schnell und sparsam. Gut für Mail umformulieren, kurze Frage, Übersetzung.</td></tr>
+        <tr><td><strong>rechts</strong> = Pilot</td><td>Plant zuerst, prüft, schreibt dann. Dauert länger, verbraucht mehr Kontingent. Gut für Plan, Vergleich, Abwägung vorbereiten, langes Dokument.</td></tr>
+      </table>
+      <p style="color: var(--gold); font-size: 0.9rem;">Die Regel: normal anfangen, nach rechts schieben, wenn die Antwort zu flach ist. Entscheiden tun Sie, die KI bereitet vor.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem;">Je nach Version und Sprache kann der Regler bei Ihnen anders heißen. Gemeint ist immer dasselbe: wie viel die KI nachdenkt.</p>
+    </div>
+
     <!-- 3-SEKUNDEN-REGEL, vor der ersten Uebung mit echten Firmendaten -->
     <div class="exercise" id="pii">
       <div class="exercise-number">Takeaway</div>
@@ -1204,14 +1211,6 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
       <p style="color: var(--gold); font-size: 0.85rem;">Die Faustregel: Behandeln Sie die KI wie einen Praktikanten, der im öffentlichen Bus sitzt. Er ist hilfreich, aber er sitzt nicht allein da.</p>
     </div>
 
-    <!-- IHR ARBEITSALLTAG (Google Form, Ersatz fuer Jotform 262705879297071), vor Uebung 6 -->
-    <div class="exercise" id="arbeitsalltag">
-      <div class="exercise-number">Umfrage</div>
-      <h3>Ihr Arbeitsalltag</h3>
-      <p class="subtitle">Zwei Minuten, bevor wir bauen. Welche Aufgabe kostet Sie am meisten Zeit? Genau daran arbeiten wir gleich weiter.</p>
-      <iframe id="GoogleForm-arbeitsalltag" src="https://docs.google.com/forms/d/e/1FAIpQLSd8zmp7WKsRmJwh2JY6YDPTBVUm61yWUG1dtXH5u6Kci6d7uA/viewform?embedded=true" title="Ihr Arbeitsalltag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8zmp7WKsRmJwh2JY6YDPTBVUm61yWUG1dtXH5u6Kci6d7uA/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
-    </div>
 
     <!-- ÜBUNG 3 -->
     <div class="exercise" id="ue3">
@@ -1431,20 +1430,6 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
         <p style="margin:0;">Werfen Sie einen Blick zurück auf die Folien.</p>
       </div>
 
-      <div class="quiz">
-<script type="application/json">
-{
-  "id": "format-eigenes",
-  "typ": "text",
-  "etikett": "Ihre Übertragung",
-  "frage": "Welche Datei geben Sie in Ihrem Alltag am häufigsten an eine KI? Und in welchem Format läge sie besser?",
-  "hilfe": "Ein Satz genügt.",
-  "hinweis": "Die Probe für jedes Format: Gib der Maschine das, was du am Telefon vorlesen könntest. Was beim Vorlesen verloren ginge, geht auch bei ihr verloren.",
-  "auflösen": "später",
-  "knopf": "Die Probe zeigen"
-}
-</script>
-</div>
     </div>
 
 
@@ -1456,6 +1441,15 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <p class="subtitle">Zwei Minuten, ein Formular für den ganzen Tag. Wer schon zu Mittag geht, füllt es jetzt aus, alle anderen am Ende. Name und Firma sind freiwillig.</p>
       <iframe id="GoogleForm-feedback" src="https://docs.google.com/forms/d/e/1FAIpQLSfqZbj-vtV_6s0Hb95k8Wyb7B-u_HwvhRDXqkVoNcyaRzmejg/viewform?embedded=true" title="Ihr Feedback zum Training" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZbj-vtV_6s0Hb95k8Wyb7B-u_HwvhRDXqkVoNcyaRzmejg/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div>
+
+    <!-- IHR ARBEITSALLTAG (Google Form, Ersatz fuer Jotform 262705879297071), nach Formaten und Mittags-Feedback, Commander 07.10. -->
+    <div class="exercise" id="arbeitsalltag">
+      <div class="exercise-number">Umfrage</div>
+      <h3>Ihr Arbeitsalltag</h3>
+      <p class="subtitle">Zwei Minuten, bevor wir bauen. Welche Aufgabe kostet Sie am meisten Zeit? Genau daran arbeiten wir gleich weiter.</p>
+      <iframe id="GoogleForm-arbeitsalltag" src="https://docs.google.com/forms/d/e/1FAIpQLSd8zmp7WKsRmJwh2JY6YDPTBVUm61yWUG1dtXH5u6Kci6d7uA/viewform?embedded=true" title="Ihr Arbeitsalltag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8zmp7WKsRmJwh2JY6YDPTBVUm61yWUG1dtXH5u6Kci6d7uA/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
     </div>
 
     <!-- CTA -->
@@ -1482,6 +1476,7 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <a href="#notebooklm">10. EU AI Act in Gemini Notebook</a>
       <a href="#rag-vergleich">11. Mit Quelle, ohne Quelle</a>
       <a href="#assistent-agent">Info · Assistent oder Agent?</a>
+      <a href="#tasks">12. Geplante Aufgaben</a>
       <a href="#kicheck-ende">Check · zum Schluss</a>
       <a href="#feedback">Feedback</a>
       <a href="#weiter">Wie es weitergeht</a>
@@ -1751,6 +1746,41 @@ Verhalten: Antworte auf Deutsch, in Sie-Form, konkret und knapp, mit klaren näc
 
 
 
+
+    <!-- UEBUNG 12: GEPLANTE AUFGABEN (Deck 99, Fakten: research/inhalte/2026-10-04-openai-dots-und-chatgpt-tasks.md, Commander 07.10.) -->
+    <div class="exercise" id="tasks">
+      <div class="exercise-number">Übung 12</div>
+      <h3>Geplante Aufgaben: ChatGPT meldet sich</h3>
+      <p class="subtitle">Bisher haben Sie gefragt und ChatGPT hat geantwortet. Jetzt meldet sich ChatGPT von selbst, zu einer Zeit, die Sie festlegen. Das ist die kleine Version eines Agenten, und sie steckt schon im Gratiskonto. 10 Minuten.</p>
+
+      <p class="step-label">Schritt 1: Eine Erinnerung anlegen</p>
+      <p>In einem normalen Chat, nicht im Projekt:</p>
+      <div class="prompt-block">Erinnere mich morgen am Nachmittag daran, meine drei wichtigsten Erkenntnisse aus dem heutigen KI-Training aufzuschreiben.</div>
+      <p>ChatGPT bestätigt die Aufgabe im Chat. Wenn es stattdessen nur antwortet, schreiben Sie dazu: „Leg dafür eine geplante Aufgabe an.“</p>
+
+      <p class="step-label">Schritt 2: Nachschauen</p>
+      <p>In der Seitenleiste auf <strong>„Geplant“</strong> klicken, in der englischen Oberfläche <strong>„Scheduled“</strong>. Dort sehen Sie Ihre Aufgabe und können sie bearbeiten, pausieren oder löschen.</p>
+
+      <p class="step-label">Schritt 3: Wie die Nachricht ankommt</p>
+      <p><strong>Einstellungen → Benachrichtigungen</strong>: Push, E-Mail oder beides.</p>
+
+      <table class="compare-table">
+        <tr><th style="width:34%">Im Gratiskonto</th><th></th></tr>
+        <tr><td>Wie viele</td><td>Drei aktive Aufgaben</td></tr>
+        <tr><td>Wie oft</td><td>Einmalig oder höchstens einmal am Tag</td></tr>
+        <tr><td>Wann</td><td>Zeitfenster (morgens, nachmittags, nachts) statt genauer Uhrzeit</td></tr>
+      </table>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Das Konto heute gehört tecTrain, die Erinnerung landet also dort. Legen Sie Ihre echte Erinnerung danach in Ihrem eigenen Konto an.</p>
+
+      <details>
+        <summary>Ideen für Ihren Alltag (aufklappen)</summary>
+        <div class="collapsible-content">
+          <div class="prompt-block">Erinnere mich am Donnerstag am Nachmittag daran, die Reisekostenabrechnung einzureichen.</div>
+          <div class="prompt-block">Schick mir jeden Montagmorgen eine Checkliste für meine Arbeitswoche. Frag mich zuerst, welche drei Hauptaufgaben ich diese Woche habe.</div>
+          <div class="prompt-block">Suche jeden Freitag am Nachmittag im Web nach den wichtigsten Neuigkeiten zu Datenschutz im Büro in Österreich und fasse sie in fünf Stichpunkten zusammen.</div>
+        </div>
+      </details>
+    </div>
 
     <!-- KI-CHECK ZUM SCHLUSS, vor Bonus und vor dem CTA (derselbe Fragebogen wie am Morgen) -->
     <div class="exercise" id="kicheck-ende">
