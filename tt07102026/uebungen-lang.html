@@ -782,12 +782,12 @@
       <a href="#split">Trick · Bildschirm teilen</a>
       <a href="#chatgpt-start">Info · ChatGPT öffnen</a>
       <a href="#ue0">1. Die Namensliste</a>
-      <a href="#anweisungen">2. Eigene Anweisungen</a>
       <a href="#kontextfenster">Info · Kontextfenster</a>
-      <a href="#gedaechtnis">3. Was weißt du über mich?</a>
+      <a href="#gedaechtnis">2. Was weißt du über mich?</a>
       <a href="#erinnerung">Info · Wie sich ChatGPT erinnert</a>
-      <a href="#ue1">4. Prompten</a>
-      <a href="#ue2">5. CITE(R): die Reise</a>
+      <a href="#ue1">3. Prompten</a>
+      <a href="#ue2">4. CITE(R): die Reise</a>
+      <a href="#anweisungen">5. Eigene Anweisungen: Ihr Stil</a>
       <a href="#thinking">Info · Thinking effort</a>
       <a href="#pii">Takeaway · 3-Sekunden-Regel</a>
       <a href="#ue3">6. Wissensbasis</a>
@@ -960,26 +960,6 @@ Vorname, Nachname, Abteilung.</div>
       </details>
     </div>
 
-    <!-- EIGENE ANWEISUNGEN (Deck 38/39) -->
-    <div class="exercise" id="anweisungen">
-      <div class="exercise-number">Übung 2</div>
-      <h3>Ihre eigenen Anweisungen: einmal sagen, immer gültig</h3>
-      <p class="subtitle">Was ChatGPT über Sie wissen soll, schreiben Sie einmal hinein. Ab dann gilt es in jedem neuen Chat. 10 Minuten.</p>
-
-      <p class="step-label">Schritt 1: Das Feld finden</p>
-      <p>Profilbild, dann <strong>Einstellungen → Personalisierung</strong>. Schalter <strong>„Anpassung aktivieren“</strong> an, dann ins Feld <strong>„Benutzerdefinierte Anweisungen“</strong>. Im Gratiskonto passen 1.500 Zeichen hinein.</p>
-
-      <p class="step-label">Schritt 2: Drei einfache Regeln hineinschreiben</p>
-      <div class="prompt-block">Antworte mir auf Deutsch und sprich mich mit Sie an.
-Halte dich an höchstens 200 Wörter, außer ich bitte ausdrücklich um mehr.
-Antworte detailliert und konkret, mit einem Beispiel.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Fangen Sie einfach an: Sprache, Länge, Detailgrad. Ergänzen können Sie später jederzeit.</p>
-
-      <p class="step-label">Schritt 3: Testen, in einem neuen Chat</p>
-      <div class="prompt-block">Beschreib mir, wie du mir bei meiner Arbeit helfen kannst.</div>
-      <p>Prüfen Sie: Spricht ChatGPT Sie mit Sie an? Bleibt es unter 200 Wörtern? Ist ein Beispiel dabei?</p>
-      <p style="color: var(--gold); font-size: 0.9rem;">Das ist der Kontext aus CITE, nur einmal geschrieben.</p>
-    </div>
 
 
     <!-- INFO KONTEXTFENSTER (Deck v6 Folien „Das Kontextfenster“ + „Was daraus folgt“, Commander 2026-10-06) -->
@@ -1001,7 +981,7 @@ Antworte detailliert und konkret, mit einem Beispiel.</div>
 
     <!-- GEDAECHTNIS (Deck 36/37/40) -->
         <div class="exercise" id="gedaechtnis">
-      <div class="exercise-number">Übung 3</div>
+      <div class="exercise-number">Übung 2</div>
       <h3>Was weißt du über mich?</h3>
       <p class="subtitle">ChatGPT merkt sich Dinge über Sie, und im Gratiskonto darf es Ihre Chats standardmäßig zum Training verwenden. Beides schauen Sie jetzt nach. 5 Minuten.</p>
 
@@ -1038,7 +1018,7 @@ Antworte detailliert und konkret, mit einem Beispiel.</div>
 
     <!-- ÜBUNG 1 -->
     <div class="exercise" id="ue1">
-      <div class="exercise-number">Übung 4</div>
+      <div class="exercise-number">Übung 3</div>
       <h3>Prompten: Homeoffice-Regelung</h3>
       <p class="subtitle">Jede Person promptet für sich in ChatGPT. Danach vergleichen wir zwei Ergebnisse gemeinsam am Bildschirm.</p>
 
@@ -1108,7 +1088,7 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
 
     <!-- ÜBUNG 2 -->
     <div class="exercise" id="ue2">
-      <div class="exercise-number">Übung 5</div>
+      <div class="exercise-number">Übung 4</div>
       <h3>CITE(R) Framework:Jetzt sind Sie dran!</h3>
       <p class="subtitle">Sie planen eine Reise. Kurze Nachrichten, jede legt eine Schicht drauf. Mittendrin ändert sich etwas, und danach ändert es sich zurück. Um die Reise geht es nicht.</p>
 
@@ -1183,6 +1163,45 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
 
     
 
+
+    <!-- EIGENE ANWEISUNGEN = SYSTEM-PROMPT (Deck 38/39). Commander 07.10.: hinter CITE(R), weil dann die Stile bekannt sind.
+         Drei Stile zur Wahl, Rueckweg auf neutral erst auf Jakubs Zeichen. Keine 200-Woerter-Grenze mehr. -->
+    <div class="exercise" id="anweisungen">
+      <div class="exercise-number">Übung 5</div>
+      <h3>Ihre eigenen Anweisungen: einmal sagen, immer gültig</h3>
+      <p class="subtitle">Was in diesem Feld steht, liest ChatGPT vor jeder Antwort mit, in jedem neuen Chat. Damit es jeder sieht, probieren wir es zuerst mit einem Stil, der auffällt. 10 Minuten.</p>
+
+      <p class="step-label">Schritt 1: Das Feld finden</p>
+      <p>Profilbild, dann <strong>Einstellungen → Personalisierung</strong>. Schalter <strong>„Anpassung aktivieren“</strong> an, dann ins Feld <strong>„Benutzerdefinierte Anweisungen“</strong>. Im Gratiskonto passen 1.500 Zeichen hinein.</p>
+
+      <p class="step-label">Schritt 2: Einen Stil aussuchen und hineinkopieren</p>
+      <p>Nehmen Sie einen der drei. Am besten einen anderen als Ihr Nachbar.</p>
+      <p class="sub-step">Amtsdeutsch</p>
+      <div class="prompt-block">Antworte mir ab jetzt immer im Stil eines österreichischen Amtsschreibens: Beamtendeutsch, Hauptwörter statt Verben, lange Schachtelsätze, Wendungen wie „Bezug nehmend auf Ihr Ansuchen“ und „Mit vorzüglicher Hochachtung“. Der Inhalt soll sachlich stimmen, nur der Ton ist amtlich.</div>
+      <p class="sub-step">Teenager-Slang</p>
+      <div class="prompt-block">Antworte mir ab jetzt immer wie ein Teenager: Jugendsprache, Wörter wie „Digga“, „Jo“, „Bro“, „lowkey“ und „cringe“, viele englische Wörter, kurze Sätze, Emojis erlaubt. Der Inhalt soll sachlich stimmen, nur der Ton ist jung.</div>
+      <p class="sub-step">Der gute Freund im Beisl</p>
+      <div class="prompt-block">Antworte mir ab jetzt immer wie ein guter Freund, mit dem ich nach der Arbeit im Beisl sitze: per Du, locker, ehrlich, mit ein bisschen Schmäh und einer kleinen Geschichte aus dem Leben. Der Inhalt soll sachlich stimmen, nur der Ton ist gemütlich.</div>
+      <p>Speichern nicht vergessen.</p>
+
+      <p class="step-label">Schritt 3: Testen, in einem neuen Chat</p>
+      <div class="prompt-block">Erklär mir, wie ich am besten meinen Urlaub beim Chef beantrage.</div>
+      <p>Lesen Sie die Antwort Ihrem Nachbarn vor, online posten Sie den ersten Satz in den Teams-Chat. Gleiche Frage, drei völlig verschiedene Antworten, und keiner hat den Stil in die Frage geschrieben.</p>
+
+      <details>
+        <summary>Zurück an die Arbeit (erst aufklappen, wenn ich es sage)</summary>
+        <div class="collapsible-content">
+          <p>Der Stil gilt in jedem neuen Chat, auch in der nächsten Übung. Deshalb jetzt zurück auf neutral: Ihren Stil im Feld <strong>ganz löschen</strong> und stattdessen das hier einsetzen. Damit arbeiten wir den Rest des Tages.</p>
+          <div class="prompt-block">Antworte mir auf Deutsch und sprich mich mit Sie an.
+Antworte klar und auf den Punkt, mit einem konkreten Beispiel, wenn es hilft.
+Wenn du dir nicht sicher bist, sag es, statt zu raten.
+Wenn meine Aufgabe unklar ist, stell mir zuerst Rückfragen.
+Kennzeichne, was du nur annimmst.</div>
+          <p>Speichern, neuen Chat öffnen, dieselbe Urlaubsfrage noch einmal stellen. Jetzt klingt es wieder nach Büro.</p>
+          <p style="color: var(--gold); font-size: 0.9rem;">Das ist der Kontext aus CITE, nur einmal geschrieben. Die drei letzten Zeilen sind Ihre Leitplanken: Sie verhindern Fehler nicht, aber die KI sagt Ihnen öfter, wo sie unsicher ist.</p>
+        </div>
+      </details>
+    </div>
 
     <!-- THINKING EFFORT (Deck 68/69, hinter Pilot/Autopilot, Commander 05.10.; aus „ChatGPT öffnen“ hierher verschoben 07.10.) -->
     <div class="exercise" id="thinking">
