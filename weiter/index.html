@@ -776,6 +776,10 @@
             </div>
             <h3>Angekommen.</h3>
             <p>Ich melde mich bei Ihnen. Bis dahin: viel Erfolg beim Umsetzen.</p>
+            <div class="booking-inner" id="arsSuccessCall" style="display: none; margin-top: 24px;">
+              <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn-booking" target="_blank" rel="noopener">Gespräch buchen</a>
+              <span class="booking-note">Kostenlos, den Termin wählen Sie selbst.</span>
+            </div>
           </div>
         </div>
       </section>
@@ -880,6 +884,14 @@
             }
             arsForm.style.display = 'none';
             arsSuccess.style.display = 'block';
+            // Wie die Folge-Mail: alles ausser Ressourcen fuehrt zu EINEM Gespraech (Commander 07.10.2026).
+            // Ausnahme ARS: nur Team-Option = Buchung ueber die ARS Akademie, kein Knopf.
+            var lc = interesse.toLowerCase();
+            var viaArs = kursParam.indexOf('ars') === 0;
+            if (lc.indexOf('einzeltraining') !== -1 || lc.indexOf('rechtskonforme') !== -1 ||
+                (lc.indexOf('training für') !== -1 && !viaArs)) {
+              document.getElementById('arsSuccessCall').style.display = 'flex';
+            }
           })
           .catch(function () {
             arsSubmitBtn.disabled = false;
