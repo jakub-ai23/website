@@ -1496,7 +1496,7 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <a href="#notebooklm">10. EU AI Act in Gemini Notebook</a>
       <a href="#rag-vergleich">11. Mit Quelle, ohne Quelle</a>
       <a href="#assistent-agent">Info · Assistent oder Agent?</a>
-      <a href="#tasks">12. Geplante Aufgaben</a>
+      <a href="#tasks">12. Wiederkehrende Aufgaben</a>
       <a href="#kicheck-ende">Check · zum Schluss</a>
       <a href="#feedback">Feedback</a>
       <a href="#weiter">Wie es weitergeht</a>
@@ -1767,37 +1767,42 @@ Verhalten: Antworte auf Deutsch, in Sie-Form, konkret und knapp, mit klaren näc
 
 
 
-    <!-- UEBUNG 12: GEPLANTE AUFGABEN (Deck 99, Fakten: research/inhalte/2026-10-04-openai-dots-und-chatgpt-tasks.md, Commander 07.10.) -->
+    <!-- UEBUNG 12: WIEDERKEHRENDE AUFGABEN (Deck 99, Fakten: research/inhalte/2026-10-04-openai-dots-und-chatgpt-tasks.md).
+         Commander 07.10.: keine Erinnerungen, sondern wiederkehrende Recherche (KI-Neuigkeiten, Arbeit, Foerderungen). -->
     <div class="exercise" id="tasks">
       <div class="exercise-number">Übung 12</div>
-      <h3>Geplante Aufgaben: ChatGPT meldet sich</h3>
-      <p class="subtitle">Bisher haben Sie gefragt und ChatGPT hat geantwortet. Jetzt meldet sich ChatGPT von selbst, zu einer Zeit, die Sie festlegen. Das ist die kleine Version eines Agenten, und sie steckt schon im Gratiskonto. 10 Minuten.</p>
+      <h3>Wiederkehrende Aufgaben: ChatGPT recherchiert für Sie</h3>
+      <p class="subtitle">Bisher haben Sie gefragt und ChatGPT hat geantwortet. Jetzt arbeitet ChatGPT regelmäßig von selbst, zum Beispiel jede Woche eine Recherche, die fertig auf Sie wartet. Das ist die kleine Version eines Agenten, und sie steckt schon im Gratiskonto. 10 Minuten.</p>
 
-      <p class="step-label">Schritt 1: Eine Erinnerung anlegen</p>
-      <p>In einem normalen Chat, nicht im Projekt:</p>
-      <div class="prompt-block">Erinnere mich morgen am Nachmittag daran, meine drei wichtigsten Erkenntnisse aus dem heutigen KI-Training aufzuschreiben.</div>
-      <p>ChatGPT bestätigt die Aufgabe im Chat. Wenn es stattdessen nur antwortet, schreiben Sie dazu: „Leg dafür eine geplante Aufgabe an.“</p>
+      <p class="step-label">Schritt 1: Eine wiederkehrende Recherche anlegen</p>
+      <p>Nehmen Sie einen der drei Prompts, in einem normalen Chat, nicht im Projekt. Die Lücken füllen Sie mit Ihrem Thema.</p>
+      <p class="sub-step">Neuigkeiten aus der KI-Welt</p>
+      <div class="prompt-block">Suche jeden Montag am Morgen im Web nach den wichtigsten Neuigkeiten aus der KI-Welt der letzten Woche, die für die Büroarbeit wichtig sind. Fasse sie in fünf Stichpunkten zusammen, jeweils mit Quelle und Datum.</div>
+      <p class="sub-step">Neuigkeiten aus Ihrer Arbeit</p>
+      <div class="prompt-block">Suche jeden Freitag am Nachmittag im Web nach Neuigkeiten aus meiner Branche: ________. Fasse sie in fünf Stichpunkten zusammen, jeweils mit Quelle und Datum. Nur was seit letzter Woche neu ist.</div>
+      <p class="sub-step">Förderungen</p>
+      <div class="prompt-block">Suche jeden Montag am Morgen im Web nach neuen Förderungen in Österreich für ________ (zum Beispiel Weiterbildung, Digitalisierung oder KI im Unternehmen). Nenne Fördergeber, Frist und Link. Wenn es nichts Neues gibt, sag das in einem Satz.</div>
+      <p>ChatGPT bestätigt die geplante Aufgabe im Chat. Wenn es stattdessen sofort antwortet, schreiben Sie dazu: „Leg dafür eine wiederkehrende geplante Aufgabe an.“</p>
 
       <p class="step-label">Schritt 2: Nachschauen</p>
       <p>In der Seitenleiste auf <strong>„Geplant“</strong> klicken, in der englischen Oberfläche <strong>„Scheduled“</strong>. Dort sehen Sie Ihre Aufgabe und können sie bearbeiten, pausieren oder löschen.</p>
 
-      <p class="step-label">Schritt 3: Wie die Nachricht ankommt</p>
+      <p class="step-label">Schritt 3: Wie die Ergebnisse ankommen</p>
       <p><strong>Einstellungen → Benachrichtigungen</strong>: Push, E-Mail oder beides.</p>
 
       <table class="compare-table">
         <tr><th style="width:34%">Im Gratiskonto</th><th></th></tr>
         <tr><td>Wie viele</td><td>Drei aktive Aufgaben</td></tr>
-        <tr><td>Wie oft</td><td>Einmalig oder höchstens einmal am Tag</td></tr>
+        <tr><td>Wie oft</td><td>Einmalig oder höchstens einmal am Tag, also auch wöchentlich</td></tr>
         <tr><td>Wann</td><td>Zeitfenster (morgens, nachmittags, nachts) statt genauer Uhrzeit</td></tr>
       </table>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Das Konto heute gehört tecTrain, die Erinnerung landet also dort. Legen Sie Ihre echte Erinnerung danach in Ihrem eigenen Konto an.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Die erste Lieferung prüfen Sie: Stimmen Quelle und Datum? Eine Zusammenfassung ist nur so gut wie die Links darunter.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Das Konto heute gehört tecTrain, die Ergebnisse landen also dort. Legen Sie Ihre echte Recherche danach in Ihrem eigenen Konto an.</p>
 
       <details>
-        <summary>Ideen für Ihren Alltag (aufklappen)</summary>
+        <summary>Noch eine Idee: beobachten statt zusammenfassen (aufklappen)</summary>
         <div class="collapsible-content">
-          <div class="prompt-block">Erinnere mich am Donnerstag am Nachmittag daran, die Reisekostenabrechnung einzureichen.</div>
-          <div class="prompt-block">Schick mir jeden Montagmorgen eine Checkliste für meine Arbeitswoche. Frag mich zuerst, welche drei Hauptaufgaben ich diese Woche habe.</div>
-          <div class="prompt-block">Suche jeden Freitag am Nachmittag im Web nach den wichtigsten Neuigkeiten zu Datenschutz im Büro in Österreich und fasse sie in fünf Stichpunkten zusammen.</div>
+          <div class="prompt-block">Prüfe einmal am Tag, ob auf der Seite ________ etwas Neues steht, und melde dich nur, wenn sich etwas geändert hat.</div>
         </div>
       </details>
     </div>
