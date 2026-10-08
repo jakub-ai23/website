@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KI-Check am Morgen</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#f6f7fb; --card:#ffffff; --ink:#0f2747; --muted:#5b6b82; --navy:#0b3a6e; --accent:#f39200; --track:#e3e8f0; --low:#c2410c; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0d1626; --card:#15213a; --ink:#eef3fb; --muted:#9fb0c8; --navy:#7fb2ff; --track:#25334f; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:Poppins,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; }
+main { max-width:1100px; margin:0 auto; padding:40px 24px 56px; }
+header { border-left:8px solid var(--accent); padding-left:18px; margin-bottom:28px; }
+h1 { margin:0; font-size:clamp(1.8rem,4vw,2.8rem); color:var(--navy); }
+.sub { color:var(--muted); margin-top:6px; font-size:1.05rem; }
+.kpis { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:0 0 28px; }
+.kpi { background:var(--card); border-radius:14px; padding:18px 20px; box-shadow:0 1px 3px rgba(15,39,71,.08); }
+.kpi b { display:block; font-size:2.2rem; color:var(--navy); line-height:1.1; }
+.kpi span { color:var(--muted); font-size:.95rem; }
+section { background:var(--card); border-radius:14px; padding:22px 24px; margin-bottom:20px; box-shadow:0 1px 3px rgba(15,39,71,.08); }
+h2 { margin:0 0 16px; font-size:1.25rem; color:var(--navy); }
+.stars { display:flex; gap:16px; flex-wrap:wrap; }
+.star { flex:1 1 220px; border-radius:12px; padding:18px 20px; background:linear-gradient(135deg,var(--navy),#1f5ea8); color:#fff; }
+.star-name { font-size:1.6rem; font-weight:700; }
+.star-score { opacity:.85; margin-top:2px; }
+.star-pct { font-size:2.4rem; font-weight:700; color:var(--accent); margin-top:6px; }
+.row { display:grid; grid-template-columns:110px 1fr 70px; gap:14px; align-items:center; margin:10px 0; }
+.row.q { grid-template-columns:300px 1fr 80px 120px; }
+.lab { font-weight:600; }
+.track { height:22px; background:var(--track); border-radius:11px; overflow:hidden; }
+.fill { display:block; height:100%; background:var(--navy); border-radius:11px; }
+.fill.low { background:var(--accent); }
+.val { font-weight:700; text-align:right; }
+.dk { color:var(--muted); font-size:.85rem; }
+.muted { color:var(--muted); }
+footer { margin-top:24px; text-align:center; font-size:1.15rem; color:var(--navy); font-weight:600; }
+@media (max-width:700px) { .kpis { grid-template-columns:1fr; } .row.q { grid-template-columns:1fr; gap:4px; } .row.q .val, .row.q .dk { text-align:left; } }
+</style></head><body><main>
+<header><h1>KI-Check am Morgen</h1>
+<div class="sub">KI Workflows erstellen und effizienter arbeiten · ARS Akademie · 08.10.2026</div></header>
+
+<div class="kpis">
+<div class="kpi"><b>7 von 7</b><span>haben ausgefüllt</span></div>
+<div class="kpi"><b>63 %</b><span>richtig, die ganze Gruppe</span></div>
+<div class="kpi"><b>2.6 von 5</b><span>so sicher fühlen Sie sich beim Aufschreiben einer Aufgabe</span></div>
+</div>
+
+<section><h2>Über 80 Prozent</h2><div class="stars"><div class="star"><div class="star-name">anonym</div><div class="star-score">9 von 9</div><div class="star-pct">100 %</div></div><div class="star"><div class="star-name">anonym</div><div class="star-score">8 von 9</div><div class="star-pct">89 %</div></div></div></section>
+
+<section><h2>Alle anderen, anonym</h2><div class="row"><span class="lab">anonym</span><span class="track"><span class="fill" style="width:78%"></span></span><span class="val">7 / 9</span></div><div class="row"><span class="lab">anonym</span><span class="track"><span class="fill" style="width:78%"></span></span><span class="val">7 / 9</span></div><div class="row"><span class="lab">anonym</span><span class="track"><span class="fill" style="width:56%"></span></span><span class="val">5 / 9</span></div><div class="row"><span class="lab">anonym</span><span class="track"><span class="fill" style="width:33%"></span></span><span class="val">3 / 9</span></div><div class="row"><span class="lab">anonym</span><span class="track"><span class="fill" style="width:11%"></span></span><span class="val">1 / 9</span></div></section>
+
+<section><h2>Wo der Tag am meisten bringt</h2>
+<p class="muted" style="margin-top:-8px">Richtige Antworten je Thema, die schwächsten zuerst. Die Lösungen gibt es nach dem Schluss-Check.</p>
+<div class="row q"><span class="lab">Wohin eine Regel für ein Thema gehört</span><span class="track"><span class="fill low" style="width:43%"></span></span><span class="val">3 von 7</span><span class="dk">1× „weiß nicht“</span></div><div class="row q"><span class="lab">Skill oder Projekt-Anweisung</span><span class="track"><span class="fill low" style="width:43%"></span></span><span class="val">3 von 7</span><span class="dk">1× „weiß nicht“</span></div><div class="row q"><span class="lab">Der Prüfpunkt im Skill</span><span class="track"><span class="fill " style="width:57%"></span></span><span class="val">4 von 7</span><span class="dk">3× „weiß nicht“</span></div><div class="row q"><span class="lab">500 Zeilen zuordnen</span><span class="track"><span class="fill " style="width:57%"></span></span><span class="val">4 von 7</span><span class="dk">2× „weiß nicht“</span></div><div class="row q"><span class="lab">Der Agent in Copilot</span><span class="track"><span class="fill " style="width:57%"></span></span><span class="val">4 von 7</span><span class="dk">1× „weiß nicht“</span></div><div class="row q"><span class="lab">Eine Regel verlässlich machen</span><span class="track"><span class="fill " style="width:71%"></span></span><span class="val">5 von 7</span><span class="dk">2× „weiß nicht“</span></div><div class="row q"><span class="lab">Ein fremder Skill aus dem Netz</span><span class="track"><span class="fill " style="width:71%"></span></span><span class="val">5 von 7</span><span class="dk">2× „weiß nicht“</span></div><div class="row q"><span class="lab">Warum die KI Vorgaben vergisst</span><span class="track"><span class="fill " style="width:86%"></span></span><span class="val">6 von 7</span><span class="dk">1× „weiß nicht“</span></div><div class="row q"><span class="lab">Welches Konto für Firmendaten</span><span class="track"><span class="fill " style="width:86%"></span></span><span class="val">6 von 7</span><span class="dk">1× „weiß nicht“</span></div></section>
+
+<p class="muted" style="text-align:center">Werkzeug heute: Claude 2 · ChatGPT 2 · Copilot 2 · weiß ich noch nicht 1</p>
+<footer>Am Schluss: derselbe Check, dasselbe Kürzel. Dann sehen wir, was sich bewegt hat.</footer>
+</main></body></html>
