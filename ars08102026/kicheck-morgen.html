@@ -56,8 +56,8 @@ section{margin-top:72px}
 
 /* Themen */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{perspective:1200px;border:0;background:none;padding:0;text-align:left;cursor:pointer;font:inherit;color:inherit;min-height:228px}
-.inner{position:relative;height:100%;min-height:228px;transition:transform .75s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.card{perspective:1200px;border:0;background:none;padding:0;text-align:left;cursor:pointer;font:inherit;color:inherit;min-height:250px}
+.inner{position:relative;height:100%;min-height:250px;transition:transform .75s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
 .card.flip .inner{transform:rotateY(180deg)}
 .face{position:absolute;inset:0;border-radius:20px;padding:22px 22px 20px;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--line);background:var(--card);overflow:hidden;display:flex;flex-direction:column}
 .front .fill{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(180deg,rgba(31,77,69,.16),rgba(31,77,69,.30));transition:height 1.4s cubic-bezier(.2,.7,.2,1)}
@@ -65,13 +65,15 @@ section{margin-top:72px}
 .front .fill:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--pine)}
 .front.low .fill:before{background:var(--signal)}
 .front>*:not(.fill){position:relative}
-.topic{font-weight:800;font-size:1.12rem;line-height:1.25;max-width:85%}
+.topic{font-weight:800;font-size:1.12rem;line-height:1.25}
 .pct{font-family:Fraunces,serif;font-weight:800;font-size:3.2rem;line-height:1;margin-top:auto;font-variant-numeric:tabular-nums}
 .pct small{font-size:.4em;font-style:italic;font-weight:500;color:var(--muted)}
 .meta{color:var(--muted);font-size:.9rem;margin-top:4px}
-.badge{position:absolute;top:18px;right:18px;background:var(--signal);color:#fff;font-weight:800;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:999px;animation:pulse 2.4s ease-in-out infinite}
+.badge{align-self:flex-start;margin-bottom:12px;background:var(--signal);color:#fff;font-weight:800;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:999px;animation:pulse 2.4s ease-in-out infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,91,31,.45)}50%{box-shadow:0 0 0 8px rgba(255,91,31,0)}}
-.hint{position:absolute;bottom:16px;right:18px;font-size:.78rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.foot{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:4px}
+.foot .meta{margin-top:0}
+.hint{white-space:nowrap;font-size:.75rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
 .back{transform:rotateY(180deg);background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .back .when{font-family:Fraunces,serif;font-weight:800;font-size:3.4rem;line-height:1;color:var(--signal)}
 .back .what{margin-top:10px;font-size:1.08rem}
@@ -188,7 +190,7 @@ function punkte(){document.querySelectorAll('.dot').forEach((d,i)=>setTimeout(()
     b.innerHTML='<div class="inner"><div class="face front'+(low?' low':'')+'"><div class="fill" data-h="'+Math.round(t.richtig/D.n*100)+'"></div>'+
       (low?'<span class="badge">Hier holen wir am meisten</span>':'')+
       '<div class="topic">'+t.thema+'</div><div class="pct"><span data-count="'+Math.round(t.richtig/D.n*100)+'">0</span><small> %</small></div>'+
-      '<div class="meta">'+t.richtig+' von '+D.n+' richtig · '+t.dk+'× „weiß nicht“</div><span class="hint">umdrehen ↻</span></div>'+
+      '<div class="foot"><div class="meta">'+t.richtig+' von '+D.n+' richtig · '+t.dk+'× „weiß nicht“</div><span class="hint">umdrehen ↻</span></div></div>'+
       '<div class="face back"><div class="meta" style="color:rgba(243,238,228,.7)">'+t.thema+'</div><div class="when">'+t.wann+'</div><div class="what">'+t.was+'</div><span class="state '+z[0]+'">'+z[1]+'</span></div></div>';
     b.addEventListener('click',()=>b.classList.toggle('flip'));
     g.appendChild(b);});
