@@ -2,56 +2,209 @@
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KI-Check am Morgen</title>
 <meta name="robots" content="noindex,nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,800;1,9..144,500;1,9..144,700&display=swap" rel="stylesheet">
 <style>
-:root { --bg:#f6f7fb; --card:#ffffff; --ink:#0f2747; --muted:#5b6b82; --navy:#0b3a6e; --accent:#f39200; --track:#e3e8f0; --low:#c2410c; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0d1626; --card:#15213a; --ink:#eef3fb; --muted:#9fb0c8; --navy:#7fb2ff; --track:#25334f; } }
-* { box-sizing:border-box; }
-body { margin:0; background:var(--bg); color:var(--ink); font-family:Poppins,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; }
-main { max-width:1100px; margin:0 auto; padding:40px 24px 56px; }
-header { border-left:8px solid var(--accent); padding-left:18px; margin-bottom:28px; }
-h1 { margin:0; font-size:clamp(1.8rem,4vw,2.8rem); color:var(--navy); }
-.sub { color:var(--muted); margin-top:6px; font-size:1.05rem; }
-.kpis { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:0 0 28px; }
-.kpi { background:var(--card); border-radius:14px; padding:18px 20px; box-shadow:0 1px 3px rgba(15,39,71,.08); }
-.kpi b { display:block; font-size:2.2rem; color:var(--navy); line-height:1.1; }
-.kpi span { color:var(--muted); font-size:.95rem; }
-section { background:var(--card); border-radius:14px; padding:22px 24px; margin-bottom:20px; box-shadow:0 1px 3px rgba(15,39,71,.08); }
-h2 { margin:0 0 16px; font-size:1.25rem; color:var(--navy); }
-.stars { display:flex; gap:16px; flex-wrap:wrap; }
-.star { flex:1 1 220px; border-radius:12px; padding:18px 20px; background:linear-gradient(135deg,var(--navy),#1f5ea8); color:#fff; }
-.star-name { font-size:1.6rem; font-weight:700; }
-.star-score { opacity:.85; margin-top:2px; }
-.star-pct { font-size:2.4rem; font-weight:700; color:var(--accent); margin-top:6px; }
-.row { display:grid; grid-template-columns:110px 1fr 70px; gap:14px; align-items:center; margin:10px 0; }
-.row.q { grid-template-columns:300px 1fr 80px 120px; }
-.lab { font-weight:600; }
-.track { height:22px; background:var(--track); border-radius:11px; overflow:hidden; }
-.fill { display:block; height:100%; background:var(--navy); border-radius:11px; }
-.fill.low { background:var(--accent); }
-.val { font-weight:700; text-align:right; }
-.dk { color:var(--muted); font-size:.85rem; }
-.muted { color:var(--muted); }
-footer { margin-top:24px; text-align:center; font-size:1.15rem; color:var(--navy); font-weight:600; }
-@media (max-width:700px) { .kpis { grid-template-columns:1fr; } .row.q { grid-template-columns:1fr; gap:4px; } .row.q .val, .row.q .dk { text-align:left; } }
-</style></head><body><main>
-<header><h1>KI-Check am Morgen</h1>
-<div class="sub">KI Workflows erstellen und effizienter arbeiten · ARS Akademie · 08.10.2026</div></header>
+:root{--paper:#f3eee4;--paper2:#ebe4d6;--ink:#14202b;--muted:#5f6871;--signal:#ff5b1f;--pine:#1f4d45;--line:rgba(20,32,43,.13);--card:#fbf8f2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Bricolage Grotesque",ui-sans-serif,sans-serif;font-size:18px;line-height:1.45;overflow-x:hidden}
+.topo{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.25;mix-blend-mode:multiply}
+main{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:56px 28px 80px}
+.eyebrow{font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--pine);display:flex;align-items:center;gap:12px}
+.eyebrow:before{content:"";width:34px;height:3px;background:var(--signal);display:inline-block}
+h1{font-family:Fraunces,serif;font-weight:800;font-size:clamp(2.6rem,7vw,5.6rem);line-height:.95;letter-spacing:-.02em;margin:18px 0 10px}
+h1 em{font-style:italic;font-weight:500;color:var(--signal)}
+.sub{color:var(--muted);font-size:1.05rem;max-width:60ch}
+h2{font-family:Fraunces,serif;font-weight:800;font-size:clamp(1.6rem,3.2vw,2.4rem);margin:0 0 6px;letter-spacing:-.01em}
+h2 em{font-style:italic;font-weight:500}
+.lead{color:var(--muted);margin:0 0 26px}
+section{margin-top:72px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
 
-<div class="kpis">
-<div class="kpi"><b>7 von 7</b><span>haben ausgefüllt</span></div>
-<div class="kpi"><b>63 %</b><span>richtig, die ganze Gruppe</span></div>
-<div class="kpi"><b>2,6 von 5</b><span>so sicher fühlen Sie sich beim Aufschreiben einer Aufgabe</span></div>
-</div>
+/* Kennzahlen */
+.kpis{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:0;margin-top:44px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+.kpi{padding:22px 24px 24px;border-right:1px solid var(--line)}
+.kpi:last-child{border-right:0}
+.kpi .num{font-family:Fraunces,serif;font-weight:800;font-size:clamp(3rem,7vw,5.2rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.kpi .num small{font-size:.38em;font-weight:500;font-style:italic;color:var(--muted);letter-spacing:0}
+.kpi .lab{color:var(--muted);margin-top:8px;font-size:.98rem}
+.pips{display:flex;gap:6px;margin-top:14px}
+.pip{flex:1;height:10px;border-radius:5px;background:var(--paper2);position:relative;overflow:hidden}
+.pip i{position:absolute;inset:0;width:0;background:var(--pine);transition:width .9s cubic-bezier(.2,.7,.2,1)}
 
-<section><h2>Über 80 Prozent</h2><div class="stars"><div class="star"><div class="star-name">anonym</div><div class="star-score">9 von 9</div><div class="star-pct">100 %</div></div><div class="star"><div class="star-name">anonym</div><div class="star-score">8 von 9</div><div class="star-pct">89 %</div></div></div></section>
+/* Strecke */
+.track-wrap{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 34px 26px;box-shadow:0 30px 60px -40px rgba(20,32,43,.35)}
+.track{position:relative;height:210px;margin:10px 8px 0}
+.axis{position:absolute;left:0;right:0;bottom:34px;height:2px;background:var(--ink)}
+.tick{position:absolute;bottom:22px;width:1px;height:14px;background:var(--ink);transform:translateX(-.5px)}
+.tick span{position:absolute;top:18px;left:50%;transform:translateX(-50%);font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.zone{position:absolute;bottom:36px;top:0;right:0;background:repeating-linear-gradient(135deg,rgba(255,91,31,.10) 0 10px,rgba(255,91,31,.04) 10px 20px);border-left:2px dashed var(--signal);border-radius:0 12px 0 0}
+.flag{position:absolute;top:-4px;left:10px;font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
+.dot{position:absolute;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:var(--pine);border:3px solid var(--card);box-shadow:0 6px 14px -6px rgba(20,32,43,.6);cursor:pointer;outline:none;
+  transform:translateY(-260px) scale(.6);opacity:0;transition:transform .9s cubic-bezier(.3,1.5,.5,1),opacity .4s}
+.dot.in{transform:none;opacity:1}
+.dot.top{background:var(--signal)}
+.dot:hover,.dot:focus-visible{box-shadow:0 0 0 5px rgba(31,77,69,.18),0 6px 14px -6px rgba(20,32,43,.6)}
+.dot.top:hover,.dot.top:focus-visible{box-shadow:0 0 0 5px rgba(255,91,31,.22),0 6px 14px -6px rgba(20,32,43,.6)}
+.tip{position:absolute;bottom:42px;left:50%;transform:translate(-50%,6px);white-space:nowrap;background:var(--ink);color:var(--paper);font-size:.85rem;padding:6px 10px;border-radius:8px;opacity:0;pointer-events:none;transition:.2s}
+.dot:hover .tip,.dot:focus .tip,.dot.show .tip{opacity:1;transform:translate(-50%,0)}
+.name{position:absolute;left:50%;bottom:36px;transform:translateX(-50%);font-family:Fraunces,serif;font-style:italic;font-weight:700;color:var(--signal);white-space:nowrap;font-size:1.05rem}
+.legend{display:flex;gap:22px;flex-wrap:wrap;color:var(--muted);font-size:.92rem;margin-top:6px}
+.legend b{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:7px;vertical-align:-1px}
 
-<section><h2>Alle anderen, anonym</h2><div class="row"><span class="lab">anonym</span><span class="track"><span class="fill" style="width:78%"></span></span><span class="val">7 / 9</span></div><div class="row"><span class="lab">anonym</span><span class="track"><span class="fill" style="width:78%"></span></span><span class="val">7 / 9</span></div><div class="row"><span class="lab">anonym</span><span class="track"><span class="fill" style="width:56%"></span></span><span class="val">5 / 9</span></div><div class="row"><span class="lab">anonym</span><span class="track"><span class="fill" style="width:33%"></span></span><span class="val">3 / 9</span></div><div class="row"><span class="lab">anonym</span><span class="track"><span class="fill" style="width:11%"></span></span><span class="val">1 / 9</span></div></section>
+/* Themen */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{perspective:1200px;border:0;background:none;padding:0;text-align:left;cursor:pointer;font:inherit;color:inherit;min-height:228px}
+.inner{position:relative;height:100%;min-height:228px;transition:transform .75s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.card.flip .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:20px;padding:22px 22px 20px;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--line);background:var(--card);overflow:hidden;display:flex;flex-direction:column}
+.front .fill{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(180deg,rgba(31,77,69,.16),rgba(31,77,69,.30));transition:height 1.4s cubic-bezier(.2,.7,.2,1)}
+.front.low .fill{background:linear-gradient(180deg,rgba(255,91,31,.14),rgba(255,91,31,.30))}
+.front .fill:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--pine)}
+.front.low .fill:before{background:var(--signal)}
+.front>*:not(.fill){position:relative}
+.topic{font-weight:800;font-size:1.12rem;line-height:1.25;max-width:85%}
+.pct{font-family:Fraunces,serif;font-weight:800;font-size:3.2rem;line-height:1;margin-top:auto;font-variant-numeric:tabular-nums}
+.pct small{font-size:.4em;font-style:italic;font-weight:500;color:var(--muted)}
+.meta{color:var(--muted);font-size:.9rem;margin-top:4px}
+.badge{position:absolute;top:18px;right:18px;background:var(--signal);color:#fff;font-weight:800;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:999px;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,91,31,.45)}50%{box-shadow:0 0 0 8px rgba(255,91,31,0)}}
+.hint{position:absolute;bottom:16px;right:18px;font-size:.78rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.back{transform:rotateY(180deg);background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.back .when{font-family:Fraunces,serif;font-weight:800;font-size:3.4rem;line-height:1;color:var(--signal)}
+.back .what{margin-top:10px;font-size:1.08rem}
+.back .state{margin-top:auto;align-self:flex-start;font-weight:800;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:999px;border:1px solid rgba(243,238,228,.35)}
+.state.now{background:var(--signal);border-color:var(--signal);color:#fff}
+.state.done{opacity:.7}
 
-<section><h2>Wo der Tag am meisten bringt</h2>
-<p class="muted" style="margin-top:-8px">Richtige Antworten je Thema, die schwächsten zuerst. Die Lösungen gibt es nach dem Schluss-Check.</p>
-<div class="row q"><span class="lab">Wohin eine Regel für ein Thema gehört</span><span class="track"><span class="fill low" style="width:43%"></span></span><span class="val">3 von 7</span><span class="dk">1× „weiß nicht“</span></div><div class="row q"><span class="lab">Skill oder Projekt-Anweisung</span><span class="track"><span class="fill low" style="width:43%"></span></span><span class="val">3 von 7</span><span class="dk">1× „weiß nicht“</span></div><div class="row q"><span class="lab">Der Prüfpunkt im Skill</span><span class="track"><span class="fill " style="width:57%"></span></span><span class="val">4 von 7</span><span class="dk">3× „weiß nicht“</span></div><div class="row q"><span class="lab">500 Zeilen zuordnen</span><span class="track"><span class="fill " style="width:57%"></span></span><span class="val">4 von 7</span><span class="dk">2× „weiß nicht“</span></div><div class="row q"><span class="lab">Der Agent in Copilot</span><span class="track"><span class="fill " style="width:57%"></span></span><span class="val">4 von 7</span><span class="dk">1× „weiß nicht“</span></div><div class="row q"><span class="lab">Eine Regel verlässlich machen</span><span class="track"><span class="fill " style="width:71%"></span></span><span class="val">5 von 7</span><span class="dk">2× „weiß nicht“</span></div><div class="row q"><span class="lab">Ein fremder Skill aus dem Netz</span><span class="track"><span class="fill " style="width:71%"></span></span><span class="val">5 von 7</span><span class="dk">2× „weiß nicht“</span></div><div class="row q"><span class="lab">Warum die KI Vorgaben vergisst</span><span class="track"><span class="fill " style="width:86%"></span></span><span class="val">6 von 7</span><span class="dk">1× „weiß nicht“</span></div><div class="row q"><span class="lab">Welches Konto für Firmendaten</span><span class="track"><span class="fill " style="width:86%"></span></span><span class="val">6 von 7</span><span class="dk">1× „weiß nicht“</span></div></section>
+/* Schluss */
+.finale{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;background:var(--pine);color:var(--paper);border-radius:26px;padding:40px 42px;position:relative;overflow:hidden}
+.finale .clock{font-family:Fraunces,serif;font-style:italic;font-weight:700;font-size:clamp(4rem,10vw,7.5rem);line-height:.9;color:var(--signal)}
+.finale p{margin:0;font-size:1.25rem;max-width:42ch}
+.finale .seg{display:inline-flex;margin-top:18px;border:1px solid rgba(243,238,228,.35);border-radius:999px;padding:4px;gap:4px}
+.seg button{font:inherit;font-weight:800;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;border:0;border-radius:999px;padding:8px 16px;background:transparent;color:var(--paper);cursor:pointer}
+.seg button.on{background:var(--paper);color:var(--pine)}
+.seg button[disabled]{opacity:.55;cursor:not-allowed}
+.toast{margin-top:12px;font-size:.95rem;opacity:0;transition:opacity .3s}
+.toast.show{opacity:.9}
+.ring{position:absolute;right:-120px;top:-120px;width:360px;height:360px;border-radius:50%;border:2px solid rgba(243,238,228,.12);box-shadow:0 0 0 40px rgba(243,238,228,.04),0 0 0 80px rgba(243,238,228,.03)}
+footer{margin-top:40px;color:var(--muted);font-size:.85rem;text-align:center}
 
-<p class="muted" style="text-align:center">Werkzeug heute: Claude 2 · ChatGPT 2 · Copilot 2 · weiß ich noch nicht 1</p>
-<footer>Am Schluss: derselbe Check, dasselbe Kürzel. Dann sehen wir, was sich bewegt hat.</footer>
-</main><script src="/assets/js/site.js" defer></script></body></html>
+@media (max-width:900px){.grid{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:1fr}.kpi{border-right:0;border-bottom:1px solid var(--line)}.finale{grid-template-columns:1fr}}
+@media (max-width:560px){main{padding:36px 16px 60px}.grid{grid-template-columns:1fr}.track-wrap{padding:24px 14px 18px}.name{font-size:.85rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}.dot{opacity:1;transform:none}}
+</style></head><body>
+<svg class="topo" aria-hidden="true" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#1f4d45" stroke-width="1.1" opacity=".35" id="topo"></g></svg>
+<svg class="grain" aria-hidden="true"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+<main>
+  <div class="eyebrow reveal">Basislager · KI-Check am Morgen</div>
+  <h1 class="reveal">Wo wir heute früh <em>stehen.</em></h1>
+  <div class="sub reveal">KI Workflows erstellen und effizienter arbeiten · ARS Akademie · Donnerstag, 8. Oktober 2026</div>
+
+  <div class="kpis reveal">
+    <div class="kpi"><div class="num"><span data-count="7">0</span><small> von 7</small></div><div class="lab">haben den Check ausgefüllt</div></div>
+    <div class="kpi"><div class="num"><span data-count="63">0</span><small> %</small></div><div class="lab">richtige Antworten, die ganze Gruppe</div></div>
+    <div class="kpi"><div class="num"><span data-count="2.6" data-dec="1">0</span><small> von 5</small></div><div class="lab">so sicher fühlen Sie sich, eine Aufgabe für die KI aufzuschreiben</div>
+      <div class="pips" id="pips"></div></div>
+  </div>
+
+  <section class="reveal">
+    <h2>Die Gruppe auf der <em>Strecke</em></h2>
+    <p class="lead">Jeder Punkt ist eine Person, nach richtigen Antworten von 0 bis 9. Fahren Sie über einen Punkt.</p>
+    <div class="track-wrap">
+      <div class="track" id="track"><div class="zone" id="zone"><span class="flag">über 80 %</span></div><div class="axis"></div></div>
+      <div class="legend"><span><b style="background:var(--signal)"></b>über 80 Prozent</span><span><b style="background:var(--pine)"></b>heute ist noch Luft nach oben</span></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2>Höhenmeter, die <em>heute noch</em> kommen</h2>
+    <p class="lead">Richtige Antworten je Thema, die schwächsten zuerst. Klicken Sie eine Karte an: Sie sehen, wann wir das Thema heute angehen.</p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="reveal">
+    <div class="finale">
+      <div class="ring"></div>
+      <div class="clock">16:30</div>
+      <div>
+        <p>Derselbe Check, dasselbe Kürzel. Dann zeichnen wir die Strecke neu und sehen, wer sich wohin bewegt hat.</p>
+        <div class="seg" role="group" aria-label="Durchgang">
+          <button class="on" type="button">Morgen</button>
+          <button type="button" id="schluss">Schluss</button>
+        </div>
+        <div class="toast" id="toast">Noch gesperrt. Die Lösungen gibt es nach dem Schluss-Check.</div>
+      </div>
+    </div>
+  </section>
+  <footer>Ohne Lösungen, damit der Schluss-Check ehrlich bleibt. Jakub Popluhar · jakubpopluhar.com</footer>
+</main>
+<script>
+const D = {"n": 7, "nq": 9, "schwelle": 0.8, "sicher": 2.57, "personen": [{"richtig": 1, "pct": 11, "top": false, "name": ""}, {"richtig": 3, "pct": 33, "top": false, "name": ""}, {"richtig": 5, "pct": 56, "top": false, "name": ""}, {"richtig": 7, "pct": 78, "top": false, "name": ""}, {"richtig": 7, "pct": 78, "top": false, "name": ""}, {"richtig": 8, "pct": 89, "top": true, "name": ""}, {"richtig": 9, "pct": 100, "top": true, "name": ""}], "themen": [{"thema": "Wohin eine Regel für ein Thema gehört", "richtig": 3, "dk": 1, "wann": "11:30", "was": "Übung 4 · Ihr Projekt"}, {"thema": "Skill oder Projekt-Anweisung", "richtig": 3, "dk": 1, "wann": "11:30", "was": "Info · Wovon entsteht ein Skill"}, {"thema": "500 Zeilen zuordnen", "richtig": 4, "dk": 2, "wann": "11:30", "was": "Skript gegen Prosa · zwei Listen abgleichen"}, {"thema": "Der Agent in Copilot", "richtig": 4, "dk": 1, "wann": "11:30", "was": "Notizbuch oder Agent, um 13:30 noch einmal"}, {"thema": "Der Prüfpunkt im Skill", "richtig": 4, "dk": 3, "wann": "13:30", "was": "Übung 5 · Ihr eigener Skill"}, {"thema": "Eine Regel verlässlich machen", "richtig": 5, "dk": 2, "wann": "11:30", "was": "Info · Skript gegen Prosa"}, {"thema": "Ein fremder Skill aus dem Netz", "richtig": 5, "dk": 2, "wann": "14:45", "was": "Info · Wo findet man Skills"}, {"thema": "Warum die KI Vorgaben vergisst", "richtig": 6, "dk": 1, "wann": "09:00", "was": "Info · Das Kontextfenster"}, {"thema": "Welches Konto für Firmendaten", "richtig": 6, "dk": 1, "wann": "10:15", "was": "Takeaway · 3-Sekunden-Regel und welches Konto"}]};
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Hoehenlinien im Hintergrund
+(function(){const g=document.getElementById('topo');let s='';
+  for(let k=0;k<16;k++){const y0=40+k*48,a=18+k*2.2,f=.004+k*.00025,ph=k*.7;let d='';
+    for(let x=-20;x<=1220;x+=20){const y=y0+Math.sin(x*f+ph)*a+Math.cos(x*f*2.3+ph*1.7)*a*.35;d+=(x<0?'M':'L')+x+' '+y.toFixed(1)+' ';}
+    s+='<path d="'+d+'"/>';}
+  g.innerHTML=s;})();
+
+// Zahlen hochzaehlen
+function zaehle(el){const ziel=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),dauer=reduce?0:1400,t0=performance.now();
+  function f(t){const p=dauer?Math.min(1,(t-t0)/dauer):1,e=1-Math.pow(1-p,3),v=ziel*e;
+    el.textContent=v.toFixed(dec).replace('.',',');if(p<1)requestAnimationFrame(f);}
+  requestAnimationFrame(f);}
+
+// Sicherheits-Pillen
+(function(){const box=document.getElementById('pips');for(let i=1;i<=5;i++){const p=document.createElement('div');p.className='pip';p.innerHTML='<i></i>';box.appendChild(p);}})();
+function pillen(){const v=D.sicher;document.querySelectorAll('#pips .pip i').forEach((el,i)=>{const w=Math.max(0,Math.min(1,v-i));setTimeout(()=>el.style.width=(w*100)+'%',200+i*160);});}
+
+// Strecke
+(function(){const tr=document.getElementById('track'),max=D.nq;
+  const pos=v=>(v/max*100);
+  for(let i=0;i<=max;i++){const t=document.createElement('div');t.className='tick';t.style.left=pos(i)+'%';t.innerHTML='<span>'+i+'</span>';tr.appendChild(t);}
+  document.getElementById('zone').style.left=pos(max*D.schwelle)+'%';
+  const stapel={};
+  D.personen.forEach((p,i)=>{const h=(stapel[p.richtig]=(stapel[p.richtig]||0)+1)-1;
+    const d=document.createElement('div');d.className='dot'+(p.top?' top':'');d.tabIndex=0;
+    d.style.left=pos(p.richtig)+'%';d.style.bottom=(40+h*38)+'px';d.dataset.i=i;
+    d.innerHTML='<span class="tip">'+p.richtig+' von '+max+' · '+p.pct+' %</span>'+(p.name?'<span class="name">'+p.name+'</span>':'');
+    d.addEventListener('click',()=>{d.classList.toggle('show');});
+    tr.appendChild(d);});
+})();
+function punkte(){document.querySelectorAll('.dot').forEach((d,i)=>setTimeout(()=>d.classList.add('in'),reduce?0:250+i*170));}
+
+// Themenkarten
+(function(){const g=document.getElementById('grid'),jetzt=new Date(),hm=jetzt.getHours()*60+jetzt.getMinutes();
+  const starts=['09:00','10:15','11:30','13:30','14:45','16:00','17:00'].map(s=>{const[a,b]=s.split(':');return +a*60+ +b;});
+  function zustand(w){const m=+w.split(':')[0]*60+ +w.split(':')[1];const nxt=starts.find(s=>s>m)||m+75;
+    if(hm>=nxt)return['done','schon dran gewesen'];if(hm>=m)return['now','jetzt dran'];return['','kommt noch'];}
+  D.themen.forEach((t,i)=>{const b=document.createElement('button');b.type='button';b.className='card reveal';b.style.transitionDelay=(i*70)+'ms';
+    const low=t.richtig/D.n<.5,z=zustand(t.wann);
+    b.setAttribute('aria-label',t.thema+': '+t.richtig+' von '+D.n+' richtig. Klicken für den Zeitpunkt heute.');
+    b.innerHTML='<div class="inner"><div class="face front'+(low?' low':'')+'"><div class="fill" data-h="'+Math.round(t.richtig/D.n*100)+'"></div>'+
+      (low?'<span class="badge">Hier holen wir am meisten</span>':'')+
+      '<div class="topic">'+t.thema+'</div><div class="pct"><span data-count="'+Math.round(t.richtig/D.n*100)+'">0</span><small> %</small></div>'+
+      '<div class="meta">'+t.richtig+' von '+D.n+' richtig · '+t.dk+'× „weiß nicht“</div><span class="hint">umdrehen ↻</span></div>'+
+      '<div class="face back"><div class="meta" style="color:rgba(243,238,228,.7)">'+t.thema+'</div><div class="when">'+t.wann+'</div><div class="what">'+t.was+'</div><span class="state '+z[0]+'">'+z[1]+'</span></div></div>';
+    b.addEventListener('click',()=>b.classList.toggle('flip'));
+    g.appendChild(b);});
+})();
+
+// Schluss-Knopf
+document.getElementById('schluss').addEventListener('click',()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);});
+
+// Einblenden beim Scrollen
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');
+  el.querySelectorAll('[data-count]').forEach(zaehle);
+  if(el.classList.contains('kpis'))pillen();
+  if(el.querySelector('#track'))punkte();
+  if(el.classList.contains('card'))setTimeout(()=>{const f=el.querySelector('.fill');f.style.height=f.dataset.h+'%';},250);
+  io.unobserve(el);}),{threshold:.18});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script src="/assets/js/site.js" defer></script>
+</body></html>
