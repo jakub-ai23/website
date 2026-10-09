@@ -8,114 +8,1214 @@
   <meta name="theme-color" content="#141414">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" href="../favicon.png">
+  <!-- Build note: placeholders to replace before deploy: FORM_URL_AICHECK, FORM_URL_CAS, FORM_URL_SPATNA (full viewform URL). -->
   <style>
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
     @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
     :root {
       --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
       --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
       --charcoal-lighter: #222222;
       --white: #f5f5f5;
       --white-muted: #b0b0b0;
       --font-heading: 'Montserrat', sans-serif;
       --font-body: 'Inter', sans-serif;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { min-height: 100%; }
+
+    html { scroll-behavior: smooth; }
+
     body {
+      font-family: var(--font-body);
       background: var(--charcoal);
       color: var(--white);
-      font-family: var(--font-body);
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      border-left: 8px solid var(--gold);
     }
-    main {
-      flex: 1;
-      width: 100%;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 72px 24px 48px;
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    
+    .site-header {
+      padding: 20px 24px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 32px;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
     }
-    .eyebrow {
+
+    .logo:hover { color: var(--white); }
+    .logo span { color: var(--gold); }
+
+    .back-link {
       font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 600;
-    }
-    h1 {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: clamp(2rem, 5.5vw, 3.4rem);
-      line-height: 1.1;
-      text-wrap: balance;
-    }
-    h1 span { color: var(--gold); }
-    .lead { font-size: 1.15rem; line-height: 1.6; color: var(--white-muted); max-width: 60ch; }
-    .odpocet {
-      align-self: flex-start;
-      background: var(--charcoal-lighter);
-      border-top: 4px solid var(--gold);
-      border-radius: 16px;
-      padding: 24px 28px;
+      color: var(--white-muted);
       display: flex;
-      flex-direction: column;
+      align-items: center;
       gap: 6px;
     }
-    .odpocet-popis { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-muted); font-weight: 600; }
-    .odpocet-hodnota { font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.2rem); font-variant-numeric: tabular-nums; }
-    footer {
-      max-width: 860px;
-      width: 100%;
+    .back-link:hover { color: var(--gold); }
+
+    
+    main {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 24px 24px 40px;
+      padding: 40px 40px 80px;
+    }
+
+    
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero p { font-size: 0.95rem; color: var(--white-muted); }
+
+    
+    .section-divider {
+      text-align: center;
+      margin: 56px 0 40px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    
+    .exercise {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .exercise-number {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .exercise h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .exercise .subtitle {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .exercise p, .exercise li {
       font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .exercise ul, .exercise ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .exercise li { margin-bottom: 6px; }
+
+    
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      margin: 14px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: pre-line;
+    }
+
+    .prompt-block:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    .prompt-block::after {
+      content: 'Kopírovať';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover::after { opacity: 1; }
+
+    .prompt-block.copied::after {
+      content: 'Skopírované!';
+      opacity: 1;
+    }
+
+    
+    .context-block {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 14px 0;
+      font-size: 0.85rem;
       color: var(--white-muted);
     }
-    footer a { color: var(--white-muted); }
+
+    .context-block strong { color: var(--white); }
+
+    
+    .step-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin: 18px 0 6px;
+    }
+
+    
+    .sub-step {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 20px 0 6px;
+      padding-left: 12px;
+      border-left: 2px solid rgba(255,255,255,0.2);
+    }
+
+    
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.82rem;
+    }
+
+    .compare-table th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .compare-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+    }
+
+    
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .role-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.82rem;
+    }
+
+    .role-card strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-size: 0.78rem;
+    }
+
+    
+    .magic-box {
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 14px 0;
+      text-align: center;
+    }
+
+    .magic-box .label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    
+    footer {
+      padding: 20px 24px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); transition: color 0.2s; }
     footer a:hover { color: var(--gold); }
-  </style>
+
+    
+    details {
+      margin: 14px 0;
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details summary {
+      padding: 14px 18px;
+      background: rgba(212, 160, 23, 0.06);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    details summary:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: '+';
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    details .collapsible-content {
+      padding: 16px 18px;
+      border-top: 1px solid rgba(212, 160, 23, 0.1);
+    }
+
+    details .collapsible-content p,
+    details .collapsible-content li {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: var(--white-muted);
+    }
+
+    details .collapsible-content strong {
+      color: var(--white);
+    }
+
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    
+    .tab-switcher {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--charcoal-light);
+      border: none;
+      color: var(--white-muted);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:first-child { border-right: 1px solid rgba(212, 160, 23, 0.3); }
+
+    .tab-btn.active {
+      background: rgba(212, 160, 23, 0.12);
+      color: var(--gold);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: var(--charcoal-lighter);
+      color: var(--white);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    
+    .page-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+    }
+
+    
+    .sidebar-nav {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.06);
+      border-left-color: var(--gold);
+    }
+
+    .sidebar-nav .nav-section-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 12px 14px 4px;
+      opacity: 0.7;
+    }
+
+    
+    @media (max-width: 768px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .sidebar-nav a {
+        padding: 8px 12px;
+        font-size: 0.72rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 6px;
+        background: var(--charcoal-light);
+      }
+
+      .sidebar-nav a:hover,
+      .sidebar-nav a.active {
+        border-left: none;
+        border-bottom-color: var(--gold);
+      }
+
+      .sidebar-nav .nav-section-label {
+        width: 100%;
+        padding: 8px 0 2px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      main { padding: 32px 16px 64px; }
+      .exercise { padding: 22px 18px; }
+      .prompt-block { padding: 14px 14px; }
+      .role-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 0.75rem; }
+      .compare-table td, .compare-table th { padding: 8px; }
+    }
+
+    
+    .hierarchy-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 14px 0 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.25);
+    }
+    .hierarchy-level {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+    }
+    .hierarchy-level:last-child { border-bottom: none; }
+    .hierarchy-level .h-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+    .hierarchy-level .h-desc {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+    }
+    .hierarchy-level.l1 { background: rgba(212, 160, 23, 0.03); padding-left: 18px; }
+    .hierarchy-level.l2 { background: rgba(212, 160, 23, 0.06); padding-left: 32px; }
+    .hierarchy-level.l3 { background: rgba(212, 160, 23, 0.10); padding-left: 46px; }
+    .hierarchy-level.l4 { background: rgba(212, 160, 23, 0.14); padding-left: 60px; }
+
+    
+    .llm-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 560px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 14px 0;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+    .col-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .two-col .prompt-block { margin-top: 0; }
+    .llm-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .llm-card .llm-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .llm-card .llm-browser {
+      display: block;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #141414;
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 13px 16px;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+    .llm-card .llm-browser:hover,
+    .llm-card .llm-browser:focus { filter: brightness(1.08); }
+    .llm-apps summary {
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      list-style-position: inside;
+    }
+    .llm-apps[open] summary { margin-bottom: 8px; }
+    .llm-card .llm-stores {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .llm-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      flex: 1;
+      justify-content: center;
+      min-height: 40px;
+    }
+    .llm-store-btn:hover,
+    .llm-store-btn:focus {
+      border-color: var(--gold);
+      background: rgba(212, 160, 23, 0.08);
+      color: var(--white);
+    }
+    .llm-store-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .llm-store-btn .store-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      align-items: flex-start;
+    }
+    .llm-store-btn .store-meta small {
+      font-size: 0.62rem;
+      color: var(--white-muted);
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+    .llm-store-btn .store-meta strong {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    @media (max-width: 600px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+    body{margin:0}
+.player{display:grid;grid-template-columns:320px 1fr;min-height:100vh}.player>*{min-width:0}
+.v-logo{display:block;background:#fff;padding:8px 12px;border-radius:6px;max-width:170px;width:100%;box-sizing:border-box;margin:12px 0 14px}
+
+.logos{display:flex;align-items:center;gap:12px;margin:12px 0 14px}
+.logos .v-logo{margin:0;width:auto;height:46px;max-width:170px;object-fit:contain}
+.logos .t-logo{display:block;height:46px;width:auto}
+.side{border-right:1px solid rgba(255,255,255,.08);padding:20px 16px 40px;position:sticky;top:0;height:100vh;overflow:auto;background:rgba(255,255,255,.02)}
+.side .zurueck{font-size:.78rem;color:var(--white-muted);text-decoration:none;display:inline-block;margin-bottom:14px}
+.side .zurueck:hover{color:var(--gold)}
+.side h1{font-family:var(--font-heading);font-size:1rem;margin:0 0 4px;line-height:1.35}
+.side .sub{color:var(--white-muted);font-size:.78rem;margin-bottom:14px}
+.balken{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}.balken i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.stand{font-size:.75rem;color:var(--white-muted);margin:6px 0 10px}
+.teil{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:18px 6px 8px}
+.zeile{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;cursor:pointer;font-size:.86rem;line-height:1.35;color:var(--white);text-decoration:none}
+.zeile:hover{background:rgba(255,255,255,.05);color:var(--white)}.zeile.aktiv{background:rgba(212,160,23,.12)}
+.zeile .n{flex:0 0 26px;font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700;text-align:right}
+.zeile .lab{flex:0 0 auto;align-self:center;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--white-muted);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:1px 5px;margin-left:0}
+.zeile.art-uebung{font-weight:500}
+.zeile .t{flex:1;min-width:0}
+.zeile .opt{color:var(--white-muted);font-size:.72rem;display:block;font-weight:400}
+.zeile .ck{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);margin-top:1px}
+.zeile.hotovo .ck{background:var(--gold);border-color:var(--gold)}.zeile.hotovo .t{color:var(--white-muted)}
+.zeile .jetzt{display:none;font-size:.56rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;background:var(--gold);color:#141414;border-radius:99px;padding:2px 6px;align-self:center}
+.zeile.im-raum .jetzt{display:inline-block}
+
+.main{margin:0;padding:0 56px 130px;max-width:900px;overflow-wrap:anywhere}
+.kopfzeile{padding-top:34px}
+.crumb{color:var(--white-muted);font-size:.8rem;margin-bottom:6px}
+.main h2.lektion-titel{font-family:var(--font-heading);font-size:1.9rem;margin:6px 0 16px;line-height:1.25}
+.tag{display:inline-block;font-size:.66rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,160,23,.4);color:var(--gold);margin-right:6px}
+.tag.leise{border-color:rgba(255,255,255,.25);color:var(--white-muted)}
+.lektion .exercise{background:none;border:0;padding:0;margin:0;box-shadow:none}
+.lektion .exercise > .exercise-number{display:none}
+.lektion .exercise > h3:first-of-type{display:none}
+.lektion table{display:block;overflow-x:auto;max-width:100%}
+.lektion img{max-width:100%}
+.prompt-block.copied{outline:2px solid var(--gold)}
+
+.nav{position:fixed;bottom:0;left:320px;right:0;padding:14px 0;background:rgba(20,20,20,.96);border-top:1px solid rgba(255,255,255,.08);z-index:15}
+.nav-innen{display:flex;justify-content:space-between;gap:10px;max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.knopf{border:1px solid rgba(255,255,255,.2);background:none;color:var(--white);padding:12px 22px;border-radius:8px;font:600 .92rem var(--font-body);cursor:pointer}
+.knopf:disabled{opacity:.35;cursor:default}
+.knopf.los{background:var(--gold);color:#141414;border-color:var(--gold)}
+.schublade{display:none}
+@media(max-width:860px){
+ .player{grid-template-columns:1fr}
+ .side{position:fixed;inset:0;z-index:30;height:auto;transform:translateX(-100%);transition:transform .25s;background:#161616}
+ .side.offen{transform:none}
+ .side .schliessen{display:block}
+ .schublade{display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:20;background:#141414;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+ .main{padding:0 16px 110px}
+ .kopfzeile{padding-top:18px}
+ .nav{left:0;padding:12px 0}.nav-innen{padding:0 16px}.knopf{padding:12px 14px}
+ .main h2.lektion-titel{font-size:1.45rem}
+}
+.side .schliessen{display:none;float:right;background:none;border:0;color:var(--white-muted);font-size:1.4rem;cursor:pointer;line-height:1}
+
+.leiste-knopf{float:right;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin:-6px -4px 0 8px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:none;color:var(--white-muted);cursor:pointer;padding:0}
+.leiste-knopf:hover{color:var(--gold);border-color:rgba(212,160,23,.5)}
+.leiste-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(min-width:861px){
+ .player{transition:grid-template-columns .2s ease}
+ 
+ .main{width:100%;justify-self:center}
+ body.leiste-zu .player{grid-template-columns:56px 1fr}
+ body.leiste-zu .side{padding:16px 10px;overflow:hidden}
+ body.leiste-zu .side > *:not(.leiste-knopf){display:none}
+ body.leiste-zu .leiste-knopf{float:none;margin:0}
+ body.leiste-zu .leiste-knopf svg{transform:scaleX(-1)}
+ body.leiste-zu .main{width:100%;justify-self:center}
+ body.leiste-zu .nav{left:56px}
+ .nav{transition:left .2s ease}
+}
+@media(max-width:860px){.leiste-knopf{display:none}}
+.side .kontakt{margin-top:28px;padding:14px 8px 0;border-top:1px solid rgba(255,255,255,.08);font-size:.78rem;color:var(--white-muted);line-height:1.6}
+.side .kontakt a{color:var(--white-muted)}.side .kontakt a:hover{color:var(--gold)}
+
+.m2-hlavne { display:block; text-align:center; background:var(--gold); color:var(--charcoal); font-family:var(--font-heading); font-weight:800; font-size:1.25rem; padding:20px 24px; border-radius:12px; text-decoration:none; margin:6px 0 22px; }
+.m2-hlavne:hover { color:var(--charcoal); filter:brightness(1.08); }
+.m2-banner { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px 16px; margin:28px 0 0; padding:12px 16px; border:1px solid rgba(212,160,23,.55); background:rgba(212,160,23,.08); border-radius:10px; color:var(--white); font-size:.85rem; text-decoration:none; }
+.m2-banner:hover { color:var(--white); background:rgba(212,160,23,.14); }
+.m2-banner .m2-sipka { color:var(--gold); font-weight:700; white-space:nowrap; }
+.cta-druhotne { background:none; color:var(--gold); border:1px solid rgba(212,160,23,.55); font-weight:600; font-size:.95rem; padding:11px 22px; }
+.cta-druhotne:hover { color:var(--gold-light); filter:none; }
+
+[hidden] { display: none !important; }
+
+.prompt-block { padding-right: 14px; }
+@media (hover: none) { .prompt-block::after { opacity: .85; position: static; display: block; margin-top: 8px; } }
+.prompt-block:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.cta { display:inline-block; background:var(--gold); color:var(--charcoal); font-weight:700; font-size:1.05rem; padding:14px 28px; border-radius:10px; text-decoration:none; }
+.cta:hover { color:var(--charcoal); filter:brightness(1.08); }
+.form-frame { width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px; }
+.form-fehlt { border:1px dashed rgba(212,160,23,.5); border-radius:8px; padding:14px 16px; color:var(--white-muted); font-size:.88rem; margin:12px 0; }
+.mala { color: var(--white-muted); font-size: .85rem; }
+.zlato { color: var(--gold); font-size: .9rem; }
+.kalk { background:rgba(212,160,23,.06); border:1px solid rgba(212,160,23,.3); border-radius:12px; padding:20px; margin:16px 0; }
+.kalk-riadok { display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; font-family:var(--font-heading); font-weight:600; }
+.kalk input[type=number] { width:130px; max-width:100%; background:#1f1f1f; border:1px solid rgba(255,255,255,.2); border-radius:8px; color:var(--white); padding:12px; font:600 1.1rem var(--font-body); }
+.kalk-vysl { font-size:1.5rem; color:var(--gold); font-variant-numeric:tabular-nums; }
+.kalk label { display:block; font-size:.85rem; color:var(--white-muted); margin-bottom:10px; font-weight:400; font-family:var(--font-body); }
+.role-grid .role-card span { display:block; color:var(--white-muted); }
+.role-grid .role-card .cesta { color:var(--white); margin-top:6px; }
+
+#gate { min-height:100vh; border-left:8px solid var(--gold); display:flex; flex-direction:column; }
+#gate .g-main { flex:1; width:100%; max-width:860px; margin:0 auto; padding:72px 24px 48px; display:flex; flex-direction:column; justify-content:center; gap:32px; }
+#gate .eyebrow { font-size:.8rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+#gate h1 { font-family:var(--font-heading); font-weight:800; font-size:clamp(2rem,5.5vw,3.4rem); line-height:1.1; text-wrap:balance; }
+#gate h1 span { color:var(--gold); }
+#gate .lead { font-size:1.15rem; line-height:1.6; color:var(--white-muted); max-width:60ch; }
+#gate .odpocet { align-self:flex-start; background:var(--charcoal-lighter); border-top:4px solid var(--gold); border-radius:16px; padding:24px 28px; display:flex; flex-direction:column; gap:6px; }
+#gate .odpocet-popis { font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; color:var(--white-muted); font-weight:600; }
+#gate .odpocet-hodnota { font-family:var(--font-heading); font-weight:700; font-size:clamp(1.6rem,4vw,2.2rem); font-variant-numeric:tabular-nums; }
+#gate footer { max-width:860px; width:100%; margin:0 auto; padding:24px 24px 40px; font-size:.9rem; color:var(--white-muted); text-align:left; border:0; }
+.player { min-height: 100vh; }
+</style>
 </head>
 <body>
-  <main>
+<div id="gate" hidden>
+  <div class="g-main">
     <p class="eyebrow">PROEKO · AI za pracovným stolom · modul 1</p>
     <h1>E-learning sa otvorí v piatok <span>9. 10. 2026 o 8.35 hod.</span></h1>
     <p class="lead">Nájdete tu všetky úlohy, prompty a materiály k školeniu. Uložte si túto adresu, v piatok ju budete potrebovať.</p>
     <div class="odpocet" aria-live="polite">
-      <p class="odpocet-popis" id="odpocet-popis">Do otvorenia zostáva</p>
+      <p class="odpocet-popis">Do otvorenia zostáva</p>
       <p class="odpocet-hodnota" id="odpocet-hodnota">9. 10. 2026, 8.35 hod.</p>
     </div>
-  </main>
+  </div>
   <footer>Jakub Popluhár, M.Ed. · <a href="https://jakubpopluhar.com/">jakubpopluhar.com</a></footer>
-  <script>
-    (function () {
-      // Freitag 09.10.2026, 08:35 Wien (Sommerzeit, UTC+2)
-      var otvorenie = Date.parse('2026-10-09T08:35:00+02:00');
-      var popis = document.getElementById('odpocet-popis');
-      var hodnota = document.getElementById('odpocet-hodnota');
-      function obnov() {
-        var zostava = otvorenie - Date.now();
-        if (zostava <= 0) {
-          popis.textContent = 'E-learning je otvorený';
-          hodnota.textContent = 'Obnovte, prosím, stránku.';
-          return;
-        }
-        var min = Math.floor(zostava / 60000);
-        var d = Math.floor(min / 1440), h = Math.floor((min % 1440) / 60), m = min % 60;
-        hodnota.textContent = (d ? d + ' d ' : '') + h + ' h ' + m + ' min';
-        setTimeout(obnov, 15000);
-      }
-      obnov();
-    })();
-  </script>
-  <script src="/assets/js/site.js" defer></script>
+</div>
+<div id="kurz" hidden>
+<div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Obsah</button><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
+<div class="player">
+  <aside class="side" id="side">
+    <button class="schliessen" id="schliessen" type="button" aria-label="Zavrieť obsah">×</button>
+    <button class="leiste-knopf" id="leisteKnopf" type="button" aria-label="Zbaliť bočný panel" aria-expanded="true" title="Bočný panel zbaliť a rozbaliť"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/><path d="M15 10l-2 2 2 2"/></svg></button>
+    <a href="https://jakubpopluhar.com" class="zurueck">jakubpopluhar.com</a>
+    <div class="logos"><img class="v-logo" src="proeko-logo.png" alt="PROEKO"><img class="t-logo" src="jp-logo.png" alt="Jakub Popluhár"></div>
+    <h1>AI za pracovným stolom</h1>
+    <div class="sub">PROEKO · Modul 1 · 9. 10. 2026</div>
+    <div class="balken"><i id="balken"></i></div>
+    <div class="stand" id="stand"></div>
+    <div class="teil">Začíname</div><a class="zeile" href="#vitajte" data-id="vitajte"><span class="lab">Štart</span><span class="t">Vitajte a dve okná vedľa seba</span><span class="ck"></span></a><a class="zeile" href="#aicheck" data-id="aicheck"><span class="lab">Check</span><span class="t">Váš AI check</span><span class="ck"></span></a><a class="zeile art-uebung" href="#mena" data-id="mena"><span class="n">1</span><span class="t">Zoznam mien</span><span class="ck"></span></a><div class="teil">Zadanie, ktoré funguje</div><a class="zeile art-uebung" href="#pokyn" data-id="pokyn"><span class="n">2</span><span class="t">Interný pokyn k práci z domu</span><span class="ck"></span></a><a class="zeile" href="#cite" data-id="cite"><span class="lab">Info</span><span class="t">CITE(R): rámec pre každý model</span><span class="ck"></span></a><a class="zeile art-uebung" href="#vylet" data-id="vylet"><span class="n">3</span><span class="t">Výlet s CITE(R)</span><span class="ck"></span></a><a class="zeile art-uebung" href="#hovorca" data-id="hovorca"><span class="n">4</span><span class="t">AI ako hovorca pre médiá</span><span class="ck"></span></a><a class="zeile" href="#rprompt" data-id="rprompt"><span class="lab">Prompt</span><span class="t">R ako prompt</span><span class="ck"></span></a><a class="zeile" href="#patviet" data-id="patviet"><span class="lab">Prompt</span><span class="t">Päť viet, ktoré pridáte do zadania</span><span class="ck"></span></a><a class="zeile" href="#magicka" data-id="magicka"><span class="lab">Prompt</span><span class="t">Magická veta</span><span class="ck"></span></a><a class="zeile" href="#tri-sekundy" data-id="tri-sekundy"><span class="lab">Ochrana údajov</span><span class="t">Pravidlo troch sekúnd</span><span class="ck"></span></a><a class="zeile" href="#trenovanie" data-id="trenovanie"><span class="lab">Ochrana údajov</span><span class="t">Nenechajte sa trénovať</span><span class="ck"></span></a><div class="teil">Váš kontextový dokument</div><a class="zeile" href="#diktovanie" data-id="diktovanie"><span class="lab">Tip</span><span class="t">Nepíšte. Diktujte.</span><span class="ck"></span></a><a class="zeile art-uebung" href="#kontext" data-id="kontext"><span class="n">5</span><span class="t">Váš kontextový dokument</span><span class="ck"></span></a><a class="zeile art-uebung" href="#test" data-id="test"><span class="n">6</span><span class="t">Test dokumentu</span><span class="ck"></span></a><a class="zeile art-uebung" href="#cas" data-id="cas"><span class="n">7</span><span class="t">Spočítajte si to: Váš čas</span><span class="ck"></span></a><div class="teil">Záver</div><a class="zeile" href="#aicheck2" data-id="aicheck2"><span class="lab">Check</span><span class="t">Váš AI check, druhýkrát</span><span class="ck"></span></a><a class="zeile" href="#spatna" data-id="spatna"><span class="lab">Spätná väzba</span><span class="t">Ďakujem. Vaša spätná väzba?</span><span class="ck"></span></a><a class="zeile" href="#dalej" data-id="dalej"><span class="lab">Ďalej</span><span class="t">Modul 2: prihláste sa</span><span class="ck"></span></a><a class="zeile" href="#zdroje" data-id="zdroje"><span class="lab">Príloha</span><span class="t">Zdroje</span><span class="ck"></span></a>
+    <div class="kontakt"><a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600;">Prihlásiť sa na modul 2 →</a><br><br>Otázky po školení:<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br><a href="tel:+436641386498">+43 664 138 64 98</a></div>
+  </aside>
+  <main class="main">
+    <div class="kopfzeile"><div class="crumb" id="crumb"></div><div id="tags"></div><h2 class="lektion-titel" id="ttl"></h2></div>
+    <section class="lektion" data-id="vitajte" hidden><div class="exercise">
+      <p class="subtitle">AI za pracovným stolom · Modul 1: základ, ktorý vydrží aj zmenu nástroja · Piatok 9. 10. 2026 · 9:00 – 12:00 · online</p>
+      <p class="step-label">Ako používať túto stránku</p>
+      <ol><li>Nechajte stránku otvorenú celé dopoludnie.</li><li>Prompt skopírujete jedným kliknutím.</li><li>Vľavo vidíte všetky úlohy dopoludnia, vpravo dole sa tlačidlom „Hotovo, ďalej“ posuniete na ďalšiu. Na telefóne otvoríte prehľad hore tlačidlom „☰ Obsah“.</li><li>Prístup k stránke máte aj po seminári.</li></ol>
+      <p class="step-label">Program</p>
+      <table class="compare-table">
+        <tr><td style="width:22%; white-space:nowrap">9:00</td><td>Úvod a AI check</td></tr>
+        <tr><td>9:30</td><td>Ako rozmýšľa model</td></tr>
+        <tr><td>10:00</td><td>Zadanie, ktoré funguje: CITE(R)</td></tr>
+        <tr><td>10:45</td><td>Prestávka</td></tr>
+        <tr><td>11:00</td><td>Váš kontextový dokument</td></tr>
+        <tr><td>11:30</td><td>Čo ďalej: asistent, agent, modul 2</td></tr>
+        <tr><td>12:00</td><td>Koniec</td></tr>
+      </table>
+      <p class="zlato"><strong>O 12.00 hod. máte v ruke:</strong></p>
+      <ul><li>Zadanie podľa CITE(R), ktoré funguje v každom modeli.</li><li>Vlastný kontextový dokument, ktorý ste si otestovali.</li><li>Jasno v tom, čo do AI nepatrí.</li></ul>
+      <p class="step-label">Dve okná vedľa seba</p>
+      <p class="subtitle">Najdôležitejší hmat dňa. Vľavo Zoom, vpravo AI. Celé dopoludnie.</p>
+      <p><strong>Windows:</strong> Kliknite do okna, potom kláves Windows + šípka doľava. Okno skočí do ľavej polovice. Vpravo kliknite na druhé okno.</p>
+      <svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Windows: kláves Windows a šípka doľava, potom druhé okno">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <rect x="40" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="72" y="107" fill="var(--gold)" font-size="16" font-family="monospace" text-anchor="middle">&#8862;</text>
+        <text x="116" y="107" fill="var(--gold)" font-size="16" font-family="monospace">+</text>
+        <rect x="136" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="168" y="108" fill="var(--gold)" font-size="18" font-family="monospace" text-anchor="middle">&#8592;</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/><path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="100" fill="var(--gold)" font-size="14" font-family="monospace" text-anchor="middle">Zoom</text>
+        <rect x="502" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <rect x="566" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <text x="560" y="128" fill="var(--gold)" font-size="12" font-family="monospace" text-anchor="middle">vyberte druhé okno</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. Windows + šípka doľava</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. vpravo kliknite na druhé okno</text>
+      </svg>
+      <p><strong>Mac:</strong> Zelené tlačidlo vľavo hore podržte, neklikajte. Zvoľte polovicu obrazovky. Zo zoznamu vyberte druhé okno.</p>
+      <svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Mac: zelené tlačidlo podržať, potom zvoliť polovicu obrazovky">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <circle cx="28" cy="37" r="5" fill="#ff5f57"/><circle cx="45" cy="37" r="5" fill="#febc2e"/><circle cx="62" cy="37" r="9" fill="#28c840"/>
+        <circle cx="62" cy="37" r="15" fill="none" stroke="var(--gold)" stroke-dasharray="4 3"/>
+        <text x="84" y="42" fill="var(--gold)" font-size="13" font-family="monospace">podržať</text>
+        <text x="20" y="110" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">jedno okno,</text>
+        <text x="20" y="130" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">celá obrazovka</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/><path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="100" fill="var(--gold)" font-size="14" font-family="monospace" text-anchor="middle">Zoom</text>
+        <text x="560" y="100" fill="var(--gold)" font-size="14" font-family="monospace" text-anchor="middle">AI</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. zelené tlačidlo podržať</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. polovica, potom druhé okno</text>
+      </svg>
+      <p class="step-label">Otvorte svoj nástroj</p>
+      <p class="subtitle">Použite ten, ktorý máte. Ukazovať budem v ChatGPT, postup je všade rovnaký.</p>
+      <div class="llm-grid">
+        <div class="llm-card"><div class="llm-name">ChatGPT</div><a class="llm-browser" href="https://chatgpt.com" target="_blank" rel="noopener">Otvoriť ChatGPT →</a></div>
+        <div class="llm-card"><div class="llm-name">Microsoft Copilot</div><a class="llm-browser" href="https://copilot.microsoft.com" target="_blank" rel="noopener">Otvoriť Copilot →</a></div>
+        <div class="llm-card"><div class="llm-name">Gemini</div><a class="llm-browser" href="https://gemini.google.com" target="_blank" rel="noopener">Otvoriť Gemini →</a></div>
+        <div class="llm-card"><div class="llm-name">Claude</div><a class="llm-browser" href="https://claude.ai" target="_blank" rel="noopener">Otvoriť Claude →</a></div>
+      </div>
+      <p class="zlato" style="margin-top:18px;">Na ďalšiu úlohu prejdete tlačidlom „Hotovo, ďalej“ vpravo dole.</p>
+</div></section><section class="lektion" data-id="aicheck" hidden><div class="exercise">
+      <p class="subtitle">6 otázok a Váš čas. Nie je to test, ale zistenie východiskového stavu. Na konci dopoludnia príde ten istý dotazník ešte raz.</p>
+      <p class="step-label">Postup</p>
+      <ol><li>Otvorte dotazník nižšie.</li><li>Zadajte svoje <strong>krstné meno</strong>. Na konci ho budete potrebovať znova.</li><li>Odpovedzte na 6 otázok.</li><li>Napíšte, <strong>ktoré úlohy sa Vám opakujú</strong> a <strong>koľko minút týždenne</strong> Vám zaberú.</li></ol>
+      <p>Potom ten istý dotazník vyplní AI. Naživo.</p>
+      <p style="margin:14px 0 6px;"><a class="cta" data-form="FORM_URL_AICHECK" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť AI check</a></p><p class="form-fehlt" data-form-chyba="FORM_URL_AICHECK" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="FORM_URL_AICHECK" data-rola="ramec" title="Otvoriť AI check" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="FORM_URL_AICHECK" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
+      <p class="mala">Ani v novom okne sa neotvorí? Odpovede napíšte do chatu v Zoome.</p>
+</div></section><section class="lektion" data-id="mena" hidden><div class="exercise">
+      <p class="subtitle">Rovnaký prompt, tri krajiny. Nesledujte, či mená sedia. Sledujte, aké mená prídu.</p>
+      <p class="step-label">Krok 1: Slovensko</p>
+      <div class="prompt-block" role="button" tabindex="0">Vytvor mi zoznam 10 zamestnancov fiktívnej firmy na Slovensku.
+Meno, priezvisko, oddelenie.</div>
+      <p class="step-label">Krok 2: Porovnať</p>
+      <p>Najprv si tipnite: koľko z Vašich 10 <strong>priezvisk</strong> je aj v zozname niekoho iného? Potom to overte v chate.</p>
+      <p class="zlato">Môj odhad: ________ z 10 &nbsp;·&nbsp; Skutočnosť: ________ z 10</p>
+      <p class="step-label">Krok 3: Česko, Nemecko</p>
+      <p>V tom istom chate tá istá úloha, iné krajiny. Pošlite obe správy jednu po druhej a po každej počkajte na odpoveď.</p>
+      <div class="prompt-block" role="button" tabindex="0">Rovnaká úloha, ale firma sídli v Česku.</div>
+      <div class="prompt-block" role="button" tabindex="0">Rovnaká úloha, ale firma sídli v Nemecku.</div>
+      <p class="step-label">Krok 4: Jeden riadok</p>
+      <p>Kde Vám AI dáva to najbežnejšie a Vy nevidíte, čo chýba? Napíšte jeden riadok.</p>
+      <p class="zlato"><strong>Výsledok:</strong> Uvidíte, že AI vždy siahne po tom najbežnejšom.</p>
+      <details><summary>Ak skončíte skôr</summary><div class="collapsible-content">
+        <p>Opýtajte sa AI v tom istom chate:</p>
+        <div class="prompt-block" role="button" tabindex="0">Vysvetli mi, prečo je v tvojich zoznamoch toľko najčastejších mien.</div>
+      </div></details>
+</div></section><section class="lektion" data-id="pokyn" hidden><div class="exercise">
+      <p class="subtitle">Rovnaká AI, rovnaká otázka. Najprv jednoduchý prompt, potom ten istý s kontextom.</p>
+      <p class="step-label">Krok 1: Jednoduchý prompt</p>
+      <p>Požiadajte o návrh interného pokynu k novej úprave práce z domu.</p>
+      <div class="prompt-block" role="button" tabindex="0">Navrhni interný pokyn k novej úprave práce z domu.</div>
+      <p class="step-label">Krok 2: Čo chýba?</p>
+      <p>Päť vecí, ktoré AI nemohla vedieť.</p>
+      <div class="prompt-block" role="button" tabindex="0">Čo ti chýbalo, aby bol tento pokyn naozaj použiteľný? Vypíš päť vecí, ktoré si nemohol vedieť.</div>
+      <p class="step-label">Krok 3: S kontextom</p>
+      <p>Tá istá úloha, teraz s pravidlami, cieľom a formou. Štyri vrstvy toho istého pokynu:</p>
+      <div class="prompt-block" role="button" tabindex="0">Úloha: Navrhni interný pokyn, ktorým oznámime novú úpravu práce z domu.
+
+Kontext: Najviac dva dni v týždni z domu, aspoň tri dni na úrade. Pracovný čas pružne od 8.00 do 18.00 hod. Platí pre zamestnancov, ktorí u nás pracujú aspoň šesť mesiacov.
+
+Cieľ: Jasne a motivujúco vysvetliť nové pravidlá a ich dôvody, posilniť zodpovednosť a súdržnosť tímu.
+
+Vyhotovenie: Formálny interný text: nadpis, úvod, prehľadné časti, empatický záver. Ľudský a vecný tón, nie ako právny predpis, bez prázdnych fráz.</div>
+      <p class="step-label">Krok 4: Porovnať</p>
+      <p>Rovnaká AI, rovnaká otázka. Čo je iné? Porovnajte prvú a tretiu verziu.</p>
+      <p class="zlato"><strong>Výsledok:</strong> Pokyn, ktorý by ste takto mohli rozoslať.</p>
+</div></section><section class="lektion" data-id="cite" hidden><div class="exercise">
+      <p class="subtitle">Rámec pre každý model. Prvé dve písmená hovoria AI, kto ste. Ďalšie dve, čo chcete. R opakujte, koľkokrát treba.</p>
+      <table class="compare-table">
+        <tr><th style="width:12%">Písmeno</th><th style="width:26%">Pojem</th><th>Otázka</th></tr>
+        <tr><td><strong>C</strong></td><td>Context</td><td>Aká je situácia?</td></tr>
+        <tr><td><strong>I</strong></td><td>Intent</td><td>Čo chcem dosiahnuť?</td></tr>
+        <tr><td><strong>T</strong></td><td>Task</td><td>Čo má AI urobiť?</td></tr>
+        <tr><td><strong>E</strong></td><td>Execution</td><td>Forma, tón, dĺžka</td></tr>
+        <tr><td><strong>R</strong></td><td>Reality</td><td>Overte a dolaďte, kým to nesedí</td></tr>
+      </table>
+      <p class="zlato">R znamená Reality, nie rola.</p>
+</div></section><section class="lektion" data-id="vylet" hidden><div class="exercise">
+      <p class="subtitle">Zadanie stavajte po písmenách. Po každom kroku pošlite správu do toho istého chatu.</p>
+      <p class="step-label">T: Task</p>
+      <div class="prompt-block" role="button" tabindex="0">Naplánuj mi výlet do [vyberte si miesto].</div>
+      <p class="step-label">C: Context</p>
+      <div class="prompt-block" role="button" tabindex="0">Sme štyria dospelí.</div>
+      <p>Potom pridajte deti a nakoniec ich zase vynechajte:</p>
+      <div class="prompt-block" role="button" tabindex="0">Teraz sme štyria dospelí a dve deti.</div>
+      <div class="prompt-block" role="button" tabindex="0">Deti nejdú, sme zase štyria dospelí.</div>
+      <p class="step-label">I: Intent</p>
+      <div class="prompt-block" role="button" tabindex="0">Chcem plán, ktorý môžem presne takto poslať ďalej.</div>
+      <p class="step-label">E: Execution</p>
+      <div class="prompt-block" role="button" tabindex="0">Deň po dni, na každý deň najviac tri riadky, spolu do 300 slov.</div>
+      <p class="step-label">R: Reality</p>
+      <div class="prompt-block" role="button" tabindex="0">Skontroluj vlastný plán: čo je neisté alebo zastarané?</div>
+      <p class="step-label">Bonus</p>
+      <div class="prompt-block" role="button" tabindex="0">Napíš správu, ktorou výlet predám svojej partnerke alebo partnerovi.</div>
+      <p class="zlato"><strong>Výsledok:</strong> Plán výletu, ktorý pošlete ďalej bez opráv.</p>
+</div></section><section class="lektion" data-id="hovorca" hidden><div class="exercise">
+      <p class="subtitle">Kto chce kvalitu, musí kopať. Posielajte správy za sebou v jednom chate.</p>
+      <p class="step-label">1 Otázka</p>
+      <div class="prompt-block" role="button" tabindex="0">Akú úlohu majú v organizácii hodnotiace rozhovory?</div>
+      <p class="step-label">2 Doplňte</p>
+      <div class="prompt-block" role="button" tabindex="0">Prosím, úprimnejšie a realistickejšie.</div>
+      <p class="step-label">3 Ďalej</p>
+      <div class="prompt-block" role="button" tabindex="0">Teraz ešte úprimnejšie a realistickejšie.</div>
+      <p class="step-label">4 Úplne úprimne</p>
+      <div class="prompt-block" role="button" tabindex="0">Teraz úplne úprimne a ultrarealisticky.</div>
+      <p class="zlato">Prvá odpoveď je lesklá brožúra. Pravda prichádza pri tretej.</p>
+</div></section><section class="lektion" data-id="rprompt" hidden><div class="exercise">
+      <p class="subtitle">R znamená Reality, nie rola. Tento prompt pridáte k akejkoľvek úlohe.</p>
+      <div class="prompt-block" role="button" tabindex="0">Napíš realistický a konkrétny obsah, ktorý sa dá naozaj použiť v skutočnej organizácii so skutočným tímom. Text má byť jasný, dobre štruktúrovaný a taký presný, aby sa dal hneď použiť bez ďalších úprav. Vynechaj prázdne frázy, všeobecné vyhlásenia a vágne odporúčania.</div>
+      <p class="zlato">R toľkokrát, koľkokrát treba: skontrolovať, doostriť, kým to nesedí.</p>
+</div></section><section class="lektion" data-id="patviet" hidden><div class="exercise">
+      <p class="subtitle">Ako výstup skontrolovať. Skopírujte všetkých päť naraz alebo si vyberte tie, ktoré potrebujete.</p>
+      <div class="prompt-block" role="button" tabindex="0">Keď niečo nie je jasné, najprv sa ma spýtaj.
+Nič nepredpokladaj, neistotu výslovne označ.
+Uveď riziká a alternatívy, nielen jedno riešenie.
+Krátka forma: 3 body a 1 ďalší krok.
+Pri faktoch uveď zdroj alebo označ „neoverené“.</div>
+</div></section><section class="lektion" data-id="magicka" hidden><div class="exercise">
+      <p class="subtitle">Jedna veta, ktorá zmení rozhovor.</p>
+      <div class="prompt-block" role="button" tabindex="0">Skôr než odpovieš, polož mi 3 až 5 cielených otázok, aby si lepšie pochopil moju situáciu. S návrhom počkaj, kým neodpoviem.</div>
+      <p class="zlato">Odpovede nemusíte písať. Pokojne ich nadiktujte.</p>
+</div></section><section class="lektion" data-id="tri-sekundy" hidden><div class="exercise">
+      <p class="subtitle">Skôr než stlačíte Enter:</p>
+      <div class="role-grid">
+        <div class="role-card"><strong>Mená von</strong>Z pani Horváthovej bude „kolegyňa z podateľne“.</div>
+        <div class="role-card"><strong>Čísla von</strong>Rodné čísla, čísla spisov, sumy: vynechať alebo zovšeobecniť.</div>
+      </div>
+      <div class="role-card" style="margin-bottom:14px;"><strong>Interné veci von</strong>Zovšeobecniť, nekopírovať doslovne.</div>
+      <p class="zlato">Ak ste nástroj nedostali od svojho úradu, údaje občanov doň nepatria.</p>
+</div></section><section class="lektion" data-id="trenovanie" hidden><div class="exercise">
+      <p class="subtitle">Tri kliknutia, raz a navždy.</p>
+      <div class="role-grid">
+        <div class="role-card"><strong>ChatGPT</strong><span>predvolene zapnuté</span><span class="cesta">Nastavenia → Ovládanie údajov → „Zlepšiť model pre všetkých“ vypnúť</span></div>
+        <div class="role-card"><strong>Gemini</strong><span>predvolene zapnuté</span><span class="cesta">Nastavenia a pomoc → Aktivita → „Uchovávať aktivitu“ vypnúť</span></div>
+        <div class="role-card"><strong>Claude</strong><span>pozrite si sami</span><span class="cesta">Nastavenia → Ochrana súkromia → „Pomôcť zlepšovať modely“</span></div>
+        <div class="role-card"><strong>Copilot</strong><span>pracovný účet: nie</span><span class="cesta">Na dátach z pracovného účtu Microsoft netrénuje. Súkromný účet: Profil → Ochrana súkromia</span></div>
+      </div>
+      <p class="zlato">Prepínač platí len dopredu. Čo ste už poslali, ním nevrátite.</p>
+</div></section><section class="lektion" data-id="diktovanie" hidden><div class="exercise">
+      <p class="subtitle">Rýchlejšie ako písanie.</p>
+      <ul><li>Tlačidlo na diktovanie je priamo v poli na písanie.</li><li>AI rozumie aj hovorenému slovu s chybami.</li><li>Keď sa AI pýta, odpovedzte nahlas.</li></ul>
+</div></section><section class="lektion" data-id="kontext" hidden><div class="exercise">
+      <p class="subtitle">Raz vysvetlíte, kde pracujete. Potom už nikdy. Dnes postavíte prvé dve časti svojej vedomostnej bázy: organizáciu a rolu.</p>
+      <p class="zlato">Pravidlo troch sekúnd platí: do dokumentu patrí len to, čo smie byť aj na webe Vášho úradu.</p>
+      <p class="step-label">Krok 1: Organizácia</p>
+      <p>AI vyhľadá na webe údaje o Vašej organizácii a ku každému uvedie zdroj. Do hranatých zátvoriek doplňte názov a mesto.</p>
+      <div class="prompt-block" role="button" tabindex="0">Vyhľadaj na webe verejne dostupné údaje o tejto organizácii: [názov organizácie, mesto]. Zhrň, čo robí, aké má oddelenia a pre koho pracuje. Ku každému údaju uveď zdroj. Čo nenájdeš, výslovne označ ako nenájdené.</div>
+      <p class="step-label">Krok 2: Overiť</p>
+      <p>Dva údaje overte sami a nechajte ich opraviť.</p>
+      <div class="prompt-block" role="button" tabindex="0">V údaji [vložte údaj] je chyba. Správne je: [vložte opravu]. Oprav to a skontroluj, či text neobsahuje ďalšie údaje, ktoré nemajú zdroj.</div>
+      <p class="step-label">Krok 3: Rola</p>
+      <p>AI Vám položí 3 až 5 otázok. Odpovedzte, pokojne aj diktovaním.</p>
+      <div class="prompt-block" role="button" tabindex="0">Teraz chcem, aby si poznal aj moju rolu. Skôr než odpovieš, polož mi 3 až 5 cielených otázok o mojej agende, mojich úlohách a mojom štýle písania. S návrhom počkaj, kým neodpoviem.</div>
+      <p>Keď odpoviete na všetky otázky:</p>
+      <div class="prompt-block" role="button" tabindex="0">Z mojich odpovedí napíš časť dokumentu o mojej role: moja agenda, moje úlohy a môj štýl písania. Píš stručne a vecne.</div>
+      <p class="step-label">Krok 4: Uložiť</p>
+      <p>Organizáciu a rolu uložte do jedného súboru (Word alebo text).</p>
+      <div class="prompt-block" role="button" tabindex="0">Spoj obe časti do jedného dokumentu s nadpismi „Organizácia“ a „Moja rola“. Vypíš ho ako čistý text, aby sa dal skopírovať do Wordu.</div>
+      <p class="zlato"><strong>Výsledok:</strong> Jeden dokument o Vašej organizácii a Vašej role.</p>
+      <details><summary>Ak Vám ostane čas</summary><div class="collapsible-content">
+        <p><strong>Proces:</strong> jeden postup, ktorý sa u Vás opakuje. Tretia časť Vašej vedomostnej bázy. Dokumenty o procesoch a o „iných“ (občania, klienti, iné oddelenia) budeme stavať neskôr.</p>
+      </div></details>
+</div></section><section class="lektion" data-id="test" hidden><div class="exercise">
+      <p class="subtitle">Uvidíte, čo urobí Váš dokument s tou istou úlohou ako ráno.</p>
+      <p class="step-label">Krok 1: Nový chat</p>
+      <p>Otvorte nový, prázdny chat.</p>
+      <p class="step-label">Krok 2: Dokument</p>
+      <p>Vložte alebo nahrajte svoj kontextový dokument.</p>
+      <p class="step-label">Krok 3: Rovnaká úloha</p>
+      <div class="prompt-block" role="button" tabindex="0">Napíš interný pokyn k práci z domu pre náš úrad.</div>
+      <p class="step-label">Krok 4: Porovnať</p>
+      <p>Čo je iné ako ráno? Napíšte jednu vetu do chatu.</p>
+</div></section><section class="lektion" data-id="cas" hidden><div class="exercise">
+      <p class="subtitle">Koľko času Vám zaberajú opakujúce sa úlohy? Použite číslo z ranného AI checku.</p>
+      <div class="kalk">
+        <label for="kalk-min">Minút týždenne na opakujúce sa úlohy</label>
+        <div class="kalk-riadok">
+          <input id="kalk-min" type="number" inputmode="numeric" min="0" step="1" placeholder="minúty">
+          <span>× 40</span><span>÷ 60</span><span>=</span>
+          <span><span class="kalk-vysl" id="kalk-vysl">0</span> hodín ročne</span>
+        </div>
+        <p class="mala" style="margin-top:12px;">40 pracovných týždňov v roku.</p>
+      </div>
+      <p>Toľko času Vám dnes berú opakujúce sa úlohy. Výsledok napíšte do chatu a zapíšte ho aj do formulára.</p>
+      <p style="margin:14px 0 6px;"><a class="cta" data-form="FORM_URL_CAS" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť formulár „Váš čas“</a></p><p class="form-fehlt" data-form-chyba="FORM_URL_CAS" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="FORM_URL_CAS" data-rola="ramec" title="Otvoriť formulár „Váš čas“" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="FORM_URL_CAS" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
+</div></section><section class="lektion" data-id="aicheck2" hidden><div class="exercise">
+      <p class="subtitle">6 otázok. Rovnaké otázky ako ráno. Uvidíte, čo sa zmenilo.</p>
+      <ol><li>Otvorte dotazník nižšie.</li><li>Zadajte <strong>to isté krstné meno</strong> ako ráno.</li><li>Odpovedzte na rovnaké otázky.</li></ol>
+      <p style="margin:14px 0 6px;"><a class="cta" data-form="FORM_URL_AICHECK" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť AI check</a></p><p class="form-fehlt" data-form-chyba="FORM_URL_AICHECK" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="FORM_URL_AICHECK" data-rola="ramec" title="Otvoriť AI check" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="FORM_URL_AICHECK" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
+      <p class="mala">Ani v novom okne sa neotvorí? Odpovede napíšte do chatu v Zoome.</p>
+      <a class="m2-banner" href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" target="_blank" rel="noopener"><span><strong>Modul 2: Od nástroja k vlastnému asistentovi</strong> · Štvrtok 15. 10. 2026 · 9:00 – 12:00 · online</span><span class="m2-sipka">Prihlásiť sa na modul 2 →</span></a>
+</div></section><section class="lektion" data-id="spatna" hidden><div class="exercise">
+      <p class="subtitle">Meno je nepovinné. Certifikát o absolvovaní Vám pošlem e-mailom.</p>
+      <p style="margin:14px 0 6px;"><a class="cta" data-form="FORM_URL_SPATNA" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť spätnú väzbu</a></p><p class="form-fehlt" data-form-chyba="FORM_URL_SPATNA" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="FORM_URL_SPATNA" data-rola="ramec" title="Otvoriť spätnú väzbu" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="FORM_URL_SPATNA" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
+      <p class="zlato" style="margin-top:14px;">E-learning Vám zostáva otvorený aj po seminári.</p>
+      <a class="m2-banner" href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" target="_blank" rel="noopener"><span><strong>Modul 2: Od nástroja k vlastnému asistentovi</strong> · Štvrtok 15. 10. 2026 · 9:00 – 12:00 · online</span><span class="m2-sipka">Prihlásiť sa na modul 2 →</span></a>
+</div></section><section class="lektion" data-id="dalej" hidden><div class="exercise">
+      <a class="m2-hlavne" href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" target="_blank" rel="noopener">Prihlásiť sa na modul 2 →</a>
+      <p class="subtitle">Pokračovanie · AI za pracovným stolom, modul 2</p>
+      <div class="magic-box">
+        <div class="label">Od nástroja k vlastnému asistentovi</div>
+        <p style="margin:0 0 10px;">Svoj kontextový dokument si prinesiete. Odídete s asistentom, ktorý pozná Vašu agendu.</p>
+        <p style="margin:0;"><strong>Štvrtok 15. 10. 2026 · 9:00 – 12:00 · online</strong></p>
+      </div>
+      <p>Prihlásenie prebieha cez PROEKO: <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" target="_blank" rel="noopener">proeko.sk</a></p>
+      <p class="step-label">Čo si želáte, aby sa po školení stalo?</p>
+      <p>Napíšte mi to. Trvá to minútu.</p>
+      <p style="margin:14px 0 6px;"><a class="cta cta-druhotne" href="https://jakubpopluhar.com/dalej/?kurs=proeko09102026" target="_blank" rel="noopener">Napísať, čo si želáte</a></p>
+      <p class="step-label">Kontakt</p>
+      <p>Jakub Popluhár, M.Ed.<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a> · <a href="tel:+436641386498">+43 664 138 64 98</a></p>
+</div></section><section class="lektion" data-id="zdroje" hidden><div class="exercise">
+      <p class="step-label">Dáta a štúdie</p>
+      <ul><li>NVIDIA (2026). Nemotron 3 Ultra Technical Report, 9. 6. 2026, obrázok 4.</li><li>PagerDuty (2026). Shadow AI Workplace Survey. Wakefield Research, apríl 2026, n = 1 250 kancelárskych zamestnancov (AUS, JP, UK, US).</li><li>LayerX Security (2026). State of AI Usage Report 2026. Netskope (2026). Cloud and Threat Report 2026.</li><li>Littler (2024). European Employer Survey Report, október 2024, n = 627 HR manažérov v Európe.</li><li>OpenAI, Google, Anthropic, Microsoft. Stránky pomoci k trénovaniu modelov, pamäti a vlastným pokynom, stav september a október 2026.</li></ul>
+      <p class="step-label">Knihy, koncepty, citáty</p>
+      <ul><li>Kahneman, D. (2011). Thinking, Fast and Slow. New York: Farrar, Straus and Giroux. Hádanka s raketou a loptičkou, pilot a autopilot.</li><li>Adams, S. (2013). How to Fail at Almost Everything and Still Win Big. New York: Portfolio. Systémy namiesto cieľov.</li><li>Spider-Man (2002). Réžia Sam Raimi, Columbia Pictures. Citát strýka Bena.</li><li>CITE(R). Rozšírený rámec na stavbu zadania (Context, Intent, Task, Execution, Reality). Pôvodného autora sa nepodarilo overiť.</li><li>Referencia. Spätná väzba klientky po individuálnom školení 25. 8. 2026, preložená z nemčiny.</li></ul>
+      <a class="m2-banner" href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" target="_blank" rel="noopener"><span><strong>Modul 2: Od nástroja k vlastnému asistentovi</strong> · Štvrtok 15. 10. 2026 · 9:00 – 12:00 · online</span><span class="m2-sipka">Prihlásiť sa na modul 2 →</span></a>
+</div></section>
+  </main>
+</div>
+<div class="nav"><div class="nav-innen"><button class="knopf" id="prev" type="button">← Späť</button><button class="knopf los" id="next" type="button">Hotovo, ďalej →</button></div></div>
+</div>
+<script>
+const M = [{"id": "vitajte", "teil": "Začíname", "art": "Štart", "nr": "", "titel": "Vitajte a dve okná vedľa seba", "cas": ""}, {"id": "aicheck", "teil": "Začíname", "art": "Check", "nr": "", "titel": "Váš AI check", "cas": "asi 6 minút"}, {"id": "mena", "teil": "Začíname", "art": "Cvičenie", "nr": 1, "titel": "Zoznam mien", "cas": "10 minút"}, {"id": "pokyn", "teil": "Zadanie, ktoré funguje", "art": "Cvičenie", "nr": 2, "titel": "Interný pokyn k práci z domu", "cas": "15 minút"}, {"id": "cite", "teil": "Zadanie, ktoré funguje", "art": "Info", "nr": "", "titel": "CITE(R): rámec pre každý model", "cas": ""}, {"id": "vylet", "teil": "Zadanie, ktoré funguje", "art": "Cvičenie", "nr": 3, "titel": "Výlet s CITE(R)", "cas": "12 minút"}, {"id": "hovorca", "teil": "Zadanie, ktoré funguje", "art": "Cvičenie", "nr": 4, "titel": "AI ako hovorca pre médiá", "cas": ""}, {"id": "rprompt", "teil": "Zadanie, ktoré funguje", "art": "Prompt", "nr": "", "titel": "R ako prompt", "cas": ""}, {"id": "patviet", "teil": "Zadanie, ktoré funguje", "art": "Prompt", "nr": "", "titel": "Päť viet, ktoré pridáte do zadania", "cas": ""}, {"id": "magicka", "teil": "Zadanie, ktoré funguje", "art": "Prompt", "nr": "", "titel": "Magická veta", "cas": ""}, {"id": "tri-sekundy", "teil": "Zadanie, ktoré funguje", "art": "Ochrana údajov", "nr": "", "titel": "Pravidlo troch sekúnd", "cas": ""}, {"id": "trenovanie", "teil": "Zadanie, ktoré funguje", "art": "Ochrana údajov", "nr": "", "titel": "Nenechajte sa trénovať", "cas": ""}, {"id": "diktovanie", "teil": "Váš kontextový dokument", "art": "Tip", "nr": "", "titel": "Nepíšte. Diktujte.", "cas": ""}, {"id": "kontext", "teil": "Váš kontextový dokument", "art": "Cvičenie", "nr": 5, "titel": "Váš kontextový dokument", "cas": "25 minút"}, {"id": "test", "teil": "Váš kontextový dokument", "art": "Cvičenie", "nr": 6, "titel": "Test dokumentu", "cas": "8 minút"}, {"id": "cas", "teil": "Váš kontextový dokument", "art": "Cvičenie", "nr": 7, "titel": "Spočítajte si to: Váš čas", "cas": "2 minúty"}, {"id": "aicheck2", "teil": "Záver", "art": "Check", "nr": "", "titel": "Váš AI check, druhýkrát", "cas": "asi 4 minúty"}, {"id": "spatna", "teil": "Záver", "art": "Spätná väzba", "nr": "", "titel": "Ďakujem. Vaša spätná väzba?", "cas": "2 minúty"}, {"id": "dalej", "teil": "Záver", "art": "Ďalej", "nr": "", "titel": "Modul 2: prihláste sa", "cas": ""}, {"id": "zdroje", "teil": "Záver", "art": "Príloha", "nr": "", "titel": "Zdroje", "cas": ""}];
+const KOHORTE = 'proeko09102026';
+const SPEICHER = 'kurs.' + KOHORTE;
+const OTVORENIE = Date.parse('2026-10-09T08:35:00+02:00');
+const S = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
+            set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+const $ = id => document.getElementById(id);
+let spustene = false;
+
+function odpocet() {
+  const zostava = OTVORENIE - Date.now();
+  if (zostava <= 0 || /[?&]nahlad/.test(location.search)) { $('gate').hidden = true; $('kurz').hidden = false; if (!spustene) { spustene = true; spustit(); } return; }
+  $('gate').hidden = false; $('kurz').hidden = true;
+  const min = Math.floor(zostava / 60000);
+  const d = Math.floor(min / 1440), h = Math.floor((min % 1440) / 60), m = min % 60;
+  $('odpocet-hodnota').textContent = min < 60 ? m + ' min ' + Math.floor((zostava % 60000) / 1000) + ' s' : (d ? d + ' d ' : '') + h + ' h ' + m + ' min';
+  setTimeout(odpocet, min < 60 ? 1000 : 15000);
+}
+
+function spustit() {
+  let hotovo = new Set(S.get(SPEICHER + '.hotovo', []));
+  let cur = null;
+  const popis = m => (m.nr ? 'Cvičenie ' + m.nr : m.art);
+
+  function zeigen(id, scrollen) {
+    const m = M.find(x => x.id === id) || M[0];
+    cur = m.id; S.set(SPEICHER + '.cur', cur); S.set(SPEICHER + '.tag', new Date().toDateString());
+    if (location.hash.slice(1) !== cur) history.replaceState(null, '', '#' + cur);
+    document.querySelectorAll('.lektion').forEach(s => s.hidden = s.dataset.id !== cur);
+    const i = M.indexOf(m);
+    $('ttl').textContent = m.titel;
+    $('crumb').textContent = m.teil;
+    $('tags').innerHTML = '<span class="tag">' + popis(m) + '</span>' + (m.cas ? '<span class="tag leise">' + m.cas + '</span>' : '');
+    document.querySelectorAll('.zeile').forEach(z => {
+      z.classList.toggle('aktiv', z.dataset.id === cur);
+      z.classList.toggle('hotovo', hotovo.has(z.dataset.id));
+    });
+    $('balken').style.width = Math.round(hotovo.size / M.length * 100) + '%';
+    $('stand').textContent = hotovo.size + ' z ' + M.length + ' hotových';
+    $('dstand').textContent = popis(m) + ' · ' + hotovo.size + '/' + M.length + ' hotových';
+    $('prev').disabled = i === 0;
+    $('next').textContent = i === M.length - 1 ? 'Hotovo ✓' : 'Hotovo, ďalej →';
+    $('side').classList.remove('offen');
+    if (scrollen !== false) window.scrollTo(0, 0);
+  }
+
+  document.querySelectorAll('.zeile').forEach(z => z.addEventListener('click', e => { e.preventDefault(); zeigen(z.dataset.id); }));
+  $('prev').onclick = () => { const i = M.findIndex(x => x.id === cur); if (i > 0) zeigen(M[i - 1].id); };
+  $('next').onclick = () => {
+    hotovo.add(cur); S.set(SPEICHER + '.hotovo', [...hotovo]);
+    const i = M.findIndex(x => x.id === cur); zeigen(M[Math.min(i + 1, M.length - 1)].id);
+  };
+  $('oeffnen').onclick = () => $('side').classList.add('offen');
+  function leisteSetzen(zu) {
+    document.body.classList.toggle('leiste-zu', zu);
+    $('leisteKnopf').setAttribute('aria-expanded', String(!zu));
+    $('leisteKnopf').setAttribute('aria-label', zu ? 'Rozbaliť bočný panel' : 'Zbaliť bočný panel');
+    S.set(SPEICHER + '.leisteZu', zu);
+  }
+  $('leisteKnopf').onclick = () => leisteSetzen(!document.body.classList.contains('leiste-zu'));
+  leisteSetzen(!!S.get(SPEICHER + '.leisteZu', false));
+  $('schliessen').onclick = () => $('side').classList.remove('offen');
+  window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (h && h !== cur && M.some(x => x.id === h)) zeigen(h); });
+
+  // Kopírovanie kliknutím alebo Enterom na prompt
+  async function kopiruj(block) {
+    const text = block.textContent.replace(/\s*Kopírovať\s*$/, '').trim();
+    let ok = false;
+    try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+    if (!ok) {
+      const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      ta.remove();
+    }
+    if (ok) { block.classList.add('copied'); setTimeout(() => block.classList.remove('copied'), 1500); }
+    else { const r = document.createRange(); r.selectNodeContents(block); const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); }
+  }
+  document.querySelectorAll('.prompt-block').forEach(block => {
+    block.addEventListener('click', () => kopiruj(block));
+    block.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); kopiruj(block); } });
+  });
+
+  // Akordeón: v jednej úlohe len jedno otvorené pole
+  let posledny = 0;
+  document.addEventListener('click', e => { if (e.target.closest('summary')) posledny = Date.now(); }, true);
+  document.querySelectorAll('.exercise details').forEach(det => det.addEventListener('toggle', () => {
+    if (det.open && Date.now() - posledny < 1000) det.parentElement.querySelectorAll(':scope > details').forEach(s => { if (s !== det && s.open) s.open = false; });
+  }));
+
+  // Formuláre: zástupné adresy FORM_URL_* sa nahradia pred nasadením
+  document.querySelectorAll('[data-form]').forEach(el => {
+    const url = el.dataset.form;
+    const hotovy = /^https?:\/\//.test(url);
+    if (el.dataset.rola === 'odkaz') { if (hotovy) el.href = url; else el.hidden = true; }
+    if (el.dataset.rola === 'ramec') {
+      if (hotovy) el.src = url + (/google\.com\/forms/.test(url) ? (url.includes('?') ? '&' : '?') + 'embedded=true' : '');
+      else el.hidden = true;
+    }
+  });
+  document.querySelectorAll('[data-form-chyba]').forEach(el => { el.hidden = /^https?:\/\//.test(el.dataset.formChyba); });
+
+  // Kalkulačka: minúty týždenne × 40 ÷ 60 = hodiny ročne
+  const km = $('kalk-min'), kv = $('kalk-vysl');
+  function prepocitaj() {
+    const v = parseFloat(String(km.value).replace(',', '.'));
+    if (!isFinite(v) || v < 0) { kv.textContent = '0'; return; }
+    const h = Math.round(v * 40 / 60 * 10) / 10;
+    kv.textContent = String(h).replace('.', ',');
+    S.set(SPEICHER + '.kalk', km.value);
+  }
+  km.value = S.get(SPEICHER + '.kalk', '');
+  km.addEventListener('input', prepocitaj); prepocitaj();
+
+  function schubladeHoehe() { document.documentElement.style.setProperty('--schublade-h', $('schublade').offsetHeight + 'px'); }
+  window.addEventListener('resize', schubladeHoehe);
+  schubladeHoehe();
+  const start = location.hash.slice(1);
+  const novyDen = S.get(SPEICHER + '.tag', '') !== new Date().toDateString();
+  zeigen(M.some(x => x.id === start) ? start : (novyDen ? M[0].id : S.get(SPEICHER + '.cur', M[0].id)), false);
+}
+odpocet();
+</script>
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>
