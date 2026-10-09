@@ -1259,8 +1259,7 @@ function spustit() {
   zeigen(M.some(x => x.id === start) ? start : (novyDen ? M[0].id : S.get(SPEICHER + '.cur', M[0].id)), false);
 }
 odpocet();
-</script>
-<script src="/assets/js/site.js" defer>
+
 // Modul-2-Countdown: sichtbar ab Fr 09.10. 11:30 bis Do 15.10. 09:00
 (function(){
   const OD = Date.parse('2026-10-09T11:30:00+02:00'), DO = Date.parse('2026-10-15T09:00:00+02:00');
@@ -1276,5 +1275,6 @@ odpocet();
   tik();
 })();
 </script>
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>
