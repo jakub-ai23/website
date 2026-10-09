@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#141414">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" href="../favicon.png">
-  <!-- Build note: placeholders to replace before deploy: FORM_URL_AICHECK, FORM_URL_CAS, FORM_URL_SPATNA (full viewform URL). -->
+  <!-- Build note: placeholders to replace before deploy: https://docs.google.com/forms/d/e/1FAIpQLSdfr1GDUpypsEPQq76MUwIshzqUA-iBlc0zoFs4Q27Ca9lhFg/viewform, https://docs.google.com/forms/d/e/1FAIpQLSflXWvvW7Ue3p5A_WXv616gYe0r4ANgJiSprICtnLbSvctIYg/viewform, https://docs.google.com/forms/d/e/1FAIpQLScFGpJxEFHiNLBZAKIhDdg_cybN3TGomHh-TxwfGZ3rHFOfZw/viewform (full viewform URL). -->
   <style>
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
@@ -896,7 +896,7 @@
       <p class="step-label">Postup</p>
       <ol><li>Otvorte dotazník nižšie.</li><li>Zadajte svoje <strong>krstné meno</strong>. Na konci ho budete potrebovať znova.</li><li>Odpovedzte na 6 otázok.</li><li>Napíšte, <strong>ktoré úlohy sa Vám opakujú</strong> a <strong>koľko minút týždenne</strong> Vám zaberú.</li></ol>
       <p>Potom ten istý dotazník vyplní AI. Naživo.</p>
-      <p style="margin:14px 0 6px;"><a class="cta" data-form="FORM_URL_AICHECK" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť AI check</a></p><p class="form-fehlt" data-form-chyba="FORM_URL_AICHECK" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="FORM_URL_AICHECK" data-rola="ramec" title="Otvoriť AI check" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="FORM_URL_AICHECK" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
+      <p style="margin:14px 0 6px;"><a class="cta" data-form="https://docs.google.com/forms/d/e/1FAIpQLSdfr1GDUpypsEPQq76MUwIshzqUA-iBlc0zoFs4Q27Ca9lhFg/viewform" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť AI check</a></p><p class="form-fehlt" data-form-chyba="https://docs.google.com/forms/d/e/1FAIpQLSdfr1GDUpypsEPQq76MUwIshzqUA-iBlc0zoFs4Q27Ca9lhFg/viewform" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="https://docs.google.com/forms/d/e/1FAIpQLSdfr1GDUpypsEPQq76MUwIshzqUA-iBlc0zoFs4Q27Ca9lhFg/viewform" data-rola="ramec" title="Otvoriť AI check" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="https://docs.google.com/forms/d/e/1FAIpQLSdfr1GDUpypsEPQq76MUwIshzqUA-iBlc0zoFs4Q27Ca9lhFg/viewform" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
       <p class="mala">Ani v novom okne sa neotvorí? Odpovede napíšte do chatu v Zoome.</p>
 </div></section><section class="lektion" data-id="mena" hidden><div class="exercise">
       <p class="subtitle">Rovnaký prompt, tri krajiny. Nesledujte, či mená sedia. Sledujte, aké mená prídu.</p>
@@ -926,42 +926,47 @@ Meno, priezvisko, oddelenie.</div>
       <p>Päť vecí, ktoré AI nemohla vedieť.</p>
       <div class="prompt-block" role="button" tabindex="0">Čo ti chýbalo, aby bol tento pokyn naozaj použiteľný? Vypíš päť vecí, ktoré si nemohol vedieť.</div>
       <p class="step-label">Krok 3: S kontextom</p>
-      <p>Tá istá úloha, teraz s pravidlami, cieľom a formou. Štyri vrstvy toho istého pokynu:</p>
-      <div class="prompt-block" role="button" tabindex="0">Úloha: Navrhni interný pokyn, ktorým oznámime novú úpravu práce z domu.
+      <p>Tá istá úloha, teraz s pravidlami, cieľom a formou. Štyri vrstvy toho istého pokynu podľa CITE(R): Task (úloha), Context (kontext), Intent (cieľ), Execution (vyhotovenie).</p>
+      <div class="prompt-block" role="button" tabindex="0">Task: Navrhni interný pokyn, ktorým oznámime novú úpravu práce z domu.
 
-Kontext: Najviac dva dni v týždni z domu, aspoň tri dni na úrade. Pracovný čas pružne od 8.00 do 18.00 hod. Platí pre zamestnancov, ktorí u nás pracujú aspoň šesť mesiacov.
+Context: Najviac dva dni v týždni z domu, aspoň tri dni na úrade. Pracovný čas pružne od 8.00 do 18.00 hod. Platí pre zamestnancov, ktorí u nás pracujú aspoň šesť mesiacov.
 
-Cieľ: Jasne a motivujúco vysvetliť nové pravidlá a ich dôvody, posilniť zodpovednosť a súdržnosť tímu.
+Intent: Jasne a motivujúco vysvetliť nové pravidlá a ich dôvody, posilniť zodpovednosť a súdržnosť tímu.
 
-Vyhotovenie: Formálny interný text: nadpis, úvod, prehľadné časti, empatický záver. Ľudský a vecný tón, nie ako právny predpis, bez prázdnych fráz.</div>
+Execution: Formálny interný text: nadpis, úvod, prehľadné časti, empatický záver. Ľudský a vecný tón, nie ako právny predpis, bez prázdnych fráz.</div>
       <p class="step-label">Krok 4: Porovnať</p>
       <p>Rovnaká AI, rovnaká otázka. Čo je iné? Porovnajte prvú a tretiu verziu.</p>
       <p class="zlato"><strong>Výsledok:</strong> Pokyn, ktorý by ste takto mohli rozoslať.</p>
 </div></section><section class="lektion" data-id="cite" hidden><div class="exercise">
       <p class="subtitle">Rámec pre každý model. Prvé dve písmená hovoria AI, kto ste. Ďalšie dve, čo chcete. R opakujte, koľkokrát treba.</p>
       <table class="compare-table">
-        <tr><th style="width:12%">Písmeno</th><th style="width:26%">Pojem</th><th>Otázka</th></tr>
-        <tr><td><strong>C</strong></td><td>Context</td><td>Aká je situácia?</td></tr>
-        <tr><td><strong>I</strong></td><td>Intent</td><td>Čo chcem dosiahnuť?</td></tr>
-        <tr><td><strong>T</strong></td><td>Task</td><td>Čo má AI urobiť?</td></tr>
-        <tr><td><strong>E</strong></td><td>Execution</td><td>Forma, tón, dĺžka</td></tr>
-        <tr><td><strong>R</strong></td><td>Reality</td><td>Overte a dolaďte, kým to nesedí</td></tr>
+        <tr><th style="width:12%">Písmeno</th><th style="width:26%">Pojem (originál)</th><th>Otázka</th></tr>
+        <tr><td><strong>C</strong></td><td><strong>Context</strong><br><span style="font-size:.85em;opacity:.7">Kontext</span></td><td>Aká je situácia?</td></tr>
+        <tr><td><strong>I</strong></td><td><strong>Intent</strong><br><span style="font-size:.85em;opacity:.7">Cieľ</span></td><td>Čo chcem dosiahnuť?</td></tr>
+        <tr><td><strong>T</strong></td><td><strong>Task</strong><br><span style="font-size:.85em;opacity:.7">Úloha</span></td><td>Čo má AI urobiť?</td></tr>
+        <tr><td><strong>E</strong></td><td><strong>Execution</strong><br><span style="font-size:.85em;opacity:.7">Vyhotovenie</span></td><td>Forma, tón, dĺžka</td></tr>
+        <tr><td><strong>R</strong></td><td><strong>Reality</strong><br><span style="font-size:.85em;opacity:.7">Realita</span></td><td>Overte a dolaďte, kým to nesedí</td></tr>
       </table>
       <p class="zlato">R znamená Reality, nie rola.</p>
 </div></section><section class="lektion" data-id="vylet" hidden><div class="exercise">
       <p class="subtitle">Zadanie stavajte po písmenách. Po každom kroku pošlite správu do toho istého chatu.</p>
       <p class="step-label">T: Task</p>
+      <p style="margin-top:-6px;font-size:.9em;opacity:.7">Úloha · Čo má AI urobiť?</p>
       <div class="prompt-block" role="button" tabindex="0">Naplánuj mi výlet do [vyberte si miesto].</div>
       <p class="step-label">C: Context</p>
+      <p style="margin-top:-6px;font-size:.9em;opacity:.7">Kontext · Aká je situácia?</p>
       <div class="prompt-block" role="button" tabindex="0">Sme štyria dospelí.</div>
       <p>Potom pridajte deti a nakoniec ich zase vynechajte:</p>
       <div class="prompt-block" role="button" tabindex="0">Teraz sme štyria dospelí a dve deti.</div>
       <div class="prompt-block" role="button" tabindex="0">Deti nejdú, sme zase štyria dospelí.</div>
       <p class="step-label">I: Intent</p>
+      <p style="margin-top:-6px;font-size:.9em;opacity:.7">Cieľ · Čo chcem dosiahnuť?</p>
       <div class="prompt-block" role="button" tabindex="0">Chcem plán, ktorý môžem presne takto poslať ďalej.</div>
       <p class="step-label">E: Execution</p>
+      <p style="margin-top:-6px;font-size:.9em;opacity:.7">Vyhotovenie · Forma, tón, dĺžka</p>
       <div class="prompt-block" role="button" tabindex="0">Deň po dni, na každý deň najviac tri riadky, spolu do 300 slov.</div>
       <p class="step-label">R: Reality</p>
+      <p style="margin-top:-6px;font-size:.9em;opacity:.7">Realita · Overte a dolaďte, kým to nesedí</p>
       <div class="prompt-block" role="button" tabindex="0">Skontroluj vlastný plán: čo je neisté alebo zastarané?</div>
       <p class="step-label">Bonus</p>
       <div class="prompt-block" role="button" tabindex="0">Napíš správu, ktorou výlet predám svojej partnerke alebo partnerovi.</div>
@@ -1088,16 +1093,16 @@ Ak uvedieš zdroj, napíš, ako si ho môžem overiť.</div>
         <p class="mala" style="margin-top:12px;">40 pracovných týždňov v roku.</p>
       </div>
       <p>Toľko času Vám dnes berú opakujúce sa úlohy. Výsledok napíšte do chatu a zapíšte ho aj do formulára.</p>
-      <p style="margin:14px 0 6px;"><a class="cta" data-form="FORM_URL_CAS" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť formulár „Váš čas“</a></p><p class="form-fehlt" data-form-chyba="FORM_URL_CAS" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="FORM_URL_CAS" data-rola="ramec" title="Otvoriť formulár „Váš čas“" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="FORM_URL_CAS" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
+      <p style="margin:14px 0 6px;"><a class="cta" data-form="https://docs.google.com/forms/d/e/1FAIpQLSflXWvvW7Ue3p5A_WXv616gYe0r4ANgJiSprICtnLbSvctIYg/viewform" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť formulár „Váš čas“</a></p><p class="form-fehlt" data-form-chyba="https://docs.google.com/forms/d/e/1FAIpQLSflXWvvW7Ue3p5A_WXv616gYe0r4ANgJiSprICtnLbSvctIYg/viewform" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="https://docs.google.com/forms/d/e/1FAIpQLSflXWvvW7Ue3p5A_WXv616gYe0r4ANgJiSprICtnLbSvctIYg/viewform" data-rola="ramec" title="Otvoriť formulár „Váš čas“" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="https://docs.google.com/forms/d/e/1FAIpQLSflXWvvW7Ue3p5A_WXv616gYe0r4ANgJiSprICtnLbSvctIYg/viewform" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
 </div></section><section class="lektion" data-id="aicheck2" hidden><div class="exercise">
       <p class="subtitle">6 otázok. Rovnaké otázky ako ráno. Uvidíte, čo sa zmenilo.</p>
       <ol><li>Otvorte dotazník nižšie.</li><li>Zadajte <strong>to isté krstné meno</strong> ako ráno.</li><li>Odpovedzte na rovnaké otázky.</li></ol>
-      <p style="margin:14px 0 6px;"><a class="cta" data-form="FORM_URL_AICHECK" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť AI check</a></p><p class="form-fehlt" data-form-chyba="FORM_URL_AICHECK" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="FORM_URL_AICHECK" data-rola="ramec" title="Otvoriť AI check" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="FORM_URL_AICHECK" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
+      <p style="margin:14px 0 6px;"><a class="cta" data-form="https://docs.google.com/forms/d/e/1FAIpQLSdfr1GDUpypsEPQq76MUwIshzqUA-iBlc0zoFs4Q27Ca9lhFg/viewform" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť AI check</a></p><p class="form-fehlt" data-form-chyba="https://docs.google.com/forms/d/e/1FAIpQLSdfr1GDUpypsEPQq76MUwIshzqUA-iBlc0zoFs4Q27Ca9lhFg/viewform" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="https://docs.google.com/forms/d/e/1FAIpQLSdfr1GDUpypsEPQq76MUwIshzqUA-iBlc0zoFs4Q27Ca9lhFg/viewform" data-rola="ramec" title="Otvoriť AI check" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="https://docs.google.com/forms/d/e/1FAIpQLSdfr1GDUpypsEPQq76MUwIshzqUA-iBlc0zoFs4Q27Ca9lhFg/viewform" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
       <p class="mala">Ani v novom okne sa neotvorí? Odpovede napíšte do chatu v Zoome.</p>
       <a class="m2-banner" href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" target="_blank" rel="noopener"><span><strong>Modul 2: Od nástroja k vlastnému asistentovi</strong> · Štvrtok 15. 10. 2026 · 9:00 – 12:00 · online</span><span class="m2-sipka">Prihlásiť sa na modul 2 →</span></a>
 </div></section><section class="lektion" data-id="spatna" hidden><div class="exercise">
       <p class="subtitle">Meno je nepovinné. Certifikát o absolvovaní Vám pošlem e-mailom.</p>
-      <p style="margin:14px 0 6px;"><a class="cta" data-form="FORM_URL_SPATNA" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť spätnú väzbu</a></p><p class="form-fehlt" data-form-chyba="FORM_URL_SPATNA" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="FORM_URL_SPATNA" data-rola="ramec" title="Otvoriť spätnú väzbu" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="FORM_URL_SPATNA" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
+      <p style="margin:14px 0 6px;"><a class="cta" data-form="https://docs.google.com/forms/d/e/1FAIpQLScFGpJxEFHiNLBZAKIhDdg_cybN3TGomHh-TxwfGZ3rHFOfZw/viewform" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvoriť spätnú väzbu</a></p><p class="form-fehlt" data-form-chyba="https://docs.google.com/forms/d/e/1FAIpQLScFGpJxEFHiNLBZAKIhDdg_cybN3TGomHh-TxwfGZ3rHFOfZw/viewform" hidden>Formulár sa ešte pripravuje. Odpovede zatiaľ napíšte do chatu v Zoome.</p><iframe class="form-frame" data-form="https://docs.google.com/forms/d/e/1FAIpQLScFGpJxEFHiNLBZAKIhDdg_cybN3TGomHh-TxwfGZ3rHFOfZw/viewform" data-rola="ramec" title="Otvoriť spätnú väzbu" loading="lazy"></iframe><p class="mala" style="margin-top:10px;">Formulár sa nenačítal? <a data-form="https://docs.google.com/forms/d/e/1FAIpQLScFGpJxEFHiNLBZAKIhDdg_cybN3TGomHh-TxwfGZ3rHFOfZw/viewform" data-rola="odkaz" href="#" target="_blank" rel="noopener">Otvorte ho v novom okne</a>.</p>
       <p class="zlato" style="margin-top:14px;">E-learning Vám zostáva otvorený aj po seminári.</p>
       <a class="m2-banner" href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" target="_blank" rel="noopener"><span><strong>Modul 2: Od nástroja k vlastnému asistentovi</strong> · Štvrtok 15. 10. 2026 · 9:00 – 12:00 · online</span><span class="m2-sipka">Prihlásiť sa na modul 2 →</span></a>
 </div></section><section class="lektion" data-id="dalej" hidden><div class="exercise">
