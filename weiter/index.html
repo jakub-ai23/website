@@ -762,7 +762,7 @@
                 <span class="checkbox-box">
                   <svg viewBox="0 0 12 9"><polyline points="1,4.5 4.5,8 11,1"/></svg>
                 </span>
-                <span class="checkbox-label">Jakub Popluhar und Hill Digital dürfen mich per E-Mail bezüglich Angeboten in der Zukunft kontaktieren. Abmeldung jederzeit möglich.</span>
+                <span class="checkbox-label">Jakub Popluhar und Hill Digital dürfen mich über die von mir angegebenen Kontaktdaten (E-Mail, Telefon) bezüglich Angeboten kontaktieren. Abmeldung jederzeit möglich.</span>
               </label>
               <p style="font-size: 0.72rem; color: var(--white-muted); margin: 8px 0 0; line-height: 1.5;">Wie Jakub Popluhar und Hill Digital mit Ihren Daten umgehen, steht in der <a href="/datenschutz" target="_blank" rel="noopener" style="color: var(--gold);">Datenschutzerklärung</a>.</p>
             </div>
@@ -854,6 +854,10 @@
           return;
         }
 
+        // Der Wortlaut der Einwilligung (E-Mail und Telefon, Fassung 12.10.2026) steht im Interessen-Text,
+        // damit er ohne Proxy-Umbau im Brevo-Feld MESSAGE landet. Die Folge-Mail sucht nur nach den vier Themen-Woertern.
+        var interesseSend = interesse + ' | Einwilligung: E-Mail und Telefon (Wortlaut 12.10.2026)';
+
         arsSubmitBtn.disabled = true;
         arsSubmitBtn.textContent = 'Wird gesendet …';
 
@@ -867,7 +871,7 @@
             nachname: nachname,
             firma: firma,
             telefon: telefon,
-            interesse: interesse,
+            interesse: interesseSend,
             kurs: (new URLSearchParams(location.search).get('kurs') || '').slice(0, 40),
             consent: consent,
             hp: hp,
