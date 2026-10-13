@@ -825,7 +825,7 @@
 <tr><td>Ihre Themen</td><td>Copilot legt sich fest, Sagt Copilot mir, was ich hören will?</td></tr>
 <tr><td>Prüfen</td><td>Warum es bei Ihnen hakt, Prompt-Klinik, Grenzen</td></tr>
 <tr><td>Bauen</td><td>Mit und ohne Lizenz, Werkstatt mit Eichset, Prüfkarte</td></tr>
-<tr><td>Abschluss</td><td>KI-Check zweiter Durchgang, Feedback, Wie es weitergeht</td></tr>
+<tr><td>Abschluss</td><td>KI-Check zweiter Durchgang, Feedback, alle Folien als Lernnotizbuch, Wie es weitergeht</td></tr>
 </table>
 <p class="step-label">Alle Übungsdokumente auf einmal laden</p>
 <p>Laden Sie sie jetzt herunter, dann haben Sie sie im LAB zur Hand, wenn Sie sie brauchen.</p>
@@ -1592,6 +1592,7 @@ Regeln: Antworte auf Deutsch, sprich mich mit Sie an, kurz und konkret. Gib mir 
       <a href="#pruefkarte">Tipp · Prüfkarte</a>
       <a href="#ki-check-2">Check · zum Schluss</a>
       <a href="#feedback-2">Feedback · Ihr Feedback zum ganzen Tag</a>
+      <a href="#folien">Bonus · Alle Folien als Lernnotizbuch</a>
       <a href="#weiter">Tipp · Wie es weitergeht</a>
     </nav>
 
@@ -2109,6 +2110,41 @@ Prüfraster:
       <p class="subtitle">Zum Abschluss. Wählen Sie im Formular „Nachmittag“. Name und Firma sind freiwillig.</p>
       <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin:12px 0; padding:14px 16px; border:1px solid var(--gold); border-radius:10px;"><img src="qr-formular-feedback.png" alt="QR-Code zum Formular" width="132" height="132" style="background:#fff; padding:6px; border-radius:6px; flex:0 0 auto;"><div style="flex:1 1 220px; min-width:0;"><p style="margin:0 0 6px; font-weight:700;">Formular lädt nicht?</p><p style="margin:0 0 6px; color: var(--white-muted); font-size:0.9rem;">Scannen Sie den Code mit der Handykamera und füllen Sie das Formular am Handy aus (mit mobilen Daten, falls das Firmennetz Google blockiert).</p><p style="margin:0; font-size:0.85rem;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeRD3O1YTCdQ-SWQO4Es6Z_CCIKVI2_JbIRW8kxsIDCRyJk9Q/viewform" target="_blank" rel="noopener" style="color:var(--gold);">Oder hier in einem neuen Fenster öffnen</a></p></div></div>
       <iframe id="GoogleForm-feedback-2" src="https://docs.google.com/forms/d/e/1FAIpQLSeRD3O1YTCdQ-SWQO4Es6Z_CCIKVI2_JbIRW8kxsIDCRyJk9Q/viewform?embedded=true" title="Ihr Feedback zum Training" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+    </div>
+
+    <div class="exercise" id="folien">
+      <div class="exercise-number">Bonus</div>
+      <h3>Dankeschön: Alle Folien als Ihr Lernnotizbuch</h3>
+      <p class="subtitle">Danke für Ihr Feedback und für den Tag. Hier sind alle Folien. Legen Sie daraus ein Notizbuch an, dann können Sie Copilot jederzeit Fragen zum Training stellen.</p>
+      <p><a href="downloads/Folien-Copilot-ADA-13102026.pdf" download style="display:inline-block; background:var(--gold); color:#141414; padding:10px 18px; border-radius:8px; font-weight:700; font-size:0.88rem; border: 2px solid var(--gold); margin:6px 8px 6px 0;">Alle Folien (PDF) &darr;</a></p>
+      <p class="step-label">Schritt 1: Speichern</p>
+      <p>PDF herunterladen und in Ihrem OneDrive ablegen.</p>
+      <p class="step-label">Schritt 2: Notizbuch anlegen</p>
+      <p>Neues Notizbuch, Name „Copilot-Training 13.10.“, das PDF als Quelle hinzufügen.</p>
+      <p class="step-label">Schritt 3: Fragen stellen, immer wieder</p>
+      <p>Zum Beispiel:</p>
+      <div class="prompt-block">Was ist die Stil-Maschine, und wofür kann ich sie im Alltag nutzen?</div>
+      <div class="prompt-block">Erklär mir CITE(R) an einem Beispiel aus meiner Arbeit.</div>
+      <div class="prompt-block">Was muss ich prüfen, bevor ich ein Notizbuch teile?</div>
+      <div class="prompt-block">Quiz</div>
+      <div class="prompt-block">Anwenden: Ich muss einen Projektbericht auf fehlende Angaben prüfen.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Die Seitenzahl im PDF ist die Foliennummer. So finden Sie jede Antwort auf der Folie wieder.</p>
+      <details>
+        <summary>Bonus: Die Anweisung für Ihr Lernnotizbuch (aufklappen)</summary>
+        <div class="collapsible-content">
+          <p>In die Anweisung des Notizbuchs kopieren, die Klammer ausfüllen, speichern, Seite neu laden (F5). Dann reichen kurze Befehle: „Quiz“, „Anwenden: …“, „Wiederholen“.</p>
+          <div class="prompt-block">Du bist mein Lernbegleiter für das Copilot-Training vom 13.10.2026. Deine einzige Quelle sind die Folien in diesem Notizbuch.
+
+So arbeitest du:
+1. Antworte nur aus den Folien. Nenne bei jeder Antwort die Seite im PDF, auf der es steht. Steht etwas nicht auf den Folien, schreib „nicht auf den Folien“.
+2. Erkläre einfach und kurz, mit einem Beispiel aus meiner Arbeit. Meine Rolle: [ein Satz zu Ihrer Rolle].
+3. Schreibe ich „Quiz“, stellst du mir drei Fragen zu den Folien, eine nach der anderen, und gibst mir nach jeder Antwort Rückmeldung.
+4. Schreibe ich „Anwenden: [meine Aufgabe]“, sagst du mir, welche Technik von den Folien passt, und schreibst mir einen fertigen Prompt dafür.
+5. Schreibe ich „Wiederholen“, fasst du die fünf wichtigsten Punkte des Tages in fünf Sätzen zusammen.
+
+Antworte auf Deutsch und sprich mich mit Sie an.</div>
+        </div>
+      </details>
     </div>
 
     <div class="exercise" id="weiter">
