@@ -785,10 +785,10 @@
       <a href="#split">Trick · Bildschirm teilen</a>
       <a href="#ue0">1. Die Namensliste</a>
       <a href="#gedaechtnis">2. Was weißt du über mich?</a>
-      <a href="#anweisungen">3. Eigene Anweisungen</a>
-      <a href="#ue1">4. Homeoffice-Regelung</a>
+      <a href="#ue1">3. Homeoffice-Regelung</a>
+      <a href="#ue2">4. CITE(R) und die Reise</a>
+      <a href="#anweisungen">5. Eigene Anweisungen</a>
       <a href="#pii">Takeaway · 3-Sekunden-Regel</a>
-      <a href="#ue2">5. CITE(R) und die Reise</a>
       <a href="#ue4">6. Flughöhe, Lieferant oder Tutor</a>
       <a href="#ue3">7. Wissensbasis</a>
       <a href="#notizbuecher">Info · Notizbücher</a>
@@ -815,9 +815,9 @@
 <tr><th style="width:22%; white-space:nowrap">Vormittag</th><th></th></tr>
 <tr><td>Start</td><td>Einstieg, Agenda, Ihre sechs Fragen, KI-Check</td></tr>
 <tr><td>Setup</td><td>Welchen Copilot haben Sie? Bildschirm teilen</td></tr>
-<tr><td>Grundlagen</td><td>Namensliste, Gedächtnis, eigene Anweisungen, Homeoffice-Regelung</td></tr>
-<tr><td>Prompten</td><td>CITE(R) mit der Reise, Lieferant oder Tutor</td></tr>
-<tr><td>Material</td><td>Wissensbasis, Notizbücher, Formate für die Maschine</td></tr>
+<tr><td>Grundlagen</td><td>Namensliste, Kontextfenster, Gedächtnis</td></tr>
+<tr><td>Prompten</td><td>Homeoffice-Regelung, CITE(R) mit der Reise, eigene Anweisungen, Flughöhe, Lieferant oder Tutor</td></tr>
+<tr><td>Material</td><td>Wissensbasis, Notizbücher, Quelle gegen Blindflug, Formate für die Maschine</td></tr>
 <tr><td>Feedback</td><td>Feedback zum Vormittag</td></tr>
 <tr><th style="white-space:nowrap">Nachmittag</th><th></th></tr>
 <tr><td>Ihre Themen</td><td>Was gut lief, Copilot legt sich fest, Sagt Copilot mir, was ich hören will?</td></tr>
@@ -995,30 +995,8 @@ Vorname, Nachname, Abteilung.</div>
       <p style="color: var(--gold); font-size: 0.9rem;">Ausschalten ist nicht Löschen. Chat löschen ist auch nicht Löschen.</p>
     </div>
 
-    <div class="exercise" id="anweisungen">
-      <div class="exercise-number">Übung 3</div>
-      <h3>Ihre eigenen Anweisungen: einmal sagen, immer gültig</h3>
-      <p class="subtitle">Was Copilot über Sie wissen soll, schreiben Sie einmal hinein. Ab dann gilt es in jedem neuen Chat.</p>
-
-      <p class="step-label">Schritt 1: Das Feld finden</p>
-      <p><strong>Chat settings → Personalisation → Custom instructions → Edit instructions</strong>. Bei deutscher Oberfläche heißen die Punkte entsprechend.</p>
-
-      <p class="step-label">Schritt 2: Vorlage kopieren und die Klammern ausfüllen</p>
-      <div class="prompt-block">Ich bin [Rolle] bei [Firma oder Branche] und kümmere mich vor allem um [zwei, drei Hauptaufgaben].
-Antworte mir auf Deutsch, sprich mich mit Sie an, halte dich kurz und schreib so, dass ich es direkt verwenden kann.
-Sag mir lieber „Das weiß ich nicht“, als zu raten. Trenne klar, was du sicher weißt und was du vermutest. Erfinde keine Zahlen, Namen, Zitate oder Quellen.
-Wenn meine Anfrage unklar ist, stell mir zuerst kurze Rückfragen.
-Gib mir nicht einfach recht. Wenn ich mich irre, sag es direkt und begründe es.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Drei Dinge gehören hinein: wer Sie sind, wie Copilot antworten soll, und was Copilot nie tun soll. Die Vorschläge unter dem Feld lassen sich zusätzlich anklicken.</p>
-
-      <p class="step-label">Schritt 3: Testen, in einem neuen Chat</p>
-      <div class="prompt-block">Beschreib mir in drei Sätzen, wie du mir bei meiner Arbeit helfen kannst.</div>
-      <p>Prüfen Sie: Spricht Copilot Sie mit Sie an? Kennt es Ihre Rolle? Ist die Antwort kurz?</p>
-      <p style="color: var(--gold); font-size: 0.9rem;">Das ist der Kontext aus CITE, nur einmal geschrieben.</p>
-    </div>
-
     <div class="exercise" id="ue1">
-      <div class="exercise-number">Übung 4</div>
+      <div class="exercise-number">Übung 3</div>
       <h3>Prompten: Homeoffice-Regelung</h3>
       <p class="subtitle">Jede Person promptet für sich in Copilot Chat. Danach vergleichen wir zwei Ergebnisse gemeinsam am Bildschirm.</p>
 
@@ -1089,20 +1067,8 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
 <p><a href="downloads/D1-Projektantrag-Nalu.docx" download style="display:inline-block; background:var(--gold); color:#141414; padding:10px 18px; border-radius:8px; font-weight:700; font-size:0.88rem; border: 2px solid var(--gold); margin:6px 8px 6px 0;">D1 Projektantrag (Word) &darr;</a></p>
     </div>
 
-    <div class="exercise" id="pii">
-      <div class="exercise-number">Takeaway</div>
-      <h3>Kurz vorher: die 3-Sekunden-Regel</h3>
-      <p>Im LAB arbeiten wir mit erfundenen Dokumenten. Sobald Sie Material aus Ihrer eigenen Firma verwenden: Mit dem Arbeitskonto trainiert Microsoft kein Modell mit Ihren Eingaben. Trotzdem merkt sich Copilot Dinge, und heute ist Ihr Bildschirm oft geteilt. Drei Sekunden vor dem Enter:</p>
-      <ul>
-        <li><strong>Namen</strong> raus. Aus Frau Gruber wird "eine Kollegin aus dem Einkauf".</li>
-        <li><strong>Zahlen</strong> raus. Aus 47.500 Euro wird "ein mittlerer fünfstelliger Betrag".</li>
-        <li><strong>Strategien und Interna</strong> raus. Abstrahieren, nicht abschreiben.</li>
-      </ul>
-      <p style="color: var(--gold); font-size: 0.85rem;">Die Faustregel: Behandeln Sie die KI wie einen Praktikanten, der im öffentlichen Bus sitzt. Er ist hilfreich, aber er sitzt nicht allein da.</p>
-    </div>
-
     <div class="exercise" id="ue2">
-      <div class="exercise-number">Übung 5</div>
+      <div class="exercise-number">Übung 4</div>
       <h3>CITE(R) Framework:Jetzt sind Sie dran!</h3>
       <p class="subtitle">Sie planen eine Reise. Kurze Nachrichten, jede legt eine Schicht drauf. Mittendrin ändert sich etwas, und danach ändert es sich zurück. Um die Reise geht es nicht.</p>
 
@@ -1164,6 +1130,40 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
 <p class="step-label">Stufe 2, wenn Sie schneller sind</p>
 <p>Statt des Urlaubs: ein Prüfauftrag für Angebot A (D2a). Schieben Sie Aufgabe, Kontext, Ziel und Ausführung wie bei der Reise nacheinander nach, und denken Sie an das R: Stimmt das Ergebnis, was muss ich prüfen?</p>
 <p><a href="downloads/D2a-Angebot-A-Brightline.docx" download style="display:inline-block; background:var(--gold); color:#141414; padding:10px 18px; border-radius:8px; font-weight:700; font-size:0.88rem; border: 2px solid var(--gold); margin:6px 8px 6px 0;">D2a Angebot A &darr;</a></p>
+    </div>
+
+    <div class="exercise" id="anweisungen">
+      <div class="exercise-number">Übung 5</div>
+      <h3>Ihre eigenen Anweisungen: einmal sagen, immer gültig</h3>
+      <p class="subtitle">Was Copilot über Sie wissen soll, schreiben Sie einmal hinein. Ab dann gilt es in jedem neuen Chat.</p>
+
+      <p class="step-label">Schritt 1: Das Feld finden</p>
+      <p><strong>Chat settings → Personalisation → Custom instructions → Edit instructions</strong>. Bei deutscher Oberfläche heißen die Punkte entsprechend.</p>
+
+      <p class="step-label">Schritt 2: Vorlage kopieren und die Klammern ausfüllen</p>
+      <div class="prompt-block">Ich bin [Rolle] bei [Firma oder Branche] und kümmere mich vor allem um [zwei, drei Hauptaufgaben].
+Antworte mir auf Deutsch, sprich mich mit Sie an, halte dich kurz und schreib so, dass ich es direkt verwenden kann.
+Sag mir lieber „Das weiß ich nicht“, als zu raten. Trenne klar, was du sicher weißt und was du vermutest. Erfinde keine Zahlen, Namen, Zitate oder Quellen.
+Wenn meine Anfrage unklar ist, stell mir zuerst kurze Rückfragen.
+Gib mir nicht einfach recht. Wenn ich mich irre, sag es direkt und begründe es.</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Drei Dinge gehören hinein: wer Sie sind, wie Copilot antworten soll, und was Copilot nie tun soll. Die Vorschläge unter dem Feld lassen sich zusätzlich anklicken.</p>
+
+      <p class="step-label">Schritt 3: Testen, in einem neuen Chat</p>
+      <div class="prompt-block">Beschreib mir in drei Sätzen, wie du mir bei meiner Arbeit helfen kannst.</div>
+      <p>Prüfen Sie: Spricht Copilot Sie mit Sie an? Kennt es Ihre Rolle? Ist die Antwort kurz?</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Das ist der Kontext aus CITE, nur einmal geschrieben.</p>
+    </div>
+
+    <div class="exercise" id="pii">
+      <div class="exercise-number">Takeaway</div>
+      <h3>Kurz vorher: die 3-Sekunden-Regel</h3>
+      <p>Im LAB arbeiten wir mit erfundenen Dokumenten. Sobald Sie Material aus Ihrer eigenen Firma verwenden: Mit dem Arbeitskonto trainiert Microsoft kein Modell mit Ihren Eingaben. Trotzdem merkt sich Copilot Dinge, und heute ist Ihr Bildschirm oft geteilt. Drei Sekunden vor dem Enter:</p>
+      <ul>
+        <li><strong>Namen</strong> raus. Aus Frau Gruber wird "eine Kollegin aus dem Einkauf".</li>
+        <li><strong>Zahlen</strong> raus. Aus 47.500 Euro wird "ein mittlerer fünfstelliger Betrag".</li>
+        <li><strong>Strategien und Interna</strong> raus. Abstrahieren, nicht abschreiben.</li>
+      </ul>
+      <p style="color: var(--gold); font-size: 0.85rem;">Die Faustregel: Behandeln Sie die KI wie einen Praktikanten, der im öffentlichen Bus sitzt. Er ist hilfreich, aber er sitzt nicht allein da.</p>
     </div>
 
     <div class="exercise" id="ue4">
