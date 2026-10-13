@@ -821,7 +821,7 @@
 <tr><td>Feedback</td><td>Feedback zum Vormittag</td></tr>
 <tr><th style="white-space:nowrap">Nachmittag</th><th></th></tr>
 <tr><td>Ihre Themen</td><td>Was gut lief, Copilot legt sich fest, Sagt Copilot mir, was ich hören will?</td></tr>
-<tr><td>Prüfen</td><td>Warum es bei Ihnen hakt, Prompt-Klinik, Halluzinationsjagd, Zwei Angebote vergleichen, Grenzen</td></tr>
+<tr><td>Prüfen</td><td>Warum es bei Ihnen hakt, Prompt-Klinik, Grenzen</td></tr>
 <tr><td>Bauen</td><td>Mit und ohne Lizenz, Werkstatt mit Eichset, Prüfkarte</td></tr>
 <tr><td>Abschluss</td><td>KI-Check zweiter Durchgang, Feedback, Wie es weitergeht</td></tr>
 </table>
@@ -1322,6 +1322,11 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
 <p class="step-label">Schritt 3: Ausprobieren</p>
 <p>Legen Sie ein Notizbuch „Meine Firma“ an und fügen Sie die Kontextdokumente aus der Wissensbasis als Quellen hinzu. Fehlt Ihnen eines, nehmen Sie einen beliebigen Text ohne echte Daten. Dann:</p>
 <div class="prompt-block">Fasse in drei Sätzen zusammen, was in meinen Quellen über meine Rolle steht. Nenne zu jedem Satz die Quelle. Steht etwas nicht drin, schreib „nicht in den Quellen“.</div>
+      <p class="step-label">Schritt 4: Quelle gegen Blindflug</p>
+      <p>Jetzt soll Copilot zu jeder Aussage zeigen, woher sie kommt. Ihre Frage ans Ende setzen.</p>
+      <div class="prompt-block">Beantworte meine Frage nur aus den Quellen in diesem Notizbuch. Zitiere zu jeder Aussage wörtlich die Stelle und nenne Dokument, Absatz und Seite. Steht etwas nicht in den Quellen, schreib „nicht in den Quellen“. Meine Frage: </div>
+      <p>Dann zwei Proben: Öffnen Sie eine Fundstelle im Dokument und prüfen Sie Absatz und Seite. Und fragen Sie etwas, das sicher nicht drinsteht. Kommt „nicht in den Quellen“, arbeitet Copilot sauber.</p>
+
 <p style="color: var(--gold); font-size: 0.9rem;"><strong>Hinweis:</strong> Stellen Sie im Notizbuch eine Anweisung oder Persona ein, erscheint sie oft erst nach dem <strong>Neuladen der Seite</strong> (F5). Nicht wundern: einmal neu laden.</p>
 <p class="step-label">Drei Dinge vor dem Teilen</p>
 <table class="compare-table">
@@ -1375,7 +1380,7 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
   "id": "format-bester-text",
   "typ": "einfach",
   "etikett": "Frage 2",
-  "frage": "Sie haben einen langen Text, mit dem die KI dauerhaft arbeiten soll. Welches Format geben Sie ihr?",
+  "frage": "Sie haben einen langen Text, mit dem die KI dauerhaft arbeiten soll. Was ist für die KI das Allerbeste?",
   "optionen": [
     "Eine Textdatei oder Markdown",
     "Ein hübsch gestaltetes Word-Dokument",
@@ -1411,23 +1416,31 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
 </script>
 </div>
 
+      <p class="step-label">Selbst ordnen</p>
+      <p>Neun Formate. Ordnen Sie sie vom besten zum schlechtesten für die KI, auf Papier oder im Kopf. Erst danach kommt die Folie.</p>
+      <table class="compare-table">
+        <tr><th style="width:12%">&nbsp;</th><th>Format</th></tr>
+        <tr><td>A</td><td>PowerPoint (.pptx)</td></tr>
+        <tr><td>B</td><td>CSV</td></tr>
+        <tr><td>C</td><td>PDF als Scan oder Foto</td></tr>
+        <tr><td>D</td><td>Word (.docx) mit echten Überschriften</td></tr>
+        <tr><td>E</td><td>Markdown oder reiner Text</td></tr>
+        <tr><td>F</td><td>PDF mit Textebene</td></tr>
+        <tr><td>G</td><td>JSON</td></tr>
+        <tr><td>H</td><td>Excel (.xlsx)</td></tr>
+        <tr><td>I</td><td>HTML</td></tr>
+      </table>
       <div class="quiz">
 <script type="application/json">
 {
-  "id": "format-farbe",
-  "typ": "einfach",
-  "frage": "In Ihrer Liste sind die dringenden Fälle rot eingefärbt. Sie laden die Datei hoch und bitten um alle dringenden Fälle. Was passiert?",
-  "optionen": [
-    "Die KI sieht kein dringend, weil die Farbe keine Information ist",
-    "Die KI erkennt Rot und filtert korrekt",
-    "Die KI fragt nach, was Rot bedeutet",
-    "Die KI markiert die Zeilen ebenfalls rot"
-  ],
-  "richtig": "Die KI sieht kein dringend, weil die Farbe keine Information ist",
-  "hinweis": "Und sie sagt Ihnen nicht, dass ihr etwas fehlt. Mach eine Spalte daraus, dann steht es da.",
-  "auflösen": "sofort",
-  "punkte": 2,
-  "etikett": "Frage 4"
+  "id": "format-rang",
+  "typ": "text",
+  "etikett": "Ihre Reihenfolge",
+  "frage": "Schreiben Sie die neun Buchstaben in Ihre Reihenfolge, das Beste zuerst.",
+  "hilfe": "Zum Beispiel: E, B, ... Es gibt kein Falsch, wir vergleichen gleich mit der Folie.",
+  "hinweis": "Gebaut, um gelesen zu werden: E Markdown/Text, B CSV, I HTML, G JSON. Gebaut, um angeschaut zu werden: D Word, H Excel, A PowerPoint, F PDF mit Textebene, C Scan. Die Trennlinie liegt zwischen JSON und Word.",
+  "auflösen": "später",
+  "knopf": "Die Reihenfolge zeigen"
 }
 </script>
 </div>
@@ -1476,8 +1489,8 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <a href="#ue-mund">11. Sagt Copilot mir, was ich hören will?</a>
       <a href="#hakt">Info · Warum es bei Ihnen hakt</a>
       <a href="#ue-klinik">12. Prompt-Klinik</a>
-      <a href="#ue-halluzination">13. Halluzinationsjagd</a>
-      <a href="#ue-vergleich">14. Zwei Angebote vergleichen</a>
+      <a href="#ue-halluzination">Reserve: Halluzinationsjagd</a>
+      <a href="#ue-vergleich">Reserve: Zwei Angebote vergleichen</a>
       <a href="#ue-grenzen">Demo · Wo ist die Grenze?</a>
       <a href="#lizenz">Info · Mit und ohne Lizenz</a>
       <a href="#werkstatt">Werkstatt · Ihr Prüfprompt</a>
@@ -1787,7 +1800,7 @@ Nur projektspezifische Maßnahmen, die sich aus Aktivitäten und Kontext dieses 
     </div>
 
     <div class="exercise" id="ue-halluzination">
-      <div class="exercise-number">Übung 13</div>
+      <div class="exercise-number">Reserve</div>
       <h3>Halluzinationsjagd</h3>
       <p class="subtitle">Behauptungen gegen das Dokument prüfen: Was antwortet Copilot, wenn die Antwort nicht im Dokument steht?</p>
 <div class="context-block" style="border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); margin: 14px 0 18px;"><p style="margin:0; font-size:0.9rem;"><strong>Ziel:</strong> Sie wissen, bei welcher Art Frage Copilot erfindet, und haben drei Prüffragen, die das in fünf Minuten finden.<br><strong>Dokumente:</strong> D1 Projektantrag</p></div>
@@ -1828,7 +1841,7 @@ Welche Informationen fehlen im Antrag für eine belastbare Bewertung?</div>
     </div>
 
     <div class="exercise" id="ue-vergleich">
-      <div class="exercise-number">Übung 14</div>
+      <div class="exercise-number">Reserve</div>
       <h3>Zwei Angebote vergleichen, mit Fundstellen</h3>
       <p class="subtitle">Eine Vergleichstabelle, in der jede Zelle ein Zitat trägt, das Sie in drei Stichproben selbst finden können.</p>
 <div class="context-block" style="border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); margin: 14px 0 18px;"><p style="margin:0; font-size:0.9rem;"><strong>Ziel:</strong> Sie haben eine Vergleichstabelle zweier Angebote, in der jede Zelle ein prüfbares Zitat trägt, und drei davon selbst nachgeprüft.<br><strong>Dokumente:</strong> D2a Angebot A, D2b Angebot B, D4 Leistungsbeschreibung</p></div>
