@@ -779,7 +779,7 @@
 
     <nav class="sidebar-nav" id="sidebar-vm">
       <div class="nav-section-label">Vormittag</div>
-      <a href="#willkommen">Tipp · Willkommen</a>
+      <a href="#willkommen">Tipp · Herzlich willkommen</a>
       <a href="#ki-check">Check · KI-Check</a>
       <a href="#copilot-start">Tipp · Welchen Copilot haben Sie?</a>
       <a href="#split">Tipp · Bildschirm teilen</a>
@@ -800,8 +800,8 @@
 
     <div class="exercise" id="willkommen">
       <div class="exercise-number">Tipp</div>
-      <h3>Willkommen</h3>
-      <p class="subtitle">Microsoft Copilot für Anwender · tecTrain · Dienstag, 13.10.2026 · Trainer: Jakub Popluhar, M.Ed.</p>
+      <h3>Herzlich willkommen, Austrian Development Agency!</h3>
+      <p class="subtitle">Microsoft Copilot für Anwender, Ihr Training für die ADA · Dienstag, 13. Oktober 2026, 09:00 bis 17:00 · tecTrain · Trainer: Jakub Popluhar, M.Ed.</p>
 <p class="step-label">Das Versprechen für heute</p>
 <p><strong>Heute Abend haben Sie einen Prüfprompt für Ihre eigenen Dokumente, der Fundstellen liefert und Ihnen nicht einfach sagt, was Sie hören wollen. Und eine Prüfroutine, mit der Sie jedes Copilot-Ergebnis in fünf Minuten gegenprüfen.</strong></p>
 <p style="color: var(--white-muted); font-size: 0.85rem;">Das Bild für den Tag: Copilot ist ein hochbegabter Praktikant am ersten Tag. Er liest schnell, will gefallen, antwortet jedes Mal ein bisschen anders, rät, wenn er nichts findet, und kann nicht 500 Seiten gleichzeitig im Kopf behalten. Unterschreiben tun Sie.</p>
@@ -1047,15 +1047,15 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
         <div class="collapsible-content">
           <p>Jetzt lassen Sie die KI den gleichen Inhalt in völlig verschiedenen Stilen umschreiben:</p>
 
-          <div class="prompt-block">Schreibe die Homeoffice-Regelung als Disney-Märchen. Beginne mit "Es war einmal", und gib der Geschichte einen Helden, ein Hindernis und ein gutes Ende. Maximal 300 Wörter.</div>
+          <div class="prompt-block">Schreibe die Homeoffice-Regelung als Disney-Märchen. Beginne mit "Es war einmal", und gib der Geschichte einen Helden, ein Hindernis und ein gutes Ende. Maximal 250 Wörter.</div>
 
-          <div class="prompt-block">Formuliere die Homeoffice-Regelung als Rap-Battle zwischen CEO und Betriebsrat. Maximal 300 Wörter.</div>
+          <div class="prompt-block">Formuliere die Homeoffice-Regelung als Rap-Battle zwischen CEO und Betriebsrat. Maximal 250 Wörter.</div>
 
-          <div class="prompt-block">Schreibe einen dramatischen Netflix-Trailer-Text über die Einführung einer neuen Homeoffice-Regelung, ohne Regieanweisungen, nur gesprochener Text des Erzählers. Maximal 300 Wörter.</div>
+          <div class="prompt-block">Schreibe einen dramatischen Netflix-Trailer-Text über die Einführung einer neuen Homeoffice-Regelung, ohne Regieanweisungen, nur gesprochener Text des Erzählers. Maximal 250 Wörter.</div>
 
-          <div class="prompt-block">Schreibe die Homeoffice-Regelung in meinem Dialekt. Ich komme aus ________. Maximal 300 Wörter.</div>
+          <div class="prompt-block">Schreibe die Homeoffice-Regelung in meinem Dialekt. Ich komme aus ________. Maximal 250 Wörter.</div>
 
-          <div class="prompt-block">Erkläre die Homeoffice-Regelung so, dass unser neuer Lehrling sie am ersten Arbeitstag versteht. Maximal 300 Wörter.</div>
+          <div class="prompt-block">Erkläre die Homeoffice-Regelung so, dass unser neuer Lehrling sie am ersten Arbeitstag versteht. Maximal 250 Wörter.</div>
 
 
           <p style="color: var(--gold); margin-top: 12px;"><strong>Erkenntnis:</strong> Die KI imitiert Muster, sie "denkt" nicht. Und: Tonalität im Prompt steuert alles.</p>
@@ -1140,7 +1140,21 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
       <p class="step-label">Schritt 1: Das Feld finden</p>
       <p><strong>Chat settings → Personalisation → Custom instructions → Edit instructions</strong>. Bei deutscher Oberfläche heißen die Punkte entsprechend.</p>
 
-      <p class="step-label">Schritt 2: Vorlage kopieren und die Klammern ausfüllen</p>
+            <p class="step-label">Schritt 2: Erst ein Stil, der auffällt</p>
+      <p>Damit Sie sehen, wie stark das Feld wirkt: Kopieren Sie einen der drei Stile hinein und speichern Sie. Am besten einen anderen als Ihr Nachbar.</p>
+      <p class="sub-step">Amtsdeutsch</p>
+      <div class="prompt-block">Antworte mir ab jetzt immer im Stil eines österreichischen Amtsschreibens: Beamtendeutsch, Hauptwörter statt Verben, lange Schachtelsätze, Wendungen wie „Bezug nehmend auf Ihr Ansuchen“ und „Mit vorzüglicher Hochachtung“. Der Inhalt soll sachlich stimmen, nur der Ton ist amtlich.</div>
+      <p class="sub-step">Teenager</p>
+      <div class="prompt-block">Antworte mir ab jetzt immer wie ein Teenager: Jugendsprache, Wörter wie „Digga“, „Jo“, „Bro“, „lowkey“ und „cringe“, viele englische Wörter, kurze Sätze, Emojis erlaubt. Der Inhalt soll sachlich stimmen, nur der Ton ist jung.</div>
+      <p class="sub-step">Dialekt</p>
+      <div class="prompt-block">Antworte mir ab jetzt immer im Südtiroler Dialekt, so wie man in Bozen am Stammtisch redet. Der Inhalt soll sachlich stimmen, nur der Ton ist Dialekt.</div>
+      <p>Testen Sie in einem neuen Chat:</p>
+      <div class="prompt-block">Erklär mir, wie ich am besten meinen Urlaub beim Chef beantrage.</div>
+      <p>Gleiche Frage, drei völlig verschiedene Antworten, und keiner hat den Stil in die Frage geschrieben. Beim Dialekt merken Sie außerdem, wo die KI dünn wird.</p>
+
+      <p class="step-label">Schritt 3: Zurück an die Arbeit, mit Ihrer Fassung zum Mitnehmen</p>
+      <p>Den Stil im Feld <strong>ganz löschen</strong> und stattdessen diese Vorlage einsetzen, die Klammern ausfüllen, speichern. Damit arbeiten Sie ab jetzt.</p>
+
       <div class="prompt-block">Ich bin [Rolle] bei [Firma oder Branche] und kümmere mich vor allem um [zwei, drei Hauptaufgaben].
 Antworte mir auf Deutsch, sprich mich mit Sie an, halte dich kurz und schreib so, dass ich es direkt verwenden kann.
 Sag mir lieber „Das weiß ich nicht“, als zu raten. Trenne klar, was du sicher weißt und was du vermutest. Erfinde keine Zahlen, Namen, Zitate oder Quellen.
@@ -1148,7 +1162,7 @@ Wenn meine Anfrage unklar ist, stell mir zuerst kurze Rückfragen.
 Gib mir nicht einfach recht. Wenn ich mich irre, sag es direkt und begründe es.</div>
       <p style="color: var(--white-muted); font-size: 0.85rem;">Drei Dinge gehören hinein: wer Sie sind, wie Copilot antworten soll, und was Copilot nie tun soll. Die Vorschläge unter dem Feld lassen sich zusätzlich anklicken.</p>
 
-      <p class="step-label">Schritt 3: Testen, in einem neuen Chat</p>
+      <p class="step-label">Schritt 4: Testen, in einem neuen Chat</p>
       <div class="prompt-block">Beschreib mir in drei Sätzen, wie du mir bei meiner Arbeit helfen kannst.</div>
       <p>Prüfen Sie: Spricht Copilot Sie mit Sie an? Kennt es Ihre Rolle? Ist die Antwort kurz?</p>
       <p style="color: var(--gold); font-size: 0.9rem;">Das ist der Kontext aus CITE, nur einmal geschrieben.</p>
@@ -1417,33 +1431,71 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
 </div>
 
       <p class="step-label">Selbst ordnen</p>
-      <p>Neun Formate. Ordnen Sie sie vom besten zum schlechtesten für die KI, auf Papier oder im Kopf. Erst danach kommt die Folie.</p>
-      <table class="compare-table">
-        <tr><th style="width:12%">&nbsp;</th><th>Format</th></tr>
-        <tr><td>A</td><td>PowerPoint (.pptx)</td></tr>
-        <tr><td>B</td><td>CSV</td></tr>
-        <tr><td>C</td><td>PDF als Scan oder Foto</td></tr>
-        <tr><td>D</td><td>Word (.docx) mit echten Überschriften</td></tr>
-        <tr><td>E</td><td>Markdown oder reiner Text</td></tr>
-        <tr><td>F</td><td>PDF mit Textebene</td></tr>
-        <tr><td>G</td><td>JSON</td></tr>
-        <tr><td>H</td><td>Excel (.xlsx)</td></tr>
-        <tr><td>I</td><td>HTML</td></tr>
-      </table>
-      <div class="quiz">
-<script type="application/json">
-{
-  "id": "format-rang",
-  "typ": "text",
-  "etikett": "Ihre Reihenfolge",
-  "frage": "Schreiben Sie die neun Buchstaben in Ihre Reihenfolge, das Beste zuerst.",
-  "hilfe": "Zum Beispiel: E, B, ... Es gibt kein Falsch, wir vergleichen gleich mit der Folie.",
-  "hinweis": "Gebaut, um gelesen zu werden: E Markdown/Text, B CSV, I HTML, G JSON. Gebaut, um angeschaut zu werden: D Word, H Excel, A PowerPoint, F PDF mit Textebene, C Scan. Die Trennlinie liegt zwischen JSON und Word.",
-  "auflösen": "später",
-  "knopf": "Die Reihenfolge zeigen"
-}
-</script>
-</div>
+      <p>Neun Formate. Schieben Sie die Kacheln in Ihre Reihenfolge: oben das Format, das die KI am besten liest, unten das schlechteste. Mit den Pfeilen oder per Ziehen. Dann prüfen.</p>
+      <div class="rang" id="rang-formate">
+        <ol class="rang-liste"></ol>
+        <div class="rang-knoepfe"><button type="button" class="rang-pruefen">Prüfen</button><button type="button" class="rang-neu" hidden>Nochmal</button></div>
+        <p class="rang-ergebnis" hidden></p>
+      </div>
+      <style>
+        .rang-liste{list-style:none;padding:0;margin:12px 0;display:grid;gap:8px}
+        .rang-liste li{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid rgba(255,255,255,0.18);border-radius:10px;background:rgba(255,255,255,0.04);cursor:grab;user-select:none;touch-action:none}
+        .rang-liste li.zieht{opacity:.5}
+        .rang-liste .platz{min-width:1.6em;font-weight:700;color:var(--gold)}
+        .rang-liste .name{flex:1}
+        .rang-liste button{background:none;border:1px solid rgba(255,255,255,0.25);color:inherit;border-radius:6px;width:34px;height:34px;font-size:1rem;cursor:pointer}
+        .rang-liste li.gut{border-color:#4caf50;background:rgba(76,175,80,0.12)}
+        .rang-liste li.nah{border-color:var(--gold);background:rgba(212,160,23,0.10)}
+        .rang-liste li.weit{border-color:#e57373;background:rgba(229,115,115,0.10)}
+        .rang-liste .soll{font-size:.85rem;color:var(--white-muted)}
+        .rang-liste li.linie{margin-bottom:14px;box-shadow:0 10px 0 -8px var(--gold)}
+        .rang-knoepfe button{background:var(--gold);color:#141414;border:0;border-radius:8px;padding:10px 18px;font-weight:700;cursor:pointer;margin-right:8px}
+        .rang-ergebnis{margin-top:10px}
+      </style>
+      <script>
+      (function(){
+        var RICHTIG=['Markdown oder reiner Text','CSV','HTML','JSON','Word (.docx) mit echten Überschriften','Excel (.xlsx)','PowerPoint (.pptx)','PDF mit Textebene','PDF als Scan oder Foto'];
+        var START=['PowerPoint (.pptx)','CSV','PDF als Scan oder Foto','Word (.docx) mit echten Überschriften','Markdown oder reiner Text','PDF mit Textebene','JSON','Excel (.xlsx)','HTML'];
+        var box=document.getElementById('rang-formate'); if(!box) return;
+        var ol=box.querySelector('.rang-liste'), bP=box.querySelector('.rang-pruefen'), bN=box.querySelector('.rang-neu'), erg=box.querySelector('.rang-ergebnis');
+        var geprueft=false;
+        function nummern(){ [].forEach.call(ol.children,function(li,i){ li.querySelector('.platz').textContent=(i+1)+'.'; }); }
+        function zuruecksetzen(){ geprueft=false; [].forEach.call(ol.children,function(li){ li.classList.remove('gut','nah','weit','linie'); li.querySelector('.soll').textContent=''; }); erg.hidden=true; bN.hidden=true; bP.hidden=false; }
+        function bauen(liste){
+          ol.innerHTML='';
+          liste.forEach(function(n){
+            var li=document.createElement('li'); li.draggable=true; li.dataset.name=n;
+            li.innerHTML='<span class="platz"></span><span class="name"></span><span class="soll"></span><button type="button" aria-label="nach oben">↑</button><button type="button" aria-label="nach unten">↓</button>';
+            li.querySelector('.name').textContent=n;
+            var b=li.querySelectorAll('button');
+            b[0].onclick=function(){ if(li.previousElementSibling){ ol.insertBefore(li,li.previousElementSibling); nummern(); if(geprueft) zuruecksetzen(); } };
+            b[1].onclick=function(){ if(li.nextElementSibling){ ol.insertBefore(li.nextElementSibling,li); nummern(); if(geprueft) zuruecksetzen(); } };
+            li.addEventListener('dragstart',function(){ li.classList.add('zieht'); });
+            li.addEventListener('dragend',function(){ li.classList.remove('zieht'); nummern(); if(geprueft) zuruecksetzen(); });
+            ol.appendChild(li);
+          });
+          nummern();
+        }
+        ol.addEventListener('dragover',function(e){
+          e.preventDefault(); var z=ol.querySelector('.zieht'); if(!z) return;
+          var nach=[].filter.call(ol.children,function(c){ return c!==z; }).find(function(c){ var r=c.getBoundingClientRect(); return e.clientY < r.top + r.height/2; });
+          if(nach) ol.insertBefore(z,nach); else ol.appendChild(z);
+        });
+        bP.onclick=function(){
+          var gut=0;
+          [].forEach.call(ol.children,function(li,i){
+            var soll=RICHTIG.indexOf(li.dataset.name), d=Math.abs(soll-i);
+            li.classList.add(d===0?'gut':(d===1?'nah':'weit')); if(d===0) gut++;
+            li.querySelector('.soll').textContent=d===0?'richtig':'richtig wäre Platz '+(soll+1);
+          });
+          ol.children[3].classList.add('linie');
+          erg.innerHTML='<strong>'+gut+' von 9</strong> genau auf dem richtigen Platz. Die Trennlinie liegt nach Platz 4: oben gebaut, um gelesen zu werden, unten gebaut, um angeschaut zu werden. Eine Kachel daneben ist kein Drama, die Linie ist das, was zählt.';
+          erg.hidden=false; bN.hidden=false; bP.hidden=true; geprueft=true;
+        };
+        bN.onclick=function(){ zuruecksetzen(); bauen(START); };
+        bauen(START);
+      })();
+      </script>
 
       <div class="magic-box" style="text-align:left; margin:24px 0;">
         <div class="label">Kurz aufpassen</div>
