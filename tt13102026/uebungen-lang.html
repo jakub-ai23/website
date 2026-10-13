@@ -822,7 +822,7 @@
 <tr><td>Material</td><td>Wissensbasis, Notizbücher, Quelle gegen Blindflug, Notizbuch als KI-Trainer, Wo gilt was, Formate für die Maschine</td></tr>
 <tr><td>Feedback</td><td>Feedback zum Vormittag</td></tr>
 <tr><th style="white-space:nowrap">Nachmittag</th><th></th></tr>
-<tr><td>Ihre Themen</td><td>Was gut lief, Copilot legt sich fest, Sagt Copilot mir, was ich hören will?</td></tr>
+<tr><td>Ihre Themen</td><td>Copilot legt sich fest, Sagt Copilot mir, was ich hören will?</td></tr>
 <tr><td>Prüfen</td><td>Warum es bei Ihnen hakt, Prompt-Klinik, Grenzen</td></tr>
 <tr><td>Bauen</td><td>Mit und ohne Lizenz, Werkstatt mit Eichset, Prüfkarte</td></tr>
 <tr><td>Abschluss</td><td>KI-Check zweiter Durchgang, Feedback, Wie es weitergeht</td></tr>
@@ -1578,16 +1578,15 @@ Regeln: Antworte auf Deutsch, sprich mich mit Sie an, kurz und konkret. Gib mir 
 
     <nav class="sidebar-nav" id="sidebar-nm">
       <div class="nav-section-label">Nachmittag</div>
-      <a href="#gut-war">9. Was gut lief, zerlegen</a>
-      <a href="#legt-sich-fest">10. Copilot legt sich fest</a>
-      <a href="#ue-mund">11. Sagt Copilot mir, was ich hören will?</a>
+      <a href="#legt-sich-fest">9. Copilot legt sich fest</a>
+      <a href="#ue-mund">10. Sagt Copilot mir, was ich hören will?</a>
       <a href="#hakt">Tipp · Warum es bei Ihnen hakt</a>
-      <a href="#ue-klinik">12. Prompt-Klinik</a>
+      <a href="#ue-klinik">11. Prompt-Klinik</a>
       <a href="#ue-halluzination">Bonus · Halluzinationsjagd</a>
       <a href="#ue-vergleich">Bonus · Zwei Angebote vergleichen</a>
       <a href="#ue-grenzen">Tipp · Wo ist die Grenze?</a>
       <a href="#lizenz">Tipp · Mit und ohne Lizenz</a>
-      <a href="#werkstatt">13. Ihr Prüfprompt</a>
+      <a href="#werkstatt">12. Ihr Prüfprompt</a>
       <a href="#agent">Bonus · Ihr Prüfassistent als Agent</a>
       <a href="#eichset">Tipp · Das Eichset</a>
       <a href="#pruefkarte">Tipp · Prüfkarte</a>
@@ -1598,44 +1597,8 @@ Regeln: Antworte auf Deutsch, sprich mich mit Sie an, kurz und konkret. Gib mir 
 
     <div>
 
-    <div class="exercise" id="gut-war">
-      <div class="exercise-number">Übung 9</div>
-      <h3>Was gut lief, zerlegen</h3>
-      <p class="subtitle">Ein Beispiel, bei dem Copilot gut war, genau angesehen: Was war anders als bei den Fällen, die schiefgingen?</p>
-<div class="context-block" style="border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); margin: 14px 0 18px;"><p style="margin:0; font-size:0.9rem;"><strong>Ziel:</strong> Drei bis fünf eigene Regeln für Ihren Prüfprompt, gewonnen aus einem Fall, in dem Copilot bei Ihnen wirklich gut war.</p></div>
-<p style="color: var(--gold); font-size: 0.9rem;">Es wird nur erzählt: kein echter Antragsinhalt, kein Upload, keine Namen.</p>
-<p class="step-label">Schritt 1: Fälle erzählen</p>
-<p>Zwei Freiwillige erzählen ihren Fall: Wann war Copilot bei Ihnen wirklich gut? Der Raum fragt die vier Zeilen der Tabelle ab.</p>
-<p class="step-label">Schritt 2: Zerlegen</p>
-<table class="compare-table">
-<tr><th style="width:22%">Zeile</th><th>Leitfrage</th></tr>
-<tr><td><strong>Material</strong></td><td>Welches Dokument? Wie lang, welches Format, eines oder mehrere?</td></tr>
-<tr><td><strong>Prompt</strong></td><td>Was stand drin: Rolle, Kriterien, Format, „steht nicht drin“ erlaubt?</td></tr>
-<tr><td><strong>Aufgabengröße</strong></td><td>Eine gezielte Frage oder eine ganze Analyse in einem Zug?</td></tr>
-<tr><td><strong>Prüfung</strong></td><td>Woher wussten Sie, dass es gut war? Was haben Sie nachgeschlagen?</td></tr>
-</table>
-<table class="compare-table">
-<tr><th style="width:26%"></th><th>Fall, der gut lief</th><th>Fall, der schiefging</th></tr>
-<tr><td><strong>Material</strong></td><td><input class="zelle" type="text" maxlength="40" aria-label="Eintrag"></td><td><input class="zelle" type="text" maxlength="40" aria-label="Eintrag"></td></tr>
-<tr><td><strong>Prompt</strong></td><td><input class="zelle" type="text" maxlength="40" aria-label="Eintrag"></td><td><input class="zelle" type="text" maxlength="40" aria-label="Eintrag"></td></tr>
-<tr><td><strong>Aufgabengröße</strong></td><td><input class="zelle" type="text" maxlength="40" aria-label="Eintrag"></td><td><input class="zelle" type="text" maxlength="40" aria-label="Eintrag"></td></tr>
-<tr><td><strong>Prüfung</strong></td><td><input class="zelle" type="text" maxlength="40" aria-label="Eintrag"></td><td><input class="zelle" type="text" maxlength="40" aria-label="Eintrag"></td></tr>
-</table>
-<p class="step-label">Schritt 3: Der Gegenfall</p>
-<p>Dieselben vier Zeilen an einem Fall, der schiefging, am besten von derselben Person.</p>
-<p class="step-label">Schritt 4: Regeln</p>
-<p>Was war anders? Ein Satz pro Zeile aufs Flipchart. Diese Sätze nehmen Sie in die Werkstatt mit.</p>
-<table class="compare-table">
-<tr><th style="width:26%"></th><th>Meine Regel</th></tr>
-<tr><td><strong>Regel 1</strong></td><td><input class="zelle" type="text" maxlength="40" aria-label="Eintrag"></td></tr>
-<tr><td><strong>Regel 2</strong></td><td><input class="zelle" type="text" maxlength="40" aria-label="Eintrag"></td></tr>
-<tr><td><strong>Regel 3</strong></td><td><input class="zelle" type="text" maxlength="40" aria-label="Eintrag"></td></tr>
-</table>
-<p style="color: var(--gold); font-size: 0.9rem;">Was bei Ihnen schon funktioniert, wird die Regel für Ihren Prüfprompt.</p>
-    </div>
-
     <div class="exercise" id="legt-sich-fest">
-      <div class="exercise-number">Übung 10</div>
+      <div class="exercise-number">Übung 9</div>
       <h3>Copilot legt sich fest und begründet hinterher</h3>
       <p class="subtitle">Dasselbe Projekt, einmal als High, einmal als Low begründet. Dann derselbe Auftrag mit „Belege zuerst“.</p>
 <div class="context-block" style="border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); margin: 14px 0 18px;"><p style="margin:0; font-size:0.9rem;"><strong>Ziel:</strong> Sie sehen, dass Copilot dasselbe Projekt als High und als Low überzeugend begründet, und haben den Prompt, der das verhindert.<br><strong>Dokumente:</strong> D1 Projektantrag, D3 Prüfraster</p></div>
@@ -1671,7 +1634,7 @@ Regeln: Antworte auf Deutsch, sprich mich mit Sie an, kurz und konkret. Gib mir 
     </div>
 
     <div class="exercise" id="ue-mund">
-      <div class="exercise-number">Übung 11</div>
+      <div class="exercise-number">Übung 10</div>
       <h3>Sagt Copilot mir, was ich hören will?</h3>
       <p class="subtitle">Dasselbe Angebot, einmal wohlwollend, einmal kritisch gerahmt. Beobachten Sie, wie sich die Note verschiebt.</p>
 <div class="context-block" style="border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); margin: 14px 0 18px;"><p style="margin:0; font-size:0.9rem;"><strong>Ziel:</strong> Sie sehen, wie Ihre eigene Formulierung das Urteil kippt, und haben einen neutralen Bewertungsprompt.<br><strong>Dokumente:</strong> D2a Angebot A, D4 Leistungsbeschreibung</p></div>
@@ -1731,9 +1694,9 @@ Regeln: Antworte auf Deutsch, sprich mich mit Sie an, kurz und konkret. Gib mir 
 <table class="compare-table">
 <tr><th style="min-width:9rem">Vermutung</th><th style="min-width:9rem">Woher</th><th style="min-width:7.5rem">Heute gesehen in</th></tr>
 <tr><td>Ohne Lizenz fehlt das Regelwerk</td><td>Ein Agent mit Ordner voller Dateien braucht Lizenz oder Pay-as-you-go</td><td>Mit und ohne Lizenz</td></tr>
-<tr><td>Das Urteil steht vor den Belegen</td><td>Die beiden Standardprompts der Klinik</td><td>Übung 10</td></tr>
+<tr><td>Das Urteil steht vor den Belegen</td><td>Die beiden Standardprompts der Klinik</td><td>Übung 9</td></tr>
 <tr><td>Die Skala hat keine Anker</td><td>Kategorien ohne Regel im Prompt</td><td>Namensliste, Klinik</td></tr>
-<tr><td>Die Aufgabe färbt das Ergebnis</td><td>Rückmeldung: zu streng, zu positiv</td><td>Übung 11</td></tr>
+<tr><td>Die Aufgabe färbt das Ergebnis</td><td>Rückmeldung: zu streng, zu positiv</td><td>Übung 10</td></tr>
 <tr><td>Drei Analysen in einem Prompt</td><td>Der Umweltprompt</td><td>Klinik, Stufe 2</td></tr>
 <tr><td>Seitenzahlen in Word wackeln</td><td>Prompts verlangen Seitenzahlen</td><td>Angebotsvergleich, Stufe 2</td></tr>
 <tr><td>Auto wechselt das Modell</td><td>Microsoft wählt je Anfrage das Modell</td><td>bekannt, Wirkung nicht gemessen</td></tr>
@@ -1752,7 +1715,7 @@ Regeln: Antworte auf Deutsch, sprich mich mit Sie an, kurz und konkret. Gib mir 
     </div>
 
     <div class="exercise" id="ue-klinik">
-      <div class="exercise-number">Übung 12</div>
+      <div class="exercise-number">Übung 11</div>
       <h3>Prompt-Klinik: Ihr Standardprompt</h3>
       <p class="subtitle">Ein Standardprompt für eine Risikobewertung, geprüft wie ein Patient: Was tut er gut, und wo bringt er Copilot dazu zu raten?</p>
 <div class="context-block" style="border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); margin: 14px 0 18px;"><p style="margin:0; font-size:0.9rem;"><strong>Ziel:</strong> Sie gehen mit einer verbesserten Fassung Ihres Standardprompts nach Hause, getestet am Übungsantrag.<br><strong>Dokumente:</strong> D1 Projektantrag, D3 Prüfraster</p></div>
@@ -2063,12 +2026,12 @@ Unter der Tabelle: Welche drei Fragen sollten wir den Anbietern vor einer Entsch
     </div>
 
     <div class="exercise" id="werkstatt">
-      <div class="exercise-number">Übung 13</div>
+      <div class="exercise-number">Übung 12</div>
       <h3>Ihr Prüfprompt</h3>
       <p class="subtitle">Das Ergebnis des Tages: Ihr eigener, getesteter Prüfprompt für Ihren Dokumenttyp.</p>
 <p><a href="downloads/D1-Projektantrag-Nalu.docx" download style="display:inline-block; background:var(--gold); color:#141414; padding:10px 18px; border-radius:8px; font-weight:700; font-size:0.88rem; border: 2px solid var(--gold); margin:6px 8px 6px 0;">D1 Projektantrag (Word) &darr;</a><a href="downloads/D3-Pruefraster-Uebungsfassung.docx" download style="display:inline-block; background:var(--gold); color:#141414; padding:10px 18px; border-radius:8px; font-weight:700; font-size:0.88rem; border: 2px solid var(--gold); margin:6px 8px 6px 0;">D3 Prüfraster &darr;</a></p>
 <p class="step-label">So geht es</p>
-<ol><li>Nehmen Sie die verbesserte Fassung aus Übung 12 (Sozial oder Umwelt) als Ausgangspunkt.</li><li>Passen Sie sie an <strong>Ihren</strong> Dokumenttyp an: Förderantrag, Bericht, Angebot. Ändern Sie Kriterien, Skala und Ausgabeform.</li><li>Testen Sie sie am Übungsantrag (D1 und D3) oder an einem Beispiel aus Ihrem Alltag, das keine echten Daten enthält.</li><li>Schreiben Sie die drei Prüffragen darunter: Steht es da? Fehlt etwas? Hält es zweimal?</li><li>Speichern Sie das Ganze als Word-Datei „Mein Prüfprompt“.</li></ol>
+<ol><li>Nehmen Sie die verbesserte Fassung aus Übung 11 (Sozial oder Umwelt) als Ausgangspunkt.</li><li>Passen Sie sie an <strong>Ihren</strong> Dokumenttyp an: Förderantrag, Bericht, Angebot. Ändern Sie Kriterien, Skala und Ausgabeform.</li><li>Testen Sie sie am Übungsantrag (D1 und D3) oder an einem Beispiel aus Ihrem Alltag, das keine echten Daten enthält.</li><li>Schreiben Sie die drei Prüffragen darunter: Steht es da? Fehlt etwas? Hält es zweimal?</li><li>Speichern Sie das Ganze als Word-Datei „Mein Prüfprompt“.</li></ol>
 <p><strong>Wie nehmen Sie ihn mit?</strong> Ob Ihr LAB-Konto nach dem Tag noch besteht, klären wir vor Ort. Sicher ist: Der Text steht hier auf der Seite. Kopieren Sie Ihre persönliche Fassung in eine E-Mail an Ihr eigenes Postfach oder in eine Datei auf Ihrem Gerät, soweit Ihre IT das erlaubt.</p>
     </div>
 
