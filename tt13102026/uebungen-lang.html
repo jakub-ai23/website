@@ -792,6 +792,8 @@
       <a href="#ue4">6. Flughöhe, Lieferant oder Tutor</a>
       <a href="#ue3">7. Wissensbasis</a>
       <a href="#notizbuecher">Tipp · Notizbücher</a>
+      <a href="#notizbuch-trainer">7b. Notizbuch als KI-Trainer</a>
+      <a href="#ebenen">Tipp · Wo gilt was</a>
       <a href="#formate">8. Formate für die Maschine</a>
       <a href="#feedback">Feedback · Ihr Feedback zum Vormittag</a>
     </nav>
@@ -817,7 +819,7 @@
 <tr><td>Setup</td><td>Welchen Copilot haben Sie? Bildschirm teilen</td></tr>
 <tr><td>Grundlagen</td><td>Namensliste, Kontextfenster, Gedächtnis</td></tr>
 <tr><td>Prompten</td><td>Homeoffice-Regelung, CITE(R) mit der Reise, eigene Anweisungen, Flughöhe, Lieferant oder Tutor</td></tr>
-<tr><td>Material</td><td>Wissensbasis, Notizbücher, Quelle gegen Blindflug, Formate für die Maschine</td></tr>
+<tr><td>Material</td><td>Wissensbasis, Notizbücher, Quelle gegen Blindflug, Notizbuch als KI-Trainer, Wo gilt was, Formate für die Maschine</td></tr>
 <tr><td>Feedback</td><td>Feedback zum Vormittag</td></tr>
 <tr><th style="white-space:nowrap">Nachmittag</th><th></th></tr>
 <tr><td>Ihre Themen</td><td>Was gut lief, Copilot legt sich fest, Sagt Copilot mir, was ich hören will?</td></tr>
@@ -1356,6 +1358,41 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
 </table>
 <p style="color: var(--white-muted); font-size: 0.85rem;">Teilen geht nur innerhalb Ihrer Organisation. Ihre IT kann Notizbücher ganz abschalten.</p>
 <p style="color: var(--gold); font-size: 0.9rem;">Teilen Sie ein Notizbuch wie einen Ordner, nicht wie einen Link.</p>
+    </div>
+
+    <div class="exercise" id="notizbuch-trainer">
+      <div class="exercise-number">Übung 7b</div>
+      <h3>Ihr Notizbuch als KI-Trainer</h3>
+      <p class="subtitle">Ein Notizbuch kann eine eigene Anweisung bekommen. Dann arbeitet Copilot darin immer in derselben Rolle, mit Ihren Kontextdokumenten als Quelle.</p>
+      <p class="step-label">Schritt 1: Ihr Notizbuch öffnen</p>
+      <p>Das Notizbuch „Meine Firma“ mit Ihren Kontextdokumenten aus Übung 7. Noch keines? Neues Notizbuch anlegen und die Dokumente zu Firma und Rolle als Quellen hinzufügen.</p>
+      <p class="step-label">Schritt 2: Die Anweisung einsetzen</p>
+      <p>In die Anweisung des Notizbuchs (Instructions) kopieren, speichern, dann die Seite neu laden (F5).</p>
+      <div class="prompt-block">Du bist mein persönlicher KI-Trainer für Microsoft Copilot. Wer ich bin und was ich mache, steht in den Quellen dieses Notizbuchs.
+
+Deine Aufgaben:
+1. Prüfen: Zeige ich dir einen Prompt, prüfst du ihn nach CITE(R). Fehlt Kontext, Ziel, Aufgabe oder Ausführung? Nenne höchstens drei Punkte, die fehlen.
+2. Verbessern: Danach schreibst du eine bessere Fassung, die ich direkt kopieren kann, passend zu meiner Rolle aus den Quellen.
+3. Erklären: Erkläre in zwei, drei Sätzen, warum die neue Fassung besser ist. Einfach, ohne Fachwörter.
+4. Abfragen: Schreibe ich „Test“, stellst du mir eine Frage zu dem, was wir heute gelernt haben, und gibst mir Rückmeldung zu meiner Antwort.
+
+Regeln: Antworte auf Deutsch, sprich mich mit Sie an, kurz und konkret. Gib mir nicht einfach recht. Steht etwas nicht in den Quellen, sag es, statt zu raten.</div>
+      <p class="step-label">Schritt 3: Testen</p>
+      <div class="prompt-block">Diesen Prompt nutze ich oft: „Fass mir das Dokument zusammen.“ Prüf ihn und mach ihn besser.</div>
+      <p>Danach einmal „Test“ schreiben und die Frage beantworten.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Prüfen Sie: Kennt der Trainer Ihre Rolle aus den Quellen? Bekommen Sie eine Fassung, die Sie direkt kopieren können?</p>
+    </div>
+
+    <div class="exercise" id="ebenen">
+      <div class="exercise-number">Tipp</div>
+      <h3>Wo gilt was: die drei Ebenen</h3>
+      <table class="compare-table">
+        <tr><th style="width:30%">Gilt</th><th>Was</th></tr>
+        <tr><td><strong>Überall</strong></td><td>Ihre eigenen Anweisungen aus den Einstellungen (Übung 5) und Ihre gespeicherten Erinnerungen</td></tr>
+        <tr><td><strong>Nur im Notizbuch</strong></td><td>Die Anweisung des Notizbuchs (Übung 7b) und Ihre Quellen darin</td></tr>
+        <tr><td><strong>Nur in diesem Chat</strong></td><td>Das laufende Gespräch und Ihre aktuelle Nachricht</td></tr>
+      </table>
+      <p>Was Sie im Notizbuch einstellen, gilt in jedem Chat dieses Notizbuchs. Was nur im Chat steht, ist im nächsten Chat weg.</p>
     </div>
 
     <div class="exercise" id="formate">
