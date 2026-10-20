@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jakub Popluhar | Kontakt</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Kontakt speichern, Erstgespräch buchen oder direkt schreiben: Jakub Popluhar, KI-Trainer für Führungskräfte und Teams.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  /* Ziel des QR-Codes auf der Visitenkarte. Jeder Aufruf dieser Seite = ein Scan (Beacon in site.js). */
+  @font-face { font-family: M; src: url(/fonts/montserrat.woff2); font-weight: 100 900; }
+  @font-face { font-family: I; src: url(/fonts/inter-400.woff2); font-weight: 400; }
+  @font-face { font-family: I; src: url(/fonts/inter-600.woff2); font-weight: 600; }
+  :root { --gold: #d4a017; --charcoal: #141414; --card: #1f1f1f; --white: #f5f5f5; --muted: #b0b0b0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--charcoal); color: var(--white); font-family: I, sans-serif; min-height: 100vh; }
+  main { max-width: 440px; margin: 0 auto; padding: 40px 16px 48px; }
+  img.me { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; object-position: top; border: 2px solid var(--gold); display: block; }
+  h1 { font-family: M; font-weight: 800; font-size: 1.7rem; margin-top: 20px; }
+  .tt { color: var(--gold); font-weight: 600; margin-top: 6px; }
+  .lead { color: var(--muted); margin-top: 14px; line-height: 1.5; }
+  .btns { display: grid; gap: 12px; margin-top: 28px; }
+  a.b { display: flex; align-items: center; justify-content: center; min-height: 54px; border-radius: 10px;
+        font-family: M; font-weight: 700; font-size: 1rem; text-decoration: none; }
+  a.p { background: var(--gold); color: var(--charcoal); }
+  a.s { background: var(--card); color: var(--white); border: 1px solid #333; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  footer { margin-top: 36px; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <img class="me" src="/images/profile/headshot.png" alt="Jakub Popluhar">
+  <h1>Jakub Popluhar, M.Ed.</h1>
+  <p class="tt">KI-Trainer für Führungskräfte &amp; Teams</p>
+  <p class="lead">Schön, dass wir uns getroffen haben. Speichern Sie meinen Kontakt mit einem Tippen, oder buchen Sie gleich ein kostenloses Erstgespräch (30 Minuten).</p>
+  <div class="btns">
+    <a class="b p" href="/k/jakub-popluhar.vcf" download data-ev="jp_card_vcf">Kontakt speichern</a>
+    <a class="b s" href="https://cal.eu/jakubpopluhar/erstgespraech" data-ev="jp_card_booking">Erstgespräch buchen</a>
+    <div class="row">
+      <a class="b s" href="tel:+436641386498" data-ev="jp_card_tel">Anrufen</a>
+      <a class="b s" href="mailto:jakub@popluhar.at?subject=Wir%20haben%20uns%20getroffen" data-ev="jp_card_mail">E-Mail</a>
+    </div>
+    <a class="b s" href="https://www.linkedin.com/in/jakubpopluhar" data-ev="jp_card_linkedin">LinkedIn</a>
+  </div>
+  <footer>
+    Training auf Deutsch, Slovensky und Česky.<br>
+    <a href="/">jakubpopluhar.com</a> · <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a>
+  </footer>
+</main>
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
