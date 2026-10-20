@@ -684,7 +684,7 @@
     }
 
     /* ARS 21.10. online: Rahmen je Uebung (Ziel / Zeit / Abgabe) und Ausweichzeile */
-    .rahmen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0 18px; }
+    .rahmen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 14px 0 18px; }
     .rahmen > div { background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.25); border-radius: 10px; padding: 10px 12px; font-size: 0.85rem; line-height: 1.45; }
     .rahmen b { display: block; font-family: var(--font-heading); font-size: 0.62rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
     .fallback { border-left: 3px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.03); padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--white-muted); margin: 16px 0 6px; }
@@ -692,6 +692,9 @@
     .pruef { font-size: 0.85rem; color: var(--white-muted); margin-top: 10px; }
     .tabelle-text { white-space: pre; overflow-x: auto; }
     @media (max-width: 700px) { .rahmen { grid-template-columns: 1fr; } }
+
+    .form-wichtig { border: 2px solid var(--gold); background: rgba(212,160,23,0.08); border-radius: 10px; padding: 12px 16px; margin: 14px 0 10px; font-size: 0.92rem; line-height: 1.5; }
+    .form-wichtig.kurz { margin: 10px 0 0; padding: 8px 14px; font-size: 0.85rem; }
   
 
 body{margin:0}
@@ -801,10 +804,40 @@ body{margin:0}
 .upload-kasten li .st{margin-left:auto;font-weight:600;white-space:nowrap}
 .upload-kasten li.ok .st{color:#6fae5f}.upload-kasten li.fehler .st{color:#e07a6a}
 .upload-kasten li .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.gruppe-inhalt{display:block}
+.gruppe.zu .gruppe-inhalt{display:none}
+.teil-knopf{display:flex;align-items:center;justify-content:space-between;width:calc(100% - 12px);background:none;border:0;border-top:1px solid rgba(255,255,255,.08);padding:12px 6px 4px;margin:14px 6px 6px;cursor:pointer;font-family:var(--font-body);text-align:left}
+.stand + .gruppe .teil-knopf{border-top:0;margin-top:18px}
+.teil-knopf:hover{color:var(--gold-light)}
+.teil-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.teil-knopf .pfeil{flex:none;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s;margin-left:10px;margin-top:-3px}
+.gruppe.zu .teil-knopf .pfeil{transform:rotate(-45deg);margin-top:0}
+
+.form-hinweis{position:absolute;left:0;right:0;bottom:100%;background:#1d1a10;border-top:2px solid var(--gold);padding:14px 0;box-shadow:0 -10px 24px rgba(0,0,0,.45)}
+.form-hinweis[hidden]{display:none}
+.form-hinweis-innen{max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.form-hinweis p{margin:0 0 12px;font-size:.92rem;line-height:1.5}
+.form-hinweis .reihe{display:flex;gap:10px;flex-wrap:wrap}
+.form-hinweis .knopf{padding:10px 16px;font-size:.88rem}
+.form-danke{margin:10px 0 0;padding:10px 14px;border:1px solid #6fae5f;border-radius:8px;color:#9bd18c;font-weight:600;font-size:.9rem}
+.lektion iframe[data-formular]{scroll-margin-bottom:110px}
+@media(max-width:860px){.form-hinweis-innen{padding:0 16px}}
+
+.willkommen-bs{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 50% 30%,#232018 0%,#141414 65%);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}
+.willkommen-bs[hidden]{display:none}
+.willkommen-karte{width:100%;max-width:520px;text-align:center;margin:auto}
+.willkommen-karte img{display:block;width:min(240px,46vw);height:min(240px,46vw);object-fit:cover;object-position:top;border-radius:50%;border:3px solid var(--gold);margin:0 auto 22px;background:#1a1a1a;box-shadow:0 0 0 8px rgba(212,160,23,.08)}
+.willkommen-blase{position:relative;background:var(--charcoal-light,#1a1a1a);border:1px solid rgba(212,160,23,.35);border-radius:16px;padding:22px 22px 24px;margin-bottom:24px}
+.willkommen-blase::before{content:"";position:absolute;top:-9px;left:50%;width:16px;height:16px;background:var(--charcoal-light,#1a1a1a);border-left:1px solid rgba(212,160,23,.35);border-top:1px solid rgba(212,160,23,.35);transform:translateX(-50%) rotate(45deg)}
+.willkommen-blase p{margin:0;font-family:var(--font-heading);font-weight:600;font-size:clamp(1.1rem,4.4vw,1.45rem);line-height:1.4;text-wrap:balance}
+.willkommen-karte .knopf{padding:14px 38px;font-size:1rem}
+@media (prefers-reduced-motion:no-preference){.willkommen-karte{animation:wk-rein .5s ease-out}@keyframes wk-rein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}
 </style>
   <link rel="stylesheet" href="quiz/quiz.css">
 </head>
 <body>
+<div class="willkommen-bs" id="willkommen-bs" role="dialog" aria-modal="true" aria-labelledby="wk-text" hidden><div class="willkommen-karte"><img src="jakub-lachend.png" alt="Jakub Popluhar"><div class="willkommen-blase"><p id="wk-text">Herzlich willkommen bei unserem KI-Kurs. Dieses E-Learning wird uns die ganze Zeit begleiten.</p></div><button type="button" class="knopf los" id="wk-weiter">Weiter</button></div></div>
 <div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Inhalt</button><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
 <div class="player">
   <aside class="side" id="side">
@@ -816,7 +849,7 @@ body{margin:0}
     <div class="sub">ARS Akademie · Mittwoch, 21.10.2026 · Online / Zoom</div>
     <div class="balken"><i id="balken"></i></div>
     <div class="stand" id="stand"></div>
-    <div class="teil">Vormittag: Prompt Profi</div><a class="zeile" href="#willkommen" data-id="willkommen"><span class="lab">Start</span><span class="t">Willkommen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Ihr KI-Check</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#split" data-id="split"><span class="lab">Trick</span><span class="t">Den Bildschirm teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#werkzeug" data-id="werkzeug"><span class="lab">Info</span><span class="t">Ihr KI-Werkzeug öffnen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue1" data-id="ue1"><span class="n">1</span><span class="t">Die Namensliste</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#einstellungen" data-id="einstellungen"><span class="lab">Info</span><span class="t">Training ausschalten, Gedächtnis prüfen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#modell" data-id="modell"><span class="lab">Info</span><span class="t">Zwei Regler: Modell und Denkstufe</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue2" data-id="ue2"><span class="n">2</span><span class="t">Prompten: Homeoffice-Regelung</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#pii" data-id="pii"><span class="lab">Takeaway</span><span class="t">Die 3-Sekunden-Regel und welches Konto</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue3" data-id="ue3"><span class="n">3</span><span class="t">CITE(R) Framework: Jetzt sind Sie dran</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue4" data-id="ue4"><span class="n">4</span><span class="t">Ihre KI-Wissensbasis aufbauen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue5" data-id="ue5"><span class="n">5</span><span class="t">Die Flughöhe</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback-vm" data-id="feedback-vm"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Vormittag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#mittag" data-id="mittag"><span class="lab">Danach</span><span class="t">Mahlzeit, und wie es weitergeht</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><div class="teil">Nachmittag: KI-Assistenten</div><a class="zeile" href="#split-nm" data-id="split-nm"><span class="lab">Trick</span><span class="t">Kurz vorher: Fenster wieder teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#alltag" data-id="alltag"><span class="lab">Check</span><span class="t">Zwei Minuten: Ihr Arbeitsalltag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#formate" data-id="formate"><span class="lab">Quiz</span><span class="t">Welches Format versteht die Maschine?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue6" data-id="ue6"><span class="n">6</span><span class="t">Projekt anlegen: System-Prompt und Projekt-Prompt</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue7" data-id="ue7"><span class="n">7</span><span class="t">EU AI Act + NotebookLM</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue8" data-id="ue8"><span class="n">8</span><span class="t">Split-Screen: dieselbe Quelle, zwei Werkzeuge</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue9" data-id="ue9"><span class="n">9</span><span class="t">Suno AI: Songtext und Musik</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue10" data-id="ue10"><span class="n">10</span><span class="t">Modelling of Excellence</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue11" data-id="ue11"><span class="n">11</span><span class="t">Prompt Layering: Das „Tribunal“</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Zum Schluss</span><span class="t">Ihr KI-Check, zweiter Durchgang</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback" data-id="feedback"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Nachmittag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#profi-quiz" data-id="profi-quiz"><span class="lab">Bonus</span><span class="t">Das Profi-Quiz</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#weiter" data-id="weiter"><span class="lab">Danach</span><span class="t">Das Training ist vorbei, die Reise nicht</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><div class="teil">Reserve: wenn Zeit bleibt</div><a class="zeile" href="#offen" data-id="offen"><span class="lab">Reserve</span><span class="t">Offener Übungsblock: Jetzt üben Sie, was Sie wollen<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#werkstatt" data-id="werkstatt"><span class="lab">Reserve</span><span class="t">KI-Werkstatt: Ihr eigenes Problem lösen<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#stimme" data-id="stimme"><span class="lab">Reserve</span><span class="t">Die KI schreibt wie Sie, nicht wie alle<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#demo-folien" data-id="demo-folien"><span class="lab">Reserve</span><span class="t">Folien mit KI erstellen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#skills" data-id="skills"><span class="lab">Reserve</span><span class="t">Was ist ein Skill?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a>
+    <div class="gruppe zu" data-teil="vm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Vormittag: Prompt Profi</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#willkommen" data-id="willkommen"><span class="lab">Start</span><span class="t">Willkommen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Ihr KI-Check</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#split" data-id="split"><span class="lab">Trick</span><span class="t">Den Bildschirm teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#werkzeug" data-id="werkzeug"><span class="lab">Info</span><span class="t">Ihr KI-Werkzeug öffnen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue1" data-id="ue1"><span class="n">1</span><span class="t">Die Namensliste</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#einstellungen" data-id="einstellungen"><span class="lab">Info</span><span class="t">Training ausschalten, Gedächtnis prüfen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#modell" data-id="modell"><span class="lab">Info</span><span class="t">Zwei Regler: Modell und Denkstufe</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue2" data-id="ue2"><span class="n">2</span><span class="t">Prompten: Homeoffice-Regelung</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#pii" data-id="pii"><span class="lab">Takeaway</span><span class="t">Die 3-Sekunden-Regel und welches Konto</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue3" data-id="ue3"><span class="n">3</span><span class="t">CITE(R) Framework: Jetzt sind Sie dran</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue4" data-id="ue4"><span class="n">4</span><span class="t">Ihre KI-Wissensbasis aufbauen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue5" data-id="ue5"><span class="n">5</span><span class="t">Die Flughöhe</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback-vm" data-id="feedback-vm"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Vormittag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#mittag" data-id="mittag"><span class="lab">Danach</span><span class="t">Mahlzeit, und wie es weitergeht</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="nm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Nachmittag: KI-Assistenten</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#split-nm" data-id="split-nm"><span class="lab">Trick</span><span class="t">Kurz vorher: Fenster wieder teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#formate" data-id="formate"><span class="lab">Quiz</span><span class="t">Welches Format versteht die Maschine?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue6" data-id="ue6"><span class="n">6</span><span class="t">Projekt anlegen: System-Prompt und Projekt-Prompt</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue7" data-id="ue7"><span class="n">7</span><span class="t">EU AI Act + NotebookLM</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue8" data-id="ue8"><span class="n">8</span><span class="t">Split-Screen: dieselbe Quelle, zwei Werkzeuge</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue9" data-id="ue9"><span class="n">9</span><span class="t">Suno AI: Songtext und Musik</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Zum Schluss</span><span class="t">Ihr KI-Check, zweiter Durchgang</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback" data-id="feedback"><span class="lab">Feedback</span><span class="t">Ihr Feedback zum Nachmittag</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#profi-quiz" data-id="profi-quiz"><span class="lab">Bonus</span><span class="t">Das Profi-Quiz</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#weiter" data-id="weiter"><span class="lab">Danach</span><span class="t">Das Training ist vorbei, die Reise nicht</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="res"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Bonus: wenn Zeit bleibt</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#ue10" data-id="ue10"><span class="lab">Bonus</span><span class="t">Modelling of Excellence<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#ue11" data-id="ue11"><span class="lab">Bonus</span><span class="t">Prompt Layering: Das „Tribunal“<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#offen" data-id="offen"><span class="lab">Reserve</span><span class="t">Offener Übungsblock: Jetzt üben Sie, was Sie wollen<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#werkstatt" data-id="werkstatt"><span class="lab">Reserve</span><span class="t">KI-Werkstatt: Ihr eigenes Problem lösen<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#stimme" data-id="stimme"><span class="lab">Reserve</span><span class="t">Die KI schreibt wie Sie, nicht wie alle<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#demo-folien" data-id="demo-folien"><span class="lab">Reserve</span><span class="t">Folien mit KI erstellen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#skills" data-id="skills"><span class="lab">Reserve</span><span class="t">Was ist ein Skill?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div>
     <div class="kontakt">Fragen nach dem Kurs:<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br><a href="tel:+436641386498">+43 664 138 64 98</a></div>
   </aside>
   <main class="main">
@@ -845,7 +878,7 @@ body{margin:0}
         <tr><th style="width:34%">Was</th><th>Wohin</th></tr>
         <tr><td>„Fertig“ melden</td><td>Zoom-Chat. Am Ende jeder Übung steht das Stichwort, zum Beispiel „Namen fertig“.</td></tr>
         <tr><td>Ein Ergebnis zeigen</td><td>Ein Satz in den Zoom-Chat. Wenn ich Sie bitte, teilen Sie kurz Ihren Bildschirm.</td></tr>
-        <tr><td>KI-Check, Feedback, Quiz</td><td>Formulare, direkt in dieser Seite. Feedback am Vormittag und am Nachmittag ist Pflicht und dauert zwei Minuten.</td></tr>
+        <tr><td>KI-Check, Feedback, Quiz</td><td>Formulare, direkt in dieser Seite. <strong>Im Formular immer unten auf „Absenden“ klicken.</strong> Feedback am Vormittag und am Nachmittag ist Pflicht und dauert zwei Minuten.</td></tr>
         <tr><td>Ihre Texte aus den Übungen</td><td>Bleiben bei Ihnen. Speichern Sie sie in einer Notiz oder Textdatei, Sie brauchen sie am Nachmittag wieder.</td></tr>
       </table>
 
@@ -854,7 +887,7 @@ body{margin:0}
         <li>Lassen Sie die Seite den ganzen Tag offen, auch in der Mittagspause.</li>
         <li>Tippen Sie einen Prompt an, dann ist er kopiert. Einfügen im KI-Werkzeug mit Strg+V (Mac: Cmd+V).</li>
         <li>Links sehen Sie alle Abschnitte des Tages, unten rechts geht es mit „Erledigt, weiter“ zum nächsten. Am Handy oder bei schmalem Fenster öffnen Sie die Übersicht oben mit „☰ Inhalt“.</li>
-        <li>Jede Übung hat einen Zeitrahmen. Er ist ein Richtwert. Sind Sie früher fertig, machen Sie bei „Wenn Sie früher fertig sind“ weiter. Werden Sie nicht fertig, ist das in Ordnung: wir gehen gemeinsam weiter.</li>
+        <li>Sind Sie früher fertig, machen Sie bei „Wenn Sie früher fertig sind“ weiter. Werden Sie nicht fertig, ist das in Ordnung: wir gehen gemeinsam weiter.</li>
       </ol>
 
       <p class="step-label">Der Tag</p>
@@ -878,8 +911,10 @@ body{margin:0}
       <div class="exercise-number">Check</div>
       <h3>Ihr KI-Check</h3>
       <p class="subtitle">Kein Test, eine Standortbestimmung. Es gibt keine falschen Antworten. Dauer: 5 Minuten.</p>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Tragen Sie Ihren Vornamen so ein, wie Sie ihn am Ende des Tages wieder eintragen. Nur so können wir Morgen und Abend vergleichen.</p>
-      <iframe id="Form-FORM_KICHECK-8" src="https://form.jotform.com/262921918098064" title="KI-Check" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Wählen Sie im Formular jetzt <strong>„Vormittag“</strong>. Am Ende des Tages füllen Sie denselben Fragebogen noch einmal aus und wählen dann <strong>„Nachmittag“</strong>. So sehen wir, was Sie dazugelernt haben.</p>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Ihre Antworten sind erst gespeichert, wenn Sie <strong>UNTEN IM FORMULAR</strong> auf „Absenden“ klicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) schickt nichts ab.</div>
+      <iframe id="Form-FORM_KICHECK-8" data-formular="FORM_KICHECK" src="https://form.jotform.com/262921918098064" title="KI-Check" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262921918098064" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
     </div></section><section class="lektion" data-id="split" data-teil="vm" data-teil-name="Vormittag: Prompt Profi" hidden><div class="exercise" data-ex="split">
       <div class="exercise-number">Trick</div>
@@ -966,7 +1001,6 @@ body{margin:0}
       <p class="subtitle">Derselbe Prompt bei allen, drei Nachbarländer, und ein Blick auf die Listen der anderen. Achten Sie nicht darauf, ob die Namen stimmen, sondern welche kommen.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Sehen, dass die KI das Häufigste liefert, nicht das Passende.</div>
-        <div><b>Zeit</b>10 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: Ihre 10 Nachnamen, am Ende „Namen fertig“</div>
       </div>
 
@@ -1048,7 +1082,6 @@ Vorname, Nachname, Abteilung.</div>
       <p class="subtitle">Derselbe Auftrag, erst ohne, dann mit Kontext. Danach lassen Sie die KI den Inhalt in verschiedenen Stilen schreiben.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Erleben, was Kontext im Prompt ausmacht.</div>
-        <div><b>Zeit</b>20 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: erster Satz Ihres Entwurfs, einmal ohne, einmal mit Kontext</div>
       </div>
 
@@ -1136,7 +1169,6 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
       <p class="subtitle">Sie planen eine Reise. Kurze Nachrichten, jede legt eine Schicht drauf. Mittendrin ändert sich etwas, und danach ändert es sich zurück. Um die Reise geht es nicht.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Einen vollständigen Auftrag in kurzen Nachrichten aufbauen.</div>
-        <div><b>Zeit</b>25 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: „Reise fertig“</div>
       </div>
 
@@ -1205,7 +1237,6 @@ Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Ma
       <p class="subtitle">Erstellen Sie zwei Dokumente, die Ihre KI ab sofort schlauer machen. Sie verwenden sie am Nachmittag wieder.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Zwei Kontextdokumente: Ihre Firma (1a) und Ihre Rolle (1b).</div>
-        <div><b>Zeit</b>40 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: „Wissensbasis fertig“. Die Dokumente bleiben bei Ihnen.</div>
       </div>
 
@@ -1305,30 +1336,45 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <p class="subtitle">Dieselbe Sache, zwei Stufen. Die Stufe stellen Sie ein, nicht die KI.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Erleben, wie die Antwort sich mit der Flughöhe ändert, und Lieferant von Tutor unterscheiden.</div>
-        <div><b>Zeit</b>15 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: „Tutor fertig“</div>
       </div>
 
       <div class="context-block" style="border-color: rgba(212,160,23,0.3); background: rgba(212,160,23,0.04); margin: 24px 0;">
         <div style="font-family: var(--font-heading); font-weight:700; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Die Flughöhe &middot; dieselbe Sache, zwei Stufen</div>
         <p style="color: var(--white-muted); font-size:0.88rem;">Schauen Sie sich das hier an. Zehn Sekunden.</p>
-        <img src="balmer-formel.png" alt="Formel" style="display:block; width:100%; max-width:360px; margin:16px auto; border-radius:8px;">
-        <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie das jetzt nicht erklären können: genau darum geht es. Schicken Sie die zwei Prompts nacheinander ab und achten Sie darauf, wie sich die Antwort verändert.</p>
-        <div class="prompt-block">Erklär mir diese Formel, als wäre ich eine Fachkraft mit einem PhD in Physik:
+        <img src="balmer-formel.png" alt="Eine Formel aus der Physik" style="display:block; width:100%; max-width:360px; margin:16px auto; border-radius:8px;">
+        <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie das jetzt nicht erklären können: genau darum geht es.</p>
+      </div>
+
+      <p class="step-label">Schritt 1: Ihr eigener Screenshot</p>
+      <p>Machen Sie selbst einen Screenshot von der Formel und laden Sie ihn in Ihr KI-Werkzeug hoch. Mac: <strong>Shift + Cmd + 4</strong>, Bereich aufziehen. Windows: <strong>Windows-Taste + Shift + S</strong>. Dann im Chat mit Strg+V (Mac: Cmd+V) einfügen oder die Datei hineinziehen.</p>
+      <p class="step-label">Schritt 2: Fragen Sie in zwei Stufen</p>
+      <p>Wie Sie die KI fragen, entscheiden Sie selbst: erst als Fachperson, dann als Kind. Wer Hilfe braucht, klappt den Prompt auf.</p>
+      <details>
+        <summary>Prompt anzeigen</summary>
+        <div class="collapsible-content">
+          <div class="prompt-block">Erklär mir die Formel auf dem Bild, als wäre ich eine Fachkraft mit einem PhD in Physik.</div>
+          <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie bei dieser Antwort nichts verstanden haben, ist alles richtig gelaufen. Jetzt dieselbe Formel noch einmal, im selben Chat:</p>
+          <div class="prompt-block">Und jetzt noch einmal dieselbe Formel, als wäre ich 10 Jahre alt.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Bild-Upload geht nicht? Formel als Text</summary>
+        <div class="collapsible-content">
+          <div class="prompt-block">Erklär mir diese Formel, als wäre ich eine Fachkraft mit einem PhD in Physik:
 
 ν̄ = R · (1/2² − 1/n²)</div>
-        <p style="color: var(--white-muted); font-size:0.88rem;">Wenn Sie bei dieser Antwort nichts verstanden haben, ist alles richtig gelaufen. Jetzt dieselbe Formel noch einmal:</p>
-        <div class="prompt-block">Und jetzt noch einmal dieselbe Formel, als wäre ich 10 Jahre alt.</div>
-        <p style="color:var(--gold); font-size:0.82rem;">Nicht die Physik ist hier die Lehre, sondern die Flughöhe. Und keine Sorge: ob die Physik stimmt, kann hier niemand prüfen. Das ist bei Ihren eigenen Themen anders.</p>
-      </div>
+        </div>
+      </details>
+      <p style="color:var(--gold); font-size:0.82rem;">Nicht die Physik ist hier die Lehre, sondern die Flughöhe. Und keine Sorge: ob die Physik stimmt, kann hier niemand prüfen. Das ist bei Ihren eigenen Themen anders.</p>
 
       <p class="step-label">Lieferant oder Tutor</p>
       <table class="compare-table">
         <tr><th></th><th>Der Lieferant</th><th>Der Tutor</th></tr>
-        <tr><td><strong>Wunsch</strong></td><td>"Ich muss schnell wissen, was '20' auf Englisch heißt."</td><td>"Ich will verstehen, wie die englischen Zahlen funktionieren."</td></tr>
-        <tr><td><strong>Prompt</strong></td><td>"Was heißt '20' auf Englisch?"</td><td>"Du bist mein Englischlehrer. Bring mir bei, wie man zählt. Gib mir nicht sofort die Lösung, sondern erkläre mir die Regel und lass mich üben."</td></tr>
-        <tr><td><strong>Antwort</strong></td><td>"Twenty." (Ende)</td><td>"Gerne! Im Englischen enden die Zehnerzahlen meist auf '-ty'&hellip; Jetzt du: Was heißt '60'?"</td></tr>
-        <tr><td><strong>Nutzen</strong></td><td>Nichts gelernt.</td><td><strong>Wissen aufgebaut.</strong></td></tr>
+        <tr><td style="white-space:nowrap"><strong>Wunsch</strong></td><td>"Ich muss schnell wissen, was '20' auf Englisch heißt."</td><td>"Ich will verstehen, wie die englischen Zahlen funktionieren."</td></tr>
+        <tr><td style="white-space:nowrap"><strong>Prompt</strong></td><td>"Was heißt '20' auf Englisch?"</td><td>"Du bist mein Englischlehrer. Bring mir bei, wie man zählt. Gib mir nicht sofort die Lösung, sondern erkläre mir die Regel und lass mich üben."</td></tr>
+        <tr><td style="white-space:nowrap"><strong>Antwort</strong></td><td>"Twenty." (Ende)</td><td>"Gerne! Im Englischen enden die Zehnerzahlen meist auf '-ty'&hellip; Jetzt du: Was heißt '60'?"</td></tr>
+        <tr><td style="white-space:nowrap"><strong>Nutzen</strong></td><td>Nichts gelernt.</td><td><strong>Wissen aufgebaut.</strong></td></tr>
       </table>
 
       <p class="step-label">Jetzt Sie: Lieferant, dann Tutor, an einem Thema aus Ihrem Alltag</p>
@@ -1337,13 +1383,16 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <p>Dann im selben Chat als Tutor:</p>
       <div class="prompt-block">Du bist jetzt mein Tutor für [Ihr Thema]. Gib mir nicht sofort die Lösung, sondern erkläre mir die Regel und stell mir eine Übungsaufgabe. Warte auf meine Antwort und korrigiere mich dann.</div>
       <p style="color: var(--gold); font-size: 0.85rem;">Der Lieferant erledigt die Aufgabe. Der Tutor baut Ihre Fähigkeit auf. Beides ist richtig, aber man muss es bewusst wählen.</p>
-      <p class="fallback"><strong>Werkzeug gesperrt?</strong> Copilot oder ein anderes Werkzeug aus der Liste. Die Formel ist ein Bild, den Prompt tippen Sie ab.</p>
+      <p class="fallback"><strong>Werkzeug gesperrt?</strong> Copilot oder ein anderes Werkzeug aus der Liste.</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: zwei völlig verschiedene Erklärungen derselben Formel, und eine KI, die Ihnen Fragen stellt. Zoom-Chat: „Tutor fertig“.</p>
     </div></section><section class="lektion" data-id="feedback-vm" data-teil="vm" data-teil-name="Vormittag: Prompt Profi" hidden><div class="exercise" data-ex="feedback-vm">
       <div class="exercise-number">Feedback</div>
       <h3>Ihr Feedback zum Vormittag</h3>
       <p class="subtitle">Pflicht vor der Mittagspause, zwei Minuten. Ihr Aha-Moment, Ihre wichtigste Erkenntnis und was ich am Nachmittag besser machen soll. Name und Firma sind freiwillig, helfen mir aber sehr. Ehrlich hilft mir mehr als nett.</p>
-      <iframe id="Form-FORM_FEEDBACK_AM-26" src="https://form.jotform.com/262922226075052" title="Ihr Feedback zum Vormittag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Wählen Sie im Formular <strong>„Vormittag“</strong>.</p>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Ihre Antworten sind erst gespeichert, wenn Sie <strong>UNTEN IM FORMULAR</strong> auf „Feedback absenden“ klicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) schickt nichts ab.</div>
+      <iframe id="Form-FORM_FEEDBACK-26" data-formular="FORM_FEEDBACK" src="https://form.jotform.com/262922226075052" title="Ihr Feedback zum Vormittag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Feedback absenden“ klicken.</p>
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262922226075052" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
     </div></section><section class="lektion" data-id="mittag" data-teil="vm" data-teil-name="Vormittag: Prompt Profi" hidden><div class="exercise" data-ex="mittag">
       <div class="exercise-number">Danach</div>
@@ -1414,20 +1463,13 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
           <p><strong>Zwischen den Tabs:</strong> Klick auf den Tab, oder Strg+Tab (Mac: control+Tab).</p>
         </div>
       </details>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Gleich kommt ein kurzer Fragebogen, dann geht es mit den Dokumenten vom Vormittag weiter. Haben Sie sie noch? Wenn nicht: In Übung 6 steht ein Ausweichweg.</p>
-    </div></section><section class="lektion" data-id="alltag" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="alltag">
-      <div class="exercise-number">Check</div>
-      <h3>Zwei Minuten: Ihr Arbeitsalltag</h3>
-      <p class="subtitle">Bevor wir mit Ihrer Wissensbasis weiterbauen: Wo drückt der Schuh? Es gibt keine falschen Antworten.</p>
-      <iframe id="Form-FORM_ARBEITSALLTAG-17" src="https://form.jotform.com/262922130330040" title="Ihr Arbeitsalltag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262922130330040" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Gleich geht es mit den Dokumenten vom Vormittag weiter. Haben Sie sie noch? Wenn nicht: In Übung 6 steht ein Ausweichweg.</p>
     </div></section><section class="lektion" data-id="formate" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="formate">
       <div class="exercise-number">Quiz</div>
       <h3>Welches Format versteht die Maschine?</h3>
       <p class="subtitle">Gleich laden Sie Ihre Dokumente hoch. Vorher klären wir, welche Dateien eine KI überhaupt sauber lesen kann.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Wissen, welches Dateiformat die KI sicher liest.</div>
-        <div><b>Zeit</b>10 Minuten</div>
         <div><b>Abgabe</b>Das Quiz zeigt Ihnen die Auflösung selbst. Ihre Übertragung: ein Satz im Zoom-Chat.</div>
       </div>
 
@@ -1609,7 +1651,6 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <p class="subtitle">Machen Sie Ihre KI dauerhaft schlauer: ein Projekt mit Ihren Dokumenten und festen Regeln. Nehmen Sie Ihre Kontextdokumente vom Vormittag.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Ein Projekt mit Ihren Dokumenten und einer Projektanweisung, das Ihre Firma kennt.</div>
-        <div><b>Zeit</b>40 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: „Projekt steht“</div>
       </div>
 
@@ -1778,7 +1819,6 @@ Teilnehmende: A, B, C
       <p class="subtitle">Ihre erste „sichere Wissensdatenbank“: ein echtes EU-Dokument, mit Quellenangabe bei jeder Antwort.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Mit einer festen Quelle arbeiten und Zitate prüfen.</div>
-        <div><b>Zeit</b>35 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: „Werkstück A“, „B“ oder „C“ und ein Satz dazu</div>
       </div>
 
@@ -1827,7 +1867,6 @@ Teilnehmende: A, B, C
       <p class="subtitle">Zwei Fenster, dasselbe Dokument, dieselbe Frage. Sehen Sie, wie zwei Werkzeuge mit derselben Quelle umgehen, und prüfen Sie dann eine Tabelle auf Rechenfehler.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Erkennen, wie eine KI aussieht, die zitiert, und wie eine, die nur selbstbewusst klingt.</div>
-        <div><b>Zeit</b>15 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: „Split fertig“ und was die Seiten bei Runde 2 getan haben</div>
       </div>
 
@@ -1872,7 +1911,6 @@ Summe             | 195.000 | 196.800 | +1.800</div>
       <p class="subtitle">Ein Prompt, der jedes Thema in einen fertigen Songtext verwandelt und Sie zuerst nach dem Stil fragt. Danach: ab in Suno und anhören. Kein neues Projekt nötig, ein neuer Chat genügt.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Einen Prompt wiederverwenden und das Ergebnis in einem zweiten Werkzeug nutzen.</div>
-        <div><b>Zeit</b>15 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: der Refrain Ihres Songs</div>
       </div>
 
@@ -1898,13 +1936,56 @@ Format: Struktur mit [Verse], [Chorus], [Bridge], wie Suno es versteht. Auf Deut
       <p style="color: var(--white-muted); font-size: 0.85rem;">Rechtlich eine Grauzone: Wem der Song gehört, ist aktuell nicht geklärt (Urheberrecht). Für Übung und Jingle-Idee ist das in Ordnung, für Veröffentlichung nicht ungeprüft.</p>
       <p class="fallback"><strong>Suno gesperrt oder Anmeldung klemmt?</strong> Dann reicht der Songtext. Ein Chat in jedem Werkzeug genügt, Suno ist nur die Zugabe. Posten Sie den Refrain im Zoom-Chat.</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Die KI hat zuerst nach dem Stil gefragt und erst dann geschrieben. Zoom-Chat: Ihr Refrain.</p>
-    </div></section><section class="lektion" data-id="ue10" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="ue10">
-      <div class="exercise-number">Übung 10</div>
+    </div></section><section class="lektion" data-id="kicheck-ende" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="kicheck-ende">
+      <div class="exercise-number">Zum Schluss</div>
+      <h3>Ihr KI-Check, zweiter Durchgang</h3>
+      <p class="subtitle">Derselbe Fragebogen wie heute Morgen. So messen wir, was Sie heute dazugelernt haben. Erst der Check, dann verabschieden wir uns.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Wählen Sie im Formular jetzt <strong>„Nachmittag“</strong>.</p>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Ihre Antworten sind erst gespeichert, wenn Sie <strong>UNTEN IM FORMULAR</strong> auf „Absenden“ klicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) schickt nichts ab.</div>
+      <iframe id="Form-FORM_KICHECK-27" data-formular="FORM_KICHECK" src="https://form.jotform.com/262921918098064" title="KI-Check, zweiter Durchgang" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262921918098064" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div></section><section class="lektion" data-id="feedback" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="feedback">
+      <div class="exercise-number">Feedback</div>
+      <h3>Ihr Feedback zum Nachmittag</h3>
+      <p class="subtitle">Pflicht, zwei Minuten. Ihr Aha-Moment vom Nachmittag, Ihre wichtigste Erkenntnis und was ich beim nächsten Mal besser machen soll. Name und Firma sind freiwillig, helfen mir aber sehr. Ehrlich hilft mir mehr als nett.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Wählen Sie im Formular <strong>„Nachmittag“</strong>.</p>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Ihre Antworten sind erst gespeichert, wenn Sie <strong>UNTEN IM FORMULAR</strong> auf „Feedback absenden“ klicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) schickt nichts ab.</div>
+      <iframe id="Form-FORM_FEEDBACK-27" data-formular="FORM_FEEDBACK" src="https://form.jotform.com/262922226075052" title="Ihr Feedback zum Nachmittag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Feedback absenden“ klicken.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262922226075052" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div></section><section class="lektion" data-id="profi-quiz" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="profi-quiz">
+      <div class="exercise-number">Bonus</div>
+      <h3>Das Profi-Quiz</h3>
+      <p class="subtitle">Freiwilliges Bonuslevel. Sechs Fragen, richtig schwer. Alles kam heute vor, aber nichts davon lässt sich raten. Die Auflösung gibt es gemeinsam im Zoom-Raum.</p>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Ihre Antworten sind erst gespeichert, wenn Sie <strong>UNTEN IM FORMULAR</strong> auf „Absenden“ klicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) schickt nichts ab.</div>
+      <iframe id="Form-FORM_QUIZ-10" data-formular="FORM_QUIZ" src="https://form.jotform.com/262921910635053" title="Profi-Quiz" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262921910635053" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+    </div></section><section class="lektion" data-id="weiter" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="weiter">
+      <div class="exercise-number">Danach</div>
+      <h3>Das Training ist vorbei, die Reise nicht</h3>
+      <p class="subtitle">Danke für den Tag. Hier geht es weiter.</p>
+      <div style="text-align:center; margin: 28px 0 8px; padding: 28px 22px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
+        <p style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Bleiben wir in Kontakt</p>
+        <p style="font-size: 0.9rem; color: var(--white-muted); margin-bottom: 18px;">Unterlagen anfordern und den Newsletter bekommen, mit einem Klick.</p>
+        <a href="https://jakubpopluhar.com/weiter/?kurs=ars21102026" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; border: 2px solid var(--gold);">In Kontakt bleiben &rarr;</a>
+      </div>
+      <p class="step-label">Meine nächsten Kurse an der ARS Akademie</p>
+      <table class="compare-table">
+        <tr><th style="width:26%">Termin</th><th>Kurs</th></tr>
+        <tr><td><strong>28.10.2026</strong></td><td>Workshop: HR-Praxis mit KI</td></tr>
+        <tr><td><strong>06.11.2026</strong></td><td>Konsumentenpsychologie im KI-Zeitalter</td></tr>
+        <tr><td><strong>12.02.2027</strong></td><td>Claude datenschutzkonform im Arbeitsalltag nutzen</td></tr>
+      </table>
+      <p style="font-size: 0.85rem; color: var(--white-muted);">Alle Termine und Anmeldung: ars.at &middot; <a href="mailto:jakub@popluhar.at" style="color:var(--gold);">jakub@popluhar.at</a></p>
+      <p style="text-align:center; margin-top:16px; font-size:0.85rem;"><a href="ressourcen/" style="color:var(--gold);">Alle Werkzeuge und Quellen von heute &rarr;</a></p>
+    </div></section><section class="lektion" data-id="ue10" data-teil="res" data-teil-name="Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="ue10">
+      <div class="exercise-number">Bonus · wenn Zeit bleibt</div>
       <h3>Modelling of Excellence</h3>
       <p class="subtitle">Vom Hausarzt zum Spezialisten: Lassen Sie sich von einer KI in der Methode eines Experten beraten.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Die KI zuerst fragen lassen und dann in der Rolle eines Experten lösen lassen.</div>
-        <div><b>Zeit</b>20 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: Name des gewählten Experten oder der Methode</div>
       </div>
 
@@ -1937,13 +2018,12 @@ WICHTIG: Schreibe noch KEINE Lösung! Stelle mir stattdessen erst 3 bis 5 geziel
 Erstelle jetzt die Lösung basierend auf diesen Fakten. Nutze konsequent den Stil und die Strategien von [Name des Experten].</div>
       <p class="fallback"><strong>Werkzeug gesperrt?</strong> Copilot oder ein anderes Werkzeug aus der Liste. Die drei Prompts brauchen nichts außer einem Chat.</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Die KI hat nach dem Casting Rückfragen gestellt und nicht sofort eine Lösung geliefert. Zoom-Chat: der Name Ihres Experten.</p>
-    </div></section><section class="lektion" data-id="ue11" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="ue11">
-      <div class="exercise-number">Übung 11</div>
+    </div></section><section class="lektion" data-id="ue11" data-teil="res" data-teil-name="Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="ue11">
+      <div class="exercise-number">Bonus · wenn Zeit bleibt</div>
       <h3>Prompt Layering: Das „Tribunal“</h3>
       <p class="subtitle">a.k.a. Salami-Taktik. Kopieren Sie die vier Prompts nacheinander in denselben Chat. Warten Sie jedes Mal die Antwort ab.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Eine Entscheidung aus mehreren Perspektiven aufbauen.</div>
-        <div><b>Zeit</b>20 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: der Betreff Ihrer Mail, am Ende „Tribunal fertig“</div>
       </div>
 
@@ -1982,67 +2062,28 @@ Die Mail soll professionell, motivierend und klar sein.</div>
       <p style="color: var(--gold); font-size: 0.85rem;">Human in the Loop: Der Entwurf ist 80 Prozent, die letzten 20 Prozent und die Verantwortung bleiben bei Ihnen. Lesen Sie die Mail, bevor Sie sie weiterverwenden: Stimmen die Fakten, klingt sie nach Ihnen?</p>
       <p class="fallback"><strong>Werkzeug gesperrt?</strong> Copilot oder ein anderes Werkzeug aus der Liste. Wichtig ist nur, dass alle vier Prompts im selben Chat bleiben.</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Die finale Mail nennt Argumente des CEOs, die Platzprobleme des Controllers und den Ton von HR. Zoom-Chat: „Tribunal fertig“.</p>
-    </div></section><section class="lektion" data-id="kicheck-ende" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="kicheck-ende">
-      <div class="exercise-number">Zum Schluss</div>
-      <h3>Ihr KI-Check, zweiter Durchgang</h3>
-      <p class="subtitle">Derselbe Fragebogen wie heute Morgen. So messen wir, was Sie heute dazugelernt haben. Erst der Check, dann verabschieden wir uns.</p>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Bitte tragen Sie denselben Vornamen ein wie am Morgen, sonst können wir die beiden Durchgänge nicht vergleichen.</p>
-      <iframe id="Form-FORM_KICHECK-27" src="https://form.jotform.com/262921918098064" title="KI-Check, zweiter Durchgang" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262921918098064" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
-    </div></section><section class="lektion" data-id="feedback" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="feedback">
-      <div class="exercise-number">Feedback</div>
-      <h3>Ihr Feedback zum Nachmittag</h3>
-      <p class="subtitle">Pflicht, zwei Minuten. Ihr Aha-Moment vom Nachmittag, Ihre wichtigste Erkenntnis und was ich beim nächsten Mal besser machen soll. Name und Firma sind freiwillig, helfen mir aber sehr. Ehrlich hilft mir mehr als nett.</p>
-      <iframe id="Form-FORM_FEEDBACK_PM-27" src="https://form.jotform.com/262922637418059" title="Ihr Feedback zum Nachmittag" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262922637418059" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
-    </div></section><section class="lektion" data-id="profi-quiz" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="profi-quiz">
-      <div class="exercise-number">Bonus</div>
-      <h3>Das Profi-Quiz</h3>
-      <p class="subtitle">Freiwilliges Bonuslevel. Sechs Fragen, richtig schwer. Alles kam heute vor, aber nichts davon lässt sich raten. Die Auflösung gibt es gemeinsam im Zoom-Raum.</p>
-      <iframe id="Form-FORM_QUIZ-10" src="https://form.jotform.com/262921910635053" title="Profi-Quiz" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
-      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/262921910635053" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
-    </div></section><section class="lektion" data-id="weiter" data-teil="nm" data-teil-name="Nachmittag: KI-Assistenten" hidden><div class="exercise" data-ex="weiter">
-      <div class="exercise-number">Danach</div>
-      <h3>Das Training ist vorbei, die Reise nicht</h3>
-      <p class="subtitle">Danke für den Tag. Hier geht es weiter.</p>
-      <div style="text-align:center; margin: 28px 0 8px; padding: 28px 22px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
-        <p style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Bleiben wir in Kontakt</p>
-        <p style="font-size: 0.9rem; color: var(--white-muted); margin-bottom: 18px;">Unterlagen anfordern und den Newsletter bekommen, mit einem Klick.</p>
-        <a href="https://jakubpopluhar.com/weiter/?kurs=ars21102026" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; border: 2px solid var(--gold);">In Kontakt bleiben &rarr;</a>
-      </div>
-      <p class="step-label">Meine nächsten Kurse an der ARS Akademie</p>
-      <table class="compare-table">
-        <tr><th style="width:26%">Termin</th><th>Kurs</th></tr>
-        <tr><td><strong>28.10.2026</strong></td><td>Workshop: HR-Praxis mit KI</td></tr>
-        <tr><td><strong>06.11.2026</strong></td><td>Konsumentenpsychologie im KI-Zeitalter</td></tr>
-        <tr><td><strong>12.02.2027</strong></td><td>Claude datenschutzkonform im Arbeitsalltag nutzen</td></tr>
-      </table>
-      <p style="font-size: 0.85rem; color: var(--white-muted);">Alle Termine und Anmeldung: ars.at &middot; <a href="mailto:jakub@popluhar.at" style="color:var(--gold);">jakub@popluhar.at</a></p>
-      <p style="text-align:center; margin-top:16px; font-size:0.85rem;"><a href="ressourcen/" style="color:var(--gold);">Alle Werkzeuge und Quellen von heute &rarr;</a></p>
-    </div></section><section class="lektion" data-id="offen" data-teil="res" data-teil-name="Reserve: wenn Zeit bleibt" hidden><div class="exercise" data-ex="offen">
+    </div></section><section class="lektion" data-id="offen" data-teil="res" data-teil-name="Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="offen">
       <div class="exercise-number">Reserve · wenn Zeit bleibt</div>
       <h3>Offener Übungsblock: Jetzt üben Sie, was Sie wollen</h3>
       <p class="subtitle">Zeit für Ihren eigenen Fall. Wählen Sie eine Nummer und legen Sie los. Fragen Sie im Zoom-Chat oder per Mikrofon, ich komme in Ihr Gespräch.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Einen eigenen Fall mit dem Gelernten lösen.</div>
-        <div><b>Zeit</b>nach Absprache</div>
         <div><b>Abgabe</b>Zwei bis drei Freiwillige teilen ihren Bildschirm</div>
       </div>
       <ul>
         <li><strong>A) Eigenes Projekt fertig bauen:</strong> Projekt und Projekt-Prompt aus Übung 6 vervollständigen.</li>
         <li><strong>B) Eigener Use Case durch CITE(R):</strong> eine echte Aufgabe von A bis Z.</li>
         <li><strong>C) Ein Tool auf Ihre echte Aufgabe:</strong> NotebookLM, Perplexity oder ein Assistent.</li>
-        <li><strong>D) Das Tribunal (Übung 11):</strong> für eine wichtige Entscheidung, mehrere Perspektiven.</li>
+        <li><strong>D) Das Tribunal (Bonus):</strong> für eine wichtige Entscheidung, mehrere Perspektiven.</li>
         <li><strong>E) Ihre eigene Frage:</strong> was Sie schon immer mit KI lösen wollten.</li>
       </ul>
       <p class="fallback"><strong>Werkzeug gesperrt?</strong> Nehmen Sie ein anderes aus „Ihr KI-Werkzeug öffnen“.</p>
-    </div></section><section class="lektion" data-id="werkstatt" data-teil="res" data-teil-name="Reserve: wenn Zeit bleibt" hidden><div class="exercise" data-ex="werkstatt">
+    </div></section><section class="lektion" data-id="werkstatt" data-teil="res" data-teil-name="Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="werkstatt">
       <div class="exercise-number">Reserve · wenn Zeit bleibt</div>
       <h3>KI-Werkstatt: Ihr eigenes Problem lösen</h3>
       <p class="subtitle">Ein echter Pain Point aus Ihrem Arbeitsalltag, mit CITE und Human in the Loop.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Eine umsetzbare Lösung für ein echtes Problem, kritisch geprüft.</div>
-        <div><b>Zeit</b>30 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: Ihr Problem in einem Satz</div>
       </div>
 
@@ -2122,13 +2163,12 @@ Ausführung: Tabellenformat, klare Sprache, sofort umsetzbar. Kein Fachjargon.</
         </div>
       </details>
       <p class="fallback"><strong>Werkzeug gesperrt?</strong> Copilot oder ein anderes Werkzeug aus der Liste.</p>
-    </div></section><section class="lektion" data-id="stimme" data-teil="res" data-teil-name="Reserve: wenn Zeit bleibt" hidden><div class="exercise" data-ex="stimme">
+    </div></section><section class="lektion" data-id="stimme" data-teil="res" data-teil-name="Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="stimme">
       <div class="exercise-number">Reserve · wenn Zeit bleibt</div>
       <h3>Die KI schreibt wie Sie, nicht wie alle</h3>
       <p class="subtitle">Die KI schreibt nicht falsch. Sie schreibt wie alle. Ihre Stimme müssen Sie ihr geben. Ein Projekt, mehrere Antwortarten.</p>
       <div class="rahmen">
         <div><b>Ziel</b>Ein Stilprofil aus Ihren eigenen Mails und mehrere Antwortarten in einem Projekt.</div>
-        <div><b>Zeit</b>30 Minuten</div>
         <div><b>Abgabe</b>Zoom-Chat: „Stimme fertig“</div>
       </div>
 
@@ -2162,7 +2202,7 @@ Welche Sätze würde ich so nie schreiben? Zitiere jeden dieser Sätze, zeig als
       <div class="prompt-block">Antworte auf die folgende Anfrage mit einer Rückfrage: Stelle höchstens drei Fragen, die ich brauche, um sie zu beantworten. Anfrage: [Anfrage einfügen]</div>
       <p style="color: var(--gold); font-size: 0.85rem;">Ihr Stil steht im Projekt, die Antwortart steht in der Nachricht. Das ist der Unterschied zwischen Projekt-Prompt und Prompt.</p>
       <p class="fallback"><strong>Werkzeug gesperrt?</strong> Ohne Projekt: Fügen Sie „Meine Mails“ am Anfang jedes Chats ein.</p>
-    </div></section><section class="lektion" data-id="demo-folien" data-teil="res" data-teil-name="Reserve: wenn Zeit bleibt" hidden><div class="exercise" data-ex="demo-folien">
+    </div></section><section class="lektion" data-id="demo-folien" data-teil="res" data-teil-name="Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="demo-folien">
       <div class="exercise-number">Reserve · Demo</div>
       <h3>Folien mit KI erstellen</h3>
       <p class="subtitle">Sie schauen zu, ich zeige es live. Kein Mitmachen nötig.</p>
@@ -2175,7 +2215,7 @@ Welche Sätze würde ich so nie schreiben? Zitiere jeden dieser Sätze, zeig als
         <li><strong>Alles sieht gleich aus.</strong> Die zehnte Folie hat dasselbe Raster wie die erste.</li>
       </ul>
       <p style="color: var(--gold); font-size: 0.85rem;">Die Frage dahinter: Wie bringe ich der KI bei, es beim nächsten Mal richtig zu machen, ohne alles neu zu erklären? Die Antwort steht im nächsten Block.</p>
-    </div></section><section class="lektion" data-id="skills" data-teil="res" data-teil-name="Reserve: wenn Zeit bleibt" hidden><div class="exercise" data-ex="skills">
+    </div></section><section class="lektion" data-id="skills" data-teil="res" data-teil-name="Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="skills">
       <div class="exercise-number">Reserve · Info</div>
       <h3>Was ist ein Skill?</h3>
       <p class="subtitle">Eine Anleitung, die sich die KI selbst aus der Schublade holt, sobald die Aufgabe passt.</p>
@@ -2208,10 +2248,13 @@ Kurz und klar, keine Einleitung.</div>
     </div></section>
   </main>
 </div>
-<div class="nav"><div class="nav-innen"><button class="knopf" id="prev" type="button">← Zurück</button><button class="knopf los" id="next" type="button">Erledigt, weiter →</button></div></div>
+<div class="nav"><div class="form-hinweis" id="form-hinweis" role="alert" hidden><div class="form-hinweis-innen"><p><strong>Haben Sie im Formular unten auf „Absenden“ geklickt?</strong> Erst dann sind Ihre Antworten gespeichert.</p><div class="reihe"><button type="button" class="knopf los" id="form-ja">Ja, abgeschickt, weiter</button><button type="button" class="knopf" id="form-zurueck">Zurück zum Formular</button></div></div></div><div class="nav-innen"><button class="knopf" id="prev" type="button">← Zurück</button><button class="knopf los" id="next" type="button">Erledigt, weiter →</button></div></div>
 <script>
-const M = [{"id": "willkommen", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Start", "opt": false, "titel": "Willkommen"}, {"id": "kicheck", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check"}, {"id": "split", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Trick", "opt": false, "titel": "Den Bildschirm teilen"}, {"id": "werkzeug", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Info", "opt": false, "titel": "Ihr KI-Werkzeug öffnen"}, {"id": "ue1", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "1", "art": "Übung", "opt": false, "titel": "Die Namensliste"}, {"id": "einstellungen", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Info", "opt": false, "titel": "Training ausschalten, Gedächtnis prüfen"}, {"id": "modell", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Info", "opt": false, "titel": "Zwei Regler: Modell und Denkstufe"}, {"id": "ue2", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "2", "art": "Übung", "opt": false, "titel": "Prompten: Homeoffice-Regelung"}, {"id": "pii", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Takeaway", "opt": false, "titel": "Die 3-Sekunden-Regel und welches Konto"}, {"id": "ue3", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "3", "art": "Übung", "opt": false, "titel": "CITE(R) Framework: Jetzt sind Sie dran"}, {"id": "ue4", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "4", "art": "Übung", "opt": false, "titel": "Ihre KI-Wissensbasis aufbauen"}, {"id": "ue5", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "5", "art": "Übung", "opt": false, "titel": "Die Flughöhe"}, {"id": "feedback-vm", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Vormittag"}, {"id": "mittag", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Danach", "opt": false, "titel": "Mahlzeit, und wie es weitergeht"}, {"id": "split-nm", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Trick", "opt": false, "titel": "Kurz vorher: Fenster wieder teilen"}, {"id": "alltag", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Check", "opt": false, "titel": "Zwei Minuten: Ihr Arbeitsalltag"}, {"id": "formate", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Quiz", "opt": false, "titel": "Welches Format versteht die Maschine?"}, {"id": "ue6", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "6", "art": "Übung", "opt": false, "titel": "Projekt anlegen: System-Prompt und Projekt-Prompt"}, {"id": "ue7", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "7", "art": "Übung", "opt": false, "titel": "EU AI Act + NotebookLM"}, {"id": "ue8", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "8", "art": "Übung", "opt": false, "titel": "Split-Screen: dieselbe Quelle, zwei Werkzeuge"}, {"id": "ue9", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "9", "art": "Übung", "opt": false, "titel": "Suno AI: Songtext und Musik"}, {"id": "ue10", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "10", "art": "Übung", "opt": false, "titel": "Modelling of Excellence"}, {"id": "ue11", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "11", "art": "Übung", "opt": false, "titel": "Prompt Layering: Das „Tribunal“"}, {"id": "kicheck-ende", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Zum Schluss", "opt": false, "titel": "Ihr KI-Check, zweiter Durchgang"}, {"id": "feedback", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Nachmittag"}, {"id": "profi-quiz", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Bonus", "opt": false, "titel": "Das Profi-Quiz"}, {"id": "weiter", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Danach", "opt": false, "titel": "Das Training ist vorbei, die Reise nicht"}, {"id": "offen", "teil": "res", "teilname": "Reserve: wenn Zeit bleibt", "nr": "", "art": "Reserve", "opt": true, "titel": "Offener Übungsblock: Jetzt üben Sie, was Sie wollen"}, {"id": "werkstatt", "teil": "res", "teilname": "Reserve: wenn Zeit bleibt", "nr": "", "art": "Reserve", "opt": true, "titel": "KI-Werkstatt: Ihr eigenes Problem lösen"}, {"id": "stimme", "teil": "res", "teilname": "Reserve: wenn Zeit bleibt", "nr": "", "art": "Reserve", "opt": true, "titel": "Die KI schreibt wie Sie, nicht wie alle"}, {"id": "demo-folien", "teil": "res", "teilname": "Reserve: wenn Zeit bleibt", "nr": "", "art": "Reserve", "opt": false, "titel": "Folien mit KI erstellen"}, {"id": "skills", "teil": "res", "teilname": "Reserve: wenn Zeit bleibt", "nr": "", "art": "Reserve", "opt": false, "titel": "Was ist ein Skill?"}];
+const M = [{"id": "willkommen", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Start", "opt": false, "titel": "Willkommen"}, {"id": "kicheck", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check"}, {"id": "split", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Trick", "opt": false, "titel": "Den Bildschirm teilen"}, {"id": "werkzeug", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Info", "opt": false, "titel": "Ihr KI-Werkzeug öffnen"}, {"id": "ue1", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "1", "art": "Übung", "opt": false, "titel": "Die Namensliste"}, {"id": "einstellungen", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Info", "opt": false, "titel": "Training ausschalten, Gedächtnis prüfen"}, {"id": "modell", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Info", "opt": false, "titel": "Zwei Regler: Modell und Denkstufe"}, {"id": "ue2", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "2", "art": "Übung", "opt": false, "titel": "Prompten: Homeoffice-Regelung"}, {"id": "pii", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Takeaway", "opt": false, "titel": "Die 3-Sekunden-Regel und welches Konto"}, {"id": "ue3", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "3", "art": "Übung", "opt": false, "titel": "CITE(R) Framework: Jetzt sind Sie dran"}, {"id": "ue4", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "4", "art": "Übung", "opt": false, "titel": "Ihre KI-Wissensbasis aufbauen"}, {"id": "ue5", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "5", "art": "Übung", "opt": false, "titel": "Die Flughöhe"}, {"id": "feedback-vm", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Vormittag"}, {"id": "mittag", "teil": "vm", "teilname": "Vormittag: Prompt Profi", "nr": "", "art": "Danach", "opt": false, "titel": "Mahlzeit, und wie es weitergeht"}, {"id": "split-nm", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Trick", "opt": false, "titel": "Kurz vorher: Fenster wieder teilen"}, {"id": "formate", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Quiz", "opt": false, "titel": "Welches Format versteht die Maschine?"}, {"id": "ue6", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "6", "art": "Übung", "opt": false, "titel": "Projekt anlegen: System-Prompt und Projekt-Prompt"}, {"id": "ue7", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "7", "art": "Übung", "opt": false, "titel": "EU AI Act + NotebookLM"}, {"id": "ue8", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "8", "art": "Übung", "opt": false, "titel": "Split-Screen: dieselbe Quelle, zwei Werkzeuge"}, {"id": "ue9", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "9", "art": "Übung", "opt": false, "titel": "Suno AI: Songtext und Musik"}, {"id": "kicheck-ende", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Zum Schluss", "opt": false, "titel": "Ihr KI-Check, zweiter Durchgang"}, {"id": "feedback", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback zum Nachmittag"}, {"id": "profi-quiz", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Bonus", "opt": false, "titel": "Das Profi-Quiz"}, {"id": "weiter", "teil": "nm", "teilname": "Nachmittag: KI-Assistenten", "nr": "", "art": "Danach", "opt": false, "titel": "Das Training ist vorbei, die Reise nicht"}, {"id": "ue10", "teil": "res", "teilname": "Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Modelling of Excellence"}, {"id": "ue11", "teil": "res", "teilname": "Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Prompt Layering: Das „Tribunal“"}, {"id": "offen", "teil": "res", "teilname": "Bonus: wenn Zeit bleibt", "nr": "", "art": "Reserve", "opt": true, "titel": "Offener Übungsblock: Jetzt üben Sie, was Sie wollen"}, {"id": "werkstatt", "teil": "res", "teilname": "Bonus: wenn Zeit bleibt", "nr": "", "art": "Reserve", "opt": true, "titel": "KI-Werkstatt: Ihr eigenes Problem lösen"}, {"id": "stimme", "teil": "res", "teilname": "Bonus: wenn Zeit bleibt", "nr": "", "art": "Reserve", "opt": true, "titel": "Die KI schreibt wie Sie, nicht wie alle"}, {"id": "demo-folien", "teil": "res", "teilname": "Bonus: wenn Zeit bleibt", "nr": "", "art": "Reserve", "opt": false, "titel": "Folien mit KI erstellen"}, {"id": "skills", "teil": "res", "teilname": "Bonus: wenn Zeit bleibt", "nr": "", "art": "Reserve", "opt": false, "titel": "Was ist ein Skill?"}];
 const KOHORTE = 'ars21102026';
+const GRUPPEN = true;
+const WACHE = true;
+const ERKENNUNG = false;
 const SPEICHER = 'kurs.' + KOHORTE;
 const S = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
             set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
@@ -2239,18 +2282,57 @@ function zeigen(id, scrollen) {
   $('stand').textContent = erledigt.size + ' von ' + M.length + ' erledigt';
   $('dstand').textContent = (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + erledigt.size + '/' + M.length + ' erledigt';
   $('prev').disabled = i === 0;
-  $('next').textContent = i === M.length - 1 ? 'Erledigt ✓' : 'Erledigt, weiter →';
+  $('next').textContent = i === M.length - 1 ? 'Erledigt ✓' : (formLektion() && !abgeschickt[cur] ? 'Formular abgeschickt? Dann weiter →' : 'Erledigt, weiter →');
+  if (WACHE) hinweisZu();
   $('side').classList.remove('offen');
+  if (GRUPPEN) gruppeOeffnen(m.teil);
   leisteZeichnen();
   if (scrollen !== false) window.scrollTo(0, 0);
 }
 
+function gruppeOeffnen(teil) {
+  document.querySelectorAll('.gruppe').forEach(g => {
+    if (g.dataset.teil === teil) { g.classList.remove('zu'); g.querySelector('.teil-knopf').setAttribute('aria-expanded', 'true'); }
+  });
+}
+if (GRUPPEN) document.querySelectorAll('.teil-knopf').forEach(k => k.addEventListener('click', () => {
+  const g = k.parentElement, zu = g.classList.toggle('zu');
+  k.setAttribute('aria-expanded', String(!zu));
+}));
 document.querySelectorAll('.zeile').forEach(z => z.addEventListener('click', e => { e.preventDefault(); zeigen(z.dataset.id); }));
 $('prev').onclick = () => { const i = M.findIndex(x => x.id === cur); if (i > 0) zeigen(M[i - 1].id); };
-$('next').onclick = () => {
+function weiter() {
   erledigt.add(cur); S.set(SPEICHER + '.erledigt', [...erledigt]);
   const i = M.findIndex(x => x.id === cur); zeigen(M[Math.min(i + 1, M.length - 1)].id);
+}
+// Formular-Wache: nie blockieren. Erster Klick zeigt nur einen Hinweis im Seitenkopf-Bereich, der zweite geht durch.
+const abgeschickt = {}, gewarnt = {};
+function formLektion() { return WACHE ? document.querySelector('.lektion[data-id="' + cur + '"] iframe[data-formular]') : null; }
+function hinweisZu() { const h = $('form-hinweis'); if (h) h.hidden = true; }
+$('next').onclick = () => {
+  if (formLektion() && !abgeschickt[cur] && !gewarnt[cur]) {
+    gewarnt[cur] = true; const h = $('form-hinweis'); h.hidden = false; $('form-ja').focus(); return;
+  }
+  weiter();
 };
+if (WACHE) {
+  $('form-ja').onclick = () => { hinweisZu(); weiter(); };
+  $('form-zurueck').onclick = () => {
+    hinweisZu(); gewarnt[cur] = false;
+    const f = formLektion(); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  };
+  if (ERKENNUNG) document.querySelectorAll('iframe[data-formular]').forEach(f => {
+    let n = 0;
+    f.addEventListener('load', () => {
+      if (++n < 2) return;            // das erste load ist das leere Formular, jedes weitere eine neue Seite (Dank-Seite nach dem Absenden)
+      const id = f.closest('.lektion').dataset.id; abgeschickt[id] = true;
+      if (!f.nextElementSibling || !f.nextElementSibling.classList.contains('form-danke')) {
+        const d = document.createElement('p'); d.className = 'form-danke'; d.textContent = 'Danke, Ihre Antworten sind angekommen ✓'; f.after(d);
+      }
+      if (id === cur) { hinweisZu(); zeigen(cur, false); }
+    });
+  });
+}
 $('oeffnen').onclick = () => $('side').classList.add('offen');
 function leisteSetzen(zu) {
   document.body.classList.toggle('leiste-zu', zu);
@@ -2369,6 +2451,27 @@ const start = location.hash.slice(1);
 const gestern = S.get(SPEICHER + '.tag', '') !== new Date().toDateString();
 zeigen(M.some(x => x.id === start) ? start : (gestern ? M[0].id : S.get(SPEICHER + '.cur', M[0].id)), false);
 starten();
+
+(function () {
+  // Begruessung nur beim ersten Besuch. Speicher gesperrt: einmal je Sitzung, wenn auch das nicht geht, bei jedem Laden. Blockiert nie.
+  var K = 'kurs.' + KOHORTE + '.begruesst', box = document.getElementById('willkommen-bs');
+  function gesehen() {
+    try { if (localStorage.getItem(K)) return true; } catch (e) {}
+    try { if (sessionStorage.getItem(K)) return true; } catch (e) {}
+    return false;
+  }
+  function merken() {
+    try { localStorage.setItem(K, '1'); } catch (e) {}
+    try { sessionStorage.setItem(K, '1'); } catch (e) {}
+  }
+  if (!box || gesehen()) return;
+  function zu() { box.hidden = true; merken(); document.removeEventListener('keydown', taste); }
+  function taste(e) { if (e.key === 'Escape' || e.key === 'Enter') zu(); }
+  box.hidden = false;
+  document.getElementById('wk-weiter').addEventListener('click', zu);
+  document.addEventListener('keydown', taste);
+  try { document.getElementById('wk-weiter').focus(); } catch (e) {}
+})();
 </script>
 <script src="/assets/js/site.js" defer></script>
 <script src="quiz/quiz.js"></script>
