@@ -360,6 +360,44 @@
   </style>
 </head>
 <body>
+<!-- ADA-Zugang: Benutzername + Passwort, nur clientseitig (GitHub Pages) -->
+<style>
+#ada-gate{position:fixed;inset:0;z-index:99999;background:#141414;display:flex;align-items:center;justify-content:center;padding:16px;font-family:Inter,system-ui,sans-serif}
+#ada-gate.offen{display:none}
+#ada-gate .karte{width:100%;max-width:380px;background:#1e1e1e;border:1px solid #c9a24a;border-radius:14px;padding:28px 24px;color:#f2f2f2}
+#ada-gate h1{font-size:1.25rem;margin:0 0 6px}
+#ada-gate p{color:#b5b5b5;font-size:.9rem;margin:0 0 18px}
+#ada-gate input{display:block;width:100%;box-sizing:border-box;margin:0 0 10px;padding:12px 14px;border-radius:8px;border:1px solid #444;background:#141414;color:#f2f2f2;font-size:1rem}
+#ada-gate input:focus{outline:none;border-color:#c9a24a}
+#ada-gate button{width:100%;padding:12px;border:0;border-radius:8px;background:#c9a24a;color:#141414;font-weight:700;font-size:1rem;cursor:pointer}
+#ada-gate .fehler{color:#e8917a;font-size:.85rem;min-height:1.2em;margin:10px 0 0}
+html.ada-zu body>*:not(#ada-gate){visibility:hidden}
+</style>
+<script>document.documentElement.classList.add('ada-zu');</script>
+<div id="ada-gate"><form class="karte" autocomplete="off">
+<h1>Microsoft Copilot für Anwender</h1>
+<p>Kursunterlagen für die Teilnehmenden. Bitte melden Sie sich an.</p>
+<input id="ada-user" placeholder="Benutzername" autocapitalize="off" spellcheck="false">
+<input id="ada-pw" type="password" placeholder="Passwort">
+<button type="submit">Öffnen</button>
+<div class="fehler" id="ada-fehler"></div>
+</form></div>
+<script>
+(function(){
+  var HASH="79652395973711af65728d67f851a1f532d7c86745b58da77a6d99c9333cc9c4", KEY="ada26-zugang";
+  var gate=document.getElementById("ada-gate");
+  function auf(){gate.classList.add("offen");document.documentElement.classList.remove("ada-zu");}
+  try{ if(localStorage.getItem(KEY)===HASH){auf();return;} }catch(e){}
+  async function h(s){var b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0");}).join("");}
+  gate.querySelector("form").addEventListener("submit",async function(ev){
+    ev.preventDefault();
+    var u=document.getElementById("ada-user").value.trim(), p=document.getElementById("ada-pw").value;
+    if(await h(u+":"+p)===HASH){ try{localStorage.setItem(KEY,HASH);}catch(e){} auf(); }
+    else{ document.getElementById("ada-fehler").textContent="Benutzername oder Passwort stimmt nicht."; }
+  });
+})();
+</script>
+
 
   <header class="site-header">
     <a href="https://jakubpopluhar.com" class="logo" aria-label="Jakub Popluhar">
