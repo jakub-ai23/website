@@ -1903,7 +1903,7 @@ Teilnehmende: A, B, C
 
       <!-- PROFISPUR A: in Übung 7 (Projekt), ans Ende -->
       <details class="profispur">
-        <summary>Profispur: Vom Projekt zum Agenten (für alle, die schon eigene Assistenten oder Agenten bauen)</summary>
+        <summary>7A · Profispur: Vom Projekt zum Agenten (für alle, die schon eigene Assistenten oder Agenten bauen)</summary>
         <div class="collapsible-content">
           <p>Ihr Projekt steht schon? Dann gehen Sie einen Schritt weiter. Ein Agent ist ein Projekt, das <strong>selbst entscheidet, was mit einer Eingabe passiert</strong>. Dafür braucht die Anweisung fünf Teile mehr als ein normaler Projekt-Prompt.</p>
           <p class="step-label">1. Bauplan in fünf Teilen</p>
@@ -1934,7 +1934,7 @@ Klasse | Anliegen | Weiter an | Dringlichkeit 1-3 | Begründung in 10 Wörtern</
 
       <!-- PROFISPUR B: in Übung 7 (Projekt), für alle, die keine echten Daten hochladen dürfen -->
       <details class="profispur">
-        <summary>Profispur: Echte Daten verboten? Bauen Sie mit Spieldaten</summary>
+        <summary>7B · Profispur: Echte Daten verboten? Bauen Sie mit Spieldaten</summary>
         <div class="collapsible-content">
           <p>Viele dürfen echte Finanz- oder Personaldaten in kein KI-Werkzeug laden. Das ist kein Grund zu warten. <strong>Bauen Sie den Prompt an erfundenen Daten mit derselben Struktur.</strong> Steht der Prompt, wechseln später nur die Daten, und nur in ein freigegebenes Werkzeug.</p>
           <p class="step-label">1. Spieldaten erzeugen</p>
@@ -1948,6 +1948,37 @@ Baue absichtlich 2 Auffälligkeiten ein, die eine Prüfung finden sollte. Verrat
           <p class="step-label">3. Speichern</p>
           <p>Legen Sie den fertigen Analyse-Prompt als Projekt-Anweisung oder Vorlage ab. Die Spaltennamen dürfen bleiben, die Daten nicht.</p>
           <p class="pruef">So sieht es aus, wenn es geklappt hat: Ihr Prompt findet beide eingebauten Auffälligkeiten, ohne dass ein echter Datensatz das Haus verlassen hat. Zoom-Chat: „Spieldaten stehen“.</p>
+        </div>
+      </details>
+
+      <details class="profispur">
+        <summary>7C · Ihr KI-Lehrer: ein Projekt mit den Kursunterlagen</summary>
+        <div class="collapsible-content">
+          <p>Kein eigenes Dokument zur Hand, oder Sie wollen nach dem Kurs weiterlernen? Dann legen Sie ein Projekt an, dessen Wissensbasis die Folien von heute sind. Heraus kommt ein Lehrer, der Sie selbst draufbringt, statt Ihnen alles vorzusagen.</p>
+          <p class="step-label">1. Beide Foliensätze herunterladen</p>
+          <p><a href="Folien-Vormittag-Prompt-Profi.pdf" download style="display:inline-block; background:rgba(212,160,23,0.12); border:1px solid rgba(212,160,23,0.3); padding:12px 20px; border-radius:8px; font-weight:600; color:var(--gold); margin: 8px 8px 8px 0;">Folien Vormittag (PDF, 5 MB) &darr;</a><a href="Folien-Nachmittag-KI-Assistenten.pdf" download style="display:inline-block; background:rgba(212,160,23,0.12); border:1px solid rgba(212,160,23,0.3); padding:12px 20px; border-radius:8px; font-weight:600; color:var(--gold); margin: 8px 8px 8px 0;">Folien Nachmittag (PDF, 4 MB) &darr;</a></p>
+          <p style="color: var(--white-muted); font-size: 0.85rem;">Die Downloads gibt es nur heute. Speichern Sie die Dateien jetzt auf Ihrem Rechner.</p>
+          <p class="step-label">2. Neues Projekt anlegen und beide PDFs hochladen</p>
+          <p>Genau wie oben in Schritt 3, nur heißt das Projekt „Mein KI-Lehrer“ und als Dateien laden Sie die zwei PDFs hoch.</p>
+          <p class="step-label">3. Diese Anweisung in die Projektanweisungen kopieren</p>
+          <div class="prompt-block">Du bist mein persönlicher KI-Lehrer für den Umgang mit KI im Büroalltag.
+
+Deine Wissensbasis sind die zwei Foliensätze in diesem Projekt. Antworte zuerst daraus und nenne die Folie, auf die du dich beziehst.
+Steht etwas nicht in den Folien, sag das ausdrücklich. Dann suche im Internet, wenn du kannst, oder antworte aus deinem allgemeinen Wissen, und sag jedes Mal dazu, woher die Antwort kommt: „aus den Folien“, „aus dem Internet“ oder „aus meinem allgemeinen Wissen“. Weißt du es nicht sicher, sag „Das weiß ich nicht sicher“.
+
+So unterrichtest du:
+1. Ruhig und kurz. Nie mehr als 5 Sätze auf einmal.
+2. Gib mir nicht sofort die Lösung. Stell mir zuerst EINE Frage, die mich selbst draufbringt, und warte auf meine Antwort.
+3. Mache ich etwas falsch, benenne den Fehler, nicht mich. Dann sag, was ich jetzt tun kann.
+4. Jede Antwort endet mit einer kleinen Aufgabe, die ich in 5 Minuten am Arbeitsplatz ausprobieren kann.
+5. Schreibe ich „Quiz“, stellst du mir 3 Fragen zu den Folien, eine nach der anderen, und sagst mir nach jeder, ob sie stimmt.
+
+Beginne mit: „Woran arbeiten Sie gerade, und wo hakt es?“</div>
+          <p class="step-label">4. Testen</p>
+          <div class="prompt-block">Quiz</div>
+          <p>Und danach eine echte Frage aus Ihrer Woche. Achten Sie darauf: Fragt der Lehrer zuerst zurück, und sagt er dazu, woher seine Antwort kommt?</p>
+          <p class="fallback"><strong>Kein Projekt möglich, zum Beispiel in Copilot ohne Agenten?</strong> Laden Sie die PDFs direkt in einen neuen Chat und schicken Sie die Anweisung als erste Nachricht mit. Geht kein Upload, funktioniert die Anweisung auch ohne Folien, dann eben aus dem allgemeinen Wissen.</p>
+          <p class="pruef">So sieht es aus, wenn es geklappt hat: Ihr Lehrer stellt Ihnen zuerst eine Frage, statt loszuschreiben, und nennt bei Antworten die Folie. Zoom-Chat: „Lehrer steht“.</p>
         </div>
       </details>
 
