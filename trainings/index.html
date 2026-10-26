@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inhouse-Trainings · KI-Trainings mit Jakub Popluhar</title>
-<meta name="description" content="Sechs KI-Trainings für Unternehmen: Grundlagen, HR, Microsoft Copilot, ChatGPT, Gemini oder Claude, Konsumentenpsychologie und maßgeschneiderte Programme. Jeweils ein Praxistag, inhouse in Ihrem Haus.">
+<title>KI-Training für Ihre Abteilung · Jakub Popluhar</title>
+<meta name="description" content="KI-Trainings für HR, Vertrieb, Marketing und Assistenz: ein Praxistag mit Copilot, ChatGPT, Claude oder Gemini, in kleinen Gruppen, Teilnahmebestätigung nach EU AI Act Art. 4.">
 <link rel="canonical" href="https://jakubpopluhar.com/trainings/">
 <link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/">
 <link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/">
@@ -53,51 +53,6 @@
   @keyframes drift { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(40px,-30px) scale(1.08); } 66% { transform: translate(-30px,25px) scale(0.95); } }
   @media (prefers-reduced-motion: reduce) { .blob { animation: none; } }
   main, header, footer { position: relative; z-index: 2; }
-
-  /* ---------- Navigation inkl. Angebote-Aufklappmenue ---------- */
-  .site-nav { padding: 1.4rem 1.5rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 60; }
-  .site-nav img { display: block; }
-  .nav-links { display: flex; align-items: center; gap: 1.4rem; font-size: 0.86rem; }
-  .nav-links a { color: var(--muted); text-decoration: none; }
-  .nav-links a:hover, .nav-links a.active { color: #fff; }
-  .nav-links a.nav-cta {
-    background: var(--gold); color: #141414; padding: 0.5rem 1.1rem; border-radius: 6px;
-    font-weight: 600; border: 2px solid var(--gold); transition: all 0.2s;
-  }
-  .nav-links a.nav-cta:hover { background: transparent; color: var(--gold); }
-
-  .nav-drop { position: relative; }
-  .nav-drop > .nav-drop-toggle {
-    display: inline-flex; align-items: center; gap: 0.35rem;
-    background: none; border: none; padding: 0; cursor: pointer;
-    font-family: var(--font-body); font-size: 0.86rem; color: var(--muted);
-  }
-  .nav-drop > .nav-drop-toggle:hover,
-  .nav-drop.open > .nav-drop-toggle { color: #fff; }
-  .nav-drop-toggle .caret { border: solid currentColor; border-width: 0 1.5px 1.5px 0; padding: 2px; transform: rotate(45deg); transition: transform 0.2s; margin-bottom: 2px; }
-  .nav-drop.open .nav-drop-toggle .caret { transform: rotate(-135deg); }
-  .nav-drop-menu {
-    position: absolute; top: calc(100% + 0.7rem); left: 50%; transform: translateX(-50%);
-    min-width: 240px; padding: 0.5rem; margin: 0; list-style: none;
-    background: rgba(16,16,16,0.98); border: 1px solid var(--border); border-radius: 10px;
-    box-shadow: 0 24px 48px rgba(0,0,0,0.55);
-    display: none;
-  }
-  .nav-drop-menu::before { content: ''; position: absolute; top: -0.7rem; left: 0; right: 0; height: 0.7rem; }
-  .nav-drop:hover .nav-drop-menu,
-  .nav-drop:focus-within .nav-drop-menu,
-  .nav-drop.open .nav-drop-menu { display: block; }
-  .nav-drop-menu a {
-    display: block; padding: 0.6rem 0.8rem; border-radius: 7px;
-    color: var(--ink); font-size: 0.86rem; line-height: 1.35;
-  }
-  .nav-drop-menu a small { display: block; color: var(--muted); font-size: 0.74rem; }
-  .nav-drop-menu a:hover { background: rgba(212,160,23,0.12); color: #fff; }
-  @media (max-width: 720px) {
-    .nav-links { gap: 0.9rem; font-size: 0.78rem; flex-wrap: wrap; justify-content: flex-end; }
-    .nav-drop { position: static; }
-    .nav-drop-menu { left: 1rem; right: 1rem; transform: none; min-width: 0; }
-  }
 
   /* ---------- Hero ---------- */
   header.hero { padding: 4rem 0 2.6rem; }
@@ -162,46 +117,6 @@
     .train-card, .rung { animation: fadeUp 0.6s ease both; }
   }
 
-  /* ---------- Mobiles Hamburger-Menue ----------
-     Unter 720px passen vier Menuepunkte plus CTA nicht in eine Zeile; ohne
-     dies bricht die Leiste in drei Zeilen um und schiebt den Seiteninhalt
-     unter die Falz. Gleiches Muster wie Startseite und Blog. */
-  .nav-toggle {
-    display: none; background: none; border: none; cursor: pointer;
-    padding: 8px; margin-left: auto; line-height: 0;
-  }
-  .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; margin: 5px 0; border-radius: 2px; }
-  @media (max-width: 720px) {
-    .site-nav { flex-wrap: nowrap; }
-    .nav-toggle { display: block; }
-    .nav-links {
-      display: none; position: absolute; top: 100%; left: 0; right: 0;
-      flex-direction: column; align-items: flex-start; gap: 0;
-      background: rgba(16, 16, 16, 0.98); backdrop-filter: blur(20px);
-      padding: 0.4rem 1.5rem 1.2rem; border-bottom: 1px solid var(--border);
-      font-size: 0.95rem; text-align: left;
-    }
-    .nav-links.open { display: flex; }
-    .nav-links > a, .nav-links > .nav-drop { width: 100%; padding: 0.7rem 0; }
-    .nav-links > a.nav-cta { width: auto; margin-top: 0.6rem; padding: 0.7rem 1.3rem; }
-    .nav-drop { position: static; }
-    .nav-drop > .nav-drop-toggle { width: 100%; justify-content: space-between; font-size: 0.95rem; }
-    .nav-drop-menu {
-      position: static; transform: none; min-width: 0; width: 100%;
-      margin-top: 0.5rem; box-shadow: none; background: rgba(255, 255, 255, 0.04);
-    }
-    /* Auf Touch kein Hover-Aufklappen, nur der Klick auf "Angebote" oeffnet. */
-    .nav-drop:hover > .nav-drop-menu, .nav-drop:focus-within > .nav-drop-menu { display: none; }
-    .nav-drop.open > .nav-drop-menu { display: block; }
-  }
-
-  /* Sprachumschalter DE/EN in der Navileiste */
-  .nav-lang { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-heading); font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; }
-  .nav-lang a { color: var(--muted); text-decoration: none; padding: 2px 4px; transition: color 0.2s; }
-  .nav-lang a:hover { color: #fff; }
-  .nav-lang a.active { color: var(--gold); }
-  .nav-lang-sep { color: rgba(255, 255, 255, 0.25); }
-
     /* ---------- Sprachumschalter: nur die aktuelle Sprache ----------
        Drei Flaggen nebeneinander haben in der Leiste zu viel Platz gefressen.
        Sichtbar ist jetzt nur die aktive Sprache, ein Klick klappt die anderen
@@ -255,67 +170,422 @@
       .nav-lang, .lang-switch { order: -1; margin-right: 6px; }
     }
   
-/* --- Trainingssprachen (Sprach-Chips, 2026-08-18) --- */
-.langbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:22px 0 4px}
-.langbar .lead{font-family:var(--font-heading);font-size:13px;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--muted);font-weight:600;margin-right:6px}
-.langbar .chip{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--border);
-  border-radius:999px;padding:8px 15px;background:rgba(212,160,23,0.05)}
-.langbar .chip .name{font-family:var(--font-heading);font-weight:600;font-size:14px;letter-spacing:.02em}
-.langbar .chip .flags{font-size:15px;letter-spacing:2px;line-height:1}
-.langbar .chip .hint{color:var(--muted);font-size:12px;font-weight:400}
-@media(max-width:520px){.langbar{gap:8px}.langbar .chip{padding:7px 12px}}
+
+  /* ---------- Version 3 (26.10.): HR-Leiterin-Sicht, Trainings nach Abteilung ---------- */
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.6rem; }
+  .hero-facts { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; margin: 1.4rem 0 0; padding: 0; list-style: none; font-size: 0.86rem; color: #d8d5cc; }
+  .hero-facts li::before { content: '✓'; color: var(--gold); font-weight: 700; margin-right: 0.45rem; }
+
+  .train-card .train-result { font-size: 0.95rem; color: var(--ink); margin-bottom: 0.7rem; }
+  .train-card .train-result b { color: var(--gold-light); font-weight: 600; }
+  .train-card .train-for { font-size: 0.84rem; color: #cfccc3; margin-bottom: 0.6rem; }
+  .train-card ul.train-list { margin: 0 0 0.6rem; padding-left: 1.1rem; font-size: 0.86rem; color: #cfccc3; }
+  .train-card ul.train-list li { margin-bottom: 0.25rem; }
+  .train-proof { margin-top: 0.9rem; padding: 0.7rem 0.85rem; border-left: 2px solid var(--gold); background: rgba(212,160,23,0.06); border-radius: 0 8px 8px 0; font-size: 0.8rem; color: #d8d5cc; }
+  .train-proof blockquote { margin: 0 0 0.35rem; font-style: italic; font-size: 0.86rem; color: var(--ink); }
+  .train-proof cite { font-style: normal; color: var(--gold-light); font-size: 0.76rem; }
+  .train-card .train-tag.new { color: #141414; background: var(--gold); align-self: flex-start; padding: 0.15rem 0.5rem; border-radius: 4px; }
+
+  .always { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.6rem; }
+  @media (max-width: 760px) { .always { grid-template-columns: 1fr; } }
+  .always div { border: 1px dashed var(--border); border-radius: 10px; padding: 0.9rem 1rem; font-size: 0.86rem; color: #cfccc3; }
+  .always b { display: block; color: var(--ink); font-family: var(--font-heading); font-size: 0.92rem; margin-bottom: 0.2rem; }
+  .more-line { margin-top: 1.4rem; font-size: 0.9rem; color: #cfccc3; }
+
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  @media (max-width: 860px) { .why-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .why-grid { grid-template-columns: 1fr; } }
+  .why-item { border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; background: rgba(20,20,20,0.55); }
+  .why-item .big { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--gold); line-height: 1.1; margin-bottom: 0.35rem; }
+  .why-item h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+  .why-item p { font-size: 0.86rem; color: #cfccc3; margin: 0; }
+
+  .compare { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.88rem; }
+  .compare th, .compare td { text-align: left; padding: 0.75rem 0.9rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .compare thead th { font-family: var(--font-heading); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold-light); }
+  .compare tbody th { color: var(--muted); font-weight: 500; width: 22%; }
+  .compare td { color: #d8d5cc; width: 39%; }
+  @media (max-width: 620px) {
+    .compare thead { display: none; }
+    .compare, .compare tbody, .compare tr, .compare th, .compare td { display: block; width: 100%; }
+    .compare tr { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.8rem; padding: 0.4rem 0; }
+    .compare th, .compare td { border: none; padding: 0.35rem 0.9rem; }
+    .compare td::before { content: attr(data-l); display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold-light); }
+  }
+
+  .day { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  @media (max-width: 820px) { .day { grid-template-columns: 1fr; } }
+  .day figure { margin: 0; }
+  .day img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); display: block; }
+  .day figcaption { font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem; }
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: s; }
+  .steps li { position: relative; padding: 0 0 1.2rem 2.8rem; counter-increment: s; }
+  .steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 1.9rem; height: 1.9rem; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); font-family: var(--font-heading); font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+  .steps h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+  .steps p { font-size: 0.88rem; color: #cfccc3; margin: 0; }
+  .stack { margin-top: 1.4rem; border: 1px solid rgba(212,160,23,0.45); border-radius: 12px; padding: 1.2rem 1.3rem; background: rgba(212,160,23,0.06); }
+  .stack h3 { font-size: 1rem; margin-bottom: 0.6rem; }
+  .stack ul { margin: 0 0 0.6rem; padding-left: 1.1rem; font-size: 0.88rem; color: #d8d5cc; }
+  .stack p { font-size: 0.84rem; color: #cfccc3; margin: 0; }
+
+  .need { background: #5a1a1a; color: #ffd7d7; border: 1px dashed #ff8a8a; border-radius: 4px; padding: 0 0.3rem; font-size: 0.85em; font-style: normal; }
+
+  .faq { max-width: 760px; }
+  .faq details { border-bottom: 1px solid var(--border); padding: 0.9rem 0; }
+  .faq summary { cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 0.98rem; list-style: none; position: relative; padding-right: 1.6rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: -0.1rem; color: var(--gold); font-size: 1.2rem; }
+  .faq details[open] summary::after { content: '–'; }
+  .faq details p { margin: 0.6rem 0 0; font-size: 0.9rem; color: #cfccc3; }
+  .cta-band .cta-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+  @media (prefers-reduced-motion: no-preference) { .why-item { animation: fadeUp 0.6s ease both; } }
+
+  /* ---------- Navigation: 1:1 wie Startseite (26.10.), ueberall gleich ---------- */
+  .nav { --white: #f5f5f5; --white-muted: #b0b0b0; --nav-height: 70px; }
+  .nav a { text-decoration: none; }
+  .nav .container { max-width: 1200px; padding: 0 24px; }
+  .nav ul { margin: 0; padding: 0; }
+  body { padding-top: 70px; }
+    /* ========== NAVIGATION ========== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      background: rgba(20, 20, 20, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 160, 23, 0.08);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--gold); }
+    .nav-logo svg { display: inline-block; vertical-align: middle; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-lang {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .nav-lang a {
+      color: var(--white-muted);
+      padding: 2px 4px;
+      transition: color 0.2s;
+    }
+    .nav-lang a:hover { color: var(--white); }
+    .nav-lang a.active { color: var(--gold); }
+    .nav-lang-sep { color: rgba(255, 255, 255, 0.25); }
+
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--white-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--white); }
+
+    .nav-links a:not(.nav-cta) {
+      position: relative;
+    }
+
+    .nav-links a:not(.nav-cta)::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:not(.nav-cta):hover::after,
+    .nav-links a:not(.nav-cta).active::after {
+      width: 100%;
+    }
+
+    /* Angebote: Aufklappmenue. Oeffnet per Hover und per Tastaturfokus ueber CSS,
+       das Skript ergaenzt nur Tippen auf Touchgeraeten. */
+    .nav-drop { position: relative; display: flex; align-items: center; }
+    .nav-drop-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      transition: color 0.2s;
+    }
+    .nav-drop-toggle:hover,
+    .nav-drop.open .nav-drop-toggle { color: var(--white); }
+    .nav-drop-toggle .caret {
+      border: solid currentColor;
+      border-width: 0 1.5px 1.5px 0;
+      padding: 2.5px;
+      transform: rotate(45deg);
+      margin-bottom: 2px;
+      transition: transform 0.2s;
+    }
+    .nav-drop.open .nav-drop-toggle .caret { transform: rotate(-135deg); }
+    .nav-drop-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 250px;
+      margin: 0;
+      padding: 8px;
+      list-style: none;
+      background: rgba(16, 16, 16, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+      display: none;
+    }
+    /* unsichtbare Bruecke, damit der Zeiger den Weg nach unten ueberlebt */
+    .nav-drop-menu::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
+    .nav-drop:hover .nav-drop-menu,
+    .nav-drop:focus-within .nav-drop-menu,
+    .nav-drop.open .nav-drop-menu { display: block; }
+    .nav-drop-menu a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 7px;
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+    .nav-drop-menu a::after { content: none; }
+    .nav-drop-menu a small { display: block; color: var(--white-muted); font-size: 0.74rem; font-weight: 400; }
+    .nav-drop-menu a:hover { background: rgba(212, 160, 23, 0.12); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--charcoal) !important;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 2px solid var(--gold);
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: transparent;
+      color: var(--gold) !important;
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      margin: 6px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+
+  @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(20, 20, 20, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 24px;
+        gap: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      /* Im Mobilmenue klappt Angebote im Fluss auf, nicht als schwebende Karte */
+      .nav-links.open .nav-drop { display: block; }
+      .nav-links.open .nav-drop-menu {
+        position: static;
+        transform: none;
+        min-width: 0;
+        margin-top: 10px;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .nav-links.open .nav-drop:hover .nav-drop-menu { display: none; }
+      .nav-links.open .nav-drop.open .nav-drop-menu { display: block; }
+
+  }
+
+  /* ---------- Runde 2: kleine Karten, Name + Zitat, Rest zum Aufklappen ---------- */
+  .train-grid { grid-template-columns: repeat(4, 1fr); gap: 1rem; align-items: start; }
+  @media (max-width: 1000px) { .train-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .train-grid { grid-template-columns: 1fr; } }
+  .train-card { padding: 1.2rem; align-self: stretch; }
+  .train-card h3 { font-size: 1.05rem; margin-bottom: 0.7rem; }
+  .train-card .train-proof { margin-top: 0; }
+  .train-card .train-lead { font-size: 0.88rem; color: #d8d5cc; margin: 0; }
+  .train-card details.more { margin-top: auto; padding-top: 0.9rem; }
+  .train-card details.more summary { cursor: pointer; list-style: none; font-family: var(--font-heading); font-weight: 600; font-size: 0.82rem; color: var(--gold); }
+  .train-card details.more summary::-webkit-details-marker { display: none; }
+  .train-card details.more summary::after { content: ' ↓'; }
+  .train-card details.more[open] summary::after { content: ' ↑'; }
+  .train-card details.more > *:not(summary) { margin-top: 0.7rem; }
+  .train-card details.more .btn { font-size: 0.8rem; padding: 0.5rem 0.9rem; }
+  .t-orig { margin-top: 0.4rem; font-style: normal; }
+  .t-orig summary { cursor: pointer; font-size: 0.7rem; color: var(--muted); list-style: none; }
+  .t-orig summary::-webkit-details-marker { display: none; }
+  .t-orig[open] { font-size: 0.78rem; color: var(--muted); }
+
+  /* ---------- Runde 3: Ueberschrift einzeilig, zwei Wege zum Start ---------- */
+  .section-head.wide { max-width: none; }
+  @media (min-width: 900px) { .section-head.wide h2 { white-space: nowrap; } }
+  .two-ways { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.4rem; text-align: left; max-width: 980px; margin: 0 auto; }
+  @media (max-width: 820px) { .two-ways { grid-template-columns: 1fr; } }
+  .way { border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; background: rgba(14,14,14,0.7); }
+  .way h3 { font-size: 1.1rem; margin-bottom: 0.9rem; }
+  .way-call { display: flex; flex-direction: column; align-items: flex-start; }
+  .way-call p { margin: 0 0 1.2rem !important; max-width: none !important; }
+  .contact-form { display: flex; flex-direction: column; gap: 12px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
+  .contact-form input[type=text], .contact-form input[type=email], .contact-form textarea {
+    width: 100%; padding: 12px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px; color: var(--ink); font-family: var(--font-body); font-size: 0.9rem; outline: none; }
+  .contact-form textarea { min-height: 96px; resize: vertical; }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: #777; }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,160,23,0.12); }
+  .form-consent { display: flex; gap: 10px; font-size: 0.76rem; line-height: 1.5; color: var(--muted); cursor: pointer; }
+  .form-consent input { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; accent-color: var(--gold); }
+  .form-consent a { color: var(--gold); }
+  .contact-form .btn-submit { align-self: flex-start; cursor: pointer; }
+  .form-success { color: var(--gold-light); margin: 0; }
+  /* hidden muss display:flex der Formularklasse schlagen, sonst bleibt das Formular nach dem Senden stehen */
+  .contact-form[hidden], .form-success[hidden] { display: none !important; }
+  .form-success { font-size: 1rem; padding: 0.4rem 0; }
+
+  /* ---------- Runde 4: Karten zeigen, was man lernt; Ueberschriften ohne Waisen ---------- */
+  .section-head { max-width: 860px; }
+  .section-head p { max-width: 680px; }
+  .learn-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.4rem; }
+  ul.learn { list-style: none; margin: 0; padding: 0; font-size: 0.86rem; color: #d8d5cc; }
+  ul.learn li { position: relative; padding-left: 1.2rem; margin-bottom: 0.45rem; line-height: 1.45; }
+  ul.learn li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+  /* ---------- Runde 5: Fussnote Gruppengroesse, Notiz Englisch ---------- */
+  .hero-note { margin: 0.7rem 0 0; font-size: 0.76rem; color: var(--muted); }
+  .section-head p.note { margin-top: 0.6rem; font-size: 0.86rem; color: var(--gold-light); }
+  .edit-hint { margin: -0.4rem 0 0.9rem; font-size: 0.86rem; color: var(--gold-light); }
+  .edit-hint[hidden] { display: none; }
 </style>
 </head>
 <body>
 <div id="ambient"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 
-<header class="site-nav">
-  <a href="/" aria-label="Jakub Popluhar">
-    <img src="/images/logos/jakub-popluhar-logo.svg" alt="Jakub Popluhar" height="36" width="150">
-  </a>
-  <nav class="nav-links" id="siteNavLinks">
-    <div class="nav-drop" data-nav-drop>
-      <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Angebote <span class="caret"></span></button>
-      <ul class="nav-drop-menu">
-        <li><a href="/ki-personal-training/">Einzeltraining<small>F&uuml;r F&uuml;hrungskr&auml;fte, an Ihren Aufgaben</small></a></li>
-        <li><a href="/trainings/">Inhouse-Trainings<small>Ihr Team, ein Praxistag in Ihrem Haus</small></a></li>
-        <li><a href="/termine/">Standard-Trainings<small>Offene Seminare bei meinen Partnern</small></a></li>
-      </ul>
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <svg class="logo-svg-nav" viewBox="0 0 380 125" height="52" aria-label="Jakub Popluhar"><defs><linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#bf953f"/><stop offset="18%" stop-color="#fcf6ba"/><stop offset="40%" stop-color="#b38728"/><stop offset="65%" stop-color="#fbf5b7"/><stop offset="85%" stop-color="#daa520"/><stop offset="100%" stop-color="#aa771c"/></linearGradient><filter id="goldGlow"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/></filter></defs>
+          <text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text>
+          <text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text>
+        </svg>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-drop" data-nav-drop>
+            <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Angebote <span class="caret"></span></button>
+            <ul class="nav-drop-menu">
+              <li><a href="/ki-personal-training/">One-on-One-Coaching<small>Einzeln, an Ihren echten Aufgaben</small></a></li>
+              <li><a href="/trainings/">Inhouse-Trainings<small>Ihr Team, ein Praxistag in Ihrem Haus</small></a></li>
+              <li><a href="/termine/">Standard-Trainings<small>Offene Seminare bei meinen Partnern</small></a></li>
+            </ul>
+          </li>
+          <li><a href="/#proof">Feedback</a></li>
+          <li><a href="/#about">Über mich</a></li>
+          <li><a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Erstgespr&auml;ch</a></li>
+        </ul>
+        <div class="nav-lang" aria-label="Sprache"><button class="nav-lang-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Sprache wechseln"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg><span class="nav-lang-arrow"></span></button><div class="nav-lang-menu"><a href="/trainings/" class="active" aria-current="page" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg></a><a href="/en/trainings/" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></a><a href="/sk/" title="Slovenčina" aria-label="Slovenčina"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#fff"/><rect y="2" width="9" height="4" fill="#0B4EA2"/><rect y="4" width="9" height="2" fill="#EE1C25"/><path d="M1.9,1.25 h2.6 v2.2 c0,1.05 -1.3,1.6 -1.3,1.6 s-1.3,-0.55 -1.3,-1.6 z" fill="#EE1C25" stroke="#fff" stroke-width="0.26"/><path d="M3.05,1.75 h0.3 v0.5 h0.6 v0.32 h-0.6 v0.55 h0.78 v0.32 h-0.78 v0.9 h-0.3 v-0.9 h-0.78 v-0.32 h0.78 v-0.55 h-0.6 v-0.32 h0.6 z" fill="#fff"/></svg></a></div></div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-    <a href="/#proof">Ergebnisse</a>
-    <a href="/blog/">Blog</a>
-    <a href="/#about">Über mich</a>
-    <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Book Call</a>
   </nav>
-    <div class="nav-lang" aria-label="Sprache"><button class="nav-lang-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Sprache wechseln"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg><span class="nav-lang-arrow"></span></button><div class="nav-lang-menu"><a href="/trainings/" class="active" aria-current="page" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg></a><a href="/en/trainings/" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></a></div></div>
-    <button class="nav-toggle" id="siteNavToggle" type="button" aria-label="Menue" aria-expanded="false" aria-controls="siteNavLinks">
-      <span></span><span></span><span></span>
-    </button>
-</header>
 
 <main>
 <header class="hero">
   <div class="container">
-    <div class="hero-badge">Inhouse-Trainings · jeweils ein Praxistag im Haus</div>
-    <h1 class="hero-title">Meine Trainings<span class="script">für Ihr Team</span></h1>
+    <div class="hero-badge">Training für Ihr Team · in Ihrem Haus oder live online</div>
+    <h1 class="hero-title">KI-Training für Ihre Abteilung</h1>
     <p class="hero-lede">
-      In jeder Gruppe sitzen zwei Sorten Menschen: der eine kann sich nicht einmal anmelden, der andere schreibt schon eigene Systemanweisungen.
-      Meine Trainings sind so gebaut, dass beide etwas mitnehmen. Kein Tool-Feuerwerk, sondern die Grundlagen, die auch nach dem nächsten Modellwechsel noch gelten,
-      und am Ende des Tages hat jede Person etwas Fertiges in der Hand.
+      Ein Praxistag für HR, Vertrieb, Marketing oder Assistenz, mit dem Werkzeug, das Ihr Haus nutzt: Microsoft 365 Copilot, ChatGPT, Claude oder Gemini.
+      Am nächsten Morgen setzt Ihr Team um, was es geübt hat, an den eigenen Aufgaben.
     </p>
-    <p class="hero-lede">
-      Alle Trainings unten sind Ganztagsformate für Ihr Haus. Zu jedem gibt es die vollständige Beschreibung mit Ablauf, Inhalten und PDF zum Weitergeben.
-    </p>
-
-    <div class="langbar" aria-label="Trainingssprachen">
-      <span class="lead">Trainingssprachen</span>
-      <span class="chip"><span class="flags" aria-hidden="true">🇦🇹🇩🇪🇨🇭</span><span class="name">Deutsch</span></span>
-      <span class="chip"><span class="flags" aria-hidden="true">🇬🇧🇺🇸</span><span class="name">English</span></span>
-      <span class="chip"><span class="flags" aria-hidden="true">🇸🇰</span><span class="name">Sloven&#269;ina</span></span>
-      <span class="chip"><span class="flags" aria-hidden="true">🇨🇿</span><span class="name">&#268;e&#353;tina</span><span class="hint">auf Anfrage</span></span>
+    <ul class="hero-facts">
+      <li>Ideal: 8 bis 12 Personen*</li>
+      <li>Für Einsteiger und Fortgeschrittene in derselben Gruppe</li>
+      <li>Teilnahmebestätigung nach EU AI Act Art.&nbsp;4</li>
+    </ul>
+    <p class="hero-note">* Die ideale Gruppengröße für ein Praxistraining. Natürlich stimmen wir die Gruppengröße individuell mit Ihnen ab.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Erstgespräch vereinbaren →</a>
+      <a class="btn btn-ghost" href="#kontakt">Kurz schreiben, was Sie brauchen ↓</a>
     </div>
-
   </div>
 </header>
 
@@ -325,91 +595,245 @@
       <div class="rung here">
         <span class="here-label">Sie sind hier</span>
         <h3>Training f&uuml;r Ihr Team</h3>
-        <p>Ihr Team, ein Praxistag, in Ihrem Haus oder live online. Inhalt und Werkzeug auf Ihre Arbeit abgestimmt, mit eigener Lernseite.</p>
-        <a href="#trainings">Die sechs Trainings ↓</a>
+        <p>Ein Praxistag f&uuml;r Ihr Team, Inhalt und Werkzeug auf Ihre Abteilung abgestimmt, mit eigener Lernseite.</p>
+        <a href="#abteilungen">Trainings nach Abteilung ↓</a>
       </div>
       <div class="rung">
         <h3>Offene Seminare</h3>
-        <p>Feste Termine in Kooperation mit ARS Akademie, tecTrain, BFI Vorarlberg und Digital Campus Vorarlberg. Einzeln buchbar.</p>
+        <p>Feste Termine bei meinen Partnern ARS Akademie, tecTrain, BFI und Digital Campus Vorarlberg. Ideal f&uuml;r einzelne Mitarbeitende.</p>
         <a href="/termine/">Alle Termine ansehen →</a>
       </div>
       <div class="rung">
         <h3>Einzeltraining</h3>
-        <p>F&uuml;r F&uuml;hrungskr&auml;fte: eine Person, Ihre echten Dateien, Ihr Rechner.</p>
-        <a href="/ki-personal-training/">Ablauf und Preise ansehen →</a>
+        <p>F&uuml;r alle, die in k&uuml;rzester Zeit das Maximum aus KI holen wollen: eine Person, ihre eigenen Aufgaben.</p>
+        <a href="/ki-personal-training/">Einzeltraining ansehen →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="trainings" style="padding-top: 0;">
+<section id="abteilungen" style="padding-top: 0;">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow">Das Programm</div>
-      <h2>Sechs Trainings, ein methodischer Kern</h2>
-      <p>
-        Der Unterbau ist überall derselbe: verstehen, wie ein Sprachmodell arbeitet, verlässlich fragen, Datenschutz im Griff behalten, eigene KI-Helfer bauen.
-        Unterschiedlich ist, worauf er zugeschnitten wird, auf welche Abteilung und auf welches Werkzeug.
-      </p>
+      <div class="eyebrow">Trainings nach Abteilung</div>
+      <h2>Welches Training passt zu Ihrem Team?</h2>
+      <p>Jedes Training hat denselben soliden Kern: verlässlich fragen, Datenschutz im Griff behalten, eigene KI-Helfer bauen. Zugeschnitten wird es auf Ihre Abteilung, Ihre Beispiele und Ihr Werkzeug.</p>
+      <p class="note">Alle Trainings sind auch auf Englisch verfügbar.</p>
     </div>
 
     <div class="train-grid">
-      <div class="train-card">
-        <div class="train-tag">Grundlagen · Ein Praxistag</div>
+      <article class="train-card">
+        <div class="train-tag">Für alle</div>
         <h3>KI am Schreibtisch</h3>
-        <p>Wie ein Sprachmodell wirklich arbeitet, das CITE(R)-Framework für verlässliche Prompts, Datenschutz konkret (Drei-Sekunden-Regel), und der Bau eigener KI-Helfer mit NotebookLM und Custom GPTs. Tool-unabhängig: funktioniert mit ChatGPT, Claude oder Gemini.</p>
-        <div class="train-meta">Modul 1 Grundlagen · Modul 2 KI-Helfer produktiv einsetzen</div>
-        <div class="train-more"><a class="btn btn-ghost" href="/trainings/ki-am-schreibtisch/">Mehr erfahren →</a></div>
-      </div>
-
-      <div class="train-card">
-        <div class="train-tag">HR-Fokus · Ein Praxistag</div>
-        <h3>KI im HR-Alltag</h3>
-        <p>Derselbe methodische Kern, zugeschnitten auf Stellenanzeigen, Bewerberkommunikation, Onboarding und Beurteilungen. Modeling of Excellence für die ideale HR-Persona, Human in the Loop bei automatisierten Entscheidungen, Zero Trust gegen gefälschte Lebensläufe.</p>
-        <div class="train-meta">Für HR-Teams jeder Branche</div>
-        <div class="train-more"><a class="btn btn-ghost" href="/trainings/hr-kurs/">Mehr erfahren →</a></div>
-      </div>
-
-      <div class="train-card">
-        <div class="train-tag">Werkzeug-Vertiefung</div>
+        <div class="learn-label">Sie lernen</div>
+        <ul class="learn"><li>Verlässliche Anfragen an die KI mit dem CITE(R)-Framework</li><li>Eigene KI-Helfer bauen, mit NotebookLM und Custom GPTs</li><li>Datenschutz: die Drei-Sekunden-Regel, was in die KI darf</li></ul>
+        <details class="more"><summary>Mehr erfahren</summary>
+          <p class="train-for">Wie ein Sprachmodell arbeitet und wo seine Grenzen liegen. Am Ende hat jede Person eigene Prompts und einen selbst gebauten KI-Helfer.</p><p class="train-for">Mit ChatGPT, Claude, Gemini oder Copilot. Ein Praxistag oder zwei halbe Tage.</p>
+          <a class="btn btn-ghost" href="/trainings/ki-am-schreibtisch/">Zur Trainingsbeschreibung →</a>
+        </details>
+      </article>
+      <article class="train-card">
+        <div class="train-tag">Microsoft 365</div>
         <h3>Copilot im Arbeitsalltag</h3>
-        <p>Für Häuser mit Microsoft 365: ein Tag direkt in Word, Excel, Teams und Outlook. Wo Copilot zuverlässig ist, wo nicht, und wie er tatsächlich Zeit spart statt nur zu blinken. Baut auf den Grundlagen aus „KI am Schreibtisch" auf.</p>
-        <div class="train-meta">Nur als Inhouse-Training</div>
-        <div class="train-more"><a class="btn btn-ghost" href="/trainings/copilot/">Mehr erfahren →</a></div>
-      </div>
+        <div class="learn-label">Sie lernen</div>
+        <ul class="learn"><li>Copilot direkt in Word, Excel, Outlook und Teams</li><li>Dokumente mit Copilot prüfen</li><li>Wo Copilot zuverlässig ist und wo Sie nachprüfen müssen</li></ul>
+        <details class="more"><summary>Mehr erfahren</summary>
+          <p class="train-for">Für Häuser mit Microsoft 365 Copilot, auch wenn die Lizenzen gerade erst ausgerollt werden. Ein Praxistag.</p>
+          <a class="btn btn-ghost" href="/trainings/copilot/">Zur Trainingsbeschreibung →</a>
+        </details>
+      </article>
+      <article class="train-card">
+        <div class="train-tag">Vertrieb</div>
+        <h3>KI im Vertrieb</h3>
+        <div class="learn-label">Sie lernen</div>
+        <ul class="learn"><li>Kundenunterlagen und Exposés mit KI vorbereiten</li><li>Anschreiben an Neukunden entwerfen und prüfen</li><li>Projekte einrichten, damit die KI Ihre Unterlagen kennt</li></ul>
+        <details class="more"><summary>Mehr erfahren</summary>
+          <p class="train-for">Geübt an den eigenen Vertriebsunterlagen. Ein Praxistag, im Team oder einzeln.</p>
+        </details>
+      </article>
+      <article class="train-card">
+        <div class="train-tag">Für Fortgeschrittene</div>
+        <h3>KI-Workflows und eigene Helfer</h3>
+        <div class="learn-label">Sie lernen</div>
+        <ul class="learn"><li>Die KI auf Ihr Haus einstellen: feste Anweisungen, Projekte, Vorlagen</li><li>Mehrere Arbeitsschritte zu einem Workflow verbinden</li><li>KI-Agenten: wann sie sich lohnen und wann nicht</li></ul>
+        <details class="more"><summary>Mehr erfahren</summary>
+          <p class="train-for">Für Teams, bei denen die Grundlagen sitzen. Wiederkehrende Arbeit erledigen eigene KI-Helfer, statt jeden Tag dieselbe Anfrage neu zu schreiben.</p>
+        </details>
+      </article>
+      <article class="train-card">
+        <div class="train-tag">HR</div>
+        <h3>KI im HR-Alltag</h3>
+        <div class="learn-label">Sie lernen</div>
+        <ul class="learn"><li>Stellenanzeigen, Absagen und Gesprächsleitfäden mit KI</li><li>Das Profil der idealen Besetzung beschreiben</li><li>Human in the Loop: über Menschen entscheidet der Mensch</li></ul>
+        <details class="more"><summary>Mehr erfahren</summary>
+          <p class="train-for">Von der Stellenanzeige über Onboarding bis zum Beurteilungsgespräch. Dazu: gefälschte Lebensläufe erkennen. Für HR-Teams jeder Branche, ein Praxistag.</p>
+          <a class="btn btn-ghost" href="/trainings/hr-kurs/">Zur Trainingsbeschreibung →</a>
+        </details>
+      </article>
+      <article class="train-card">
+        <div class="train-tag">Marketing</div>
+        <h3>KI im Marketing</h3>
+        <div class="learn-label">Sie lernen</div>
+        <ul class="learn"><li>Die vier Barrieren, die einen Kauf verhindern, und die fünf Motivatoren</li><li>Texte mit KI nach Frameworks wie SLAY</li><li>Hook-Varianten schreiben und testen</li></ul>
+        <details class="more"><summary>Mehr erfahren</summary>
+          <p class="train-for">Auf wissenschaftlicher Grundlage: Konsumentenpsychologie und Verhaltensökonomie. KI verstärkt, was man hineingibt: gute Psychologie wird besser, schlechte wird teurer.</p><p class="train-for">Für Marketing, Kommunikation und Vertrieb. Ein halber oder ein ganzer Tag.</p>
+        </details>
+      </article>
+      <article class="train-card">
+        <div class="train-tag">Ein Werkzeug pro Tag</div>
+        <h3>ChatGPT, Claude oder Gemini</h3>
+        <div class="learn-label">Sie lernen</div>
+        <ul class="learn"><li>Eigenheiten und Grenzen Ihres Werkzeugs</li><li>Einen eigenen Assistenten darin bauen</li><li>Datenschutzkonform arbeiten, Schritt für Schritt</li></ul>
+        <details class="more"><summary>Mehr erfahren</summary>
+          <p class="train-for">Ein Tag mit dem Werkzeug, für das sich Ihr Haus entschieden hat. Kein Rundflug über drei Produkte. Gleicher Aufbau für jedes Werkzeug.</p>
+        </details>
+      </article>
+      <article class="train-card">
+        <div class="train-tag new">Neu</div>
+        <h3>KI-Champions für Ihr Haus</h3>
+        <div class="learn-label">Sie lernen</div>
+        <ul class="learn"><li>Anwendungsfälle der eigenen Abteilung finden, testen und dokumentieren</li><li>Copilot oder ChatGPT an echten Aufgaben anwenden</li><li>Kolleginnen und Kollegen bei KI-Fragen begleiten</li></ul>
+        <details class="more"><summary>Mehr erfahren</summary>
+          <p class="train-for">Für Häuser, die Copilot oder ChatGPT breit einführen und Ansprechpersonen in den Abteilungen brauchen. Umfang nach Absprache.</p>
+        </details>
+      </article>
+    </div>
 
-      <div class="train-card">
-        <div class="train-tag">Werkzeug-Vertiefung</div>
-        <h3>ChatGPT, Gemini oder Claude</h3>
-        <p>Drei Trainings, eines pro Werkzeug. Sie buchen den Tag für den Assistenten, mit dem Ihr Haus tatsächlich arbeitet: seine Eigenheiten, seine Grenzen, seine Wege, sich eigene Assistenten zu bauen. Kein Rundflug über drei Produkte.</p>
-        <div class="train-meta">Gleicher Aufbau, gleiche Dauer, ein Werkzeug</div>
-        <div class="train-more"><a class="btn btn-ghost" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Gespräch vereinbaren →</a></div>
-      </div>
+    <div class="always">
+      <div><b>Datenschutz in jedem Training</b>Eine einfache Regel, was in die KI darf und was nicht. Ihr Team wendet sie danach im Alltag an.</div>
+      <div><b>Der Mensch entscheidet</b>Die KI bereitet vor, Ihr Team prüft und entscheidet. Das wird an jeder Übung geübt.</div>
+      <div><b>Teilnahmebestätigung</b>Jede Person erhält eine Bestätigung mit den Inhalten zu Datenschutz und EU AI Act Art.&nbsp;4.</div>
+    </div>
+    <p class="more-line">Führungskräfte, Assistenz oder eine Abteilung, die hier nicht steht? Das Training wird auf Ihr Haus zugeschnitten, <a href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">sprechen Sie mich an</a>.</p>
+  </div>
+</section>
 
-      <div class="train-card">
-        <div class="train-tag">Konsumentenpsychologie</div>
-        <h3>Konsumentenpsychologie im Zeitalter der Künstlichen Intelligenz</h3>
-        <p>Mein eigenes Training über die vier Entscheidungsbarrieren, die Käufe verhindern, und wie Sie diese gezielt auflösen. Dazu, wie KI die Kommunikation verstärkt, im Guten wie im Schlechten.</p>
-        <div class="train-meta">Ein halber Tag, 4 Stunden</div>
-        <div class="train-more"><a class="btn btn-ghost" href="/trainings/konsumentenpsychologie/">Mehr erfahren →</a></div>
+<section id="warum">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Warum mit mir</div>
+      <h2>Ein Lehrer, der KI jeden Tag selbst einsetzt</h2>
+      <p>Damit Sie es Ihrer Geschäftsführung in zwei Sätzen begründen können.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="big">4,69 / 5</div>
+        <h3>Bewertung der Teilnehmenden</h3>
+        <p>Durchschnitt aus 111 anonymen Feedbackbögen.</p>
       </div>
+      <div class="why-item">
+        <div class="big">8–12*</div>
+        <h3>Personen, ideale Gruppengröße</h3>
+        <p>So bleibt Zeit, jede Person an ihrer eigenen Aufgabe zu begleiten. *Individuell abstimmbar.</p>
+      </div>
+      <div class="why-item">
+        <div class="big">700+</div>
+        <h3>Stunden eigene Praxis</h3>
+        <p>Aktive Arbeit mit KI-Agenten seit Februar 2026, an 9 von 10 Tagen. Ich zeige, was ich selbst nutze.</p>
+      </div>
+      <div class="why-item">
+        <h3>Einsteiger und Profis in einer Gruppe</h3>
+        <p>Ausgebildeter Gymnasiallehrer (M.Ed., TU München und LMU München), Lehrer in dritter Generation. Jede Lernseite hat Grundaufgaben für alle und Bonusaufgaben für die Schnellen.</p>
+      </div>
+      <div class="why-item">
+        <h3>Zugeschnitten, nicht von der Stange</h3>
+        <p>Die Übungen kommen aus dem Alltag Ihrer Abteilung, das Werkzeug ist das, mit dem Ihr Haus arbeitet.</p>
+      </div>
+      <div class="why-item">
+        <h3>Nähe zu HR</h3>
+        <p>Mitglied von Hill Woltron, einem Haus für Recruiting. Ich kenne die Fragen, die HR-Teams zu KI stellen.</p>
+      </div>
+    </div>
 
-      <div class="train-card">
-        <div class="train-tag">Individuell</div>
-        <h3>Maßgeschneiderte Trainings</h3>
-        <p>Kein Standardprogramm von der Stange: Inhalt, Tiefe und Werkzeug abgestimmt auf das, was Ihr Unternehmen tatsächlich braucht, egal ob Branche, Vorwissen oder Thema, von Einstieg bis Advanced für bereits fortgeschrittene Teams.</p>
-        <div class="train-meta">Auf Anfrage, zugeschnitten auf Ihr Haus</div>
-        <div class="train-more"><a class="btn btn-ghost" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Gespräch vereinbaren →</a></div>
+    <table class="compare">
+      <thead><tr><th></th><th>Training für Ihr Team</th><th>Offenes Seminar</th></tr></thead>
+      <tbody>
+        <tr><th>Beispiele</th><td data-l="Training für Ihr Team">aus Ihrer Abteilung</td><td data-l="Offenes Seminar">aus vielen Branchen</td></tr>
+        <tr><th>Werkzeug</th><td data-l="Training für Ihr Team">das, das Ihr Haus nutzt</td><td data-l="Offenes Seminar">laut Ausschreibung</td></tr>
+        <tr><th>Gruppe</th><td data-l="Training für Ihr Team">Ihr Team, offen über interne Abläufe</td><td data-l="Offenes Seminar">Teilnehmende verschiedener Firmen</td></tr>
+        <tr><th>Termin</th><td data-l="Training für Ihr Team">nach Ihrem Kalender</td><td data-l="Offenes Seminar">feste Termine</td></tr>
+        <tr><th>Passt, wenn</th><td data-l="Training für Ihr Team">ein ganzes Team gemeinsam anfangen soll</td><td data-l="Offenes Seminar">einzelne Personen sich weiterbilden</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="ablauf">
+  <div class="container">
+    <div class="section-head wide">
+      <div class="eyebrow">So läuft es ab</div>
+      <h2>Vom Erstgespräch bis zum Follow-up</h2>
+    </div>
+    <div class="day">
+      <div>
+        <ol class="steps">
+          <li><h3>Erstgespräch</h3><p>Wir besprechen, wo KI in Ihrem Haus helfen soll und welche Wirkung Sie sich davon erwarten.</p></li>
+          <li><h3>Angebot</h3><p>Danach bekommen Sie ein schriftliches Angebot.</p></li>
+          <li><h3>Vorbereitung</h3><p>Ich baue die Übungen und die Lernseite auf die Aufgaben Ihrer Abteilung und das Werkzeug Ihres Hauses.</p></li>
+          <li><h3>Training</h3><p>Ihr Team arbeitet im Split Screen: links die Lernseite mit allen Übungen und Prompts zum Kopieren, rechts das KI-Werkzeug. Grundaufgaben für alle, Bonusaufgaben für die Schnellen.</p></li>
+          <li><h3>Follow-up</h3><p>Nach dem Training unterstütze ich weiter, mit E-Learning und Übungen, damit das Gelernte im Alltag ankommt.</p></li>
+        </ol>
       </div>
+      <figure>
+        <img src="/images/story/training-am-laptop.jpg" alt="Jakub Popluhar begleitet eine Teilnehmerin an ihrem Laptop, im Hintergrund arbeiten weitere Teilnehmende" loading="lazy" decoding="async">
+        <figcaption>Jede Person arbeitet an ihrem Rechner, in ihrem Tempo.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2>Häufige Fragen</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Welches Training passt zu meinem Team?</summary><p>Das klären wir im Erstgespräch. Als Faustregel: Wer noch wenig mit KI arbeitet, beginnt mit „KI am Schreibtisch“ oder dem Training für das eigene Werkzeug. HR, Vertrieb und Marketing bekommen ein Training mit Beispielen aus ihrer Abteilung.</p></details>
+      <details><summary>Wir haben Copilot. Brauchen wir trotzdem ChatGPT?</summary><p>Nein. Trainiert wird mit dem Werkzeug, das Ihr Team nutzt: Microsoft 365 Copilot, ChatGPT, Claude oder Gemini.</p></details>
+      <details><summary>Meine Leute sind sehr unterschiedlich weit. Geht das in einer Gruppe?</summary><p>Ja. Jede Lernseite hat Grundaufgaben für alle, mit Prompts zum Kopieren, und Bonusaufgaben für die Schnellen. Niemand wartet, niemand bleibt zurück.</p></details>
+      <details><summary>Wie viele Personen pro Training?</summary><p>Ideal sind 8 bis 12 Personen. So bleibt Zeit, jede Person an ihrer eigenen Aufgabe zu begleiten. Die Gruppengröße stimmen wir aber individuell mit Ihnen ab.</p></details>
+      <details><summary>Wie lange dauert ein Training?</summary><p>In der Regel ein Praxistag. Möglich sind auch zwei halbe Tage.</p></details>
+      <details><summary>Was kostet ein Training?</summary><p>Das hängt von Format, Dauer und Ort ab. Nach einem kurzen Erstgespräch bekommen Sie ein schriftliches Angebot.</p></details>
+      <details><summary>Dürfen meine Mitarbeitenden echte Daten verwenden?</summary><p>Ja, wenn Ihre Daten in einer sicheren Umgebung liegen. Dann arbeiten wir direkt mit Ihren Daten an Ihren Rechnern. Dazu gibt es eine einfache Regel, was in die KI darf und was nicht, die Ihr Team danach im Alltag anwendet.</p></details>
+      <details><summary>Bekommen die Teilnehmenden eine Bestätigung für den EU AI Act?</summary><p>Ja. Jede Person erhält eine Teilnahmebestätigung mit den Inhalten zu Datenschutz und EU AI Act. Damit dokumentieren Sie die KI-Kompetenz nach Art.&nbsp;4, die seit 2. Februar 2025 gilt.</p></details>
+      <details><summary>Findet das Training vor Ort oder online statt?</summary><p>In Ihrem Haus oder live online.</p></details>
+      <details><summary>Gibt es die Trainings auch auf Englisch?</summary><p>Ja. Jedes Training gibt es auf Deutsch oder auf Englisch.</p></details>
     </div>
   </div>
 </section>
 
 <section id="kontakt" class="cta-band">
   <div class="container">
-    <h2>Zwanzig Minuten, in denen Sie nichts kaufen müssen.</h2>
-    <p>Im Vorgespräch klären wir, welches Format zu Ihrem Haus passt. Wenn ein offenes Seminar für Sie günstiger ist als ein Inhouse-Tag, sage ich Ihnen welches.</p>
-    <a class="btn btn-primary" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Vorgespräch buchen →</a>
+    <h2>Zwei Wege, wie Sie starten</h2>
+    <p>Schreiben Sie kurz, was Ihr Team braucht, und ich melde mich mit einem Vorschlag. Oder wir sprechen gleich zwanzig Minuten, ganz ohne Verpflichtung.</p>
+    <div class="two-ways">
+      <div class="way">
+        <h3>Kurz schreiben</h3>
+        <p class="edit-hint" id="editHint" hidden>Sie ändern Ihre Anfrage. Passen Sie an, was nicht stimmt, und senden Sie erneut.</p>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xzdaybpa" method="POST">
+          <input type="hidden" name="interest" value="Inhouse-Training (Team)">
+          <input type="hidden" name="_subject" value="Anfrage Trainingsseite">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Vor- und Nachname *" required autocomplete="name">
+            <input type="email" name="email" placeholder="E-Mail-Adresse *" required autocomplete="email">
+          </div>
+          <input type="text" name="company" placeholder="Unternehmen / Abteilung" autocomplete="organization">
+          <textarea name="message" placeholder="Was braucht Ihr Team? Zum Beispiel: HR-Team, 10 Personen, wir haben Copilot." required></textarea>
+          <label class="form-consent">
+            <input type="checkbox" name="consent">
+            <span>Ich bin einverstanden, dass mich Jakub Popluhar und die REAL TEAM s.r.o. zu meiner Anfrage und zu passenden KI-Themen per E-Mail kontaktieren. Meine Angaben werden dafür im Brevo-Konto von Jakub Popluhar gespeichert. Widerruf jederzeit möglich. Mehr in der <a href="/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
+          </label>
+          <button type="submit" class="btn btn-primary btn-submit">Anfrage senden →</button>
+        </form>
+        <p class="form-success" id="formSuccess" hidden>Danke, Ihre Anfrage ist angekommen. Sie bekommen gleich eine Bestätigung per E-Mail, und ich melde mich bei Ihnen.</p>
+      </div>
+      <div class="way way-call">
+        <h3>Lieber gleich sprechen</h3>
+        <p>Zwanzig Minuten, in denen Sie nichts kaufen müssen. Wir klären, welches Training zu Ihrem Team passt. Wenn ein offenes Seminar für Sie besser ist, sage ich Ihnen welches.</p>
+        <a class="btn btn-ghost" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Erstgespräch vereinbaren →</a>
+      </div>
+    </div>
   </div>
 </section>
 </main>
@@ -417,24 +841,154 @@
 <footer>
   <div class="container">
     <div class="script">Jakub Popluhar</div>
-    KI-Trainer &amp; Konsumentenpsychologe &nbsp;·&nbsp; <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br>
+    KI-Trainer &amp; Berater &nbsp;·&nbsp; <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br>
     <a href="/#about">Über mich</a> &nbsp;·&nbsp; <a href="/termine/">Termine</a> &nbsp;·&nbsp; <a href="/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="/datenschutz.html">Datenschutz</a>
   </div>
 </footer>
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "KI-Inhouse-Trainings von Jakub Popluhar",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "url": "https://jakubpopluhar.com/trainings/ki-am-schreibtisch/", "name": "KI am Schreibtisch" },
-    { "@type": "ListItem", "position": 2, "url": "https://jakubpopluhar.com/trainings/hr-kurs/", "name": "KI im HR-Alltag" },
-    { "@type": "ListItem", "position": 3, "url": "https://jakubpopluhar.com/trainings/copilot/", "name": "Copilot im Arbeitsalltag" },
-    { "@type": "ListItem", "position": 4, "url": "https://jakubpopluhar.com/trainings/", "name": "ChatGPT, Gemini oder Claude" },
-    { "@type": "ListItem", "position": 5, "url": "https://jakubpopluhar.com/trainings/konsumentenpsychologie/", "name": "Konsumentenpsychologie im Zeitalter der Künstlichen Intelligenz" },
-    { "@type": "ListItem", "position": 6, "url": "https://jakubpopluhar.com/trainings/", "name": "Maßgeschneiderte Trainings" }
-  ]
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "KI-Trainings für Unternehmen von Jakub Popluhar",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "url": "https://jakubpopluhar.com/trainings/ki-am-schreibtisch/",
+   "name": "KI am Schreibtisch"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "url": "https://jakubpopluhar.com/trainings/copilot/",
+   "name": "Copilot im Arbeitsalltag"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "url": "https://jakubpopluhar.com/trainings/",
+   "name": "ChatGPT, Claude oder Gemini"
+  },
+  {
+   "@type": "ListItem",
+   "position": 4,
+   "url": "https://jakubpopluhar.com/trainings/",
+   "name": "KI-Champions für Ihr Haus"
+  },
+  {
+   "@type": "ListItem",
+   "position": 5,
+   "url": "https://jakubpopluhar.com/trainings/hr-kurs/",
+   "name": "KI im HR-Alltag"
+  },
+  {
+   "@type": "ListItem",
+   "position": 6,
+   "url": "https://jakubpopluhar.com/trainings/",
+   "name": "KI im Vertrieb"
+  },
+  {
+   "@type": "ListItem",
+   "position": 7,
+   "url": "https://jakubpopluhar.com/trainings/konsumentenpsychologie/",
+   "name": "KI im Marketing"
+  },
+  {
+   "@type": "ListItem",
+   "position": 8,
+   "url": "https://jakubpopluhar.com/trainings/",
+   "name": "KI-Workflows und eigene Helfer"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Welches Training passt zu meinem Team?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Das klären wir im Erstgespräch. Als Faustregel: Wer noch wenig mit KI arbeitet, beginnt mit „KI am Schreibtisch“ oder dem Training für das eigene Werkzeug. HR, Vertrieb und Marketing bekommen ein Training mit Beispielen aus ihrer Abteilung."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wir haben Copilot. Brauchen wir trotzdem ChatGPT?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nein. Trainiert wird mit dem Werkzeug, das Ihr Team nutzt: Microsoft 365 Copilot, ChatGPT, Claude oder Gemini."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Meine Leute sind sehr unterschiedlich weit. Geht das in einer Gruppe?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ja. Jede Lernseite hat Grundaufgaben für alle, mit Prompts zum Kopieren, und Bonusaufgaben für die Schnellen. Niemand wartet, niemand bleibt zurück."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wie viele Personen pro Training?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ideal sind 8 bis 12 Personen. So bleibt Zeit, jede Person an ihrer eigenen Aufgabe zu begleiten. Die Gruppengröße stimmen wir aber individuell mit Ihnen ab."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wie lange dauert ein Training?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "In der Regel ein Praxistag. Möglich sind auch zwei halbe Tage."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Was kostet ein Training?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Das hängt von Format, Dauer und Ort ab. Nach einem kurzen Erstgespräch bekommen Sie ein schriftliches Angebot."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Dürfen meine Mitarbeitenden echte Daten verwenden?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ja, wenn Ihre Daten in einer sicheren Umgebung liegen. Dann arbeiten wir direkt mit Ihren Daten an Ihren Rechnern. Dazu gibt es eine einfache Regel, was in die KI darf und was nicht, die Ihr Team danach im Alltag anwendet."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Bekommen die Teilnehmenden eine Bestätigung für den EU AI Act?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ja. Jede Person erhält eine Teilnahmebestätigung mit den Inhalten zu Datenschutz und EU AI Act. Damit dokumentieren Sie die KI-Kompetenz nach Art. 4, die seit 2. Februar 2025 gilt."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Findet das Training vor Ort oder online statt?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "In Ihrem Haus oder live online."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Gibt es die Trainings auch auf Englisch?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ja. Jedes Training gibt es auf Deutsch oder auf Englisch."
+   }
+  }
+ ]
 }
 </script>
 
@@ -470,8 +1024,8 @@
 <script>
   /* Hamburger: oeffnet/schliesst die Menueleiste unter 720px. */
   (function () {
-    var t = document.getElementById('siteNavToggle');
-    var l = document.getElementById('siteNavLinks');
+    var t = document.getElementById('navToggle');
+    var l = document.getElementById('navLinks');
     if (!t || !l) return;
     t.addEventListener('click', function () {
       var open = l.classList.toggle('open');
@@ -509,6 +1063,55 @@
         btn.focus();
       }
     });
+  });
+})();
+</script>
+
+<script>
+/* Kurzformular. Formspree ist der Hauptweg (Mail an Jakub). Dazu der Brevo-Dienst (v:2):
+   schickt der Person eine Bestaetigung mit Zusammenfassung und Link "Anfrage aendern",
+   und legt den Kontakt nur mit Haekchen in Brevo an. */
+(function () {
+  var f = document.getElementById('contactForm');
+  if (!f) return;
+
+  // "Anfrage aendern": der Link aus der Bestaetigungsmail traegt die Angaben im Anker (#anfrage=...),
+  // nie in der URL, also in keinem Server-Log. Formular vorbelegen, Anker sofort wieder entfernen.
+  try {
+    var m = location.hash.match(/^#anfrage=([A-Za-z0-9_-]+)$/);
+    if (m) {
+      var b64 = m[1].replace(/-/g, '+').replace(/_/g, '/');
+      while (b64.length % 4) b64 += '=';
+      var bytes = Uint8Array.from(atob(b64), function (c) { return c.charCodeAt(0); });
+      var a = JSON.parse(new TextDecoder().decode(bytes));
+      var set = function (n, v) { var el = f.querySelector('[name="' + n + '"]'); if (el && typeof v === 'string') el.value = v; };
+      set('name', a.n); set('email', a.e); set('company', a.c); set('message', a.m);
+      if (a.i) set('interest', a.i);
+      set('_subject', 'Korrektur: Anfrage Trainingsseite');
+      var hint = document.getElementById('editHint'); if (hint) hint.hidden = false;
+      history.replaceState(null, '', location.pathname + '#kontakt');
+      setTimeout(function () { document.getElementById('kontakt').scrollIntoView(); }, 50);
+    }
+  } catch (e0) {}
+
+  f.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var btn = f.querySelector('.btn-submit');
+    btn.textContent = 'Wird gesendet...'; btn.disabled = true;
+    var fd = new FormData(f);
+    try {
+      fetch('https://deflifeos.popluhar.at/api/brevo-jp/subscribe', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind: 'jp-kontakt', v: 2, lang: 'de', email: fd.get('email') || '', vorname: fd.get('name') || '',
+          firma: fd.get('company') || '', interesse: fd.get('interest') || '', notiz: fd.get('message') || '',
+          consent: fd.get('consent') === 'on' })
+      }).catch(function () {});
+    } catch (e2) {}
+    try {
+      var res = await fetch(f.action, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } });
+      if (res.ok) { f.hidden = true; document.getElementById('editHint').hidden = true; document.getElementById('formSuccess').hidden = false; }
+      else { btn.textContent = 'Fehler - bitte erneut versuchen'; btn.disabled = false; }
+    } catch (e3) { btn.textContent = 'Fehler - bitte erneut versuchen'; btn.disabled = false; }
   });
 })();
 </script>
