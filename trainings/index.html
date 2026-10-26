@@ -532,6 +532,7 @@
   .section-head p.note { margin-top: 0.6rem; font-size: 0.86rem; color: var(--gold-light); }
   .edit-hint { margin: -0.4rem 0 0.9rem; font-size: 0.86rem; color: var(--gold-light); }
   .edit-hint[hidden] { display: none; }
+  .rung .rung-title { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; margin: 0 0 0.35rem; color: var(--ink); }
 </style>
 </head>
 <body>
@@ -594,17 +595,17 @@
     <div class="ladder">
       <div class="rung here">
         <span class="here-label">Sie sind hier</span>
-        <h3>Training f&uuml;r Ihr Team</h3>
+        <p class="rung-title">Training f&uuml;r Ihr Team</p>
         <p>Ein Praxistag f&uuml;r Ihr Team, Inhalt und Werkzeug auf Ihre Abteilung abgestimmt, mit eigener Lernseite.</p>
         <a href="#abteilungen">Trainings nach Abteilung ↓</a>
       </div>
       <div class="rung">
-        <h3>Offene Seminare</h3>
+        <p class="rung-title">Offene Seminare</p>
         <p>Feste Termine bei meinen Partnern ARS Akademie, tecTrain, BFI und Digital Campus Vorarlberg. Ideal f&uuml;r einzelne Mitarbeitende.</p>
         <a href="/termine/">Alle Termine ansehen →</a>
       </div>
       <div class="rung">
-        <h3>Einzeltraining</h3>
+        <p class="rung-title">Einzeltraining</p>
         <p>F&uuml;r alle, die in k&uuml;rzester Zeit das Maximum aus KI holen wollen: eine Person, ihre eigenen Aufgaben.</p>
         <a href="/ki-personal-training/">Einzeltraining ansehen →</a>
       </div>
@@ -846,6 +847,40 @@
   </div>
 </footer>
 
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "KI-Training für Ihre Abteilung",
+ "serviceType": "KI-Training für Unternehmen",
+ "description": "Praxistag für HR, Vertrieb, Marketing und Assistenz mit Microsoft 365 Copilot, ChatGPT, Claude oder Gemini, auf Deutsch oder Englisch, mit Teilnahmebestätigung nach EU AI Act Art. 4.",
+ "url": "https://jakubpopluhar.com/trainings/",
+ "provider": {
+  "@type": "Person",
+  "name": "Jakub Popluhar",
+  "jobTitle": "KI-Trainer & Berater",
+  "url": "https://jakubpopluhar.com/"
+ },
+ "areaServed": [
+  {
+   "@type": "Country",
+   "name": "AT"
+  },
+  {
+   "@type": "Country",
+   "name": "DE"
+  },
+  {
+   "@type": "Country",
+   "name": "SK"
+  }
+ ],
+ "availableLanguage": [
+  "de",
+  "en"
+ ]
+}
+</script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
