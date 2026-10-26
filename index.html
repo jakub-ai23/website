@@ -2351,6 +2351,56 @@
 #feedback-seminare .proof-grid{grid-template-columns:repeat(2,minmax(0,360px));justify-content:center}
 @media(max-width:900px){#feedback-seminare .proof-grid{grid-template-columns:1fr}}
 #proof .testimonial-card blockquote:first-child{margin-top:0}
+
+.hr-faq{background:var(--charcoal);min-height:auto;padding:var(--section-y) 0}
+.faq-list{max-width:760px;margin:0 auto;display:grid;gap:12px;text-align:left}
+.faq-list details{background:var(--charcoal-lighter);border:1px solid rgba(212,160,23,.18);border-radius:12px;padding:16px 20px}
+.faq-list summary{cursor:pointer;font-weight:600;font-family:var(--font-heading);list-style:none}
+.faq-list summary::after{content:'+';float:right;color:var(--gold)}
+.faq-list details[open] summary::after{content:'\2212'}
+.faq-list p{color:#a9a69d;margin:12px 0 0;line-height:1.6}
+.v3-todo{color:#e2001a !important;font-weight:600}
+.contact-head{margin-bottom:28px}
+.one-bg{min-height:auto;padding:var(--section-y-tight) 0}.one-bg .one-proof{margin-top:0}
+.t-result{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:6px 10px;margin:0 0 14px}
+.t-before{font-family:var(--font-heading);font-size:1.3rem;color:#a9a69d;text-decoration:line-through}
+.t-arrow{color:var(--gold)}
+.t-after{font-family:var(--font-heading);font-size:1.9rem;font-weight:800;color:var(--gold)}
+.t-what{flex-basis:100%;text-align:center;font-size:.8rem;color:#a9a69d}
+.proof-cta{text-align:center;margin-top:28px}
+
+.kicheck-slim{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:center;padding:18px 20px;background:var(--charcoal-lighter);border-top:1px solid rgba(212,160,23,.15);border-bottom:1px solid rgba(212,160,23,.15);font-size:.95rem;color:#c9c6bd;text-align:center}
+.kicheck-slim a{color:var(--gold);font-weight:700;text-decoration:none}
+.contact-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;max-width:1100px;margin:0 auto}
+.contact-split .contact-head{text-align:left}
+.contact-split .contact-form-wrapper{max-width:none}
+.contact-proof{background:var(--charcoal-lighter);border:1px solid rgba(212,160,23,.25);border-radius:16px;padding:32px 28px;text-align:center}
+.contact-proof blockquote{font-style:italic;line-height:1.6;margin:8px 0 16px}
+.cp-name{font-weight:700;margin:0 0 20px}.cp-name span{display:block;color:var(--gold);font-weight:500;font-size:.9rem}
+@media(max-width:900px){.contact-split{grid-template-columns:1fr}.contact-split .contact-head{text-align:center}}
+
+.jump-band{position:relative;min-height:clamp(260px,38vw,460px);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.jump-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.jump-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.05) 30%,rgba(20,20,20,.85))}
+.jump-band h2{position:relative;font-family:var(--font-heading);font-size:clamp(1.6rem,4vw,2.8rem);margin:0 20px clamp(28px,4vw,48px);text-align:center;text-shadow:0 2px 18px rgba(0,0,0,.5)}
+.jump-v{background:var(--charcoal);padding:var(--section-y-tight) 0 var(--section-y)}
+.jump-wrap{text-align:center}
+.jump-wrap h2{font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.6rem);max-width:700px;margin:0 auto 2rem}
+.jump-video{width:100%;max-width:720px;border-radius:16px;box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 1px rgba(212,160,23,.18);display:block;margin:0 auto}
+.jump-ps{margin:1.4rem auto 0;font-size:.86rem;color:#a9a69d;max-width:520px}
+.offer-list{margin:0;padding-left:18px;color:#c9c6bd;font-size:.92rem;line-height:1.55;flex:1}
+.offer-list li{margin:2px 0}
+.offer-body p{flex:0 0 auto}
+.offer-body .btn{margin-top:auto}
+.offer-list{margin-bottom:14px}
+.el-levels{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:8px}
+.el-levels li{background:rgba(212,160,23,.07);border:1px solid rgba(212,160,23,.2);border-radius:10px;padding:10px 14px;color:#d9d6cc}
+.el-levels b{color:var(--gold)}
+.el-text>p+ul+p{margin-bottom:22px}
+.about-stats-new{justify-content:flex-start;margin:22px 0 0}.about-stats-new div{text-align:left}
+.faq-list{max-width:1100px;grid-template-columns:1fr 1fr;align-items:start}
+@media(max-width:820px){.faq-list{grid-template-columns:1fr}}
+.faq-list summary{padding-right:22px;position:relative}.faq-list summary::after{position:absolute;right:0;top:0;float:none}
 </style>
   <script type="application/ld+json">
   {
@@ -2358,7 +2408,7 @@
     "@type": "ProfessionalService",
     "name": "Jakub Popluhar - KI-Training & Konsumentenpsychologie",
     "url": "https://jakubpopluhar.com",
-    "description": "Praxisnahes KI-Training für Führungskräfte und Teams. KI-Personal-Training, Inhouse-Trainings und Keynotes.",
+    "description": "Praxisnahes KI-Training für Teams in Unternehmen in Österreich und Deutschland: Inhouse-Trainings, offene Seminare und Einzeltraining, mit Teilnahmebestätigung nach EU AI Act Art. 4.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Wien",
@@ -2386,6 +2436,110 @@
     },
     "serviceType": ["KI-Training", "KI-Personal-Training", "Keynote Speaking", "Inhouse-Training", "Konsumentenpsychologie"]
   }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Für wen sind die Trainings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Für Teams in Unternehmen in Österreich und Deutschland, von Einsteigern bis zu Fortgeschrittenen. Daneben gibt es offene Seminare für einzelne Mitarbeitende und Einzeltraining."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mit welchen KI-Werkzeugen wird trainiert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mit dem Werkzeug, das Ihr Team nutzt: Microsoft 365 Copilot, ChatGPT, Claude oder Gemini."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gibt es Trainings für einzelne Abteilungen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Inhalte und Übungen werden auf die Abteilung zugeschnitten, zum Beispiel HR, Vertrieb, Marketing oder Assistenz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie viele Personen pro Training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "8 bis maximal 12 Personen. So bleibt Zeit, jede Person an ihrer eigenen Aufgabe zu begleiten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange dauert ein Training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In der Regel ein Praxistag. Möglich sind auch zwei halbe Tage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Findet das Training vor Ort oder online statt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Ihrem Haus oder live online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet ein Praxistag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das hängt von Format, Dauer und Ort ab. Nach einem kurzen Erstgespräch bekommen Sie ein schriftliches Angebot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist die Lernseite?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jedes Training hat eine eigene Lernseite mit allen Übungen und Prompts zum Kopieren, mit Grundaufgaben für alle und Bonusaufgaben für die Schnellen. Die Teilnehmenden arbeiten im Split Screen: links die Lernseite, rechts das KI-Werkzeug."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dürfen meine Mitarbeitenden echte Daten verwenden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Im Training nicht. Wir üben mit erfundenen Beispielen aus Ihrem Arbeitsalltag. Dazu gibt es eine einfache Regel, was in die KI darf und was nicht, die Ihr Team danach im Alltag anwendet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bekommen die Teilnehmenden eine Bestätigung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Jede Person erhält eine Teilnahmebestätigung mit den Inhalten zu Datenschutz und EU AI Act. Damit dokumentieren Sie die KI-Kompetenz nach Art. 4."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was verlangt der EU AI Act von Unternehmen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seit 2. Februar 2025 müssen Unternehmen, die KI einsetzen, nach Artikel 4 dafür sorgen, dass ihre Mitarbeitenden über ausreichende KI-Kompetenz verfügen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wer ist Jakub Popluhar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "KI-Trainer in Wien. Ausgebildeter Gymnasiallehrer (M.Ed., TU München und LMU München), Lehrer in dritter Generation, KI-Trainer bei ARS, tecTrain und BFI."
+      }
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -2426,8 +2580,7 @@
               <li><a href="/termine/">Standard-Trainings<small>Offene Seminare bei meinen Partnern</small></a></li>
             </ul>
           </li>
-          <li><a href="#proof" data-slide="7">Ergebnisse</a></li>
-          <li><a href="/blog/">Blog</a></li>
+          <li><a href="#proof" data-slide="7">Feedback</a></li>
           <li><a href="#about" data-slide="1">Über mich</a></li>
           <li><a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Erstgespr&auml;ch</a></li>
         </ul>
@@ -2463,45 +2616,32 @@
         <div class="hero-ohrid-veil"></div>
         <div class="hero-content slide-content hero-ohrid-content">
           <div class="hero-badge">KI-Trainer für Teams und Führungskräfte</div>
-          <h1>„Sie wissen nicht,&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
-          <p class="hero-sub">Sie wissen, dass KI Ihr Business verändert. Sie wissen nur nicht, wo Sie anfangen sollen. Dafür bin ich da.</p>
+          <h1>Ihr Team kann mit KI mehr, als es denkt.</h1>
+          <p class="hero-sub">Praxistrainings f&uuml;r Teams: an Ihren echten Aufgaben, mit Ihren Werkzeugen, mit Teilnahmebest&auml;tigung nach EU AI Act.</p>
 <div class="hero-ctas">
             <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Erstgespr&auml;ch buchen &rarr;</a>
-            <a href="#about" class="btn btn-secondary" data-slide="1">Mehr erfahren</a>
+            <a href="/trainings/" class="btn btn-secondary">Trainings ansehen</a>
           </div>
         </div>
       </div>
 
       <div class="hero-trust">
-        <p class="trust-bar-label">Vertraut von</p>
+        <p class="trust-bar-label">Trainer bei</p>
         <div class="trust-marquee">
           <div class="trust-track">
             <img src="images/logos/ars-akademie.svg" alt="ARS Akademie" class="trust-logo-img">
             <img src="images/logos/tectrain.png" alt="tecTrain" class="trust-logo-img">
             <img src="images/logos/digital-campus-vorarlberg.svg" alt="Digital Campus Vorarlberg" class="trust-logo-img">
             <img src="images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" class="trust-logo-img">
-            <div class="trust-item"><img src="images/logos/x-sieben.png" alt="X SIEBEN" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
             <img src="images/logos/tsm.svg" alt="TSM" class="trust-logo-img">
-            <img src="images/logos/innovatic-group.svg" alt="Innovatic Group" class="trust-logo-img">
-            <div class="trust-item"><img src="images/logos/became-ai-icon.svg" alt="became ai" class="trust-logo-img"><span class="trust-name">became ai</span></div>
-            <img src="images/logos/sport-union.svg" alt="Sport Union" class="trust-logo-img">
-            <img src="images/logos/youknowmebest.svg" alt="YouKnowMeBest" class="trust-logo-img">
-            <img src="images/logos/fitrock.svg" alt="FitRock" class="trust-logo-img">
-            <div class="trust-item"><img src="images/logos/zr-bjj.svg" alt="ZR Team Vienna" class="trust-logo-img"><span class="trust-name">ZR Team Vienna</span></div>
+            <div class="trust-item"><img src="images/logos/x-sieben.png" alt="X SIEBEN" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
           </div>
           <div class="trust-track" aria-hidden="true">
             <img src="images/logos/ars-akademie.svg" alt="" class="trust-logo-img">
             <img src="images/logos/tectrain.png" alt="" class="trust-logo-img">
             <img src="images/logos/digital-campus-vorarlberg.svg" alt="" class="trust-logo-img">
             <img src="images/logos/bfi-vorarlberg.png" alt="" class="trust-logo-img">
-            <div class="trust-item"><img src="images/logos/x-sieben.png" alt="" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
             <img src="images/logos/tsm.svg" alt="" class="trust-logo-img">
-            <img src="images/logos/innovatic-group.svg" alt="" class="trust-logo-img">
-            <div class="trust-item"><img src="images/logos/became-ai-icon.svg" alt="" class="trust-logo-img"><span class="trust-name">became ai</span></div>
-            <img src="images/logos/sport-union.svg" alt="" class="trust-logo-img">
-            <img src="images/logos/youknowmebest.svg" alt="" class="trust-logo-img">
-            <img src="images/logos/fitrock.svg" alt="" class="trust-logo-img">
-            <img src="images/logos/zr-bjj.svg" alt="" class="trust-logo-img">
           </div>
         </div>
       </div>
@@ -2529,8 +2669,8 @@
               <div class="testimonial-author"><div class="author-info"><span class="name">Christina Buchgeher</span><span class="role">N&Ouml; Landesgesundheitsagentur</span></div></div>
             </div>
             <div class="testimonial-card">
-<blockquote>&bdquo;Tricks, richtiges Kommunizieren und das Einstellen von Projekten ersparen mir jetzt erheblich Zeit und somit sind auch saubere Abl&auml;ufe gew&auml;hrleistet.&ldquo;</blockquote>
-              <div class="testimonial-author"><div class="author-info"><span class="name">Deniz Yava&scaron;</span><span class="role">Maschinenfabrik ALBERT GmbH</span></div></div>
+              <blockquote>&bdquo;Viele neue, gut nutzbare Anweisungen und Prompts, um die Antworten zu verfeinern.&ldquo;<details class="t-orig"><summary>&uuml;bersetzt</summary>&bdquo;Ve&#318;a nov&yacute;ch dobre pou&#382;ite&#318;n&yacute;ch in&scaron;trukci&iacute; - promtov na vyladenie odpoved&iacute;.&ldquo;</details></blockquote>
+              <div class="testimonial-author"><div class="author-info"><span class="name">Angelika Kopj&aacute;k</span><span class="role">Teilnehmerin, Seminar KI am Arbeitsplatz</span></div></div>
             </div>
         </div>
       </div>
@@ -2542,14 +2682,13 @@
         <div class="el-split">
           <figure class="el-photo"><img src="images/story/uebung-lernseite-von-hinten.jpg" alt="Seminar: Teilnehmende arbeiten an der Lernseite, Jakub Popluhar geht durch die Reihen" loading="lazy" decoding="async"><figcaption>Split Screen: links die Lernseite, rechts das KI-Werkzeug. Jede Person arbeitet in ihrem Tempo.</figcaption></figure>
           <div class="el-text">
-            <p class="section-label">Warum ich</p>
             <h2>Lehrer in dritter Generation. KI jeden Tag im Einsatz.</h2>
-            <p>In jeder Gruppe sitzen Einsteiger neben Profis. Deshalb hat jedes Training eine eigene Lernseite, die ich selbst baue. Ich bilde KI-Champions aus, die das Wissen im Haus weitergeben.</p>
-            <div class="el-stats">
-              <div><b>735 h</b><span>in Claude Code</span></div>
-              <div><b>1.130</b><span>Sitzungen</span></div>
-              <div><b>231 / 251</b><span>Tage daran</span></div>
-            </div>
+            <p>Ausgebildeter Gymnasiallehrer, studiert an der TU M&uuml;nchen und der LMU M&uuml;nchen. In jeder Gruppe sitzen Einsteiger neben Profis. Deshalb hat jede Lernseite zwei Ebenen:</p>
+            <ul class="el-levels">
+              <li><b>Grundaufgaben</b> f&uuml;r alle, mit Prompts zum Kopieren</li>
+              <li><b>Bonusaufgaben</b> f&uuml;r die Schnellen, bis zum Profi-Quiz</li>
+            </ul>
+            <p>Niemand wartet, niemand bleibt zur&uuml;ck.</p>
             <div class="el-quote">
 <blockquote>&bdquo;die &Uuml;bungen waren super! Der Text zum Rauskopieren extrem hilfreich.&ldquo;</blockquote>
               <cite>Christina Buchgeher &middot; N&Ouml; Landesgesundheitsagentur</cite>
@@ -2558,22 +2697,8 @@
         </div>
       </div>
     </section>
+<div class="kicheck-slim"><span>Testen Sie sich selbst: Wo stehen Sie mit KI? Zw&ouml;lf Fragen, zwei Minuten.</span><a href="/ki-check/">KI-Check starten &rarr;</a></div>
 
-    <section class="slide slide-proof slide-proof-sk" id="feedback-seminare">
-      <div class="container slide-content">
-        <p class="section-label">Stimmen aus den Seminaren</p>
-        <div class="proof-grid">
-            <div class="testimonial-card">
-<blockquote>&bdquo;Ich brauche mehr KI Agenten, Reiseplanung funktioniert super!&ldquo;</blockquote>
-              <div class="testimonial-author"><div class="author-info"><span class="name">Andreas</span><span class="role">Teilnehmer, Copilot-Seminar</span></div></div>
-            </div>
-            <div class="testimonial-card">
-<blockquote>&bdquo;Wie klein ich (wir) doch in der aktuellen Anwendung in Bezug auf KI und Tools sind.&ldquo;</blockquote>
-              <div class="testimonial-author"><div class="author-info"><span class="name">Daniela</span><span class="role">Teilnehmerin, KI f&uuml;r den B&uuml;roalltag</span></div></div>
-            </div>
-        </div>
-      </div>
-    </section>
 
     <section class="slide slide-services" id="services" data-index="5">
       <div class="container slide-content">
@@ -2588,7 +2713,12 @@
             <div class="offer-body">
               <span class="service-badge">Inhouse</span>
               <h3>Training f&uuml;r Ihr Team</h3>
-              <p>Ein Praxistag in Ihrem Haus, an Ihren echten Aufgaben und mit Ihren Werkzeugen. Mit Teilnahmebest&auml;tigung zur KI-Kompetenz nach EU AI Act Art.&nbsp;4.</p>
+              <ul class="offer-list">
+                <li>Ein Praxistag in Ihrem Haus, an echten Aufgaben</li>
+                <li>Mit Copilot, ChatGPT, Claude oder Gemini</li>
+                <li>Nach Abteilung: HR, Vertrieb, Marketing, Assistenz</li>
+                <li>Teilnahmebest&auml;tigung nach EU AI Act</li>
+              </ul>
               <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Erstgespr&auml;ch buchen &rarr;</a>
             </div>
           </article>
@@ -2597,8 +2727,13 @@
             <div class="offer-body">
               <span class="service-badge">Offen</span>
               <h3>Offene Seminare</h3>
-              <p>Feste Termine bei meinen Partnern in Wien und online.</p>
-              <a href="/termine/" class="btn btn-secondary">Termine ansehen &rarr;</a>
+              <ul class="offer-list">
+                <li>Feste Termine bei meinen Partnern, Wien und online</li>
+                <li>KI im B&uuml;roalltag und Prompting</li>
+                <li>Microsoft 365 Copilot und HR-Praxis</li>
+                <li>Workflows und KI-Agenten</li>
+              </ul>
+              <a href="/trainings/" class="btn btn-secondary">Mehr zu den Trainings &rarr;</a>
             </div>
           </article>
           <article class="offer-card">
@@ -2606,49 +2741,17 @@
             <div class="offer-body">
               <span class="service-badge">1:1</span>
               <h3>Einzeltraining</h3>
-              <p>F&uuml;r F&uuml;hrungskr&auml;fte, an den eigenen Aufgaben.</p>
-              <a href="/ki-personal-training/" class="btn btn-secondary">Ablauf und Preise &rarr;</a>
+              <ul class="offer-list">
+                <li>In k&uuml;rzester Zeit das Maximum aus KI holen</li>
+                <li>An Ihren eigenen Aufgaben und Dateien</li>
+                <li>Erste Session vor Ort, danach live online</li>
+                <li>Ihr Tempo, Ihre Fragen, Ihre Werkzeuge</li>
+              </ul>
+              <a href="/trainings/" class="btn btn-secondary">Mehr zu den Trainings &rarr;</a>
             </div>
           </article>
         </div>
 
-        <div class="one-proof">
-          <p class="section-label">Aus dem Einzeltraining</p>
-        <div class="proof-grid">
-            <div class="testimonial-card">
-<blockquote>„Vorher hatte ich meine Chats überall verstreut und unorganisiert. Jetzt habe ich alles sortiert - Marketing, Training, SOPs, Strategie. Wir haben mein LLM organisiert und personalisiert, sodass ich nicht jedes Mal einen Prompt schreiben muss. Das alleine spart mir 40 Minuten am Tag."</blockquote>
-              <div class="testimonial-author">
-                <img class="avatar-img" src="images/testimonials/patrik-hubek-web.png" alt="Patrik Hubek" loading="lazy">
-                <div class="author-info">
-                  <span class="name">Patrik Hubek</span>
-                  <span class="role">FitRock | Health & Fitness</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-<blockquote>„Ich dachte, ich kann ChatGPT bedienen - bis mir Jakub gezeigt hat, was wirklich möglich ist. Keine Theorie, sondern: selber machen, ausprobieren, verstehen. Nach einer Session wusste ich mehr als nach Monaten alleine."</blockquote>
-              <div class="testimonial-author">
-                <img class="avatar-img" src="images/testimonials/tea-shashaj-web.png" alt="Tea Shashaj" loading="lazy">
-                <div class="author-info">
-                  <span class="name">Tea Shashaj</span>
-                  <span class="role">YouKnowMeBest | E-Commerce</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-<blockquote>„Ich betreibe ein Kampfsport-Studio - Technik ist nicht meine Welt. Ich wusste nicht mal, wo die App ist. 45 Minuten später hatte ich ein KI-Projekt für Mitgliedergewinnung - und das Verrückte: die KI hat mir selbst geholfen, die richtigen Fragen zu stellen. Alleine wäre ich nie draufgekommen."</blockquote>
-              <div class="testimonial-author">
-                <img class="avatar-img" src="images/testimonials/petar-pecija-web.png" alt="Petar Pecija" loading="lazy">
-                <div class="author-info">
-                  <span class="name">Petar Pecija</span>
-                  <span class="role">ZR Team Vienna | Sport</span>
-                </div>
-              </div>
-            </div>
-        </div>
-        </div>
       </div>
     </section>
 
@@ -2656,20 +2759,20 @@
     <section class="slide slide-transformation" id="transformation" data-index="3">
       <div class="container slide-content">
         <div class="section-header">
-          <p class="section-label">Transformation</p>
+          <p class="section-label">Nach einem Praxistag</p>
           <h2>Vorher vs. Nachher</h2>
-          <p>So arbeiten wir im Paket, Schritt für Schritt.</p>
+          <p>Was sich in Ihrem Team &auml;ndern soll.</p>
         </div>
 
         <div class="transform-grid">
           <div class="transform-col transform-before">
             <h3>Ohne Training</h3>
             <table>
-              <tr><td class="icon-cell">&#10007;</td><td>Weiß nicht mal, wo die App ist - klickt auf falsche Links</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Nutzt KI wie Google - keine Struktur, kein Kontext</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Chats überall verstreut, jeden Tag Zeit verschwendet</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Screenshots hochladen und hoffen, dass es funktioniert</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Keine Ahnung, was die KI kann - und was nicht</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Nutzt KI wie eine Suchmaschine</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Gute Ergebnisse sind Zufall</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Jede Person f&auml;ngt jeden Tag bei null an</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Unsicher, welche Daten in die KI d&uuml;rfen</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Niemand wei&szlig;, was die Kollegin schon kann</td></tr>
             </table>
           </div>
 
@@ -2678,13 +2781,13 @@
           </div>
 
           <div class="transform-col transform-after">
-            <h3>Nach der Zusammenarbeit, als Beispiel</h3>
+            <h3>Nach dem Training</h3>
             <table>
-              <tr><td class="icon-cell">&#10003;</td><td>Eigene Projekte mit System Prompts - KI kennt Ihr Business</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Masterdokument: KI versteht Kontext, Ziele und Sprache</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Eigene Skills, die Ihre Abläufe mitgehen</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Workspace organisiert - 40 Minuten pro Tag gespart</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Und vieles mehr</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Fragt mit Kontext und bekommt brauchbare Ergebnisse</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Eigene Vorlagen und Assistenten f&uuml;r wiederkehrende Aufgaben</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Klare Regel, was in die KI darf und was nicht</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>KI-Champions im Team, die weiterhelfen</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Teilnahmebest&auml;tigung nach EU AI Act Art.&nbsp;4</td></tr>
             </table>
           </div>
         </div>
@@ -2692,56 +2795,10 @@
     </section>
 
     <!-- SLIDE 5: HERO TESTIMONIAL -->
-<section class="kicheck-band" id="ki-check-cta" aria-labelledby="kicheck-title">
-  <div class="kicheck-inner">
-    <p class="kicheck-eyebrow">Kostenlos &amp; ohne Anmeldung</p>
-    <h2 class="kicheck-title" id="kicheck-title">Lieber erst schauen, wo Sie stehen?</h2>
-    <p class="kicheck-sub">Zw&ouml;lf Fragen zu Sprachmodellen, Prompting, Alltag und Sicherheit.
-      Am Ende wissen Sie, wo Sie stehen, und welches Training zu Ihnen passt.</p>
-    <a href="/ki-check/" class="btn btn-primary">KI-Check starten &rarr;</a>
-    <div class="kicheck-meta">
-      <span>12 Fragen</span><span>2 Minuten</span><span>Ergebnis sofort</span>
-    </div>
-  </div>
-</section>
+
 
 
     <!-- SLIDE 6: SERVICES -->
-    <section class="slide slide-speaking" id="speaking" data-index="2">
-      <div class="container slide-content">
-        <div class="speaking-split">
-          <div class="speaking-text">
-            <p class="section-label">International Speaker</p>
-            <h2>Auf einer Bühne mit Staatspräsidenten</h2>
-
-            <div class="speaking-event-a">
-              <h3>President Ivanov's School for Young Leaders</h3>
-              <p class="speaking-subtitle">16. Jahrgang · Ohrid, Nordmazedonien · November 2025</p>
-            </div>
-
-            <p class="podium-label" style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--white-muted); margin-bottom: 12px;">Shared Podium With</p>
-            <ul class="podium-list">
-              <li><span class="podium-name">Katalin Novák</span><span class="podium-title">Ehem. Präsidentin Ungarns</span></li>
-              <li><span class="podium-name">Prof. Dr. Jeffrey Sachs</span><span class="podium-title">Columbia University</span></li>
-              <li><span class="podium-name">Lt. Gen. Michael Dubie</span><span class="podium-title">Strategic Leadership</span></li>
-              <li><span class="podium-name">Prof. Djordjija Petkoski</span><span class="podium-title">Wharton School · AI & Sustainability</span></li>
-            </ul>
-          </div>
-
-          <div class="speaking-photo-a">
-            <div>
-              <img src="images/speaking/ivanov-certificate-web.jpg" alt="Jakub Popluhar mit Präsident Dr. Gjorge Ivanov" loading="lazy">
-              <p class="photo-caption">Präsident Dr. Gjorge Ivanov überreicht das Zertifikat</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="speaking-eval-a">
-          <blockquote>„Creative, interactive methods and practical insights into consumer psychology."</blockquote>
-          <p class="eval-source">- Teilnehmer-Evaluation · Bewertet als <strong>„among the most transformative sessions"</strong></p>
-        </div>
-      </div>
-    </section>
 
     <!-- SLIDE 4: TRANSFORMATION -->
     <section class="slide slide-about" id="about" data-index="1">
@@ -2755,7 +2812,7 @@
         <div class="about-content">
           <p class="section-label">&Uuml;ber mich</p>
           <h2>Erst an mir. Dann an Ihnen.</h2>
-          <p class="about-text">KI-Trainer f&uuml;r Teams und F&uuml;hrungskr&auml;fte in &Ouml;sterreich und Deutschland. Human in the Lead, KI im Hintergrund.</p>
+          <p class="about-text">KI-Trainer f&uuml;r Teams und F&uuml;hrungskr&auml;fte in &Ouml;sterreich und Deutschland. Der Mensch entscheidet, die KI arbeitet zu.</p>
 
           <ul class="about-credentials">
             <li><span class="check">&#10003;</span> KI-Trainer bei ARS, tecTrain und BFI</li>
@@ -2763,14 +2820,18 @@
             <li><span class="check">&#10003;</span> M.Ed., Sprachwissenschaft &amp; Amerikanistik</li>
             <li><span class="check">&#10003;</span> Speaker, President Ivanov's School for Young Leaders</li>
             <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
-            <li><span class="check">&#10003;</span> Ehem. Floorball-Nationalspieler</li>
+            <li><span class="check">&#10003;</span> Ehem. Floorball-Nationalspieler &middot; Skydiver</li>
           </ul>
-          <p class="about-link"><a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener">Mehr &uuml;ber mich auf LinkedIn &rarr;</a></p>
+            <div class="el-stats about-stats-new">
+              <div><b>735</b><span>Stunden selbst mit KI gebaut</span></div>
+              <div><b>1.130</b><span>Arbeitssitzungen</span></div>
+            </div>
         </div>
       </div>
     </section>
 
     <!-- SLIDE 3: SPEAKING (Option A — Split) -->
+
     <section class="slide slide-trainings" id="trainings" data-index="6">
       <div class="container slide-content">
         <div class="section-header">
@@ -2901,35 +2962,24 @@
           <a href="/termine/">Alle Termine ansehen &rarr;</a>
         </div>
 
-        <div class="training-cta-note">
-          <p>Kein passender Termin dabei?<span>M&ouml;chten Sie einen individuellen Termin anfragen? Nehmen Sie Kontakt auf.</span></p>
-          <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn-training" target="_blank" rel="noopener">Termin anfragen &rarr;</a>
-        </div>
       </div>
     </section>
 
     <!-- SLIDE 8: PROOF -->
-    <section class="slide slide-blog" id="blog" data-index="8">
-      <div class="container slide-content">
-        <span class="blog-eyebrow">Aus dem Blog</span>
-        <h2 class="blog-heading">Neueste Beiträge</h2>
-        <div class="blog-teaser-grid">
-        <!-- BLOG-TEASER:START -->
-        <a class="blog-card" href="/blog/machen-ki-agenten-fehler/"><span class="blog-card-meta" style="color:#d4a017">21. Aug. 2026 &middot; Aus der Praxis</span><span class="blog-card-title">Machen meine KI-Agenten Fehler? Teils, teils</span></a>
-        <a class="blog-card" href="/blog/diktieren-ist-orchestrieren/"><span class="blog-card-meta" style="color:#d4a017">27. Juli 2026 &middot; Aus der Praxis</span><span class="blog-card-title">Ich prompte nicht weniger, ich prompte anders</span></a>
-        <a class="blog-card" href="/blog/prozess-der-sich-selbst-repariert/"><span class="blog-card-meta" style="color:#d4a017">22. Juli 2026 &middot; Aus der Praxis</span><span class="blog-card-title">Ich lasse heute meine KI-Assistentin erzählen</span></a>
-        <!-- BLOG-TEASER:END -->
-        </div>
-        <a class="blog-all-btn" href="/blog/">Zum Blog</a>
-      </div>
-    </section>
 
     <!-- SLIDE 10: CTA -->
+
+
     <section class="slide slide-cta" id="contact" data-index="9">
       <div class="container slide-content">
+        <div class="contact-split">
+        <div class="contact-main">
+        <div class="section-header contact-head">
+          <p class="section-label">Kontakt</p>
+          <h2>Sprechen wir &uuml;ber Ihr Team.</h2>
+          <p>Ich melde mich innerhalb von 24 Stunden.</p>
+        </div>
         <div class="contact-form-wrapper">
-          <h3>Kontakt aufnehmen</h3>
-          <p class="form-sub">Ich melde mich innerhalb von 24 Stunden.</p>
           <form class="contact-form" id="contactForm" action="https://formspree.io/f/xzdaybpa" method="POST">
             <div class="form-row">
               <input type="text" name="name" placeholder="Vor- und Nachname *" required>
@@ -2954,10 +3004,41 @@
             <button type="submit" class="btn-submit">Nachricht senden &rarr;</button>
           </form>
           <div class="form-success" id="formSuccess">Vielen Dank! Ich melde mich bei Ihnen.</div>
-          <p style="text-align:center; margin-top:16px; margin-bottom:80px; color:var(--white-muted); font-size:0.85rem;">
-            Oder direkt auf
-            <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener noreferrer" style="color:var(--gold); font-weight:600;">LinkedIn</a>
-          </p>
+        </div>
+        </div>
+        <aside class="contact-proof">
+          <blockquote>&bdquo;Tricks, richtiges Kommunizieren und das Einstellen von Projekten ersparen mir jetzt erheblich Zeit und somit sind auch saubere Abl&auml;ufe gew&auml;hrleistet.&ldquo;</blockquote>
+          <p class="cp-name">Deniz Yava&scaron;<span>Maschinenfabrik ALBERT GmbH</span></p>
+        </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="jump-v" aria-label="Gemeinsam starten">
+      <div class="container jump-wrap">
+        <h2>Lassen Sie uns zusammen in die KI-Welt springen.</h2>
+        <video class="jump-video" controls playsinline muted loop autoplay preload="metadata" poster="images/personal/ki-angebot-poster.jpg">
+          <source src="images/personal/ki-angebot.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <section class="slide hr-faq" id="fragen">
+      <div class="container slide-content">
+        <div class="section-header"><p class="section-label">F&uuml;r HR und Gesch&auml;ftsf&uuml;hrung</p><h2>H&auml;ufige Fragen</h2></div>
+        <div class="faq-list">
+          <details><summary>F&uuml;r wen sind die Trainings?</summary><p>F&uuml;r Teams in Unternehmen in &Ouml;sterreich und Deutschland, von Einsteigern bis zu Fortgeschrittenen. Daneben gibt es offene Seminare f&uuml;r einzelne Mitarbeitende und Einzeltraining.</p></details>
+          <details><summary>Mit welchen KI-Werkzeugen wird trainiert?</summary><p>Mit dem Werkzeug, das Ihr Team nutzt: Microsoft 365 Copilot, ChatGPT, Claude oder Gemini.</p></details>
+          <details><summary>Gibt es Trainings f&uuml;r einzelne Abteilungen?</summary><p>Ja. Inhalte und &Uuml;bungen werden auf die Abteilung zugeschnitten, zum Beispiel HR, Vertrieb, Marketing oder Assistenz.</p></details>
+          <details><summary>Wie viele Personen pro Training?</summary><p>8 bis maximal 12 Personen. So bleibt Zeit, jede Person an ihrer eigenen Aufgabe zu begleiten.</p></details>
+          <details><summary>Wie lange dauert ein Training?</summary><p>In der Regel ein Praxistag. M&ouml;glich sind auch zwei halbe Tage.</p></details>
+          <details><summary>Findet das Training vor Ort oder online statt?</summary><p>In Ihrem Haus oder live online.</p></details>
+          <details><summary>Was kostet ein Praxistag?</summary><p>Das h&auml;ngt von Format, Dauer und Ort ab. Nach einem kurzen Erstgespr&auml;ch bekommen Sie ein schriftliches Angebot.</p></details>
+          <details><summary>Was ist die Lernseite?</summary><p>Jedes Training hat eine eigene Lernseite mit allen &Uuml;bungen und Prompts zum Kopieren, mit Grundaufgaben f&uuml;r alle und Bonusaufgaben f&uuml;r die Schnellen. Die Teilnehmenden arbeiten im Split Screen: links die Lernseite, rechts das KI-Werkzeug.</p></details>
+          <details><summary>D&uuml;rfen meine Mitarbeitenden echte Daten verwenden?</summary><p>Im Training nicht. Wir &uuml;ben mit erfundenen Beispielen aus Ihrem Arbeitsalltag. Dazu gibt es eine einfache Regel, was in die KI darf und was nicht, die Ihr Team danach im Alltag anwendet.</p></details>
+          <details><summary>Bekommen die Teilnehmenden eine Best&auml;tigung?</summary><p>Ja. Jede Person erh&auml;lt eine Teilnahmebest&auml;tigung mit den Inhalten zu Datenschutz und EU AI Act. Damit dokumentieren Sie die KI-Kompetenz nach Art.&nbsp;4.</p></details>
+          <details><summary>Was verlangt der EU AI Act von Unternehmen?</summary><p>Seit 2. Februar 2025 m&uuml;ssen Unternehmen, die KI einsetzen, nach Artikel 4 daf&uuml;r sorgen, dass ihre Mitarbeitenden &uuml;ber ausreichende KI-Kompetenz verf&uuml;gen.</p></details>
+          <details><summary>Wer ist Jakub Popluhar?</summary><p>KI-Trainer in Wien. Ausgebildeter Gymnasiallehrer (M.Ed., TU M&uuml;nchen und LMU M&uuml;nchen), Lehrer in dritter Generation, KI-Trainer bei ARS, tecTrain und BFI.</p></details>
         </div>
       </div>
     </section>
