@@ -2261,6 +2261,29 @@
   .hero-ohrid-content .hero-ctas { flex-direction: column; align-items: stretch; }
   .hero-ohrid-content .hero-ctas .btn { justify-content: center; }
 }
+
+/* --- Lernseite statt Behauptung (2026-10-26) --- */
+.slide-elearning{background:var(--charcoal-light);min-height:auto;padding:var(--section-y) 0}
+.slide-elearning .container{max-width:1100px;width:100%}
+.el-head{text-align:center;max-width:720px;margin:0 auto 34px}
+.el-head h2{font-family:var(--font-heading);font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.2;margin:8px 0 12px}
+.el-head p{color:#a9a69d;font-size:1.05rem;line-height:1.6;margin:0}
+.el-stats{display:flex;justify-content:center;gap:clamp(18px,5vw,56px);margin:0 auto 34px;flex-wrap:wrap}
+.el-stats div{text-align:center}
+.el-stats b{display:block;font-family:var(--font-heading);font-size:clamp(1.6rem,3.4vw,2.2rem);color:var(--gold)}
+.el-stats span{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#a9a69d}
+.el-shots{display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:start}
+.el-shots figure{margin:0}
+.el-shots img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid rgba(212,160,23,.22);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.el-side{display:grid;gap:16px}
+.el-shots figcaption{font-size:.8rem;color:#8d8a82;margin-top:8px}
+.el-quote{max-width:720px;margin:36px auto 0;text-align:center}
+.el-quote .stars{color:var(--gold);letter-spacing:4px;font-size:1rem;margin-bottom:10px}
+.el-quote blockquote{margin:0;font-size:clamp(1.1rem,2.4vw,1.35rem);font-style:italic;line-height:1.5}
+.el-quote cite{display:block;margin-top:10px;font-style:normal;color:var(--gold);font-weight:600;font-size:.9rem}
+@media(max-width:820px){.el-shots{grid-template-columns:1fr}.el-side{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.el-side{grid-template-columns:1fr}.el-stats{flex-wrap:nowrap;gap:12px}.el-stats b{font-size:1.35rem}.el-stats span{font-size:.66rem;letter-spacing:.03em}}
+.service-featured-image img.photo{width:100%;height:auto;border-radius:12px;object-fit:cover;aspect-ratio:4/3}
 </style>
   <script type="application/ld+json">
   {
@@ -2420,82 +2443,130 @@
     </section>
 
     <!-- SLIDE 2: ABOUT -->
-    <section class="slide slide-about" id="about" data-index="1">
+    <section class="slide slide-proof" id="proof" data-index="7">
       <div class="container slide-content">
-        <div class="about-image-wrapper">
-          <div class="about-image">
-            <img src="images/profile/7-web.png" alt="Jakub Popluhar" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
-          </div>
-          <div class="about-stats">
-            <div class="about-stat">
-              <span class="number">735 h</span>
-              <span class="label">in Claude Code</span>
-            </div>
-            <div class="about-stat">
-              <span class="number">1.130</span>
-              <span class="label">Sitzungen</span>
-            </div>
-            <div class="about-stat">
-              <span class="number">231/251</span>
-              <span class="label">Tage daran</span>
-            </div>
+        <div class="section-header">
+          <p class="section-label">Ergebnisse</p>
+          <h2>Es funktioniert.</h2>
+          <div class="proof-rating">
+            <span class="pr-stars" style="--r:4.69" role="img" aria-label="4,69 von 5 Sternen">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="pr-num">4,69<small> / 5</small></span>
+            <span class="pr-txt">Trainerbewertung aus 111 anonymen Feedbackbögen<br>Training gesamt 4,45 / 5 aus 152 Bewertungen</span>
           </div>
         </div>
 
-        <div class="about-content">
-          <p class="section-label">Wer bin ich</p>
-          <h2>Ich teste alles an mir selbst, bevor ich es Ihnen zeige.</h2>
-          <p class="about-text">Ich bin KI-Trainer für Führungskräfte und Teams im DACH-Raum, in offenen Seminaren bei meinen Partnern und inhouse in Ihrem Unternehmen. Human in the Lead. KI im Hintergrund.</p>
+        <div class="proof-grid">
+            <div class="testimonial-card">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>„Vorher hatte ich meine Chats überall verstreut und unorganisiert. Jetzt habe ich alles sortiert - Marketing, Training, SOPs, Strategie. Wir haben mein LLM organisiert und personalisiert, sodass ich nicht jedes Mal einen Prompt schreiben muss. Das alleine spart mir 40 Minuten am Tag."</blockquote>
+              <div class="testimonial-author">
+                <img class="avatar-img" src="images/testimonials/patrik-hubek-web.png" alt="Patrik Hubek" loading="lazy">
+                <div class="author-info">
+                  <span class="name">Patrik Hubek</span>
+                  <span class="role">FitRock | Health & Fitness</span>
+                </div>
+              </div>
+            </div>
 
-          <ul class="about-credentials">
-            <li><span class="check">&#10003;</span> KI-Trainer bei ARS (größter privater Seminaranbieter Österreichs), tecTrain, BFI, PROEKO und Hill Digital</li>
-            <li><span class="check">&#10003;</span> Sprachwissenschaft & Amerikanistik - Semantik ist die Grundlage jeder KI-Kommunikation</li>
-            <li><span class="check">&#10003;</span> Speaker, President Ivanov's School for Young Leaders</li>
-            <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
-            <li><span class="check">&#10003;</span> Erster gesponserter Roundnet-Spieler Europas · ehem. Floorball-Nationalspieler · PADI Divemaster · Skydiver</li>
-          </ul>
+            <div class="testimonial-card">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>„Ich dachte, ich kann ChatGPT bedienen - bis mir Jakub gezeigt hat, was wirklich möglich ist. Keine Theorie, sondern: selber machen, ausprobieren, verstehen. Nach einer Session wusste ich mehr als nach Monaten alleine."</blockquote>
+              <div class="testimonial-author">
+                <img class="avatar-img" src="images/testimonials/tea-shashaj-web.png" alt="Tea Shashaj" loading="lazy">
+                <div class="author-info">
+                  <span class="name">Tea Shashaj</span>
+                  <span class="role">YouKnowMeBest | E-Commerce</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>„Ich betreibe ein Kampfsport-Studio - Technik ist nicht meine Welt. Ich wusste nicht mal, wo die App ist. 45 Minuten später hatte ich ein KI-Projekt für Mitgliedergewinnung - und das Verrückte: die KI hat mir selbst geholfen, die richtigen Fragen zu stellen. Alleine wäre ich nie draufgekommen."</blockquote>
+              <div class="testimonial-author">
+                <img class="avatar-img" src="images/testimonials/petar-pecija-web.png" alt="Petar Pecija" loading="lazy">
+                <div class="author-info">
+                  <span class="name">Petar Pecija</span>
+                  <span class="role">ZR Team Vienna | Sport</span>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 3: SPEAKING (Option A — Split) -->
-    <section class="slide slide-speaking" id="speaking" data-index="2">
+    <!-- SLIDE 9: BLOG -->
+    <section class="slide slide-elearning" id="lernseite">
       <div class="container slide-content">
-        <div class="speaking-split">
-          <div class="speaking-text">
-            <p class="section-label">International Speaker</p>
-            <h2>Auf einer Bühne mit Staatspräsidenten</h2>
+        <div class="el-head">
+          <p class="section-label">Selbst gebaut</p>
+          <h2>Jedes Training hat seine eigene Lernseite.</h2>
+          <p>Ich programmiere sie selbst, mit KI. Alle &Uuml;bungen und Prompts zum Kopieren, auch nach dem Training.</p>
+        </div>
+        <div class="el-stats">
+          <div><b>735 h</b><span>in Claude Code</span></div>
+          <div><b>1.130</b><span>Sitzungen</span></div>
+          <div><b>231 / 251</b><span>Tage daran</span></div>
+        </div>
+        <div class="el-shots">
+          <figure><img src="images/elearning/uebung-prompt-kopieren.jpg" alt="Lernseite eines Copilot-Trainings: &Uuml;bung mit Prompt zum Kopieren" loading="lazy" decoding="async"><figcaption>Copilot-Seminar: jede &Uuml;bung mit Prompt zum Kopieren</figcaption></figure>
+          <div class="el-side">
+            <figure><img src="images/elearning/hr-willkommen.jpg" alt="Lernseite eines HR-Workshops" loading="lazy" decoding="async"><figcaption>HR-Workshop: freigeschaltet am Kurstag</figcaption></figure>
+            <figure><img src="images/elearning/proeko-slowakisch.jpg" alt="Slowakische Lernseite eines KI-Seminars" loading="lazy" decoding="async"><figcaption>Auch auf Slowakisch und Englisch</figcaption></figure>
+          </div>
+        </div>
+        <div class="el-quote">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>&bdquo;die &Uuml;bungen waren super! Der Text zum Rauskopieren extrem hilfreich.&ldquo;</blockquote>
+          <cite>Christina Buchgeher &middot; Teilnehmerin, Copilot-Seminar</cite>
+        </div>
+      </div>
+    </section>
 
-            <div class="speaking-event-a">
-              <h3>President Ivanov's School for Young Leaders</h3>
-              <p class="speaking-subtitle">16. Jahrgang · Ohrid, Nordmazedonien · November 2025</p>
-            </div>
+    <section class="slide slide-services" id="services" data-index="5">
+      <div class="container slide-content">
+        <div class="section-header">
+          <p class="section-label">Angebote</p>
+          <h2>Training f&uuml;r Ihr Team</h2>
+        </div>
 
-            <p class="podium-label" style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--white-muted); margin-bottom: 12px;">Shared Podium With</p>
-            <ul class="podium-list">
-              <li><span class="podium-name">Katalin Novák</span><span class="podium-title">Ehem. Präsidentin Ungarns</span></li>
-              <li><span class="podium-name">Prof. Dr. Jeffrey Sachs</span><span class="podium-title">Columbia University</span></li>
-              <li><span class="podium-name">Lt. Gen. Michael Dubie</span><span class="podium-title">Strategic Leadership</span></li>
-              <li><span class="podium-name">Prof. Djordjija Petkoski</span><span class="podium-title">Wharton School · AI & Sustainability</span></li>
+        <div class="service-featured">
+          <div class="service-featured-image">
+            <img class="photo" src="images/story/training-am-laptop.jpg" alt="Jakub Popluhar hilft einem Teilnehmer am Laptop" loading="lazy" decoding="async">
+          </div>
+          <div class="service-featured-content">
+            <span class="service-badge">F&uuml;r Teams</span>
+            <h3>Inhouse-Training f&uuml;r Ihr Team</h3>
+            <p class="desc">Ein Praxistag in Ihrem Haus. Jede Person arbeitet selbst, an ihren echten Aufgaben, mit der Lernseite daneben.</p>
+            <ul class="service-points">
+              <li><span class="icon">&#10003;</span> Mit Ihren Werkzeugen: Copilot, ChatGPT, Claude oder Gemini</li>
+              <li><span class="icon">&#10003;</span> Mit Ihren Aufgaben statt Lehrbuchbeispielen</li>
+              <li><span class="icon">&#10003;</span> KI-Kompetenz nach EU AI Act Art. 4</li>
             </ul>
-          </div>
-
-          <div class="speaking-photo-a">
-            <div>
-              <img src="images/speaking/ivanov-certificate-web.jpg" alt="Jakub Popluhar mit Präsident Dr. Gjorge Ivanov" loading="lazy">
-              <p class="photo-caption">Präsident Dr. Gjorge Ivanov überreicht das Zertifikat</p>
+            <div class="service-cta-row">
+              <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Kostenloses Erstgespr&auml;ch &rarr;</a>
+              <a href="/trainings/" class="btn btn-secondary">Die sechs Formate ansehen &rarr;</a>
             </div>
           </div>
         </div>
 
-        <div class="speaking-eval-a">
-          <blockquote>„Creative, interactive methods and practical insights into consumer psychology."</blockquote>
-          <p class="eval-source">- Teilnehmer-Evaluation · Bewertet als <strong>„among the most transformative sessions"</strong></p>
+        <div class="service-rungs">
+          <a href="/termine/" class="service-rung">
+            <span class="rung-label">Offene Seminare</span>
+            <span class="rung-desc">Bei meinen Partnern</span>
+            <span class="rung-go">&rarr;</span>
+          </a>
+          <a href="/ki-personal-training/" class="service-rung">
+            <span class="rung-label">Einzeltraining f&uuml;r F&uuml;hrungskr&auml;fte</span>
+            <span class="rung-desc">An Ihren eigenen Aufgaben</span>
+            <span class="rung-go">&rarr;</span>
+          </a>
         </div>
+
       </div>
     </section>
 
-    <!-- SLIDE 4: TRANSFORMATION -->
+    <!-- SLIDE 7: OPEN TRAININGS (ARS) -->
     <section class="slide slide-transformation" id="transformation" data-index="3">
       <div class="container slide-content">
         <div class="section-header">
@@ -2535,23 +2606,6 @@
     </section>
 
     <!-- SLIDE 5: HERO TESTIMONIAL -->
-    <section class="slide slide-hero-testimonial" id="hero-testimonial" data-index="4">
-      <div class="container slide-content">
-        <div class="hero-testimonial-wrapper">
-          <div class="hero-testimonial-quote">
-            <div class="stars" style="font-size: 1.2rem; letter-spacing: 4px; margin-bottom: 24px; color: var(--gold);">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote>„Es war unglaublich! Mein Blick auf Business hat sich stark verändert, und auch der darauf, wie wir Business machen sollten."</blockquote>
-          </div>
-          <div class="hero-testimonial-author">
-            <div class="hero-testimonial-info">
-              <span class="name">Managing Partner</span>
-              <span class="role">Private Equity</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
 <section class="kicheck-band" id="ki-check-cta" aria-labelledby="kicheck-title">
   <div class="kicheck-inner">
     <p class="kicheck-eyebrow">Kostenlos &amp; ohne Anmeldung</p>
@@ -2567,52 +2621,68 @@
 
 
     <!-- SLIDE 6: SERVICES -->
-    <section class="slide slide-services" id="services" data-index="5">
+    <section class="slide slide-speaking" id="speaking" data-index="2">
       <div class="container slide-content">
-        <div class="section-header">
-          <p class="section-label">Angebote</p>
-          <h2>Wie ich mit Ihnen arbeite</h2>
-        </div>
+        <div class="speaking-split">
+          <div class="speaking-text">
+            <p class="section-label">International Speaker</p>
+            <h2>Auf einer Bühne mit Staatspräsidenten</h2>
 
-        <div class="service-featured">
-          <div class="service-featured-image">
-            <img src="images/profile/15-web.png" alt="Jakub Popluhar" loading="lazy">
-          </div>
-          <div class="service-featured-content">
-            <span class="service-badge">Premium</span>
-            <h3>KI-Personal-Training</h3>
-            <p class="desc">Kein Frontalunterricht. Kein Standardprogramm. Wir arbeiten live und gemeinsam an genau Ihren Use Cases - ich komme zu Ihnen. Jede Session hat einen konkreten Output, den Sie sofort einsetzen können.</p>
-            <ul class="service-points">
-              <li><span class="icon">&#10003;</span> Live vor Ort - Ihr Büro, Ihr Rechner, Ihre Datensicherheit</li>
-              <li><span class="icon">&#10003;</span> Höchst personalisiert - Ihre Fragen, Ihre Prozesse, Ihre Branche</li>
-              <li><span class="icon">&#10003;</span> Hands-on mit den richtigen Tools für Ihr Business</li>
-              <li><span class="icon">&#10003;</span> Psychologie + KI: verstehen, warum Teams KI ablehnen - und wie Sie das ändern</li>
+            <div class="speaking-event-a">
+              <h3>President Ivanov's School for Young Leaders</h3>
+              <p class="speaking-subtitle">16. Jahrgang · Ohrid, Nordmazedonien · November 2025</p>
+            </div>
+
+            <p class="podium-label" style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--white-muted); margin-bottom: 12px;">Shared Podium With</p>
+            <ul class="podium-list">
+              <li><span class="podium-name">Katalin Novák</span><span class="podium-title">Ehem. Präsidentin Ungarns</span></li>
+              <li><span class="podium-name">Prof. Dr. Jeffrey Sachs</span><span class="podium-title">Columbia University</span></li>
+              <li><span class="podium-name">Lt. Gen. Michael Dubie</span><span class="podium-title">Strategic Leadership</span></li>
+              <li><span class="podium-name">Prof. Djordjija Petkoski</span><span class="podium-title">Wharton School · AI & Sustainability</span></li>
             </ul>
-            <p class="service-note">Erste Session bevorzugt bei Ihnen vor Ort, danach live online.</p>
-            <div class="service-cta-row">
-              <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Kostenloses Erstgespr&auml;ch &rarr;</a>
-              <a href="/ki-personal-training/" class="btn btn-secondary">Ablauf und Preise ansehen, Einstieg 390 &euro; &rarr;</a>
+          </div>
+
+          <div class="speaking-photo-a">
+            <div>
+              <img src="images/speaking/ivanov-certificate-web.jpg" alt="Jakub Popluhar mit Präsident Dr. Gjorge Ivanov" loading="lazy">
+              <p class="photo-caption">Präsident Dr. Gjorge Ivanov überreicht das Zertifikat</p>
             </div>
           </div>
         </div>
 
-        <div class="service-rungs">
-          <a href="/trainings/" class="service-rung">
-            <span class="rung-label">Inhouse-Trainings f&uuml;r Ihr Team</span>
-            <span class="rung-desc">Sechs Ganztagsformate</span>
-            <span class="rung-go">&rarr;</span>
-          </a>
-          <a href="/termine/" class="service-rung">
-            <span class="rung-label">Standard-Trainings mit festem Termin</span>
-            <span class="rung-desc">Bei meinen Partnern</span>
-            <span class="rung-go">&rarr;</span>
-          </a>
+        <div class="speaking-eval-a">
+          <blockquote>„Creative, interactive methods and practical insights into consumer psychology."</blockquote>
+          <p class="eval-source">- Teilnehmer-Evaluation · Bewertet als <strong>„among the most transformative sessions"</strong></p>
         </div>
-
       </div>
     </section>
 
-    <!-- SLIDE 7: OPEN TRAININGS (ARS) -->
+    <!-- SLIDE 4: TRANSFORMATION -->
+    <section class="slide slide-about" id="about" data-index="1">
+      <div class="container slide-content">
+        <div class="about-image-wrapper">
+          <div class="about-image">
+            <img src="images/profile/7-web.png" alt="Jakub Popluhar" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="section-label">Wer bin ich</p>
+          <h2>Ich teste alles an mir selbst, bevor ich es Ihnen zeige.</h2>
+          <p class="about-text">Ich bin KI-Trainer für Führungskräfte und Teams im DACH-Raum, in offenen Seminaren bei meinen Partnern und inhouse in Ihrem Unternehmen. Human in the Lead. KI im Hintergrund.</p>
+
+          <ul class="about-credentials">
+            <li><span class="check">&#10003;</span> KI-Trainer bei ARS (größter privater Seminaranbieter Österreichs), tecTrain, BFI, PROEKO und Hill Digital</li>
+            <li><span class="check">&#10003;</span> Sprachwissenschaft & Amerikanistik - Semantik ist die Grundlage jeder KI-Kommunikation</li>
+            <li><span class="check">&#10003;</span> Speaker, President Ivanov's School for Young Leaders</li>
+            <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
+            <li><span class="check">&#10003;</span> Erster gesponserter Roundnet-Spieler Europas · ehem. Floorball-Nationalspieler · PADI Divemaster · Skydiver</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: SPEAKING (Option A — Split) -->
     <section class="slide slide-trainings" id="trainings" data-index="6">
       <div class="container slide-content">
         <div class="section-header">
@@ -2624,7 +2694,7 @@
           <span>In Kooperation mit meinen Partnern</span>
         </div>
 
-        <div class="agenda" data-preview-limit="5">
+        <div class="agenda" data-preview-limit="3">
           <div class="ag" data-date="2026-10-28">
             <div class="ag-date"><div class="ag-day">28</div><div class="ag-mon">Okt</div></div>
             <div class="ag-body">
@@ -2632,14 +2702,6 @@
             </div>
             <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
             <a href="https://ars.at/seminar/333183/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-10-29">
-            <div class="ag-date"><div class="ag-day">29</div><div class="ag-mon">Okt</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI im HR-Alltag</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Ganzer Tag</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/hill-digital-logo-2026.svg" alt="Hill Digital" loading="lazy" decoding="async"></div>
-            <a href="https://hill-digital.at/ki-im-hr" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
           <div class="ag" data-date="2026-11-13">
             <div class="ag-date"><div class="ag-day">13</div><div class="ag-mon">Nov</div></div>
@@ -2783,59 +2845,6 @@
     </section>
 
     <!-- SLIDE 8: PROOF -->
-    <section class="slide slide-proof" id="proof" data-index="7">
-      <div class="container slide-content">
-        <div class="section-header">
-          <p class="section-label">Ergebnisse</p>
-          <h2>Es funktioniert.</h2>
-          <div class="proof-rating">
-            <span class="pr-stars" style="--r:4.69" role="img" aria-label="4,69 von 5 Sternen">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span class="pr-num">4,69<small> / 5</small></span>
-            <span class="pr-txt">Trainerbewertung aus 111 anonymen Feedbackbögen<br>Training gesamt 4,45 / 5 aus 152 Bewertungen · 11 Trainings, 2025&ndash;2026</span>
-          </div>
-        </div>
-
-        <div class="proof-grid">
-            <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>„Vorher hatte ich meine Chats überall verstreut und unorganisiert. Jetzt habe ich alles sortiert - Marketing, Training, SOPs, Strategie. Wir haben mein LLM organisiert und personalisiert, sodass ich nicht jedes Mal einen Prompt schreiben muss. Das alleine spart mir 40 Minuten am Tag."</blockquote>
-              <div class="testimonial-author">
-                <img class="avatar-img" src="images/testimonials/patrik-hubek-web.png" alt="Patrik Hubek" loading="lazy">
-                <div class="author-info">
-                  <span class="name">Patrik Hubek</span>
-                  <span class="role">FitRock | Health & Fitness</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>„Ich dachte, ich kann ChatGPT bedienen - bis mir Jakub gezeigt hat, was wirklich möglich ist. Keine Theorie, sondern: selber machen, ausprobieren, verstehen. Nach einer Session wusste ich mehr als nach Monaten alleine."</blockquote>
-              <div class="testimonial-author">
-                <img class="avatar-img" src="images/testimonials/tea-shashaj-web.png" alt="Tea Shashaj" loading="lazy">
-                <div class="author-info">
-                  <span class="name">Tea Shashaj</span>
-                  <span class="role">YouKnowMeBest | E-Commerce</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>„Ich betreibe ein Kampfsport-Studio - Technik ist nicht meine Welt. Ich wusste nicht mal, wo die App ist. 45 Minuten später hatte ich ein KI-Projekt für Mitgliedergewinnung - und das Verrückte: die KI hat mir selbst geholfen, die richtigen Fragen zu stellen. Alleine wäre ich nie draufgekommen."</blockquote>
-              <div class="testimonial-author">
-                <img class="avatar-img" src="images/testimonials/petar-pecija-web.png" alt="Petar Pecija" loading="lazy">
-                <div class="author-info">
-                  <span class="name">Petar Pecija</span>
-                  <span class="role">ZR Team Vienna | Sport</span>
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 9: BLOG -->
     <section class="slide slide-blog" id="blog" data-index="8">
       <div class="container slide-content">
         <span class="blog-eyebrow">Aus dem Blog</span>
