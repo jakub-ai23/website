@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jakub Popluhar | Business Lead bei Hill Digital & KI-Trainer</title>
-  <meta name="description" content="Business Lead bei Hill Digital und KI-Trainer für Führungskräfte, Teams und Unternehmen im DACH-Raum. Praxisnahe KI-Trainings, KI-Personal-Training, Inhouse-Trainings, Keynotes. Human in the Lead. KI im Hintergrund.">
+  <title>Jakub Popluhar | KI-Trainer für Teams und Führungskräfte</title>
+  <meta name="description" content="KI-Trainer für Führungskräfte, Teams und Unternehmen im DACH-Raum. Praxisnahe KI-Trainings, KI-Personal-Training, Inhouse-Trainings, Keynotes. Human in the Lead. KI im Hintergrund.">
   <meta name="theme-color" content="#141414">
-  <meta property="og:title" content="Jakub Popluhar | Business Lead bei Hill Digital & KI-Trainer">
-  <meta property="og:description" content="Business Lead bei Hill Digital und KI-Trainer für Führungskräfte im DACH-Raum. Human in the Lead. KI im Hintergrund.">
+  <meta property="og:title" content="Jakub Popluhar | KI-Trainer für Teams und Führungskräfte">
+  <meta property="og:description" content="KI-Trainer für Teams und Führungskräfte im DACH-Raum. Human in the Lead. KI im Hintergrund.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jakubpopluhar.com">
   <meta property="og:image" content="https://jakubpopluhar.com/images/profile/14-web.png">
   <meta property="og:locale" content="de_AT">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Jakub Popluhar | Business Lead bei Hill Digital & KI-Trainer">
-  <meta name="twitter:description" content="Business Lead bei Hill Digital und KI-Trainer für Führungskräfte im DACH-Raum. Human in the Lead. KI im Hintergrund.">
+  <meta name="twitter:title" content="Jakub Popluhar | KI-Trainer für Teams und Führungskräfte">
+  <meta name="twitter:description" content="KI-Trainer für Teams und Führungskräfte im DACH-Raum. Human in the Lead. KI im Hintergrund.">
   <meta name="twitter:image" content="https://jakubpopluhar.com/images/profile/14-web.png">
   <link rel="canonical" href="https://jakubpopluhar.com">
   <link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/">
@@ -1013,6 +1013,19 @@
       font-size: 0.95rem;
     }
 
+    .proof-rating {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 6px 14px; margin-top: 8px;
+    }
+    .pr-stars {
+      font-size: 1.5rem; letter-spacing: 2px; line-height: 1;
+      background: linear-gradient(90deg, var(--gold) calc(var(--r) / 5 * 100%), rgba(255,255,255,0.22) 0);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .pr-num { font-family: var(--font-heading); font-weight: 800; font-size: 1.6rem; line-height: 1; }
+    .pr-num small { font-size: 0.9rem; font-weight: 600; color: var(--white-muted); }
+    .pr-txt { flex-basis: 100%; color: var(--white-muted); font-size: 0.85rem; line-height: 1.5; }
+
 
     /* ========== SLIDE 4: SERVICES ========== */
     .slide-services {
@@ -1964,6 +1977,7 @@
 
       .training-cta-note .btn-training { width: 100%; justify-content: center; }
 
+
       .proof-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -2233,6 +2247,9 @@
   .hero-ohrid-content .hero-ctas { gap: 10px; margin-top: 20px; }
   /* Das Badge liegt auf der hellsten Stelle des Fotos, es braucht eigenen Grund. */
   .hero-ohrid-content .hero-badge { background: rgba(12,12,12,.55); backdrop-filter: blur(3px); }
+  /* Ueber mich: auf schmalen Schirmen einspaltig, Text vor Bild. */
+  .slide-about .container { grid-template-columns: 1fr; }
+  .slide-about .about-image-wrapper { justify-self: center; }
   .slide-about .about-image-wrapper { order: 1; } .slide-about .about-content { order: 2; }
   .about-image, .about-stats { margin-left: 0; }
 }
@@ -2261,12 +2278,7 @@
       "@type": "Person",
       "name": "Jakub Popluhar",
       "honorificSuffix": "M.Ed.",
-      "jobTitle": "Business Lead bei Hill Digital & KI-Trainer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Hill Digital",
-        "url": "https://hill-digital.at"
-      },
+      "jobTitle": "KI-Trainer",
       "sameAs": [
         "https://www.linkedin.com/in/jakubpopluhar/",
         "https://mindworx.net/team/jakub-popluhar/",
@@ -2360,7 +2372,7 @@
         <img class="hero-ohrid-bg" src="images/hero-raum.jpg" alt="Jakub Popluhar vor einer Gruppe, School for Young Leaders, Ohrid">
         <div class="hero-ohrid-veil"></div>
         <div class="hero-content slide-content hero-ohrid-content">
-          <div class="hero-badge">Business Lead bei Hill Digital · KI-Trainer</div>
+          <div class="hero-badge">KI-Trainer für Teams und Führungskräfte</div>
           <h1>„Sie wissen nicht,&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
           <p class="hero-sub">Sie wissen, dass KI Ihr Business verändert. Sie wissen nur nicht, wo Sie anfangen sollen. Dafür bin ich da.</p>
 <div class="hero-ctas">
@@ -2416,15 +2428,15 @@
           </div>
           <div class="about-stats">
             <div class="about-stat">
-              <span class="number">612 h</span>
+              <span class="number">735 h</span>
               <span class="label">in Claude Code</span>
             </div>
             <div class="about-stat">
-              <span class="number">932</span>
+              <span class="number">1.130</span>
               <span class="label">Sitzungen</span>
             </div>
             <div class="about-stat">
-              <span class="number">192/210</span>
+              <span class="number">231/251</span>
               <span class="label">Tage daran</span>
             </div>
           </div>
@@ -2433,11 +2445,10 @@
         <div class="about-content">
           <p class="section-label">Wer bin ich</p>
           <h2>Ich teste alles an mir selbst, bevor ich es Ihnen zeige.</h2>
-          <p class="about-text">Ich bin Business Lead bei Hill Digital, dem digitalen Arm von Hill Woltron, und KI-Trainer für Führungskräfte und Teams im DACH-Raum. Human in the Lead. KI im Hintergrund.</p>
+          <p class="about-text">Ich bin KI-Trainer für Führungskräfte und Teams im DACH-Raum, in offenen Seminaren bei meinen Partnern und inhouse in Ihrem Unternehmen. Human in the Lead. KI im Hintergrund.</p>
 
           <ul class="about-credentials">
-            <li><span class="check">&#10003;</span> Business Lead bei Hill Digital (Mitglied von Hill Woltron)</li>
-            <li><span class="check">&#10003;</span> KI-Trainer bei ARS (größter privater Seminaranbieter Österreichs) und tecTrain</li>
+            <li><span class="check">&#10003;</span> KI-Trainer bei ARS (größter privater Seminaranbieter Österreichs), tecTrain, BFI, PROEKO und Hill Digital</li>
             <li><span class="check">&#10003;</span> Sprachwissenschaft & Amerikanistik - Semantik ist die Grundlage jeder KI-Kommunikation</li>
             <li><span class="check">&#10003;</span> Speaker, President Ivanov's School for Young Leaders</li>
             <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
@@ -2614,85 +2625,13 @@
         </div>
 
         <div class="agenda" data-preview-limit="5">
-          <div class="ag" data-date="2026-09-17">
-            <div class="ag-date"><div class="ag-day">17</div><div class="ag-mon">Sep</div></div>
+          <div class="ag" data-date="2026-10-28">
+            <div class="ag-date"><div class="ag-day">28</div><div class="ag-mon">Okt</div></div>
             <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI im HR-Alltag</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Ganzer Tag</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/hill-digital-logo-2026.svg" alt="Hill Digital" loading="lazy" decoding="async"></div>
-            <a href="https://hill-digital.at/ki-im-hr" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-09-23">
-            <div class="ag-date"><div class="ag-day">23</div><div class="ag-mon">Sep</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Tschechisch" title="Trainingssprache: Tschechisch">🇨🇿</span> AI za pracovn&iacute;m stolem</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Brno oder online &middot; Ganzer Tag &middot; 09:00&ndash;15:00 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/tsm.svg" alt="TSM" loading="lazy" decoding="async"></div>
-            <a href="https://www.tsmkurzy.cz/kurzy/kurzy-ai/3319-ai-za-pracovnim-stolem-p.html?v=32135" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-09-29" data-end="2026-09-30">
-            <div class="ag-date"><div class="ag-day range">29.&ndash;30.</div><div class="ag-mon">Sep</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Lehrgang KI f&uuml;r den B&uuml;roalltag</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; 2 Tage &middot; jeweils 09:00&ndash;18:00 Uhr</p></div>
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Workshop: HR-Praxis mit KI</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Wien oder online &middot; Ganzer Tag &middot; 09:00&ndash;17:00 Uhr</p></div>
             </div>
             <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
-            <span class="btn-training is-full" aria-label="AUSGEBUCHT">AUSGEBUCHT</span>
-          </div>
-          <div class="ag" data-date="2026-10-01">
-            <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">Okt</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Microsoft 365 Copilot effizient nutzen</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Wien oder online &middot; Ganzer Tag &middot; 09:00&ndash;17:00 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
-            <a href="https://ars.at/seminar/332641/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-10-07">
-            <div class="ag-date"><div class="ag-day">07</div><div class="ag-mon">Okt</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI-Grundlagen mit ChatGPT</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Ganzer Tag</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/tectrain.png" alt="tecTrain" loading="lazy" decoding="async"></div>
-            <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/chatgpt-und-kuenstliche-intelligenz-in-der-praxis" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-10-09">
-            <div class="ag-date"><div class="ag-day">09</div><div class="ag-mon">Okt</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 1</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
-            <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-1-zaklad-ktory-vydrzi-aj-zmenu-nastroja/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-10-13">
-            <div class="ag-date"><div class="ag-day">13</div><div class="ag-mon">Okt</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI-Agenten und generative KI im Unternehmensalltag</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; Ganzer Tag &middot; 09:00&ndash;16:10 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" loading="lazy" decoding="async"></div>
-            <a href="https://www.bfi-vorarlberg.at/de/kurs/16/2/127747/KI-Agenten-und-generative-KI-im-Unternehmensalltag" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-10-15">
-            <div class="ag-date"><div class="ag-day">15</div><div class="ag-mon">Okt</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 2</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
-            <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-10-16">
-            <div class="ag-date"><div class="ag-day">16</div><div class="ag-mon">Okt</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Claude datenschutzkonform nutzen</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Wien oder online &middot; Ganzer Tag &middot; 09:00&ndash;17:00 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
-            <a href="https://ars.at/seminar/333220/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-10-21">
-            <div class="ag-date"><div class="ag-day">21</div><div class="ag-mon">Okt</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI f&uuml;r den B&uuml;roalltag</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; 1 Tag &middot; 09:00&ndash;18:00 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
-            <a href="https://ars.at/seminar/332965/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+            <a href="https://ars.at/seminar/333183/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
           <div class="ag" data-date="2026-10-29">
             <div class="ag-date"><div class="ag-day">29</div><div class="ag-mon">Okt</div></div>
@@ -2702,30 +2641,6 @@
             <div class="ag-prov"><img src="images/logos/hill-digital-logo-2026.svg" alt="Hill Digital" loading="lazy" decoding="async"></div>
             <a href="https://hill-digital.at/ki-im-hr" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
-          <div class="ag" data-date="2026-10-30">
-            <div class="ag-date"><div class="ag-day">30</div><div class="ag-mon">Okt</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI v HR praxi</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
-            <a href="https://proeko.sk/seminar/ai-v-hr-praxi-od-inzeratu-po-hodnotenie/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-11-06">
-            <div class="ag-date"><div class="ag-day">06</div><div class="ag-mon">Nov</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Konsumentenpsychologie und KI</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Halber Tag &middot; 09:00&ndash;13:00 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
-            <a href="https://ars.at/seminar/333096/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-11-12">
-            <div class="ag-date"><div class="ag-day">12</div><div class="ag-mon">Nov</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI-Agenten und generative KI im Unternehmensalltag</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; Ganzer Tag &middot; 09:00&ndash;16:10 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" loading="lazy" decoding="async"></div>
-            <a href="https://www.bfi-vorarlberg.at/de/kurs/16/2/127747/KI-Agenten-und-generative-KI-im-Unternehmensalltag" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
           <div class="ag" data-date="2026-11-13">
             <div class="ag-date"><div class="ag-day">13</div><div class="ag-mon">Nov</div></div>
             <div class="ag-body">
@@ -2734,6 +2649,14 @@
             <div class="ag-prov"><img src="images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
             <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-1-zaklad-ktory-vydrzi-aj-zmenu-nastroja/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
+          <div class="ag" data-date="2026-11-19">
+            <div class="ag-date"><div class="ag-day">19</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI-Agenten und generative KI im Unternehmensalltag</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; Ganzer Tag &middot; 09:00&ndash;16:10 Uhr</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi-vorarlberg.at/de/kurs/16/2/127747/KI-Agenten-und-generative-KI-im-Unternehmensalltag" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
           <div class="ag" data-date="2026-11-20">
             <div class="ag-date"><div class="ag-day">20</div><div class="ag-mon">Nov</div></div>
             <div class="ag-body">
@@ -2741,6 +2664,14 @@
             </div>
             <div class="ag-prov"><img src="images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
             <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-11-20">
+            <div class="ag-date"><div class="ag-day">20</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Prompting im Arbeitsalltag: KI verl&auml;sslich einsetzen, Modul 1</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Nachmittag &middot; 13:30&ndash;18:15 Uhr</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/bfi-wien.svg" alt="BFI Wien" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi.wien/kurs/2838/KB002302/prompting-im-arbeitsalltag-ki-verlaesslich-einsetzen/26BTDB0235" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
           <div class="ag" data-date="2026-11-25">
             <div class="ag-date"><div class="ag-day">25</div><div class="ag-mon">Nov</div></div>
@@ -2757,6 +2688,86 @@
             </div>
             <div class="ag-prov"><img src="images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
             <a href="https://proeko.sk/seminar/ai-v-hr-praxi-od-inzeratu-po-hodnotenie/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-11-27">
+            <div class="ag-date"><div class="ag-day">27</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Prompting im Arbeitsalltag: KI verl&auml;sslich einsetzen, Modul 2</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Nachmittag &middot; 13:30&ndash;18:15 Uhr</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/bfi-wien.svg" alt="BFI Wien" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi.wien/kurs/2838/KB002302/prompting-im-arbeitsalltag-ki-verlaesslich-einsetzen/26BTDB0235" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-01-26">
+            <div class="ag-date"><div class="ag-day">26</div><div class="ag-mon">Jan</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Microsoft 365 Copilot effizient nutzen</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Wien oder online &middot; Ganzer Tag &middot; 09:00&ndash;17:00 Uhr</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
+            <a href="https://ars.at/seminar/332641/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-01-27" data-end="2027-01-28">
+            <div class="ag-date"><div class="ag-day range">27.&ndash;28.</div><div class="ag-mon">Jan</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Lehrgang KI f&uuml;r den B&uuml;roalltag</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; 2 Tage &middot; jeweils 09:00&ndash;18:00 Uhr</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi-vorarlberg.at/de/kurs/16/2/127747/KI-Agenten-und-generative-KI-im-Unternehmensalltag" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-02-12">
+            <div class="ag-date"><div class="ag-day">12</div><div class="ag-mon">Feb</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Claude datenschutzkonform nutzen</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Wien oder online &middot; Ganzer Tag &middot; 09:00&ndash;17:00 Uhr</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
+            <a href="https://ars.at/seminar/333220/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-02-22">
+            <div class="ag-date"><div class="ag-day">22</div><div class="ag-mon">Feb</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Konsumentenpsychologie und KI</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Halber Tag &middot; 09:00&ndash;13:00 Uhr</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
+            <a href="https://ars.at/seminar/333096/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-03-01">
+            <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">M&auml;r</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Prompt Engineering f&uuml;r ChatGPT und Co.</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Ganzer Tag</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/tectrain.png" alt="tecTrain" loading="lazy" decoding="async"></div>
+            <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/prompt-engineering-fuer-chatgpt-und-co" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-04-06">
+            <div class="ag-date"><div class="ag-day">06</div><div class="ag-mon">Apr</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Claude datenschutzkonform nutzen</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Wien oder online &middot; Ganzer Tag &middot; 09:00&ndash;17:00 Uhr</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
+            <a href="https://ars.at/seminar/333220/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-04-20" data-end="2027-04-21">
+            <div class="ag-date"><div class="ag-day range">20.&ndash;21.</div><div class="ag-mon">Apr</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Lehrgang KI f&uuml;r den B&uuml;roalltag</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; 2 Tage &middot; jeweils 09:00&ndash;18:00 Uhr</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/bfi-wien.svg" alt="BFI Wien" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi.wien/kurs/2838/KB002302/prompting-im-arbeitsalltag-ki-verlaesslich-einsetzen" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-05-07">
+            <div class="ag-date"><div class="ag-day">07</div><div class="ag-mon">Mai</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> Prompting im Arbeitsalltag: KI verl&auml;sslich einsetzen, Modul 2</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Nachmittag &middot; 13:30&ndash;18:15 Uhr</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/bfi-wien.svg" alt="BFI Wien" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi.wien/kurs/2838/KB002302/prompting-im-arbeitsalltag-ki-verlaesslich-einsetzen" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-05-24">
+            <div class="ag-date"><div class="ag-day">24</div><div class="ag-mon">Mai</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Deutsch" title="Trainingssprache: Deutsch">🇦🇹</span> KI-Grundlagen mit ChatGPT</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz" title="Präsenz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Wien &middot; Ganzer Tag</p></div>
+            </div>
+            <div class="ag-prov"><img src="images/logos/tectrain.png" alt="tecTrain" loading="lazy" decoding="async"></div>
+            <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/chatgpt-und-kuenstliche-intelligenz-in-der-praxis" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
         </div>
 
@@ -2777,6 +2788,11 @@
         <div class="section-header">
           <p class="section-label">Ergebnisse</p>
           <h2>Es funktioniert.</h2>
+          <div class="proof-rating">
+            <span class="pr-stars" style="--r:4.69" role="img" aria-label="4,69 von 5 Sternen">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="pr-num">4,69<small> / 5</small></span>
+            <span class="pr-txt">Trainerbewertung aus 111 anonymen Feedbackbögen<br>Training gesamt 4,45 / 5 aus 152 Bewertungen · 11 Trainings, 2025&ndash;2026</span>
+          </div>
         </div>
 
         <div class="proof-grid">
@@ -2886,7 +2902,7 @@
             <textarea name="message" placeholder="Erzählen Sie mir kurz, wobei ich Ihnen helfen kann..."></textarea>
             <label class="form-consent">
               <input type="checkbox" name="consent">
-              <span>Ich bin einverstanden, dass mich Jakub Popluhar und die Hill Digital GmbH zu meiner Anfrage und zu passenden KI-Themen per E-Mail kontaktieren. Meine Angaben werden dafür bei Hill Digital (Brevo) gespeichert. Widerruf jederzeit möglich. Mehr in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
+              <span>Ich bin einverstanden, dass mich Jakub Popluhar und die REAL TEAM s.r.o. zu meiner Anfrage und zu passenden KI-Themen per E-Mail kontaktieren. Meine Angaben werden dafür im Brevo-Konto von Jakub Popluhar gespeichert. Widerruf jederzeit möglich. Mehr in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
             </label>
             <button type="submit" class="btn-submit">Nachricht senden &rarr;</button>
           </form>
@@ -3125,11 +3141,12 @@
           const fd = new FormData(contactForm);
           if (fd.get('consent') === 'on') {
             try {
-              fetch('https://deflifeos.popluhar.at/api/brevo/subscribe', {
+              fetch('https://deflifeos.popluhar.at/api/brevo-jp/subscribe', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                  kind: 'trainings',
+                  kind: 'jp-kontakt',
+                  lang: 'de',
                   email: fd.get('email') || '',
                   vorname: fd.get('name') || '',
                   firma: fd.get('company') || '',
@@ -3189,5 +3206,6 @@
   });
 })();
 </script>
+
 </body>
 </html>

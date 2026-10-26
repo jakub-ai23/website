@@ -1,6 +1,6 @@
 # Jakub Popluhar
 
-> Business Lead at Hill Digital and AI trainer, based in Vienna, Austria.
+> AI trainer for teams and leaders, based in Vienna, Austria.
 > Corporate AI training across the DACH region and Central Europe, delivered in
 > German, English, Slovak and Czech.
 > Practical, first-hand notes on working with AI agents and assistants.

@@ -139,7 +139,7 @@ function jpLoadClarity() {
       var a = e.target.closest && e.target.closest('a[href]');
       if (!a) return;
       var href = (a.getAttribute('href') || '').toLowerCase();
-      if (href.indexOf('cal.eu/hilldigital') !== -1) jpTrack('jp_booking_caleu');
+      if (href.indexOf('cal.eu/jakubpopluhar') !== -1 || href.indexOf('cal.eu/hilldigital') !== -1) jpTrack('jp_booking_caleu');
       else if (href.indexOf('calendly.com/jakub') !== -1) jpTrack('jp_booking_calendly');
       else if (href.indexOf('ars.at/seminar') !== -1) jpTrack('jp_register_ars');
       else if (href.indexOf('tectrain') !== -1) jpTrack('jp_register_tectrain');

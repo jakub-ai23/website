@@ -139,7 +139,7 @@ def sync(src, dst, logo_prefix, count):
         sys.exit("Keine Termine in %s gelesen." % src)
     rows = [r for r in rows if not is_past(r, TODAY)]
     h = io.open(os.path.join(ROOT, dst), encoding="utf-8").read()
-    m = re.search(r'(<div class="agenda">\n)(.*?)(\n?        </div>\n\n        <div class="agenda-more">)', h, re.S)
+    m = re.search(r'(<div class="agenda"(?: data-preview-limit="\d+")?>\n)(.*?)(\n?        </div>\n\n        <div class="agenda-more">)', h, re.S)
     if not m:
         sys.exit("Vorschau-Block in %s nicht gefunden." % dst)
     h = h[:m.start(2)] + render(rows, logo_prefix).rstrip("\n") + h[m.end(2):]
