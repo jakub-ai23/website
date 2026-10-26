@@ -2331,6 +2331,26 @@
 .t-orig[open] summary{margin-bottom:6px}
 .proof-orgs{text-align:center;margin:28px auto 0;color:#a9a69d;font-size:.9rem;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;max-width:900px}
 .proof-orgs span{color:#e9e6dd;font-weight:600}
+
+.t-logo{background:#fff;border-radius:8px;height:64px;display:flex;align-items:center;justify-content:center;padding:10px 16px;margin:-4px 0 16px}
+.t-logo img{max-height:44px;max-width:80%;width:auto;height:auto}
+.proof-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px;margin:30px auto 0;max-width:1000px}
+.proof-logos span{color:#a9a69d;font-size:.9rem;flex-basis:100%;text-align:center}
+.proof-logos img{height:44px;width:auto;max-width:170px;background:#fff;border-radius:8px;padding:8px 14px;box-sizing:content-box;object-fit:contain}
+.proof-logos img.dark{background:#e2001a}
+.slide-proof-sk{min-height:auto;padding-top:var(--section-y-tight);padding-bottom:var(--section-y-tight)}
+.slide-proof-sk .slide-content{text-align:center}
+.slide-proof-sk .proof-grid{margin-top:16px}
+@media(max-width:600px){.proof-logos img{height:34px;padding:6px 10px}}
+.t-logo img[src*="heinzel"]{max-height:56px;height:56px}
+.proof-logos img[src*="heinzel"]{height:52px;padding:4px 14px}
+#proof .proof-grid,#feedback-seminare .proof-grid{align-items:stretch}
+#proof .testimonial-card blockquote:first-child{margin-top:28px}
+.about-link{margin-top:18px}.about-link a{color:var(--gold);font-weight:600;text-decoration:none}
+.stars-none{visibility:hidden}
+#feedback-seminare .proof-grid{grid-template-columns:repeat(2,minmax(0,360px));justify-content:center}
+@media(max-width:900px){#feedback-seminare .proof-grid{grid-template-columns:1fr}}
+#proof .testimonial-card blockquote:first-child{margin-top:0}
 </style>
   <script type="application/ld+json">
   {
@@ -2462,7 +2482,6 @@
             <img src="images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" class="trust-logo-img">
             <div class="trust-item"><img src="images/logos/x-sieben.png" alt="X SIEBEN" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
             <img src="images/logos/tsm.svg" alt="TSM" class="trust-logo-img">
-            <div class="trust-item"><img src="images/logos/proeko.png" alt="PROEKO" class="trust-logo-img"><span class="trust-name">PROEKO</span></div>
             <img src="images/logos/innovatic-group.svg" alt="Innovatic Group" class="trust-logo-img">
             <div class="trust-item"><img src="images/logos/became-ai-icon.svg" alt="became ai" class="trust-logo-img"><span class="trust-name">became ai</span></div>
             <img src="images/logos/sport-union.svg" alt="Sport Union" class="trust-logo-img">
@@ -2477,7 +2496,6 @@
             <img src="images/logos/bfi-vorarlberg.png" alt="" class="trust-logo-img">
             <div class="trust-item"><img src="images/logos/x-sieben.png" alt="" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
             <img src="images/logos/tsm.svg" alt="" class="trust-logo-img">
-            <div class="trust-item"><img src="images/logos/proeko.png" alt="" class="trust-logo-img"><span class="trust-name">PROEKO</span></div>
             <img src="images/logos/innovatic-group.svg" alt="" class="trust-logo-img">
             <div class="trust-item"><img src="images/logos/became-ai-icon.svg" alt="" class="trust-logo-img"><span class="trust-name">became ai</span></div>
             <img src="images/logos/sport-union.svg" alt="" class="trust-logo-img">
@@ -2501,39 +2519,20 @@
           </div>
         </div>
 
-        <div class="proof-grid proof-grid-6">
+        <div class="proof-grid">
             <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;<span class="star-off">&#9733;</span></div>
-              <blockquote>&bdquo;Es gibt so viel Potential, das man noch erkunden kann. Jakub hat mit seinem breiten Wissen definitiv meinen KI-Horizont erweitert.&ldquo;</blockquote>
+<blockquote>&bdquo;Es gibt so viel Potential, das man noch erkunden kann. Jakub hat mit seinem breiten Wissen definitiv meinen KI-Horizont erweitert.&ldquo;</blockquote>
               <div class="testimonial-author"><div class="author-info"><span class="name">Ulla G&uuml;rlich</span><span class="role">Heinzel Holding GmbH</span></div></div>
             </div>
             <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>&bdquo;ich muss meine Prompts viel klarer formulieren, um bessere Ergebnisse zu bekommen. Copilot kann viel mehr, als ich bis heute wusste.&ldquo;</blockquote>
+<blockquote>&bdquo;ich muss meine Prompts viel klarer formulieren, um bessere Ergebnisse zu bekommen. Copilot kann viel mehr, als ich bis heute wusste.&ldquo;</blockquote>
               <div class="testimonial-author"><div class="author-info"><span class="name">Christina Buchgeher</span><span class="role">N&Ouml; Landesgesundheitsagentur</span></div></div>
             </div>
             <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>&bdquo;Viele neue, gut nutzbare Anweisungen und Prompts, um die Antworten zu verfeinern.&ldquo;<details class="t-orig"><summary>Original, aus dem Slowakischen &uuml;bersetzt</summary>&bdquo;Ve&#318;a nov&yacute;ch dobre pou&#382;ite&#318;n&yacute;ch in&scaron;trukci&iacute; - promtov na vyladenie odpoved&iacute;.&ldquo;</details></blockquote>
-              <div class="testimonial-author"><div class="author-info"><span class="name">Angelika Kopj&aacute;k</span><span class="role">PROEKO-Seminar, Slowakei</span></div></div>
-            </div>
-            <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>&bdquo;Dass man Copilot auf tiefes Nachdenken umschalten kann und dass ich ein Notizbuch anlegen kann, aus dem er dann nur sch&ouml;pft.&ldquo;<details class="t-orig"><summary>Original, aus dem Slowakischen &uuml;bersetzt</summary>&bdquo;&#382;e sa d&aacute; prepn&uacute;&#357; copilot na h&#314;bkov&eacute; myslenie, &#382;e viem vytvori&#357; notebook a potom &#269;erp&aacute; iba z toho.&ldquo;</details></blockquote>
-              <div class="testimonial-author"><div class="author-info"><span class="name">Teilnehmerin</span><span class="role">PROEKO-Seminar, Slowakei</span></div></div>
-            </div>
-            <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>&bdquo;Ich habe gelernt, Aufgaben konkreter zu stellen.&ldquo;<details class="t-orig"><summary>Original, aus dem Slowakischen &uuml;bersetzt</summary>&bdquo;nau&#269;il som sa zad&aacute;va&#357; &uacute;lohy konkr&eacute;tnej&scaron;ie&ldquo;</details></blockquote>
-              <div class="testimonial-author"><div class="author-info"><span class="name">Teilnehmer</span><span class="role">PROEKO-Seminar, Slowakei</span></div></div>
-            </div>
-            <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>&bdquo;Wir haben unsere Erfahrung erweitert: Aufgaben mit Fakten stellen, Notizb&uuml;cher nutzen.&ldquo;<details class="t-orig"><summary>Original, aus dem Slowakischen &uuml;bersetzt</summary>&bdquo;roz&scaron;&iacute;rili sme si svoje sk&uacute;senosti o zad&aacute;vanie &uacute;loh cez fakty pou&#382;&iacute;vanie z&aacute;pisn&iacute;kov&ldquo;</details></blockquote>
-              <div class="testimonial-author"><div class="author-info"><span class="name">Teilnehmerin</span><span class="role">PROEKO-Seminar, Slowakei</span></div></div>
+<blockquote>&bdquo;Tricks, richtiges Kommunizieren und das Einstellen von Projekten ersparen mir jetzt erheblich Zeit und somit sind auch saubere Abl&auml;ufe gew&auml;hrleistet.&ldquo;</blockquote>
+              <div class="testimonial-author"><div class="author-info"><span class="name">Deniz Yava&scaron;</span><span class="role">Maschinenfabrik ALBERT GmbH</span></div></div>
             </div>
         </div>
-        <p class="proof-orgs">Teilnehmende u.&nbsp;a. von <span>Heinzel Holding</span><span>N&Ouml; Landesgesundheitsagentur</span><span>Sparkasse Ober&ouml;sterreich</span><span>Maschinenfabrik ALBERT</span></p>
       </div>
     </section>
 
@@ -2552,11 +2551,26 @@
               <div><b>231 / 251</b><span>Tage daran</span></div>
             </div>
             <div class="el-quote">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>&bdquo;die &Uuml;bungen waren super! Der Text zum Rauskopieren extrem hilfreich.&ldquo;</blockquote>
+<blockquote>&bdquo;die &Uuml;bungen waren super! Der Text zum Rauskopieren extrem hilfreich.&ldquo;</blockquote>
               <cite>Christina Buchgeher &middot; N&Ouml; Landesgesundheitsagentur</cite>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide-proof slide-proof-sk" id="feedback-seminare">
+      <div class="container slide-content">
+        <p class="section-label">Stimmen aus den Seminaren</p>
+        <div class="proof-grid">
+            <div class="testimonial-card">
+<blockquote>&bdquo;Ich brauche mehr KI Agenten, Reiseplanung funktioniert super!&ldquo;</blockquote>
+              <div class="testimonial-author"><div class="author-info"><span class="name">Andreas</span><span class="role">Teilnehmer, Copilot-Seminar</span></div></div>
+            </div>
+            <div class="testimonial-card">
+<blockquote>&bdquo;Wie klein ich (wir) doch in der aktuellen Anwendung in Bezug auf KI und Tools sind.&ldquo;</blockquote>
+              <div class="testimonial-author"><div class="author-info"><span class="name">Daniela</span><span class="role">Teilnehmerin, KI f&uuml;r den B&uuml;roalltag</span></div></div>
+            </div>
         </div>
       </div>
     </section>
@@ -2583,7 +2597,7 @@
             <div class="offer-body">
               <span class="service-badge">Offen</span>
               <h3>Offene Seminare</h3>
-              <p>Feste Termine bei meinen Partnern in Wien, online und in Bratislava.</p>
+              <p>Feste Termine bei meinen Partnern in Wien und online.</p>
               <a href="/termine/" class="btn btn-secondary">Termine ansehen &rarr;</a>
             </div>
           </article>
@@ -2602,8 +2616,7 @@
           <p class="section-label">Aus dem Einzeltraining</p>
         <div class="proof-grid">
             <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>„Vorher hatte ich meine Chats überall verstreut und unorganisiert. Jetzt habe ich alles sortiert - Marketing, Training, SOPs, Strategie. Wir haben mein LLM organisiert und personalisiert, sodass ich nicht jedes Mal einen Prompt schreiben muss. Das alleine spart mir 40 Minuten am Tag."</blockquote>
+<blockquote>„Vorher hatte ich meine Chats überall verstreut und unorganisiert. Jetzt habe ich alles sortiert - Marketing, Training, SOPs, Strategie. Wir haben mein LLM organisiert und personalisiert, sodass ich nicht jedes Mal einen Prompt schreiben muss. Das alleine spart mir 40 Minuten am Tag."</blockquote>
               <div class="testimonial-author">
                 <img class="avatar-img" src="images/testimonials/patrik-hubek-web.png" alt="Patrik Hubek" loading="lazy">
                 <div class="author-info">
@@ -2614,8 +2627,7 @@
             </div>
 
             <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>„Ich dachte, ich kann ChatGPT bedienen - bis mir Jakub gezeigt hat, was wirklich möglich ist. Keine Theorie, sondern: selber machen, ausprobieren, verstehen. Nach einer Session wusste ich mehr als nach Monaten alleine."</blockquote>
+<blockquote>„Ich dachte, ich kann ChatGPT bedienen - bis mir Jakub gezeigt hat, was wirklich möglich ist. Keine Theorie, sondern: selber machen, ausprobieren, verstehen. Nach einer Session wusste ich mehr als nach Monaten alleine."</blockquote>
               <div class="testimonial-author">
                 <img class="avatar-img" src="images/testimonials/tea-shashaj-web.png" alt="Tea Shashaj" loading="lazy">
                 <div class="author-info">
@@ -2626,8 +2638,7 @@
             </div>
 
             <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>„Ich betreibe ein Kampfsport-Studio - Technik ist nicht meine Welt. Ich wusste nicht mal, wo die App ist. 45 Minuten später hatte ich ein KI-Projekt für Mitgliedergewinnung - und das Verrückte: die KI hat mir selbst geholfen, die richtigen Fragen zu stellen. Alleine wäre ich nie draufgekommen."</blockquote>
+<blockquote>„Ich betreibe ein Kampfsport-Studio - Technik ist nicht meine Welt. Ich wusste nicht mal, wo die App ist. 45 Minuten später hatte ich ein KI-Projekt für Mitgliedergewinnung - und das Verrückte: die KI hat mir selbst geholfen, die richtigen Fragen zu stellen. Alleine wäre ich nie draufgekommen."</blockquote>
               <div class="testimonial-author">
                 <img class="avatar-img" src="images/testimonials/petar-pecija-web.png" alt="Petar Pecija" loading="lazy">
                 <div class="author-info">
@@ -2744,15 +2755,17 @@
         <div class="about-content">
           <p class="section-label">&Uuml;ber mich</p>
           <h2>Erst an mir. Dann an Ihnen.</h2>
-          <p class="about-text">KI-Trainer f&uuml;r Teams und F&uuml;hrungskr&auml;fte in &Ouml;sterreich, Deutschland und der Slowakei. Human in the Lead, KI im Hintergrund.</p>
+          <p class="about-text">KI-Trainer f&uuml;r Teams und F&uuml;hrungskr&auml;fte in &Ouml;sterreich und Deutschland. Human in the Lead, KI im Hintergrund.</p>
 
           <ul class="about-credentials">
-            <li><span class="check">&#10003;</span> KI-Trainer bei ARS, tecTrain, BFI, PROEKO und Hill Digital</li>
+            <li><span class="check">&#10003;</span> KI-Trainer bei ARS, tecTrain und BFI</li>
+            <li><span class="check">&#10003;</span> KI-Konzepte f&uuml;r HR bei Hill Digital, Mitglied von Hill Woltron</li>
             <li><span class="check">&#10003;</span> M.Ed., Sprachwissenschaft &amp; Amerikanistik</li>
             <li><span class="check">&#10003;</span> Speaker, President Ivanov's School for Young Leaders</li>
             <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
             <li><span class="check">&#10003;</span> Ehem. Floorball-Nationalspieler</li>
           </ul>
+          <p class="about-link"><a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener">Mehr &uuml;ber mich auf LinkedIn &rarr;</a></p>
         </div>
       </div>
     </section>
@@ -2778,14 +2791,6 @@
             <div class="ag-prov"><img src="images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
             <a href="https://ars.at/seminar/333183/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
-          <div class="ag" data-date="2026-11-13">
-            <div class="ag-date"><div class="ag-day">13</div><div class="ag-mon">Nov</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 1</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
-            <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-1-zaklad-ktory-vydrzi-aj-zmenu-nastroja/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
           <div class="ag" data-date="2026-11-19">
             <div class="ag-date"><div class="ag-day">19</div><div class="ag-mon">Nov</div></div>
             <div class="ag-body">
@@ -2793,14 +2798,6 @@
             </div>
             <div class="ag-prov"><img src="images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" loading="lazy" decoding="async"></div>
             <a href="https://www.bfi-vorarlberg.at/de/kurs/16/2/127747/KI-Agenten-und-generative-KI-im-Unternehmensalltag" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-11-20">
-            <div class="ag-date"><div class="ag-day">20</div><div class="ag-mon">Nov</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI za pracovn&yacute;m stolom, modul 2</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
-            <a href="https://proeko.sk/seminar/ai-za-pracovnym-stolom-modul-2-od-nastroja-k-vlastnemu-asistentovi/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
           <div class="ag" data-date="2026-11-20">
             <div class="ag-date"><div class="ag-day">20</div><div class="ag-mon">Nov</div></div>
@@ -2817,14 +2814,6 @@
             </div>
             <div class="ag-prov"><img src="images/logos/digital-campus-vorarlberg.svg" alt="Digital Campus Vorarlberg" loading="lazy" decoding="async"></div>
             <a href="https://www.digitalcampusvorarlberg.at/unser-kursangebot/ki-campus/ki-im-hr-alltag-6429#/2026FK642901" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
-          </div>
-          <div class="ag" data-date="2026-11-27">
-            <div class="ag-date"><div class="ag-day">27</div><div class="ag-mon">Nov</div></div>
-            <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Trainingssprache Slowakisch" title="Trainingssprache: Slowakisch">🇸🇰</span> AI v HR praxi</h3><p><span class="ag-fmt" role="img" aria-label="Präsenz oder online" title="Präsenz oder online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Bratislava oder online &middot; Halber Tag &middot; 09:00&ndash;12:00 Uhr</p></div>
-            </div>
-            <div class="ag-prov"><img src="images/logos/proeko.png" alt="PROEKO" loading="lazy" decoding="async"></div>
-            <a href="https://proeko.sk/seminar/ai-v-hr-praxi-od-inzeratu-po-hodnotenie/" class="btn-training" target="_blank" rel="noopener">Anmelden &rarr;</a>
           </div>
           <div class="ag" data-date="2026-11-27">
             <div class="ag-date"><div class="ag-day">27</div><div class="ag-mon">Nov</div></div>
@@ -2938,33 +2927,6 @@
     <!-- SLIDE 10: CTA -->
     <section class="slide slide-cta" id="contact" data-index="9">
       <div class="container slide-content">
-        <div class="cta-main-new">
-          <h2>Wie soll Ihr Unternehmen KI einsetzen, wenn Sie es nicht persönlich tun?</h2>
-        </div>
-
-        <div class="cta-offers">
-          <div class="cta-offer-card cta-offer-featured">
-            <span class="offer-badge">1:1</span>
-            <h3>KI-Personal-Training</h3>
-            <p>Ihr Personal Trainer f&uuml;r die Arbeit mit KI. An Ihren echten Aufgaben, mit einem Ergebnis, das Sie behalten.</p>
-            <a href="/ki-personal-training/" class="btn btn-primary">Ablauf und Preise &rarr;</a>
-          </div>
-
-          <div class="cta-offer-card">
-            <span class="offer-badge">Team</span>
-            <h3>Inhouse-Training</h3>
-            <p>KI-Kompetenz + Konsumentenpsychologie f&uuml;r Ihr Team. Inklusive AI Literacy gem. EU AI Act Art. 4.</p>
-            <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-secondary" target="_blank" rel="noopener">Ich interessiere mich f&uuml;r Trainings &rarr;</a>
-          </div>
-
-          <div class="cta-offer-card">
-            <span class="offer-badge">Gruppe</span>
-            <h3>Offene Seminare</h3>
-            <p>Feste Termine bei meinen Partnern, offen f&uuml;r Einzelanmeldungen. Buchung direkt beim Veranstalter.</p>
-            <a href="/termine/" class="btn btn-secondary">Alle Termine ansehen &rarr;</a>
-          </div>
-        </div>
-
         <div class="contact-form-wrapper">
           <h3>Kontakt aufnehmen</h3>
           <p class="form-sub">Ich melde mich innerhalb von 24 Stunden.</p>
@@ -2976,9 +2938,10 @@
             <div class="form-row">
               <select name="interest" required>
                 <option value="" disabled selected>Ich interessiere mich für... *</option>
-                <option value="KI-Personal-Training">KI-Personal-Training</option>
+                <option value="Inhouse-Training (Team)">Training f&uuml;r mein Team</option>
+                <option value="Offenes Seminar">Offenes Seminar</option>
+                <option value="KI-Personal-Training">Einzeltraining</option>
                 <option value="Keynote / Impulsvortrag">Keynote / Impulsvortrag</option>
-                <option value="Inhouse-Training (Team)">Inhouse-Training (Team)</option>
                 <option value="Sonstiges">Sonstiges</option>
               </select>
               <input type="text" name="company" placeholder="Unternehmen / Position">

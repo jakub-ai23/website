@@ -7,7 +7,7 @@ wird daraus gebaut: die ersten N Zeilen, strikt in der Reihenfolge, in der sie
 dort stehen. Keine Sonderregeln, keine Auswahl von Hand, damit kein Termin
 uebersprungen wird.
 
-  python3 tools/sync-termine-vorschau.py           # DE und EN, 5 Zeilen
+  python3 tools/sync-termine-vorschau.py           # DE und EN, 3 Zeilen, ohne SK/CZ
   python3 tools/sync-termine-vorschau.py --count 8
 
 Nach dem Lauf: /termine/ bleibt unberuehrt, nur index.html und en/index.html
@@ -41,6 +41,10 @@ NOTE_MAX = 40
 LINK = {"de": "Alle Termine ansehen", "en": "See all dates"}
 LANG = "de"
 TODAY = datetime.date.today().isoformat()
+# Die Startseiten (DE fuer Oesterreich, EN international) zeigen keine
+# slowakischen oder tschechischen Kurse; die stehen nur unter /termine/.
+# Commander 2026-10-26: "interessiert die Oesterreicher und Englischsprachigen nicht".
+NICHT_AUF_STARTSEITE = ("Slowakisch", "Tschechisch", "Slovak", "Czech")
 
 def parse(path):
     h = io.open(path, encoding="utf-8").read()
@@ -138,6 +142,7 @@ def sync(src, dst, logo_prefix, count):
     if not rows:
         sys.exit("Keine Termine in %s gelesen." % src)
     rows = [r for r in rows if not is_past(r, TODAY)]
+    rows = [r for r in rows if not re.search(r'aria-label="(?:Trainingssprache|Seminar language|Training language) (?:%s)"' % "|".join(NICHT_AUF_STARTSEITE), r["title"])]
     h = io.open(os.path.join(ROOT, dst), encoding="utf-8").read()
     m = re.search(r'(<div class="agenda"(?: data-preview-limit="\d+")?>\n)(.*?)(\n?        </div>\n\n        <div class="agenda-more">)', h, re.S)
     if not m:
@@ -155,7 +160,7 @@ def sync(src, dst, logo_prefix, count):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--count", type=int, default=5)
+    ap.add_argument("--count", type=int, default=3)
     ap.add_argument("--prune", action="store_true",
                     help="abgelaufene Termine auch aus /termine/ entfernen (legt .bak-prune an)")
     ap.add_argument("--today", default=datetime.date.today().isoformat(),
