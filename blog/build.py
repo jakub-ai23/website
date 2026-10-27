@@ -547,7 +547,6 @@ def nav_html(s, other_href):
         <ul class="nav-links" id="blogNavLinks">
           <li><a href="{home}#about">{about}</a></li>
           <li><a href="{home}#services">{services}</a></li>
-          <li><a href="{home}#proof">{results}</a></li>
           <li><a href="{s['blog_base']}/" class="active">{blog}</a></li>
           <li><a href="{home}#contact" class="nav-cta">{cta}</a></li>
         </ul>
