@@ -2988,16 +2988,17 @@
               <input type="email" name="email" placeholder="E-Mail-Adresse *" required>
             </div>
             <div class="form-row">
-              <select name="interest" required>
-                <option value="" disabled selected>Ich interessiere mich für... *</option>
-                <option value="Inhouse-Training (Team)">Training f&uuml;r mein Team</option>
-                <option value="Offenes Seminar">Offenes Seminar</option>
-                <option value="KI-Personal-Training">Einzeltraining</option>
-                <option value="Keynote / Impulsvortrag">Keynote / Impulsvortrag</option>
-                <option value="Sonstiges">Sonstiges</option>
-              </select>
               <input type="text" name="company" placeholder="Unternehmen / Position">
+              <input type="tel" name="phone" placeholder="Telefonnummer" autocomplete="tel">
             </div>
+            <select name="interest" required>
+              <option value="" disabled selected>Ich interessiere mich für... *</option>
+              <option value="Inhouse-Training (Team)">Training f&uuml;r mein Team</option>
+              <option value="Offenes Seminar">Offenes Seminar</option>
+              <option value="KI-Personal-Training">Einzeltraining</option>
+              <option value="Keynote / Impulsvortrag">Keynote / Impulsvortrag</option>
+              <option value="Sonstiges">Sonstiges</option>
+            </select>
             <textarea name="message" placeholder="Erzählen Sie mir kurz, wobei ich Ihnen helfen kann..."></textarea>
             <p class="form-note">Ich antworte Ihnen per E-Mail auf Ihre Anfrage. Mehr in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
             <label class="form-consent">
@@ -3281,6 +3282,7 @@
                 email: fd.get('email') || '',
                 vorname: fd.get('name') || '',
                 firma: fd.get('company') || '',
+                telefon: fd.get('phone') || '',
                 interesse: fd.get('interest') || '',
                 notiz: fd.get('message') || '',
                 consent: fd.get('consent') === 'on'

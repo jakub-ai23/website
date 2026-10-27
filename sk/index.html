@@ -2645,15 +2645,16 @@
               <input type="email" name="email" placeholder="E-mailová adresa *" required>
             </div>
             <div class="form-row">
-              <select name="interest" required>
-                <option value="" disabled selected>Mám záujem o... *</option>
-                <option value="KI-Personal-Training">AI osobný tréning</option>
-                <option value="Keynote / Impulsvortrag">Keynote / impulzová prednáška</option>
-                <option value="Inhouse-Training (Team)">Inhouse školenie (tím)</option>
-                <option value="Sonstiges">Iné</option>
-              </select>
               <input type="text" name="company" placeholder="Firma / pozícia">
+              <input type="tel" name="phone" placeholder="Telefónne číslo" autocomplete="tel">
             </div>
+            <select name="interest" required>
+              <option value="" disabled selected>Mám záujem o... *</option>
+              <option value="KI-Personal-Training">AI osobný tréning</option>
+              <option value="Keynote / Impulsvortrag">Keynote / impulzová prednáška</option>
+              <option value="Inhouse-Training (Team)">Inhouse školenie (tím)</option>
+              <option value="Sonstiges">Iné</option>
+            </select>
             <textarea name="message" placeholder="Napíšte mi krátko, s čím Vám môžem pomôcť..."></textarea>
             <p class="form-note">Na Vaše otázky Vám odpoviem e-mailom. Viac v&nbsp;<a href="/datenschutz.html" target="_blank" rel="noopener">Zásadách ochrany osobných údajov</a>.</p>
             <label class="form-consent">
@@ -2903,6 +2904,7 @@
                 email: fd.get('email') || '',
                 vorname: fd.get('name') || '',
                 firma: fd.get('company') || '',
+                telefon: fd.get('phone') || '',
                 interesse: fd.get('interest') || '',
                 notiz: fd.get('message') || '',
                 consent: fd.get('consent') === 'on'

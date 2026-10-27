@@ -2534,15 +2534,16 @@
               <input type="email" name="email" placeholder="Email address *" required>
             </div>
             <div class="form-row">
-              <select name="interest" required>
-                <option value="" disabled selected>I'm interested in... *</option>
-                <option value="AI Personal Coaching">AI Personal Coaching</option>
-                <option value="Keynote / Impulsvortrag">Keynote</option>
-                <option value="Inhouse-Training (Team)">In-house Training (Team)</option>
-                <option value="Sonstiges">Other</option>
-              </select>
               <input type="text" name="company" placeholder="Company / Position">
+              <input type="tel" name="phone" placeholder="Phone number" autocomplete="tel">
             </div>
+            <select name="interest" required>
+              <option value="" disabled selected>I'm interested in... *</option>
+              <option value="AI Personal Coaching">AI Personal Coaching</option>
+              <option value="Keynote / Impulsvortrag">Keynote</option>
+              <option value="Inhouse-Training (Team)">In-house Training (Team)</option>
+              <option value="Sonstiges">Other</option>
+            </select>
             <textarea name="message" placeholder="Tell me briefly how I can help..."></textarea>
             <p class="form-note">I will reply to your enquiry by email. More in the <a href="../datenschutz.html" target="_blank" rel="noopener">privacy policy</a>.</p>
             <label class="form-consent">
@@ -2766,6 +2767,7 @@
                 email: fd.get('email') || '',
                 vorname: fd.get('name') || '',
                 firma: fd.get('company') || '',
+                telefon: fd.get('phone') || '',
                 interesse: fd.get('interest') || '',
                 notiz: fd.get('message') || '',
                 consent: fd.get('consent') === 'on'

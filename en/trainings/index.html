@@ -505,13 +505,13 @@
   .contact-form { display: flex; flex-direction: column; gap: 12px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
-  .contact-form input[type=text], .contact-form input[type=email], .contact-form textarea {
+  .contact-form input[type=text], .contact-form input[type=email], .contact-form input[type=tel], .contact-form textarea {
     width: 100%; padding: 12px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
     border-radius: 8px; color: var(--ink); font-family: var(--font-body); font-size: 0.9rem; outline: none; }
   .contact-form textarea { min-height: 96px; resize: vertical; }
   .contact-form input::placeholder, .contact-form textarea::placeholder { color: #777; }
   .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,160,23,0.12); }
-  .form-note { margin: 0; font-size: 0.76rem; line-height: 1.5; color: var(--muted); }
+  .form-note { margin: 0; font-size: 0.76rem; line-height: 1.5; color: var(--muted); text-align: left; }
   .form-note a { color: var(--gold); }
   .form-consent { display: flex; gap: 10px; font-size: 0.76rem; line-height: 1.5; color: var(--muted); cursor: pointer; }
   .form-consent input { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; accent-color: var(--gold); }
@@ -691,7 +691,7 @@
         <div class="train-tag">Marketing</div>
         <h3>AI in marketing</h3>
         <div class="learn-label">You will learn</div>
-        <ul class="learn"><li>The four barriers that stop a purchase, and the five motivators</li><li>Copy with AI using frameworks such as SLAY</li><li>Write and test hook variants</li></ul>
+        <ul class="learn"><li>The four barriers that stop a purchase, and the five motivators</li><li>Use AI so that frameworks such as SLAY are applied consistently in every text</li><li>Generate hook variants with AI and test them</li></ul>
         <details class="more"><summary>Learn more</summary>
           <p class="train-for">Grounded in science: consumer psychology and behavioural economics. AI amplifies what you put into it: good psychology gets better, bad psychology gets more expensive.</p><p class="train-for">For marketing, communications and sales. Half a day or a full day.</p>
         </details>
@@ -834,7 +834,10 @@
             <input type="text" name="name" placeholder="First and last name *" required autocomplete="name">
             <input type="email" name="email" placeholder="Email address *" required autocomplete="email">
           </div>
-          <input type="text" name="company" placeholder="Company / department" autocomplete="organization">
+          <div class="form-row">
+            <input type="text" name="company" placeholder="Company / department" autocomplete="organization">
+            <input type="tel" name="phone" placeholder="Phone number" autocomplete="tel">
+          </div>
           <textarea name="message" placeholder="What does your team need? For example: HR team, 10 people, we have Copilot." required></textarea>
           <p class="form-note">I will reply to your enquiry by email. More in the <a href="/datenschutz.html" target="_blank" rel="noopener">privacy policy</a>.</p>
           <label class="form-consent">
@@ -1154,7 +1157,7 @@
       fetch('https://deflifeos.popluhar.at/api/brevo-jp/subscribe', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ kind: 'jp-kontakt', v: 2, lang: 'en', email: fd.get('email') || '', vorname: fd.get('name') || '',
-          firma: fd.get('company') || '', interesse: fd.get('interest') || '', notiz: fd.get('message') || '',
+          firma: fd.get('company') || '', telefon: fd.get('phone') || '', interesse: fd.get('interest') || '', notiz: fd.get('message') || '',
           consent: fd.get('consent') === 'on' })
       }).catch(function () {});
     } catch (e2) {}
