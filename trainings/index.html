@@ -511,6 +511,8 @@
   .contact-form textarea { min-height: 96px; resize: vertical; }
   .contact-form input::placeholder, .contact-form textarea::placeholder { color: #777; }
   .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,160,23,0.12); }
+  .form-note { margin: 0; font-size: 0.76rem; line-height: 1.5; color: var(--muted); }
+  .form-note a { color: var(--gold); }
   .form-consent { display: flex; gap: 10px; font-size: 0.76rem; line-height: 1.5; color: var(--muted); cursor: pointer; }
   .form-consent input { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; accent-color: var(--gold); }
   .form-consent a { color: var(--gold); }
@@ -832,9 +834,10 @@
           </div>
           <input type="text" name="company" placeholder="Unternehmen / Abteilung" autocomplete="organization">
           <textarea name="message" placeholder="Was braucht Ihr Team? Zum Beispiel: HR-Team, 10 Personen, wir haben Copilot." required></textarea>
+          <p class="form-note">Ich antworte Ihnen per E-Mail auf Ihre Anfrage. Mehr in der <a href="/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
           <label class="form-consent">
             <input type="checkbox" name="consent">
-            <span>Ich bin einverstanden, dass mich Jakub Popluhar und die REAL TEAM s.r.o. zu meiner Anfrage und zu passenden KI-Themen per E-Mail kontaktieren. Meine Angaben werden dafür im Brevo-Konto von Jakub Popluhar gespeichert. Widerruf jederzeit möglich. Mehr in der <a href="/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
+            <span>Freiwillig: Ja, Jakub Popluhar und die REAL TEAM s.r.o. dürfen mir gelegentlich Neuigkeiten zu KI-Themen per E-Mail schicken. Dafür werden meine Angaben im CRM von Jakub Popluhar und der REAL TEAM s.r.o. gespeichert. Widerruf jederzeit möglich.</span>
           </label>
           <button type="submit" class="btn btn-primary btn-submit">Anfrage senden →</button>
         </form>

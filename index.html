@@ -1660,6 +1660,8 @@
       color: var(--white);
     }
 
+    .form-note { margin: 4px 0 0; font-size: 0.8rem; line-height: 1.5; color: var(--white-muted); text-align: left; }
+    .form-note a { color: var(--gold); font-weight: 600; }
     .form-consent {
       display: flex;
       align-items: flex-start;
@@ -2997,9 +2999,10 @@
               <input type="text" name="company" placeholder="Unternehmen / Position">
             </div>
             <textarea name="message" placeholder="Erzählen Sie mir kurz, wobei ich Ihnen helfen kann..."></textarea>
+            <p class="form-note">Ich antworte Ihnen per E-Mail auf Ihre Anfrage. Mehr in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
             <label class="form-consent">
               <input type="checkbox" name="consent">
-              <span>Ich bin einverstanden, dass mich Jakub Popluhar und die REAL TEAM s.r.o. zu meiner Anfrage und zu passenden KI-Themen per E-Mail kontaktieren. Meine Angaben werden dafür im Brevo-Konto von Jakub Popluhar gespeichert. Widerruf jederzeit möglich. Mehr in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
+              <span>Freiwillig: Ja, Jakub Popluhar und die REAL TEAM s.r.o. dürfen mir gelegentlich Neuigkeiten zu KI-Themen per E-Mail schicken. Dafür werden meine Angaben im CRM von Jakub Popluhar und der REAL TEAM s.r.o. gespeichert. Widerruf jederzeit möglich.</span>
             </label>
             <button type="submit" class="btn-submit">Nachricht senden &rarr;</button>
           </form>

@@ -1546,6 +1546,8 @@
       color: var(--white);
     }
 
+    .form-note { margin: 4px 0 0; font-size: 0.8rem; line-height: 1.5; color: var(--white-muted); text-align: left; }
+    .form-note a { color: var(--gold); font-weight: 600; }
     .form-consent {
       display: flex;
       align-items: flex-start;
@@ -2542,9 +2544,10 @@
               <input type="text" name="company" placeholder="Company / Position">
             </div>
             <textarea name="message" placeholder="Tell me briefly how I can help..."></textarea>
+            <p class="form-note">I will reply to your enquiry by email. More in the <a href="../datenschutz.html" target="_blank" rel="noopener">privacy policy</a>.</p>
             <label class="form-consent">
               <input type="checkbox" name="consent">
-              <span>I agree that Jakub Popluhar and REAL TEAM s.r.o. may contact me by email about my enquiry and relevant AI topics. My details will be stored in Jakub Popluhar's Brevo account for this purpose. I can withdraw this consent at any time. More in the <a href="../datenschutz.html" target="_blank" rel="noopener">privacy policy</a>.</span>
+              <span>Optional: Yes, Jakub Popluhar and REAL TEAM s.r.o. may occasionally send me news on AI topics by email. My details will be stored in the CRM of Jakub Popluhar and REAL TEAM s.r.o. for this purpose. I can withdraw this at any time.</span>
             </label>
             <button type="submit" class="btn-submit">Send message &rarr;</button>
           </form>

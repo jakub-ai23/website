@@ -511,6 +511,8 @@
   .contact-form textarea { min-height: 96px; resize: vertical; }
   .contact-form input::placeholder, .contact-form textarea::placeholder { color: #777; }
   .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,160,23,0.12); }
+  .form-note { margin: 0; font-size: 0.76rem; line-height: 1.5; color: var(--muted); }
+  .form-note a { color: var(--gold); }
   .form-consent { display: flex; gap: 10px; font-size: 0.76rem; line-height: 1.5; color: var(--muted); cursor: pointer; }
   .form-consent input { width: 16px; height: 16px; margin-top: 2px; flex-shrink: 0; accent-color: var(--gold); }
   .form-consent a { color: var(--gold); }
@@ -838,9 +840,10 @@
           </div>
           <input type="text" name="company" placeholder="Firma / oddelenie" autocomplete="organization">
           <textarea name="message" placeholder="Čo potrebuje Váš tím? Napríklad: HR tím, 10 osôb, máme Copilot." required></textarea>
+          <p class="form-note">Na Vaše otázky Vám odpoviem e-mailom. Viac v&nbsp;<a href="/datenschutz.html" target="_blank" rel="noopener">Zásadách ochrany osobných údajov</a>.</p>
           <label class="form-consent">
             <input type="checkbox" name="consent">
-            <span>Súhlasím, aby ma Jakub Popluhar a&nbsp;REAL TEAM s.r.o. kontaktovali e-mailom v&nbsp;súvislosti s&nbsp;mojou požiadavkou a&nbsp;k&nbsp;relevantným témam AI. Moje údaje budú na tento účel uložené v&nbsp;Brevo účte Jakuba Popluhara. Súhlas môžem kedykoľvek odvolať. Viac v&nbsp;<a href="/datenschutz.html" target="_blank" rel="noopener">Zásadách ochrany osobných údajov</a>.</span>
+            <span>Dobrovoľné: Áno, Jakub Popluhar a&nbsp;REAL TEAM s.r.o. mi môžu príležitostne posielať e-mailom novinky o&nbsp;AI. Moje údaje budú na tento účel uložené v&nbsp;CRM Jakuba Popluhara a&nbsp;REAL TEAM s.r.o. Súhlas môžem kedykoľvek odvolať.</span>
           </label>
           <button type="submit" class="btn btn-primary btn-submit">Odoslať dopyt →</button>
         </form>

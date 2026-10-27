@@ -1646,6 +1646,8 @@
       color: var(--white);
     }
 
+    .form-note { margin: 4px 0 0; font-size: 0.8rem; line-height: 1.5; color: var(--white-muted); text-align: left; }
+    .form-note a { color: var(--gold); font-weight: 600; }
     .form-consent {
       display: flex;
       align-items: flex-start;
@@ -2653,9 +2655,10 @@
               <input type="text" name="company" placeholder="Firma / pozícia">
             </div>
             <textarea name="message" placeholder="Napíšte mi krátko, s čím Vám môžem pomôcť..."></textarea>
+            <p class="form-note">Na Vaše otázky Vám odpoviem e-mailom. Viac v&nbsp;<a href="/datenschutz.html" target="_blank" rel="noopener">Zásadách ochrany osobných údajov</a>.</p>
             <label class="form-consent">
               <input type="checkbox" name="consent">
-              <span>Súhlasím, aby ma Jakub Popluhar a REAL TEAM s.r.o. kontaktovali e-mailom v súvislosti s mojou požiadavkou a k relevantným témam AI. Moje údaje budú na tento účel uložené v Brevo účte Jakuba Popluhara. Súhlas môžem kedykoľvek odvolať. Viac v <a href="/datenschutz.html" target="_blank" rel="noopener">Zásadách ochrany osobných údajov</a>.</span>
+              <span>Dobrovoľné: Áno, Jakub Popluhar a&nbsp;REAL TEAM s.r.o. mi môžu príležitostne posielať e-mailom novinky o&nbsp;AI. Moje údaje budú na tento účel uložené v&nbsp;CRM Jakuba Popluhara a&nbsp;REAL TEAM s.r.o. Súhlas môžem kedykoľvek odvolať.</span>
             </label>
             <button type="submit" class="btn-submit">Odoslať správu &rarr;</button>
           </form>
