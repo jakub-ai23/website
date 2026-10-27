@@ -215,16 +215,26 @@
   </url>
   <url>
     <loc>https://jakubpopluhar.com/trainings/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://jakubpopluhar.com/sk/trainings/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/"/>
   </url>
   <url>
     <loc>https://jakubpopluhar.com/en/trainings/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://jakubpopluhar.com/sk/trainings/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/"/>
+  </url>
+  <url>
+    <loc>https://jakubpopluhar.com/sk/trainings/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://jakubpopluhar.com/sk/trainings/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/"/>
   </url>
   <url>
