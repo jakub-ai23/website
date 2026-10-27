@@ -15,9 +15,20 @@ Conventions:
     built + reachable by URL, never listed, never in the sitemap.
   - `draft: true` posts are built only with --drafts and never listed.
 
-No third-party dependencies. Run:  python3 blog/build.py [--drafts]
+No third-party dependencies. Run:  python3 blog/build.py [--drafts | --preview]
 
-Created: 2026-07-05
+  --preview   build a copy with drafts in a temp folder and serve it locally (safe)
+  --drafts    build drafts INTO THE REPO (only for deliberate checks, never commit them)
+
+Safety rules (27.10.2026, after a rebuild nearly deleted /trainings/ and /sk/):
+  - sitemap.xml: only /blog/ and /en/blog/ URLs are regenerated; every other URL in
+    the file is kept verbatim. If a non-blog URL would disappear, the build stops.
+  - llms.txt: only the sections "## Articles (English)" and "## Artikel (Deutsch)"
+    are regenerated; the hand-written rest stays.
+  - A post whose first line is not exactly "---" is skipped (never built or listed),
+    and a post without an explicit "draft: false" counts as a draft.
+
+Created: 2026-07-05 · Last updated: 2026-10-27
 Typography contract + GEO + sharing: see blog/CLAUDE.md
 """
 
@@ -192,6 +203,11 @@ def parse_post(path):
     with open(path, encoding="utf-8") as f:
         raw = f.read()
     meta, body = {}, raw
+    # Fail-safe (27.10.2026): a file whose first line is not exactly "---" has no
+    # readable frontmatter. Without it, draft/slug/title fall back to defaults and a
+    # half-written draft would go live under its file name (happened: "re---" in
+    # 2026-09-04-drei-erfundene-regeln.md). Such a file is never built or listed.
+    meta["_broken"] = not raw.startswith("---\n")
     if raw.startswith("---"):
         end = raw.find("\n---", 3)
         if end != -1:
@@ -213,7 +229,8 @@ def parse_post(path):
     for key in ("date", "description", "lede", "hero", "caption", "category",
                 "title_seo", "hero_alt"):
         meta.setdefault(key, "")
-    meta["draft"] = str(meta.get("draft", "false")).lower() == "true"
+    # draft must be stated: only an explicit "false" publishes. Missing or unclear = draft.
+    meta["draft"] = str(meta.get("draft", "true")).strip().lower() != "false"
     meta["_unlisted"] = os.path.basename(path).startswith("_")
     meta["_body"] = body
     meta["_reading"] = max(1, round(len(re.findall(r"\w+", body)) / 200))
@@ -995,24 +1012,73 @@ def write_robots():
     write(os.path.join(ROOT, "robots.txt"), "\n".join(lines) + "\n")
 
 
+def _is_blog_url(loc):
+    path = loc[len(SITE):] if loc.startswith(SITE) else loc
+    return path.startswith("/blog/") or path.startswith("/en/blog/")
+
+
+def _existing_sitemap_rows():
+    """Every <url> block of the current sitemap.xml that is NOT a blog URL, verbatim.
+    The rest of the site (trainings, SK pages, Termine, partner pages, ...) is
+    maintained by hand or by other scripts. The blog build must never drop it
+    (27.10.2026: a rebuild silently deleted /trainings/ and /sk/ from the sitemap)."""
+    path = os.path.join(ROOT, "sitemap.xml")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        xml = f.read()
+    keep = {}
+    for block in re.findall(r"  <url>.*?</url>", xml, flags=re.S):
+        m = re.search(r"<loc>(.*?)</loc>", block)
+        if m and not _is_blog_url(m.group(1)):
+            keep[m.group(1)[len(SITE):] if m.group(1).startswith(SITE) else m.group(1)] = block
+    return keep
+
+
 def write_sitemap(entries):
-    """entries: list of (url, lastmod|None, [(hreflang, url), ...]).
-    lastmod tells crawlers what actually changed; the xhtml:link alternates state the
-    DE/EN pairing in the sitemap itself, which is what Google reads for hreflang."""
-    rows = []
+    """entries: list of (url, lastmod|None, [(hreflang, url), ...]) for BLOG urls.
+    Merge rule: blog URLs are regenerated from the posts; every other URL already in
+    sitemap.xml is kept exactly as it is. Core pages missing from the file entirely
+    are added without lastmod. Prints what was added or removed."""
+    old_keep = _existing_sitemap_rows()
+    path = os.path.join(ROOT, "sitemap.xml")
+    old_order = []
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            old_order = [l[len(SITE):] if l.startswith(SITE) else l
+                         for l in re.findall(r"<loc>(.*?)</loc>", f.read())]
+    old_locs = set(old_order)
+    rows = {}
+    for u, row in old_keep.items():
+        rows[u] = row
     for u, lastmod, alts in sorted(set(entries), key=lambda e: e[0]):
+        if not _is_blog_url(SITE + u):
+            if u in rows:
+                continue  # hand-maintained entry wins
+            alts = ()
+            lastmod = None
         row = [f"  <url>", f"    <loc>{SITE}{u}</loc>"]
         if lastmod:
             row.append(f"    <lastmod>{lastmod}</lastmod>")
         for hl, href in alts:
             row.append(f'    <xhtml:link rel="alternate" hreflang="{hl}" href="{SITE}{href}"/>')
         row.append("  </url>")
-        rows.append("\n".join(row))
+        rows[u] = "\n".join(row)
+    # Keep the file's own order (small diffs): existing URLs stay where they are,
+    # blog URLs that still exist are refreshed in place, new ones go to the end.
+    order = [u for u in old_order if u in rows] + sorted(u for u in rows if u not in old_order)
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
            '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
-           + "\n".join(rows) + "\n</urlset>\n")
-    write(os.path.join(ROOT, "sitemap.xml"), xml)
+           + "\n".join(rows[u] for u in order) + "\n</urlset>\n")
+    added, removed = sorted(set(rows) - old_locs), sorted(old_locs - set(rows))
+    for u in added:
+        print("  sitemap + ", u)
+    for u in removed:
+        print("  sitemap - ", u)
+    if removed and any(not _is_blog_url(SITE + u) for u in removed):
+        raise SystemExit("sitemap.xml: a non-blog URL would be removed. Stopped, nothing written.")
+    write(path, xml)
 
 
 def write_redirect(old_path, new_path, lang="en"):
@@ -1053,17 +1119,44 @@ def write_llms(all_posts=None):
         f"- [Blog, German]({SITE}/blog/)",
         f"- [Blog, English]({SITE}/en/blog/)",
     ]
+    sections = {}
     for lang, heading in (("en", "## Articles (English)"), ("de", "## Artikel (Deutsch)")):
         posts = [p for p in (all_posts or {}).get(lang, [])
                  if not p["draft"] and not p["_unlisted"]]
         if not posts:
             continue
-        lines += ["", heading, ""]
         base = STRINGS[lang]["blog_base"]
-        for p in posts:
-            desc = (p["description"] or p["lede"] or "").strip()
-            lines.append(f"- [{p['title']}]({SITE}{base}/{p['slug']}/): {desc}")
-    write(os.path.join(ROOT, "llms.txt"), "\n".join(lines) + "\n")
+        body = [f"- [{p['title']}]({SITE}{base}/{p['slug']}/): "
+                f"{(p['description'] or p['lede'] or '').strip()}" for p in posts]
+        sections[heading] = body
+    path = os.path.join(ROOT, "llms.txt")
+    # Merge rule (27.10.2026): llms.txt is maintained by hand (site description,
+    # trainings, languages). The build only replaces the two article sections and
+    # keeps everything else verbatim. The template above is used only when the
+    # file does not exist yet.
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            current = f.read().rstrip("\n").split("\n")
+        out, i = [], 0
+        while i < len(current):
+            line = current[i]
+            if line in sections:
+                out += [line, ""] + sections.pop(line)
+                i += 1
+                while i < len(current) and not current[i].startswith("## "):
+                    i += 1
+                if i < len(current):
+                    out.append("")
+                continue
+            out.append(line)
+            i += 1
+        for heading, body in sections.items():  # section missing in the file: append
+            out += ["", heading, ""] + body
+        write(path, "\n".join(out) + "\n")
+        return
+    for heading, body in sections.items():
+        lines += ["", heading, ""] + body
+    write(path, "\n".join(lines) + "\n")
 
 
 # ---------------------------------------------------------------------------
@@ -1073,7 +1166,18 @@ def load(lang):
     d = os.path.join(POSTS_DIR, lang)
     if not os.path.isdir(d):
         return []
-    posts = [parse_post(os.path.join(d, f)) for f in os.listdir(d) if f.endswith(".md")]
+    posts = []
+    for f in sorted(os.listdir(d)):
+        if not f.endswith(".md"):
+            continue
+        p = parse_post(os.path.join(d, f))
+        if p["_broken"]:
+            WARNINGS.append(f"[{lang}] {f}: SKIPPED, first line is not '---' (frontmatter unreadable). "
+                            "Not built, not listed, not in sitemap/llms.txt. Fix the first line.")
+            continue
+        posts.append(p)
+    # newest first; same date: by file name, so the order is the same on every machine
+    posts.sort(key=lambda p: p["_stem"], reverse=True)
     posts.sort(key=lambda p: p["date"], reverse=True)
     return posts
 
@@ -1088,8 +1192,27 @@ def write(path, content):
     print("  wrote", os.path.relpath(path, ROOT))
 
 
+def preview(port=8765):
+    """--preview: build a throwaway copy of the whole site WITH drafts and serve it on
+    http://127.0.0.1:<port>/. The repo itself is never touched, so a preview can never
+    leak a draft or rewrite sitemap.xml/llms.txt by accident (27.10.2026)."""
+    import shutil, subprocess, tempfile
+    tmp = tempfile.mkdtemp(prefix="jp-blog-preview-")
+    shutil.copytree(ROOT, tmp, dirs_exist_ok=True,
+                    ignore=shutil.ignore_patterns(".git", "node_modules", "*.mp4", "*.mov"))
+    subprocess.run([sys.executable, os.path.join(tmp, "blog", "build.py"), "--drafts"], check=True)
+    print(f"\nPreview (repo untouched): http://127.0.0.1:{port}/blog/   copy: {tmp}")
+    print("Stop with Ctrl+C.")
+    subprocess.run([sys.executable, "-m", "http.server", str(port), "--bind", "127.0.0.1"], cwd=tmp)
+
+
 def main():
+    if "--preview" in sys.argv:
+        return preview()
     include_drafts = "--drafts" in sys.argv
+    if include_drafts and os.path.isdir(os.path.join(ROOT, ".git")):
+        print("WARNING: --drafts in the real repo writes draft pages next to live ones. "
+              "For a look, use --preview instead.")
     sitemap_urls = []
     cat_slugs = {c["slug"] for c in CATEGORIES} | {cat_slug(c, "en") for c in CATEGORIES}
 
