@@ -24,11 +24,11 @@ Die Aufgabe stammt aus einer Demo für das Training. Die KI liest aus jedem Lebe
 
 Die KI entscheidet also nicht. Sie liest, die Regel rechnet, und das Ergebnis heißt „erfüllt“, „nicht erfüllt“ oder „bitte prüfen“. Namen, Geburtsdatum und Familienstand haben in der Auswertung nichts verloren.
 
-Einer der fünf Lebensläufe war meiner. Die anderen vier Personen sind erfunden, und in jeden habe ich absichtlich eine Falle gebaut, wie sie in echten Bewerbungen ständig vorkommt. Zwei davon sind die interessanten:
+Einer der fünf Lebensläufe war meiner. Die anderen vier Personen sind erfunden, und in jeden ihrer Lebensläufe habe ich absichtlich eine Falle gebaut, wie sie in echten Bewerbungen ständig vorkommt. Zwei davon sind die interessanten:
 
 > „Bachelorstudium Personalmanagement (berufsbegleitend) · Fachhochschule Wiener Neustadt · voraussichtlicher Abschluss 06/2027 · Bisher 110 von 180 ECTS absolviert“ (Lebenslauf von Daniel, fiktiv)
 
-> „Universitätslehrgang Human Resource Management, Abschluss „Akademische HR-Managerin“ · Universität für Weiterbildung Krems, berufsbegleitend, 60 ECTS“ (Lebenslauf von Petra, fiktiv)
+> „Universitätslehrgang Human Resource Management, Abschluss ‚Akademische HR-Managerin‘ · Universität für Weiterbildung Krems, berufsbegleitend, 60 ECTS“ (Lebenslauf von Petra, fiktiv)
 
 Daniel hat noch keinen Bachelor. Petra hat einen Lehrgang mit akademisch klingendem Titel, aber keinen Bachelor.
 
@@ -38,18 +38,18 @@ Daniel hat noch keinen Bachelor. Petra hat einen Lehrgang mit akademisch klingen
 |---|---|---|---|---|
 | Daniel, Bachelor läuft noch | nicht erfüllt | nicht erfüllt | bitte prüfen | erfüllt, „Bachelor“ |
 | Petra, Universitätslehrgang | bitte prüfen | bitte prüfen | bitte prüfen | erfüllt, „Master“ |
-| Ergebnis für alle fünf | 3 · 1 · 1 | 3 · 1 · 1 | 3 · 0 · 2 | 5 · 0 · 0 |
+| Ergebnis für alle fünf (erfüllt · nicht · prüfen) | 3 · 1 · 1 | 3 · 1 · 1 | 3 · 0 · 2 | 5 · 0 · 0 |
 | Lebensläufe haben den Rechner verlassen | | ja | nein | nein |
 
 Claude hat beide Fallen erkannt. Dafür gingen die Lebensläufe in die Cloud.
 
-Gemma hat nichts erfunden und beide Fälle an den Menschen zurückgegeben. Bei Daniel war das zu vorsichtig, denn die Regel hätte ihn selbst entscheiden können. Aber niemand wurde falsch durchgewunken.
+Gemma hat keinen Abschluss erfunden und beide Fälle an den Menschen zurückgegeben. Bei Daniel war das zu vorsichtig, denn die Regel hätte ihn selbst entscheiden können. Aber niemand wurde falsch durchgewunken.
 
 Qwen, das schnellere der beiden lokalen Modelle, hat aus Daniels laufendem Studium einen Bachelor gemacht und aus Petras Lehrgang einen Master. Sein Fazit stand oben in der Antwort:
 
 > „alle 5 Bewerbungen erfüllen den Mindestabschluss (Bachelor)“ (Qwen 3.6, lokal)
 
-Beim Datenschutz waren alle drei sauber: Keine KI hat einen Namen, ein Geburtsdatum oder den Familienstand in die Auswertung übernommen.
+Bei dem, was die KI herausgezogen hat, waren alle drei sauber: Keine KI hat einen Namen, ein Geburtsdatum oder den Familienstand in die Auswertung übernommen.
 
 ## Warum ist das selbstsichere Ergebnis gefährlicher als das vorsichtige?
 
@@ -61,11 +61,11 @@ Ein vorsichtiges Modell kostet Zeit, weil du mehr Fälle selbst ansiehst. Ein se
 
 ## Was antwortet eine lokale KI auf „Wen soll ich anstellen?“
 
-Danach habe ich Qwen in derselben Sitzung gefragt: „also, wen soll ich anstellen?“ Das Modell hat gut vier Minuten nachgedacht und dann geantwortet:
+Danach habe ich Qwen in derselben Sitzung gefragt: „also, wen soll ich anstellen?“ Das Modell hat gut vier Minuten nachgedacht und dann geantwortet (gekürzt):
 
 > „Die Tabelle zeigt nur Mindestanforderungen. Alle fünf erfüllen sie. Eine Empfehlung ist verboten, nach EU AI Act und DSGVO Art. 22. Die Personalabteilung entscheidet.“ (Qwen 3.6, lokal)
 
-Das ist der Moment auf dem Bild oben. Dasselbe Modell, das zwei Abschlüsse erfunden hat, hält die Leitplanke ein, auch ohne Internet und auf direkte Frage. Die Regel „nie empfehlen, nie ablehnen, nie sortieren“ steht in der Arbeitsanweisung, die ich der KI mitgegeben habe, nicht in einer Cloud. Die Leitplanke hält, nur die Fakten darunter halten nicht.
+Das ist der Moment auf dem Bild oben. Dasselbe Modell, das zwei Abschlüsse erfunden hat, hält die Leitplanke ein, auch ohne Internet und auf direkte Frage. Die Regel „Entscheidet nie und lehnt nie ab“ steht in der Arbeitsanweisung, die ich der KI mitgegeben habe, nicht in einer Cloud. Die Leitplanke hält, nur die Fakten darunter halten nicht.
 
 ## Heißt das, lokale KI taugt nicht für HR?
 
@@ -73,6 +73,6 @@ Nein. Es heißt, dass mein Laptop ein Laptop ist. Gemma 4 und Qwen 3.6 haben 31 
 
 Und es war kein Großversuch: fünf Lebensläufe, ein Lauf pro Modell, die Fallen mit Absicht gestellt. Das ist keine Studie und keine Fehlerquote. Es zeigt, wo du hinschauen musst.
 
-Was der Test sicher zeigt: Lokal kauft dir Datenschutz. Keine Bewerbung hat meinen Laptop verlassen, kein Anbieter hat sie gesehen. Qualität gibt es nicht automatisch dazu. Die kommt von einer Regel, die du selbst schreibst, und von einem Menschen, der prüft, was die KI gelesen hat.
+Was der Test sicher zeigt: Lokal kauft dir Datenschutz. Bei den lokalen Läufen hat keine Bewerbung meinen Laptop verlassen, kein Anbieter hat sie gesehen. Qualität gibt es nicht automatisch dazu. Die kommt von einer Regel, die du selbst schreibst, und von einem Menschen, der prüft, was die KI gelesen hat.
 
 Die Bewerbungen von Daniel und Petra sind übrigens fiktiv, natürlich.

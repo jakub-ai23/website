@@ -24,6 +24,7 @@
 
 ## Articles (English)
 
+- [Privacy perfect, degrees invented: local AI put to the job application test](https://jakubpopluhar.com/en/blog/local-ai-job-applications/): Claude, Gemma and Qwen check the same five CVs. Locally, every application stays in-house, but a laptop model invents two degrees.
 - [Do my AI agents make mistakes? Yes and no](https://jakubpopluhar.com/en/blog/do-ai-agents-make-mistakes/): In the break at my seminars I am often asked if my AI agents make mistakes. My answer: yes and no. Two kinds, and only one of them belongs to the agents.
 - [I don't prompt less, I prompt differently](https://jakubpopluhar.com/en/blog/dictating-is-orchestrating/): 79.5 percent of my dictated words go into my terminal, logged by Wispr Flow under "Other Tasks". Why that is the wrong category, and what dictating really is.
 - [Today I'm letting my AI assistant tell the story](https://jakubpopluhar.com/en/blog/process-that-repairs-itself/): One morning my own handoff tool deleted real work twice. A story about how processes mature on the job, told from my AI assistant's point of view.

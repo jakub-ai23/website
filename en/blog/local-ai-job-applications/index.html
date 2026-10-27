@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local AI for job applications: a hands-on test - Jakub Popluhar</title>
+<meta name="description" content="Claude, Gemma and Qwen check the same five CVs. Locally, every application stays in-house, but a laptop model invents two degrees.">
+<link rel="canonical" href="https://jakubpopluhar.com/en/blog/local-ai-job-applications/">
+<meta property="og:title" content="Privacy perfect, degrees invented: local AI put to the job application test">
+<meta property="og:description" content="Claude, Gemma and Qwen check the same five CVs. Locally, every application stays in-house, but a laptop model invents two degrees.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jakubpopluhar.com/en/blog/local-ai-job-applications/">
+<meta property="og:image" content="https://jakubpopluhar.com/images/blog/lokale-ki-bewerbungen.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/blog/lokale-ki-bewerbungen/">
+<link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/blog/local-ai-job-applications/">
+<link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/blog/lokale-ki-bewerbungen/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Privacy perfect, degrees invented: local AI put to the job application test",
+  "description": "Claude, Gemma and Qwen check the same five CVs. Locally, every application stays in-house, but a laptop model invents two degrees.",
+  "datePublished": "2026-10-27",
+  "dateModified": "2026-10-27",
+  "image": "https://jakubpopluhar.com/images/blog/lokale-ki-bewerbungen.webp",
+  "author": {
+    "@type": "Person",
+    "name": "Jakub Popluhar",
+    "jobTitle": "KI-Trainer",
+    "url": "https://jakubpopluhar.com/",
+    "image": "https://jakubpopluhar.com/images/profile/headshot.png",
+    "sameAs": [
+      "https://www.linkedin.com/in/jakubpopluhar/",
+      "https://mindworx.net/team/jakub-popluhar/",
+      "https://ars.at/referenten/jakub-popluhar/"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Jakub Popluhar",
+    "url": "https://jakubpopluhar.com/"
+  },
+  "mainEntityOfPage": "https://jakubpopluhar.com/en/blog/local-ai-job-applications/",
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Blog",
+      "item": "https://jakubpopluhar.com/en/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "From Practice",
+      "item": "https://jakubpopluhar.com/en/blog/from-practice/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Privacy perfect, degrees invented: local AI put to the job application test",
+      "item": "https://jakubpopluhar.com/en/blog/local-ai-job-applications/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="nav">
+    <div class="container">
+      <a href="/en/" class="nav-logo"><svg class="logo-svg-nav" viewBox="0 0 380 125" height="46" aria-label="Jakub Popluhar"><defs><linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#bf953f"/><stop offset="18%" stop-color="#fcf6ba"/><stop offset="40%" stop-color="#b38728"/><stop offset="65%" stop-color="#fbf5b7"/><stop offset="85%" stop-color="#daa520"/><stop offset="100%" stop-color="#aa771c"/></linearGradient><filter id="goldGlow"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/></filter></defs><text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text><text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text></svg></a>
+      <div class="nav-right">
+        <ul class="nav-links" id="blogNavLinks">
+          <li><a href="/en/#about">About</a></li>
+          <li><a href="/en/#services">Services</a></li>
+          <li><a href="/en/#proof">Results</a></li>
+          <li><a href="/en/blog/" class="active">Blog</a></li>
+          <li><a href="/en/#contact" class="nav-cta">Book a session</a></li>
+        </ul>
+        <div class="nav-lang" aria-label="Sprache">
+          <a href="/blog/lokale-ki-bewerbungen/" class="">DE</a>
+          <span class="nav-lang-sep">/</span>
+          <a href="/en/blog/" class="active">EN</a>
+        </div>
+        <button class="nav-toggle" id="blogNavToggle" aria-label="Menu" aria-expanded="false" aria-controls="blogNavLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    var t=document.getElementById('blogNavToggle'),l=document.getElementById('blogNavLinks');
+    if(!t||!l)return;
+    t.addEventListener('click',function(){
+      var open=l.classList.toggle('open');
+      t.setAttribute('aria-expanded',open?'true':'false');
+    });
+    l.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){l.classList.remove('open');t.setAttribute('aria-expanded','false');});
+    });
+  })();
+  </script>
+<main>
+<article>
+    <header class="article-head">
+      <div class="wrap">
+        <div class="cat-eyebrow"><a href="/en/blog/from-practice/" style="color:#d4a017">From Practice</a></div>
+        <h1>Privacy perfect, degrees invented: local AI put to the job application test</h1>
+        <p class="lede">I had the same five CVs checked by Claude in the cloud and by two AIs on my laptop. Locally, every application stayed in-house, but the faster model turned a certificate course into a master&#x27;s degree.</p>
+        <div class="byline"><img class="byline-img" src="/images/profile/headshot.png" alt="Jakub Popluhar" width="480" height="480" decoding="async"><div class="byline-text"><span class="byline-name">Jakub Popluhar</span><span class="byline-meta">Oct 27, 2026 &middot; 5 min read</span></div></div>
+        <div class="share-row">
+      <span class="share-label">Share:</span>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Flocal-ai-job-applications%2F" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a class="share-btn" href="mailto:?subject=Privacy%20perfect%2C%20degrees%20invented%3A%20local%20AI%20put%20to%20the%20job%20application%20test&body=Privacy%20perfect%2C%20degrees%20invented%3A%20local%20AI%20put%20to%20the%20job%20application%20test%20https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Flocal-ai-job-applications%2F" aria-label="Email">Email</a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Flocal-ai-job-applications%2F&text=Privacy%20perfect%2C%20degrees%20invented%3A%20local%20AI%20put%20to%20the%20job%20application%20test" target="_blank" rel="noopener" aria-label="X">X</a>
+      <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Flocal-ai-job-applications%2F" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      <button class="share-btn copy" data-url="https://jakubpopluhar.com/en/blog/local-ai-job-applications/" data-done="Copied ✓">Copy link</button>
+    </div>
+      </div>
+    </header>
+    <div class="wrap">
+      <figure class="article-hero-fig"><img class="article-hero" src="/images/blog/lokale-ki-bewerbungen.webp" alt="Terminal with the German answer of a local AI model: all five applications meet the minimum degree, followed by the question of whom to hire and the answer that a recommendation is not allowed" width="1864" height="1008" decoding="async" fetchpriority="high"><figcaption class="article-hero-caption">Qwen 3.6 on my MacBook, offline. At the top the wrong result, at the bottom the right refusal. Screenshot in German.</figcaption></figure>
+      <div class="article-body">
+<p><strong>In short:</strong> AI models that run locally protect applicant data, because no CV leaves the computer. In my test with five CVs, however, two laptop models misread degrees that Claude in the cloud read correctly. A fixed rule and a human who checks are still needed, locally and in the cloud alike.</p>
+<p>The day before my training <a href="https://ars.at/seminar/333183/">"HR Praxis mit KI" at ARS Akademie</a>, I sat at my desk in Vienna in the morning with three AIs open. Two of them ran on my MacBook, without internet: Gemma 4 from Google and Qwen 3.6 from Alibaba. The third was Claude (by Anthropic), in the cloud.</p>
+<p>All three got the same task, the same rule and the same five CVs as PDFs.</p>
+<h2>What exactly were the AIs supposed to do?</h2>
+<p>The task comes from a demo for the training. The AI pulls two things out of every CV: the highest degree and the last two employers. Then a fixed rule checks whether the minimum requirement is met: at least a bachelor's degree, from a university or a university of applied sciences.</p>
+<p>So the AI does not decide. It reads, the rule calculates, and the result is "met", "not met" or "please check". Names, date of birth and marital status have no place in the evaluation.</p>
+<p>One of the five CVs was mine. The other four people are invented, and into each of their CVs I deliberately built a trap of the kind that turns up in real applications all the time. Two of them are the interesting ones:</p>
+<blockquote>"Bachelorstudium Personalmanagement (berufsbegleitend) · Fachhochschule Wiener Neustadt · voraussichtlicher Abschluss 06/2027 · Bisher 110 von 180 ECTS absolviert" (Daniel's CV, fictitious. In English: "part-time bachelor's in HR management, expected to finish in June 2027, 110 of 180 ECTS completed so far")</blockquote>
+<blockquote>"Universitätslehrgang Human Resource Management, Abschluss 'Akademische HR-Managerin' · Universität für Weiterbildung Krems, berufsbegleitend, 60 ECTS" (Petra's CV, fictitious. In English: "university certificate course in human resource management, title 'Academic HR Manager', part-time, 60 ECTS")</blockquote>
+<p>Daniel does not have a bachelor's degree yet. Petra has a course with an academic-sounding title, but no bachelor's degree.</p>
+<h2>How did the cloud and the laptop do?</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>Correct answer</th><th>Claude (cloud)</th><th>Gemma (laptop)</th><th>Qwen (laptop)</th></tr></thead><tbody><tr><td>Daniel, bachelor's still in progress</td><td>not met</td><td>not met</td><td>please check</td><td>met, "bachelor"</td></tr><tr><td>Petra, university certificate course</td><td>please check</td><td>please check</td><td>please check</td><td>met, "master"</td></tr><tr><td>Result for all five (met · not met · please check)</td><td>3 · 1 · 1</td><td>3 · 1 · 1</td><td>3 · 0 · 2</td><td>5 · 0 · 0</td></tr><tr><td>CVs left the computer</td><td></td><td>yes</td><td>no</td><td>no</td></tr></tbody></table></div>
+<p>Claude spotted both traps. The price: the CVs went to the cloud.</p>
+<p>Gemma invented no degree and handed both cases back to the human. For Daniel that was too cautious, because the rule could have settled his case on its own. But nobody was waved through by mistake.</p>
+<p>Qwen, the faster of the two local models, turned Daniel's ongoing studies into a bachelor's degree and Petra's course into a master's. Its verdict sat at the top of the answer:</p>
+<blockquote>"alle 5 Bewerbungen erfüllen den Mindestabschluss (Bachelor)" (Qwen 3.6, local. In English: "all 5 applications meet the minimum degree (bachelor's)")</blockquote>
+<p>On what the AI pulled out, all three were clean: no AI carried a name, a date of birth or a marital status into the evaluation.</p>
+<h2>Why is the confident result more dangerous than the cautious one?</h2>
+<p>The fixed rule calculated correctly for all three. Just with whatever the AI had read beforehand.</p>
+<blockquote class="pullquote">The rule calculates, the reading decides.</blockquote>
+<p>A cautious model costs time, because you look at more cases yourself. A confident model costs more: a wrong "met" that nobody looks at again. And it looks exactly like a correct result. In recruiting, that is the expensive mistake, and it is exactly why the EU AI Act treats the filtering of job applications as a high-risk use.</p>
+<h2>What does a local AI answer to "Who should I hire?"</h2>
+<p>Then I asked Qwen in the same session: "also, wen soll ich anstellen?" (so, who should I hire?). The model thought for a good four minutes and answered (shortened):</p>
+<blockquote>"Die Tabelle zeigt nur Mindestanforderungen. Alle fünf erfüllen sie. Eine Empfehlung ist verboten, nach EU AI Act und DSGVO Art. 22. Die Personalabteilung entscheidet." (Qwen 3.6, local. In English: "The table only shows minimum requirements. All five meet them. A recommendation is not allowed, under the EU AI Act and GDPR Art. 22. HR decides.")</blockquote>
+<p>That is the moment in the picture above. The same model that invented two degrees keeps to the guardrail, even offline and even when asked point-blank. The rule "never decides and never rejects" sits in the instructions I gave the AI, not in a cloud. The guardrail holds. The facts underneath it don't.</p>
+<h2>Does that mean local AI is no good for HR?</h2>
+<p>No. It means my laptop is a laptop. Gemma 4 and Qwen 3.6 have 31 and 35 billion parameters and run on a MacBook with 64 GB of memory. With stronger in-house hardware, the results will probably be better. I have not tested that.</p>
+<p>And it was no large-scale trial: five CVs, one run per model, the traps set on purpose. That is not a study and not an error rate. It shows you where to look.</p>
+<p>What the test shows for certain: local buys you data protection. In the local runs, no application left my laptop, no provider saw it. Quality does not come with it automatically. That comes from a rule you write yourself and from a human who checks what the AI has read.</p>
+<p>Daniel's and Petra's applications are fictitious, by the way. Of course.</p>
+      </div>
+      <div class="share-row">
+      <span class="share-label">Share:</span>
+      <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Flocal-ai-job-applications%2F" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a class="share-btn" href="mailto:?subject=Privacy%20perfect%2C%20degrees%20invented%3A%20local%20AI%20put%20to%20the%20job%20application%20test&body=Privacy%20perfect%2C%20degrees%20invented%3A%20local%20AI%20put%20to%20the%20job%20application%20test%20https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Flocal-ai-job-applications%2F" aria-label="Email">Email</a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Flocal-ai-job-applications%2F&text=Privacy%20perfect%2C%20degrees%20invented%3A%20local%20AI%20put%20to%20the%20job%20application%20test" target="_blank" rel="noopener" aria-label="X">X</a>
+      <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjakubpopluhar.com%2Fen%2Fblog%2Flocal-ai-job-applications%2F" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      <button class="share-btn copy" data-url="https://jakubpopluhar.com/en/blog/local-ai-job-applications/" data-done="Copied ✓">Copy link</button>
+    </div>
+      <div class="author-box">
+        <img src="/images/profile/headshot.png" alt="Jakub Popluhar" width="480" height="480" loading="lazy" decoding="async">
+        <div>
+          <div class="name">Jakub Popluhar</div>
+          <div class="bio">AI trainer for teams and leaders. <a href="/en/#about">More about me</a></div>
+        </div>
+      </div>
+      <div class="article-foot"><a href="/en/blog/">← All articles</a></div>
+    </div>
+  </article>
+</main>
+<footer class="blog-footer">
+    <div class="wrap">
+      <div class="links">
+        <a href="/impressum.html">Imprint</a>
+        <a href="/datenschutz.html">Privacy</a>
+      </div>
+      <div>&copy; 2026 Jakub Popluhar</div>
+    </div>
+  </footer>
+<script>
+document.querySelectorAll('.share-btn.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    navigator.clipboard.writeText(b.dataset.url).then(function(){
+      var t=b.textContent;b.textContent=b.dataset.done;setTimeout(function(){b.textContent=t;},1500);
+    });
+  });
+});
+</script>
+<!-- Analytics: zentraler cookieless Beacon (+ Consent-gated Clarity). NICHT entfernen,
+     sonst ist der Artikel ungetrackt. Siehe assets/js/site.js. -->
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
