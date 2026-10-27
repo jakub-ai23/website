@@ -973,21 +973,36 @@ body{margin:0}
 <section class="lektion" data-id="audit" data-teil="vm" data-teil-name="Vormittag: Prompten mit Methode" hidden><div class="exercise" data-ex="audit">
       <div class="exercise-number">Audit</div>
       <h3>Ihre HR-Woche: das Aufgaben-Audit</h3>
-      <p class="subtitle">Welche Aufgaben machen Sie eigentlich jede Woche? Die KI interviewt Sie, macht daraus eine Tabelle, und die Tabelle schicken Sie mir. Dauer: 15 Minuten.</p>
-      <p>Viele in HR sagen: „Ich mache alles, und nichts wiederholt sich.“ Meistens stimmt das nicht. Es fällt nur schwer, die eigene Woche von außen anzuschauen. Genau das übernimmt jetzt die KI. Und es geht nicht nur um Recruiting: Administration, Lohnverrechnung, Onboarding, Weiterbildung und die Beratung von Führungskräften zählen genauso.</p>
+      <p class="subtitle">Welche Aufgaben machen Sie eigentlich jede Woche? Sie erzählen frei, die KI macht daraus eine Tabelle, und die Tabelle schicken Sie mir. Dauer: 15 Minuten.</p>
+      <p>Viele in HR sagen: „Ich mache alles, und nichts wiederholt sich.“ Meistens stimmt das nicht. Es fällt nur schwer, die eigene Woche von außen anzuschauen. Darum ordnen Sie hier nichts selbst: Sie erzählen einfach, die KI sortiert. Und es geht nicht nur um Recruiting: Administration, Lohnverrechnung, Onboarding, Weiterbildung und die Beratung von Führungskräften zählen genauso.</p>
 
-      <p class="step-label">Schritt 1: Die KI interviewt Sie (neuer Chat)</p>
-      <div class="prompt-block">Du bist ein erfahrener HR-Organisationsberater. Ich arbeite in einer Personalabteilung. Interviewe mich zu meiner typischen Arbeitswoche, damit wir alle meine wiederkehrenden Aufgaben finden: nicht nur Recruiting, sondern auch Administration, Lohnverrechnung, Onboarding, Personalentwicklung, Beratung von Führungskräften, Arbeitsrecht und Austritte. Stell mir eine Frage nach der anderen, höchstens 8 Fragen, und warte jeweils auf meine Antwort. Frag nicht nach Namen von Personen.
+      <p class="step-label">Schritt 1: Prompt kopieren (neuer Chat)</p>
+      <p>Kopieren Sie den Prompt in einen neuen Chat, schicken Sie ihn aber noch nicht ab. Ihre Erzählung kommt direkt dahinter.</p>
+      <div class="prompt-block">Ich arbeite in einer Personalabteilung. Gleich erzähle ich frei und ungeordnet von meiner typischen Arbeitswoche. Zeiten nenne ich so, wie sie mir einfallen: in Minuten, in Stunden oder als Prozent meiner Arbeitszeit.
 
-Am Ende erstellst du eine Tabelle mit diesen Spalten: Aufgabe | Bereich | wie oft pro Woche | Minuten pro Woche (geschätzt).
+Mach daraus eine Tabelle mit diesen Spalten: Aufgabe | Bereich | wie oft pro Woche | Zeit, wie ich sie genannt habe | Minuten pro Woche.
+Rechne alle Zeiten in Minuten pro Woche um. Prozent rechnest du auf eine 40-Stunden-Woche um (1 % = 24 Minuten), außer ich nenne eine andere Wochenarbeitszeit. Monatliche Aufgaben teilst du durch 4.
 Für „Bereich“ nimmst du nur einen dieser Werte: Recruiting, Eintritt und Administration, Onboarding, Lohnverrechnung, Personalentwicklung, Beratung Führungskräfte, Arbeitsrecht und Betriebsrat, Austritt, Kommunikation, Sonstiges.
-Mindestens 8 Aufgaben. Sortiere nach Minuten pro Woche, die größte zuerst. Schreib unter die Tabelle eine Zeile mit der Summe der Minuten pro Woche.</div>
-      <p style="color: var(--gold); font-size: 0.9rem;">Tipp: Antworten Sie ruhig per Sprache, das geht schneller. Schätzen reicht, niemand misst nach.</p>
+Erfinde keine Aufgaben und schätze keine Zeiten selbst. Fehlt bei einer Aufgabe die Zeit, frag mich am Ende gesammelt danach. Keine Namen von Personen.
+Sortiere nach Minuten pro Woche, die größte zuerst, und schreib unter die Tabelle die Summe der Minuten pro Woche.
 
-      <p class="step-label">Schritt 2: Tabelle prüfen</p>
-      <p>Fehlt eine Aufgabe, die Sie jede Woche machen? Dann schreiben Sie in den Chat: „Ergänze: …“. Stimmt eine Zeitschätzung nicht, korrigieren Sie sie. Die Tabelle gehört Ihnen.</p>
+Hier ist meine Woche:</div>
 
-      <p class="step-label">Schritt 3: Tabelle schicken</p>
+      <p class="step-label">Schritt 2: Frei erzählen, am besten per Sprache</p>
+      <p>Klicken Sie im Chat auf das Mikrofon (oder am Windows-Rechner <strong>Windows-Taste + H</strong>, am Mac zweimal die <strong>Fn-Taste</strong>) und reden Sie drei bis fünf Minuten einfach drauflos. Ganz ungeordnet, Pausen und „ähm“ sind egal. Wenn Ihnen nichts einfällt, helfen diese Fragen:</p>
+      <ul>
+        <li>Was haben Sie letzte Woche von Montag bis Freitag gemacht?</li>
+        <li>Was kommt jede Woche wieder, was jeden Monat?</li>
+        <li>Was dauert am längsten? Was nervt am meisten?</li>
+        <li>Wer kommt mit welchen Fragen zu Ihnen: Mitarbeitende, Führungskräfte, Bewerber:innen?</li>
+      </ul>
+      <p><strong>Nennen Sie zu jeder Aufgabe eine Zeit</strong>, wie es Ihnen leichtfällt: „etwa 20 Minuten am Tag“, „zwei Stunden pro Woche“ oder „ungefähr ein Viertel meiner Zeit“. Schätzen reicht, niemand misst nach. Dann abschicken.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Arbeiten Sie Teilzeit? Sagen Sie es dazu, zum Beispiel „ich arbeite 30 Stunden“. Dann rechnet die KI die Prozente richtig um.</p>
+
+      <p class="step-label">Schritt 3: Tabelle prüfen</p>
+      <p>Die KI fragt am Ende nach fehlenden Zeiten, beantworten Sie das. Fehlt eine Aufgabe? Schreiben oder sagen Sie: „Ergänze: …“. Stimmt eine Umrechnung nicht, korrigieren Sie sie. Die Tabelle gehört Ihnen.</p>
+
+      <p class="step-label">Schritt 4: Tabelle schicken</p>
       <p>Markieren Sie die ganze Tabelle im Chat, kopieren Sie sie und fügen Sie sie unten ins Formular ein. Keine Namen von Personen, keine Gehälter. Ich werte alle Tabellen anonym aus und zeige Ihnen am Nachmittag, welche Aufgaben die Gruppe am meisten Zeit kosten.</p>
       <div class="form-wichtig"><strong>Wichtig:</strong> Ihre Tabelle ist erst angekommen, wenn Sie <strong>UNTEN IM FORMULAR</strong> auf „Absenden“ klicken.</div>
       <iframe id="Form-AUDIT" src="https://form.jotform.com/262993870932067" title="HR-Aufgaben-Audit" style="width:100%; height:1100px; min-height:800px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
