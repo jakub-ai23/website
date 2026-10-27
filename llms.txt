@@ -35,6 +35,7 @@
 
 ## Artikel (Deutsch)
 
+- [Datenschutz perfekt, Abschlüsse erfunden: lokale KI im Bewerbungstest](https://jakubpopluhar.com/blog/lokale-ki-bewerbungen/): Claude, Gemma und Qwen prüfen dieselben fünf Lebensläufe: Lokal bleibt jede Bewerbung im Haus, doch ein Laptop-Modell erfindet zwei Abschlüsse.
 - [Machen meine KI-Agenten Fehler? Teils, teils](https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/): In der Seminarpause werde ich oft gefragt, ob meine KI-Agenten Fehler machen. Meine Antwort: teils, teils. Es gibt zwei Sorten, und nur eine gehört den Agenten.
 - [Ich prompte nicht weniger, ich prompte anders](https://jakubpopluhar.com/blog/diktieren-ist-orchestrieren/): 79,5 Prozent meiner diktierten Wörter gehen ins Terminal, laut Wispr Flow unter "Other Tasks". Warum das die falsche Kategorie ist, und was Diktieren wirklich ist.
 - [Ich lasse heute meine KI-Assistentin erzählen](https://jakubpopluhar.com/blog/prozess-der-sich-selbst-repariert/): An einem Vormittag löschte mein Übergabe-Werkzeug zweimal echte Arbeit. Eine Geschichte darüber, wie Prozesse im Betrieb reifen, erzählt von meiner Assistentin.
