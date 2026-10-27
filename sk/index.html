@@ -2889,27 +2889,26 @@
           const btn = contactForm.querySelector('.btn-submit');
           btn.textContent = 'Odosiela sa...';
           btn.disabled = true;
-          // Zweiter Sink (SPOF-Absicherung): dauerhafter Lead-Datensatz in Brevo, NUR mit Einwilligung.
-          // Fire-and-forget -> blockiert/bricht die UX nie; Erfolg haengt weiter an Formspree.
+          // Zweiter Sink (v:2, 2026-10-27): der Brevo-Dienst schickt jeder Person eine Bestaetigungsmail
+          // und speichert den Kontakt NUR mit Einwilligung. Fire-and-forget, Erfolg haengt weiter an Formspree.
           const fd = new FormData(contactForm);
-          if (fd.get('consent') === 'on') {
-            try {
-              fetch('https://deflifeos.popluhar.at/api/brevo-jp/subscribe', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  kind: 'jp-kontakt',
-                  lang: 'sk',
-                  email: fd.get('email') || '',
-                  vorname: fd.get('name') || '',
-                  firma: fd.get('company') || '',
-                  interesse: fd.get('interest') || '',
-                  notiz: fd.get('message') || '',
-                  consent: true
-                })
-              }).catch(() => {});
-            } catch (e2) {}
-          }
+          try {
+            fetch('https://deflifeos.popluhar.at/api/brevo-jp/subscribe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                kind: 'jp-kontakt',
+                v: 2,
+                lang: 'sk',
+                email: fd.get('email') || '',
+                vorname: fd.get('name') || '',
+                firma: fd.get('company') || '',
+                interesse: fd.get('interest') || '',
+                notiz: fd.get('message') || '',
+                consent: fd.get('consent') === 'on'
+              })
+            }).catch(() => {});
+          } catch (e2) {}
           try {
             const res = await fetch(contactForm.action, {
               method: 'POST',
