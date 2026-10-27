@@ -13,7 +13,7 @@
   - [AI at your desk](https://jakubpopluhar.com/trainings/ki-am-schreibtisch/): foundations for everyone, CITE(R) prompting, own AI helpers, data protection
   - [Copilot at work](https://jakubpopluhar.com/trainings/copilot/): Microsoft 365 Copilot in Word, Excel, Outlook and Teams
   - [AI in HR](https://jakubpopluhar.com/trainings/hr-kurs/): job ads, candidate communication, human in the loop
-  - [Consumer psychology and AI](https://jakubpopluhar.com/trainings/konsumentenpsychologie/): AI in marketing on a scientific basis (consumer psychology, behavioural economics)
+  - [AI in marketing](https://jakubpopluhar.com/trainings/konsumentenpsychologie/): using AI so that copy frameworks such as SLAY are applied consistently, on a scientific basis (consumer psychology, behavioural economics); one day, optional second day
   - Also on the page: AI in sales, AI workflows and agents for advanced teams, one tool per day (ChatGPT, Claude or Gemini), AI champions programme
 - [AI Personal Training](https://jakubpopluhar.com/ki-personal-training/): one-to-one coaching on the participant's own tasks.
 - [AI check](https://jakubpopluhar.com/ki-check/): short self-assessment of where a team stands with AI.
