@@ -1095,15 +1095,34 @@ Vorname, Nachname, Abteilung.</div>
 <section class="lektion" data-id="ue2" data-teil="vm" data-teil-name="Vormittag: Prompten mit Methode" hidden><div class="exercise" data-ex="ue2">
       <div class="exercise-number">Übung 2</div>
       <h3>Prompten: Homeoffice-Regelung</h3>
-      <p class="subtitle">Ein Auftrag mit vollem Kontext. Danach schreibt die KI denselben Inhalt in verschiedenen Stilen.</p>
+      <p class="subtitle">Derselbe Auftrag, erst ohne, dann mit Kontext. Danach lassen Sie die KI den Inhalt in verschiedenen Stilen schreiben.</p>
       <div class="rahmen">
-        <div><b>Ziel</b>Erleben, was Kontext im Prompt ausmacht und wie der Stil im Prompt alles steuert.</div>
-        <div><b>Abgabe</b>Kurz melden: der erste Satz Ihres Entwurfs und Ihr Lieblingsstil</div>
+        <div><b>Ziel</b>Erleben, was Kontext im Prompt ausmacht.</div>
+        <div><b>Abgabe</b>Kurz melden: erster Satz Ihres Entwurfs, einmal ohne, einmal mit Kontext</div>
       </div>
 
-      <p class="step-label">Schritt 1: Der Prompt mit Kontext (neuer Chat)</p>
-      <p>Kopieren und abschicken. Denselben Text sehen Sie auf der Folie.</p>
-      <div class="prompt-block">Mach mir einen Entwurf für ein internes Schreiben, mit dem die Einführung einer neuen Homeoffice-Regelung bekanntgegeben wird.
+      <p class="step-label">Schritt 1: Der einfache Prompt (neuer Chat)</p>
+      <div class="prompt-block">Schreib mir eine Homeoffice-Regelung.</div>
+      <p>Lesen Sie die Antwort an und posten Sie den ersten Satz in den Chat oder laut in die Runde.</p>
+
+      <details>
+        <summary>Schritt 2: Was die KI nicht weiß (aufklappen)</summary>
+        <div class="collapsible-content">
+          <p><strong>1. Platzproblem:</strong> Wir haben Schreibtische abgebaut, um Miete zu sparen. Wenn 100% gleichzeitig kommen, gibt es nicht genug Arbeitsplätze.</p>
+          <p><strong>2. Infrastruktur:</strong> Meetingräume, Drucker, WLAN: alles auf reduzierten Betrieb ausgelegt. Mehr Leute überlasten alles sofort.</p>
+          <p><strong>3. Logistik:</strong> Pendlerströme, Parkplatzknappheit, Kantinenkapazität. Sicherheits- und Reinigungsaufwand steigt.</p>
+          <p><strong>4. Finanzielle Risiken:</strong> Kurzfristig neue Arbeitsplätze schaffen: Möbel, Hardware, Lizenzen, eventuell Mietflächen erweitern.</p>
+          <p><strong>5. Akzeptanz:</strong> Mitarbeiter sind genervt: "Schon wieder neue Regeln, zuerst flexible Arbeitsmodelle, jetzt zurück ins Büro?" Gefühl der Fremdbestimmung. Misstrauen gegenüber dem Sinn.</p>
+          <p style="color: var(--gold); margin-top: 12px;"><strong>Frage an Sie:</strong> Merken Sie den Unterschied? Die KI wusste nichts davon. Sie hat geraten. Deshalb war das Ergebnis generisch.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Schritt 3: Jetzt mit Kontext probieren (aufklappen)</summary>
+        <div class="collapsible-content">
+          <p>Derselbe Auftrag, jetzt genau gesagt und mit dem Kontext, den die KI nicht wissen konnte. Hier der vollständige Prompt zum Kopieren:</p>
+
+          <div class="prompt-block">Mach mir einen Entwurf für ein internes Schreiben, mit dem die Einführung einer neuen Homeoffice-Regelung bekanntgegeben wird.
 
 Kontext:
 
@@ -1119,10 +1138,12 @@ Das Schreiben muss diese Sorgen adressieren, nicht ignorieren.
 
 Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Mai.</div>
 
-      <p style="color: var(--gold); margin-top: 12px;"><strong>Achten Sie darauf:</strong> Die KI greift Platzproblem, Kosten und die Skepsis auf, weil sie davon weiß. Ohne diese Absätze hätte sie geraten. Posten Sie den ersten Satz in den Chat oder laut in die Runde.</p>
+          <p style="color: var(--gold); margin-top: 12px;"><strong>Vergleichen Sie:</strong> Gleiche KI, gleiche Frage, aber mit Kontext. Völlig anderes Ergebnis. Posten Sie wieder den ersten Satz in den Chat oder laut in die Runde.</p>
+        </div>
+      </details>
 
       <details>
-        <summary>Schritt 2: Die Stil-Maschine (aufklappen)</summary>
+        <summary>Schritt 4: Die Stil-Maschine (aufklappen)</summary>
         <div class="collapsible-content">
           <p>Fünf Stile, derselbe Inhalt. <strong>Suchen Sie sich zwei oder drei aus</strong>, jeder als eigene Nachricht im selben Chat. Wer schnell ist, macht alle fünf. Der Dialekt kommt immer zum Schluss.</p>
 
@@ -2049,9 +2070,9 @@ Beginne mit: „Woran arbeiten Sie gerade, und wo hakt es?“</div>
 <section class="lektion" data-id="tutor" data-teil="nm" data-teil-name="Nachmittag: Ihr HR-Projekt" hidden><div class="exercise" data-ex="tutor">
       <div class="exercise-number">Übung 8</div>
       <h3>Lieferant oder Tutor im Projekt</h3>
-      <p class="subtitle">Ihr HR-Projekt soll Ihnen nicht nur Ware liefern, sondern Sie auch klüger machen. Eine Zeile in den Anweisungen genügt.</p>
+      <p class="subtitle">Ihr HR-Projekt soll Ihnen nicht nur Ware liefern, sondern Sie auch klüger machen. Ein Absatz in den Anweisungen genügt.</p>
       <div class="rahmen">
-        <div><b>Ziel</b>Eine Tutor-Zeile in die Anweisungen Ihres HR-Projekts einbauen und einmal testen.</div>
+        <div><b>Ziel</b>Einen Tutor-Modus in die Anweisungen Ihres HR-Projekts einbauen und einmal testen.</div>
         <div><b>Geschafft, wenn</b>Sie mindestens eine Frage bekommen haben, die Sie sich selbst nicht gestellt hätten.</div>
       </div>
       <table class="compare-table">
@@ -2059,13 +2080,29 @@ Beginne mit: „Woran arbeiten Sie gerade, und wo hakt es?“</div>
         <tr><td>„Schreib mir einen Interviewleitfaden für die Stelle Referent:in Personalentwicklung.“<br>Sie bekommen Ware. Morgen wissen Sie nicht mehr als heute.</td><td>„Bevor du schreibst: Stell mir die Fragen, die du brauchst. Eine nach der anderen.“<br>Sie bekommen Klarheit, und lernen, worauf es ankommt.</td></tr>
       </table>
 
-      <p class="step-label">Schritt 1: Diese Zeile kommt in die Anweisungen Ihres HR-Projekts</p>
+      <p class="step-label">Schritt 1: Dieser Absatz kommt in die Anweisungen Ihres HR-Projekts</p>
       <p>Öffnen Sie die Projekt-Anweisungen aus der Übung davor und fügen Sie unten an:</p>
-      <div class="prompt-block">Wenn ich mit „erklär:“ beginne, gib mir nicht die Lösung. Erkläre mir die Regel dahinter, stell mir eine Frage nach der anderen und lass mich den nächsten Schritt selbst versuchen.</div>
+      <div class="prompt-block">TUTOR-MODUS
+Wenn ich mit „erklär:“ beginne, bist du mein Tutor, nicht mein Lieferant. Gib mir dann nie sofort die fertige Lösung. So gehst du vor:
+
+1. Ziel klären: Frag mich zuerst, was ich am Ende können oder in der Hand haben will und wofür ich es brauche (Anlass, für wen, bis wann).
+2. Stand abholen: Frag mich, was ich schon weiß oder schon versucht habe. Immer nur eine Frage, dann wartest du auf meine Antwort.
+3. Ziele der Einheit: Nenne mir danach in zwei bis drei Punkten, was ich in dieser Einheit lerne und woran wir merken, dass ich es kann.
+4. In kleinen Schritten erklären: Immer nur ein Baustein, mit der Regel dahinter und einem Beispiel aus meinem HR-Alltag. Nutze dafür meine Projektdokumente, wenn sie etwas hergeben.
+5. Selbst machen lassen: Nach jedem Baustein bekomme ich eine kleine Aufgabe oder Frage. Hänge ich, gibst du mir einen Hinweis, nicht die Lösung. Die Lösung zeigst du erst, wenn ich „Lösung“ schreibe.
+6. Ehrliche Rückmeldung: Sag mir, was an meiner Antwort stimmt und was fehlt. Lob nichts, was nicht gut ist.
+7. Abschluss: Fass zusammen, was ich gelernt habe, stell mir eine Kontrollfrage und nenne den nächsten sinnvollen Schritt.
+
+Geht es um Arbeitsrecht oder Datenschutz, sag dazu, was im Einzelfall mit der Rechtsabteilung zu klären ist.
+Ohne „erklär:“ arbeitest du wie gewohnt und lieferst direkt.</div>
 
       <p class="step-label">Schritt 2: Einmal testen (neuer Chat im Projekt)</p>
+      <p>Wählen Sie eins, oder nehmen Sie ein eigenes Thema aus Ihrer HR-Woche:</p>
       <div class="prompt-block">erklär: Was muss in einen Interviewleitfaden?</div>
-      <p class="pruef">So sieht es aus, wenn es geklappt hat: Die KI liefert keinen fertigen Leitfaden, sondern fragt zurück und lässt Sie den nächsten Schritt selbst machen.</p>
+      <div class="prompt-block">erklär: Wie begründe ich ein Weiterbildungsbudget gegenüber der Geschäftsführung?</div>
+      <div class="prompt-block">erklär: Wie baue ich ein Onboarding für den ersten Arbeitstag auf?</div>
+      <p>Antworten Sie auf die Fragen, machen Sie die erste kleine Aufgabe. Wer fertig ist: Testen Sie dieselbe Frage ohne „erklär:“ und vergleichen Sie.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Die KI fragt zuerst nach Ihrem Ziel, nennt die Ziele der Einheit und gibt Ihnen eine Aufgabe statt eines fertigen Ergebnisses.</p>
       <p style="color: var(--gold); font-size: 0.9rem;">So bleibt das Projekt Ihr Lehrer, nicht nur Ihr Lieferant.</p>
     </div></section>
 <section class="lektion" data-id="recht" data-teil="nm" data-teil-name="Nachmittag: Ihr HR-Projekt" hidden><div class="exercise" data-ex="recht">
