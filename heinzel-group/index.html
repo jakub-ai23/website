@@ -105,6 +105,7 @@
     flex: 1; min-height: 48px; padding: 0 1rem; border-radius: 10px; border: 1px solid var(--border);
     background: #111; color: var(--ink); font-size: 1rem; font-family: var(--font-body);
   }
+  @media (max-width: 440px) { .gate-form { flex-direction: column; } .gate-form button { min-height: 48px; } }
   .gate-form input:focus { outline: none; border-color: var(--gold); }
   .gate-form button {
     min-height: 48px; padding: 0 1.4rem; border-radius: 10px; border: none; cursor: pointer;
@@ -282,6 +283,19 @@
   .mini-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin: 1.4rem 0; }
   @media (max-width: 520px) { .mini-stats { grid-template-columns: 1fr; } }
   .hero-degree { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin: 0.6rem 0 1.2rem; font-family: var(--font-heading); font-weight: 600; font-size: 1.1rem; color: var(--gold); }
+  .gate-card p.gate-what { color: var(--ink); margin: 0.5rem 0 0.9rem; line-height: 1.5; }
+  .gate-card p.gate-what strong { color: var(--gold-light); }
+  #worum { border-top: none; padding-top: 0; }
+  .worum-split { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.5rem; align-items: start; }
+  @media (max-width: 800px) { .worum-split { grid-template-columns: 1fr; gap: 0; } }
+  .worum-split .section-head { margin-bottom: 1.4rem; }
+  .worum-split .section-head p { color: #d8d5cc; font-size: 0.98rem; }
+  .toc { list-style: none; counter-reset: toc; margin: 0; padding: 1.4rem 1.6rem; border-radius: 16px; border: 1px solid rgba(212,160,23,0.35); background: rgba(212,160,23,0.06); }
+  .toc li { counter-increment: toc; padding: 0.45rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before { content: counter(toc, decimal-leading-zero); font-family: var(--font-heading); font-weight: 700; color: var(--gold); margin-right: 0.9rem; font-size: 0.85rem; flex: 0 0 1.4rem; }
+  .toc a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
+  .toc a:hover { color: var(--gold-light); }
   .uni-row { display: flex; align-items: center; justify-content: center; gap: 2.2rem; margin-top: 1.8rem; }
   .uni-row img { height: 46px; width: auto; opacity: 0.85; }
   .btn-elearning.pulse { animation: elPulse 2.2s ease-in-out infinite; }
@@ -297,6 +311,8 @@
   .photo-link { display: inline-block; margin-left: 0.4rem; font-weight: 600; text-decoration: none; }
   .quote-text { font-size: 1.02rem; line-height: 1.55; font-style: italic; }
   @media (max-width: 760px) { .stat-row { grid-template-columns: 1fr 1fr; } }
+  .stat-box { min-width: 0; overflow-wrap: anywhere; }
+  @media (max-width: 420px) { .stat-box { padding: 1rem 0.8rem; } .stat-box b, .pr-stars { font-size: 1.5rem; } .pr-stars { letter-spacing: 0; } }
   .tldr { margin-top: 1.4rem; border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 14px; padding: 1.1rem 1.4rem; background: rgba(212,160,23,0.04); }
   .tldr ul { margin: 0.3rem 0 0; padding-left: 1.1rem; }
   .tldr li { margin: 0.35rem 0; color: var(--ink); }
@@ -375,7 +391,8 @@
 <div id="gate">
   <div class="gate-card">
     <div class="mono-name">Jakub Popluhar</div>
-    <p class="eyes-only">Für <strong>Frau Luger</strong> und die <strong>Heinzel Group</strong></p>
+    <p class="eyes-only">Für <strong>Frau Luger</strong> und das <strong>Heinzel Group Team</strong></p>
+    <p class="gate-what">Meine Bewerbung als <strong>Business AI Transformation Manager</strong>.</p>
     <p>Das Passwort finden Sie in Ihrer E-Mail.</p>
     <div class="gate-form">
       <input type="password" id="gate-input" placeholder="Passwort" autocomplete="off" />
@@ -411,13 +428,33 @@
     </div>
   </header>
 
+  <section id="worum">
+    <div class="container worum-split">
+      <div class="section-head reveal">
+        <div class="eyebrow">Worum es hier geht</div>
+        <h2>Was Sie hier finden.</h2>
+        <p>Sie suchen jemanden, der KI in der Heinzel Group aus der Strategie in den Arbeitsalltag bringt. Auf dieser Seite zeige ich Ihnen, wie ich das angehe. Gebaut habe ich sie mit KI, geschrieben für Menschen.</p>
+        <p>Alles steht auf dieser einen Seite, jeder Abschnitt lässt sich direkt anspringen. Den Lebenslauf schicke ich Ihnen gerne zusätzlich als PDF.</p>
+      </div>
+      <ol class="toc reveal d1">
+        <li><a href="#staerken">Was ich mitbringe</a></li>
+        <li><a href="#stimmen">Was Teilnehmende sagen</a></li>
+        <li><a href="#agenten">Wie ich selbst mit KI arbeite</a></li>
+        <li><a href="#heinzel">Wo die Heinzel Group heute steht</a></li>
+        <li><a href="#plan">Mein Vorschlag für die ersten Monate</a></li>
+        <li><a href="#faq">Häufige Fragen</a></li>
+        <li><a href="#cv">Lebenslauf</a></li>
+      </ol>
+    </div>
+  </section>
+
   <section id="zahlen" style="border-top:none;">
     <div class="container">
       <div class="stat-row">
         <div class="stat-box reveal"><b>5.000+</b><span>Stunden vor Publikum</span></div>
         <div class="stat-box reveal d1"><div class="pr-stars" style="--r:4.7" role="img" aria-label="4,7 von 5 Sternen">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span>Trainerbewertung 4,7 von 5, über 150 Feedbackbögen</span></div>
         <div class="stat-box reveal d2"><b>15+</b><span>Länder im europäischen Roundnet-Verband, als Vorstand geleitet</span></div>
-        <div class="stat-box reveal d3"><b>440+</b><span>Einsatzberichte aus der Arbeit mit meinen KI-Agenten, seit Februar 2026</span></div>
+        <div class="stat-box reveal d3"><b>42</b><span>Länder, aus denen Teilnehmende zu meinen Sportveranstaltungen kommen</span></div>
       </div>
       <div class="photo-strip">
         <figure class="photo-fig reveal"><img src="img/ars-voller-raum.jpg" alt="Jakub Popluhar trainiert an der ARS Akademie Wien" loading="lazy"><figcaption>ARS Akademie Wien · KI im Büroalltag · 2026</figcaption></figure>
@@ -570,6 +607,34 @@
     </div>
   </section>
 
+  <section id="heinzel">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Wo die Heinzel Group heute steht</div>
+        <h2>Ihre KI-Strategie hat drei Ebenen.</h2>
+        <p>So beschreibt es Ihre Review 2025 („Digitale Exzellenz mit KI“, S. 33). Die Rolle macht daraus Projekte, die im Alltag ankommen, an allen Standorten.</p>
+      </div>
+      <div class="namiru-grid">
+        <div class="namiru-item reveal">
+          <div class="namiru-num">Büroalltag</div>
+          <h3>KI-Hilfsmittel wie MS Copilot</h3>
+          <p>Mein Beitrag: aus Lizenzen echte Nutzung machen, mit Praxistagen und Multiplikatoren in jeder Abteilung.</p>
+        </div>
+        <div class="namiru-item reveal d1">
+          <div class="namiru-num">Eigene Plattform</div>
+          <h3>Agentenbasierte KI ab 2026</h3>
+          <p>Etwa für den Abgleich von Bestellungen und Auftragsbestätigungen. Mein Beitrag: Fachbereiche einbinden, Abläufe beschreiben, Akzeptanz schaffen.</p>
+        </div>
+        <div class="namiru-item reveal d2">
+          <div class="namiru-num">An den Anlagen</div>
+          <h3>Spezialisierte KI an der Linie</h3>
+          <p>Dass das wirkt, zeigt der Heinzel Award 2025 für die KI-gestützte Energieoptimierung an der PM10 in Laakirchen. Mein Beitrag: die Menschen vor Ort mitnehmen.</p>
+        </div>
+      </div>
+      <p class="agent-note reveal">Die Datenbasis steht: SAP S/4HANA läuft seit 2025 in allen Gruppenunternehmen. Für mich passt dazu Ihr Leitsatz „Together we are stronger“: KI wirkt erst, wenn die Menschen sie mittragen.</p>
+    </div>
+  </section>
+
   <section id="plan">
     <div class="container">
       <div class="section-head reveal">
@@ -606,7 +671,7 @@
       <div class="faq reveal">
         <details><summary>Was wird aus seinem Trainingsgeschäft?</summary><p>Termine, die ich für nächstes Jahr schon zugesagt habe, halte ich ein. Danach trainiere ich nur eingeschränkt und in Absprache mit Ihnen, ohne dass meine Arbeit für die Heinzel Group darunter leidet. Jedes Training gibt mir Einblick in andere Industrien, und davon profitiert auch die Heinzel Group.</p></details>
         <details><summary>Warum will er fest angestellt sein?</summary><p>Nach einem Training oder zwei, drei Wochen Begleitung sieht man noch keine Veränderung. Das kenne ich aus dem Sport: Wirkung entsteht über Monate. Ich will sie sehen und etwas aufbauen, das bleibt.</p></details>
-        <details><summary>Wenig Konzernerfahrung, keine Papierindustrie?</summary><p>Als Business Lead bei Hill Digital habe ich eng mit Beratern von Hill Woltron, Gesellschaftern und Investoren gearbeitet. Mit KI verändert sich gerade fast jede Arbeitsweise, auch in Konzernen. Da hilft ein frischer Blick. Die Papierindustrie lerne ich bei Ihnen kennen. Mit Mondi hatte ich bereits Kontakt.</p></details>
+        <details><summary>Wenig Konzernerfahrung, keine Papierindustrie?</summary><p>Als Business Lead bei Hill Digital habe ich eng mit Beratern von Hill Woltron, Gesellschaftern und Investoren gearbeitet. Mit KI verändert sich gerade fast jede Arbeitsweise, auch in Konzernen. Da hilft ein frischer Blick. Die Papierindustrie lerne ich bei Ihnen kennen.</p></details>
         <details><summary>Wie reisebereit ist er?</summary><p>Voll. Wien, Laakirchen, Steyrermühl, Pöls oder Kunda: Ich bin dort, wo gearbeitet wird.</p></details>
       </div>
     </div>
@@ -843,7 +908,7 @@
   }
 
   function typewriterGreeting() {
-    var text = 'Grüß Gott, liebe Heinzel Group';
+    var text = 'Guten Tag, liebes Heinzel Group Team';
     var target = document.getElementById('greeting-text');
     var cursor = document.getElementById('greeting-cursor');
     var sub = document.getElementById('greeting-sub');
