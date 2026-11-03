@@ -1165,8 +1165,10 @@ Reality: I have [how many hours per week]. Be realistic, no motivational phrases
 - why it matters
 - 3 to 5 steps
 - my first step THIS week, with a day and a time
-- what could stop me, and what I do then</div>
+- what could stop me, and what I do then
+- how you will check on me: every Monday, when I write "Check-in", ask me about each step and tell me honestly if I'm behind</div>
       <p class="pruef">Minimum finish ✓ Named assistant + one-page plan with a dated first step. Save the plan: copy it into your notes, or take a screenshot.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">A plan nobody checks is a wish. Step 6 makes sure the check-in actually reaches you.</p>
     </div></section><section class="lektion" data-id="guard" data-teil="build" data-teil-name="Build it" hidden><div class="exercise" data-ex="guard">
       <div class="exercise-number">Step 5</div>
       <h3>Test your guardian</h3>
@@ -1265,48 +1267,12 @@ Reality: I have [how many hours per week]. Be realistic, no motivational phrases
       <p>Next Monday: type <strong>"Check-in"</strong>. Then send me one line on LinkedIn: what did your assistant flag?</p>
 
       <p class="step-label">Follow-up on Tuesday, 24 November</p>
-      <p>One email from me on 24 November: a check-in on your assistant and your plan. 20 seconds.</p>
-      <form id="followup" class="followup" novalidate style="display:grid; gap:10px; margin-top:12px; padding:16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
-        <label>First name<br><input name="vorname" required maxlength="60" autocomplete="given-name" style="width:100%; padding:10px; border-radius:6px; border:1px solid rgba(255,255,255,.2); background:#1c1c1c; color:inherit;"></label>
-        <label>Email<br><input name="email" type="email" required maxlength="120" autocomplete="email" style="width:100%; padding:10px; border-radius:6px; border:1px solid rgba(255,255,255,.2); background:#1c1c1c; color:inherit;"></label>
-        <fieldset style="border:0; padding:0; margin:0;"><legend>What should the follow-up cover?</legend>
-          <label style="display:block; margin-top:6px;"><input type="radio" name="wunsch" value="Check-in" checked> Just the check-in on my assistant and my plan</label>
-          <label style="display:block; margin-top:6px;"><input type="radio" name="wunsch" value="Check-in plus AI for my company"> The check-in, plus AI for my company (for example private AI that runs on your own computers)</label>
-        </fieldset>
-        <label>Company or organisation (optional)<br><input name="firma" maxlength="100" autocomplete="organization" style="width:100%; padding:10px; border-radius:6px; border:1px solid rgba(255,255,255,.2); background:#1c1c1c; color:inherit;"></label>
-        <input name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px;">
-        <label style="font-size:0.88rem;"><input type="checkbox" name="consent"> I agree that Jakub Popluhar may email me about this follow-up. I can unsubscribe at any time.</label>
-        <button type="submit" class="knopf los" style="justify-self:start;">Send</button>
-        <p class="followup-msg" role="status" style="margin:0; font-size:0.9rem;"></p>
-      </form>
-      <script>
-      (function () {
-        var f = document.getElementById('followup'); if (!f) return;
-        var msg = f.querySelector('.followup-msg'), btn = f.querySelector('button');
-        f.addEventListener('click', function (e) { e.stopPropagation(); });
-        f.addEventListener('submit', function (e) {
-          e.preventDefault();
-          var email = f.email.value.trim(), vorname = f.vorname.value.trim();
-          if (!vorname || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { msg.textContent = 'Please enter your first name and a valid email.'; return; }
-          if (!f.consent.checked) { msg.textContent = 'Please tick the consent box, otherwise I am not allowed to email you.'; return; }
-          var wunsch = (f.querySelector('input[name=wunsch]:checked') || {}).value || 'Check-in';
-          btn.disabled = true; btn.textContent = 'Sending...';
-          fetch('https://deflifeos.popluhar.at/api/brevo-jp/subscribe', {
-            method: 'POST', headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ kind: 'ars', email: email, vorname: vorname, nachname: '', firma: f.firma.value.trim(), telefon: '',
-              interesse: 'SYL Ohrid 04.11.2026, follow-up 24.11.: ' + wunsch + ' | Consent: email about this follow-up (wording 03.11.2026)',
-              kurs: 'syl2026', consent: true, hp: f.hp.value })
-          }).then(function (r) { return r.json().catch(function () { return {}; }); }).then(function (d) {
-            if (d && d.ok === false) throw new Error(d.error || 'error');
-            f.querySelectorAll('input,button,fieldset').forEach(function (x) { x.disabled = true; });
-            msg.textContent = 'Thank you, ' + vorname + '! See you on 24 November.';
-          }).catch(function () {
-            btn.disabled = false; btn.textContent = 'Send';
-            msg.textContent = 'Something went wrong. Please try again, or write to jakub@popluhar.at.';
-          });
-        });
-      })();
-      </script>
+      <p>One email from me on 24 November: a check-in on your assistant and your plan. Only from me, nobody else. 20 seconds.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
+        <a href="https://form.jotform.com/263062098464057" target="_blank" rel="noopener"><img src="followup-qr.png" alt="QR code to the follow-up form" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
+        <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Form doesn't load?</strong> Scan the QR code with your phone, or <a href="https://form.jotform.com/263062098464057" target="_blank" rel="noopener" style="color:var(--gold);">open it in a new window</a>.</p>
+      </div>
+      <iframe src="https://form.jotform.com/263062098464057" title="Follow-up on 24 November" style="width:100%; height:900px; min-height:700px; border:0; border-radius:8px; background:#fff; margin-top:14px;" loading="lazy"></iframe>
 
       <p class="step-label">Your work data and AI</p>
       <p>Patient files, client data, internal documents: never in a free cloud tool. But AI can run entirely on your company's own computers, so nothing leaves the building. You saw it tonight. If that's relevant for your organisation, tick it in the form above.</p>
