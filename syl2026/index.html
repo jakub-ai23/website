@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build It Before You Leave the Room</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <!-- ERZEUGT von personal-drafts/elearning-prototypen/_build_kurs.py aus uebungen-lang.html.
+       Inhalt dort aendern, dann neu bauen. Nicht hier von Hand pflegen. -->
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* HEADER */
+    .site-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+
+    .logo { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: var(--white); text-decoration: none; }
+    .logo:hover { color: var(--white); }
+    .logo span { color: var(--gold); }
+
+    .back-link {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    /* MAIN */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero p { font-size: 0.95rem; color: var(--white-muted); }
+
+    /* SECTION DIVIDERS */
+    .section-divider {
+      text-align: center;
+      margin: 56px 0 40px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* EXERCISE CARDS */
+    .exercise {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .exercise-number {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .exercise h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .exercise .subtitle {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .exercise p, .exercise li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .exercise ul, .exercise ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .exercise li { margin-bottom: 6px; }
+
+    /* PROMPT BLOCKS (copyable) */
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      margin: 14px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: pre-line;
+    }
+
+    .prompt-block:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    .prompt-block::after {
+      content: 'Kopieren';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover::after { opacity: 1; }
+
+    .prompt-block.copied::after {
+      content: 'Kopiert!';
+      opacity: 1;
+    }
+
+    /* CONTEXT BLOCKS */
+    .context-block {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 14px 0;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+    }
+
+    .context-block strong { color: var(--white); }
+
+    /* STEP LABELS */
+    .step-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin: 18px 0 6px;
+    }
+
+    /* Unterschritt: gehoert zu keinem CITE-Buchstaben */
+    .sub-step {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 20px 0 6px;
+      padding-left: 12px;
+      border-left: 2px solid rgba(255,255,255,0.2);
+    }
+
+    /* COMPARISON TABLE */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.82rem;
+    }
+
+    .compare-table th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .compare-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+    }
+
+    /* ROLE CARDS (for Task Force) */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .role-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.82rem;
+    }
+
+    .role-card strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-size: 0.78rem;
+    }
+
+    /* MAGIC FORMULA */
+    .magic-box {
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 14px 0;
+      text-align: center;
+    }
+
+    .magic-box .label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 20px 24px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* COLLAPSIBLE SECTIONS */
+    details {
+      margin: 14px 0;
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details summary {
+      padding: 14px 18px;
+      background: rgba(212, 160, 23, 0.06);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    details summary:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: '+';
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    details .collapsible-content {
+      padding: 16px 18px;
+      border-top: 1px solid rgba(212, 160, 23, 0.1);
+    }
+
+    details .collapsible-content p,
+    details .collapsible-content li {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: var(--white-muted);
+    }
+
+    details .collapsible-content strong {
+      color: var(--white);
+    }
+
+    /* FLOAT ANIMATION */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* TAB SWITCHER */
+    .tab-switcher {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--charcoal-light);
+      border: none;
+      color: var(--white-muted);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:first-child { border-right: 1px solid rgba(212, 160, 23, 0.3); }
+
+    .tab-btn.active {
+      background: rgba(212, 160, 23, 0.12);
+      color: var(--gold);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: var(--charcoal-lighter);
+      color: var(--white);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* LAYOUT WITH SIDEBAR */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+    }
+
+    /* SIDEBAR NAV */
+    .sidebar-nav {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.06);
+      border-left-color: var(--gold);
+    }
+
+    .sidebar-nav .nav-section-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 12px 14px 4px;
+      opacity: 0.7;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .sidebar-nav a {
+        padding: 8px 12px;
+        font-size: 0.72rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 6px;
+        background: var(--charcoal-light);
+      }
+
+      .sidebar-nav a:hover,
+      .sidebar-nav a.active {
+        border-left: none;
+        border-bottom-color: var(--gold);
+      }
+
+      .sidebar-nav .nav-section-label {
+        width: 100%;
+        padding: 8px 0 2px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      main { padding: 32px 16px 64px; }
+      .exercise { padding: 22px 18px; }
+      .prompt-block { padding: 14px 14px; }
+      .role-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 0.75rem; }
+      .compare-table td, .compare-table th { padding: 8px; }
+    }
+
+    /* HIERARCHIE-STACK (System-Prompt vs. Projekt vs. Chat) */
+    .hierarchy-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 14px 0 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.25);
+    }
+    .hierarchy-level {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+    }
+    .hierarchy-level:last-child { border-bottom: none; }
+    .hierarchy-level .h-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+    .hierarchy-level .h-desc {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+    }
+    .hierarchy-level.l1 { background: rgba(212, 160, 23, 0.03); padding-left: 18px; }
+    .hierarchy-level.l2 { background: rgba(212, 160, 23, 0.06); padding-left: 32px; }
+    .hierarchy-level.l3 { background: rgba(212, 160, 23, 0.10); padding-left: 46px; }
+    .hierarchy-level.l4 { background: rgba(212, 160, 23, 0.14); padding-left: 60px; }
+
+    /* LLM-Karten (Start hier) */
+    .llm-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 560px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Zwei Spalten: selbst ausfuellen vs. fertiges Beispiel */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 14px 0;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+    .col-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .two-col .prompt-block { margin-top: 0; }
+    .llm-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .llm-card .llm-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .llm-card .llm-browser {
+      display: block;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #141414;
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 13px 16px;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+    .llm-card .llm-browser:hover,
+    .llm-card .llm-browser:focus { filter: brightness(1.08); }
+    .llm-apps summary {
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      list-style-position: inside;
+    }
+    .llm-apps[open] summary { margin-bottom: 8px; }
+    .llm-card .llm-stores {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .llm-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      flex: 1;
+      justify-content: center;
+      min-height: 40px;
+    }
+    .llm-store-btn:hover,
+    .llm-store-btn:focus {
+      border-color: var(--gold);
+      background: rgba(212, 160, 23, 0.08);
+      color: var(--white);
+    }
+    .llm-store-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .llm-store-btn .store-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      align-items: flex-start;
+    }
+    .llm-store-btn .store-meta small {
+      font-size: 0.62rem;
+      color: var(--white-muted);
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+    .llm-store-btn .store-meta strong {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    @media (max-width: 600px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ARS 21.10. online: Rahmen je Uebung (Ziel / Zeit / Abgabe) und Ausweichzeile */
+    .rahmen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0 18px; }
+    .rahmen > div { background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.25); border-radius: 10px; padding: 10px 12px; font-size: 0.85rem; line-height: 1.45; }
+    .rahmen b { display: block; font-family: var(--font-heading); font-size: 0.62rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+    .fallback { border-left: 3px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.03); padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--white-muted); margin: 16px 0 6px; }
+    .fallback strong { color: var(--white); }
+    .pruef { font-size: 0.85rem; color: var(--white-muted); margin-top: 10px; }
+    .tabelle-text { white-space: pre; overflow-x: auto; }
+    @media (max-width: 700px) { .rahmen { grid-template-columns: 1fr; } }
+
+    .form-wichtig { border: 2px solid var(--gold); background: rgba(212,160,23,0.08); border-radius: 10px; padding: 12px 16px; margin: 14px 0 10px; font-size: 0.92rem; line-height: 1.5; }
+    .form-wichtig.kurz { margin: 10px 0 0; padding: 8px 14px; font-size: 0.85rem; }
+  
+
+body{margin:0}
+.player{display:grid;grid-template-columns:320px 1fr;min-height:100vh}.player>*{min-width:0}
+.v-logo{display:block;background:#fff;padding:8px 12px;border-radius:6px;max-width:170px;width:100%;box-sizing:border-box;margin:12px 0 14px}
+/* Logoreihe: Veranstalter links, JP-Monogramm rechts daneben, beide gleich hoch (Symmetrieregel). */
+.logos{display:flex;align-items:center;gap:12px;margin:12px 0 14px}
+.logos .v-logo{margin:0;width:auto;height:46px;max-width:170px;object-fit:contain}
+.logos .t-logo{display:block;height:46px;width:auto}
+.side{border-right:1px solid rgba(255,255,255,.08);padding:20px 16px 40px;position:sticky;top:0;height:100vh;overflow:auto;background:rgba(255,255,255,.02)}
+.side .zurueck{font-size:.78rem;color:var(--white-muted);text-decoration:none;display:inline-block;margin-bottom:14px}
+.side .zurueck:hover{color:var(--gold)}
+.side h1{font-family:var(--font-heading);font-size:1rem;margin:0 0 4px;line-height:1.35}
+.side .sub{color:var(--white-muted);font-size:.78rem;margin-bottom:14px}
+.balken{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}.balken i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.stand{font-size:.75rem;color:var(--white-muted);margin:6px 0 10px}
+.teil{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:18px 6px 8px}
+.zeile{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;cursor:pointer;font-size:.86rem;line-height:1.35;color:var(--white);text-decoration:none}
+.zeile:hover{background:rgba(255,255,255,.05);color:var(--white)}.zeile.aktiv{background:rgba(212,160,23,.12)}
+.zeile .n{flex:0 0 74px;font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700;text-align:center}
+.zeile .lab{flex:0 0 74px;box-sizing:border-box;align-self:flex-start;margin-top:1px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.6rem;letter-spacing:.8px;text-transform:uppercase;font-weight:700;color:var(--white-muted);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:2px 4px;margin-left:0}
+.zeile.art-uebung{font-weight:500}
+.zeile .t{flex:1;min-width:0}
+.zeile .opt{color:var(--white-muted);font-size:.72rem;display:block;font-weight:400}
+.zeile .ck{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);margin-top:1px}
+.zeile.erledigt .ck{background:var(--gold);border-color:var(--gold)}.zeile.erledigt .t{color:var(--white-muted)}
+.zeile .jetzt{display:none;font-size:.56rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;background:var(--gold);color:#141414;border-radius:99px;padding:2px 6px;align-self:center}
+.zeile.im-raum .jetzt{display:inline-block}
+/* margin:0 ist Pflicht: das Seiten-CSS gibt <main> "margin:0 auto", und ein Rasterelement
+   mit auto-Rand schrumpft nicht mit. Auf 390 px stand es dann 551 px breit. */
+.main{margin:0;padding:0 56px 130px;max-width:900px;overflow-wrap:anywhere}
+.kopfzeile{padding-top:34px}
+.crumb{color:var(--white-muted);font-size:.8rem;margin-bottom:6px}
+.main h2.lektion-titel{font-family:var(--font-heading);font-size:1.9rem;margin:6px 0 16px;line-height:1.25}
+.tag{display:inline-block;font-size:.66rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,160,23,.4);color:var(--gold);margin-right:6px}
+.tag.leise{border-color:rgba(255,255,255,.25);color:var(--white-muted)}
+.lektion .exercise{background:none;border:0;padding:0;margin:0;box-shadow:none}
+.lektion .exercise > .exercise-number{display:none}
+.lektion .exercise > h3:first-of-type{display:none}
+.lektion table{display:block;overflow-x:auto;max-width:100%}
+.lektion img{max-width:100%}
+.prompt-block.copied{outline:2px solid var(--gold)}
+/* Die Leiste geht über die ganze Breite, die Knöpfe stehen in derselben Spalte wie der Inhalt.
+   Vorher standen sie bei Vollbild an den äußersten Bildschirmrändern (Commander 06.10.). */
+.nav{position:fixed;bottom:0;left:320px;right:0;padding:14px 0;background:rgba(20,20,20,.96);border-top:1px solid rgba(255,255,255,.08);z-index:15}
+.nav-innen{display:flex;justify-content:space-between;gap:10px;max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.knopf{border:1px solid rgba(255,255,255,.2);background:none;color:var(--white);padding:12px 22px;border-radius:8px;font:600 .92rem var(--font-body);cursor:pointer}
+.knopf:disabled{opacity:.35;cursor:default}
+.knopf.los{background:var(--gold);color:#141414;border-color:var(--gold)}
+.schublade{display:none}
+/* Live-Leiste im Player */
+.live-leiste{position:sticky;top:0;z-index:12;display:flex;align-items:center;gap:14px;margin:0 -56px;padding:10px 56px;background:linear-gradient(90deg,var(--gold-dark),var(--gold));color:var(--charcoal)}
+.live-leiste[hidden]{display:none}
+.live-leiste.neu{animation:live-neu 1.2s ease-out}
+@keyframes live-neu{0%{filter:brightness(1.45)}100%{filter:none}}
+.live-inhalt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.live-marke{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.75}
+.live-text{font-weight:600;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live-dorthin{flex:0 0 auto;background:var(--charcoal);color:var(--gold-light);border:0;border-radius:99px;padding:8px 16px;font:600 .8rem var(--font-body);cursor:pointer}
+.live-dorthin[hidden]{display:none}
+.live-hier{flex:0 0 auto;font-size:.75rem;font-weight:700}
+@media(max-width:860px){
+ .player{grid-template-columns:1fr}
+ .side{position:fixed;inset:0;z-index:30;height:auto;transform:translateX(-100%);transition:transform .25s;background:#161616}
+ .side.offen{transform:none}
+ .side .schliessen{display:block}
+ .schublade{display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:20;background:#141414;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+ .main{padding:0 16px 110px}
+ .kopfzeile{padding-top:18px}
+ .live-leiste{top:var(--schublade-h,57px);margin:0 -16px;padding:8px 16px;gap:10px}
+ .live-text{font-size:.86rem}
+ .nav{left:0;padding:12px 0}.nav-innen{padding:0 16px}.knopf{padding:12px 14px}
+ .main h2.lektion-titel{font-size:1.45rem}
+}
+.side .schliessen{display:none;float:right;background:none;border:0;color:var(--white-muted);font-size:1.4rem;cursor:pointer;line-height:1}
+/* Seitenleiste einklappbar (Desktop), wie bei ChatGPT/Claude. Zu bleibt eine 56-px-Schiene
+   mit dem Knopf. Auf dem Handy gilt weiter die Schublade, deshalb nur ab 861 px. */
+.leiste-knopf{float:right;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin:-6px -4px 0 8px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:none;color:var(--white-muted);cursor:pointer;padding:0}
+.leiste-knopf:hover{color:var(--gold);border-color:rgba(212,160,23,.5)}
+.leiste-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(min-width:861px){
+ .player{transition:grid-template-columns .2s ease}
+ /* Inhalt mittig in der Spalte, sonst klebt er bei Vollbild links und rechts bleibt die Hälfte leer. */
+ .main{width:100%;justify-self:center}
+ body.leiste-zu .player{grid-template-columns:56px 1fr}
+ body.leiste-zu .side{padding:16px 10px;overflow:hidden}
+ body.leiste-zu .side > *:not(.leiste-knopf){display:none}
+ body.leiste-zu .leiste-knopf{float:none;margin:0}
+ body.leiste-zu .leiste-knopf svg{transform:scaleX(-1)}
+ body.leiste-zu .main{width:100%;justify-self:center}
+ body.leiste-zu .nav{left:56px}
+ .nav{transition:left .2s ease}
+}
+@media(max-width:860px){.leiste-knopf{display:none}}
+.side .kontakt{margin-top:28px;padding:14px 8px 0;border-top:1px solid rgba(255,255,255,.08);font-size:.78rem;color:var(--white-muted);line-height:1.6}
+.side .kontakt a{color:var(--white-muted)}.side .kontakt a:hover{color:var(--gold)}
+/* Upload-Kasten (Bild landet in Jakubs Google Drive, nur er sieht es) */
+.upload-kasten{border:1px solid rgba(212,160,23,.45);background:rgba(212,160,23,.05);border-radius:12px;padding:20px;margin:22px 0}
+.upload-kasten h4{font-family:var(--font-heading);font-size:1.05rem;margin:0 0 6px;color:var(--white)}
+.upload-kasten .hinweis{font-size:.82rem;color:var(--white-muted);margin:0 0 14px}
+.upload-kasten .reihe{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.upload-kasten input[type=text]{flex:1 1 180px;min-width:0;background:#1f1f1f;border:1px solid rgba(255,255,255,.15);border-radius:8px;color:var(--white);padding:11px 12px;font:400 .92rem var(--font-body)}
+.upload-kasten .waehlen{flex:0 0 auto}
+.upload-kasten input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.upload-kasten ul{list-style:none;padding:0;margin:12px 0 0;font-size:.85rem}
+.upload-kasten li{padding:6px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:10px;align-items:center}
+.upload-kasten li .st{margin-left:auto;font-weight:600;white-space:nowrap}
+.upload-kasten li.ok .st{color:#6fae5f}.upload-kasten li.fehler .st{color:#e07a6a}
+.upload-kasten li .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.gruppe-inhalt{display:block}
+.gruppe.zu .gruppe-inhalt{display:none}
+.teil-knopf{display:flex;align-items:center;justify-content:space-between;width:calc(100% - 12px);background:none;border:0;border-top:1px solid rgba(255,255,255,.08);padding:12px 6px 4px;margin:14px 6px 6px;cursor:pointer;font-family:var(--font-body);text-align:left}
+.stand + .gruppe .teil-knopf{border-top:0;margin-top:18px}
+.teil-knopf:hover{color:var(--gold-light)}
+.teil-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.teil-knopf .pfeil{flex:none;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s;margin-left:10px;margin-top:-3px}
+.gruppe.zu .teil-knopf .pfeil{transform:rotate(-45deg);margin-top:0}
+
+.willkommen-bs{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 50% 30%,#232018 0%,#141414 65%);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}
+.willkommen-bs[hidden]{display:none}
+.willkommen-karte{width:100%;max-width:520px;text-align:center;margin:auto}
+.willkommen-karte img{display:block;width:min(240px,46vw);height:min(240px,46vw);object-fit:cover;object-position:top;border-radius:50%;border:3px solid var(--gold);margin:0 auto 22px;background:#1a1a1a;box-shadow:0 0 0 8px rgba(212,160,23,.08)}
+.willkommen-blase{position:relative;background:var(--charcoal-light,#1a1a1a);border:1px solid rgba(212,160,23,.35);border-radius:16px;padding:22px 22px 24px;margin-bottom:24px}
+.willkommen-blase::before{content:"";position:absolute;top:-9px;left:50%;width:16px;height:16px;background:var(--charcoal-light,#1a1a1a);border-left:1px solid rgba(212,160,23,.35);border-top:1px solid rgba(212,160,23,.35);transform:translateX(-50%) rotate(45deg)}
+.willkommen-blase p{margin:0;font-family:var(--font-heading);font-weight:600;font-size:clamp(1.1rem,4.4vw,1.45rem);line-height:1.4;text-wrap:balance}
+.willkommen-karte .knopf{padding:14px 38px;font-size:1rem}
+@media (prefers-reduced-motion:no-preference){.willkommen-karte{animation:wk-rein .5s ease-out}@keyframes wk-rein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="willkommen-bs" id="willkommen-bs" role="dialog" aria-modal="true" aria-labelledby="wk-text" hidden><div class="willkommen-karte"><img src="jakub-lachend.png" alt="Jakub Popluhar"><div class="willkommen-blase"><p id="wk-text">Welcome back! Tonight you build your own assistant. This page guides you step by step.</p></div><button type="button" class="knopf los" id="wk-weiter">Let&#x27;s build</button></div></div>
+<div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Steps</button><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
+<div class="player">
+  <aside class="side" id="side">
+    <button class="schliessen" id="schliessen" type="button" aria-label="Close">×</button>
+    <button class="leiste-knopf" id="leisteKnopf" type="button" aria-label="Hide the sidebar" aria-expanded="true" title="Show or hide the sidebar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/><path d="M15 10l-2 2 2 2"/></svg></button>
+    <a href="https://jakubpopluhar.com" class="zurueck">jakubpopluhar.com</a>
+    <div class="logos"><img class="t-logo" src="jp-logo.png" alt="Jakub Popluhar"></div>
+    <h1>Build It Before You Leave the Room</h1>
+    <div class="sub">School for Young Leaders · Ohrid · Wednesday, 4 November 2026</div>
+    <div class="balken"><i id="balken"></i></div>
+    <div class="stand" id="stand"></div>
+    <div class="gruppe zu" data-teil="start"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Start</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#welcome" data-id="welcome"><span class="lab">Start</span><span class="t">Welcome</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#tool" data-id="tool"><span class="lab">Setup</span><span class="t">Open your AI</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#split" data-id="split"><span class="lab">Trick</span><span class="t">Split your screen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#dictate" data-id="dictate"><span class="lab">Tip</span><span class="t">Talk, don&#x27;t type</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="build"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Build it</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#memory" data-id="memory"><span class="lab">Step 1</span><span class="t">What does your AI already know about you?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#hire" data-id="hire"><span class="lab">Step 2</span><span class="t">Hire it: the job description</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#onboard" data-id="onboard"><span class="lab">Step 3</span><span class="t">Onboard it, then name it</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#plan" data-id="plan"><span class="lab">Step 4</span><span class="t">One real goal, one real plan</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#guard" data-id="guard"><span class="lab">Step 5</span><span class="t">Test your guardian</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#ritual" data-id="ritual"><span class="lab">Step 6</span><span class="t">Keep it alive: the Monday check-in</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="after"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Extra, check, contact</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#pro" data-id="pro"><span class="lab">Pro</span><span class="t">Pro track: for when you&#x27;re done early</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#aicheck" data-id="aicheck"><span class="lab">Check</span><span class="t">AI check, second round</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#contact" data-id="contact"><span class="lab">Contact</span><span class="t">Stay in touch</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div>
+    <div class="kontakt">Questions after the workshop:<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br><a href="tel:+436641386498">+43 664 138 64 98</a></div>
+  </aside>
+  <main class="main">
+    <div class="live-leiste" id="live-leiste" hidden aria-live="polite">
+      <div class="live-inhalt"><span class="live-marke">Now in the room</span><span class="live-text" id="live-text"></span></div>
+      <button type="button" class="live-dorthin" id="live-dorthin">Go there</button>
+      <span class="live-hier" id="live-hier" hidden>You are here</span>
+    </div>
+    <div class="kopfzeile"><div class="crumb" id="crumb"></div><div id="tags"></div><h2 class="lektion-titel" id="ttl"></h2></div>
+    <section class="lektion" data-id="welcome" data-teil="start" data-teil-name="Start" hidden><div class="exercise" data-ex="welcome">
+      <div class="exercise-number">Start</div>
+      <h3>Welcome</h3>
+      <p class="subtitle">Be a Leader in AI, Part 2 · 17th School for Young Leaders · Ohrid · Wednesday, 4 November 2026 · Jakub Popluhar</p>
+      <p>Last week you learned how a boss briefs. Tonight you hire your assistant: one that knows your goals and looks out for them.</p>
+
+      <p class="step-label">What you leave with</p>
+      <ol>
+        <li><strong>A named assistant</strong> that knows your goals.</li>
+        <li><strong>A one-page plan</strong> for one real goal, with a first step this week and a date.</li>
+        <li><strong>A Monday ritual</strong> that keeps it alive.</li>
+      </ol>
+      <p style="color: var(--gold); font-size: 0.9rem;">The first two are the minimum. Everything after that is a bonus.</p>
+
+      <p class="step-label">How this works</p>
+      <ul>
+        <li><strong>Tap any grey box and it is copied.</strong> Then paste it into your AI.</li>
+        <li><strong>Find your own spot in the room.</strong> Talk to your AI, don't type. Dictating is three times faster.</li>
+        <li><strong>Back in your seat at 18:52.</strong> Stuck? Raise your hand, I come to you.</li>
+        <li><strong>Private stays private.</strong> If something is personal, type it instead of saying it out loud. Nothing you write in your AI comes to me. The only thing I see is the AI check at the end.</li>
+      </ul>
+      <p style="color: var(--gold); font-size: 0.9rem;">Next: open your AI. Bottom right: "Done, next".</p>
+    </div></section><section class="lektion" data-id="tool" data-teil="start" data-teil-name="Start" hidden><div class="exercise" data-ex="tool">
+      <div class="exercise-number">Setup</div>
+      <h3>Open your AI</h3>
+      <p class="subtitle">Use the one you already use. The free versions are enough. Every prompt on this page works in all four.</p>
+      <div class="llm-grid">
+        <div class="llm-card"><div class="llm-name">ChatGPT</div><a class="llm-browser" href="https://chatgpt.com" target="_blank" rel="noopener">Open in browser →</a></div>
+        <div class="llm-card"><div class="llm-name">Gemini</div><a class="llm-browser" href="https://gemini.google.com" target="_blank" rel="noopener">Open in browser →</a></div>
+        <div class="llm-card"><div class="llm-name">Claude</div><a class="llm-browser" href="https://claude.ai" target="_blank" rel="noopener">Open in browser →</a></div>
+        <div class="llm-card"><div class="llm-name">Copilot</div><a class="llm-browser" href="https://copilot.microsoft.com" target="_blank" rel="noopener">Open in browser →</a></div>
+      </div>
+      <p class="step-label">Have your homework ready</p>
+      <p>Your <strong>job description</strong> and your <strong>onboarding sheet</strong> from the PDF "Hire Your First Assistant". Open the document where you wrote them. No homework? No problem, there is a fast route in step 3.</p>
+      <p class="fallback"><strong>On your phone?</strong> Use the app of your AI. Tap a grey box here, switch to the app, paste. Use the microphone on your keyboard to dictate.</p>
+    </div></section><section class="lektion" data-id="split" data-teil="start" data-teil-name="Start" hidden><div class="exercise" data-ex="split">
+      <div class="exercise-number">Trick</div>
+      <h3>Split your screen</h3>
+      <p class="subtitle">Ten seconds that save you the whole evening. Left: this page. Right: your AI.</p>
+      <p class="step-label">Mac</p>
+      <p>Click this browser window. <strong>Hold</strong> the <strong>green button</strong> top left (don't just click it). Choose "Tile left", then click your AI's window on the right. If your AI runs in the same browser: drag its tab out first, so it becomes its own window.</p>
+<svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Mac: grünen Knopf hold, dann Bildschirmhälfte wählen">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <circle cx="28" cy="37" r="5" fill="#ff5f57"/>
+        <circle cx="45" cy="37" r="5" fill="#febc2e"/>
+        <circle cx="62" cy="37" r="9" fill="#28c840"/>
+        <circle cx="62" cy="37" r="15" fill="none" stroke="var(--gold)" stroke-dasharray="4 3"/>
+        <text x="84" y="42" fill="var(--gold)" font-size="13" font-family="monospace">hold</text>
+        <text x="20" y="110" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">one window,</text>
+        <text x="20" y="130" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">full screen</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">This page</text>
+        <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Your AI</text>
+        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">2 windows</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. hold green</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. pick a half, pick a window</text>
+      </svg>
+      <p class="step-label">Windows</p>
+      <p>Click this window, then press <strong>Windows key + arrow left</strong>. Windows shows your other windows on the right. Click your AI.</p>
+<svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Windows: Windows-Taste plus Pfeil links, dann pick the second window">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <rect x="40" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="72" y="107" fill="var(--gold)" font-size="16" font-family="monospace" text-anchor="middle">&#8862;</text>
+        <text x="116" y="107" fill="var(--gold)" font-size="16" font-family="monospace">+</text>
+        <rect x="136" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="168" y="108" fill="var(--gold)" font-size="18" font-family="monospace" text-anchor="middle">&#8592;</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">This page</text>
+        <rect x="502" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <rect x="566" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <text x="560" y="128" fill="var(--gold)" font-size="12" font-family="monospace" text-anchor="middle">pick the second window</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. Win key + arrow</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. click one on the right</text>
+      </svg>
+      <p style="color: var(--white-muted); font-size:0.85rem;">Nothing works? Drag the window to the left edge of the screen until a half lights up, then let go.</p>
+    </div></section><section class="lektion" data-id="dictate" data-teil="start" data-teil-name="Start" hidden><div class="exercise" data-ex="dictate">
+      <div class="exercise-number">Tip</div>
+      <h3>Talk, don't type</h3>
+      <p class="subtitle">Speaking is three to four times faster than typing. And when you speak, you give the AI more context without trying.</p>
+      <table class="compare-table">
+        <tr><th style="width:32%">Device</th><th>How to dictate</th></tr>
+        <tr><td>Any AI</td><td>Click the <strong>microphone</strong> in the chat box (ChatGPT, Gemini, Claude, Copilot)</td></tr>
+        <tr><td>Mac</td><td>Press the <strong>Fn key twice</strong> (or the microphone key), then speak into any text field</td></tr>
+        <tr><td>Windows</td><td>Press <strong>Windows key + H</strong></td></tr>
+        <tr><td>Phone</td><td>The <strong>microphone</strong> on your keyboard</td></tr>
+      </table>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Speak in any language you think in. Your AI understands Macedonian, English and mixed sentences.</p>
+    </div></section><section class="lektion" data-id="memory" data-teil="build" data-teil-name="Build it" hidden><div class="exercise" data-ex="memory">
+      <div class="exercise-number">Step 1</div>
+      <h3>What does your AI already know about you?</h3>
+      <p class="subtitle">Some of you have memory switched on, some don't. Both routes end in the same place: your onboarding sheet.</p>
+      <div class="rahmen">
+        <div><b>Goal</b>Know what your AI knows about you, and decide what it should know.</div>
+        <div><b>Done when</b>You have checked your onboarding sheet against what it found.</div>
+      </div>
+      <p class="step-label">Open a new chat and send this</p>
+      <div class="prompt-block">What do you remember about me from our past chats?
+Only what you actually remember. Sort it into: strong memory / weak memory.
+If you have no memory of me, just answer "No memory". Don't guess.</div>
+
+      <p class="step-label">Route A: it remembers things about you</p>
+      <div class="prompt-block">Based on what you remember: what are my goals, my 3 strengths, and the one habit that most often gets in my way? Mark every guess as a guess.</div>
+      <p><strong>Read it alone first.</strong> Copy only what is true, and only what you want, into your onboarding sheet.</p>
+
+      <p class="step-label">Route B: "No memory"</p>
+      <div class="prompt-block">Interview me. Ask me 3 questions, one at a time, about my goals for the next 6 months and what usually gets in my way. Wait for my answer each time. Then write a short summary I can add to my onboarding sheet.</div>
+
+      <div class="magic-box">
+        <p><strong>Private stays private.</strong> Read what it found on your own. Delete anything you don't want it to know. Never share that screen.</p>
+      </div>
+      <details>
+        <summary>Why this matters (open it later)</summary>
+        <div class="collapsible-content">
+          <p>Your memory should not live inside one company's app. Your onboarding sheet is a document you own. You can take it to the next tool, and the next one. Don't learn the tool. Learn the game.</p>
+        </div>
+      </details>
+    </div></section><section class="lektion" data-id="hire" data-teil="build" data-teil-name="Build it" hidden><div class="exercise" data-ex="hire">
+      <div class="exercise-number">Step 2</div>
+      <h3>Hire it: the job description</h3>
+      <p class="subtitle">Your homework, part 1, plus one new block: it looks out for your goals. This text becomes its system prompt: the instructions it follows in every conversation.</p>
+      <div class="rahmen">
+        <div><b>Goal</b>An assistant that knows its job before you ask anything.</div>
+        <div><b>Done when</b>The text is saved in a Gem, a Project, or at the top of a new chat.</div>
+      </div>
+      <p class="step-label">1. Copy, then replace everything in [brackets] with your homework</p>
+      <div class="prompt-block">You are my personal assistant.
+
+Your job: [e.g. help me with my studies in ... / my work as ... / my project ...]
+
+How you talk to me: [e.g. short and direct, in English, no long introductions]
+
+Before you answer anything important: ask me 3 questions to understand my situation. Wait for my answers.
+
+Always: tell me when you are not sure. Tell me the truth, even if I won't like it.
+
+Never: [e.g. invent facts or sources, write in my name without showing me first]
+
+Look out for my goals.
+My goals for the next 6 months are in my onboarding sheet. Goal 1 comes first.
+Time I protect: [e.g. mornings until 12:00 for my thesis / my studies / my business]
+
+Whenever I ask you for something:
+- Help me with it.
+- If it does not move one of my goals, or eats protected time, say so in one line. Then I decide. Don't lecture me.
+- If I keep postponing Goal 1, tell me, kindly and clearly.
+
+When I write "Check-in":
+Ask me what I did for each goal since last time, what got in the way, and what my one step for this week is.
+
+Judge me by what I do, not only by what I say.
+Say what is good, too. Don't agree just to be nice.</div>
+
+      <p class="step-label">2. Where to put it</p>
+      <details>
+        <summary>Gemini: make a Gem</summary>
+        <div class="collapsible-content">
+          <p>In Gemini, open <strong>Gems</strong> (left side, or "Explore Gems"), then <strong>New Gem</strong>. Give it a name, paste the text into <strong>Instructions</strong>, save. Start chatting with your Gem.</p>
+        </div>
+      </details>
+      <details>
+        <summary>ChatGPT: make a Project</summary>
+        <div class="collapsible-content">
+          <p>In the left sidebar: <strong>Projects</strong>, then <strong>New project</strong>. Open the project, find <strong>Instructions</strong> (in the project settings), paste the text, save. Every new chat inside this project now follows it.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Claude: make a Project</summary>
+        <div class="collapsible-content">
+          <p><strong>Projects</strong> in the sidebar, then <strong>Create project</strong>. Open <strong>Project instructions</strong> (top right of the project), paste the text, save. Start a chat inside the project.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Copilot, or you can't find any of these</summary>
+        <div class="collapsible-content">
+          <p>Open a <strong>new chat</strong> and send the text as your <strong>first message</strong>. It works the same way for this chat. Save the text somewhere you find it again: every new chat starts with it.</p>
+        </div>
+      </details>
+      <p class="fallback"><strong>No homework?</strong> Use the fast hire: <em>"You are my assistant for [your goal]. Talk to me [short and direct]. Before you answer, ask me 3 questions."</em> Then continue.</p>
+    </div></section><section class="lektion" data-id="onboard" data-teil="build" data-teil-name="Build it" hidden><div class="exercise" data-ex="onboard">
+      <div class="exercise-number">Step 3</div>
+      <h3>Onboard it, then name it</h3>
+      <p class="subtitle">A new assistant on day one knows nothing about you. Your onboarding sheet changes that.</p>
+      <div class="rahmen">
+        <div><b>Goal</b>It knows who you are, your goals, and your context.</div>
+        <div><b>Done when</b>It has asked you its questions, and it has a name.</div>
+      </div>
+      <p class="step-label">1. Send your onboarding sheet (homework, part 2) as the first message</p>
+      <div class="prompt-block">About me: [who I am, what I study or do, where]
+
+My goals for the next 6 months:
+1. [ ]
+2. [ ]
+3. [ ]
+
+Why they matter to me: [ ]
+
+What I am working on right now: [ ]
+
+What I am good at: [ ]
+What I struggle with: [ ]
+
+People and context you should know: [team, organisation, community, deadlines]
+
+How I like my work delivered: [format, length, bullet points or text]</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">In a Gem or a Project you can also upload the sheet as a file. Then it reads it in every chat.</p>
+
+      <p class="step-label">2. Ask the question from your homework</p>
+      <div class="prompt-block">Here is my job description and my onboarding sheet. What else do you need from me to do this job well? Ask me, one question at a time.</div>
+
+      <p class="step-label">3. Name it. 60 seconds, no more.</p>
+      <div class="prompt-block">From now on, your name is [name]. Introduce yourself to me in two sentences: who you are to me, and what you look out for.</div>
+      <p class="pruef">Done when: it introduces itself by name and mentions your goals.</p>
+    </div></section><section class="lektion" data-id="plan" data-teil="build" data-teil-name="Build it" hidden><div class="exercise" data-ex="plan">
+      <div class="exercise-number">Step 4</div>
+      <h3>One real goal, one real plan</h3>
+      <p class="subtitle">Pick ONE goal from your onboarding sheet. Not the easiest one. The one that matters.</p>
+      <div class="rahmen">
+        <div><b>Goal</b>A one-page plan with a first step this week, and a date.</div>
+        <div><b>Done when</b>You could show the plan to a friend tomorrow.</div>
+      </div>
+      <details>
+        <summary>CITER, the boss brief from last week (refresher)</summary>
+        <div class="collapsible-content">
+          <table class="compare-table">
+            <tr><th style="width:24%">Letter</th><th>What you tell it</th></tr>
+            <tr><td><strong>C</strong>ontext</td><td>Who, what happened so far</td></tr>
+            <tr><td><strong>I</strong>ntent</td><td>Why: what should happen because of it</td></tr>
+            <tr><td><strong>T</strong>ask</td><td>What you want done</td></tr>
+            <tr><td><strong>E</strong>xecution</td><td>Length, tone, format</td></tr>
+            <tr><td><strong>R</strong>eality</td><td>Concrete and realistic, no polished empty phrases</td></tr>
+          </table>
+        </div>
+      </details>
+
+      <p class="step-label">Round 1: the brief</p>
+      <div class="prompt-block">Context: [where I stand with this goal today]
+Intent: [why this goal matters to me, what changes when I reach it]
+Task: make me a plan to reach this goal: [goal]
+Execution: short, steps I can actually do, with rough dates
+Reality: I have [how many hours per week]. Be realistic, no motivational phrases.</div>
+
+      <p class="step-label">Round 2: let it ask</p>
+      <div class="prompt-block">What is missing in this plan? Ask me 3 questions, one at a time. Then improve the plan.</div>
+
+      <p class="step-label">Round 3: a boss checks the work</p>
+      <div class="prompt-block">Which parts of this plan are guesses or assumptions? Mark them. Which one should I check first?</div>
+      <p>Pick one of them and check it yourself: a number, a deadline, a fact. <strong>You only know it's right if you look.</strong></p>
+
+      <p class="step-label">Last: make it a plan you keep</p>
+      <div class="prompt-block">Turn this into a one-page plan:
+- my goal in one sentence
+- why it matters
+- 3 to 5 steps
+- my first step THIS week, with a day and a time
+- what could stop me, and what I do then</div>
+      <p class="pruef">Minimum finish ✓ Named assistant + one-page plan with a dated first step. Save the plan: copy it into your notes, or take a screenshot.</p>
+    </div></section><section class="lektion" data-id="guard" data-teil="build" data-teil-name="Build it" hidden><div class="exercise" data-ex="guard">
+      <div class="exercise-number">Step 5</div>
+      <h3>Test your guardian</h3>
+      <p class="subtitle">Does it really look out for you? Ask it for something that clashes with your goal.</p>
+      <div class="prompt-block">Help me plan a big party this Saturday, all day.</div>
+      <p>(Or anything else that would eat your protected time.)</p>
+      <ul>
+        <li><strong>It helps and adds one line about your goal?</strong> Hired. Well done.</li>
+        <li><strong>It just plans the party?</strong> Your instructions are too soft. Go back to step 2 and make "Look out for my goals" more concrete: which goal, which time.</li>
+      </ul>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Remember: it only looks out for you when you open it. That is why step 6 exists.</p>
+    </div></section><section class="lektion" data-id="ritual" data-teil="build" data-teil-name="Build it" hidden><div class="exercise" data-ex="ritual">
+      <div class="exercise-number">Step 6</div>
+      <h3>Keep it alive: the Monday check-in</h3>
+      <p class="subtitle">A plan without a ritual is a wish. Every Monday, open your assistant and type one word.</p>
+      <div class="prompt-block">Check-in</div>
+      <p>It asks what you did for each goal, what got in the way, and your one step for this week. Because you told it to in step 2.</p>
+      <p class="step-label">Put it in your calendar now</p>
+      <p>A weekly reminder, every Monday, 5 minutes: <em>"Check-in with [name]"</em>.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Done? Back to your seat. If there is time left, try the Pro track.</p>
+    </div></section><section class="lektion" data-id="pro" data-teil="after" data-teil-name="Extra, check, contact" hidden><div class="exercise" data-ex="pro">
+      <div class="exercise-number">Pro</div>
+      <h3>Pro track: for when you're done early</h3>
+      <p class="subtitle">Only after step 6. Pick one.</p>
+
+      <p class="step-label">A. Break your guardian</p>
+      <p>Send it 3 sneaky requests that sound useful but secretly eat your Goal 1. How many does it catch? Tighten the instructions until it catches all three.</p>
+
+      <p class="step-label">B. Same assistant, second tool</p>
+      <p>Paste the same job description and onboarding sheet into a second AI (e.g. Gemini if you used ChatGPT). Ask both the same question. What is different?</p>
+
+      <p class="step-label">C. From assistant to agent</p>
+      <div class="prompt-block">Look at my goals and my plan. Which of my weekly tasks could an AI agent do for me, not just talk about? For each one: what access would it need (email, calendar, files), what could go wrong, and what must stay my decision?</div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Just think it through tonight. Don't connect any accounts.</p>
+
+      <p class="step-label">D. Take your memory with you</p>
+      <div class="prompt-block">Write everything you now know about me, my goals and my plan into one document I can give to another AI. Short, structured, no guesses.</div>
+
+      <p class="step-label">E. Help a neighbour</p>
+      <p>Someone near you stuck at step 2? The fastest way to learn it is to explain it.</p>
+    </div></section><section class="lektion" data-id="aicheck" data-teil="after" data-teil-name="Extra, check, contact" hidden><div class="exercise" data-ex="aicheck">
+      <div class="exercise-number">Check</div>
+      <h3>AI check, second round</h3>
+      <p class="subtitle">The same 7 questions as last week. Use the same name or nickname, so we can see how the room moved. 2 minutes.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
+        <a href="https://form.jotform.com/262995111920054" target="_blank" rel="noopener"><img src="qr-aicheck.png" alt="QR code to the AI check" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
+        <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Form doesn't load?</strong> Scan the QR code with your phone, or <a href="https://form.jotform.com/262995111920054" target="_blank" rel="noopener" style="color:var(--gold);">open it in a new window</a>.</p>
+      </div>
+      <iframe src="https://form.jotform.com/262995111920054" title="AI check" style="width:100%; height:1500px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:14px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Your answers count only after you click "Submit" at the bottom of the form.</p>
+    </div></section><section class="lektion" data-id="contact" data-teil="after" data-teil-name="Extra, check, contact" hidden><div class="exercise" data-ex="contact">
+      <div class="exercise-number">Contact</div>
+      <h3>Stay in touch</h3>
+      <p class="subtitle">Don't learn the tool. Learn the game.</p>
+      <p>Next Monday: type <strong>"Check-in"</strong>. Then send me one line on LinkedIn: what did your assistant flag?</p>
+      <div style="text-align:center; margin: 22px 0 8px; padding: 26px 22px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
+        <p style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; margin-bottom: 6px;">Let's connect on LinkedIn</p>
+        <p style="font-size: 0.85rem; color: var(--white-muted); margin-bottom: 14px;">Scan the QR code or click.</p>
+        <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener"><img src="linkedin-qr.png" alt="QR code to Jakub Popluhar's LinkedIn profile" width="180" height="180" style="display:block; margin: 0 auto 14px; width:180px; height:180px; border-radius:10px; background:#fff; padding:6px;"></a>
+        <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener" style="display:inline-block; color:var(--gold); border: 2px solid var(--gold); padding:10px 26px; border-radius:8px; font-weight:700; font-size:0.9rem;">Connect on LinkedIn &rarr;</a>
+        <p style="font-size: 0.85rem; color: var(--white-muted); margin-top: 18px;"><a href="https://jakubpopluhar.com/en/k/" style="color:var(--gold);">jakubpopluhar.com</a> &middot; <a href="mailto:jakub@popluhar.at" style="color:var(--gold);">jakub@popluhar.at</a></p>
+      </div>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">This page stays online. Finish any step at home.</p>
+    </div></section>
+  </main>
+</div>
+<div class="nav"><div class="nav-innen"><button class="knopf" id="prev" type="button">← Back</button><button class="knopf los" id="next" type="button">Done, next →</button></div></div>
+<script>
+const M = [{"id": "welcome", "teil": "start", "teilname": "Start", "nr": "", "art": "Start", "opt": false, "titel": "Welcome"}, {"id": "tool", "teil": "start", "teilname": "Start", "nr": "", "art": "Setup", "opt": false, "titel": "Open your AI"}, {"id": "split", "teil": "start", "teilname": "Start", "nr": "", "art": "Trick", "opt": false, "titel": "Split your screen"}, {"id": "dictate", "teil": "start", "teilname": "Start", "nr": "", "art": "Tip", "opt": false, "titel": "Talk, don't type"}, {"id": "memory", "teil": "build", "teilname": "Build it", "nr": "", "art": "Step 1", "opt": false, "titel": "What does your AI already know about you?"}, {"id": "hire", "teil": "build", "teilname": "Build it", "nr": "", "art": "Step 2", "opt": false, "titel": "Hire it: the job description"}, {"id": "onboard", "teil": "build", "teilname": "Build it", "nr": "", "art": "Step 3", "opt": false, "titel": "Onboard it, then name it"}, {"id": "plan", "teil": "build", "teilname": "Build it", "nr": "", "art": "Step 4", "opt": false, "titel": "One real goal, one real plan"}, {"id": "guard", "teil": "build", "teilname": "Build it", "nr": "", "art": "Step 5", "opt": false, "titel": "Test your guardian"}, {"id": "ritual", "teil": "build", "teilname": "Build it", "nr": "", "art": "Step 6", "opt": false, "titel": "Keep it alive: the Monday check-in"}, {"id": "pro", "teil": "after", "teilname": "Extra, check, contact", "nr": "", "art": "Pro", "opt": false, "titel": "Pro track: for when you're done early"}, {"id": "aicheck", "teil": "after", "teilname": "Extra, check, contact", "nr": "", "art": "Check", "opt": false, "titel": "AI check, second round"}, {"id": "contact", "teil": "after", "teilname": "Extra, check, contact", "nr": "", "art": "Contact", "opt": false, "titel": "Stay in touch"}];
+const KOHORTE = 'syl2026';
+const GRUPPEN = true;
+const WACHE = false;
+const ERKENNUNG = false;
+const SPEICHER = 'kurs.' + KOHORTE;
+const S = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
+            set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+const $ = id => document.getElementById(id);
+let erledigt = new Set(S.get(SPEICHER + '.erledigt', []));
+let cur = null, imRaum = null;
+
+function beschriftung(m) { return (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + m.titel; }
+
+function zeigen(id, scrollen) {
+  const m = M.find(x => x.id === id) || M[0];
+  cur = m.id; S.set(SPEICHER + '.cur', cur); S.set(SPEICHER + '.tag', new Date().toDateString());
+  if (location.hash.slice(1) !== cur) history.replaceState(null, '', '#' + cur);
+  document.querySelectorAll('.lektion').forEach(s => s.hidden = s.dataset.id !== cur);
+  const i = M.indexOf(m);
+  $('ttl').textContent = m.titel;
+  $('crumb').textContent = m.teilname;
+  $('tags').innerHTML = '<span class="tag">' + (m.nr ? 'Übung ' + m.nr : m.art) + '</span>' + (m.opt ? '<span class="tag leise">wenn Zeit bleibt</span>' : '');
+  document.querySelectorAll('.zeile').forEach(z => {
+    z.classList.toggle('aktiv', z.dataset.id === cur);
+    z.classList.toggle('erledigt', erledigt.has(z.dataset.id));
+  });
+  const p = Math.round(erledigt.size / M.length * 100);
+  $('balken').style.width = p + '%';
+  $('stand').textContent = erledigt.size + ' of ' + M.length + ' done';
+  $('dstand').textContent = (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + erledigt.size + '/' + M.length + ' done';
+  $('prev').disabled = i === 0;
+  $('next').textContent = i === M.length - 1 ? 'Done ✓' : (formLektion() && !abgeschickt[cur] ? 'Submitted? Next →' : 'Done, next →');
+  if (WACHE) hinweisZu();
+  $('side').classList.remove('offen');
+  if (GRUPPEN) gruppeOeffnen(m.teil);
+  leisteZeichnen();
+  if (scrollen !== false) window.scrollTo(0, 0);
+}
+
+function gruppeOeffnen(teil) {
+  document.querySelectorAll('.gruppe').forEach(g => {
+    if (g.dataset.teil === teil) { g.classList.remove('zu'); g.querySelector('.teil-knopf').setAttribute('aria-expanded', 'true'); }
+  });
+}
+if (GRUPPEN) document.querySelectorAll('.teil-knopf').forEach(k => k.addEventListener('click', () => {
+  const g = k.parentElement, zu = g.classList.toggle('zu');
+  k.setAttribute('aria-expanded', String(!zu));
+}));
+document.querySelectorAll('.zeile').forEach(z => z.addEventListener('click', e => { e.preventDefault(); zeigen(z.dataset.id); }));
+$('prev').onclick = () => { const i = M.findIndex(x => x.id === cur); if (i > 0) zeigen(M[i - 1].id); };
+function weiter() {
+  erledigt.add(cur); S.set(SPEICHER + '.erledigt', [...erledigt]);
+  const i = M.findIndex(x => x.id === cur); zeigen(M[Math.min(i + 1, M.length - 1)].id);
+}
+// Formular-Wache: nie blockieren. Erster Klick zeigt nur einen Hinweis im Seitenkopf-Bereich, der zweite geht durch.
+const abgeschickt = {}, gewarnt = {};
+function formLektion() { return WACHE ? document.querySelector('.lektion[data-id="' + cur + '"] iframe[data-formular]') : null; }
+function hinweisZu() { const h = $('form-hinweis'); if (h) h.hidden = true; }
+$('next').onclick = () => {
+  if (formLektion() && !abgeschickt[cur] && !gewarnt[cur]) {
+    gewarnt[cur] = true; const h = $('form-hinweis'); h.hidden = false; $('form-ja').focus(); return;
+  }
+  weiter();
+};
+if (WACHE) {
+  $('form-ja').onclick = () => { hinweisZu(); weiter(); };
+  $('form-zurueck').onclick = () => {
+    hinweisZu(); gewarnt[cur] = false;
+    const f = formLektion(); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  };
+  if (ERKENNUNG) document.querySelectorAll('iframe[data-formular]').forEach(f => {
+    let n = 0;
+    f.addEventListener('load', () => {
+      if (++n < 2) return;            // das erste load ist das leere Formular, jedes weitere eine neue Seite (Dank-Seite nach dem Absenden)
+      const id = f.closest('.lektion').dataset.id; abgeschickt[id] = true;
+      if (!f.nextElementSibling || !f.nextElementSibling.classList.contains('form-danke')) {
+        const d = document.createElement('p'); d.className = 'form-danke'; d.textContent = 'Danke, Ihre Antworten sind angekommen ✓'; f.after(d);
+      }
+      if (id === cur) { hinweisZu(); zeigen(cur, false); }
+    });
+  });
+}
+$('oeffnen').onclick = () => $('side').classList.add('offen');
+function leisteSetzen(zu) {
+  document.body.classList.toggle('leiste-zu', zu);
+  $('leisteKnopf').setAttribute('aria-expanded', String(!zu));
+  $('leisteKnopf').setAttribute('aria-label', zu ? 'Show the sidebar' : 'Hide the sidebar');
+  S.set(SPEICHER + '.leisteZu', zu);
+}
+$('leisteKnopf').onclick = () => leisteSetzen(!document.body.classList.contains('leiste-zu'));
+leisteSetzen(!!S.get(SPEICHER + '.leisteZu', false));
+$('schliessen').onclick = () => $('side').classList.remove('offen');
+window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (h && h !== cur && M.some(x => x.id === h)) zeigen(h); });
+
+// Kopieren per Klick auf einen Prompt-Block
+document.querySelectorAll('.prompt-block').forEach(block => {
+  block.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(block.textContent.trim());
+      block.classList.add('copied'); setTimeout(() => block.classList.remove('copied'), 1500);
+    } catch (e) {
+      const r = document.createRange(); r.selectNodeContents(block);
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    }
+  });
+});
+
+// Akkordeon: je Uebung nur ein Feld offen, und nur nach einem echten Klick
+let letzterKlick = 0;
+document.addEventListener('click', e => { if (e.target.closest('summary')) letzterKlick = Date.now(); }, true);
+document.querySelectorAll('.exercise').forEach(ex => {
+  ex.querySelectorAll(':scope > details, .collapsible-content > details').forEach(det => {
+    det.addEventListener('toggle', () => {
+      if (det.open && Date.now() - letzterKlick < 1000) {
+        det.parentElement.querySelectorAll(':scope > details').forEach(sib => { if (sib !== det && sib.open) sib.open = false; });
+        setTimeout(() => det.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+      }
+    });
+  });
+});
+
+// Bild-Upload in Jakubs Drive. Geht an denselben Dienst wie die Live-Leiste.
+let UPLOAD = 'https://deflifeos.popluhar.at/reise-live/upload';
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && new URLSearchParams(location.search).get('uploadUrl'))
+  UPLOAD = new URLSearchParams(location.search).get('uploadUrl');
+document.querySelectorAll('.upload-kasten').forEach(kasten => {
+  const vn = kasten.querySelector('.vorname'), feld = kasten.querySelector('input[type=file]'), liste = kasten.querySelector('.liste-upload');
+  vn.value = S.get(SPEICHER + '.vorname', '');
+  vn.addEventListener('change', () => S.set(SPEICHER + '.vorname', vn.value.trim()));
+  function eins(datei) {
+    const li = document.createElement('li');
+    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = datei.name || 'Bild';
+    const st = document.createElement('span'); st.className = 'st'; st.textContent = 'wird hochgeladen…';
+    li.append(nm, st); liste.prepend(li);
+    if (datei.size > 12 * 1024 * 1024) { li.className = 'fehler'; st.textContent = 'zu groß (max. 12 MB)'; return Promise.resolve(); }
+    return new Promise(fertig => {
+      const x = new XMLHttpRequest();
+      x.open('POST', UPLOAD);
+      x.setRequestHeader('Content-Type', 'application/octet-stream');
+      x.setRequestHeader('X-Kohorte', KOHORTE);
+      x.setRequestHeader('X-Uebung', encodeURIComponent(kasten.dataset.uebung || ''));
+      x.setRequestHeader('X-Vorname', encodeURIComponent(vn.value.trim()));
+      x.upload.onprogress = e => { if (e.lengthComputable) st.textContent = Math.round(e.loaded / e.total * 100) + ' %'; };
+      x.onload = () => {
+        let d = {}; try { d = JSON.parse(x.responseText); } catch (e) {}
+        if (x.status === 200) { li.className = 'ok'; st.textContent = 'angekommen ✓'; }
+        else { li.className = 'fehler'; st.textContent = d.fehler || ('Fehler ' + x.status); }
+        fertig();
+      };
+      x.onerror = () => { li.className = 'fehler'; st.textContent = 'keine Verbindung, bitte nochmal'; fertig(); };
+      x.send(datei);
+    });
+  }
+  feld.addEventListener('change', async () => {
+    S.set(SPEICHER + '.vorname', vn.value.trim());
+    for (const d of [...feld.files].slice(0, 5)) await eins(d);
+    feld.value = '';
+  });
+});
+
+// Live-Leiste "Now in the room": nur lesen, es wird nichts ueber die Person gesendet
+let BASIS = 'https://deflifeos.popluhar.at/reise-live/jetzt.json';
+const q = new URLSearchParams(location.search);
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && q.get('liveBasis')) BASIS = q.get('liveBasis');
+function leisteZeichnen() {
+  const leiste = $('live-leiste');
+  const m = imRaum && M.find(x => x.id === imRaum);
+  document.querySelectorAll('.zeile').forEach(z => z.classList.toggle('im-raum', !!m && z.dataset.id === imRaum));
+  if (!m) { leiste.hidden = true; return; }
+  leiste.hidden = false;
+  $('live-text').textContent = beschriftung(m);
+  const hier = imRaum === cur;
+  $('live-dorthin').hidden = hier;
+  $('live-hier').hidden = !hier;
+}
+function abfragen() {
+  fetch(BASIS + '?k=' + KOHORTE, { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (!d) return;
+      const neu = d.ziel || null;
+      if (neu === imRaum) return;
+      imRaum = neu; leisteZeichnen();
+      const l = $('live-leiste'); l.classList.remove('neu'); void l.offsetWidth; l.classList.add('neu');
+    })
+    .catch(() => { /* ohne Verbindung bleibt alles, wie es ist */ });
+}
+let takt = null;
+function starten() { clearInterval(takt); takt = null; if (!document.hidden) { abfragen(); takt = setInterval(abfragen, 5000); } }
+$('live-dorthin').onclick = () => { if (imRaum) zeigen(imRaum); };
+document.addEventListener('visibilitychange', starten);
+function schubladeHoehe() { document.documentElement.style.setProperty('--schublade-h', $('schublade').offsetHeight + 'px'); }
+window.addEventListener('resize', schubladeHoehe);
+
+schubladeHoehe();
+const start = location.hash.slice(1);
+// Wiedereinstieg nur am selben Tag, sonst landen alle auf der Willkommensseite (Commander 07.10.)
+const gestern = S.get(SPEICHER + '.tag', '') !== new Date().toDateString();
+zeigen(M.some(x => x.id === start) ? start : (gestern ? M[0].id : S.get(SPEICHER + '.cur', M[0].id)), false);
+starten();
+
+(function () {
+  // Begruessung nur beim ersten Besuch. Speicher gesperrt: einmal je Sitzung, wenn auch das nicht geht, bei jedem Laden. Blockiert nie.
+  var K = 'kurs.' + KOHORTE + '.begruesst', box = document.getElementById('willkommen-bs');
+  function gesehen() {
+    try { if (localStorage.getItem(K)) return true; } catch (e) {}
+    try { if (sessionStorage.getItem(K)) return true; } catch (e) {}
+    return false;
+  }
+  function merken() {
+    try { localStorage.setItem(K, '1'); } catch (e) {}
+    try { sessionStorage.setItem(K, '1'); } catch (e) {}
+  }
+  if (!box || gesehen()) return;
+  function zu() { box.hidden = true; merken(); document.removeEventListener('keydown', taste); }
+  function taste(e) { if (e.key === 'Escape' || e.key === 'Enter') zu(); }
+  box.hidden = false;
+  document.getElementById('wk-weiter').addEventListener('click', zu);
+  document.addEventListener('keydown', taste);
+  try { document.getElementById('wk-weiter').focus(); } catch (e) {}
+})();
+</script>
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>
