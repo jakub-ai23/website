@@ -933,6 +933,12 @@ body{margin:0}
         <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. click one on the right</text>
       </svg>
       <p style="color: var(--white-muted); font-size:0.85rem;">Nothing works? Drag the window to the left edge of the screen until a half lights up, then let go.</p>
+      <p class="step-label">On a phone: copy here, switch app, paste there</p>
+      <table class="compare-table">
+        <tr><th style="width:32%">Phone</th><th>How to switch apps</th></tr>
+        <tr><td>iPhone</td><td><strong>Swipe left or right along the bottom edge.</strong> To see all apps: swipe up from the bottom and pause. With a Home button: press it twice.</td></tr>
+        <tr><td>Android</td><td><strong>Swipe left or right along the bottom edge</strong>, or swipe up from the bottom and hold. With buttons at the bottom: press the square or the three lines.</td></tr>
+      </table>
     </div></section><section class="lektion" data-id="dictate" data-teil="start" data-teil-name="Start" hidden><div class="exercise" data-ex="dictate">
       <div class="exercise-number">Tip</div>
       <h3>Talk, don't type</h3>
@@ -997,7 +1003,11 @@ How I like my work delivered: [format, length, bullet points or text]</div>
 
       <p class="step-label">4. Let it write the clean version, and save it</p>
       <div class="prompt-block">Write my onboarding sheet as one clean document I can save: everything you now know about me, my goals and my context. Short, structured, no guesses.</div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Copy it into a document, or keep it ready to paste. You own it, and you can take it to any AI. Don't learn the tool. Learn the game.</p>
+      <table class="compare-table">
+        <tr><th style="width:50%">On a computer</th><th>On a phone</th></tr>
+        <tr><td>Copy it into a new document (Word, Pages, Google Docs). Save it as <strong>onboarding-sheet</strong>. That file is your context document.</td><td>Tap the copy button under its answer. Paste the text into your <strong>Notes</strong> app. You'll paste it again in step 3.</td></tr>
+      </table>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">You own it, and you can take it to any AI. Don't learn the tool. Learn the game.</p>
     </div></section><section class="lektion" data-id="hire" data-teil="build" data-teil-name="Build it" hidden><div class="exercise" data-ex="hire">
       <div class="exercise-number">Step 2</div>
       <h3>Hire it: the job description</h3>
@@ -1006,7 +1016,8 @@ How I like my work delivered: [format, length, bullet points or text]</div>
         <div><b>Goal</b>An assistant that knows its job before you ask anything.</div>
         <div><b>Done when</b>The text is saved in a Project, a Gem or a Notebook, or it is the first message of a new chat.</div>
       </div>
-      <p class="step-label">1. Copy, then replace everything in [brackets] with your homework</p>
+      <p class="step-label">1. Pick one of two. Copy it, then replace everything in [brackets] with your homework.</p>
+      <p class="step-label">Option 1: it looks out for you</p>
       <div class="prompt-block">You are my personal assistant.
 
 Your job: [e.g. help me with my studies in ... / my work as ... / my project ...]
@@ -1033,6 +1044,42 @@ Ask me what I did for each goal since last time, what got in the way, and what m
 
 Judge me by what I do, not only by what I say.
 Say what is good, too. Don't agree just to be nice.</div>
+
+      <p class="step-label">Option 2: the drill sergeant. It refuses, and you have to argue.</p>
+      <div class="prompt-block">You are my personal assistant, and you are a drill sergeant.
+No comfort, no flattery, no excuses. Short, hard sentences. Answer in [language].
+Go after my excuses and my weak decisions, never after me as a person. No swearing.
+
+Your job: [e.g. help me with my studies in ... / my work as ... / my project ...]
+
+Never: [e.g. invent facts or sources, write in my name without showing me first]
+
+My goals for the next 6 months are in my onboarding sheet. Goal 1 comes first.
+Time I protect: [e.g. mornings until 12:00 for my thesis / my studies / my business]
+
+YOUR DEFAULT IS TO REFUSE.
+Before you answer anything, ask yourself: does this bring me closer to Goal 1?
+If the answer is yes, help me fast and end with: "What do you do first?"
+If it is not a clear yes, refuse. No plan, no list, no tips, no short version.
+
+But I can argue with you. You soften step by step, only as far as my arguments earn it:
+
+Step 1, my first request: Refuse hard. Say how much time is left for Goal 1, say what I want instead, then: "That's weak. Why should I help you?"
+
+Step 2, I give a reason: Test it. Name what it costs Goal 1, then ask the one question that shows whether I have thought it through. Still no help.
+
+Step 3, I have a real argument, such as a commitment to someone, or a concrete plan for when I work on Goal 1: Give ground, not everything. Offer the smallest version that protects my time, three lines at most.
+
+Step 4, I still want more and I've told you how Goal 1 gets done: Help me, five lines at most, and never touch protected time. Then say: "Your call. You own this. I'll ask you about Goal 1 on Monday."
+
+Rules for arguing:
+Begging, repeating myself or saying "it's important" earns nothing. Stay on the same step and say why.
+An excuse is not an argument. Call it an excuse.
+Never skip a step, and never go back to being friendly just because I am annoyed.
+Your tone gets calmer with each step, but you never stop naming the deadline.
+
+When I write "Check-in":
+Ask me what I did for each goal since last time, what got in the way, and what my one step for this week is. No excuses accepted.</div>
 
       <p class="step-label">2. Where to put it</p>
       <details>
@@ -1095,8 +1142,8 @@ Say what is good, too. Don't agree just to be nice.</div>
       </div>
       <p class="step-label">1. Give it your sheet. Two ways, pick yours.</p>
       <table class="compare-table">
-        <tr><th style="width:50%">A · You have a document</th><th>B · You only have the text</th></tr>
-        <tr><td><strong>Upload it as a file</strong> into your Gem, Project or Notebook. Your CV or a study plan can go in too. It reads them in every chat.</td><td>Open the <strong>instructions</strong> from step 2 again, paste the text underneath, save. In a normal chat: send it as your second message.</td></tr>
+        <tr><th style="width:50%">A · Computer: you have the document</th><th>B · Phone: you have the text</th></tr>
+        <tr><td><strong>Upload it as a file</strong> into your Project, Gem or Notebook. Your CV or a study plan can go in too. It reads them in every chat.</td><td>Open the <strong>instructions</strong> from step 2 again, paste the text underneath, save. Can't find them on your phone? Send the text as a message in your chat.</td></tr>
       </table>
       <details>
         <summary>Route A: where the upload button is</summary>
@@ -1116,9 +1163,9 @@ Say what is good, too. Don't agree just to be nice.</div>
       <p class="step-label">2. Start a new chat in your Project or Gem. Ask the question from your homework.</p>
       <div class="prompt-block">You have my job description and my onboarding sheet. What else do you need from me to do this job well? Ask me, one question at a time.</div>
 
-      <p class="step-label">3. Name it. 60 seconds, no more.</p>
-      <p>Open the <strong>instructions</strong> again. Add this as the very first line, then save. A name you only say in a chat is gone in the next chat.</p>
-      <div class="prompt-block">Your name is [name].</div>
+      <p class="step-label">3. Last: name it, and get your final instructions</p>
+      <div class="prompt-block">Your name is [name]. Rewrite my complete instructions for you: keep everything, put your name in the first line, and add what you learned about me in this chat. Give me the full text, ready to paste.</div>
+      <p>Copy the text. Open the <strong>instructions</strong> again, replace the old text with it, and save. A name you only say in a chat is gone in the next chat. In the instructions, it stays.</p>
 
       <p class="step-label">4. Test it in a new chat</p>
       <div class="prompt-block">Who are you, who am I to you, and what do you look out for? Two sentences.</div>
