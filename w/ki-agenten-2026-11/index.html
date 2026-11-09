@@ -67,6 +67,12 @@
 
   /* CHAT */
   .chat { display: flex; flex-direction: column; gap: .8rem; margin-bottom: 1.6rem; }
+  .chat-row { display: flex; gap: .85rem; align-items: flex-start; margin-bottom: 1.6rem; }
+  .chat-row .chat { flex: 1 1 auto; min-width: 0; margin-bottom: 0; }
+  .avatar { flex: 0 0 auto; width: 56px; text-align: center; position: sticky; top: 1rem; }
+  .avatar img { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--gold); display: block; background: #fff; }
+  .avatar span { display: block; font-size: .7rem; color: var(--muted); margin-top: .3rem; line-height: 1.2; }
+  @media (max-width: 480px) { .avatar, .avatar img { width: 44px; } .avatar img { height: 44px; } .avatar span { display: none; } }
   .bubble { max-width: 94%; padding: .9rem 1.1rem; border-radius: 18px 18px 18px 4px; background: var(--card-2); border: 1px solid rgba(255,255,255,.07); font-size: 1rem; opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
   .bubble.show { opacity: 1; transform: none; }
   .bubble.big { font-family: var(--font-heading); font-weight: 700; font-size: 1.35rem; }
@@ -124,6 +130,8 @@
   <ol class="journey" id="journey" aria-label="Ihre KI-Reise"></ol>
 
   <section id="station-1" aria-label="Station 1: Ankommen">
+    <div class="chat-row">
+      <div class="avatar"><img src="/assets/img/sig/jakub-avatar.png" alt="Jakub Popluhar" width="56" height="56"><span>Jakub</span></div>
     <div class="chat" id="chat">
       <div class="bubble big" id="b-hello"><span id="hello-text">Willkommen!</span></div>
       <div class="bubble">In zwei Tagen bauen Sie Ihren ersten KI-Mitarbeiter und danach ein kleines KI-Team.</div>
@@ -138,8 +146,8 @@
       </div>
       <div class="bubble save">Bitte speichern Sie sich diesen Link. Er begleitet Sie durch beide Tage.</div>
     </div>
+    </div>
 
-    <div class="start-wrap" id="start-wrap"><button class="btn" id="start-btn" type="button">Station 1 starten</button></div>
 
     <div id="form-wrap"></div>
   </section>
@@ -218,21 +226,19 @@
   // ---------- Sprechblasen ----------
   function runChat() {
     var bubbles = document.querySelectorAll('#chat .bubble');
-    var startWrap = $('start-wrap');
+    openForm(); // Station 1 ist sofort offen, der Fragebogen laedt parallel zu den Sprechblasen
     if (reduce) {
       bubbles.forEach(function (b) { b.classList.add('show'); });
-      startWrap.classList.add('show');
       return;
     }
     var i = 0;
     (function next() {
       if (i < bubbles.length) { bubbles[i].classList.add('show'); i++; setTimeout(next, i === 1 ? 900 : 1400); }
-      else { startWrap.classList.add('show'); }
     })();
   }
 
   // ---------- Jotform einbetten ----------
-  $('start-btn').addEventListener('click', function () {
+  function openForm() {
     var wrap = $('form-wrap');
     if (!wrap.firstChild) {
       var f = document.createElement('iframe');
@@ -251,9 +257,7 @@
       document.body.appendChild(s);
     }
     wrap.classList.add('show');
-    $('start-wrap').style.display = 'none';
-    wrap.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-  });
+  }
 })();
 </script>
 <script>
