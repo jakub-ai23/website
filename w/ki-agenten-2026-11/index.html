@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ihre KI-Reise | KI-Agenten-Workshop</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="strict-origin">
+<meta name="theme-color" content="#141414">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+  @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/great-vibes-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/inter-400.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/inter-500.woff2) format('woff2'); }
+  @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(/fonts/inter-600.woff2) format('woff2'); }
+  @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(/fonts/montserrat.woff2) format('woff2'); }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --gold: #d4a017; --gold-light: #e8b84a; --gold-dark: #b8890f;
+    --bg: #141414; --card: #1c1c1c; --card-2: #232323;
+    --ink: #f5f5f5; --muted: #b0b0b0; --border: rgba(212,160,23,0.22);
+    --font-heading: 'Montserrat', sans-serif; --font-body: 'Inter', sans-serif; --font-script: 'Great Vibes', cursive;
+  }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--ink); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: var(--gold); }
+  a:hover { color: var(--gold-light); }
+
+  /* GATE */
+  #gate { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 50% 30%, #1d1d1d 0%, #070707 75%); transition: opacity .5s ease, visibility .5s; padding: 1rem; }
+  #gate.unlocked { opacity: 0; visibility: hidden; pointer-events: none; }
+  .gate-card { width: min(420px, 100%); text-align: center; padding: 2.4rem 1.6rem; border: 1px solid var(--border); border-radius: 18px; background: rgba(24,24,24,.85); box-shadow: 0 30px 80px rgba(0,0,0,.55); }
+  .gate-card .mono-name { font-family: var(--font-script); font-size: 2.6rem; color: var(--gold-light); line-height: 1; margin-bottom: .5rem; }
+  .gate-card .gate-sub { font-family: var(--font-heading); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin-bottom: 1rem; }
+  .gate-card p { color: var(--muted); font-size: .92rem; }
+  .gate-form { display: flex; gap: .6rem; margin-top: 1.4rem; }
+  .gate-form input { flex: 1; min-width: 0; min-height: 48px; padding: 0 1rem; border-radius: 10px; border: 1px solid var(--border); background: #101010; color: var(--ink); font-size: 1rem; font-family: var(--font-body); }
+  .gate-form input:focus { outline: none; border-color: var(--gold); }
+  .btn { min-height: 48px; padding: 0 1.4rem; border-radius: 10px; border: none; cursor: pointer; background: var(--gold); color: #141414; font-weight: 700; font-size: 1rem; font-family: var(--font-heading); transition: transform .15s, background .2s; }
+  .btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn:focus-visible, .gate-form input:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+  #gate-error { color: #e8917a; font-size: .84rem; margin-top: .8rem; min-height: 1.2em; }
+
+  /* PAGE */
+  main { display: none; max-width: 760px; margin: 0 auto; padding: 0 1.1rem 3rem; }
+  header.top { padding: 2.2rem 0 1.4rem; text-align: center; border-bottom: 1px solid var(--border); }
+  .badge { display: inline-block; font-family: var(--font-heading); font-size: .65rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(212,160,23,.4); padding: 5px 12px; border-radius: 4px; margin-bottom: .9rem; }
+  h1 { font-family: var(--font-heading); font-weight: 800; font-size: clamp(1.7rem, 7vw, 2.3rem); line-height: 1.15; }
+  .meta { color: var(--muted); font-size: .92rem; margin-top: .5rem; }
+  .meta strong { color: var(--ink); font-weight: 600; }
+
+  /* JOURNEY */
+  .journey { list-style: none; margin: 1.6rem 0 2rem; display: grid; gap: .6rem; counter-reset: s; }
+  .step { display: flex; gap: .85rem; align-items: center; padding: .8rem 1rem; border: 1px solid var(--border); border-radius: 12px; background: var(--card); min-height: 64px; }
+  .step .num { flex: 0 0 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-heading); font-weight: 700; font-size: .9rem; border: 1px solid var(--border); color: var(--muted); }
+  .step .txt { display: flex; flex-direction: column; min-width: 0; }
+  .step .ttl { font-family: var(--font-heading); font-weight: 600; font-size: .95rem; line-height: 1.3; }
+  .step .sub { font-size: .8rem; color: var(--muted); }
+  .step.active { border-color: var(--gold); background: linear-gradient(180deg, #25200f, var(--card)); }
+  .step.active .num { background: var(--gold); border-color: var(--gold); color: #141414; }
+  .step.locked { opacity: .55; }
+  .step.open { cursor: pointer; text-decoration: none; color: inherit; }
+  .step.open .num { border-color: var(--gold); color: var(--gold); }
+
+  /* CHAT */
+  .chat { display: flex; flex-direction: column; gap: .8rem; margin-bottom: 1.6rem; }
+  .bubble { max-width: 94%; padding: .9rem 1.1rem; border-radius: 18px 18px 18px 4px; background: var(--card-2); border: 1px solid rgba(255,255,255,.07); font-size: 1rem; opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s ease; }
+  .bubble.show { opacity: 1; transform: none; }
+  .bubble.big { font-family: var(--font-heading); font-weight: 700; font-size: 1.35rem; }
+  .bubble.ampel { max-width: 100%; }
+  .bubble.ampel .q { font-family: var(--font-heading); font-weight: 700; margin-bottom: .6rem; }
+  .bubble.ampel ul { list-style: none; display: grid; gap: .55rem; }
+  .bubble.ampel li { display: flex; gap: .65rem; align-items: flex-start; font-size: .95rem; }
+  .bubble.ampel li .dot { flex: 0 0 auto; line-height: 1.5; }
+  .bubble.ampel li b { font-weight: 600; }
+  .bubble.save { border-color: var(--border); }
+
+  .start-wrap { text-align: center; margin: 1.4rem 0; opacity: 0; transition: opacity .5s ease; pointer-events: none; }
+  .start-wrap.show { opacity: 1; pointer-events: auto; }
+  .start-wrap .btn { width: 100%; max-width: 360px; }
+
+  #form-wrap { display: none; margin-top: 1rem; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: #fff; }
+  #form-wrap.show { display: block; }
+  #form-wrap iframe { display: block; width: 100%; min-width: 100%; height: 900px; border: 0; }
+
+  footer { margin-top: 2.4rem; padding-top: 1.4rem; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: .92rem; }
+
+  @media (min-width: 700px) {
+    main { padding: 0 1.5rem 4rem; }
+    .journey { grid-template-columns: 1fr 1fr; }
+    .bubble { max-width: 80%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .bubble, .start-wrap, #gate { transition: none; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-card">
+    <div class="mono-name">Jakub Popluhar</div>
+    <div class="gate-sub">KI-Agenten-Workshop</div>
+    <p>Das Passwort finden Sie in Ihrer E-Mail.</p>
+    <form class="gate-form" id="gate-form" autocomplete="off">
+      <input type="password" id="gate-input" placeholder="Passwort" aria-label="Passwort" autocomplete="off">
+      <button class="btn" id="gate-btn" type="submit">Öffnen</button>
+    </form>
+    <div id="gate-error" role="alert"></div>
+  </div>
+</div>
+
+<main id="content">
+  <header class="top">
+    <div class="badge">Akademie für KI &amp; Digitalisierung</div>
+    <h1>KI-Agenten-Workshop</h1>
+    <p class="meta">Mittwoch 11. und Donnerstag 12. November 2026, online<br>Trainer: <strong>Jakub Popluhar</strong></p>
+  </header>
+
+  <ol class="journey" id="journey" aria-label="Ihre KI-Reise"></ol>
+
+  <section id="station-1" aria-label="Station 1: Ankommen">
+    <div class="chat" id="chat">
+      <div class="bubble big" id="b-hello"><span id="hello-text">Willkommen!</span></div>
+      <div class="bubble">In zwei Tagen bauen Sie Ihren ersten KI-Mitarbeiter und danach ein kleines KI-Team.</div>
+      <div class="bubble">Damit wir an Ihren Aufgaben bauen statt an Musterbeispielen, brauche ich vorab ein paar Angaben von Ihnen. Dauert nicht länger als 5 Minuten.</div>
+      <div class="bubble ampel">
+        <p class="q">Bevor Sie starten, was darf rein?</p>
+        <ul>
+          <li><span class="dot" aria-hidden="true">🟢</span><span><b>Grün:</b> Beschreibungen Ihrer Tätigkeit, Abläufe, Vorlagen ohne Namen.</span></li>
+          <li><span class="dot" aria-hidden="true">🟡</span><span><b>Gelb:</b> Interne Zahlen oder Projektnamen: bitte nur grob umschreiben.</span></li>
+          <li><span class="dot" aria-hidden="true">🔴</span><span><b>Rot:</b> Namen, Daten von Klientinnen und Klienten, Gesundheitsdaten, Personaldaten: bitte nie.</span></li>
+        </ul>
+      </div>
+      <div class="bubble save">Bitte speichern Sie sich diesen Link. Er begleitet Sie durch beide Tage.</div>
+    </div>
+
+    <div class="start-wrap" id="start-wrap"><button class="btn" id="start-btn" type="button">Station 1 starten</button></div>
+
+    <div id="form-wrap"></div>
+  </section>
+
+  <footer>Fragen? <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a></footer>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  // ---------- KONFIGURATION (hier ändern) ----------
+  var CONFIG = {
+    password: 'kiteam',                       // gemeinsames Passwort
+    storageKey: 'kiagenten2026-gate',
+    formId: '263121776765060',
+    // Freischaltdaten (lokale Zeit des Browsers, ab 00:00)
+    unlock: { 2: '2026-11-11', 3: '2026-11-12' }   // Station 4: ohne Datum, bleibt gesperrt
+  };
+  var STATIONS = [
+    { n: 1, t: 'Ankommen', s: 'ca. 5 Minuten' },
+    { n: 2, t: 'Tag 1: Ihr erster KI-Mitarbeiter', s: 'ab Mittwoch, 11.11.' },
+    { n: 3, t: 'Tag 2: Ihr KI-Team', s: 'ab Donnerstag, 12.11.' },
+    { n: 4, t: 'Nach dem Kurs: Ihr 90-Tage-Fahrplan', s: 'folgt nach dem Kurs' }
+  ];
+
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function $(id) { return document.getElementById(id); }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
+
+  // ---------- Gate ----------
+  function open() {
+    $('gate').classList.add('unlocked');
+    $('content').style.display = 'block';
+    renderJourney();
+    runChat();
+  }
+  var remembered = false;
+  try { remembered = localStorage.getItem(CONFIG.storageKey) === CONFIG.password; } catch (e) {}
+  $('gate-form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var v = $('gate-input').value.trim();
+    if (v.toLowerCase() === CONFIG.password.toLowerCase()) {
+      try { localStorage.setItem(CONFIG.storageKey, CONFIG.password); } catch (e) {}
+      open();
+    } else {
+      $('gate-error').textContent = 'Das Passwort stimmt nicht. Bitte prüfen Sie Ihre E-Mail.';
+      $('gate-input').value = ''; $('gate-input').focus();
+    }
+  });
+  if (remembered) { open(); } else { $('gate-input').focus(); }
+
+  // ---------- Reise-Leiste ----------
+  function isOpen(n) {
+    var d = CONFIG.unlock[n];
+    if (n === 1) return true;
+    if (!d) return false;
+    var p = d.split('-');
+    return new Date() >= new Date(+p[0], +p[1] - 1, +p[2], 0, 0, 0);
+  }
+  function renderJourney() {
+    var ol = $('journey');
+    STATIONS.forEach(function (s) {
+      var li = el('li');
+      var box = el('div', 'step ' + (s.n === 1 ? 'active' : (isOpen(s.n) ? 'open' : 'locked')));
+      if (s.n !== 1 && !isOpen(s.n)) box.setAttribute('aria-disabled', 'true');
+      var num = el('span', 'num', String(s.n));
+      var txt = el('span', 'txt');
+      txt.appendChild(el('span', 'ttl', s.t));
+      txt.appendChild(el('span', 'sub', (s.n !== 1 && !isOpen(s.n) ? '🔒 ' : '') + (isOpen(s.n) && s.n !== 1 ? 'geöffnet' : s.s)));
+      box.appendChild(num); box.appendChild(txt);
+      li.appendChild(box); ol.appendChild(li);
+    });
+  }
+
+  // ---------- Sprechblasen ----------
+  function runChat() {
+    var bubbles = document.querySelectorAll('#chat .bubble');
+    var startWrap = $('start-wrap');
+    if (reduce) {
+      bubbles.forEach(function (b) { b.classList.add('show'); });
+      startWrap.classList.add('show');
+      return;
+    }
+    var i = 0;
+    (function next() {
+      if (i < bubbles.length) { bubbles[i].classList.add('show'); i++; setTimeout(next, i === 1 ? 900 : 1400); }
+      else { startWrap.classList.add('show'); }
+    })();
+  }
+
+  // ---------- Jotform einbetten ----------
+  $('start-btn').addEventListener('click', function () {
+    var wrap = $('form-wrap');
+    if (!wrap.firstChild) {
+      var f = document.createElement('iframe');
+      f.id = 'JotFormIFrame-' + CONFIG.formId;
+      f.title = 'Vorab-Fragebogen';
+      f.setAttribute('allow', 'geolocation; microphone; camera; fullscreen');
+      f.setAttribute('allowtransparency', 'true');
+      f.setAttribute('scrolling', 'no');
+      f.src = 'https://form.jotform.com/' + CONFIG.formId + '';
+      wrap.appendChild(f);
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
+      s.onload = function () {
+        if (window.jotformEmbedHandler) window.jotformEmbedHandler("iframe[id='JotFormIFrame-" + CONFIG.formId + "']", 'https://form.jotform.com/');
+      };
+      document.body.appendChild(s);
+    }
+    wrap.classList.add('show');
+    $('start-wrap').style.display = 'none';
+    wrap.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  });
+})();
+</script>
+<script>
+/* Cookieloser Reichweiten-Beacon (wie assets/js/site.js Schicht 1), ohne Consent-Banner und Popup */
+(function () {
+  try {
+    var h = location.hostname;
+    if (h === 'localhost' || h === '127.0.0.1' || location.protocol === 'file:') return;
+    var i = new Image(1, 1);
+    i.src = 'https://stats.jakubpopluhar.com/px?site=jakubpopluhar&path=' +
+      encodeURIComponent(location.pathname) +
+      '&ref=' + encodeURIComponent(document.referrer);
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
