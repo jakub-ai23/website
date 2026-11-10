@@ -440,6 +440,9 @@ a { color: inherit; text-decoration: none; }
 .article-hero-fig { margin: 2rem 0 0; }
 .article-hero {
   width: 100%;
+  /* height:auto is required: the width/height attributes (kept for CLS) otherwise
+     act as a fixed pixel height and override the aspect-ratio. */
+  height: auto;
   aspect-ratio: 16 / 8;
   object-fit: cover;
   border-radius: 12px;
@@ -586,7 +589,7 @@ a { color: inherit; text-decoration: none; }
   transition: color 0.2s, border-color 0.2s;
 }
 .share-btn:hover { color: var(--gold); border-color: var(--gold); }
-.article-body img { max-width: 100%; border-radius: 10px; }
+.article-body img { max-width: 100%; height: auto; border-radius: 10px; }
 .article-body hr { border: none; border-top: 1px solid rgba(255,255,255,0.12); margin: 2.6rem 0; }
 .article-body code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -716,3 +719,14 @@ min-height: 40px; min-width: 44px; padding: 0 10px; border-radius: 6px;
 .nav-right, .site-nav { align-items: center; }
 .nav-lang, .lang-switch { order: -1; margin-right: 6px; }
 }
+
+/* FAQ-Block unter dem Artikel (2026-11-10) */
+.article-faq { margin: 2.5rem 0 1rem; }
+.article-faq h2 { margin-bottom: .75rem; }
+.article-faq .faq-item { border-top: 1px solid rgba(128,128,128,.35); padding: .2rem 0; }
+.article-faq .faq-item:last-child { border-bottom: 1px solid rgba(128,128,128,.35); }
+.article-faq summary { cursor: pointer; font-weight: 600; padding: .8rem 1.8rem .8rem 0; list-style: none; position: relative; }
+.article-faq summary::-webkit-details-marker { display: none; }
+.article-faq summary::after { content: "+"; position: absolute; right: .2rem; top: .7rem; font-weight: 400; font-size: 1.2em; }
+.article-faq details[open] summary::after { content: "\2212"; }
+.article-faq .faq-answer { padding: 0 0 .9rem; }

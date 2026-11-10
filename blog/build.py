@@ -850,6 +850,45 @@ def other_lang_category(lang, cat):
     return f"{STRINGS[other]['blog_base']}/{cat_slug(cat, other)}/"
 
 
+
+# FAQ-Block (2026-11-10, Jakub: "immer mit den Frequently Asked Questions, GEO-optimiert").
+# Ein Abschnitt "## Häufige Fragen" / "## FAQ" / "## Frequently asked questions" mit
+# "### Frage" + Antwortabsatz je Eintrag wird sichtbar als Aufklappliste gerendert UND als
+# FAQPage-JSON-LD ausgegeben. Sichtbarer Text und Schema kommen aus derselben Quelle.
+FAQ_RE = re.compile(r"(?m)^##\s+(Häufige Fragen|Haeufige Fragen|FAQ|Frequently asked questions|Common questions)\s*$")
+
+
+def split_faq(md):
+    m = FAQ_RE.search(md)
+    if not m:
+        return md, [], ""
+    title = m.group(1)
+    rest = md[m.end():]
+    nxt = re.search(r"(?m)^##\s+", rest)
+    faq_md, after = (rest[:nxt.start()], rest[nxt.start():]) if nxt else (rest, "")
+    items = []
+    for block in re.split(r"(?m)^###\s+", faq_md)[1:]:
+        q, _, a = block.partition("\n")
+        if q.strip() and a.strip():
+            items.append((q.strip(), a.strip()))
+    if not items:  # FAQ in another format (e.g. **Frage** Antwort): leave untouched
+        return md, [], ""
+    return md[:m.start()] + after, items, title
+
+
+def strip_md(text):
+    t = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    t = re.sub(r"[*_`>]", "", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def faq_html(title, items):
+    rows = "".join(
+        f'<details class="faq-item"><summary>{html.escape(q)}</summary>'
+        f'<div class="faq-answer">{md_to_html(a)}</div></details>' for q, a in items)
+    return f'<section class="article-faq"><h2>{html.escape(title)}</h2>{rows}</section>'
+
+
 def render_article(lang, p):
     s = STRINGS[lang]
     canonical = abs_url(f"{s['blog_base']}/{p['slug']}/")
@@ -870,7 +909,10 @@ def render_article(lang, p):
     share = share_html(s, canonical, p["title"])
     # split off a trailing "Quellen"/"Sources"/"Hinweis" section -> render ultra small
     parts = re.split(r"(?m)^(?=##\s+(?:Quellen|Sources|Hinweis)\b)", p["_body"], maxsplit=1)
-    body_html = md_to_html(parts[0])
+    main_md, faq_items, faq_title = split_faq(parts[0])
+    body_html = md_to_html(main_md)
+    if faq_items:
+        body_html += "\n" + faq_html(faq_title, faq_items)
     if len(parts) > 1:
         body_html += '\n<div class="article-sources">\n' + md_to_html(parts[1]) + "\n</div>"
     cat = CAT_BY_SLUG.get(p["category"])
@@ -929,6 +971,10 @@ def render_article(lang, p):
     de_slug, en_slug = slug_for(p["_stem"], "de"), slug_for(p["_stem"], "en")
     head = hreflang_links(f"{de_slug}/" if de_slug else None,
                           f"{en_slug}/" if en_slug else None) + "\n" + jsonld(posting)
+    if faq_items:
+        head += "\n" + jsonld({"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q,
+             "acceptedAnswer": {"@type": "Answer", "text": strip_md(a)}} for q, a in faq_items]})
     if cat:
         crumbs = [
             {"@type": "ListItem", "position": 1, "name": "Blog", "item": abs_url(f"{s['blog_base']}/")},
