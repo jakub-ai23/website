@@ -80,16 +80,19 @@
       <a href="/" class="nav-logo"><svg class="logo-svg-nav" viewBox="0 0 380 125" height="46" aria-label="Jakub Popluhar"><defs><linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#bf953f"/><stop offset="18%" stop-color="#fcf6ba"/><stop offset="40%" stop-color="#b38728"/><stop offset="65%" stop-color="#fbf5b7"/><stop offset="85%" stop-color="#daa520"/><stop offset="100%" stop-color="#aa771c"/></linearGradient><filter id="goldGlow"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#d4a017" flood-opacity="0.35"/></filter></defs><text x="15" y="70" text-anchor="start" font-family="'Great Vibes', cursive" font-size="74" fill="url(#goldGradient)" filter="url(#goldGlow)">Jakub</text><text x="85" y="112" text-anchor="start" font-family="'Montserrat', sans-serif" font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text></svg></a>
       <div class="nav-right">
         <ul class="nav-links" id="blogNavLinks">
-          <li><a href="/#about">Über mich</a></li>
-          <li><a href="/#services">Angebote</a></li>
+          <li class="nav-drop" data-nav-drop>
+            <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Angebote <span class="caret"></span></button>
+            <ul class="nav-drop-menu">
+              <li><a href="/ki-personal-training/">One-on-One-Coaching<small>Einzeln, an Ihren echten Aufgaben</small></a></li>
+              <li><a href="/trainings/">Inhouse-Trainings<small>Ihr Team, ein Praxistag in Ihrem Haus</small></a></li>
+              <li><a href="/termine/">Standard-Trainings<small>Offene Seminare bei meinen Partnern</small></a></li>
+            </ul>
+          </li>
           <li><a href="/blog/" class="active">Blog</a></li>
-          <li><a href="/#contact" class="nav-cta">Session buchen</a></li>
+          <li><a href="/#about">Über mich</a></li>
+          <li><a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Erstgespr&auml;ch</a></li>
         </ul>
-        <div class="nav-lang" aria-label="Sprache">
-          <a href="/blog/" class="active">DE</a>
-          <span class="nav-lang-sep">/</span>
-          <a href="/en/blog/dictating-is-orchestrating/" class="">EN</a>
-        </div>
+        <div class="nav-lang" aria-label="Sprache"><button class="nav-lang-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Sprache wechseln"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg><span class="nav-lang-arrow"></span></button><div class="nav-lang-menu"><a href="/blog/" class="active" aria-current="page" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg></a><a href="/en/blog/dictating-is-orchestrating/" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></a></div></div>
         <button class="nav-toggle" id="blogNavToggle" aria-label="Menu" aria-expanded="false" aria-controls="blogNavLinks">
           <span></span><span></span><span></span>
         </button>
@@ -99,13 +102,30 @@
   <script>
   (function(){
     var t=document.getElementById('blogNavToggle'),l=document.getElementById('blogNavLinks');
-    if(!t||!l)return;
-    t.addEventListener('click',function(){
-      var open=l.classList.toggle('open');
-      t.setAttribute('aria-expanded',open?'true':'false');
-    });
-    l.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click',function(){l.classList.remove('open');t.setAttribute('aria-expanded','false');});
+    if(t&&l){
+      t.addEventListener('click',function(){
+        var open=l.classList.toggle('open');
+        t.setAttribute('aria-expanded',open?'true':'false');
+      });
+      l.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click',function(){l.classList.remove('open');t.setAttribute('aria-expanded','false');});
+      });
+    }
+    // Dropdown (Angebote/Services) and flag switch: hover/focus via CSS, tap + Escape here.
+    document.querySelectorAll('[data-nav-drop], .nav-lang').forEach(function(box){
+      var btn=box.querySelector('.nav-drop-toggle, .nav-lang-btn');
+      if(!btn)return;
+      btn.addEventListener('click',function(e){
+        e.preventDefault();e.stopPropagation();
+        var open=box.classList.toggle('open');
+        btn.setAttribute('aria-expanded',open?'true':'false');
+      });
+      document.addEventListener('click',function(e){
+        if(!box.contains(e.target)){box.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+      });
+      box.addEventListener('keydown',function(e){
+        if(e.key==='Escape'){box.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.focus();}
+      });
     });
   })();
   </script>

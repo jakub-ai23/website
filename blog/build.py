@@ -527,34 +527,68 @@ LOGO_SVG = ('<svg class="logo-svg-nav" viewBox="0 0 380 125" height="46" aria-la
             '<text x="85" y="112" text-anchor="start" font-family="\'Montserrat\', sans-serif"'
             ' font-size="19" font-weight="400" fill="#ffffff" style="letter-spacing: 8px;">POPLUHAR</text></svg>')
 
-NAV_LABELS = {
-    "de": ("Über mich", "Angebote", "Ergebnisse", "Blog", "Session buchen"),
-    "en": ("About", "Services", "Results", "Blog", "Book a session"),
+# Navigation: same markup, classes and wording as the main site (index.html / en/index.html),
+# so the Angebote/Services dropdown and the flag language switch behave identically.
+# Dropdown CSS + flag CSS live in blog.css.
+FLAG_DE = ('<svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false">'
+           '<rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg>')
+FLAG_EN = ('<svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false">'
+           '<rect width="60" height="30" fill="#012169"/>'
+           '<path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/>'
+           '<path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/>'
+           '<path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/>'
+           '<path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>')
+
+NAV_TEXT = {
+    "de": {
+        "services": "Angebote", "blog": "Blog", "about": "Über mich", "cta": "Erstgespr&auml;ch",
+        "items": [
+            ("/ki-personal-training/", "One-on-One-Coaching", "Einzeln, an Ihren echten Aufgaben"),
+            ("/trainings/", "Inhouse-Trainings", "Ihr Team, ein Praxistag in Ihrem Haus"),
+            ("/termine/", "Standard-Trainings", "Offene Seminare bei meinen Partnern"),
+        ],
+        "lang_aria": "Sprache", "lang_btn": "Sprache wechseln",
+        "de_title": "Deutsch", "en_title": "English",
+    },
+    "en": {
+        "services": "Services", "blog": "Blog", "about": "About", "cta": "Book Call",
+        "items": [
+            ("/en/ki-personal-training/", "One-on-one coaching", "One person, your own real tasks"),
+            ("/en/trainings/", "In-house training", "Your team, one hands-on day at your organisation"),
+            ("/en/termine/", "Open seminars", "Scheduled seminars with my partners"),
+        ],
+        "lang_aria": "Language", "lang_btn": "Change language",
+        "de_title": "Deutsch", "en_title": "English",
+    },
 }
 
 
 def nav_html(s, other_href):
     home, lang = s["home"], s["lang"]
-    about, services, results, blog, cta = NAV_LABELS[lang]
-    de_active = "active" if lang == "de" else ""
-    en_active = "active" if lang == "en" else ""
+    t = NAV_TEXT[lang]
     de_href = s["blog_base"] + "/" if lang == "de" else other_href
     en_href = other_href if lang == "de" else s["blog_base"] + "/"
+    cur_flag = FLAG_DE if lang == "de" else FLAG_EN
+    de_cls = ' class="active" aria-current="page"' if lang == "de" else ""
+    en_cls = ' class="active" aria-current="page"' if lang == "en" else ""
+    items = "\n".join(
+        f'              <li><a href="{h}">{n}<small>{d}</small></a></li>' for h, n, d in t["items"])
     return f"""<nav class="nav">
     <div class="container">
       <a href="{home}" class="nav-logo">{LOGO_SVG}</a>
       <div class="nav-right">
         <ul class="nav-links" id="blogNavLinks">
-          <li><a href="{home}#about">{about}</a></li>
-          <li><a href="{home}#services">{services}</a></li>
-          <li><a href="{s['blog_base']}/" class="active">{blog}</a></li>
-          <li><a href="{home}#contact" class="nav-cta">{cta}</a></li>
+          <li class="nav-drop" data-nav-drop>
+            <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">{t['services']} <span class="caret"></span></button>
+            <ul class="nav-drop-menu">
+{items}
+            </ul>
+          </li>
+          <li><a href="{s['blog_base']}/" class="active">{t['blog']}</a></li>
+          <li><a href="{home}#about">{t['about']}</a></li>
+          <li><a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">{t['cta']}</a></li>
         </ul>
-        <div class="nav-lang" aria-label="Sprache">
-          <a href="{de_href}" class="{de_active}">DE</a>
-          <span class="nav-lang-sep">/</span>
-          <a href="{en_href}" class="{en_active}">EN</a>
-        </div>
+        <div class="nav-lang" aria-label="{t['lang_aria']}"><button class="nav-lang-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-label="{t['lang_btn']}">{cur_flag}<span class="nav-lang-arrow"></span></button><div class="nav-lang-menu"><a href="{de_href}"{de_cls} title="{t['de_title']}" aria-label="{t['de_title']}">{FLAG_DE}</a><a href="{en_href}"{en_cls} title="{t['en_title']}" aria-label="{t['en_title']}">{FLAG_EN}</a></div></div>
         <button class="nav-toggle" id="blogNavToggle" aria-label="Menu" aria-expanded="false" aria-controls="blogNavLinks">
           <span></span><span></span><span></span>
         </button>
@@ -564,13 +598,30 @@ def nav_html(s, other_href):
   <script>
   (function(){{
     var t=document.getElementById('blogNavToggle'),l=document.getElementById('blogNavLinks');
-    if(!t||!l)return;
-    t.addEventListener('click',function(){{
-      var open=l.classList.toggle('open');
-      t.setAttribute('aria-expanded',open?'true':'false');
-    }});
-    l.querySelectorAll('a').forEach(function(a){{
-      a.addEventListener('click',function(){{l.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+    if(t&&l){{
+      t.addEventListener('click',function(){{
+        var open=l.classList.toggle('open');
+        t.setAttribute('aria-expanded',open?'true':'false');
+      }});
+      l.querySelectorAll('a').forEach(function(a){{
+        a.addEventListener('click',function(){{l.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+      }});
+    }}
+    // Dropdown (Angebote/Services) and flag switch: hover/focus via CSS, tap + Escape here.
+    document.querySelectorAll('[data-nav-drop], .nav-lang').forEach(function(box){{
+      var btn=box.querySelector('.nav-drop-toggle, .nav-lang-btn');
+      if(!btn)return;
+      btn.addEventListener('click',function(e){{
+        e.preventDefault();e.stopPropagation();
+        var open=box.classList.toggle('open');
+        btn.setAttribute('aria-expanded',open?'true':'false');
+      }});
+      document.addEventListener('click',function(e){{
+        if(!box.contains(e.target)){{box.classList.remove('open');btn.setAttribute('aria-expanded','false');}}
+      }});
+      box.addEventListener('keydown',function(e){{
+        if(e.key==='Escape'){{box.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.focus();}}
+      }});
     }});
   }})();
   </script>"""
