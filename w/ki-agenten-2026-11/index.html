@@ -1267,7 +1267,7 @@ Zeitbilanz: [einfügen]</code></pre></div>
       var li = el('li');
       var op = s.n !== 1 && isOpen(s.n);
       var box = el(op ? 'a' : 'div', 'step ' + (s.n === 1 ? 'active' : (isOpen(s.n) ? 'open' : 'locked')));
-      if (op) box.href = '#station-' + s.n;
+      if (op) box.href = s.n === 2 ? 'tag1/' : '#station-' + s.n;  // Tag 1 fuehrt direkt zur Willkommensseite des E-Learnings (Commander 10.11.)
       if (s.n !== 1 && !isOpen(s.n)) box.setAttribute('aria-disabled', 'true');
       var num = el('span', 'num', String(s.n));
       var txt = el('span', 'txt');
