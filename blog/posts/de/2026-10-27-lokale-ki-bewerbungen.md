@@ -22,6 +22,8 @@ Alle drei bekamen dieselbe Aufgabe, dieselbe Regel und dieselben fünf Lebenslä
 
 Die Aufgabe stammt aus einer Demo für das Training. Die KI liest aus jedem Lebenslauf zwei Dinge heraus: den höchsten Abschluss und die letzten zwei Arbeitgeber. Danach prüft eine feste Regel, ob die Mindestanforderung erfüllt ist: mindestens ein Bachelor, an einer Universität oder Fachhochschule.
 
+Anfang November habe ich die Demo live in Ohrid gezeigt, vor 40 jungen Führungskräften: [So lief der Workshop](/blog/ki-workshop-ohrid/).
+
 Die KI entscheidet also nicht. Sie liest, die Regel rechnet, und das Ergebnis heißt „erfüllt“, „nicht erfüllt“ oder „bitte prüfen“. Namen, Geburtsdatum und Familienstand haben in der Auswertung nichts verloren.
 
 Einer der fünf Lebensläufe war meiner. Die anderen vier Personen sind erfunden, und in jeden ihrer Lebensläufe habe ich absichtlich eine Falle gebaut, wie sie in echten Bewerbungen ständig vorkommt. Zwei davon sind die interessanten:

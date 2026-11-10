@@ -22,6 +22,8 @@ All three got the same task, the same rule and the same five CVs as PDFs.
 
 The task comes from a demo for the training. The AI pulls two things out of every CV: the highest degree and the last two employers. Then a fixed rule checks whether the minimum requirement is met: at least a bachelor's degree, from a university or a university of applied sciences.
 
+In early November I ran the demo live in Ohrid, in front of 40 young leaders: [how that workshop went](/en/blog/ai-workshop-lessons-ohrid/).
+
 So the AI does not decide. It reads, the rule calculates, and the result is "met", "not met" or "please check". Names, date of birth and marital status have no place in the evaluation.
 
 One of the five CVs was mine. The other four people are invented, and into each of their CVs I deliberately built a trap of the kind that turns up in real applications all the time. Two of them are the interesting ones:
