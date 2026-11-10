@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Die KI-Küche</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #111110; --bg-2: #181715; --card: #1c1b19; --card-2: #24221f; --line: rgba(255,255,255,.07);
+    --text: #f3efe6; --muted: #a39d90; --gold: #D4A017; --gold-2: #f0c14a; --gold-soft: rgba(212,160,23,.14);
+    --ok: #5cbf86; --warn: #e86a45;
+    --f-head: "Montserrat", "Avenir Next", "Segoe UI", sans-serif;
+    --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --f-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(212,160,23,.10), transparent 60%),
+      radial-gradient(900px 500px at -10% 30%, rgba(212,160,23,.05), transparent 60%),
+      var(--bg);
+    color: var(--text); font-family: var(--f-body); font-size: 17px; line-height: 1.55;
+  }
+  body::before { /* feines Korn */
+    content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .06; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  main { position: relative; z-index: 1; max-width: 1020px; margin: 0 auto; padding: 40px 16px 72px; }
+
+  /* Kopf */
+  header { margin-bottom: 34px; }
+  .kicker { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+  h1 { font-family: var(--f-head); font-weight: 800; font-size: clamp(2rem, 5.4vw, 3.6rem); line-height: 1.02; letter-spacing: -.02em; margin: .5rem 0 .7rem; }
+  h1 em { font-style: normal; color: var(--gold); }
+  header p { color: var(--muted); max-width: 640px; }
+  .reveal { opacity: 0; transform: translateY(14px); animation: up .8s cubic-bezier(.2,.7,.2,1) forwards; }
+  .reveal:nth-child(2) { animation-delay: .12s } .reveal:nth-child(3) { animation-delay: .24s }
+  @keyframes up { to { opacity: 1; transform: none; } }
+
+  /* Abschnitte */
+  .step { position: relative; background: linear-gradient(180deg, var(--card), var(--bg-2)); border: 1px solid var(--line); border-radius: 20px; padding: 24px; margin-bottom: 18px; opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+  .step.seen { opacity: 1; transform: none; }
+  .step-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
+  .step-no { font-family: var(--f-mono); font-weight: 700; font-size: .8rem; color: var(--bg); background: var(--gold); border-radius: 6px; padding: .15rem .45rem; }
+  h2 { font-family: var(--f-head); font-weight: 700; font-size: 1.25rem; letter-spacing: -.01em; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pair > div { background: var(--card-2); border-radius: 14px; padding: 14px 16px; border: 1px solid var(--line); }
+  .lbl { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .35rem; }
+  .ico { font-size: 1.5rem; margin-right: .35rem; vertical-align: -3px; }
+
+  /* Küchenuhr / Zeitachse */
+  .kitchen { margin-top: 6px; }
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .btn { font-family: var(--f-head); font-weight: 700; font-size: .92rem; border: 1px solid var(--line); background: var(--card-2); color: var(--text); border-radius: 10px; padding: .6rem 1rem; cursor: pointer; transition: transform .15s ease, background .2s ease; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn.primary { background: var(--gold); color: #141414; border-color: var(--gold); }
+  .btn:focus-visible, .speed button:focus-visible { outline: 3px solid var(--gold-2); outline-offset: 2px; }
+  .speed { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .speed button { font-family: var(--f-mono); font-size: .8rem; background: transparent; color: var(--muted); border: 0; padding: .55rem .75rem; cursor: pointer; }
+  .speed button[aria-pressed="true"] { background: var(--gold-soft); color: var(--gold-2); }
+  .clock { margin-left: auto; font-family: var(--f-mono); font-weight: 700; font-size: 1.9rem; color: var(--gold-2); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+  .clock small { font-size: .8rem; color: var(--muted); font-weight: 500; margin-left: .2rem; }
+
+  .gantt { position: relative; padding-top: 22px; }
+  .axis { position: absolute; top: 0; left: var(--lane-label); right: 0; height: 18px; font-family: var(--f-mono); font-size: .68rem; color: var(--muted); }
+  .axis span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+  .axis span:last-child { transform: translateX(-100%); }
+  .lanes { --lane-label: 190px; position: relative; }
+  .gantt { --lane-label: 190px; }
+  .lane { display: grid; grid-template-columns: var(--lane-label) 1fr; align-items: center; min-height: 44px; border-top: 1px dashed var(--line); }
+  .lane:last-child { border-bottom: 1px dashed var(--line); }
+  .who { font-family: var(--f-head); font-weight: 600; font-size: .92rem; display: flex; gap: .5rem; align-items: center; padding-right: 10px; }
+  .who .ico { font-size: 1.15rem; margin: 0; }
+  .track { position: relative; height: 44px; }
+  .seg { position: absolute; top: 11px; height: 22px; border-radius: 6px; background: linear-gradient(90deg, #b98710, var(--gold-2)); box-shadow: 0 0 0 1px rgba(240,193,74,.25), 0 6px 18px -8px rgba(240,193,74,.6); width: 0; }
+  .seg.check { background: linear-gradient(90deg, #3e9b67, var(--ok)); box-shadow: 0 0 0 1px rgba(92,191,134,.3), 0 6px 18px -8px rgba(92,191,134,.6); }
+  .seg.seq { background: repeating-linear-gradient(135deg, rgba(232,106,69,.55) 0 8px, rgba(232,106,69,.25) 8px 16px); box-shadow: none; }
+  .done-tag { position: absolute; top: 12px; font-family: var(--f-mono); font-size: .72rem; color: var(--text); background: rgba(0,0,0,.55); border-radius: 4px; padding: .05rem .35rem; opacity: 0; transform: translateX(6px); transition: opacity .35s ease, transform .35s ease; white-space: nowrap; }
+  .done-tag.on { opacity: 1; transform: none; }
+  @media (max-width: 700px) { .lane:nth-last-child(-n+2) .done-tag { left: auto !important; right: 4px; } } /* Porygon: lange Tags bleiben im Fenster (390 px) */
+  .cursor { position: absolute; top: 18px; bottom: 0; width: 2px; background: var(--gold-2); box-shadow: 0 0 12px var(--gold-2); left: var(--lane-label); pointer-events: none; }
+  .cursor::before { content: ""; position: absolute; top: -6px; left: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--gold-2); }
+  .legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 14px; font-size: .9rem; color: var(--muted); }
+  .legend b { color: var(--text); font-family: var(--f-mono); }
+  .note { font-size: .82rem; color: var(--muted); margin-top: 10px; }
+
+  /* Übergabe */
+  .handoff { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; margin-top: 4px; }
+  .paper { background: #f3ecd9; color: #2b2620; border-radius: 6px; padding: 12px 14px; font-family: var(--f-body); font-size: .92rem; box-shadow: 0 10px 30px -14px rgba(0,0,0,.8); transform: rotate(-1.5deg); }
+  .paper h3 { font-family: var(--f-head); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .3rem; }
+  .paper.card { transform: rotate(1.5deg); background: #fff8e4; }
+  .arrow { font-family: var(--f-mono); color: var(--gold-2); font-size: 1.6rem; }
+  .step.seen .paper.card { animation: fly 1.2s .4s cubic-bezier(.2,.7,.2,1) both; }
+  .step.seen .paper.orig { animation: stay 1.2s .4s ease both; }
+  @keyframes fly { from { transform: translateX(-60%) rotate(-8deg); opacity: 0 } to { transform: rotate(1.5deg); opacity: 1 } }
+  @keyframes stay { 0% { opacity: 1 } 100% { opacity: .55; filter: grayscale(.6) } }
+  .left-behind { font-family: var(--f-mono); font-size: .75rem; color: var(--warn); margin-top: .5rem; }
+
+  /* Prüfer */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .chip { font-family: var(--f-mono); font-size: .8rem; border: 1px solid var(--line); border-radius: 999px; padding: .3rem .75rem; background: var(--card-2); }
+  .chip.ok { color: var(--ok) } .chip.bad { color: var(--warn) } .chip.q { color: var(--gold-2) }
+  .alarm { border: 1px solid rgba(232,106,69,.6); background: rgba(232,106,69,.10); border-radius: 14px; padding: 14px 16px; }
+  .step.seen .alarm { animation: shake .6s 1s ease both; }
+  @keyframes shake { 0%,100% { transform: none } 20% { transform: translateX(-6px) } 40% { transform: translateX(5px) } 60% { transform: translateX(-3px) } 80% { transform: translateX(2px) } }
+
+  .fix { border: 1px solid rgba(92,191,134,.55); background: rgba(92,191,134,.10); border-radius: 14px; padding: 14px 16px; font-family: var(--f-mono); font-size: .95rem; margin: 10px 0; }
+
+  .lesson { margin: 30px 0 8px; padding: 28px 24px; border-radius: 20px; border: 1px solid var(--gold); background: linear-gradient(135deg, rgba(212,160,23,.16), rgba(212,160,23,.04)); }
+  .lesson p { font-family: var(--f-head); font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.9rem); line-height: 1.15; letter-spacing: -.01em; }
+  .lesson span { display: block; margin-top: .6rem; color: var(--muted); }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 26px; font-size: .95rem; }
+  th, td { text-align: left; padding: .7rem .7rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-family: var(--f-mono); color: var(--gold); font-size: .7rem; text-transform: uppercase; letter-spacing: .14em; font-weight: 500; }
+  td:first-child { font-family: var(--f-head); font-weight: 600; }
+  .src { color: var(--muted); font-size: .78rem; margin-top: 20px; font-family: var(--f-mono); }
+
+  @media (max-width: 700px) {
+    .pair, .handoff { grid-template-columns: 1fr; }
+    .arrow { transform: rotate(90deg); justify-self: center; }
+    .lanes, .gantt { --lane-label: 108px; }
+    .who { font-size: .8rem; }
+    .clock { font-size: 1.5rem; width: 100%; margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .step { animation: none !important; opacity: 1; transform: none; transition: none; }
+    .step.seen .paper.card, .step.seen .paper.orig, .step.seen .alarm { animation: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <p style="margin:0 0 22px"><a href="../index.html#station-3" style="display:inline-flex;align-items:center;min-height:44px;color:var(--gold);font-family:var(--f-head);font-weight:700;text-decoration:none">← Zurück zur Kursseite</a></p>
+  <header>
+    <div class="kicker reveal">KI-Agenten-Workshop · Tag 2</div>
+    <h1 class="reveal">Die KI-Küche: <em>drei Köche,</em> ein Vorkoster.</h1>
+    <p class="reveal">So arbeitet ein KI-Team. Ein echter Testlauf vom 09.11.2026 mit Claude Cowork und erfundenen Übungsdateien. Die Zeiten stammen aus dem Protokoll des Laufs.</p>
+  </header>
+
+  <section class="step">
+    <div class="step-head"><span class="step-no">01</span><h2>Der Chef liest das Rezept</h2></div>
+    <div class="pair">
+      <div><div class="lbl">In der Küche</div><span class="ico">👨‍🍳</span>Der Chef liest das Originalrezept und schreibt sich eine Rezeptkarte.</div>
+      <div><div class="lbl">In der KI</div><span class="ico">📄</span>Der Hauptagent liest die Stilregeln und baut daraus einen <b>Skill</b> (SKILL.md).</div>
+    </div>
+  </section>
+
+  <section class="step" id="kitchen">
+    <div class="step-head"><span class="step-no">02</span><h2>Die Küche läuft: alle gleichzeitig am Herd</h2></div>
+    <div class="kitchen">
+      <div class="toolbar">
+        <button class="btn primary" id="play" type="button">▶ Küche starten</button>
+        <button class="btn" id="reset" type="button">↺ Von vorn</button>
+        <div class="speed" role="group" aria-label="Tempo">
+          <button type="button" data-speed="1" aria-pressed="false">Echtzeit</button>
+          <button type="button" data-speed="10" aria-pressed="true">10×</button>
+          <button type="button" data-speed="30" aria-pressed="false">30×</button>
+        </div>
+        <div class="clock" aria-live="off"><span id="clock">0</span><small>s</small></div>
+      </div>
+
+      <div class="gantt" id="gantt">
+        <div class="axis" id="axis"></div>
+        <div class="lanes">
+          <div class="lane"><div class="who"><span class="ico">🔎</span>Rechercheur</div><div class="track"><div class="seg" data-start="0" data-dur="131"></div><span class="done-tag">fertig nach 131 s</span></div></div>
+          <div class="lane"><div class="who"><span class="ico">✍️</span>Texter</div><div class="track"><div class="seg" data-start="0" data-dur="50"></div><span class="done-tag">fertig nach 50 s</span></div></div>
+          <div class="lane"><div class="who"><span class="ico">📘</span>Normen-Bearbeiter</div><div class="track"><div class="seg" data-start="0" data-dur="41"></div><span class="done-tag">fertig nach 41 s</span></div></div>
+          <div class="lane"><div class="who"><span class="ico">🥄</span>Vorkoster</div><div class="track"><div class="seg check" data-start="50" data-dur="135"></div><span class="done-tag">135 s, startet nach dem Texter</span></div></div>
+          <div class="lane"><div class="who" style="color:var(--warn)"><span class="ico">⏳</span>Ein Koch allein</div><div class="track"><div class="seg seq" data-start="0" data-dur="357"></div><span class="done-tag">357 s nacheinander</span></div></div>
+        </div>
+        <div class="cursor" id="cursor"></div>
+      </div>
+
+      <div class="legend">
+        <span>Gemeinsam fertig nach <b>185 s</b></span>
+        <span>Ein Koch allein: <b>357 s</b></span>
+        <span>Ersparnis: <b>knapp die Hälfte</b></span>
+      </div>
+      <p class="note">Vereinfachung: Die drei Köche starten hier im selben Moment. Laut Protokoll lagen die Starts zwischen 15:59:21 und 16:00:40, die genauen Sekunden sind nicht gemessen. „Ein Koch allein" ist die Summe der vier gemessenen Laufzeiten.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="step-no">03</span><h2>Die Übergabe</h2></div>
+    <div class="handoff">
+      <div class="paper orig"><h3>Originalrezept</h3>Stilregeln, vollständig, mit Beispielen.<div class="left-behind">bleibt beim Chef liegen</div></div>
+      <div class="arrow">→</div>
+      <div class="paper card"><h3>Rezeptkarte</h3>Der Skill: die Regeln in Kurzform. Nur das geht an die Köche.</div>
+    </div>
+    <p class="note">In der KI: Die Unteragenten arbeiten in der Cloud. Der Hauptagent kopiert Dateien hinüber, die Originaldatei mit den Stilregeln aber nicht.</p>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="step-no">04</span><h2>Der Vorkoster probiert</h2></div>
+    <div class="pair">
+      <div><div class="lbl">In der Küche</div><span class="ico">🥄</span>Ein vierter Koch probiert, bevor das Essen rausgeht.</div>
+      <div><div class="lbl">In der KI</div><span class="ico">✅</span>Ein unabhängiger Prüfer-Agent prüft die Pressemitteilung Regel für Regel.</div>
+    </div>
+    <div class="chips">
+      <span class="chip ok">6 Regeln erfüllt</span>
+      <span class="chip bad">1 nicht erfüllt: Fachbegriffe nicht erklärt</span>
+      <span class="chip q">2 nicht prüfbar</span>
+    </div>
+    <div class="alarm">⚠️ <b>Der Vorkoster meldet:</b> „Mir fehlt das Originalrezept. Ich kann nur gegen die Karte prüfen."</div>
+  </section>
+
+  <section class="step">
+    <div class="step-head"><span class="step-no">05</span><h2>Version 2: die Übergabe festschreiben</h2></div>
+    <p>Gekocht wurde richtig. Gefehlt hat, was der Chef weitergegeben hat. Also kommt ein Satz fest in den Auftrag:</p>
+    <div class="fix">„Gib jedem Unteragenten die Originaldateien mit, die er braucht."</div>
+    <p class="note">Gesagt kann es vergessen werden. Fest im Auftrag oder im Skill bleibt es.</p>
+  </section>
+
+  <div class="lesson">
+    <p>Bei mehreren KI-Agenten geht selten etwas beim Arbeiten verloren. Es geht bei der Übergabe verloren.</p>
+    <span>Darum braucht jede KI-Küche einen Vorkoster und eine feste Regel, was an wen geht.</span>
+  </div>
+
+  <table aria-label="Küche und KI im Vergleich">
+    <thead><tr><th>Küche</th><th>KI</th><th>Ihr Werkzeug</th></tr></thead>
+    <tbody>
+      <tr><td>Originalrezept</td><td>Ihre Vorlage, Richtlinie, Stilregeln</td><td>Datei im Projekt</td></tr>
+      <tr><td>Rezeptkarte</td><td>Skill</td><td>Claude: Fähigkeiten · ChatGPT: Projekt-Anweisung · Copilot: Agent-Anweisung</td></tr>
+      <tr><td>Chef</td><td>Hauptagent, der verteilt</td><td>Claude Cowork · ChatGPT Work · bei Copilot: Sie selbst</td></tr>
+      <tr><td>Köche</td><td>Unteragenten mit je einer Aufgabe</td><td>mehrere Skills bzw. Agenten</td></tr>
+      <tr><td>Vorkoster</td><td>Prüfer-Skill mit Kriterien</td><td>eigener Skill oder Agent</td></tr>
+    </tbody>
+  </table>
+
+  <p class="src">Testlauf 09.11.2026 · Claude Cowork (Desktop-App) · vier erfundene Musterdateien · Laufzeiten laut Protokoll</p>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Abschnitte beim Scrollen einblenden
+  var steps = document.querySelectorAll('.step');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    steps.forEach(function (s) { io.observe(s); });
+  } else { steps.forEach(function (s) { s.classList.add('seen'); }); }
+
+  // Zeitachse: alle Balken wachsen mit derselben Geschwindigkeit (Sekunden), jeder stoppt bei seiner echten Dauer
+  var TMAX = 360; // Achse in Sekunden
+  var segs = Array.prototype.slice.call(document.querySelectorAll('.seg'));
+  var tags = Array.prototype.slice.call(document.querySelectorAll('.done-tag'));
+  var cursor = document.getElementById('cursor');
+  var clock = document.getElementById('clock');
+  var lanes = document.querySelector('.lanes');
+  var axis = document.getElementById('axis');
+  var speed = 10, t = 0, running = false, last = null, raf = null;
+
+  function pct(sec) { return (sec / TMAX) * 100; }
+  [0, 60, 120, 180, 240, 300, 360].forEach(function (s) {
+    var sp = document.createElement('span'); sp.style.left = pct(s) + '%'; sp.textContent = s + ' s'; axis.appendChild(sp);
+  });
+  segs.forEach(function (seg) { seg.style.left = pct(+seg.dataset.start) + '%'; });
+  tags.forEach(function (tag, i) {
+    var seg = segs[i]; tag.style.left = 'calc(' + pct(+seg.dataset.start + +seg.dataset.dur) + '% + 8px)';
+    if (+seg.dataset.start + +seg.dataset.dur > 300) { tag.style.left = 'auto'; tag.style.right = '6px'; }
+  });
+
+  function render() {
+    segs.forEach(function (seg, i) {
+      var s = +seg.dataset.start, d = +seg.dataset.dur;
+      var run = Math.max(0, Math.min(d, t - s));
+      seg.style.width = pct(run) + '%';
+      tags[i].classList.toggle('on', t >= s + d);
+    });
+    var labelW = lanes.querySelector('.who').getBoundingClientRect().width;
+    var trackW = lanes.querySelector('.track').getBoundingClientRect().width;
+    cursor.style.left = (labelW + trackW * Math.min(t, TMAX) / TMAX) + 'px';
+    clock.textContent = Math.floor(Math.min(t, TMAX));
+  }
+  function tick(ts) {
+    if (!running) return;
+    if (last === null) last = ts;
+    t += ((ts - last) / 1000) * speed; last = ts;
+    if (t >= 357) { t = 357; running = false; document.getElementById('play').textContent = '▶ Nochmal'; }
+    render();
+    if (running) raf = requestAnimationFrame(tick);
+  }
+  function start() {
+    if (t >= 357) t = 0;
+    running = true; last = null; document.getElementById('play').textContent = '❚❚ Pause';
+    raf = requestAnimationFrame(tick);
+  }
+  function pause() { running = false; cancelAnimationFrame(raf); document.getElementById('play').textContent = '▶ Weiter'; }
+  document.getElementById('play').addEventListener('click', function () { running ? pause() : start(); });
+  document.getElementById('reset').addEventListener('click', function () { pause(); t = 0; render(); document.getElementById('play').textContent = '▶ Küche starten'; });
+  document.querySelectorAll('.speed button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      speed = +b.dataset.speed;
+      document.querySelectorAll('.speed button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    });
+  });
+  window.addEventListener('resize', render);
+  if (reduce) { t = 357; }
+  render();
+})();
+</script>
+<script>
+/* Cookieloser Reichweiten-Beacon (wie assets/js/site.js Schicht 1), ohne Consent-Banner und Popup */
+(function () {
+  try {
+    var h = location.hostname;
+    if (h === 'localhost' || h === '127.0.0.1' || location.protocol === 'file:') return;
+    var i = new Image(1, 1);
+    i.src = 'https://stats.jakubpopluhar.com/px?site=jakubpopluhar&path=' +
+      encodeURIComponent(location.pathname) +
+      '&ref=' + encodeURIComponent(document.referrer);
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
