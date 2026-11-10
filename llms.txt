@@ -37,6 +37,7 @@
 
 ## Artikel (Deutsch)
 
+- [Am Montag habe ich zugehört. Am Mittwoch stand ich vorne.](https://jakubpopluhar.com/blog/ki-workshop-ohrid/): Zwei Tage im Publikum, 90 Minuten vorne: In Ohrid bauten 40 junge Führungskräfte ihren KI-Assistenten. Vorher hatten 5 von 40 ein KI-Projekt, danach 40 von 40.
 - [Datenschutz perfekt, Abschlüsse erfunden: lokale KI im Bewerbungstest](https://jakubpopluhar.com/blog/lokale-ki-bewerbungen/): Claude, Gemma und Qwen prüfen dieselben fünf Lebensläufe: Lokal bleibt jede Bewerbung im Haus, doch ein Laptop-Modell erfindet zwei Abschlüsse.
 - [Machen meine KI-Agenten Fehler? Teils, teils](https://jakubpopluhar.com/blog/machen-ki-agenten-fehler/): In der Seminarpause werde ich oft gefragt, ob meine KI-Agenten Fehler machen. Meine Antwort: teils, teils. Es gibt zwei Sorten, und nur eine gehört den Agenten.
 - [Ich prompte nicht weniger, ich prompte anders](https://jakubpopluhar.com/blog/diktieren-ist-orchestrieren/): 79,5 Prozent meiner diktierten Wörter gehen ins Terminal, laut Wispr Flow unter "Other Tasks". Warum das die falsche Kategorie ist, und was Diktieren wirklich ist.
