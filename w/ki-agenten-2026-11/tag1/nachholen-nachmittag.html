@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nachholen: Tag 1 Nachmittag ab 15 Uhr</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <!-- Nachhol-E-Learning Tag 1 Nachmittag ab 15:05 (11.11.2026), du-Form. Created 2026-11-11, Last updated 2026-11-11. Eigenstaendig: CSS und JS inline. Uebungstexte aus kurs.html (ue6, ue7, einstellungen, cowork-check) uebernommen und auf du umgestellt. Nicht in kurs.html verlinkt, Entscheidung bei Jakub. -->
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(/fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(/fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --gold: #d4a017; --gold-light: #e8b84a;
+      --charcoal: #141414; --charcoal-light: #1a1a1a; --charcoal-lighter: #222222;
+      --white: #f5f5f5; --white-muted: #b0b0b0;
+      --green: #5fa85f; --red: #c05a4a;
+      --font-heading: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --side: 290px;
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+    body { font-family: var(--font-body); background: var(--charcoal); color: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* Seitenleiste */
+    .side { position: fixed; top: 0; left: 0; bottom: 0; width: var(--side); background: var(--charcoal-light); border-right: 1px solid rgba(212,160,23,.12); overflow-y: auto; padding: 20px 16px 30px; z-index: 60; }
+    .side .logos { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; }
+    .side .logos img { height: 38px; width: auto; }
+    .side .logos .akad { background: #fff; padding: 4px 8px; border-radius: 6px; }
+    .side h1 { font-family: var(--font-heading); font-size: .95rem; font-weight: 700; line-height: 1.35; margin-bottom: 4px; }
+    .side .sub { font-size: .74rem; color: var(--white-muted); line-height: 1.45; margin-bottom: 12px; }
+    .balken { height: 4px; background: rgba(255,255,255,.07); border-radius: 99px; overflow: hidden; }
+    .balken i { display: block; height: 100%; width: 0; background: var(--gold); transition: width .3s; }
+    .stand { font-size: .74rem; color: var(--white-muted); margin: 6px 0 14px; }
+    .stand b { color: var(--gold); }
+    .zeile { display: flex; align-items: flex-start; gap: 8px; padding: 8px 8px; border-radius: 8px; color: var(--white); font-size: .82rem; line-height: 1.35; }
+    .zeile:hover { background: rgba(212,160,23,.08); color: var(--white); }
+    .zeile.aktiv { background: rgba(212,160,23,.14); }
+    .zeile .lab { flex: none; font-size: .58rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(212,160,23,.4); border-radius: 4px; padding: 1px 5px; margin-top: 2px; min-width: 54px; text-align: center; }
+    .zeile .t { flex: 1; }
+    .zeile .zt { display: block; font-size: .68rem; color: var(--white-muted); }
+    .zeile .ck { flex: none; width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); margin-top: 2px; }
+    .zeile.fertig .ck { background: var(--gold); border-color: var(--gold); }
+    .schliessen { display: none; position: absolute; top: 10px; right: 12px; background: none; border: 0; color: var(--white); font-size: 1.6rem; cursor: pointer; }
+
+    .leiste { display: none; position: sticky; top: 0; z-index: 50; background: var(--charcoal); border-bottom: 1px solid rgba(212,160,23,.15); padding: 10px 14px; align-items: center; gap: 12px; }
+    .knopf { font: inherit; font-size: .85rem; font-weight: 600; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+    .leiste .stand { margin: 0; }
+
+    main { margin-left: var(--side); padding: 36px 40px 80px; }
+    .wrap { max-width: 820px; margin: 0 auto; }
+
+    .lektion { margin-bottom: 40px; }
+    .exercise { background: var(--charcoal-light); border: 1px solid rgba(212,160,23,.12); border-radius: 12px; padding: 28px 26px; }
+    .exercise-number { font-family: var(--font-heading); font-size: .65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .exercise h2 { font-family: var(--font-heading); font-weight: 600; font-size: 1.25rem; line-height: 1.35; margin-bottom: 4px; }
+    .exercise .subtitle { font-size: .88rem; color: var(--white-muted); font-style: italic; margin-bottom: 16px; }
+    .exercise p, .exercise li { font-size: .9rem; margin-bottom: 10px; }
+    .exercise ol, .exercise ul { padding-left: 20px; margin-bottom: 14px; }
+    .exercise li { margin-bottom: 6px; }
+    .rahmen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 14px 0 18px; }
+    .rahmen > div { background: rgba(212,160,23,.06); border: 1px solid rgba(212,160,23,.25); border-radius: 10px; padding: 10px 12px; font-size: .85rem; line-height: 1.45; }
+    .rahmen b { display: block; font-family: var(--font-heading); font-size: .62rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+    .step-label { font-family: var(--font-heading); font-weight: 600; font-size: .82rem; color: var(--gold); margin: 22px 0 6px; }
+    .magic-box { background: rgba(212,160,23,.08); border: 1px solid rgba(212,160,23,.35); border-radius: 10px; padding: 16px 20px; margin: 14px 0; }
+    .magic-box .label { font-family: var(--font-heading); font-weight: 700; font-size: .7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .magic-box p:last-child { margin-bottom: 0; }
+    .gezeigt { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 16px 18px; margin: 14px 0; }
+    .gezeigt .label { font-family: var(--font-heading); font-weight: 700; font-size: .65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .gezeigt p:last-child { margin-bottom: 0; }
+    .ruhe { background: rgba(255,255,255,.02); border: 1px solid rgba(212,160,23,.28); border-radius: 12px; padding: 18px 20px 8px; margin: 18px 0; }
+    .ruhe > .label { font-family: var(--font-heading); font-weight: 700; font-size: .68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .ruhe h3 { font-family: var(--font-heading); font-weight: 600; font-size: .95rem; color: var(--white); margin: 18px 0 6px; }
+    .ruhe p, .ruhe li { font-size: .92rem; line-height: 1.75; }
+    .ruhe svg { margin: 14px auto !important; }
+    .kern { font-family: var(--font-heading); font-weight: 600; font-size: 1rem; line-height: 1.5; color: var(--white); background: rgba(212,160,23,.12); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0 14px !important; }
+    .ruhe details { margin: 8px 0; }
+    .mehr-label { font-size: .72rem !important; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white-muted); margin: 18px 0 4px !important; }
+    .gezeigt details { margin: 10px 0 0; border-color: rgba(255,255,255,.1); }
+    .lektion[hidden] { display: none; }
+    .nav-knoepfe { display: flex; justify-content: space-between; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+    .ruhe .fund { font-size: .72rem; color: var(--white-muted); font-weight: 400; }
+    @media (max-width: 500px) { .ruhe .compare-table th { letter-spacing: 0; font-size: .66rem; } .ruhe .compare-table td, .ruhe .compare-table th { padding: 7px 5px; } .ruhe { padding: 16px 12px 6px; } }
+    .context-block { background: rgba(212,160,23,.04); border: 1px solid rgba(212,160,23,.3); border-radius: 8px; padding: 16px 18px; margin: 18px 0; font-size: .85rem; color: var(--white-muted); }
+    .prompt-block { background: rgba(212,160,23,.06); border-left: 3px solid var(--gold); padding: 16px 18px; margin: 12px 0; border-radius: 0 8px 8px 0; font-size: .88rem; line-height: 1.65; position: relative; cursor: pointer; transition: background .2s; white-space: pre-line; }
+    .prompt-block:hover { background: rgba(212,160,23,.1); }
+    .prompt-block::after { content: 'Kopieren'; position: absolute; top: 6px; right: 10px; font-size: .62rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); opacity: .7; }
+    .prompt-block.copied { outline: 2px solid var(--gold); }
+    .prompt-block.copied::after { content: 'Kopiert!'; opacity: 1; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: .82rem; }
+    .compare-table th { font-family: var(--font-heading); font-weight: 600; font-size: .72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(212,160,23,.3); }
+    .compare-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,.05); vertical-align: top; }
+    .role-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0; }
+    .role-card { background: rgba(212,160,23,.04); border: 1px solid rgba(212,160,23,.15); border-radius: 8px; padding: 14px; font-size: .82rem; }
+    .role-card strong { display: block; color: var(--gold); margin-bottom: 4px; font-size: .78rem; }
+    .fallback { border-left: 3px solid rgba(255,255,255,.25); background: rgba(255,255,255,.03); padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: .85rem; color: var(--white-muted); margin: 16px 0 6px; }
+    .fallback strong { color: var(--white); }
+    .pruef { font-size: .85rem; color: var(--white-muted); margin-top: 10px; }
+    .gold { color: var(--gold); font-size: .85rem; }
+    .dl { display: inline-block; background: rgba(212,160,23,.12); border: 1px solid rgba(212,160,23,.3); padding: 12px 18px; border-radius: 8px; font-weight: 600; color: var(--gold); margin: 6px 8px 6px 0; font-size: .88rem; }
+
+    details { margin: 14px 0; border: 1px solid rgba(212,160,23,.15); border-radius: 8px; overflow: hidden; }
+    details summary { padding: 14px 18px; background: rgba(212,160,23,.06); cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: .85rem; color: var(--gold); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 10px; user-select: none; }
+    details summary:hover { background: rgba(212,160,23,.1); }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: '+'; font-size: 1.1rem; font-weight: 700; color: var(--gold); }
+    details[open] summary::after { content: '\2212'; }
+    details .collapsible-content { padding: 16px 18px; border-top: 1px solid rgba(212,160,23,.1); }
+    details .collapsible-content p, details .collapsible-content li { font-size: .88rem; margin-bottom: 8px; color: var(--white-muted); }
+    details .collapsible-content strong { color: var(--white); }
+
+    .ablauf { margin: 14px 0 4px; padding: 10px 14px; border-radius: 10px; background: rgba(212,160,23,.08); border: 1px solid rgba(212,160,23,.25); font-size: .9rem; }
+    .ablauf b { color: var(--gold); }
+    .ablauf-sprung { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .ablauf-sprung span, .ablauf-sprung a { font: inherit; font-size: .85rem; font-weight: 700; border-radius: 99px; padding: 5px 12px; border: 2px solid; }
+    .ablauf-sprung .st1 { border-color: #9fd3a8; color: #9fd3a8; }
+    .ablauf-sprung .st2 { border-color: #d4a017; color: #d4a017; }
+    .ablauf-sprung .st3 { border-color: #e07a5f; color: #e07a5f; }
+    .lv { margin: 22px 0 10px; border: 1px solid rgba(212,160,23,.3); border-radius: 10px; padding: 12px 14px; }
+    .lv-titel { font-family: var(--font-heading); font-weight: 700; font-size: .72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .lv-teil { margin-top: 14px; padding: 12px 14px; border-radius: 8px; background: rgba(255,255,255,.03); font-size: .92rem; }
+    .lv-teil p { margin: 0 0 8px; }
+    .lv-teil.stufe2 { border-left: 5px solid #d4a017; }
+    .lv-teil.stufe3 { border-left: 5px solid #e07a5f; }
+    .lv-stufe { font-family: var(--font-heading); font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+    .stufe2 .lv-stufe { color: #d4a017; } .stufe3 .lv-stufe { color: #e07a5f; }
+    .lv-stufe span { font-family: var(--font-body); font-weight: 400; font-size: .85rem; color: var(--white-muted); margin-left: 6px; }
+
+    /* Selbstcheck */
+    .check-titel { font-family: var(--font-heading); font-weight: 700; font-size: .72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin: 28px 0 0; padding-top: 18px; border-top: 1px solid rgba(212,160,23,.2); }
+    .quiz { background: rgba(255,255,255,.03); border: 1px solid rgba(212,160,23,.22); border-radius: 12px; padding: 18px 20px; margin: 14px 0; }
+    .quiz-pill { display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(212,160,23,.4); border-radius: 99px; padding: 3px 10px; margin-bottom: 10px; }
+    .quiz-pill.offen { color: var(--white-muted); border-color: rgba(255,255,255,.25); }
+    .quiz-szene { font-size: .88rem; color: var(--white-muted); margin: 0 0 8px; }
+    .quiz-frage { font-weight: 600; font-size: .96rem; margin: 0 0 6px; }
+    .quiz-hilfe { font-size: .8rem; color: var(--white-muted); margin: 0 0 10px; }
+    .quiz-opt { display: block; width: 100%; text-align: left; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.12); color: inherit; border-radius: 8px; padding: 11px 14px; margin: 7px 0; font: inherit; font-size: .9rem; cursor: pointer; transition: .15s; }
+    .quiz-opt:hover:not(:disabled) { background: rgba(212,160,23,.12); border-color: rgba(212,160,23,.45); }
+    .quiz-opt:disabled { cursor: default; }
+    .quiz-opt.markiert { border-color: var(--gold); background: rgba(212,160,23,.14); }
+    .quiz-opt.richtig { border-color: var(--green); background: rgba(95,168,95,.16); }
+    .quiz-opt.falsch { border-color: var(--red); background: rgba(192,90,74,.16); }
+    .quiz-opt.blass { opacity: .55; }
+    .quiz-hinweis { font-size: .86rem; color: var(--white-muted); margin: 12px 0 0; padding-left: 14px; border-left: 2px solid rgba(212,160,23,.45); }
+    .quiz-hinweis b { color: var(--white); }
+    .quiz-eigen { font-size: .88rem; margin: 12px 0 0; padding: 10px 14px; background: rgba(255,255,255,.04); border-radius: 8px; }
+    .quiz-punkte { font-size: .85rem; font-weight: 700; color: var(--green); margin: 12px 0 0; }
+    .quiz-punkte.null { color: var(--white-muted); font-weight: 400; }
+    .quiz-btn { background: var(--gold); color: #141414; border: 0; padding: 10px 22px; border-radius: 8px; font: inherit; font-weight: 700; font-size: .85rem; cursor: pointer; margin: 12px 8px 0 0; }
+    .quiz-btn.leer { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+    .quiz-btn:disabled { opacity: .35; cursor: not-allowed; }
+    .quiz textarea { width: 100%; min-height: 80px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; color: inherit; font: inherit; font-size: .9rem; padding: 11px 14px; resize: vertical; margin-top: 8px; }
+    .sort-zeile { border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+    .sort-zeile.richtig { border-color: var(--green); background: rgba(95,168,95,.08); }
+    .sort-zeile.falsch { border-color: var(--red); background: rgba(192,90,74,.08); }
+    .sort-text { font-size: .9rem; margin-bottom: 8px; }
+    .sort-wahl { display: flex; flex-wrap: wrap; gap: 6px; }
+    .sort-wahl button { font: inherit; font-size: .76rem; color: var(--white-muted); background: transparent; border: 1px solid rgba(255,255,255,.2); border-radius: 99px; padding: 5px 12px; cursor: pointer; }
+    .sort-wahl button:hover:not(:disabled) { border-color: var(--gold); color: var(--white); }
+    .sort-wahl button.an { background: rgba(212,160,23,.18); border-color: var(--gold); color: var(--white); }
+    .sort-wahl button:disabled { cursor: default; }
+    .sort-loesung { font-size: .78rem; color: var(--red); margin-top: 6px; }
+    .check-liste label { display: flex; gap: 10px; align-items: flex-start; font-size: .9rem; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.06); cursor: pointer; }
+    .check-liste input { margin-top: 5px; accent-color: #d4a017; width: 16px; height: 16px; flex: none; }
+
+    .weiter { display: flex; justify-content: space-between; margin-top: 18px; }
+    .weiter button.fertig { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+
+    .bilder { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0; }
+    .bilder figure { margin: 0; }
+    .bilder img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,.12); cursor: zoom-in; }
+    .bilder figcaption { font-size: .76rem; color: var(--white-muted); margin-top: 6px; text-align: center; }
+    .gross { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 200; cursor: zoom-out; }
+    .gross img { max-width: 100%; max-height: 100%; border-radius: 8px; }
+    .ergebnis-zahl { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--gold); line-height: 1.1; }
+    .ergebnis-tab { width: 100%; border-collapse: collapse; font-size: .84rem; margin: 14px 0; }
+    .ergebnis-tab td { padding: 8px 6px; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .ergebnis-tab td:last-child { text-align: right; color: var(--gold); white-space: nowrap; }
+    footer { margin-left: var(--side); padding: 20px 24px 28px; text-align: center; border-top: 1px solid rgba(255,255,255,.05); }
+    footer p { font-size: .78rem; color: var(--white-muted); line-height: 1.8; }
+
+    @media (max-width: 900px) {
+      .side { transform: translateX(-100%); transition: transform .25s; width: min(320px, 88vw); box-shadow: 0 0 40px rgba(0,0,0,.6); }
+      .side.offen { transform: none; }
+      .schliessen { display: block; }
+      .leiste { display: flex; }
+      main, footer { margin-left: 0; }
+      main { padding: 24px 16px 64px; }
+      html { scroll-padding-top: 64px; }
+    }
+    @media (max-width: 700px) { .rahmen, .role-grid, .bilder { grid-template-columns: 1fr; } }
+    @media (max-width: 500px) {
+      .exercise { padding: 22px 16px; }
+      .quiz { padding: 16px 14px; }
+      .prompt-block { padding: 14px 14px; }
+      .compare-table { font-size: .75rem; }
+      .compare-table td, .compare-table th { padding: 8px; }
+    }
+  </style>
+<style>#jp-gate{position:fixed;inset:0;z-index:9999;background:#0e0e0c;display:none;align-items:center;justify-content:center;padding:16px}html.gesperrt #jp-gate{display:flex}html.gesperrt body>*:not(#jp-gate){visibility:hidden}#jp-gate form{max-width:360px;width:100%;text-align:center;color:#f1eee4;font-family:inherit}#jp-gate input{width:100%;padding:12px;margin:14px 0 10px;border-radius:8px;border:1px solid #6f5205;background:#161614;color:#f1eee4;font-size:1rem}#jp-gate button{width:100%;padding:12px;border:0;border-radius:8px;background:#c9a227;color:#161616;font-weight:700;font-size:1rem;cursor:pointer}#jp-gate .f{color:#e07a5f;min-height:1.2em;font-size:.9rem}</style>
+<script>/* Gate: gleiches Passwort wie die Kursseite, bleibt auf dieser Seite */(function(){var ok=false;try{ok=localStorage.getItem('kiagenten2026-gate')==='kiteam'}catch(e){}if(!ok)document.documentElement.classList.add('gesperrt')})();</script>
+</head>
+<body>
+<div id="jp-gate"><form onsubmit="var v=this.pw.value.trim().toLowerCase();if(v==='kiteam'){try{localStorage.setItem('kiagenten2026-gate','kiteam')}catch(e){}document.documentElement.classList.remove('gesperrt')}else{this.querySelector('.f').textContent='Das Passwort stimmt nicht.'}return false;"><p style="font-size:1.2rem;font-weight:700">Dein Nachmittag zum Nachholen</p><p>Gib das Passwort aus dem Kurs ein.</p><input name="pw" type="password" autocomplete="off" aria-label="Passwort" placeholder="Passwort"><div class="f"></div><button type="submit">Öffnen</button></form></div>
+
+<div class="leiste"><button class="knopf" id="oeffnen" type="button" aria-controls="side" aria-expanded="false">&#9776; Inhalt</button><span class="stand" id="stand-m"></span></div>
+
+<aside class="side" id="side" aria-label="Inhalt">
+  <button class="schliessen" id="schliessen" type="button" aria-label="Inhalt schließen">&times;</button>
+  <div class="logos"><img src="jp-logo.png" alt="Jakub Popluhar"><img class="akad" src="../akademie-logo.png" alt="Akademie für Künstliche Intelligenz und Digitalisierung"></div>
+  <h1>Der Nachmittag zum Nachholen</h1>
+  <div class="sub">KI-Agenten, digitale Zwillinge, KI-Mitarbeiter · Tag 1, ab 15 Uhr · 11.11.2026</div>
+  <div class="balken"><i id="balken"></i></div>
+  <div class="stand" id="stand"></div>
+  <nav id="toc"></nav>
+</aside>
+
+<main><div class="wrap">
+
+<!-- 0 Willkommen -->
+<section class="lektion" id="willkommen" data-lab="Start" data-titel="Willkommen" data-zeit="">
+<div class="exercise">
+  <div class="exercise-number">Start</div>
+  <h2>Hallo, schön, dass du nachholst.</h2>
+  <p class="subtitle">Du musstest um 15 Uhr los. Hier ist alles, was danach lief, in derselben Reihenfolge, und so, wie es die anderen gemacht haben.</p>
+  <div class="rahmen">
+    <div><b>Ziel</b>Morgen mit Projekten, Notizbüchern und den Datenregeln auf demselben Stand weitermachen wie alle.</div>
+    <div><b>Dauer</b>Etwa 60 bis 75 Minuten mit beiden Übungen. Ohne Übungen etwa 25 Minuten.</div>
+  </div>
+  <p class="step-label">So funktioniert die Seite</p>
+  <ol>
+    <li><strong>Teile deinen Bildschirm:</strong> links diese Seite, rechts dein KI-Werkzeug. Wie am Vormittag.</li>
+    <li><strong>Jede Lektion beginnt mit „Was ich gezeigt habe“.</strong> Danach kommt die Übung, Schritt für Schritt. Tipp einen Prompt an, dann ist er kopiert.</li>
+    <li><strong>Am Ende jeder Lektion steht ein kurzer Selbstcheck.</strong> Erst tippen, dann siehst du die Erklärung. Falsch liegen kostet nichts, nur du siehst dein Ergebnis.</li>
+    <li><strong>Dein Stand bleibt gespeichert,</strong> auf diesem Gerät in diesem Browser. Links im Inhalt siehst du, was du schon erledigt hast.</li>
+  </ol>
+  <div class="weiter"><button type="button" class="quiz-btn" data-weiter="willkommen">Los geht's</button></div>
+</div>
+</section>
+
+<!-- 1 Drei Ebenen -->
+<section class="lektion" id="ebenen" data-lab="Info" data-titel="Die drei Ebenen: wo gilt was" data-zeit="ab 15:17">
+<div class="exercise">
+  <div class="exercise-number">Info · ab 15:17</div>
+  <h2>Die drei Ebenen: wo gilt was</h2>
+  <p class="subtitle">Den System-Prompt kennst du schon, du warst noch dabei. Danach ging es darum, wo welche Anweisung gilt.</p>
+  <div class="gezeigt"><div class="label">Was ich gezeigt habe</div>
+    <p>Es gibt drei Ebenen. Ganz außen die Einstellungen: dein System-Prompt (Custom Instructions) und das, was sich die KI über dich merkt. In der Mitte das Projekt: Projekt-Prompt und deine hochgeladenen Dokumente. Ganz innen der einzelne Chat.</p>
+    <details><summary>Mehr aus der Demo</summary><div class="collapsible-content">
+      <p>Und ein Punkt, der dich direkt betrifft: Die KI kann viel aus deinen früheren Chats wissen. Aber du hast wenig Kontrolle darüber, was genau sie weiß und was sie davon nutzt. Steht es in einem Dokument, hast du die Kontrolle wieder. Dann ist es keine Blackbox mehr.</p>
+    </div></details>
+  </div>
+  <div class="ruhe"><div class="label">Das Wichtigste in Ruhe</div>
+    <p class="kern">Widersprechen sich zwei Ebenen, gewinnt fast immer die innere. Und was in einem Dokument steht, kontrollierst du.</p>
+    <svg viewBox="0 0 620 360" style="width:100%; display:block; margin:8px auto;" role="img" aria-label="Drei ineinanderliegende Ebenen: System-Prompt und allgemeine Wissensbasis gelten überall, Projekt-Prompt und Projekt-Wissensbasis nur im Projekt, die aktuelle Nachricht nur in diesem Chat">
+      <rect x="8" y="8" width="604" height="344" rx="14" fill="rgba(212,160,23,0.05)" stroke="#d4a017" stroke-opacity="0.55"/>
+      <text x="26" y="34" fill="#d4a017" font-size="13" font-family="monospace" letter-spacing="1">GILT ÜBERALL, IN JEDEM CHAT</text>
+      <rect x="26" y="46" width="270" height="46" rx="8" fill="rgba(212,160,23,0.12)" stroke="#d4a017" stroke-opacity="0.5"/>
+      <text x="40" y="66" fill="#f2e6c2" font-size="14" font-family="monospace">System-Prompt</text>
+      <text x="40" y="84" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">"Custom Instructions"</text>
+      <rect x="312" y="46" width="282" height="46" rx="8" fill="rgba(212,160,23,0.12)" stroke="#d4a017" stroke-opacity="0.5"/>
+      <text x="326" y="66" fill="#f2e6c2" font-size="14" font-family="monospace">Allgemeine Wissensbasis</text>
+      <text x="326" y="84" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">was sich die KI über dich merkt</text>
+      <rect x="34" y="112" width="552" height="160" rx="12" fill="rgba(212,160,23,0.06)" stroke="#d4a017" stroke-opacity="0.75"/>
+      <text x="52" y="138" fill="#d4a017" font-size="13" font-family="monospace" letter-spacing="1">GILT NUR IN DIESEM PROJEKT</text>
+      <rect x="52" y="150" width="244" height="46" rx="8" fill="rgba(212,160,23,0.16)" stroke="#d4a017" stroke-opacity="0.6"/>
+      <text x="66" y="170" fill="#f2e6c2" font-size="14" font-family="monospace">Projekt-Prompt</text>
+      <text x="66" y="188" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">deine Anweisungen fürs Projekt</text>
+      <rect x="312" y="150" width="256" height="46" rx="8" fill="rgba(212,160,23,0.16)" stroke="#d4a017" stroke-opacity="0.6"/>
+      <text x="326" y="170" fill="#f2e6c2" font-size="14" font-family="monospace">Projekt-Wissensbasis</text>
+      <text x="326" y="188" fill="rgba(255,255,255,0.5)" font-size="12" font-family="monospace">deine hochgeladenen Dokumente</text>
+      <rect x="60" y="212" width="500" height="46" rx="10" fill="rgba(212,160,23,0.22)" stroke="#d4a017"/>
+      <text x="78" y="232" fill="#d4a017" font-size="13" font-family="monospace" letter-spacing="1">GILT NUR IN DIESEM CHAT</text>
+      <text x="78" y="250" fill="#f2e6c2" font-size="14" font-family="monospace">das laufende Gespräch und deine Nachricht</text>
+      <path d="M300 292 L300 330" stroke="#d4a017" stroke-width="2"/>
+      <path d="M300 330 l-6 -9 h12 z" fill="#d4a017"/>
+      <text x="316" y="318" fill="#d4a017" font-size="13" font-family="monospace">je weiter innen, desto mehr Gewicht</text>
+    </svg>
+    <p class="mehr-label">Zum Vertiefen</p>
+    <details><summary>Die drei Ebenen als Tabelle</summary><div class="collapsible-content">
+    <p>Jede Anweisung an die KI lebt an einem bestimmten Ort. Der Ort entscheidet, wie weit sie reicht.</p>
+    <table class="compare-table">
+      <tr><th style="width:22%">Ebene</th><th>Was dort lebt</th><th style="width:30%">Gilt wo</th></tr>
+      <tr><td><strong>Einstellungen</strong></td><td>System-Prompt (Custom Instructions), Gedächtnis</td><td>in jedem Chat</td></tr>
+      <tr><td><strong>Projekt</strong></td><td>Projekt-Prompt, hochgeladene Dokumente</td><td>in jedem Chat dieses Projekts</td></tr>
+      <tr><td><strong>Chat</strong></td><td>deine Nachricht, der bisherige Verlauf</td><td>nur in diesem Chat</td></tr>
+    </table>
+    </div></details>
+    <details><summary>Warum die innere Ebene gewinnt</summary><div class="collapsible-content">
+    <p>Vor jeder Antwort liest die KI alles zusammen: Einstellungen, Projekt und Chat. Widerspricht sich etwas, folgt sie in der Praxis meist dem, was näher an der Aufgabe steht. Das ist deine aktuelle Nachricht. Darum gewinnt fast immer die innere Ebene.</p>
+    <p>Fast, nicht immer. Es ist ein Gewichten, keine feste Regel. Schau deshalb auf das Ergebnis, nicht nur auf deine Anweisung.</p>
+    </div></details>
+    <details><summary>Gedächtnis oder Dokument</summary><div class="collapsible-content">
+    <p>Das Gedächtnis sammelt nebenbei, was die KI aus früheren Chats über dich mitnimmt. Das ist bequem. Aber du siehst nicht genau, was drinsteht, und auch nicht, was sie gerade davon nutzt. Das ist eine Blackbox.</p>
+    <p>Ein Dokument im Projekt ist das Gegenteil. Du hast es geschrieben, du kannst es lesen, ändern und austauschen. Steht die Antwort darauf, weißt du, warum sie so ausfällt. Das ist Kontrolle.</p>
+    </div></details>
+    <details><summary>Was kommt wohin?</summary><div class="collapsible-content">
+    <ul>
+      <li><strong>Einstellungen:</strong> was immer gilt. Wer du bist, wie du angesprochen werden willst, deine Leitplanken, zum Beispiel „Sag lieber, dass du es nicht weißt, als zu raten.“</li>
+      <li><strong>Projekt:</strong> was zu einem Thema oder Kunden gehört. Rolle, Ziel, Regeln und die Dokumente dazu.</li>
+      <li><strong>Chat:</strong> was nur jetzt gilt. Die konkrete Aufgabe, eine Rolle für genau diese Antwort.</li>
+    </ul>
+    <p>Eine Faustregel: Schreibst du dasselbe zum dritten Mal in einen Chat, gehört es eine Ebene weiter nach außen.</p>
+    </div></details>
+  </div>
+  <div class="check-titel">Selbstcheck</div>
+  <div class="quiz" data-q="b1"></div>
+  <div class="quiz" data-q="b2"></div>
+  <div class="quiz" data-q="b3"></div>
+  <div class="weiter"><button type="button" class="quiz-btn" data-weiter="ebenen">Erledigt, weiter</button></div>
+</div>
+</section>
+
+<!-- 2 Übung 7 Projekt -->
+<section class="lektion" id="ue7" data-lab="Übung 7" data-titel="Projekt anlegen: deine Dokumente und der Projekt-Prompt" data-zeit="ab 15:18">
+<div class="exercise">
+  <div class="exercise-number">Übung 7 · ab 15:18</div>
+  <h2>Projekt anlegen: deine Dokumente und der Projekt-Prompt</h2>
+  <p class="subtitle">Mach deine KI dauerhaft schlauer: ein Projekt mit deinen Dokumenten und festen Regeln. Nimm deine Kontextdokumente vom Vormittag.</p>
+  <div class="rahmen">
+    <div><b>Ziel</b>Ein Projekt mit deinen Dokumenten und einer Projektanweisung, das deine Firma kennt.</div>
+    <div><b>Geschafft, wenn</b>der Test in Schritt 5 deine Firma und die Fundstellen nennt.</div>
+  </div>
+  <div class="ablauf"><b>&#9201; ca. 30 Minuten.</b> Schritt 3 bis 6 macht jede und jeder: Projekt anlegen, Prompt, Test, Mail. Wenn du schon Projekte hast: <b>Aufbau</b> oder <b>Profi</b> weiter unten.<div class="ablauf-sprung"><span class="st1">Stufe 1 · Alle: die Schritte hier</span><a class="st2" href="#ue7-aufbau">Stufe 2 · Aufbau &darr;</a><a class="st3" href="#ue7-profi">Stufe 3 · Profi &darr;</a></div></div>
+
+  <p class="step-label">Schritt 1 · Was ich gezeigt habe</p>
+  <div class="gezeigt"><div class="label">Demo</div>
+    <p>Ich habe live ein Projekt angelegt: Namen vergeben, zwei Kontextdokumente hochgeladen (Firma und meine Rolle), dann in den Projekteinstellungen die Anweisung eingetragen. Die Anweisung ist die Persönlichkeit und das Ziel des Projekts. Du kannst zum Beispiel ein Projekt pro Kunde anlegen.</p>
+    <details><summary>Mehr aus der Demo</summary><div class="collapsible-content">
+      <p>Danach habe ich gefragt: „Worum geht es in diesem Projekt? Was ist dein System-Prompt?“ <strong>Diese Frage stellst du immer wieder zwischendurch</strong>, wie bei einer neuen Mitarbeiterin: Hier sind die Akten, hier ist das Handbuch, hast du verstanden, worum es geht? Und schreib dein Ziel in den Projekt-Prompt, wenn du es kennst, zum Beispiel: „Der Kunde verlängert die Zusammenarbeit um ein Jahr.“ Wie bei CITE(R).</p>
+      <p>In Copilot gibt es zwei Gegenstücke: das <strong>Notizbuch</strong> und den <strong>Agenten</strong>. Den Unterschied siehst du in der nächsten Lektion.</p>
+    </div></details>
+  </div>
+
+  <p class="step-label">Schritt 2 · Erst verstehen</p>
+  <div class="ruhe"><div class="label">Das Wichtigste in Ruhe</div>
+    <p class="kern">Ein Projekt ist eine Mitarbeiterin mit Akten und Handbuch. Und du fragst nach, ob sie verstanden hat.</p>
+    <h3>Die Projekt-Anweisung: Rolle, Ziel, Regeln</h3>
+    <table class="compare-table">
+      <tr><th style="width:18%">Teil</th><th style="width:30%">Die Frage dahinter</th><th>Beispiel</th></tr>
+      <tr><td><strong>Rolle</strong></td><td>Wer bist du hier?</td><td>„Du bist mein Assistent für Kunde A.“</td></tr>
+      <tr><td><strong>Ziel</strong></td><td>Wofür arbeiten wir?</td><td>„Der Kunde verlängert die Zusammenarbeit um ein Jahr.“</td></tr>
+      <tr><td><strong>Regeln</strong></td><td>Wie arbeitest du?</td><td>„Du-Form, höchstens 300 Wörter, frag nach, bevor du rätst.“</td></tr>
+    </table>
+    <p>Das ist CITE(R) in fester Form. Ziel und Kontext stehen einmal da, statt in jedem Chat neu.</p>
+    <p class="mehr-label">Zum Vertiefen</p>
+    <details><summary>Warum überhaupt ein Projekt?</summary><div class="collapsible-content">
+    <p>Ohne Projekt fängt jeder Chat bei null an. Du erklärst wieder, wer du bist, wofür du arbeitest und wie du es haben willst. Ein Projekt ist wie eine neue Mitarbeiterin am ersten Tag: Sie bekommt die Akten und das Handbuch, und ab dann arbeitet sie damit. Die Akten sind die Wissensbasis, das Handbuch ist die Projekt-Anweisung.</p>
+    </div></details>
+    <details><summary>Die Wissensbasis und ihre Grenze</summary><div class="collapsible-content">
+    <p>In die Wissensbasis kommen deine Dokumente: Firma, Rolle, Abläufe, Vorlagen. Jeder neue Chat im Projekt startet mit diesem Wissen.</p>
+    <p>Die Grenze: Bei vielen Dokumenten liest die KI nicht jedes Mal alles. Sie zieht die Ausschnitte heran, die zur Frage zu passen scheinen. Was nicht im Ausschnitt steht, fehlt in der Antwort, und sie sagt dir nicht, dass es fehlt. Das Gegenmittel ist ein Satz: <strong>„Lies das ganze Dokument [Name] und nenne die Fundstelle.“</strong> Mit der Fundstelle kannst du nachsehen.</p>
+    </div></details>
+    <details><summary>Projektgedächtnis</summary><div class="collapsible-content">
+    <p>In ChatGPT kannst du in den Projekteinstellungen wählen, dass das Projekt nur sein eigenes Gedächtnis nutzt. Dann liest es deine anderen Chats nicht mit, und die Chats im Projekt bauen aufeinander auf. Für Kundenprojekte ist das sauberer.</p>
+    </div></details>
+    <details><summary>Die Kontrollfrage</summary><div class="collapsible-content">
+    <p>Eine neue Mitarbeiterin fragst du auch, ob sie verstanden hat. Hier genauso, gleich am Anfang und nach jeder Änderung: „Worum geht es hier? Was ist dein Ziel? Woher weißt du das?“ Den Prompt dazu findest du in Schritt 5.</p>
+    </div></details>
+  </div>
+
+  <p class="step-label">Schritt 3 · Jetzt du: Projekt anlegen, Klick für Klick</p>
+  <p style="margin-bottom:6px;">Wähle dein Werkzeug. Die Oberflächen sind teils englisch, deshalb stehen beide Bezeichnungen da. Die Anweisungen kommen erst in Schritt 4: Das Feld nur finden, noch nicht ausfüllen.</p>
+  <details>
+    <summary>ChatGPT: Projekt anlegen</summary>
+    <div class="collapsible-content">
+      <p class="step-label">1. Projekt anlegen</p>
+      <p>Links in der Seitenleiste neben <strong>„Projects“</strong> (Projekte) auf das <strong>Plus</strong> klicken. Namen vergeben, zum Beispiel „Meine Firma“.</p>
+      <p class="step-label">2. Dokumente hochladen</p>
+      <p>Im Projekt unter <strong>„Sources“</strong> (Quellen) deine Kontextdokumente vom Vormittag hochladen. Die drei Punkte öffnen die Einstellungen. Das ist die Wissensbasis.</p>
+      <p class="step-label">3. Anweisungen finden</p>
+      <p>Das Feld heißt <strong>„Instructions“</strong> (Anweisungen). Noch leer lassen, der Text kommt in Schritt 4. Am Ende „Save“ (Speichern).</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Links steht dein Projekt, und im Projekt siehst du deine Dateien unter „Sources“.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Claude: Projekt anlegen</summary>
+    <div class="collapsible-content">
+      <p class="step-label">1. Projekt anlegen</p>
+      <p>In der linken Seitenleiste auf <strong>„Projekte“</strong> (Projects), dann „Neues Projekt“. Namen vergeben.</p>
+      <p class="step-label">2. Dokumente hochladen</p>
+      <p>Deine Kontextdokumente in das <strong>Projektwissen</strong> hochladen. Das ist Claudes fester Wissensspeicher.</p>
+      <p class="step-label">3. Anweisungen finden</p>
+      <p>Das Feld für die <strong>Projektanweisungen</strong> suchen. Noch leer lassen, der Text kommt in Schritt 4. Dann speichern.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Im Projekt siehst du deine Dateien im Projektwissen.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Gemini: Gem anlegen</summary>
+    <div class="collapsible-content">
+      <p>Bei Gemini heißt das Projekt <strong>„Gem“</strong>: ein eigener, gespeicherter Assistent.</p>
+      <p class="step-label">1. Gem anlegen</p>
+      <p>Links auf <strong>„Gems verwalten“</strong> (Gem-Manager), dann <strong>„Neuer Gem“</strong>. Namen vergeben.</p>
+      <p class="step-label">2. Dokumente hochladen</p>
+      <p>Unter <strong>„Wissen“</strong> deine Kontextdokumente als Dateien hinzufügen.</p>
+      <p class="step-label">3. Anweisungen finden</p>
+      <p>Das Feld für die <strong>Anweisungen</strong> suchen. Noch leer lassen, der Text kommt in Schritt 4. Dann speichern.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Der Gem steht in der Liste, und unter „Wissen“ liegen deine Dateien.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Copilot: Agent anlegen (wenn es kein Projekt gibt)</summary>
+    <div class="collapsible-content">
+      <p>In Copilot heißt der dauerhafte Assistent <strong>Agent</strong>, die Funktion hängt vom Vertrag deiner Firma ab. Gibt es sie bei dir nicht, nutzt du ersatzweise das Notizbuch, oder du fügst deine Dokumente zu Beginn jedes Chats ein.</p>
+      <p class="step-label">1. Agent anlegen</p>
+      <p>In der linken Leiste <strong>„Neuer Agent“</strong>. Namen vergeben.</p>
+      <p class="step-label">2. Dokumente hinzufügen</p>
+      <p>Deine Kontextdokumente als Wissen oder Quellen hinzufügen. Lässt Copilot kein Wissen hochladen, ist das oft eine Frage der Lizenz oder der Freigabe durch die IT.</p>
+      <p class="step-label">3. Anweisungen finden</p>
+      <p>Das Feld für die <strong>Anweisungen</strong> suchen. Noch leer lassen, der Text kommt in Schritt 4.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Dein Agent steht in der Leiste, mit deinen Dateien als Wissen.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Keine Dokumente vom Vormittag? Ausweichweg</summary>
+    <div class="collapsible-content">
+      <p>Leg in einem beliebigen Chat schnell zwei kurze Dokumente an: Firma und Rolle, in je fünf Stichworten. Erfundene Angaben genügen, um das Projekt zu üben.</p>
+      <div class="prompt-block">Schreibe aus diesen Stichworten ein kurzes Kontextdokument über meine Firma: [fünf Stichworte, erfundene Angaben genügen]. Format: Überschrift und fünf Zeilen.</div>
+      <p>Kopier das Ergebnis in eine Textdatei und lade sie hoch.</p>
+    </div>
+  </details>
+
+  <p class="step-label">Schritt 4 · Erst jetzt kopieren: dein Projekt-Prompt</p>
+  <div class="magic-box">
+    <div class="label">Projekt-Prompt zum Kopieren</div>
+    <div class="prompt-block" style="margin:0;">Du bist mein KI-Assistent für [Firma / Abteilung / Rolle].
+
+Wissensbasis: Berücksichtige immer meine hochgeladenen Dokumente (Firma, Rolle, Prozesse) als festen Kontext.
+
+Verhalten: Antworte auf Deutsch, in Du-Form, konkret und knapp (max. 300 Wörter), mit klaren nächsten Schritten. Wenn dir Informationen fehlen, frage nach, bevor du rätst.</div>
+  </div>
+  <p>Füg ihn in die <strong>Anweisungen</strong> (Instructions) deines Projekts ein. <strong>Er ist ein Beispiel, kein Rezept:</strong> Schreib die [Klammern] auf dich um, sonst antwortet dir ein Assistent für jemand anderen. Dann speichern (Save).</p>
+
+  <p class="step-label">Schritt 5 · Prüfen: Kennt das Projekt dich?</p>
+  <p>Öffne <strong>einen neuen Chat im Projekt</strong> (nicht außerhalb) und frag:</p>
+  <div class="prompt-block">Was weißt du über meine Firma und meine Rolle? Nenne mir zu jeder Angabe, in welchem meiner Dokumente sie steht.</div>
+  <p>Und die Frage, die ich in der Demo gestellt habe. Stell sie auch später immer wieder:</p>
+  <div class="prompt-block">Worum geht es in diesem Projekt? Was ist dein Ziel? Gib es mir in deinen eigenen Worten wieder, in höchstens fünf Sätzen. Wenn dir etwas fehlt, sag es.</div>
+  <table class="compare-table">
+    <tr><th style="width:42%">Wenn das passiert</th><th>Dann liegt es meist daran</th></tr>
+    <tr><td>Die KI kennt deine Firma nicht</td><td>Der Chat wurde außerhalb des Projekts gestartet, oder die Dokumente liegen nicht im Projekt. Prüf beides.</td></tr>
+    <tr><td>Sie siezt dich, obwohl im Projekt-Prompt Du steht</td><td>Die Klammern im Projekt-Prompt sind noch nicht auf dich umgeschrieben.</td></tr>
+    <tr><td>Die Datei lässt sich nicht hochladen</td><td>Die Datei ist zu groß oder in einem schwer lesbaren Format. Kürz sie oder speichere sie als Textdatei.</td></tr>
+    <tr><td>Etwas reagiert nicht</td><td>Seite neu laden. Das hilft öfter, als man denkt.</td></tr>
+  </table>
+
+  <p class="step-label">Schritt 6 · Eine echte Aufgabe: eine Mail beantworten</p>
+  <p>Probier dein Projekt gleich an einer typischen Aufgabe aus. Die Mail ist erfunden. Schreib in den Projekt-Chat:</p>
+  <div class="prompt-block">Hilf mir, diese Mail zu beantworten. Schreib noch keine Antwort. Frag mich zuerst, welches Ziel ich mit der Antwort habe, und biete mir dafür Möglichkeiten an, zum Beispiel: einen Termin ausmachen, Informationen schicken, freundlich absagen, die Sache vorerst ruhen lassen oder an jemanden weiterleiten. Erst wenn ich das Ziel genannt habe, schreibst du den Entwurf. Nimm Angaben über meine Firma und meine Rolle nur aus meinen Dokumenten in diesem Projekt. Was dort nicht steht, markierst du mit [fehlt], statt es zu erfinden.
+
+Betreff: Anfrage Zusammenarbeit
+Guten Tag,
+wir haben Ihre Website gesehen und interessieren uns für Ihr Angebot. Könnten Sie uns sagen, was Sie genau machen, was das ungefähr kostet und ob ein kurzes Gespräch in den nächsten zwei Wochen möglich wäre?
+Freundliche Grüße
+Maria Beispiel</div>
+  <p class="gold">Prüfpunkt: Hat die KI zuerst nach deinem Ziel gefragt, statt sofort loszuschreiben? Stehen im Entwurf nur Angaben aus deinen Dokumenten, und ist beim Preis [fehlt] markiert, wenn deine Dokumente keinen nennen? Genau dort entscheidet sich, ob du dem Entwurf vertrauen kannst.</p>
+
+  <div class="lv"><div class="lv-titel">Nach Schritt 6: Aufbau oder Profi</div>
+    <div class="lv-teil stufe2" id="ue7-aufbau"><div class="lv-stufe">Stufe 2 · Aufbau <span>wenn du schon etwas hast</span></div>
+      <p>Jetzt eine echte Aufgabe aus deiner Woche. Lade 2 bis 5 freigegebene Dokumente dazu ins Projekt, zum Beispiel Handbuch, Ablauf, Vorlage oder Artikel, und teste, ob die KI wirklich daraus arbeitet:</p>
+      <div class="prompt-block">Beantworte nur aus den Dokumenten in diesem Projekt: [deine Frage]
+Lies dafür jedes Dokument ganz. Nenne zu jeder Aussage das Dokument und die Stelle. Steht etwas nicht drin, schreibe [fehlt], statt es zu ergänzen.</div>
+      <p>Warum „jedes Dokument ganz“? Bei 20, 30 Dokumenten liest der Assistent nicht alles und nicht immer. Er zieht Ausschnitte heran. Mehr dazu im Selbstcheck unten.</p>
+    </div>
+    <div class="lv-teil stufe3" id="ue7-profi"><div class="lv-stufe">Stufe 3 · Profi <span>wenn du schon mit Vorlagen arbeitest</span></div>
+      <p>Zwei Wege. <strong>Erstens:</strong> Hast du in Übung 4 eine Prüfliste gebaut, kommt sie jetzt in die Projekt-Anweisung, mit dem Satz: „Prüfe jeden Entwurf vor der Ausgabe gegen diese Liste und nenne mir die Punkte, die er nicht erfüllt.“ <strong>Zweitens:</strong> Du hast schon mehrere Projekte oder Assistenten? Lass den Aufbau prüfen, oder nimm ganz unten die Profispur 7A „Vom Projekt zum Agenten“.</p>
+      <div class="prompt-block">Hier ist der Aufbau meiner Projekte und Assistenten:
+[Name, Zweck, Anweisungen in Stichworten, welche Dokumente]
+
+Prüfe den Aufbau wie ein Architekt: Wo doppelt sich etwas? Wo widersprechen sich System-Prompt, Projekt-Anweisung und Dokumente? Was sollte eine feste Vorlage werden, damit ich es nicht jedes Mal neu schreibe? Schlag mir eine schlankere Struktur vor.</div>
+    </div>
+  </div>
+  <p class="gold">Ab jetzt kennt die KI in diesem Projekt deine Firma, deine Rolle und deinen Stil, ohne dass du es jedes Mal neu erklärst. Teste es mit einer echten Aufgabe aus deiner Woche.</p>
+  <p class="fallback"><strong>Werkzeug gesperrt?</strong> Copilot-Agent oder Gem sind gleichwertig. Gibt es weder Projekt noch Agent: Füg den Projekt-Prompt zu Beginn jedes neuen Chats als erste Nachricht ein und häng deine Dokumente an. Es ist umständlicher, aber es funktioniert.</p>
+  <p class="fallback"><strong>Ein Tipp für Agenten:</strong> Lade ein, zwei gute Beispiele als Wissen hoch, zum Beispiel deine besten Berichte, und schreib dazu: „Führe die Aufgabe nach diesem Muster durch.“ Dann kennt er Stil, Länge und Wortwahl. Wie bei einer neuen Kollegin: „Schau, das ist das Beispiel. So will ich das.“</p>
+
+  <details>
+    <summary>7A · Profispur: Vom Projekt zum Agenten (wenn du schon eigene Assistenten oder Agenten baust)</summary>
+    <div class="collapsible-content">
+      <p>Dein Projekt steht schon? Dann geh einen Schritt weiter. Ein Agent ist ein Projekt, das <strong>selbst entscheidet, was mit einer Eingabe passiert</strong>. Dafür braucht die Anweisung fünf Teile mehr als ein normaler Projekt-Prompt.</p>
+      <p class="step-label">1. Bauplan in fünf Teilen</p>
+      <div class="prompt-block">AUSLÖSER: Was kommt rein? (z. B. eine eingehende E-Mail)
+WISSEN: Woraus darf der Agent schöpfen? (nur die Dateien in diesem Projekt)
+REGELN: Wonach entscheidet er? (Klassen, Kriterien, Reihenfolge)
+ESKALATION: Wann gibt er ab, und an wen? (Unsicherheit, Beschwerde, Geld)
+AUSGABE: In welchem Format antwortet er? (immer gleich, damit man es weiterverarbeiten kann)</div>
+      <p class="step-label">2. Beispiel: Mail-Sortierung für eine Steuerkanzlei</p>
+      <div class="prompt-block">Du sortierst eingehende E-Mails einer Steuerkanzlei.
+
+AUSLÖSER: Ich füge eine E-Mail ein.
+WISSEN: Nutze nur die Kundenliste in diesem Projekt (Klasse A, B, C).
+REGELN:
+1. Bestimme den Absender und seine Kundenklasse. Unbekannt = Klasse C.
+2. Bestimme das Anliegen: Frist, Frage, Unterlage, Beschwerde, Sonstiges.
+3. Klasse A geht an die Partnerin, Klasse B und C an das Team.
+ESKALATION: Beschwerde, drohende Frist unter 3 Tagen oder Geldforderung geht immer an die Geschäftsführung, egal welche Klasse. Bist du unsicher, schreibe „UNSICHER“ und nenne den Grund.
+AUSGABE: genau eine Zeile:
+Klasse | Anliegen | Weiter an | Dringlichkeit 1-3 | Begründung in 10 Wörtern</div>
+      <p class="step-label">3. Testen wie ein Profi</p>
+      <div class="prompt-block">Erfinde 5 realistische E-Mails an diese Kanzlei. Mindestens eine soll ein Grenzfall sein, bei dem die Regeln nicht eindeutig sind. Nummeriere sie, verrate nicht, welche der Grenzfall ist.</div>
+      <p>Schick die Mails einzeln durch deinen Agenten. Wo entscheidet er falsch oder unsicher? <strong>Genau dort fehlt eine Regel.</strong> Ergänze sie und teste noch einmal.</p>
+      <p class="fallback"><strong>Copilot mit Agenten-Funktion?</strong> Derselbe Bauplan passt in die Anweisungen eines Copilot-Agenten. Bau ihn dort, statt im Projekt.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Alle 5 Mails landen mit einer Zeile im festen Format, und der Grenzfall wird eskaliert oder als „UNSICHER“ markiert.</p>
+    </div>
+  </details>
+  <details>
+    <summary>7B · Profispur: Echte Daten verboten? Bau mit Spieldaten</summary>
+    <div class="collapsible-content">
+      <p>Viele dürfen echte Finanz- oder Personaldaten in kein KI-Werkzeug laden. Das ist kein Grund zu warten. <strong>Bau den Prompt an erfundenen Daten mit derselben Struktur.</strong> Steht der Prompt, wechseln später nur die Daten, und nur in ein freigegebenes Werkzeug.</p>
+      <p class="step-label">1. Spieldaten erzeugen</p>
+      <div class="prompt-block">Erzeuge eine erfundene Tabelle mit 20 Zeilen für [mein Bereich, z. B. Kostenrechnung einer Hochschule].
+Spalten: [deine echten Spaltennamen, z. B. Kostenstelle, Budget, Ist, Abweichung, Verantwortlich].
+Keine echten Namen, keine echten Personen, Beträge realistisch.
+Baue absichtlich 2 Auffälligkeiten ein, die eine Prüfung finden sollte. Verrate sie mir nicht.</div>
+      <p class="step-label">2. Deinen Analyse-Prompt daran entwickeln</p>
+      <div class="prompt-block">Analysiere diese Tabelle wie eine erfahrene Controllerin. Nenne die 3 auffälligsten Punkte mit Zeile, Wert und Grund. Rechne jede Zahl nach, die du nennst. Erfinde nichts.</div>
+      <p>Findet die KI die zwei eingebauten Auffälligkeiten? Frag nach: „Welche 2 Auffälligkeiten hast du eingebaut?“ Bessere deinen Analyse-Prompt nach, bis er beide findet.</p>
+      <p class="step-label">3. Speichern</p>
+      <p>Leg den fertigen Analyse-Prompt als Projekt-Anweisung oder Vorlage ab. Die Spaltennamen dürfen bleiben, die Daten nicht.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Dein Prompt findet beide eingebauten Auffälligkeiten, ohne dass ein echter Datensatz das Haus verlassen hat.</p>
+    </div>
+  </details>
+  <details>
+    <summary>7C · Dein KI-Lehrer: ein Projekt mit den Kursunterlagen</summary>
+    <div class="collapsible-content">
+      <p>Du willst nach dem Kurs weiterlernen? Dann leg ein Projekt an, dessen Wissensbasis die Folien sind. Heraus kommt ein Lehrer, der dich selbst draufbringt, statt dir alles vorzusagen.</p>
+      <p class="step-label">1. Foliensätze bereitlegen</p>
+      <p>Nimm die Folien oder deine eigenen Mitschriften und Unterlagen.</p>
+      <p class="step-label">2. Neues Projekt anlegen und die PDFs hochladen</p>
+      <p>Genau wie oben in Schritt 3, nur heißt das Projekt „Mein KI-Lehrer“ und als Dateien lädst du die Folien oder deine Unterlagen hoch.</p>
+      <p class="step-label">3. Diese Anweisung in die Projektanweisungen kopieren</p>
+      <div class="prompt-block">Du bist mein persönlicher KI-Lehrer für den Umgang mit KI-Assistenten und KI-Agenten in meiner Arbeit.
+
+Deine Wissensbasis sind die Foliensätze in diesem Projekt. Antworte zuerst daraus und nenne die Folie, auf die du dich beziehst.
+Steht etwas nicht in den Folien, sag das ausdrücklich. Dann suche im Internet, wenn du kannst, oder antworte aus deinem allgemeinen Wissen, und sag jedes Mal dazu, woher die Antwort kommt: „aus den Folien“, „aus dem Internet“ oder „aus meinem allgemeinen Wissen“. Weißt du es nicht sicher, sag „Das weiß ich nicht sicher“.
+
+So unterrichtest du:
+1. Ruhig und kurz. Nie mehr als 5 Sätze auf einmal.
+2. Gib mir nicht sofort die Lösung. Stell mir zuerst EINE Frage, die mich selbst draufbringt, und warte auf meine Antwort.
+3. Mache ich etwas falsch, benenne den Fehler, nicht mich. Dann sag, was ich jetzt tun kann.
+4. Jede Antwort endet mit einer kleinen Aufgabe, die ich in 5 Minuten am Arbeitsplatz ausprobieren kann.
+5. Schreibe ich „Quiz“, stellst du mir 3 Fragen zu den Folien, eine nach der anderen, und sagst mir nach jeder, ob sie stimmt.
+
+Beginne mit: „Woran arbeitest du gerade, und wo hakt es?“</div>
+      <p class="step-label">4. Testen</p>
+      <div class="prompt-block">Quiz</div>
+      <p>Und danach eine echte Frage aus deiner Woche. Achte darauf: Fragt der Lehrer zuerst zurück, und sagt er dazu, woher seine Antwort kommt?</p>
+      <p class="fallback"><strong>Kein Projekt möglich, zum Beispiel in Copilot ohne Agenten?</strong> Lade die PDFs direkt in einen neuen Chat und schick die Anweisung als erste Nachricht mit. Geht kein Upload, funktioniert die Anweisung auch ohne Folien, dann eben aus dem allgemeinen Wissen.</p>
+    </div>
+  </details>
+
+  <div class="check-titel">Selbstcheck</div>
+  <div class="quiz" data-q="c2"></div>
+  <div class="quiz" data-q="c3"></div>
+  <div class="weiter"><button type="button" class="quiz-btn" data-weiter="ue7">Erledigt, weiter</button></div>
+</div>
+</section>
+
+<!-- 3 Notizbuch gegen Projekt -->
+<section class="lektion" id="wm" data-lab="Demo" data-titel="Notizbuch gegen Projekt: der WM-Test" data-zeit="ab 16:05">
+<div class="exercise">
+  <div class="exercise-number">Demo zum Mitmachen · ab 16:05</div>
+  <h2>Notizbuch gegen Projekt: der WM-Test</h2>
+  <p class="subtitle">Notizbuch und Projekt sehen fast gleich aus. Eine einzige Frage zeigt den Unterschied.</p>
+  <div class="rahmen">
+    <div><b>Ziel</b>Wissen, wann du ein Notizbuch nimmst und wann ein Projekt.</div>
+    <div><b>Geschafft, wenn</b>du die WM-Frage in deinem Werkzeug gestellt hast und weißt, warum die Antwort so ausfällt.</div>
+  </div>
+  <div class="gezeigt"><div class="label">Was ich gezeigt habe</div>
+    <p>Ich habe dieselbe Frage zweimal gestellt: „Wer hat die Fußball-WM 2026 gewonnen?“ Das <strong>Copilot-Notizbuch</strong> konnte es nicht verlässlich sagen. Das <strong>ChatGPT-Projekt</strong> ging ins Netz und nannte einen Sieger.</p>
+    <details><summary>Mehr aus der Demo</summary><div class="collapsible-content">
+      <p>Der Grund: Das Notizbuch hat keine Websuche. Es arbeitet mit deinen Quellen und mit seinen Trainingsdaten, und die enden an einem Stichtag, dem Wissensstand (Knowledge Cutoff). Alles danach muss über die Websuche kommen. <strong>Beim Notizbuch ist die Schublade zu.</strong> In der Regel arbeitet es nur mit dem, was drin ist. In der Regel, weil es nie hundertprozentig ist.</p>
+      <p>Darum ist das Notizbuch stark, wenn nur eine Quelle zählt: AGB, lange Firmenrichtlinien, Gesetze. Dort halluziniert es deutlich seltener. Bei Google heißt das Gegenstück NotebookLM. Ob deine Firma es erlaubt, klärst du vorher.</p>
+    </div></details>
+  </div>
+
+  <div class="ruhe"><div class="label">Das Wichtigste in Ruhe</div>
+    <p class="kern">Beim Notizbuch ist die Schublade zu: keine Websuche, nur deine Quellen. Darum erfindet es weniger.</p>
+    <h3>Ein Schalter macht den Unterschied</h3>
+    <table class="compare-table">
+      <tr><th style="width:22%"></th><th>Notizbuch</th><th>Projekt</th></tr>
+      <tr><td><strong>Websuche</strong></td><td>aus</td><td>meist an, das Modell entscheidet oft selbst</td></tr>
+      <tr><td><strong>Wissen</strong></td><td>deine Quellen und die Trainingsdaten</td><td>deine Dokumente, die Trainingsdaten und das Netz</td></tr>
+      <tr><td><strong>Stark für</strong></td><td>AGB, Verträge, Gesetze, Richtlinien</td><td>Recherche, Aktuelles, gemischte Aufgaben</td></tr>
+      <tr><td><strong>Beispiele</strong></td><td>Copilot-Notizbuch, NotebookLM</td><td>ChatGPT-Projekt, Claude-Projekt</td></tr>
+    </table>
+    <p class="mehr-label">Zum Vertiefen</p>
+    <details><summary>Der Stichtag</summary><div class="collapsible-content">
+    <p>Jedes Modell wurde mit Daten bis zu einem bestimmten Datum trainiert, dem Wissensstand (Knowledge Cutoff). Der liegt oft mehr als ein Jahr zurück. Das Modell weiß nicht von selbst, welcher Tag heute ist. Ohne Websuche kennt es nichts, was danach passiert ist, und hält manches davon sogar für Zukunft.</p>
+    </div></details>
+    <details><summary>Warum ein Notizbuch weniger erfindet</summary><div class="collapsible-content">
+    <p>Es hält sich an die Quellen, die du hochgeladen hast, und antwortet mit Fundstellen. Es kommt kein fremder Stoff dazu, also kann sich auch nichts vermischen. Weniger heißt aber nicht null. Klick deshalb auf die Fundstelle und lies die Stelle selbst.</p>
+    </div></details>
+    <details><summary>Wann was?</summary><div class="collapsible-content">
+    <ul>
+      <li><strong>Notizbuch,</strong> wenn nur eine bestimmte Quelle zählt: die AGB genau dieses Anbieters, der Vertrag, das Gesetz.</li>
+      <li><strong>Projekt,</strong> wenn du Aktuelles brauchst oder dein Wissen mit dem Netz verbinden willst.</li>
+    </ul>
+    </div></details>
+    <details><summary>In Copilot: Notizbuch oder Agent?</summary><div class="collapsible-content">
+    <p>Das <strong>Notizbuch</strong> ist die geschlossene Schublade: Quellen, Anweisung, keine Websuche. Der <strong>Agent</strong> hat Anweisung, Wissen und Beispiele, und er kann ins Netz. Je nach Lizenz und Einrichtung greift er auch auf weitere Microsoft-Daten zu, etwa Outlook. Frag dich bei jedem Vorhaben: Will ich hier Internetzugang oder nicht?</p>
+    <p>Und noch ein Punkt: Keine Websuche heißt nicht, dass deine Daten im Haus bleiben. Dazu mehr in der nächsten Lektion.</p>
+    </div></details>
+  </div>
+  <p class="step-label">Schritt 1 · Mach den WM-Test selbst</p>
+  <p>Stell die Frage in einem neuen Chat, gern einmal in deinem Projekt und einmal in einem Notizbuch:</p>
+  <div class="prompt-block">Wer hat die Fußball-WM 2026 gewonnen? Woher hast du diese Information?</div>
+  <p class="step-label">Schritt 2 · Frag nach dem Stichtag</p>
+  <div class="prompt-block">Bis zu welchem Datum reichen deine Trainingsdaten?</div>
+  <p>Die Daten liegen oft mehr als ein Jahr zurück. Alles danach kennt das Modell nur über die Websuche. Bei Copilot lässt sich die Websuche teilweise abschalten, bei ChatGPT entscheidet das Modell meist selbst.</p>
+  <div class="quiz" data-q="d2"></div>
+
+  <p class="step-label">Ein Beispiel aus meinem Alltag: die Sixt-AGB</p>
+  <div class="magic-box">
+    <p>Beim Umzug in Wien stand mein Mietwagen von Sixt kurz auf dem Gehweg. Es kamen 100 Euro Strafe, und Sixt wollte zusätzlich eine Bearbeitungsgebühr. Ich habe die AGB in NotebookLM hochgeladen, die Situation beschrieben und mir die passende Passage wörtlich zitieren lassen. Ein einziges Wort darin war der Schlüssel. Mit Paragraph und Zitat habe ich dann eine freundliche Mail geschrieben. Die Gebühr wurde erlassen, Aufwand etwa zehn Minuten.</p>
+    <p>Warum im Notizbuch? Mit Websuche mischt die KI leicht die AGB anderer Länder dazu, Deutschland, Österreich, Schweiz. Dann müsste ich jede Aussage extra kontrollieren.</p>
+  </div>
+  <div class="prompt-block">Antworte nur aus den hochgeladenen AGB. Hier ist meine Situation: [was passiert ist]. Welche Passage regelt das? Zitiere sie wörtlich und nenne den Paragraphen.</div>
+
+  <div class="check-titel">Selbstcheck</div>
+  <div class="quiz" data-q="d1"></div>
+  <div class="quiz" data-q="d3"></div>
+  <div class="quiz" data-q="d4"></div>
+  <div class="quiz" data-q="d5"></div>
+  <div class="weiter"><button type="button" class="quiz-btn" data-weiter="wm">Erledigt, weiter</button></div>
+</div>
+</section>
+
+<!-- 4 Daten -->
+<section class="lektion" id="daten" data-lab="Info" data-titel="Was darf hinein? Daten, Konten, Training" data-zeit="15:53, kurz vor der Pause">
+<div class="exercise">
+  <div class="exercise-number">Info · 15:53, kurz vor der Pause</div>
+  <h2>Was darf hinein? Daten, Konten, Training</h2>
+  <p class="subtitle">Zwei Regelwerke spielen mit: die DSGVO und der EU AI Act. Hier die Datenseite, in der nächsten Lektion das Gesetz.</p>
+  <div class="gezeigt"><div class="label">Was ich gezeigt habe</div>
+    <p>Bei Copilot mit Arbeitskonto bleiben deine Daten im Microsoft-Umfeld deiner Firma, und es wird nicht damit trainiert. Bei anderen Cloud-Modellen verlässt der Text deinen Rechner, sobald du Enter drückst. Wo er verarbeitet wird, steht im Vertrag und hängt vom Tarif ab. Bei vielen Cloud-Modellen auch außerhalb der EU.</p>
+    <details><summary>Mehr aus der Demo</summary><div class="collapsible-content">
+      <p>Darum zwei Dinge: die 3-Sekunden-Regel vor jedem Enter, und das Training mit deinen Daten ausschalten. Ob sich jeder Anbieter daran hält, kannst du selbst nicht prüfen. Darum gilt die Regel trotzdem.</p>
+    </div></details>
+  </div>
+  <div class="ruhe"><div class="label">Das Wichtigste in Ruhe</div>
+    <p class="kern">Drei Sekunden vor Enter: Namen raus, Zahlen raus, Strategie raus.</p>
+    <h3>Die 3-Sekunden-Regel</h3>
+    <p>Drei Sekunden, bevor du Enter drückst, gehst du drei Punkte durch:</p>
+  <ol>
+    <li><strong>Namen raus.</strong> Aus Frau Gruber wird „eine Kollegin aus dem Einkauf“.</li>
+    <li><strong>Zahlen raus.</strong> Aus 47.500 Euro wird „ein mittlerer fünfstelliger Betrag“.</li>
+    <li><strong>Strategien und Interna raus.</strong> Abstrahieren, nicht abschreiben. Ist das Training an, kann deine Idee in künftige Antworten einfließen, vielleicht irgendwann als „üblich“ bei einem Mitbewerber.</li>
+  </ol>
+    <p class="mehr-label">Zum Vertiefen</p>
+    <details><summary>Welches Konto für welche Daten</summary><div class="collapsible-content">
+    <p>Genauso wichtig wie der Inhalt ist die Frage, wem das Konto gehört.</p>
+  <table class="compare-table">
+    <tr><th style="width:34%">Konto</th><th>Was hinein darf</th></tr>
+    <tr><td><strong>Firmenkonto</strong></td><td>Firmendokumente, soweit deine Firma es freigibt.</td></tr>
+    <tr><td><strong>Privates Abo, auch Plus und Pro</strong></td><td>Keine Angebote, Verträge, Manuskripte oder Kundendaten.</td></tr>
+    <tr><td><strong>Gratiskonto oder Zweitkonto</strong></td><td>Zum Üben und für Öffentliches. Nur abstrahierte Beispiele, Training ausschalten.</td></tr>
+  </table>
+    </div></details>
+    <details><summary>Wo deine Daten verarbeitet werden</summary><div class="collapsible-content">
+    <p>Bei Copilot mit Arbeitskonto bleiben sie im Microsoft-Umfeld deiner Firma, und es wird nicht damit trainiert. Bei anderen Cloud-Modellen gibt es keine pauschale Antwort. Wo verarbeitet wird, steht im Vertrag und hängt vom Tarif ab, bei vielen Anbietern auch außerhalb der EU. Das ist nicht automatisch verboten. Aber du musst es wissen, und deine Kunden vielleicht auch: Steht in euren Bedingungen, dass Daten durch Drittanbieter außerhalb der EU verarbeitet werden?</p>
+    </div></details>
+    <details><summary>Training ausschalten</summary><div class="collapsible-content">
+    <p>In vielen Konten ist voreingestellt, dass deine Chats die Modelle verbessern dürfen. Ausschalten ist das Mindeste. Der Schalter wirkt nur nach vorne, und ob sich jeder Anbieter daran hält, kannst du selbst nicht prüfen. Darum gilt die 3-Sekunden-Regel trotzdem. Wo der Schalter sitzt, steht gleich unten.</p>
+    </div></details>
+    <details><summary>Was die KI über dich weiß</summary><div class="collapsible-content">
+    <p>Gedächtnis ist etwas anderes als der Chatverlauf. Was sich die KI gemerkt hat, siehst du am schnellsten, wenn du sie fragst: „Was weißt du über mich?“</p>
+    </div></details>
+  </div>
+  <p class="step-label">Jetzt du: Training ausschalten</p>
+  <p>Drei Klicks, einmal im Leben. Der Schalter wirkt nur nach vorne: Was du schon gesendet hast, ist damit nicht zurückgeholt.</p>
+  <table class="compare-table">
+    <tr><th style="width:22%">Werkzeug</th><th>Training ausschalten</th></tr>
+    <tr><td><strong>ChatGPT</strong></td><td>Standard: AN. Einstellungen &rarr; Data Controls &rarr; „Improve the model for everyone“ aus. Auch deine Custom Instructions fließen ins Training, solange der Schalter an ist.</td></tr>
+    <tr><td><strong>Claude</strong></td><td>Selbst ansehen. Einstellungen &rarr; Datenschutz &rarr; Modelle verbessern („Helfen Sie uns, unsere KI-Modelle zu verbessern“).</td></tr>
+    <tr><td><strong>Gemini</strong></td><td>Standard: AN. Einstellungen &amp; Hilfe &rarr; Aktivität &rarr; „Aktivitäten speichern“ aus. Auch danach werden Chats noch 72 Stunden gespeichert.</td></tr>
+    <tr><td><strong>Copilot</strong></td><td>Standard: AN. Profil &rarr; Datenschutz &rarr; „Schulungen zu Unterhaltungsaktivitäten“ aus. Gilt nur angemeldet. Mit Arbeitskonto wird ohnehin nicht trainiert.</td></tr>
+  </table>
+  <p>Und frag deine KI einmal, was sie sich über dich gemerkt hat:</p>
+  <div class="prompt-block">Was weißt du über mich?</div>
+  <p class="pruef">Die Bezeichnungen ändern sich alle paar Wochen. Findest du einen Schalter nicht, frag die KI selbst, wo er ist.</p>
+
+  <div class="check-titel">Selbstcheck</div>
+  <div class="quiz" data-q="e1"></div>
+  <div class="quiz" data-q="e2"></div>
+  <div class="quiz" data-q="e3"></div>
+  <div class="weiter"><button type="button" class="quiz-btn" data-weiter="daten">Erledigt, weiter</button></div>
+</div>
+</section>
+
+<!-- 5 Übung 8 -->
+<section class="lektion" id="ue8" data-lab="Übung 8" data-titel="EU AI Act + Notizbuch" data-zeit="ab 16:14">
+<div class="exercise">
+  <div class="exercise-number">Übung 8 · ab 16:14</div>
+  <h2>EU AI Act + Notizbuch</h2>
+  <p class="subtitle">Deine erste „sichere Wissensdatenbank“: ein echtes EU-Dokument, mit Quellenangabe bei jeder Antwort.</p>
+  <div class="rahmen">
+    <div><b>Ziel</b>Mit einer festen Quelle arbeiten und Zitate prüfen.</div>
+    <div><b>Geschafft, wenn</b>du eine Antwort mit Fundstelle bekommen und die Stelle in der Quelle selbst gelesen hast.</div>
+  </div>
+  <div class="gezeigt"><div class="label">Was die anderen gemacht haben</div>
+    <p>Alle haben beide Gesetzestexte in ein Notizbuch oder Projekt geladen und sich gegenseitig abgefragt. Danach haben wir besprochen, was hängen geblieben ist: Für verbotene Praktiken drohen bis zu 35 Millionen Euro oder 7 % des weltweiten Jahresumsatzes. <strong>Recruiting ist Hochrisiko, nicht verboten:</strong> erlaubt, aber mit Pflichten, und Ja oder Nein sagt ein Mensch. Für Deepfakes gilt grundsätzlich eine Kennzeichnungspflicht. Die Pflicht, sich um die KI-Kompetenz der Leute zu kümmern, gibt es seit Februar 2025.</p>
+    <details><summary>Mehr aus der Demo</summary><div class="collapsible-content">
+      <p>Die anderen hatten zu wenig Zeit zum Lesen. Du hast sie jetzt. Lies zuerst die Tabellen, die Antworten sind lang.</p>
+    </div></details>
+  </div>
+
+  <div class="ruhe"><div class="label">Das Wichtigste in Ruhe</div>
+    <p class="kern">Recruiting ist Hochrisiko, nicht verboten: erlaubt, aber mit Pflichten, und ein Mensch entscheidet.</p>
+    <h3>Vier Stufen nach Risiko</h3>
+    <p>Der EU AI Act regelt KI danach, wofür sie eingesetzt wird. Je größer das Risiko für Menschen, desto strenger die Regeln.</p>
+    <table class="compare-table">
+      <tr><th style="width:26%">Stufe</th><th>Was das heißt, mit Beispielen aus dem Text</th></tr>
+      <tr><td><strong>Verboten</strong><br><span class="fund">Art. 5</span></td><td>Darf nicht eingesetzt werden. Zum Beispiel Social Scoring, Emotionserkennung am Arbeitsplatz und manipulative Techniken. Neu ab 02.12.2026: KI, die ohne Zustimmung intime oder sexuelle Darstellungen einer bestimmbaren Person erzeugt, und Darstellungen von sexuellem Kindesmissbrauch.</td></tr>
+      <tr><td><strong>Hochrisiko</strong><br><span class="fund">Art. 6, Anhang III Nr. 4</span></td><td>Erlaubt, mit Pflichten. Zum Beispiel KI für die Auswahl von Bewerbungen. Recruiting ist also nicht verboten.</td></tr>
+      <tr><td><strong>Transparenz</strong><br><span class="fund">Art. 50</span></td><td>Erlaubt, aber offenlegen: Man muss wissen, dass man mit einer KI spricht. Deepfakes werden als künstlich erzeugt gekennzeichnet.</td></tr>
+      <tr><td><strong>Alles andere</strong></td><td>Keine zusätzlichen Pflichten. Oft „minimales Risiko“ genannt, das Wort steht so nicht im Text. Artikel 4 gilt trotzdem.</td></tr>
+    </table>
+    <p class="mehr-label">Zum Vertiefen</p>
+    <details><summary>Hochrisiko heißt: Mensch und Protokoll</summary><div class="collapsible-content">
+    <p>Setzt deine Firma ein Hochrisiko-System ein, muss sie die Aufsicht Menschen übertragen, die dafür kompetent sind. Die automatisch erzeugten Protokolle bewahrt sie mindestens sechs Monate auf. Vor dem Einsatz am Arbeitsplatz informiert sie die Arbeitnehmervertretung und die Betroffenen (Art. 26). Für Systeme nach Anhang III gelten diese Pflichten seit der Änderung ab dem 02.12.2027. Ja oder Nein bei einer Bewerbung sagt ein Mensch.</p>
+    </div></details>
+    <details><summary>Texte und Deepfakes</summary><div class="collapsible-content">
+    <p>Wer KI-Texte veröffentlicht, um die Öffentlichkeit über Angelegenheiten von öffentlichem Interesse zu informieren, muss das offenlegen. Ausnahme: Ein Mensch hat den Text geprüft, und eine Person trägt die redaktionelle Verantwortung (Art. 50 Abs. 4).</p>
+    </div></details>
+    <details><summary>Strafen</summary><div class="collapsible-content">
+    <table class="compare-table">
+      <tr><th>Verstoß</th><th style="width:34%">bis zu</th></tr>
+      <tr><td>Verbotene Praktiken (Art. 5)</td><td>35 Mio. € oder 7 % des weltweiten Jahresumsatzes</td></tr>
+      <tr><td>Andere Pflichten, etwa für Betreiber (Art. 26) und Transparenz (Art. 50)</td><td>15 Mio. € oder 3 %</td></tr>
+      <tr><td>Falsche oder unvollständige Auskünfte an Behörden</td><td>7,5 Mio. € oder 1 %</td></tr>
+    </table>
+    <p>Es gilt jeweils der höhere Betrag. Für KMU gilt der niedrigere (Art. 99).</p>
+    </div></details>
+    <details><summary>KI-Kompetenz</summary><div class="collapsible-content">
+    <p>Artikel 4 gilt seit dem 02.02.2025. Seit dem 27.07.2026 heißt es: Anbieter und Betreiber ergreifen Maßnahmen, um die KI-Kompetenz ihres Personals zu unterstützen. Ein bestimmtes Niveau müssen sie nicht garantieren.</p>
+    </div></details>
+    <p class="pruef">Lernhilfe, keine Rechtsberatung. Anlaufstellen stehen unten.</p>
+  </div>
+  <p class="step-label">Schritt 1: Beide Quellen holen</p>
+  <p>Seit 27.07.2026 gilt die Fassung mit der Änderung durch Verordnung (EU) 2026/1744. Deshalb lädst du <strong>beide</strong> Texte, nicht nur einen.</p>
+  <p><a class="dl" href="EU-AI-Act-DE.pdf" target="_blank">Verordnung (EU) 2024/1689, Original aus dem Amtsblatt (PDF) herunterladen</a> <a class="dl" href="EU-AI-Act-Aenderung-2026-1744.txt" target="_blank" download>Änderung 2026/1744 (Textdatei) herunterladen</a></p>
+  <p style="font-size:.9rem;">Die amtlichen Texte auf EUR-Lex: <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32024R1689" target="_blank" rel="noopener">Grundtext, Verordnung (EU) 2024/1689</a> · <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202601744" target="_blank" rel="noopener">Änderung, Verordnung (EU) 2026/1744</a>. Die PDF-Datei ist das Original der Verordnung von 2024 aus dem Amtsblatt, noch ohne die Änderung. Die Textdatei enthält die Änderungsverordnung vollständig.</p>
+  <p class="pruef">Das ist eine Übung mit Texten, keine Rechtsberatung. Für verbindliche Auskünfte gilt der Text im Amtsblatt, bei konkreten Fragen deine Rechtsabteilung.</p>
+
+  <p class="step-label">Schritt 2: Werkzeug wählen und beide Quellen hochladen</p>
+  <p>Nimm, was deine Firma erlaubt. Wenn du die Wahl hast: ein Copilot-Notizbuch oder NotebookLM. Lade in jedem Fall <strong>beide Dateien</strong> hoch, Grundtext 2024 und Änderung 2026. Sonst stimmen die Fristen nicht.</p>
+  <table class="compare-table">
+    <tr><th style="width:22%">Werkzeug</th><th>So legst du an</th><th>Wo hochladen</th></tr>
+    <tr><td><strong>NotebookLM</strong></td><td><a href="https://notebooklm.google.com" target="_blank" rel="noopener">notebooklm.google.com</a> &rarr; Neues Notizbuch (Google-Zweitkonto)</td><td>Quellen hinzufügen &rarr; Dateien hochladen</td></tr>
+    <tr><td><strong>ChatGPT-Projekt</strong></td><td>chatgpt.com &rarr; Projekte &rarr; Neues Projekt</td><td>Im Projekt: Quellen &rarr; Hochladen, dann Chat im Projekt</td></tr>
+    <tr><td><strong>Copilot Notebook</strong></td><td>m365.cloud.microsoft &rarr; Notebooks &rarr; Neu</td><td>Verweise hinzufügen &rarr; Dateien hochladen</td></tr>
+  </table>
+  <p style="font-size:.9rem;">In NotebookLM kannst du statt der Textdatei auch den EUR-Lex-Link der Änderung als Website-Quelle hinzufügen. Lade nur diese zwei EU-Texte hoch, keine Firmendokumente.</p>
+
+  <p class="step-label">Schritt 3: Rahmen kopieren, dann fragen</p>
+  <p><strong>Setz diesen Rahmen vor jede Frage.</strong> Er ist der Unterschied zwischen „aus deinen Dateien“ und „aus dem Gedächtnis“. In NotebookLM schreibst du ins <strong>untere Chatfeld</strong>, nicht links in die Websuche.</p>
+  <p class="step-label" style="font-size:.8rem;">Rahmen (vor Prompt 1 bis 4)</p>
+  <div class="prompt-block">Antworte nur aus den beiden hochgeladenen Dateien: der Verordnung (EU) 2024/1689 (Grundtext) und der Änderungsverordnung (EU) 2026/1744 vom Juli 2026. Wo die Änderung eine Stelle neu fasst, gilt die neue Fassung. Für Fristen gilt Artikel 113 in der Fassung von Artikel 1 Nummer 40 der Änderungsverordnung. Nenne bei jeder Aussage Artikel und Absatz. Was nicht in den Dateien steht, kennzeichne mit „nicht in den Quellen“.</div>
+  <p style="font-size:.9rem;">Tipp den Rahmen an, füg ihn ein, häng darunter die Frage an und schick beides zusammen ab.</p>
+  <p class="step-label" style="font-size:.8rem;">Prompt 1: Strafen</p>
+  <div class="prompt-block">Frage: Welche Geldbußen sieht der EU AI Act vor, und wen treffen sie? Mach eine Tabelle mit den Spalten: Verstoß | Höchstbetrag in Euro | Prozent des weltweiten Jahresumsatzes | Fundstelle. Erkläre danach in zwei Sätzen, was für KMU und für kleine Midcap-Unternehmen gilt, und ob die Änderung 2026/1744 an den Geldbußen etwas geändert hat.</div>
+  <p class="step-label" style="font-size:.8rem;">Prompt 2: Risikostufen</p>
+  <div class="prompt-block">Frage: Erkläre die Risikostufen des EU AI Act in einfachen Worten, für Kolleginnen und Kollegen ohne juristisches Vorwissen. Mach eine Tabelle mit den Spalten: Stufe | was das bedeutet (ein Satz) | ein Beispiel aus dem Gesetzestext | Fundstelle | gilt ab (Fassung nach der Änderung 2026/1744).</div>
+  <p class="step-label" style="font-size:.8rem;">Prompt 3: Was hat sich im Juli 2026 geändert</p>
+  <div class="prompt-block">Frage: Was hat die Änderungsverordnung (EU) 2026/1744 am EU AI Act geändert? Nenne: 1. die geänderten Fristen als Tabelle: Pflicht | altes Datum laut Artikel 113 des Grundtexts | neues Datum laut Artikel 1 Nummer 40 der Änderung, 2. die neuen Verbote in Artikel 5 und ab wann sie gelten, 3. was sich an Artikel 4 (KI-Kompetenz) geändert hat, alt gegen neu, 4. Übergangsfristen für Systeme, die schon auf dem Markt sind. Nenne zu jedem Punkt die Fundstelle in der Änderungsverordnung (Artikel 1 Nummer …).</div>
+  <p class="step-label" style="font-size:.8rem;">Prompt 4: Betrifft das meine Abteilung?</p>
+  <p style="font-size:.9rem;">Hier knüpfst du an Übung 4 an: Füg dein <strong>Kontextdokument über deine Firma und deine Rolle</strong> an der Stelle <strong>[Kontextdokument einfügen]</strong> ein. Kein Dokument zur Hand? Dann schreib in einem Satz, was du tust, zum Beispiel „Personalabteilung, wir nutzen KI zum Vorsortieren von Bewerbungen“.</p>
+  <div class="prompt-block">Frage: Hier ist mein Kontextdokument über meine Firma und meine Rolle: [Kontextdokument einfügen]. Die Angaben zu Firma und Rolle nimmst du aus diesem Dokument, die Rechtslage nur aus den beiden hochgeladenen Dateien. Prüfe für meine Tätigkeit Schritt für Schritt: 1. Ist das eine verbotene Praktik nach Artikel 5? 2. Ist es hochriskant nach Artikel 6 und Anhang III? Wenn ja: welche Nummer, und ab wann gelten die Pflichten in der Fassung nach der Änderung 2026/1744? 3. Gilt eine Transparenzpflicht nach Artikel 50, und für wen (Anbieter oder Betreiber)? 4. Was verlangt Artikel 4 (KI-Kompetenz) von meinem Arbeitgeber? Schließe mit höchstens drei Punkten, die ich mit unserer Rechts- oder Compliance-Abteilung klären sollte.</div>
+  <p class="step-label" style="font-size:.8rem;">Prompt 5: Gegenprüfung (direkt nach Prompt 3 oder 4, ohne Rahmen)</p>
+  <div class="prompt-block">Prüfe deine letzte Antwort Satz für Satz gegen die beiden hochgeladenen Quellen. Mach eine Tabelle: Aussage | belegt / nicht belegt / falsch | Fundstelle (Artikel, Absatz) | wörtliches Kurzzitat aus der Quelle. Markiere besonders jedes Datum und jeden Betrag, der so nicht in den Quellen steht.</div>
+  <p class="gold"><strong>Nach Prompt 3 und Prompt 4 immer Prompt 5.</strong> Im Test hat die Gegenprüfung ein falsches Datum in einer Antwort selbst aufgedeckt. Zahlen und Daten siehst du in der Quelle nach: in NotebookLM auf die graue Ziffer klicken, in ChatGPT und Copilot den Artikel im PDF suchen. Die KI erfindet weniger, wenn sie sich an deine Quellen hält, aber nicht nichts.</p>
+
+  <p class="step-label">Schritt 3b: Persönlich machen</p>
+  <p>Lade zusätzlich dein <strong>Kontextdokument vom Vormittag</strong> (Übung 4: Unternehmen oder Rolle) als weitere Quelle hoch. Jetzt liest das Werkzeug alle Quellen gemeinsam. Setz den Rahmen davor.</p>
+  <div class="prompt-block">Eine meiner Quellen beschreibt mein Unternehmen bzw. meine Rolle. Worauf muss ich in diesem Kontext laut EU AI Act (in der Fassung mit der Änderung 2026/1744) besonders achten? Zitiere die relevanten Stellen.</div>
+  <p class="gold">Der Unterschied zu vorhin: nicht mehr „was sagt das Gesetz allgemein“, sondern „was heißt das Gesetz für mich“. Auch hier danach Prompt 5.</p>
+
+  <p class="step-label">Schritt 4: Ein Werkstück bauen (wenn du NotebookLM nutzt)</p>
+  <p>NotebookLM kann aus deinen Quellen selbst etwas bauen. Öffne im Notizbuch rechts das <strong>Studio</strong> und wähl <strong>ein</strong> Werkstück.</p>
+  <div class="role-grid">
+    <div class="role-card"><strong>A · Infografik</strong>Im Studio „Infografik“ wählen. Eine Seite, die man in 30 Sekunden versteht.</div>
+    <div class="role-card"><strong>B · Mindmap</strong>Im Studio „Mindmap“ wählen. Die Struktur des Gesetzes auf einen Blick.</div>
+    <div class="role-card"><strong>C · Karteikarten</strong>Im Studio „Lernhilfe“ wählen. Karteikarten und Quizfragen zum Abfragen.</div>
+  </div>
+  <p class="step-label">Die Prompts dazu</p>
+  <div class="prompt-block">Bau mir eine Übersicht der Risikostufen aus diesem Gesetz: welche Stufe, was sie bedeutet, ein Beispiel dazu. So, dass eine Kollegin sie in 30 Sekunden versteht.</div>
+  <div class="prompt-block">Erstelle eine hierarchische Struktur des Gesetzes: die großen Blöcke, darunter die Unterpunkte, ohne Paragrafennummern.</div>
+  <div class="prompt-block">Mach mir Karteikarten zu den wichtigsten Begriffen und Fristen aus diesem Gesetz. Vorderseite Frage, Rückseite Antwort, maximal zwei Sätze.</div>
+  <p class="pruef">Erzeugst du Audio oder Video, prüf vorher die Sprache: Beim letzten Mal kam ein Video auf Englisch.</p>
+  <p class="gold">Dieselbe Quelle, drei völlig verschiedene Ergebnisse. Nicht das Dokument entscheidet, was herauskommt, sondern das, was du bestellst.</p>
+  <p class="fallback"><strong>NotebookLM oder Google gesperrt, oder du arbeitest in ChatGPT oder Copilot?</strong> Nimm das ChatGPT-Projekt oder Copilot Notebook aus Schritt 2, oder lade beide Dateien in einen Chat in Claude. Rahmen und Prompt 1 bis 5 gehen unverändert. Die Werkstücke ersetzt du durch Textprompts: „Bau mir eine Tabelle der Risikostufen“, „Gliedere das Gesetz“, „Mach mir zehn Karteikarten als Liste“. Zitate gibt es dort nicht so sauber: Bitte ausdrücklich um Artikelnummern und prüf sie in den Quellen.</p>
+  <div class="magic-box"><div class="label">Für deine konkrete Frage</div><p>Zum Beispiel, ob mit KI geschriebene Texte gekennzeichnet werden müssen: Das klärst du mit eurer Rechtsabteilung oder einer Anwältin, ich bin kein Anwalt. Eine offizielle Anlaufstelle in Österreich ist die KI-Servicestelle der RTR auf <a href="https://www.rtr.at" target="_blank" rel="noopener">rtr.at</a>.</p></div>
+
+  <div class="check-titel">Selbstcheck</div>
+  <div class="quiz" data-q="e4"></div>
+  <div class="quiz" data-q="e5"></div>
+  <div class="quiz" data-q="e6"></div>
+  <div class="quiz" data-q="e7"></div>
+  <div class="weiter"><button type="button" class="quiz-btn" data-weiter="ue8">Erledigt, weiter</button></div>
+</div>
+</section>
+
+<!-- 6 Lokal gegen Cloud -->
+<section class="lektion" id="lokal" data-lab="Info" data-titel="Lokal gegen Cloud" data-zeit="ab 16:36">
+<div class="exercise">
+  <div class="exercise-number">Info · ab 16:36</div>
+  <h2>Lokal gegen Cloud</h2>
+  <p class="subtitle">Alles, was du in ChatGPT, Claude oder Copilot tippst, geht in die Cloud. Es gibt eine Alternative.</p>
+  <div class="gezeigt"><div class="label">Was ich gezeigt habe</div>
+    <p>Ein <strong>lokales Modell</strong> läuft auf dem eigenen Rechner, wie ein Computerspiel ohne Onlinezugang. Die Daten verlassen den Rechner nicht. Ich habe live Gemma gezeigt, ein offenes Modell von Google, in LM Studio. Auf die WM-Frage antwortete es: Die WM habe noch nicht stattgefunden. Für das Modell liegt sie nach seinem Stichtag, also in der Zukunft.</p>
+    <details><summary>Mehr aus der Demo</summary><div class="collapsible-content">
+      <p>Dann habe ich einem lokalen Agenten einen ganzen Ordner auf meinem Rechner gegeben. Nichts hochladen, er schaut selbst nach. Das ist komplette Datensouveränität, braucht aber Fachleute für die Einrichtung.</p>
+    </div></details>
+  </div>
+  <div class="ruhe"><div class="label">Das Wichtigste in Ruhe</div>
+    <p class="kern">Lokal löst die Datenfrage, nicht die Rechtsfrage.</p>
+    <h3>Vor- und Nachteile auf einen Blick</h3>
+  <table class="compare-table">
+    <tr><th style="width:50%">Cloud-Modell</th><th>Lokales Modell</th></tr>
+    <tr><td>Die stärksten und neuesten Modelle, laufend Updates</td><td>Etwas schwächer als die stärksten Modelle</td></tr>
+    <tr><td>Websuche möglich</td><td>Ohne Internet, Wissen nur bis zum Stichtag</td></tr>
+    <tr><td>Daten können die EU verlassen. Nach Enter hast du keine Kontrolle mehr.</td><td>Die Daten bleiben auf deinem Rechner</td></tr>
+    <tr><td>Sofort nutzbar, App herunterladen genügt</td><td>Braucht starke Hardware und die IT. Richtwert: ab etwa 3.000 bis 4.000 Euro, größere Lösungen 10.000 bis 15.000 Euro und mehr</td></tr>
+  </table>
+    <p>Wie weit liegen lokale Modelle zurück? Man sagt, etwa drei bis sechs Monate hinter den stärksten Cloud-Modellen. Das ist eine Faustregel, kein Messwert. Für viele Aufgaben reicht das völlig.</p>
+    <p class="mehr-label">Zum Vertiefen</p>
+    <details><summary>Was ist ein lokales Modell?</summary><div class="collapsible-content">
+    <p>Ein Sprachmodell, das als Datei auf deinem eigenen Rechner oder auf einem Server deiner Firma liegt. Ein Programm wie LM Studio startet es. Es braucht kein Internet. Viele dieser Modelle sind offen verfügbar, Gemma von Google ist eines davon.</p>
+    </div></details>
+    <details><summary>Datensouveränität</summary><div class="collapsible-content">
+    <p>Der große Vorteil: Die Daten verlassen den Rechner nicht. Ein lokaler Agent kann sogar ganze Ordner durchsehen, ohne dass etwas hochgeladen wird. Darum entscheiden sich Firmen dafür, die die volle Kontrolle über ihre Daten wollen.</p>
+    </div></details>
+    <details><summary>Was lokal nicht löst</summary><div class="collapsible-content">
+    <p>Die Regeln gelten trotzdem. Der EU AI Act fragt, wofür du KI einsetzt, nicht wo sie läuft. Auch die DSGVO bleibt. Und Betrieb, Updates und Sicherheit liegen dann bei euch. Das ist kein Download wie eine App, dafür braucht es die IT oder Fachleute.</p>
+    </div></details>
+  </div>
+  <p class="gold">Welches Modell passt, hängt an der Aufgabe. Für die meisten Firmen ist das ein späterer Schritt, wenn alle sicher mit den Cloud-Werkzeugen arbeiten.</p>
+
+  <div class="check-titel">Selbstcheck</div>
+  <div class="quiz" data-q="f1"></div>
+  <div class="quiz" data-q="f2"></div>
+  <div class="quiz" data-q="e8"></div>
+  <div class="weiter"><button type="button" class="quiz-btn" data-weiter="lokal">Erledigt, weiter</button></div>
+</div>
+</section>
+
+<!-- 7 Cowork -->
+<section class="lektion" id="cowork" data-lab="Für morgen" data-titel="Hast du Claude Cowork?" data-zeit="ab 16:46">
+<div class="exercise">
+  <div class="exercise-number">Für morgen · ab 16:46</div>
+  <h2>Hast du Claude Cowork?</h2>
+  <p class="subtitle">Morgen bauen wir Agenten, die selbst Schritte erledigen. Dafür arbeiten wir mit Claude Cowork. Prüf heute in 2 Minuten, ob es bei dir läuft.</p>
+  <div class="rahmen">
+    <div><b>Ziel</b>Wissen, ob du morgen mit Cowork arbeiten kannst.</div>
+    <div><b>Geschafft, wenn</b>alle Häkchen unten gesetzt sind, oder du weißt, was fehlt.</div>
+  </div>
+  <div class="gezeigt"><div class="label">Was ich gezeigt habe</div>
+    <p>Der größte Unterschied zum Projekt: Cowork greift direkt auf Ordner auf deinem Rechner zu, die du freigibst. Und es legt selbst Dateien an, zum Beispiel Word oder PowerPoint, und speichert sie dort, wo du es sagst. Ich habe es gefragt, wie viele Screenshots auf meinem Desktop liegen, und es hat nachgesehen.</p>
+    <details><summary>Mehr aus der Demo</summary><div class="collapsible-content">
+      <p><strong>Aber:</strong> Alles, was Cowork liest, geht in die Cloud. Bereite einen Ordner vor, in dem keine Kundendaten, keine personenbezogenen Daten und keine Firmengeheimnisse liegen.</p>
+    </div></details>
+  </div>
+  <div class="ruhe"><div class="label">Das Wichtigste in Ruhe</div>
+    <p class="kern">Cowork arbeitet in deinen Ordnern. Gib nur frei, was in die Cloud darf.</p>
+    <h3>Chat, Projekt, Cowork</h3>
+    <table class="compare-table">
+      <tr><th style="width:22%"></th><th>Chat</th><th>Projekt</th><th>Cowork</th></tr>
+      <tr><td><strong>Was die KI sieht</strong></td><td>was du eintippst und anhängst</td><td>dazu deine Projektdokumente</td><td>dazu Ordner auf deinem Rechner, die du freigibst</td></tr>
+      <tr><td><strong>Was sie liefert</strong></td><td>Text im Chat</td><td>Text im Chat</td><td>fertige Dateien, zum Beispiel Word oder PowerPoint, dort gespeichert, wo du es sagst</td></tr>
+      <tr><td><strong>Wo</strong></td><td>Browser oder App</td><td>Browser oder App</td><td>Desktop-App</td></tr>
+    </table>
+    <p class="mehr-label">Zum Vertiefen</p>
+    <details><summary>Der Unterschied in einem Satz</summary><div class="collapsible-content">
+    <p>Im Chat und im Projekt gibst du der KI ein, zwei Dokumente. In Cowork arbeitet sie selbst in deinen Ordnern: Sie liest, sucht, schreibt Dateien und legt sie ab.</p>
+    </div></details>
+    <details><summary>Was du freigibst und was nicht</summary><div class="collapsible-content">
+    <p>Alles, was Cowork liest, geht an ein Cloud-Modell. Gib deshalb nie deinen ganzen Rechner frei, sondern einen eigenen Arbeitsordner. Leg dort Kopien hinein, keine Originale. Nicht hinein gehören Kundendaten, personenbezogene Daten und Firmengeheimnisse. Die 3-Sekunden-Regel gilt hier für ganze Ordner.</p>
+    </div></details>
+    <details><summary>Was wir morgen damit bauen</summary><div class="collapsible-content">
+    <p>Morgen geht es um Agenten und Skills. Ein Skill ist, grob gesagt, eine gespeicherte Arbeitsanleitung, die die KI bei passenden Aufgaben selbst heranzieht. Was das genau ändert, siehst du morgen. Ein Vorgeschmack steht in der nächsten Lektion.</p>
+    </div></details>
+    <details><summary>Was du dafür brauchst</summary><div class="collapsible-content">
+    <p>Die Claude-Desktop-App, ein bezahltes Konto und einen vorbereiteten Ordner. Die Prüfliste steht gleich hier.</p>
+    </div></details>
+  </div>
+  <table class="compare-table">
+    <tr><th style="width:26%">Prüfen</th><th>So geht's</th></tr>
+    <tr><td><strong>1 · Desktop-App</strong></td><td>Ist die Claude-App auf deinem Rechner installiert? Wenn nicht: claude.ai/download</td></tr>
+    <tr><td><strong>2 · Bezahltes Konto</strong></td><td>Cowork gibt es nur mit einem bezahlten Claude-Konto (zum Beispiel Pro oder Team).</td></tr>
+    <tr><td><strong>3 · Cowork sichtbar</strong></td><td>App öffnen: Siehst du „Cowork“ als eigenen Bereich neben dem Chat?</td></tr>
+  </table>
+  <p class="pruef">In ChatGPT siehst du oben im neuen Chat die Auswahl „Chat“ und „Work“. Bei manchen gab es sie im Browser, in der Mac-App aber nicht.</p>
+  <div class="quiz" data-q="g2"></div>
+  <p class="fallback"><strong>Kein Cowork?</strong> Kein Problem. Sag mir morgen gleich zu Beginn, was fehlt und welches Werkzeug du hast, zum Beispiel Copilot in der Firma. Dann gibt es einen Weg für dich.</p>
+  <div class="check-titel">Selbstcheck</div>
+  <div class="quiz" data-q="g1"></div>
+  <div class="weiter"><button type="button" class="quiz-btn" data-weiter="cowork">Erledigt, weiter</button></div>
+</div>
+</section>
+
+<!-- 8 Cliffhanger -->
+<section class="lektion" id="ausblick" data-lab="Ausblick" data-titel="Ein Cliffhanger für morgen" data-zeit="ab 16:51">
+<div class="exercise">
+  <div class="exercise-number">Ausblick · ab 16:51</div>
+  <h2>Ein Cliffhanger für morgen</h2>
+  <p class="subtitle">Ganz am Ende lief dreimal dieselbe Aufgabe. Die Auflösung gibt es morgen.</p>
+  <div class="quiz" data-q="g3"></div>
+  <div class="weiter"><button type="button" class="quiz-btn" data-weiter="ausblick">Erledigt, weiter</button></div>
+</div>
+</section>
+
+<!-- 9 Ergebnis -->
+<section class="lektion" id="ergebnis" data-lab="Zum Schluss" data-titel="Dein Ergebnis" data-zeit="">
+<div class="exercise">
+  <div class="exercise-number">Zum Schluss</div>
+  <h2>Wie viel vom Nachmittag sitzt?</h2>
+  <p class="subtitle">Gezählt wird jeweils dein erster Versuch in den Selbstchecks. Die Aufgaben im eigenen Werkzeug, die Checkliste und die Vermutung zählen nicht mit.</p>
+  <div id="ergebnis-inhalt"></div>
+  <p class="step-label">Dein Auftrag bis morgen früh</p>
+  <ol>
+    <li>Leg ein Projekt an und stell die Kontrollfrage aus Übung 7, Schritt 5.</li>
+    <li>Mach den WM-Test in deinem Werkzeug.</li>
+    <li>Schalte das Training mit deinen Daten aus, in jedem Konto, das du nutzt.</li>
+    <li>Prüf die Cowork-Liste. Was fehlt, sagst du mir morgen gleich zu Beginn.</li>
+  </ol>
+  <button type="button" class="quiz-btn leer" id="reset">Alles zurücksetzen und neu beginnen</button>
+</div>
+</section>
+
+</div></main>
+
+<footer>
+  <p>Nachholen Tag 1, Nachmittag · Workshop „KI-Agenten, digitale Zwillinge, KI-Mitarbeiter“ · Jakub Popluhar · Stand 11.11.2026</p>
+  <p>Die Inhalte zum EU AI Act sind eine Lernhilfe, keine Rechtsberatung. Verbindlich ist der Text im Amtsblatt der EU.</p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var KEY = 'kiagenten-2026-11-tag1-nachholen.v1';
+  var S = { a: {}, c: {}, t: {}, f: {}, cur: null };
+  try { var roh = localStorage.getItem(KEY); if (roh) { var p = JSON.parse(roh); if (p && typeof p === 'object') S = { a: p.a || {}, c: p.c || {}, t: p.t || {}, f: p.f || {}, cur: p.cur || null }; } } catch (e) {}
+  function sichern() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+
+  /* typ: mc und sort zählen. hand, check, tipp zählen nicht. */
+  var Q = {
+    b1: { typ: 'sort', pill: 'Sortieren',
+      frage: 'Wohin gehört welche Anweisung? Tipp bei jeder Zeile eine Ebene an.',
+      kat: ['Einstellungen (alle Chats)', 'Projekt', 'Nur dieser Chat'],
+      items: [
+        { t: '„Sag mir lieber ‚Das weiß ich nicht‘, als zu raten.“', k: 0 },
+        { t: '„Du bist mein Assistent für Kunde A. Unser Ziel: Der Kunde verlängert die Zusammenarbeit um ein Jahr.“', k: 1 },
+        { t: '„Nimm für diese eine Antwort die Rolle eines skeptischen Einkäufers ein.“', k: 2 },
+        { t: 'Das Kontextdokument über Kunde A, als Datei hochgeladen.', k: 1 },
+        { t: '„Antworte mir auf Deutsch, kurz und per Du.“', k: 0 },
+        { t: '„Fasse das Protokoll von heute in fünf Punkten zusammen.“', k: 2 }
+      ],
+      erkl: 'Was immer gilt, egal worum es geht, kommt in die Einstellungen. Was zu einem Kunden oder Thema gehört, kommt ins Projekt: Anweisung und Dokumente. Was nur jetzt gilt, schreibst du in den Chat.' },
+    b2: { typ: 'mc', pill: 'Frage',
+      szene: 'In den Einstellungen steht: „Antworte immer ausführlich.“ Im Projekt-Prompt steht: „Antworte in Stichpunkten.“ Im Chat dieses Projekts schreibst du: „Bitte nur drei Sätze Fließtext.“',
+      frage: 'Was bekommst du sehr wahrscheinlich?',
+      o: [
+        { t: 'Eine ausführliche Antwort.', w: 'Die Einstellungen sind die äußerste Ebene. Sie verlieren gegen Projekt und Chat.' },
+        { t: 'Stichpunkte.', w: 'Das Projekt schlägt die Einstellungen. Deine Nachricht im Chat liegt aber noch weiter innen.' },
+        { t: 'Eine Fehlermeldung, weil sich die Anweisungen widersprechen.', w: 'Die KI meldet Widersprüche nicht. Sie gewichtet.' },
+        { t: 'Drei Sätze Fließtext.', ok: true, w: 'Richtig. Die innerste Ebene gewinnt.' }
+      ],
+      erkl: 'Widersprechen sich zwei Ebenen, gewinnt <b>fast immer die innere</b>. Fast, nicht immer. Deshalb schaust du auf das Ergebnis, nicht nur auf die Anweisung.' },
+    b3: { typ: 'mc', pill: 'Frage',
+      szene: 'Das Gedächtnis ist an. Die KI kennt deine Firma schon aus früheren Chats und beantwortet viele Fragen richtig.',
+      frage: 'Warum legst du trotzdem ein Kontextdokument ins Projekt?',
+      o: [
+        { t: 'Weil ich dann weiß, was sie weiß und was sie benutzt.', ok: true, w: 'Genau. Das ist der Unterschied zwischen Blackbox und Akte.' },
+        { t: 'Weil das Gedächtnis nach jedem Chat gelöscht wird.', w: 'Das Gedächtnis bleibt. Das Problem ist ein anderes: Du siehst nicht genau, was darin steht und was die KI davon nutzt.' },
+        { t: 'Weil Dokumente die KI schneller machen.', w: 'Schneller wird sie dadurch nicht. Es geht um Kontrolle.' },
+        { t: 'Gar nicht. Das Gedächtnis reicht.', w: 'Für privates Plaudern vielleicht. Für Kundenarbeit willst du wissen, worauf die Antwort steht.' }
+      ],
+      erkl: 'Das Gedächtnis ist eine Blackbox. Das Dokument ist deine Akte. Steht es im Dokument, hast du wieder die Kontrolle.' },
+    c2: { typ: 'mc', pill: 'Frage',
+      szene: 'In deinem Projekt liegen 25 Dokumente. Du fragst nach einem Detail aus einem bestimmten Vertrag. Die Antwort klingt gut, aber genau dieses Detail fehlt.',
+      frage: 'Was ist die wahrscheinlichste Erklärung?',
+      o: [
+        { t: 'Die KI will Zeit und Energie sparen.', w: 'Das klingt menschlich, ist aber kein Wille. Technisch holt sich das System passende Ausschnitte. Was nicht im Ausschnitt steht, fehlt in der Antwort.' },
+        { t: 'Mehr als 20 Dokumente sind nicht erlaubt.', w: 'Die Grenze liegt je nach Werkzeug höher. Das Problem ist nicht die Menge an sich.' },
+        { t: 'Der Vertrag ist als Datei beschädigt.', w: 'Möglich, aber selten. Viel häufiger hat die KI die Stelle schlicht nicht herangezogen.' },
+        { t: 'Die KI zieht Ausschnitte heran und liest nicht jedes Dokument ganz.', ok: true, w: 'Richtig. Bei vielen Dokumenten liest der Assistent nicht alles und nicht immer.' }
+      ],
+      erkl: 'Die Formel dagegen kopierst du dir am besten gleich:',
+      promptNach: 'Lies das ganze Dokument [Name der Datei] und nenne bei jeder Aussage die Fundstelle.' },
+    c3: { typ: 'mc', pill: 'Frage',
+      szene: 'Du baust einen Agenten, zum Beispiel einen Copilot-Agenten, der deine Wochenberichte schreibt. Er soll so klingen wie deine besten.',
+      frage: 'Was hilft am meisten?',
+      o: [
+        { t: 'In die Anweisung schreiben: „Schreib gute Berichte.“', w: '„Gut“ kann die KI nicht messen. Ein Beispiel zeigt Stil, Länge und Wortwahl auf einmal.' },
+        { t: 'Möglichst viele alte Berichte hochladen, auch die schwachen.', w: 'Dann lernt er auch vom Schwachen. Nimm die, die du gut fandest.' },
+        { t: 'Zwei gute Berichte als Wissen hochladen und dazuschreiben: „Führe die Aufgabe nach diesem Muster durch.“', ok: true, w: 'Genau. Das Beispiel ist die stärkste Anweisung.' },
+        { t: 'Den Agenten jede Woche neu anlegen.', w: 'Das kostet Zeit und ändert nichts an der Qualität.' }
+      ],
+      erkl: 'Wie bei einer neuen Kollegin: „Schau, das ist das Beispiel. So will ich das.“' },
+    d1: { typ: 'mc', pill: 'Frage',
+      szene: 'Dieselbe Frage zweimal: „Wer hat die Fußball-WM 2026 gewonnen?“ Einmal in einem Copilot-Notizbuch, einmal in einem ChatGPT-Projekt.',
+      frage: 'Was passiert?',
+      o: [
+        { t: 'Beide nennen denselben Sieger.', w: 'Dafür bräuchten beide eine Websuche. Im Notizbuch ist sie aus.' },
+        { t: 'Das Notizbuch kann es nicht verlässlich sagen. Das Projekt sucht im Netz und nennt einen Sieger.', ok: true, w: 'Richtig. Genau so lief die Demo.' },
+        { t: 'Das Notizbuch nennt den Sieger, das Projekt nicht.', w: 'Genau umgekehrt. Das Notizbuch holt nichts von außen.' },
+        { t: 'Beide verweigern die Antwort.', w: 'Das Projekt darf ins Netz und findet die Antwort dort.' }
+      ],
+      erkl: 'Beim Notizbuch ist die Schublade zu: keine Websuche, nur deine Quellen und die Trainingsdaten bis zum Stichtag.' },
+    d2: { typ: 'hand', pill: 'Was ist bei dir passiert?',
+      nach: 'Was hat dein Werkzeug gemacht? (Selbsteinschätzung, zählt nicht zum Ergebnis)',
+      o: [
+        { t: 'Es hat im Netz gesucht und eine Quelle genannt.', w: 'Dein Werkzeug hat Websuche. Gut für Aktuelles. Für Verträge, AGB und Gesetze, bei denen nur deine Quelle zählen soll, nimmst du ein Notizbuch.' },
+        { t: 'Es sagt, dass es das nicht verlässlich weiß.', w: 'Das ist das Notizbuch-Verhalten: Schublade zu. Richtig, wenn nur deine Quellen zählen sollen.' },
+        { t: 'Es sagt, die WM habe noch nicht stattgefunden.', w: 'Das Modell kennt nur seinen Wissensstand und hält alles danach für Zukunft. So hat auch das lokale Modell in der Demo geantwortet.' },
+        { t: 'Es nennt einen Sieger, aber ohne Quelle.', w: 'Vorsicht. Ohne Quelle weißt du nicht, ob das aus dem Netz kommt oder geraten ist. Frag nach: „Woher hast du das?“' }
+      ] },
+    d3: { typ: 'mc', pill: 'Frage',
+      szene: 'Zurück zu den Sixt-AGB. Ich habe mir die Passage zur Bearbeitungsgebühr wörtlich zitieren lassen.',
+      frage: 'Was stand darin, das den Unterschied machte?',
+      o: [
+        { t: 'Sixt kann eine Bearbeitungsgebühr verlangen. Da stand nicht: muss.', ok: true, w: 'Genau. Aus „kann“ wird Verhandlungsspielraum.' },
+        { t: 'Die Gebühr ist in Österreich verboten.', w: 'Das stand nicht drin. Genau so etwas würde eine KI ohne feste Quelle aber gern behaupten.' },
+        { t: 'Die Gebühr gilt nur für Firmenkunden.', w: 'Nein. Der Schlüssel lag in einem einzigen Wort.' },
+        { t: 'Bei Umzügen fällt keine Gebühr an.', w: 'Eine solche Ausnahme gab es nicht.' }
+      ],
+      erkl: 'Aus dem „kann“ wurde eine freundliche Mail: mit Paragraph und Zitat aus den AGB und der Bitte, die Gebühr zu erlassen. Sixt hat sie erlassen.' },
+    d4: { typ: 'mc', pill: 'Frage',
+      frage: 'Warum gehörten die AGB in ein Notizbuch und nicht in einen normalen Chat mit Websuche?',
+      o: [
+        { t: 'Im normalen Chat kann man keine PDFs hochladen.', w: 'Das geht dort auch. Der Grund ist ein anderer.' },
+        { t: 'Mit Websuche mischt die KI leicht andere Fassungen dazu, etwa die AGB für Deutschland, Österreich oder die Schweiz.', ok: true, w: 'Richtig. Dann müsstest du jede Aussage extra kontrollieren.' },
+        { t: 'Das Notizbuch schreibt die bessere Mail.', w: 'Die Mail kam aus einem normalen Chat. Das Notizbuch lieferte die geprüfte Stelle.' },
+        { t: 'Das Notizbuch ist schneller.', w: 'Um Tempo ging es nicht. Es ging darum, dass nur diese eine Quelle zählt.' }
+      ],
+      erkl: 'Notizbücher sind stark, wenn eine bestimmte Quelle zählt: AGB, lange Firmenrichtlinien, Gesetze. Dort halluziniert das Werkzeug deutlich seltener.' },
+    d5: { typ: 'mc', pill: 'Stimmt das?',
+      szene: '„Im Notizbuch gibt es keine Websuche. Also kann ich dort sensible Kundendaten bedenkenlos hochladen.“',
+      frage: 'Stimmt diese Aussage?',
+      o: [
+        { t: 'Ja, das stimmt.', w: 'Leider nicht. Keine Websuche heißt nur: Das Werkzeug holt nichts von außen herein. Was du hochlädst, geht trotzdem hinaus.' },
+        { t: 'Nein, das stimmt nicht.', ok: true, w: 'Richtig. Websuche und Datenschutz sind zwei verschiedene Fragen.' }
+      ],
+      erkl: 'Deine Dateien liegen auch im Notizbuch beim Anbieter in der Cloud. Bei Copilot mit Arbeitskonto bleiben sie im Microsoft-Umfeld deiner Firma, bei NotebookLM liegen sie bei Google. Die Regeln deiner Firma gelten in jedem Fall. Was das konkret heißt, kommt in der nächsten Lektion.' },
+    e1: { typ: 'sort', pill: 'Sortieren',
+      frage: 'Drei Sekunden vor Enter: Was darf so hinein, was nicht?',
+      kat: ['Darf so hinein', 'Erst abstrahieren oder weglassen'],
+      items: [
+        { t: 'Der Name einer Kollegin', k: 1 },
+        { t: 'Der öffentliche Text des EU AI Act', k: 0 },
+        { t: 'Die genaue Umsatzzahl aus dem letzten Quartal', k: 1 },
+        { t: '„Eine Kollegin aus dem Einkauf“ statt des Namens', k: 0 },
+        { t: 'Deine Strategie für das nächste Jahr', k: 1 },
+        { t: '„Ein mittlerer fünfstelliger Betrag“ statt der genauen Zahl', k: 0 }
+      ],
+      erkl: 'Namen raus, Zahlen raus, Strategie raus. Abstrahieren, nicht abschreiben.' },
+    e2: { typ: 'mc', pill: 'Frage',
+      szene: 'Du arbeitest mit einem Cloud-Modell, zum Beispiel ChatGPT, Claude oder Gemini.',
+      frage: 'Wo werden deine Daten verarbeitet?',
+      o: [
+        { t: 'Immer in der EU, das schreibt die DSGVO vor.', w: 'Die DSGVO erlaubt eine Verarbeitung außerhalb der EU unter Bedingungen. Wo genau, steht im Vertrag.' },
+        { t: 'Nur auf meinem Rechner.', w: 'Das gilt für lokale Modelle, nicht für Cloud-Modelle.' },
+        { t: 'Nirgends. Die Daten werden nicht gespeichert.', w: 'Sie werden zumindest übertragen und verarbeitet, oft auch gespeichert.' },
+        { t: 'Das steht im Vertrag und hängt vom Tarif ab. Bei vielen Cloud-Modellen auch außerhalb der EU.', ok: true, w: 'Richtig. Die ehrliche Antwort ist: im Vertrag nachsehen.' }
+      ],
+      erkl: 'Sobald du Enter drückst, verlässt der Text deinen Rechner. Achte deshalb auch darauf, welches Konto du nutzt: Firmendokumente gehören ins Firmenkonto, nie ins private Abo.' },
+    e3: { typ: 'mc', pill: 'Frage',
+      frage: 'Was ist das Mindeste, das du in ChatGPT, Claude oder Gemini einstellst, wenn du ein privates Konto nutzt?',
+      o: [
+        { t: 'Das Training mit meinen Daten ausschalten („Modell verbessern“).', ok: true, w: 'Genau. Das ist das Wenigste, was man machen kann.' },
+        { t: 'Das Gedächtnis löschen.', w: 'Kann sinnvoll sein, schützt aber nicht davor, dass deine Chats ins Training gehen.' },
+        { t: 'Nichts. Das Training ist überall von selbst aus.', w: 'In vielen Konten ist es an. Sieh selbst nach.' },
+        { t: 'Den Verlauf jeden Abend leeren.', w: 'Das ändert nichts daran, ob deine Daten zum Training genutzt werden.' }
+      ],
+      erkl: 'Der Schalter wirkt nur nach vorne. Die Wege stehen oben in der Tabelle.' },
+    e4: { typ: 'mc', pill: 'Frage',
+      szene: 'Eine Firma lässt eingehende Bewerbungen mit KI vorsortieren.',
+      frage: 'Was sagt der EU AI Act dazu?',
+      o: [
+        { t: 'Das ist verboten.', w: 'Ein häufiger Irrtum. Recruiting gilt als Hochrisiko, nicht als verboten. Verboten sind andere Dinge, zum Beispiel Social Scoring oder Emotionserkennung am Arbeitsplatz.' },
+        { t: 'Erlaubt, ohne besondere Regeln.', w: 'Gerade bei Personalentscheidungen sind die Regeln streng.' },
+        { t: 'Nur mit einem lokalen Modell erlaubt.', w: 'Wo das Modell läuft, ändert nichts an der Einstufung.' },
+        { t: 'Hochrisiko: erlaubt, aber mit Pflichten. Die Entscheidung trifft ein Mensch, der Einsatz muss nachvollziehbar sein.', ok: true, w: 'Richtig. Recruiting steht im Anhang III der Verordnung.' }
+      ],
+      erkl: 'Ein Beispiel, wie es nicht geht: eine automatische Absage, mitten in der Nacht, zwei Minuten nach der Bewerbung, ohne dass ein Mensch draufgeschaut hat. Die KI darf Unterlagen vorbereiten. Ja oder Nein sagt ein Mensch. Wo die KI eingesetzt wurde, warum und wer entschieden hat, muss nachvollziehbar sein.' },
+    e5: { typ: 'mc', pill: 'Frage',
+      frage: 'Wie hoch können die Geldbußen für verbotene KI-Praktiken sein?',
+      o: [
+        { t: 'Bis zu 35.000 Euro.', w: 'Drei Nullen zu wenig.' },
+        { t: 'Es gibt nur Verwarnungen.', w: 'Der AI Act sieht empfindliche Geldbußen vor.' },
+        { t: 'Bis zu 35 Millionen Euro oder 7 % des weltweiten Jahresumsatzes.', ok: true, w: 'Richtig. Es gilt der höhere der beiden Werte.' },
+        { t: 'Bis zu 1 Million Euro.', w: 'Deutlich zu niedrig für verbotene Praktiken.' }
+      ],
+      erkl: 'Das ist die höchste Stufe, für verbotene Praktiken (Artikel 99). Für andere Verstöße sind die Höchstbeträge niedriger, für kleinere Unternehmen gibt es Erleichterungen. Die genaue Tabelle liefert dir Prompt 1 oben, mit Fundstelle.' },
+    e6: { typ: 'mc', pill: 'Frage',
+      frage: 'Seit wann müssen Firmen, die KI einsetzen, sich um die KI-Kompetenz ihrer Leute kümmern (Artikel 4)?',
+      o: [
+        { t: 'Seit dem 2. Februar 2025.', ok: true, w: 'Richtig.' },
+        { t: 'Erst seit Sommer 2026.', w: 'Im Sommer 2026 kam die Änderungsverordnung. Sie hat Artikel 4 neu gefasst. Die Pflicht selbst gilt aber schon länger.' },
+        { t: 'Ab 2027.', w: 'Ab dem 2. August 2027 gelten alle Vorschriften. Artikel 4 gilt schon viel früher.' },
+        { t: 'Nur für IT-Abteilungen.', w: 'Gemeint sind alle, die in der Firma mit KI-Systemen arbeiten.' }
+      ],
+      erkl: 'Seit der Änderung durch die Verordnung (EU) 2026/1744, in Kraft seit dem 27.07.2026, heißt es: Anbieter und Betreiber von KI-Systemen ergreifen Maßnahmen, um die KI-Kompetenz ihres Personals zu unterstützen. Ein bestimmtes Niveau müssen sie nicht garantieren.' },
+    e7: { typ: 'mc', pill: 'Frage',
+      szene: 'Ein Video zeigt täuschend echt eine reale Person. Es ist mit KI erzeugt, ein sogenannter Deepfake.',
+      frage: 'Was verlangt der EU AI Act grundsätzlich?',
+      o: [
+        { t: 'Deepfakes sind grundsätzlich verboten.', w: 'Nein. Grundsätzlich gilt eine Kennzeichnungspflicht. Verboten ist nur ein enger Bereich, siehe unten.' },
+        { t: 'Nichts. Videos sind nicht geregelt.', w: 'Doch. Für künstlich erzeugte Inhalte gibt es Transparenzpflichten.' },
+        { t: 'Eine Kennzeichnung: Es muss offengelegt werden, dass der Inhalt künstlich erzeugt ist (Artikel 50).', ok: true, w: 'Richtig.' },
+        { t: 'Nur eine Meldung an eine Behörde.', w: 'Eine Meldung an eine Behörde ist nicht der Kern. Es geht um Offenlegung gegenüber denen, die es sehen.' }
+      ],
+      erkl: 'Eine enge Ausnahme kommt mit der Änderungsverordnung: Ab dem 02.12.2026 ist KI verboten, die ohne Zustimmung intime oder sexuelle Darstellungen einer bestimmbaren Person erzeugt, ebenso Darstellungen von sexuellem Kindesmissbrauch (Artikel 5). Für alles andere gilt: kennzeichnen. Und im Alltag: Die Videos sind inzwischen so gut, dass man kaum einen Unterschied merkt. Glaub überraschenden Videos und Anrufen nicht ungeprüft.' },
+    e8: { typ: 'mc', pill: 'Frage',
+      szene: 'Ein lokales Modell läuft auf deinem eigenen Rechner. Die Daten verlassen ihn nicht.',
+      frage: 'Gilt der EU AI Act dann für dich noch?',
+      o: [
+        { t: 'Nein. Ohne Cloud kein Gesetz.', w: 'Das Gesetz fragt, wofür du KI einsetzt, nicht wo sie läuft.' },
+        { t: 'Nur, wenn das Modell aus den USA kommt.', w: 'Die Herkunft des Modells ändert nichts an deinen Pflichten beim Einsatz.' },
+        { t: 'Ja. Es kommt auf den Einsatzzweck an, nicht darauf, wo das Modell läuft.', ok: true, w: 'Richtig. Lokal löst die Datenfrage, nicht die Rechtsfrage.' }
+      ],
+      erkl: 'In einem Test mit sechs Bewerbungen, absichtlich mit Fehlern, sollte ein lokales Modell entscheiden, wer eingestellt wird. Es antwortete sinngemäß: Das darf ich nicht, ich bin ein Sprachmodell, kein Mensch.' },
+    f1: { typ: 'sort', pill: 'Sortieren',
+      frage: 'Was gehört zum lokalen Modell, was zum Cloud-Modell?',
+      kat: ['Lokales Modell', 'Cloud-Modell'],
+      items: [
+        { t: 'Die Daten verlassen deinen Rechner nicht.', k: 0 },
+        { t: 'Die neuesten Modelle, laufend Updates.', k: 1 },
+        { t: 'Braucht starke Hardware und Fachleute für die Einrichtung.', k: 0 },
+        { t: 'Websuche möglich.', k: 1 },
+        { t: 'Etwas schwächer als die stärksten Modelle.', k: 0 },
+        { t: 'Daten können die EU verlassen.', k: 1 }
+      ],
+      erkl: 'Lokal heißt: volle Kontrolle über die Daten. Cloud heißt: die stärksten Modelle, bequem und immer aktuell.' },
+    f2: { typ: 'mc', pill: 'Frage',
+      szene: 'In der Demo lief Gemma lokal, ohne Internet. Die Frage: „Wer hat die WM 2026 gewonnen?“',
+      frage: 'Was hat es geantwortet?',
+      o: [
+        { t: 'Es sucht im Netz und nennt den Sieger.', w: 'Ohne Internet keine Suche. Das Modell läuft wie ein Computerspiel ohne Onlinezugang.' },
+        { t: 'Es nennt den Sieger aus seinen Trainingsdaten.', w: 'Die Trainingsdaten enden vor der WM. Den Sieger kann es nicht kennen.' },
+        { t: 'Es sagt, die WM habe noch nicht stattgefunden.', ok: true, w: 'Richtig. Für das Modell liegt die WM 2026 in der Zukunft.' }
+      ],
+      erkl: 'Ein Modell weiß nur, was bis zu seinem Stichtag passiert ist. Bei aktuellen Fragen prüfst du deshalb immer: Hat mein Werkzeug gerade Websuche, ja oder nein?' },
+    g1: { typ: 'mc', pill: 'Frage',
+      frage: 'Was ist der größte Unterschied zwischen Cowork und einem Projekt, wie du es in Übung 7 gebaut hast?',
+      o: [
+        { t: 'Cowork hat keine Websuche.', w: 'Darum geht es nicht. Der Unterschied liegt beim Zugriff auf deine Dateien.' },
+        { t: 'Cowork greift direkt auf Ordner zu, die du freigibst, und legt selbst Dateien an, zum Beispiel Word oder PowerPoint.', ok: true, w: 'Richtig. Es arbeitet in deinen Ordnern, nicht nur mit ein, zwei hochgeladenen Dokumenten.' },
+        { t: 'Cowork ist nur eine andere Oberfläche für denselben Chat.', w: 'Es kann deutlich mehr: Dateien lesen, Dateien schreiben, dort ablegen, wo du es sagst.' },
+        { t: 'Cowork funktioniert nur ohne Internet.', w: 'Cowork läuft mit einem Cloud-Modell. Darum ist die Frage, welche Ordner du freigibst, so wichtig.' }
+      ],
+      erkl: 'Alles, was Cowork liest, geht in die Cloud. Darum nur Ordner ohne Kundendaten, ohne personenbezogene Daten und ohne Firmengeheimnisse freigeben.' },
+    g2: { typ: 'check', pill: 'Deine Checkliste',
+      frage: 'Hak ab, was bei dir stimmt.',
+      items: [
+        'Die Claude-Desktop-App ist auf meinem Rechner installiert.',
+        'Ich habe ein bezahltes Claude-Konto, zum Beispiel Pro oder Team.',
+        'In der App sehe ich Cowork als eigenen Bereich neben dem Chat.',
+        'Ich habe einen Ordner ohne Kundendaten und ohne personenbezogene Daten vorbereitet.'
+      ],
+      fertig: 'Alles abgehakt. Du bist für morgen startklar.',
+      offen: 'Fehlt noch etwas? Dann sag es mir morgen gleich zu Beginn.' },
+    g3: { typ: 'tipp', pill: 'Vermutung · Auflösung morgen',
+      szene: 'Dreimal dieselbe Aufgabe: eine Folie über lokale und Cloud-Modelle, in den Farben einer bestimmten Webseite, mit deren Logo. Schau genau hin, vor allem auf Farben und Logo. Ein Bild antippen vergrößert es.',
+      bilder: [
+        { src: 'cliffhanger-1-chatgpt-chat.png', cap: '1 · ChatGPT, im Chat' },
+        { src: 'cliffhanger-2-chatgpt-work.png', cap: '2 · ChatGPT, im Work-Modus' },
+        { src: 'cliffhanger-3-claude-skill.png', cap: '3 · Claude, mit einem Skill' }
+      ],
+      frage: 'Was glaubst du: Was hat die KI beim dritten Durchlauf anders gemacht?',
+      o: [ 'Sie hatte ein besseres Modell.', 'Sie hatte einen besseren Prompt.', 'Sie hatte vorher etwas bekommen, das sie jedes Mal anwendet.', 'Das war Zufall.' ],
+      text: 'Und wenn du magst, in einem Satz: Was ist ein Skill?',
+      danach: 'Deine Vermutung ist gespeichert. Die Auflösung gibt es morgen. Bring sie mit.' }
+  };
+
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+  function gewertet(q) { return q.typ === 'mc' || q.typ === 'sort'; }
+  function kopieren(text, knoten) {
+    function ok() { knoten.classList.add('copied'); setTimeout(function () { knoten.classList.remove('copied'); }, 1400); }
+    function alt() { try { var t = document.createElement('textarea'); t.value = text; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t); ok(); } catch (e) {} }
+    try { if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(ok, alt); return; } } catch (e) {}
+    alt();
+  }
+  function machKopierbar(p) {
+    p.setAttribute('role', 'button'); p.tabIndex = 0; p.title = 'Antippen zum Kopieren';
+    p.addEventListener('click', function () { kopieren(p.innerText.trim(), p); });
+    p.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); kopieren(p.innerText.trim(), p); } });
+  }
+  function promptBlock(text) { var p = el('div', 'prompt-block'); p.textContent = text; machKopierbar(p); return p; }
+
+  function baueMC(id, q, box) {
+    if (q.szene) box.appendChild(el('p', 'quiz-szene', q.szene));
+    box.appendChild(el('p', 'quiz-frage', q.frage));
+    var knoepfe = [];
+    q.o.forEach(function (o, i) {
+      var b = el('button', 'quiz-opt'); b.type = 'button'; b.textContent = o.t;
+      b.addEventListener('click', function () { if (S.a[id]) return; S.a[id] = { pick: i, ok: !!o.ok }; sichern(); zeige(); aktualisieren(); });
+      knoepfe.push(b); box.appendChild(b);
+    });
+    var aus = el('div'); box.appendChild(aus);
+    function zeige() {
+      var s = S.a[id]; aus.innerHTML = '';
+      knoepfe.forEach(function (b) { b.className = 'quiz-opt'; b.disabled = !!s; });
+      if (!s) return;
+      knoepfe.forEach(function (b, i) { if (q.o[i].ok) b.classList.add('richtig'); else if (i === s.pick) b.classList.add('falsch'); else b.classList.add('blass'); });
+      aus.appendChild(el('p', 'quiz-eigen', (s.ok ? '<b>Richtig.</b> ' : '<b>Nicht ganz.</b> ') + q.o[s.pick].w));
+      if (q.erkl) aus.appendChild(el('p', 'quiz-hinweis', q.erkl));
+      if (q.promptNach) aus.appendChild(promptBlock(q.promptNach));
+      aus.appendChild(el('p', 'quiz-punkte' + (s.ok ? '' : ' null'), s.ok ? '+1 Punkt' : 'Kein Punkt, dafür sitzt es jetzt.'));
+    }
+    zeige();
+  }
+  function baueSort(id, q, box) {
+    box.appendChild(el('p', 'quiz-frage', q.frage));
+    box.appendChild(el('p', 'quiz-hilfe', 'Am Ende auf „Prüfen“ tippen. Ein Punkt, wenn alle Zeilen stimmen.'));
+    var wahl = {}, zeilen = [];
+    var pruefen = el('button', 'quiz-btn', 'Prüfen'); pruefen.type = 'button'; pruefen.disabled = true;
+    q.items.forEach(function (it, i) {
+      var z = el('div', 'sort-zeile'); z.appendChild(el('div', 'sort-text', it.t));
+      var w = el('div', 'sort-wahl');
+      var bs = q.kat.map(function (k, ki) {
+        var b = el('button'); b.type = 'button'; b.textContent = k;
+        b.addEventListener('click', function () { if (S.a[id]) return; wahl[i] = ki; bs.forEach(function (x, xi) { x.classList.toggle('an', xi === ki); }); pruefen.disabled = Object.keys(wahl).length !== q.items.length; });
+        w.appendChild(b); return b;
+      });
+      z.appendChild(w); var loes = el('div', 'sort-loesung'); z.appendChild(loes);
+      box.appendChild(z); zeilen.push({ z: z, bs: bs, loes: loes });
+    });
+    box.appendChild(pruefen);
+    var aus = el('div'); box.appendChild(aus);
+    pruefen.addEventListener('click', function () {
+      if (S.a[id]) return;
+      var map = q.items.map(function (_, i) { return wahl[i]; });
+      S.a[id] = { pick: map, ok: q.items.every(function (it, i) { return map[i] === it.k; }) }; sichern(); zeige(); aktualisieren();
+    });
+    function zeige() {
+      var s = S.a[id]; if (!s) return;
+      pruefen.style.display = 'none';
+      var n = 0;
+      zeilen.forEach(function (r, i) {
+        var g = s.pick[i], k = q.items[i].k, ok = g === k; if (ok) n++;
+        r.bs.forEach(function (b, bi) { b.disabled = true; b.classList.toggle('an', bi === g); });
+        r.z.classList.add(ok ? 'richtig' : 'falsch'); r.loes.textContent = ok ? '' : 'Richtig wäre: ' + q.kat[k];
+      });
+      aus.innerHTML = '';
+      aus.appendChild(el('p', 'quiz-eigen', s.ok ? '<b>Alle ' + q.items.length + ' richtig.</b>' : '<b>' + n + ' von ' + q.items.length + ' richtig.</b> Die roten Zeilen zeigen, wohin sie gehören.'));
+      if (q.erkl) aus.appendChild(el('p', 'quiz-hinweis', q.erkl));
+      aus.appendChild(el('p', 'quiz-punkte' + (s.ok ? '' : ' null'), s.ok ? '+1 Punkt' : 'Kein Punkt, dafür sitzt es jetzt.'));
+    }
+    zeige();
+  }
+  function baueWahl(id, q, box, opts, text) {
+    var knoepfe = [], aus = el('div');
+    opts.forEach(function (t, i) {
+      var b = el('button', 'quiz-opt'); b.type = 'button'; b.textContent = t;
+      b.addEventListener('click', function () { S.a[id] = { pick: i }; sichern(); zeige(); aktualisieren(); });
+      knoepfe.push(b); box.appendChild(b);
+    });
+    function zeige() { var s = S.a[id]; aus.innerHTML = ''; knoepfe.forEach(function (b, i) { b.classList.toggle('markiert', !!s && s.pick === i); }); if (s) aus.appendChild(el('p', 'quiz-eigen', text(s.pick))); }
+    return { aus: aus, zeige: zeige };
+  }
+  function baueHand(id, q, box) {
+    box.appendChild(el('p', 'quiz-frage', q.nach));
+    var w = baueWahl(id, q, box, q.o.map(function (o) { return o.t; }), function (i) { return q.o[i].w; });
+    box.appendChild(w.aus); w.zeige();
+  }
+  function baueCheck(id, q, box) {
+    box.appendChild(el('p', 'quiz-frage', q.frage));
+    var wrap = el('div', 'check-liste'), st = S.c[id] || [], aus = el('p', 'quiz-eigen');
+    q.items.forEach(function (t, i) {
+      var l = el('label'), c = document.createElement('input'); c.type = 'checkbox'; c.checked = !!st[i];
+      c.addEventListener('change', function () { st[i] = c.checked; S.c[id] = st; sichern(); zeige(); });
+      l.appendChild(c); l.appendChild(el('span', '', t)); wrap.appendChild(l);
+    });
+    box.appendChild(wrap); box.appendChild(aus);
+    function zeige() { var n = q.items.filter(function (_, i) { return st[i]; }).length; aus.innerHTML = n === q.items.length ? '<b>' + q.fertig + '</b>' : q.offen; }
+    zeige();
+  }
+  function baueTipp(id, q, box) {
+    if (q.szene) box.appendChild(el('p', 'quiz-szene', q.szene));
+    var g = el('div', 'bilder');
+    q.bilder.forEach(function (b) {
+      var f = el('figure'), img = document.createElement('img'); img.src = b.src; img.alt = 'Folie ' + b.cap; img.loading = 'lazy';
+      img.addEventListener('click', function () { var o = el('div', 'gross'), i2 = document.createElement('img'); i2.src = b.src; i2.alt = img.alt; o.appendChild(i2); o.addEventListener('click', function () { document.body.removeChild(o); }); document.body.appendChild(o); });
+      f.appendChild(img); f.appendChild(el('figcaption', '', b.cap)); g.appendChild(f);
+    });
+    box.appendChild(g);
+    box.appendChild(el('p', 'quiz-frage', q.frage));
+    var w = baueWahl(id, q, box, q.o, function () { return q.danach; });
+    box.appendChild(el('p', 'quiz-hilfe', q.text));
+    var ta = document.createElement('textarea'); ta.placeholder = 'Deine Vermutung, ein Satz genügt'; ta.value = S.t[id] || '';
+    ta.addEventListener('input', function () { S.t[id] = ta.value; sichern(); });
+    box.appendChild(ta); box.appendChild(w.aus); w.zeige();
+  }
+
+  /* Aufbau der Selbstchecks */
+  document.querySelectorAll('.quiz[data-q]').forEach(function (box) {
+    var id = box.getAttribute('data-q'), q = Q[id]; if (!q) return;
+    box.id = 'q-' + id;
+    box.appendChild(el('span', 'quiz-pill' + (gewertet(q) ? '' : ' offen'), q.pill));
+    if (q.typ === 'mc') baueMC(id, q, box);
+    else if (q.typ === 'sort') baueSort(id, q, box);
+    else if (q.typ === 'hand') baueHand(id, q, box);
+    else if (q.typ === 'check') baueCheck(id, q, box);
+    else if (q.typ === 'tipp') baueTipp(id, q, box);
+  });
+  document.querySelectorAll('.prompt-block').forEach(function (p) { if (!p.hasAttribute('role')) machKopierbar(p); });
+
+  /* Inhaltsverzeichnis */
+  var lektionen = [].slice.call(document.querySelectorAll('.lektion'));
+  var toc = document.getElementById('toc'), links = {};
+  lektionen.forEach(function (s) {
+    var a = el('a', 'zeile'); a.href = '#' + s.id;
+    a.innerHTML = '<span class="lab"></span><span class="t"></span><span class="ck"></span>';
+    a.querySelector('.lab').textContent = s.dataset.lab;
+    a.querySelector('.t').textContent = s.dataset.titel;
+    if (s.dataset.zeit) a.querySelector('.t').appendChild(el('span', 'zt', s.dataset.zeit));
+    toc.appendChild(a); links[s.id] = a;
+  });
+  function quizIds(s) { return [].map.call(s.querySelectorAll('.quiz[data-q]'), function (b) { return b.getAttribute('data-q'); }); }
+  function lektionFertig(s) {
+    if (S.f[s.id]) return true;
+    if (s.id === 'ergebnis') return Object.keys(Q).filter(function (id) { return gewertet(Q[id]); }).every(function (id) { return S.a[id]; });
+    var ids = quizIds(s).filter(function (id) { return gewertet(Q[id]) || Q[id].typ === 'tipp'; });
+    return ids.length > 0 && ids.every(function (id) { return S.a[id]; });
+  }
+  var side = document.getElementById('side'), oeffnen = document.getElementById('oeffnen');
+  function schliessen() { side.classList.remove('offen'); oeffnen.setAttribute('aria-expanded', 'false'); }
+  oeffnen.addEventListener('click', function () { side.classList.add('offen'); oeffnen.setAttribute('aria-expanded', 'true'); });
+  document.getElementById('schliessen').addEventListener('click', schliessen);
+
+  /* Eine Lektion sichtbar, wie in kurs.html */
+  var cur = null;
+  function zeigeLektion(id, ziel) {
+    var s = document.getElementById(id); if (!s || !s.classList.contains('lektion')) s = lektionen[0];
+    cur = s.id; S.cur = cur; sichern();
+    lektionen.forEach(function (x) { x.hidden = x !== s; });
+    Object.keys(links).forEach(function (k) { links[k].classList.toggle('aktiv', k === cur); });
+    var h = '#' + (ziel || cur);
+    if (location.hash !== h) { try { history.replaceState(null, '', h); } catch (e) {} }
+    schliessen();
+    var t = ziel && document.getElementById(ziel);
+    if (t) t.scrollIntoView({ block: 'start' }); else window.scrollTo(0, 0);
+  }
+  function ausHash() {
+    var id = decodeURIComponent(location.hash.slice(1)); var el = id && document.getElementById(id);
+    if (!el) return false;
+    var l = el.classList.contains('lektion') ? el : el.closest('.lektion'); if (!l) return false;
+    zeigeLektion(l.id, l === el ? null : id); return true;
+  }
+  window.addEventListener('hashchange', ausHash);
+  Object.keys(links).forEach(function (k) {
+    links[k].addEventListener('click', function (ev) { ev.preventDefault(); zeigeLektion(k); });
+  });
+  lektionen.forEach(function (s, i) {
+    var w = s.querySelector('.weiter');
+    if (!w) { w = el('div', 'weiter'); s.querySelector('.exercise').appendChild(w); }
+    w.classList.add('nav-knoepfe');
+    if (i > 0) {
+      var z = el('button', 'quiz-btn leer', '&larr; Zurück'); z.type = 'button';
+      z.addEventListener('click', function () { zeigeLektion(lektionen[i - 1].id); });
+      w.insertBefore(z, w.firstChild);
+    } else { w.insertBefore(el('span'), w.firstChild); }
+  });
+  document.querySelectorAll('[data-weiter]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var id = b.getAttribute('data-weiter'); S.f[id] = true; sichern(); aktualisieren();
+      var i = lektionen.findIndex(function (s) { return s.id === id; });
+      if (lektionen[i + 1]) zeigeLektion(lektionen[i + 1].id);
+    });
+  });
+
+  function aktualisieren() {
+    var wert = Object.keys(Q).filter(function (id) { return gewertet(Q[id]); });
+    var beantwortet = wert.filter(function (id) { return S.a[id]; }).length;
+    var punkte = wert.filter(function (id) { return S.a[id] && S.a[id].ok; }).length;
+    var fertig = lektionen.filter(lektionFertig).length;
+    lektionen.forEach(function (s) { links[s.id].classList.toggle('fertig', lektionFertig(s)); });
+    var txt = '<b>' + fertig + ' von ' + lektionen.length + '</b> Lektionen · ' + punkte + ' von ' + wert.length + ' Punkten';
+    document.getElementById('stand').innerHTML = txt;
+    document.getElementById('stand-m').innerHTML = txt;
+    document.getElementById('balken').style.width = Math.round(100 * fertig / lektionen.length) + '%';
+    var e = document.getElementById('ergebnis-inhalt'); e.innerHTML = '';
+    if (!beantwortet) { e.appendChild(el('p', '', 'Noch kein Selbstcheck beantwortet. Fang oben bei den drei Ebenen an.')); return; }
+    e.appendChild(el('div', 'ergebnis-zahl', punkte + ' von ' + wert.length));
+    var quote = punkte / wert.length, satz;
+    if (beantwortet < wert.length) satz = 'Noch ' + (wert.length - beantwortet) + ' Fragen offen. Das Ergebnis zählt erst, wenn alle beantwortet sind.';
+    else if (quote >= 0.8) satz = 'Stark. Du bist für morgen auf dem Stand der anderen.';
+    else if (quote >= 0.5) satz = 'Solide Basis. Lies bei den rot markierten Antworten die Erklärung noch einmal, dann sitzt es.';
+    else satz = 'Gut, dass du es jetzt merkst und nicht morgen mitten in der Übung. Geh die Erklärungen in Ruhe noch einmal durch.';
+    e.appendChild(el('p', '', satz));
+    var tab = el('table', 'ergebnis-tab');
+    lektionen.forEach(function (s) {
+      var ids = quizIds(s).filter(function (id) { return gewertet(Q[id]); }); if (!ids.length) return;
+      var p = ids.filter(function (id) { return S.a[id] && S.a[id].ok; }).length, a = ids.filter(function (id) { return S.a[id]; }).length;
+      var tr = el('tr'); tr.appendChild(el('td', '', s.dataset.lab + ' · ' + s.dataset.titel));
+      tr.appendChild(el('td', '', a < ids.length ? p + ' von ' + ids.length + ' (' + (ids.length - a) + ' offen)' : p + ' von ' + ids.length));
+      tab.appendChild(tr);
+    });
+    e.appendChild(tab);
+  }
+
+  document.getElementById('reset').addEventListener('click', function () {
+    if (!confirm('Alle Antworten auf diesem Gerät löschen und neu beginnen?')) return;
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    try { history.scrollRestoration = 'manual'; } catch (e) {}
+    window.scrollTo(0, 0);
+    location.reload();
+  });
+
+  aktualisieren();
+  if (!ausHash()) zeigeLektion(S.cur || 'willkommen');
+})();
+</script>
+</body>
+</html>
