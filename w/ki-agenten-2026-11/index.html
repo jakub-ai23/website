@@ -1148,7 +1148,106 @@ Prüfraster:
 Gesamturteil: „vollständig“, wenn alle vier Kriterien erfüllt sind. „Nachbessern“, wenn eines oder zwei nicht erfüllt sind. „Nicht brauchbar“, wenn drei oder mehr nicht erfüllt sind.</code></pre></div>
 <ol class="plain"><li>Schreiben Sie die drei Prüffragen darunter: Steht es da? Fehlt etwas? Hält es zweimal?</li><li>Speichern Sie das Ganze als Datei „Mein Prüfprompt“.</li></ol>
 <div class="callout"><p><b>Wie nehmen Sie ihn mit?</b> Der Text steht hier auf der Seite. Kopieren Sie Ihre persönliche Fassung in eine Datei auf Ihrem Gerät oder in Ihr Projekt, soweit Ihre IT das erlaubt.</p></div></div></details></section>
-<section class="blk" id="b-t2-1355"><div class="blk-h"><span class="blk-t">13:55</span><h3 class="blk-ttl">Die KI-Küche: drei Köche, ein Vorkoster</h3></div><p class="blk-ziel"><b>Ziel</b> Sie sehen, wie ein KI-Team arbeitet: ein Auftrag, drei Rollen parallel, ein Prüfer am Ende.</p><a class="kueche" href="kueche/index.html"><span class="k-kick">Erklärseite · öffnet im selben Tab</span><span class="k-ttl">Die KI-Küche: drei Köche, ein Vorkoster</span><span class="k-txt">So arbeitet ein KI-Team. Ein echter Testlauf vom 09.11.2026 mit Claude Cowork und erfundenen Übungsdateien: Drei Köche arbeiten gleichzeitig am Herd, danach prüft der Vorkoster. Ein Koch allein bräuchte 357 Sekunden. Sie starten die Animation selbst und sehen die echten Zeiten aus dem Protokoll.</span><span class="k-go">Küche öffnen →</span></a><div class="ex folgt"><div class="folgt-in"><span class="exn">11</span><span class="ext"><span class="ett">Ein Auftrag, drei Rollen, ein Prüfer</span><span class="exz">Claude Cowork · ChatGPT Work · Copilot mit @-Agenten · folgt</span></span></div></div></section>
+<section class="blk" id="b-t2-1350"><div class="blk-h"><span class="blk-t">13:50</span><h3 class="blk-ttl">Was ist ein Agent? Modell plus Arbeitsplatz</h3></div><p class="blk-ziel"><b>Ziel</b> Sie wissen, woraus jeder Agent besteht, und dass Sie fast alles daran selbst schreiben: als Text.</p><p>Stellen Sie sich eine Leihkraft vor. Hochbegabt, liest schneller als wir alle. Aber sie kommt jeden Morgen frisch von der Zeitarbeitsfirma und weiß nichts von gestern und nichts von Ihrer Firma. Das ist das <b>Modell</b>: Claude, GPT, das Modell hinter Copilot. Gemietet. Was aus ihr eine gute Kollegin macht, ist der <b>Arbeitsplatz</b>, den Sie einrichten.</p><div class="tbl"><table><thead><tr><th>Am Arbeitsplatz</th><th>Beim Agenten</th><th>Was das heißt</th></tr></thead><tbody><tr><td>Die Leihkraft</td><td>Modell</td><td>gemietet, austauschbar, weiß nichts von gestern</td></tr><tr><td>Stellenbeschreibung</td><td>Anweisungen</td><td>wer sie ist, was sie tut, was sie nie tut. Ein Text.</td></tr><tr><td>Regal mit Einarbeitungsmappen</td><td>Skills</td><td>sie liest die Rücken und zieht die passende Mappe. Sie lernt nichts dazu, morgen liest sie dieselbe Mappe wieder.</td></tr><tr><td>Schlüssel</td><td>Werkzeuge: Websuche, Ordner, Connectoren</td><td>was sie anfassen darf</td></tr><tr><td>Hausordnung</td><td>Grenzen und Freigaben</td><td>wann sie fragt, wann sie aufhört, wer unterschreibt. Unterschreiben tun immer Sie.</td></tr></tbody></table></div><p>Alles zusammen, der Arbeitsplatz samt Regeln, heißt bei Anthropic und OpenAI <b>Harness</b>. Emanuel Stadler hat es in seinem Vortrag in Ohrid (04.11.2026) so gesagt: <b>„The model is rented. The harness is yours.“</b> Das Modell ist gemietet, der Arbeitsplatz gehört Ihnen. Kommt ein besseres Modell, tauschen Sie die Leihkraft. Alles andere nehmen Sie mit.</p><p class="lbl">Ein Agent ist auch nur Text</p><p>So sieht mein eigener Rechercheagent aus, gekürzt. Eine Markdown-Datei, wie Ihr Skill. Oben stehen das Modell (eine einzige Zeile) und die Schlüssel, darunter die Stellenbeschreibung und die Hausordnung für Quellen.</p><div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>---
+name: researcher
+description: Researches topics using web search and writes structured reports.
+tools: WebSearch, WebFetch, Read, Write
+model: sonnet
+---
+You are a research agent. You gather information from the internet and
+produce clear, structured, source-backed reports.
+Accuracy matters more than speed.
+Key claims need 2+ independent sources. Flag single-source claims.
+Never fabricate sources or URLs. If you can't find it, say so.
+Always conclude with one clear recommendation.</code></pre></div><div class="callout"><p><b>Ein Assistent kann etwas Falsches sagen. Ein Agent kann etwas Falsches tun.</b> Deshalb braucht jeder Agent einen Prüfschritt und einen Menschen, der unterschreibt.</p></div></section><section class="blk" id="b-t2-1352"><div class="blk-h"><span class="blk-t">13:55</span><h3 class="blk-ttl">Ihr Rechercheagent</h3></div><p class="blk-ziel"><b>Ziel</b> Ein Agent, der öffentliche Quellen recherchiert und jede Aussage belegt.</p><details class="ex" id="ue-t2-recherche"><summary><span class="exn">R</span><span class="ext"><span class="ett">Ihr Rechercheagent: Internet ja, Personendaten nein</span><span class="exz">Stellenbeschreibung, Quellenregeln, Prüfschritt</span></span></summary><div class="exb"><p>Ihr erster Agent arbeitet nur mit dem öffentlichen Internet. Keine Kundendaten, keine Namen, keine Firmeninterna. Er bereitet eine Entscheidung vor, er trifft sie nicht.</p><p class="mrow"><b>Ziel</b> Eine Tabelle mit Fundstelle je Aussage und einer Prüfzeile am Ende.</p><p class="mrow"><b>Abgabe</b> Meet-Chat: Ihre Prüfzeile („Aussagen gesamt … mit Fundstelle … nicht gefunden …“).</p><div class="tbl"><table><thead><tr><th>Stufe</th><th>Claude</th><th>ChatGPT</th><th>Copilot</th></tr></thead><tbody><tr><td>1 · Alle</td><td>Neues Projekt „Rechercheagent“, Schritt 1 als Projekt-Anweisung, Websuche an</td><td>Projekt, gleiche Anweisung, Websuche an. Keinen Custom GPT mehr bauen: OpenAI schaltet sie am 11.12.2026 ab.</td><td>„Neuer Agent“ → Konfigurieren, Schritt 1 ins Feld „Anweisungen“, „Search all websites“ an, Test unter „Try it“</td></tr><tr><td>2 · Aufbau</td><td>Aus der Anweisung einen Skill machen (Schritt 5), in Cowork laufen lassen</td><td>Business: als Skill anlegen, falls im Workspace freigegeben</td><td>Skills nur mit Premium-Lizenz im Agenten</td></tr><tr><td>3 · Profi</td><td>Cowork mit zwei Arbeitern: Rechercheur und Gegenprüfer (Schritt 7)</td><td>Workspace Agent, falls freigegeben</td><td>handelnde Agenten: Copilot Studio, meist Sache der IT</td></tr></tbody></table></div><div class="st"><span class="n">1</span><div class="sb"><p><b>Die Stellenbeschreibung anlegen</b></p><p>Kopieren Sie den Text in die Projekt-Anweisung (Claude, ChatGPT) oder ins Feld „Anweisungen“ (Copilot). Setzen Sie Ihr Fachgebiet ein.</p><div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Du bist mein Rechercheagent für öffentliche Quellen.
+
+AUFTRAG
+Du beantwortest Rechercheaufträge zu [mein Fachgebiet] mit Quellen aus dem
+öffentlichen Internet. Das Ergebnis bereitet eine Entscheidung oder ein
+Gespräch mit einer Fachperson vor. Es ersetzt keine Rechts-, Steuer- oder
+Fachberatung.
+
+VORGEHEN
+1. Lies den Auftrag. Fehlt etwas Wichtiges (Land, Zeitraum, Zweck), stell
+   höchstens drei Rückfragen, bevor du suchst.
+2. Zerlege den Auftrag in höchstens fünf Teilfragen und zeig sie mir kurz.
+3. Such je Teilfrage. Öffne jede Seite, die du zitierst, und lies sie.
+   Ein Auszug aus der Trefferliste ist keine Quelle.
+4. Schreib das Ergebnis im Ausgabeformat.
+5. Mach am Ende den Prüfschritt.
+
+GRENZEN
+- Keine Personendaten: keine Recherche zu Privatpersonen, keine Namen von
+  Kunden, Kolleginnen oder Kollegen in Suchanfragen.
+- Keine internen Projekt- oder Firmennamen in Suchanfragen.
+- Höchstens fünf Quellen, außer ich erlaube mehr.
+- Du handelst nicht: keine Formulare, keine Anmeldungen, keine Mails,
+  keine Käufe.
+
+QUELLENREGELN
+1. Vorrang Primärquelle: Gesetz, Verordnung, Behörde, Hersteller,
+   Statistikamt. Fachartikel nur zur Einordnung, nie als einziger Beleg.
+2. Jede Aussage mit Fundstelle: Name der Quelle, Abschnitt, Link,
+   Datum der Quelle, Abrufdatum.
+3. Wörtlich, wo es zählt: Pflichten, Fristen und Zahlen als kurzes
+   wörtliches Zitat.
+4. "Nicht gefunden" ist eine erlaubte Antwort. Erfinde nie eine Fundstelle,
+   einen Link oder eine Zahl.
+5. Widersprechen sich Quellen, nenn beide und sag, welche du für
+   verlässlicher hältst und warum.
+6. Stand angeben: Gilt die Quelle noch? Quellen älter als zwei Jahre
+   markierst du als "älter".
+
+AUSGABEFORMAT
+Eine Tabelle:
+| Teilfrage | Antwort in höchstens zwei Sätzen | Fundstelle (Quelle, Abschnitt, Link, Abrufdatum) | Sicherheit: belegt / unklar / nicht gefunden |
+Darunter:
+- drei Zeilen "Was wir noch klären müssen"
+- "Geöffnete Quellen": Liste mit Link
+- "Gesucht, aber nicht geöffnet": Liste mit Grund
+Höchstens eine Seite.
+
+PRÜFSCHRITT, am Ende jeder Antwort, in einer Zeile:
+Aussagen gesamt: X · mit Fundstelle und Link: Y · nicht gefunden: Z.
+Hat eine Aussage keine Fundstelle, schreib davor in Großbuchstaben
+OHNE BELEG.</code></pre></div></div></div><div class="st"><span class="n">2</span><div class="sb"><p><b>Den Auftrag geben</b></p><p>In einem neuen Chat im Projekt. Kein eigenes Thema? Nehmen Sie eins der drei unten.</p><div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Rechercheauftrag: [Thema in einem Satz]
+Zweck: [wofür ich das brauche, z. B. Vorbereitung eines Gesprächs]
+Land und Stand: [z. B. Österreich, Stand heute]
+Fragen:
+1. [...]
+2. [...]
+3. Was ist unklar oder umstritten, und wo brauche ich eine Fachperson?</code></pre></div><ul><li>Welche Pflichten zur Kennzeichnung von KI-Texten gelten für Pressemitteilungen in Österreich?</li><li>Welche Förderungen gibt es 2026 in Österreich für KI-Weiterbildung von Beschäftigten?</li><li>Welche Pflichten zur Barrierefreiheit gelten für Websites von Unternehmen in Österreich?</li></ul></div></div><div class="st"><span class="n">3</span><div class="sb"><p><b>Lesen, nicht tippen</b></p><p>Lesen Sie die Tabelle. Stimmt die Prüfzeile? Steht irgendwo OHNE BELEG?</p></div></div><div class="st"><span class="n">4</span><div class="sb"><p><b>Gegenprüfen lassen, dann selbst prüfen</b></p><p>Neuer Chat, ohne Projekt:</p><div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Hier ist eine Recherche mit Quellen. Prüfe sie, ohne sie zu verbessern.
+1. Öffne drei Fundstellen deiner Wahl. Steht die Aussage dort wirklich?
+   Zitiere den Satz von der Seite.
+2. Welche Aussage hat die schwächste Quelle, und warum?
+3. Welche Frage klingt beantwortet, ist es aber nicht?
+Urteil in einer Zeile: hält / nachbessern / nicht verwenden.
+
+[Recherche einfügen]</code></pre></div><p>Danach Sie: Suchen Sie drei Zitate auf der Originalseite mit Strg+F (Mac: Cmd+F). Steht der Satz dort wirklich?</p></div></div><div class="st"><span class="n">5</span><div class="sb"><p><b>Aufbau: aus der Anweisung einen Skill machen</b></p><p>Claude (Code-Ausführung an). Den Ordner als Zip unter Einstellungen → Skills hochladen.</p><div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Mach aus meiner Projekt-Anweisung einen Skill.
+Ordner "recherche-mit-quellen" mit einer Datei SKILL.md.
+Oben:
+name: recherche-mit-quellen
+description: Recherchiert eine Frage mit öffentlichen Internetquellen und
+liefert eine Tabelle mit Fundstelle je Aussage. Greift, wenn ich
+"Rechercheauftrag" schreibe. Nicht für Recherchen zu Personen.
+Darunter die Abschnitte Vorgehen, Grenzen, Quellenregeln, Ausgabeformat,
+Prüfschritt, wörtlich aus meiner Anweisung. Gib mir den Ordner als Zip.</code></pre></div></div></div><div class="st"><span class="n">6</span><div class="sb"><p><b>Aufbau: in Cowork laufen lassen</b></p><p>Ordner „recherche“ freigeben, Freigabe „vor jeder Aktion fragen“.</p><div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Du arbeitest im freigegebenen Ordner "recherche".
+Arbeite mit dem Skill recherche-mit-quellen.
+[Rechercheauftrag aus Prompt E einfügen]
+Schreib das Ergebnis als Datei "ausgang/[thema]-[datum].md".
+Tu nichts anderes als Webseiten lesen und diese eine Datei schreiben.
+Frag mich vorher, wenn du etwas anderes brauchst.</code></pre></div></div></div><div class="st"><span class="n">7</span><div class="sb"><p><b>Profi: Rechercheur und Gegenprüfer</b></p><p>Zwei Arbeiter, jeder mit eigenem Kontext. Das ist dieselbe Idee wie die KI-Küche: Köche und ein Vorkoster.</p><div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Du arbeitest im freigegebenen Ordner "recherche". Lass zwei Arbeiter
+nacheinander laufen, jeden mit eigenem Kontext:
+1. Rechercheur: arbeitet mit dem Skill recherche-mit-quellen am Auftrag
+   unten und schreibt "ausgang/1-recherche.md".
+2. Gegenprüfer, unabhängig vom Rechercheur: öffnet jede Fundstelle aus
+   1-recherche.md neu und prüft, ob die Aussage dort steht. Schreibt
+   "ausgang/2-pruefung.md": je Aussage hält / hält nicht / nicht prüfbar,
+   mit Zitat von der Seite.
+Zum Schluss "ausgang/0-protokoll.md": Was lief nacheinander, was parallel,
+welche Werkzeuge, wo Grenzen, wie lange ungefähr. Erfinde nichts,
+Unbekanntes schreibst du als "unbekannt".
+[Rechercheauftrag aus Prompt E einfügen]</code></pre></div></div></div><details class="mini"><summary>Copilot: wenn es nicht geht</summary><div class="mini-b"><p><b>Kein „Neuer Agent“ sichtbar:</b> Schritt 1 als erste Nachricht im Copilot-Chat („Arbeite nach folgender Anleitung: …“).</p><p><b>Copilot darf nicht ins Web:</b> drei öffentliche Seiten selbst öffnen, den Text einfügen und ergänzen: „Arbeite nur mit den eingefügten Texten.“</p><p>Ihr Copilot-Agent hat meist keinen Schlüssel zum Handeln. Das ist kein Mangel, das ist Hausordnung.</p></div></details><div class="callout"><p><b>„Nicht gefunden“ ist eine erlaubte Antwort.</b> Eine erfundene Fundstelle nie.</p></div></div></details></section><section class="blk" id="b-t2-1355"><div class="blk-h"><span class="blk-t">13:55</span><h3 class="blk-ttl">Die KI-Küche: drei Köche, ein Vorkoster</h3></div><p class="blk-ziel"><b>Ziel</b> Sie sehen, wie ein KI-Team arbeitet: ein Auftrag, drei Rollen parallel, ein Prüfer am Ende.</p><a class="kueche" href="kueche/index.html"><span class="k-kick">Erklärseite · öffnet im selben Tab</span><span class="k-ttl">Die KI-Küche: drei Köche, ein Vorkoster</span><span class="k-txt">So arbeitet ein KI-Team. Ein echter Testlauf vom 09.11.2026 mit Claude Cowork und erfundenen Übungsdateien: Drei Köche arbeiten gleichzeitig am Herd, danach prüft der Vorkoster. Ein Koch allein bräuchte 357 Sekunden. Sie starten die Animation selbst und sehen die echten Zeiten aus dem Protokoll.</span><span class="k-go">Küche öffnen →</span></a><div class="ex folgt"><div class="folgt-in"><span class="exn">11</span><span class="ext"><span class="ett">Ein Auftrag, drei Rollen, ein Prüfer</span><span class="exz">Claude Cowork · ChatGPT Work · Copilot mit @-Agenten · folgt</span></span></div></div></section>
 <section class="blk" id="b-t2-1435"><div class="blk-h"><span class="blk-t">14:35</span><h3 class="blk-ttl">Agenten-Schwarm als Story</h3></div><p class="blk-ziel"><b>Ziel</b> Sie sehen an einer echten Vorbereitung, wie Agenten suchen und der Mensch entscheidet.</p><div class="ex folgt"><div class="folgt-in"><span class="exn">12</span><span class="ext"><span class="ett">Story: Der Agenten-Schwarm</span><span class="exz">Folgt</span></span></div></div></section>
 <div class="pause"><span class="blk-t">15:00</span> Pause</div>
 <section class="blk" id="b-t2-1515"><div class="blk-h"><span class="blk-t">15:15</span><h3 class="blk-ttl">Skill 3 nach Wahl und Version 2</h3></div><p class="blk-ziel"><b>Ziel</b> Sie bauen einen dritten Skill, tragen nach einem echten Fehler eine Regel nach und prüfen fremde Skills, bevor Sie sie nutzen.</p><details class="ex" id="ue-t2-13"><summary><span class="exn">13</span><span class="ext"><span class="ett">Ihr Skill nach Wahl</span><span class="exz">25 Minuten · Menü mit sieben Skill-Ideen</span></span></summary><div class="exb"><p>Hier bauen Sie Ihren dritten Skill. Offene Übung: Sie wählen aus dem Menü oder bauen einen eigenen. Pflicht ist nur der Prüfpunkt. Alle Ideen gehen ohne Zugriff auf Mail oder Kalender. 25 Minuten.</p>
