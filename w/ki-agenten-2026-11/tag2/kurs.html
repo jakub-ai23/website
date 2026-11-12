@@ -1228,96 +1228,74 @@ Was auf der Seite nicht steht, schreibst du nicht dazu.</div><p>Heute schauen Si
 
 4. PROTOKOLL: Schreib "ausgang/0-protokoll.md": Welche Aufgaben liefen wirklich parallel, welche nacheinander? Welche Werkzeuge hast du benutzt (Dateien lesen, Dateien schreiben, Web, Code)? Wo bist du an Grenzen gestoßen? Wie lange hat jede Aufgabe ungefähr gedauert? Erfinde nichts: Was du nicht weißt, schreib als "unbekannt".</div><p class="step-label">Schritt 4: Prüfen</p><p>Was bemängelt Ihr Prüfer? Steht im Protokoll ehrlich, was wirklich parallel lief? Vergleichen Sie Ihren Skill mit dem Beispiel-Skill.</p><p><b>In Copilot</b> sind Sie selbst der Chef: ein Agent je Aufgabe, und Sie geben die Ergebnisse von Hand weiter.</p>
 <p><b>Merksatz:</b> Bei mehreren KI-Agenten geht selten etwas beim Arbeiten verloren. Es geht bei der Übergabe verloren.</p></div></section>
-<section class="lektion" data-id="ue-t2-recherche" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="ue-t2-recherche"><div class="exercise-number">Übung 8</div><h3>Ihr Rechercheagent: Internet ja, Personendaten nein</h3><p class="subtitle">Stellenbeschreibung, Quellenregeln, Prüfschritt</p><p>Ihr erster Agent arbeitet nur mit dem öffentlichen Internet. Keine Kundendaten, keine Namen, keine Firmeninterna. Er bereitet eine Entscheidung vor, er trifft sie nicht.</p><div class="rahmen"><div><b>Ziel</b>Eine Tabelle mit Fundstelle je Aussage und einer Prüfzeile am Ende.</div><div><b>Abgabe</b>Meet-Chat: Ihre Prüfzeile („Aussagen gesamt … mit Fundstelle … nicht gefunden …“).</div></div><table class="compare-table"><thead><tr><th>Stufe</th><th>Claude</th><th>ChatGPT</th><th>Copilot</th></tr></thead><tbody><tr><td>1 · Alle</td><td>Neues Projekt „Rechercheagent“, Schritt 1 als Projekt-Anweisung, Websuche an</td><td>Projekt, gleiche Anweisung, Websuche an. Keinen Custom GPT mehr bauen: OpenAI schaltet sie am 11.12.2026 ab.</td><td>„Neuer Agent“ → Konfigurieren, Schritt 1 ins Feld „Anweisungen“, „Search all websites“ an, Test unter „Try it“</td></tr><tr><td>2 · Aufbau</td><td>Aus der Anweisung einen Skill machen (Schritt 5), in Cowork laufen lassen</td><td>Business: als Skill anlegen, falls im Workspace freigegeben</td><td>Skills nur mit Premium-Lizenz im Agenten</td></tr><tr><td>3 · Profi</td><td>Cowork mit zwei Arbeitern: Rechercheur und Gegenprüfer (Schritt 7)</td><td>Workspace Agent, falls freigegeben</td><td>handelnde Agenten: Copilot Studio, meist Sache der IT</td></tr></tbody></table><p class="step-label">Schritt 1: Die Stellenbeschreibung anlegen</p><p>Kopieren Sie den Text in die Projekt-Anweisung (Claude, ChatGPT) oder ins Feld „Anweisungen“ (Copilot). Setzen Sie Ihr Fachgebiet ein.</p><div class="prompt-block">Du bist mein Rechercheagent für öffentliche Quellen.
+<section class="lektion" data-id="ue-t2-recherche" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="ue-t2-recherche"><div class="exercise-number">Übung 8</div><h3>Ihr Rechercheagent: Internet ja, Personendaten nein</h3><p class="subtitle">In Cowork, ein Prompt, eine Datei: rechercheagent.md</p><p>Ihr erster Agent arbeitet nur mit dem öffentlichen Internet. Keine Kundendaten, keine Namen, keine Firmeninterna. Er bereitet eine Entscheidung vor, er trifft sie nicht.</p><p>Wir arbeiten in <b>Cowork</b>, ohne Projekt und ohne Systemanweisung. Der Agent ist eine Datei: <b>rechercheagent.md</b>. Ein Prompt legt sie an.</p><div class="rahmen"><div><b>Ziel</b>Die Datei rechercheagent.md in Ihrem Ordner und ein erstes Ergebnis mit Fundstelle je Aussage.</div><div><b>Abgabe</b>Meet-Chat: Ihre Prüfzeile („Aussagen gesamt … mit Fundstelle … nicht gefunden …“).</div></div><p class="step-label">Schritt 1: Ordner anlegen und freigeben</p><p>Legen Sie einen leeren Ordner <b>recherche</b> an. In Cowork freigeben, Freigabe „vor jeder Aktion fragen“. Wer Firecrawl hat: unter Connectoren einschalten.</p>
+<p class="step-label">Schritt 2: Ein Prompt: Cowork schreibt Ihren Agenten</p><p>Setzen Sie Ihr Fachgebiet ein. Alles andere bleibt, wie es ist.</p><div class="prompt-block">Du arbeitest im freigegebenen Ordner "recherche".
+Lege die Datei rechercheagent.md an, mit genau dem Text unten.
+Ersetze [mein Fachgebiet] durch: [Ihr Fachgebiet, zum Beispiel Qualitätsmanagement in der Pflege].
+Lege außerdem einen leeren Unterordner "ausgang" an.
+Tu sonst nichts. Zeig mir zum Schluss die fertige Datei.
 
-AUFTRAG
-Du beantwortest Rechercheaufträge zu [mein Fachgebiet] mit Quellen aus dem
-öffentlichen Internet. Das Ergebnis bereitet eine Entscheidung oder ein
-Gespräch mit einer Fachperson vor. Es ersetzt keine Rechts-, Steuer- oder
-Fachberatung.
+---
+# Rechercheagent für öffentliche Quellen
 
-VORGEHEN
-1. Lies den Auftrag. Fehlt etwas Wichtiges (Land, Zeitraum, Zweck), stell
-   höchstens drei Rückfragen, bevor du suchst.
+## Auftrag
+Du beantwortest Rechercheaufträge zu [mein Fachgebiet] mit Quellen aus dem öffentlichen Internet.
+Das Ergebnis bereitet eine Entscheidung oder ein Gespräch mit einer Fachperson vor.
+Es ersetzt keine Rechts-, Steuer- oder Fachberatung.
+
+## Vorgehen
+1. Lies den Auftrag. Fehlt etwas Wichtiges (Land, Zeitraum, Zweck), stell höchstens drei Rückfragen, bevor du suchst.
 2. Zerlege den Auftrag in höchstens fünf Teilfragen und zeig sie mir kurz.
-3. Such je Teilfrage. Öffne jede Seite, die du zitierst, und lies sie.
-   Ein Auszug aus der Trefferliste ist keine Quelle.
-4. Schreib das Ergebnis im Ausgabeformat.
+3. Such je Teilfrage. Nutze Firecrawl, wenn es verbunden ist, sonst die Websuche.
+   Öffne jede Seite, die du zitierst, und lies sie. Ein Auszug aus der Trefferliste ist keine Quelle.
+4. Schreib das Ergebnis im Ausgabeformat als Datei in den Ordner ausgang.
 5. Mach am Ende den Prüfschritt.
 
-GRENZEN
-- Keine Personendaten: keine Recherche zu Privatpersonen, keine Namen von
-  Kunden, Kolleginnen oder Kollegen in Suchanfragen.
+## Grenzen
+- Keine Personendaten: keine Recherche zu Privatpersonen, keine Namen von Kunden, Kolleginnen oder Kollegen in Suchanfragen.
 - Keine internen Projekt- oder Firmennamen in Suchanfragen.
 - Höchstens fünf Quellen, außer ich erlaube mehr.
-- Du handelst nicht: keine Formulare, keine Anmeldungen, keine Mails,
-  keine Käufe.
+- Du handelst nicht: keine Formulare, keine Anmeldungen, keine Mails, keine Käufe.
+- Du liest Webseiten und schreibst Dateien in diesen Ordner. Sonst nichts.
 
-QUELLENREGELN
-1. Vorrang Primärquelle: Gesetz, Verordnung, Behörde, Hersteller,
-   Statistikamt. Fachartikel nur zur Einordnung, nie als einziger Beleg.
-2. Jede Aussage mit Fundstelle: Name der Quelle, Abschnitt, Link,
-   Datum der Quelle, Abrufdatum.
-3. Wörtlich, wo es zählt: Pflichten, Fristen und Zahlen als kurzes
-   wörtliches Zitat.
-4. "Nicht gefunden" ist eine erlaubte Antwort. Erfinde nie eine Fundstelle,
-   einen Link oder eine Zahl.
-5. Widersprechen sich Quellen, nenn beide und sag, welche du für
-   verlässlicher hältst und warum.
-6. Stand angeben: Gilt die Quelle noch? Quellen älter als zwei Jahre
-   markierst du als "älter".
+## Quellenregeln
+1. Vorrang Primärquelle: Gesetz, Verordnung, Behörde, Hersteller, Statistikamt. Fachartikel nur zur Einordnung, nie als einziger Beleg.
+2. Jede Aussage mit Fundstelle: Name der Quelle, Abschnitt, Link, Datum der Quelle, Abrufdatum.
+3. Wörtlich, wo es zählt: Pflichten, Fristen und Zahlen als kurzes wörtliches Zitat.
+4. "Nicht gefunden" ist eine erlaubte Antwort. Erfinde nie eine Fundstelle, einen Link oder eine Zahl.
+5. Widersprechen sich Quellen, nenn beide und sag, welche du für verlässlicher hältst und warum.
+6. Stand angeben: Quellen älter als zwei Jahre markierst du als "älter".
 
-AUSGABEFORMAT
+## Ausgabeformat
 Eine Tabelle:
 | Teilfrage | Antwort in höchstens zwei Sätzen | Fundstelle (Quelle, Abschnitt, Link, Abrufdatum) | Sicherheit: belegt / unklar / nicht gefunden |
-Darunter:
-- drei Zeilen "Was wir noch klären müssen"
-- "Geöffnete Quellen": Liste mit Link
-- "Gesucht, aber nicht geöffnet": Liste mit Grund
+Darunter: drei Zeilen "Was wir noch klären müssen", "Geöffnete Quellen" mit Link, "Gesucht, aber nicht geöffnet" mit Grund.
 Höchstens eine Seite.
 
-PRÜFSCHRITT, am Ende jeder Antwort, in einer Zeile:
+## Prüfschritt
+Am Ende jeder Antwort, in einer Zeile:
 Aussagen gesamt: X · mit Fundstelle und Link: Y · nicht gefunden: Z.
-Hat eine Aussage keine Fundstelle, schreib davor in Großbuchstaben
-OHNE BELEG.</div><p class="step-label">Schritt 2: Den Auftrag geben</p><p>In einem neuen Chat im Projekt. Kein eigenes Thema? Nehmen Sie eins der drei unten.</p><div class="prompt-block">Rechercheauftrag: [Thema in einem Satz]
+Hat eine Aussage keine Fundstelle, schreib davor in Großbuchstaben OHNE BELEG.</div><p class="step-label">Schritt 3: Den Auftrag geben</p><p>Neue Aufgabe in Cowork, gleicher Ordner. Kein eigenes Thema? Nehmen Sie eins der drei unten.</p><div class="prompt-block">Lies zuerst rechercheagent.md und arbeite genau danach.
+
+Rechercheauftrag: [Thema in einem Satz]
 Zweck: [wofür ich das brauche, z. B. Vorbereitung eines Gesprächs]
 Land und Stand: [z. B. Österreich, Stand heute]
 Fragen:
 1. [...]
 2. [...]
-3. Was ist unklar oder umstritten, und wo brauche ich eine Fachperson?</div><ul><li>Welche Pflichten zur Kennzeichnung von KI-Texten gelten für Pressemitteilungen in Österreich?</li><li>Welche Förderungen gibt es 2026 in Österreich für KI-Weiterbildung von Beschäftigten?</li><li>Welche Pflichten zur Barrierefreiheit gelten für Websites von Unternehmen in Österreich?</li></ul><p class="step-label">Schritt 3: Lesen, nicht tippen</p><p>Lesen Sie die Tabelle. Stimmt die Prüfzeile? Steht irgendwo OHNE BELEG?</p><p class="step-label">Schritt 4: Gegenprüfen lassen, dann selbst prüfen</p><p>Neuer Chat, ohne Projekt:</p><div class="prompt-block">Hier ist eine Recherche mit Quellen. Prüfe sie, ohne sie zu verbessern.
-1. Öffne drei Fundstellen deiner Wahl. Steht die Aussage dort wirklich?
-   Zitiere den Satz von der Seite.
-2. Welche Aussage hat die schwächste Quelle, und warum?
-3. Welche Frage klingt beantwortet, ist es aber nicht?
-Urteil in einer Zeile: hält / nachbessern / nicht verwenden.
+3. Was ist unklar oder umstritten, und wo brauche ich eine Fachperson?
 
-[Recherche einfügen]</div><p>Danach Sie: Suchen Sie drei Zitate auf der Originalseite mit Strg+F (Mac: Cmd+F). Steht der Satz dort wirklich?</p><p class="step-label">Schritt 5: Aufbau: aus der Anweisung einen Skill machen</p><p>Claude (Code-Ausführung an). Den Ordner als Zip unter Einstellungen → Skills hochladen.</p><div class="prompt-block">Mach aus meiner Projekt-Anweisung einen Skill.
-Ordner "recherche-mit-quellen" mit einer Datei SKILL.md.
-Oben:
-name: recherche-mit-quellen
-description: Recherchiert eine Frage mit öffentlichen Internetquellen und
-liefert eine Tabelle mit Fundstelle je Aussage. Greift, wenn ich
-"Rechercheauftrag" schreibe. Nicht für Recherchen zu Personen.
-Darunter die Abschnitte Vorgehen, Grenzen, Quellenregeln, Ausgabeformat,
-Prüfschritt, wörtlich aus meiner Anweisung. Gib mir den Ordner als Zip.</div><p class="step-label">Schritt 6: Aufbau: in Cowork laufen lassen</p><p>Ordner „recherche“ freigeben, Freigabe „vor jeder Aktion fragen“.</p><div class="prompt-block">Du arbeitest im freigegebenen Ordner "recherche".
-Arbeite mit dem Skill recherche-mit-quellen.
-[Rechercheauftrag aus Prompt E einfügen]
-Schreib das Ergebnis als Datei "ausgang/[thema]-[datum].md".
-Tu nichts anderes als Webseiten lesen und diese eine Datei schreiben.
-Frag mich vorher, wenn du etwas anderes brauchst.</div><p class="step-label">Schritt 7: Profi: Rechercheur und Gegenprüfer</p><p>Zwei Arbeiter, jeder mit eigenem Kontext. Das ist der Orchestrator im Kleinen: ein Arbeiter und ein Prüfer.</p><div class="prompt-block">Du arbeitest im freigegebenen Ordner "recherche". Lass zwei Arbeiter
-nacheinander laufen, jeden mit eigenem Kontext:
-1. Rechercheur: arbeitet mit dem Skill recherche-mit-quellen am Auftrag
-   unten und schreibt "ausgang/1-recherche.md".
-2. Gegenprüfer, unabhängig vom Rechercheur: öffnet jede Fundstelle aus
-   1-recherche.md neu und prüft, ob die Aussage dort steht. Schreibt
-   "ausgang/2-pruefung.md": je Aussage hält / hält nicht / nicht prüfbar,
-   mit Zitat von der Seite.
-Zum Schluss "ausgang/0-protokoll.md": Was lief nacheinander, was parallel,
-welche Werkzeuge, wo Grenzen, wie lange ungefähr. Erfinde nichts,
-Unbekanntes schreibst du als "unbekannt".
-[Rechercheauftrag aus Prompt E einfügen]</div><details><summary>Copilot: wenn es nicht geht</summary><div class="collapsible-content"><p><b>Kein „Neuer Agent“ sichtbar:</b> Schritt 1 als erste Nachricht im Copilot-Chat („Arbeite nach folgender Anleitung: …“).</p><p><b>Copilot darf nicht ins Web:</b> drei öffentliche Seiten selbst öffnen, den Text einfügen und ergänzen: „Arbeite nur mit den eingefügten Texten.“</p><p>Ihr Copilot-Agent hat meist keinen Schlüssel zum Handeln. Das ist kein Mangel, das ist Hausordnung.</p></div></details><div class="magic-box" style="text-align:left"><p><b>„Nicht gefunden“ ist eine erlaubte Antwort.</b> Eine erfundene Fundstelle nie.</p></div></div></section>
-<section class="lektion" data-id="opt2-agent-oder-skill" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="opt2-agent-oder-skill"><div class="exercise-number">Übung 9</div><h3>Agent oder Skill? Fragen Sie Ihren Rechercheagenten</h3><p class="subtitle">Ohne eigene Daten, mit Firecrawl</p><p>Heute Vormittag kam immer wieder die Frage: Wann baue ich einen Skill, wann einen Agenten? Die Antwort holt diesmal Ihr Rechercheagent, und zwar aus den Quellen der Hersteller.</p><div class="rahmen"><div><b>Ziel</b>Sie wissen für jeden Fall, ob Skill, Agent oder Orchestrator, und haben die Begründung mit Zitat.</div><div><b>Daten</b>Keine eigenen. Die drei Fälle sind vorgegeben.</div><div><b>Abgabe</b>Im Meet-Chat: „a) … b) … c) …“ und ein Zitat, das Sie überrascht hat.</div></div><p class="step-label">Schritt 1: Werkzeug wählen</p><table class="compare-table"><thead><tr><th>Werkzeug</th><th>So sucht der Agent</th></tr></thead><tbody><tr><td><b>Claude</b> mit Firecrawl</td><td>Firecrawl verbunden (siehe Werkzeuge vorhin): holt ganze Seiten als Text</td></tr><tr><td><b>Claude</b> ohne Firecrawl</td><td>Websuche einschalten</td></tr><tr><td><b>ChatGPT</b></td><td>Websuche oder Deep Research</td></tr><tr><td><b>Copilot</b></td><td>Websuche, wenn Ihr Admin sie erlaubt</td></tr></tbody></table><p class="step-label">Schritt 2: Den Auftrag geben</p><p>Bei Ihrem Rechercheagenten aus der Übung davor, neuer Chat:</p><div class="prompt-block">Du bist mein Rechercheagent. Nutze Firecrawl, sonst die Websuche.
+Schreib das Ergebnis als Datei "ausgang/[thema].md".</div><ul><li>Welche Pflichten zur Kennzeichnung von KI-Texten gelten für Pressemitteilungen in Österreich?</li><li>Welche Förderungen gibt es 2026 in Österreich für KI-Weiterbildung von Beschäftigten?</li><li>Welche Pflichten zur Barrierefreiheit gelten für Websites von Unternehmen in Österreich?</li></ul>
+<p class="step-label">Schritt 4: Lesen, nicht tippen</p><p>Öffnen Sie die Datei im Ordner ausgang. Stimmt die Prüfzeile? Steht irgendwo OHNE BELEG? Suchen Sie drei Zitate auf der Originalseite mit Strg+F (Mac: Cmd+F).</p>
+<p class="step-label">Schritt 5: Profi: Rechercheur und Gegenprüfer</p><p>Zwei Arbeiter, jeder mit eigenem Kontext. Das ist der Orchestrator im Kleinen: ein Arbeiter und ein Prüfer.</p><div class="prompt-block">Du arbeitest im freigegebenen Ordner "recherche". Lass zwei Arbeiter nacheinander laufen, jeden mit eigenem Kontext:
+1. Rechercheur: liest rechercheagent.md, arbeitet am Auftrag unten und schreibt "ausgang/1-recherche.md".
+2. Gegenprüfer, unabhängig vom Rechercheur: öffnet jede Fundstelle aus 1-recherche.md neu und prüft,
+   ob die Aussage dort steht. Schreibt "ausgang/2-pruefung.md": je Aussage hält / hält nicht / nicht prüfbar, mit Zitat von der Seite.
+Zum Schluss "ausgang/0-protokoll.md": Was lief nacheinander, was parallel, welche Werkzeuge, wo Grenzen.
+Erfinde nichts. Unbekanntes schreibst du als "unbekannt".
+
+[Rechercheauftrag aus Schritt 3 einfügen]</div><details><summary>Kein Cowork?</summary><p>Copilot oder ChatGPT: den Text aus Schritt 2 ab „# Rechercheagent“ als Datei rechercheagent.md speichern und im Chat anhängen. Erster Satz: „Lies zuerst rechercheagent.md und arbeite genau danach.“ Darf das Werkzeug nicht ins Web: drei öffentliche Seiten selbst öffnen, Text einfügen und ergänzen: „Arbeite nur mit den eingefügten Texten.“</p></details><div class="magic-box" style="text-align:left"><p><b>Fertig, wenn …</b></p><ul><li>rechercheagent.md in Ihrem Ordner liegt,</li><li>das Ergebnis im Ordner ausgang liegt, mit Prüfzeile,</li><li>Sie drei Zitate selbst auf der Originalseite gefunden haben.</li></ul></div><p class="pruef">„Nicht gefunden“ ist eine erlaubte Antwort. Eine erfundene Fundstelle nie.</p></div></section>
+<section class="lektion" data-id="opt2-agent-oder-skill" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="opt2-agent-oder-skill"><div class="exercise-number">Übung 9</div><h3>Agent oder Skill? Fragen Sie Ihren Rechercheagenten</h3><p class="subtitle">Ohne eigene Daten, mit Firecrawl</p><p>Heute Vormittag kam immer wieder die Frage: Wann baue ich einen Skill, wann einen Agenten? Die Antwort holt diesmal Ihr Rechercheagent, und zwar aus den Quellen der Hersteller.</p><div class="rahmen"><div><b>Ziel</b>Sie wissen für jeden Fall, ob Skill, Agent oder Orchestrator, und haben die Begründung mit Zitat.</div><div><b>Daten</b>Keine eigenen. Die drei Fälle sind vorgegeben.</div><div><b>Abgabe</b>Im Meet-Chat: „a) … b) … c) …“ und ein Zitat, das Sie überrascht hat.</div></div><p class="step-label">Schritt 1: Werkzeug wählen</p><table class="compare-table"><thead><tr><th>Werkzeug</th><th>So sucht der Agent</th></tr></thead><tbody><tr><td><b>Claude</b> mit Firecrawl</td><td>Firecrawl verbunden (siehe Werkzeuge vorhin): holt ganze Seiten als Text</td></tr><tr><td><b>Claude</b> ohne Firecrawl</td><td>Websuche einschalten</td></tr><tr><td><b>ChatGPT</b></td><td>Websuche oder Deep Research</td></tr><tr><td><b>Copilot</b></td><td>Websuche, wenn Ihr Admin sie erlaubt</td></tr></tbody></table><p class="step-label">Schritt 2: Den Auftrag geben</p><p>In Cowork, im Ordner recherche aus der Übung davor, neue Aufgabe. Erster Satz: „Lies zuerst rechercheagent.md und arbeite genau danach.“ Dann:</p><div class="prompt-block">Du bist mein Rechercheagent. Nutze Firecrawl, sonst die Websuche.
 Nur offizielle Seiten von Anthropic, OpenAI und Microsoft.
 
 1. Wann baue ich einen Skill, wann einen Agenten, wann einen Orchestrator mit mehreren Agenten?
