@@ -993,7 +993,7 @@ Es zeigt, wie [Art des Dokuments, z. B. unsere Angebote] aussehen sollen.
 - Schritte
 - die Regeln A, B und C
 - ein kurzes Beispiel für ein gutes Ergebnis
-- am Ende eine Prüfliste mit allen Regeln B und C</code></pre></div></div></div><div class="st"><span class="n">5</span><div class="sb"><p><b>Testen</b></p><div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Bau mit dieser Anleitung ein neues Beispiel. Prüf es gegen deine Regeln B und C und nenn jede Abweichung.</code></pre></div><p>Wo der Skill wohnt (Claude, ChatGPT, Copilot-Agent), steht in Übung 7.</p></div></div><div class="callout"><p><b>Was man nicht prüfen kann, ist keine Regel.</b></p></div></div></details><details class="ex" id="ue-t2-5"><summary><span class="exn">5</span><span class="ext"><span class="ett">Word-Analyse</span><span class="exz">Erst der schnelle Weg, dann der genaue</span></span></summary><div class="exb"><p>Ihre Hausvorlage kennt jede Regel: Schrift, Farbe, Abstand. Die KI kennt keine davon, solange niemand sie aufschreibt. Hier schreibt die KI sie selbst auf, mit Fundstelle.</p>
+- am Ende eine Prüfliste mit allen Regeln B und C</code></pre></div></div></div><div class="st"><span class="n">5</span><div class="sb"><p><b>Testen</b></p><div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Bau mit dieser Anleitung ein neues Beispiel. Prüf es gegen deine Regeln B und C und nenn jede Abweichung.</code></pre></div><p>Wo der Skill wohnt (Claude, ChatGPT, Copilot-Agent), steht in Übung 7.</p></div></div><div class="callout"><p><b>Was man nicht prüfen kann, ist keine Regel.</b></p></div></div></details><details class="ex" id="ue-t2-5"><summary><span class="exn">5</span><span class="ext"><span class="ett">Word-Analyse</span><span class="exz">Eine Vorlage hochladen, Regeln auslesen</span></span></summary><div class="exb"><p>Ihre Hausvorlage kennt jede Regel: Schrift, Farbe, Abstand. Die KI kennt keine davon, solange niemand sie aufschreibt. Hier schreibt die KI sie selbst auf, mit Fundstelle.</p>
 <p class="mrow"><b>Ziel</b> Aus einer Word-Vorlage wird eine nummerierte Regelliste mit Fundstellen, und daraus ein Skill, den die KI bei jedem neuen Dokument anwendet.</p>
 <p class="mrow"><b>Abgabe</b> Kurz im Meet-Chat melden: „Regelwerk fertig“</p>
 <p class="lbl">Vorbereitung</p>
@@ -1002,17 +1002,14 @@ Es zeigt, wie [Art des Dokuments, z. B. unsere Angebote] aussehen sollen.
 <p class="lbl">So laden Sie die Datei hoch</p>
 <div class="tbl"><table><thead><tr><th>Werkzeug</th><th>Was Sie tun</th></tr></thead><tbody><tr><td><b>Claude</b></td><td>Datei in den Chat ziehen oder ins Projekt laden. Unter Einstellungen die Code-Ausführung (Analyse, Dateierstellung) einschalten, sonst liest Claude nur den Text und nicht die Formatierung.</td></tr><tr><td><b>ChatGPT</b></td><td>Datei über die Büroklammer hochladen. ChatGPT öffnet die .docx dann selbst und liest Formatvorlagen aus.</td></tr><tr><td><b>Copilot</b></td><td>Datei in OneDrive ablegen und im Copilot-Chat über „Datei anhängen“ (Büroklammer oder „/“) auswählen. Copilot sieht Formatierung oft nur teilweise: Rechnen Sie hier mit mehr „unsicher“.</td></tr></tbody></table></div>
 <div class="st"><span class="n">1</span><div class="sb">
-<p><b>Erst der schnelle Weg: Er geht schief, mit Absicht</b></p>
-<p>Neuer Chat, Datei anhängen, dann nur diesen einen Satz:</p>
-<div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Ich will die Formatierung nicht immer wieder selbst machen. Bau mir einen Skill aus dieser Vorlage.</code></pre></div>
-<p>Lesen Sie den Skill, den Sie bekommen. Suchen Sie drei Dinge:</p>
-<ul><li>Steht da eine <b>Schrift mit Größe</b> (zum Beispiel „Arial 11 pt“) oder nur „eine seriöse Schrift“?</li><li>Steht da eine <b>Farbe als Code</b> (zum Beispiel #1F4E3D) oder nur „dunkelgrün“?</li><li>Steht da ein <b>Abstand in Zahlen</b> (zum Beispiel „6 pt nach dem Absatz“) oder nur „großzügig“?</li></ul>
-<p>Fehlt eine Zahl, ist das eine Bitte, keine Regel. Dann sieht jedes Dokument ein bisschen anders aus. Das ist dasselbe wie gestern bei den Folien: „Orange“ ist eine Bitte, #FFA014 ist eine Regel.</p>
-<p class="pruef">Meet-Chat: „Gefehlt hat: [Schrift / Farbe / Abstand]“.</p>
+<p><b>Erst der schlechte Prompt</b></p>
+<p>Neuer Chat, Datei anhängen, dann nur diesen Satz:</p>
+<div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Bau mir einen Skill aus dieser Vorlage.</code></pre></div>
+<p>Schauen Sie sich an, was herauskommt. Dann Schritt 2 mit dem guten Prompt, und vergleichen Sie.</p>
 </div></div>
 <div class="st"><span class="n">2</span><div class="sb">
-<p><b>Jetzt genau: Regeln auslesen</b></p>
-<p>Neuer Chat, dieselbe Datei anhängen, dann diesen Prompt:</p>
+<p><b>Der gute Prompt: Regeln auslesen (8 Minuten)</b></p>
+<p>Neuer Chat, Datei anhängen, dann diesen Prompt:</p>
 <div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Im Anhang ist unsere Word-Vorlage. Lies sie als Datei aus, nicht nur als Text: Formatvorlagen, Seiteneinstellungen, Kopf- und Fußzeile, Tabellen.
 
 Schreib daraus unser Regelwerk als nummerierte Liste. Decke diese Punkte ab:
@@ -1031,7 +1028,7 @@ Zum Schluss: drei Fragen an mich, die du brauchst, um das Regelwerk vollständig
 <p><b>Prüfen (3 Minuten):</b> Öffnen Sie die Vorlage in Word, klicken Sie in eine Überschrift und vergleichen Sie Schrift und Größe mit Regel 1. Stimmen zwei Stichproben, ist die Liste brauchbar. Stimmt eine nicht und steht kein „unsicher“ daneben, hat die KI geraten: Sagen Sie es ihr und lassen Sie die Regel neu lesen.</p>
 </div></div>
 <div class="st"><span class="n">3</span><div class="sb">
-<p><b>Mach daraus einen Skill und vergleichen Sie</b></p>
+<p><b>Mach daraus einen Skill (4 Minuten)</b></p>
 <p>Im selben Chat:</p>
 <div class="code"><div class="code-bar"><span>Zum Kopieren</span><button type="button" class="copy" aria-label="Textblock kopieren">Kopieren</button></div><pre><code>Mach aus diesem Regelwerk einen Skill.
 
@@ -1042,7 +1039,6 @@ Aufbau:
 - Prüfschritt: Bevor du ein Dokument ablieferst, gehst du die Regeln einzeln durch und nennst jede, die du nicht einhalten konntest.
 
 Gib den Skill als einen einzigen Block aus, den ich kopieren kann.</code></pre></div>
-<p>Legen Sie beide Skills nebeneinander: den aus Schritt 1 und diesen. Wo stehen jetzt Zahlen, wo vorher nur Wörter standen?</p>
 <p>Wohin damit: in Claude als Skill hochladen oder in die Projektanweisungen; in ChatGPT in ein Projekt; in Copilot als Agent-Anweisung oder als Notizbuch-Anweisung.</p>
 </div></div>
 <div class="callout"><p><b>Werkzeug gesperrt?</b> Ohne Datei-Upload: Kopieren Sie die Formatierung aus Word (Formatvorlagen-Bereich, „Ändern“) in Stichpunkten in den Chat und lassen Sie Schritt 3 daraus laufen.</p></div>
