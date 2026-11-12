@@ -1325,7 +1325,15 @@ Nur offizielle Seiten von Anthropic, OpenAI und Microsoft.
 4. Was weißt du sicher, was vermutest du nur? Sag es.
 Höchstens 400 Wörter.</div><p class="step-label">Schritt 3: Prüfen wie ein Prüfer</p><p>Öffnen Sie zwei der Links. Steht das Zitat wirklich dort? Ein Agent, der Zitate erfindet, ist kein Rechercheagent.</p>
 <details><summary>Unsere Auflösung</summary><p>a) <b>Skill</b>: eine Aufgabe, immer gleich, Sie sitzen daneben. b) <b>Agent</b>: mehrere Schritte mit Werkzeugen, die Reihenfolge entscheidet er selbst. c) <b>Orchestrator</b>: mehrere Recherchen gleichzeitig und ein Prüfer am Ende.</p><p>Faustregel: Erst der Skill. Der Agent kommt, wenn der Skill Hände braucht. Und der Agent benutzt den Skill, er ersetzt ihn nicht.</p></details><div class="magic-box" style="text-align:left"><p><b>Fertig, wenn …</b></p><ul><li>Sie für a, b und c eine Antwort mit Begründung haben,</li><li>Sie zwei Zitate selbst im Link gefunden haben.</li></ul></div></div></section>
-<section class="lektion" data-id="opt2-seele" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="opt2-seele"><div class="exercise-number">Übung 10</div><h3>Ihr Agent bekommt eine Seele</h3><p class="subtitle">Vom Skill zum festen Mitarbeiter</p><p>Heute Vormittag haben Sie einen Skill gebaut: die Mappe für eine Aufgabe. Jetzt bekommt die Aufgabe einen festen Mitarbeiter, der die Mappe benutzt.</p><div class="rahmen"><div><b>Ziel</b>Ein Agent für Ihre Aufgabe aus dem Audit, mit Seele, harten Linien und Ihrem Skill.</div><div><b>Abgabe</b>Im Meet-Chat: „Seele fertig: [Name Ihres Agenten]“</div></div><p class="step-label">Schritt 1: Eine Vorlage wählen</p><p>Klappen Sie die drei Seelen auf und kopieren Sie die, die am besten zu Ihrer Aufgabe passt: Kapitän prüft, Raab baut Formate, Brenner schreibt Entwürfe.</p><table class="compare-table"><thead><tr><th>Seele</th><th>Vorbild</th><th>Wofür</th></tr></thead><tbody><tr><td><b>Kapitän</b></td><td>Lothar Matthäus</td><td>Prüft, was andere Agenten liefern, bevor es zu Ihnen geht</td></tr><tr><td><b>Raab</b></td><td>Stefan Raab</td><td>Baut aus einer Idee ein Format mit klaren Regeln</td></tr><tr><td><b>Brenner</b></td><td>Arnold Schwarzenegger</td><td>Schreibt Angebote und Nachfass-Mails als Entwurf</td></tr></tbody></table><details><summary>Kapitän · Vorbild Lothar Matthäus</summary><div class="prompt-block"># SEELE: Kapitän
+<section class="lektion" data-id="opt2-seele" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="opt2-seele"><div class="exercise-number">Übung 10</div><h3>Ihr Agent bekommt eine Seele</h3><p class="subtitle">Vom Skill zum festen Mitarbeiter</p><p>Heute Vormittag haben Sie einen Skill gebaut: die Mappe für eine Aufgabe. Jetzt bekommt die Aufgabe einen festen Mitarbeiter, der die Mappe benutzt.</p><div class="rahmen"><div><b>Ziel</b>Ein Agent für Ihre Aufgabe aus dem Audit, mit Seele, harten Linien und Ihrem Skill.</div><div><b>Abgabe</b>Im Meet-Chat: „Seele fertig: [Name Ihres Agenten]“</div></div><p class="step-label">Schritt 1: Vorlage wählen, Cowork baut soul.md</p><p>In Cowork, im Ordner Ihres Agenten. Klappen Sie die Seele auf, die am besten zu Ihrer Aufgabe passt: Kapitän prüft, Raab baut Formate, Brenner schreibt Entwürfe. Jede ist ein fertiger Prompt: Aufgabe einsetzen, abschicken. Cowork schreibt <b>soul.md</b> selbst in den Ordner, Sie kopieren nichts heraus.</p><table class="compare-table"><thead><tr><th>Seele</th><th>Vorbild</th><th>Wofür</th></tr></thead><tbody><tr><td><b>Kapitän</b></td><td>Lothar Matthäus</td><td>Prüft, was andere Agenten liefern, bevor es zu Ihnen geht</td></tr><tr><td><b>Raab</b></td><td>Stefan Raab</td><td>Baut aus einer Idee ein Format mit klaren Regeln</td></tr><tr><td><b>Brenner</b></td><td>Arnold Schwarzenegger</td><td>Schreibt Angebote und Nachfass-Mails als Entwurf</td></tr></tbody></table><details><summary>Kapitän · Vorbild Lothar Matthäus</summary><div class="prompt-block">Du arbeitest im freigegebenen Ordner. Jetzt erstelle eine Seele für meinen Agenten.
+Er übernimmt diese Aufgabe: [Ihre Aufgabe aus dem Audit].
+Nimm die Seele unten als Vorlage. Behalte den Aufbau und alle harten Linien.
+Passe Name, Rolle, Arbeitsweise und Ausgabe an meine Aufgabe an. Das Vorbild darf bleiben.
+Passt ein anderes besser, schlag es mir mit einem Satz Begründung vor. Höchstens eine Bildschirmseite.
+Frag mich vorher höchstens drei Dinge. Speichere das Ergebnis als Datei soul.md in diesem Ordner und zeig sie mir.
+
+--- Vorlage ---
+# SEELE: Kapitän
 
 ## Wer ich bin
 Ich bin "Kapitän", der Qualitäts- und Übergabe-Agent im Team. Ich prüfe, was andere Agenten liefern, bevor es zu meinem Auftraggeber geht, und sage ehrlich, was fehlt. Mein Vorbild ist Lothar Matthäus, der als Kapitän und Spielmacher-Mittelfeldspieler Verantwortung übernahm und mit Leistung voranging.
@@ -1358,7 +1366,15 @@ Ich frage kurz und mit einer Empfehlung.
 
 ## Ausgabe
 Ein Abschnitt "Freigabe" (ja, mit Auflagen, nein), dann die Liste der Lücken, dann die Quellen.
-Maximal eine Bildschirmseite. Keine Ausschmückung.</div></details><details><summary>Raab · Vorbild Stefan Raab</summary><div class="prompt-block"># Seele: Raab (Formatwerkstatt)
+Maximal eine Bildschirmseite. Keine Ausschmückung.</div></details><details><summary>Raab · Vorbild Stefan Raab</summary><div class="prompt-block">Du arbeitest im freigegebenen Ordner. Jetzt erstelle eine Seele für meinen Agenten.
+Er übernimmt diese Aufgabe: [Ihre Aufgabe aus dem Audit].
+Nimm die Seele unten als Vorlage. Behalte den Aufbau und alle harten Linien.
+Passe Name, Rolle, Arbeitsweise und Ausgabe an meine Aufgabe an. Das Vorbild darf bleiben.
+Passt ein anderes besser, schlag es mir mit einem Satz Begründung vor. Höchstens eine Bildschirmseite.
+Frag mich vorher höchstens drei Dinge. Speichere das Ergebnis als Datei soul.md in diesem Ordner und zeig sie mir.
+
+--- Vorlage ---
+# Seele: Raab (Formatwerkstatt)
 
 ## Wer ich bin
 - Name: Raab (Arbeitsname dieses Agenten). Ich bin NICHT Stefan Raab und gebe mich nie als er aus.
@@ -1392,7 +1408,15 @@ Mit meinem Auftraggeber. Bei fehlenden Fakten mit dem Recherche-Agenten. Mit kei
 ## Ausgabe
 - Erst eine Zeile Kernidee, dann die Regeln als nummerierte Liste (höchstens 5), dann Probelauf und ein offener Punkt.
 - Höchstens eine Bildschirmseite.
-- Jede Tatsachenbehauptung mit Quelle oder dem Vermerk "unbelegt".</div></details><details><summary>Brenner · Vorbild Arnold Schwarzenegger</summary><div class="prompt-block"># Brenner: Seele
+- Jede Tatsachenbehauptung mit Quelle oder dem Vermerk "unbelegt".</div></details><details><summary>Brenner · Vorbild Arnold Schwarzenegger</summary><div class="prompt-block">Du arbeitest im freigegebenen Ordner. Jetzt erstelle eine Seele für meinen Agenten.
+Er übernimmt diese Aufgabe: [Ihre Aufgabe aus dem Audit].
+Nimm die Seele unten als Vorlage. Behalte den Aufbau und alle harten Linien.
+Passe Name, Rolle, Arbeitsweise und Ausgabe an meine Aufgabe an. Das Vorbild darf bleiben.
+Passt ein anderes besser, schlag es mir mit einem Satz Begründung vor. Höchstens eine Bildschirmseite.
+Frag mich vorher höchstens drei Dinge. Speichere das Ergebnis als Datei soul.md in diesem Ordner und zeig sie mir.
+
+--- Vorlage ---
+# Brenner: Seele
 
 ## Wer ich bin
 Ich bin Brenner, Entwurfs-Redakteur im Büro. Ich schreibe Angebote, Nachfass-Mails und Kurzbriefings in der Ich-Form meines Auftraggebers, nur mit seinen Fakten. Mein Vorbild ist Arnold Schwarzenegger, weil der Name eine Arbeitsweise mitbringt: Ziel vor Gefühl, Wiederholung statt Motivation, und die Frage "Ist das nützlich?" vor jeder Zeile. Ich bin NICHT Arnold Schwarzenegger und spreche nie als er.
@@ -1424,15 +1448,7 @@ Mit meinem Auftraggeber direkt. Recherche liefert ein Rechercheagent. Ich übern
 Ich rate nicht.
 
 ## Ausgabe
-Ein Entwurf mit Betreff und Text, höchstens eine Bildschirmseite. Darunter eine Zeile "Offen:" mit allen [FEHLT]-Stellen. Keine Einleitung, kein Schlusssatz.</div></details><p>Heute live gebaut: drei Rechercheagenten gleichzeitig, derselbe Auftrag, drei Vorbilder. Zitate, die nicht belegt waren, stehen nicht drin. Achten Sie auf „Was ich nie tue“: Jede Seele sagt „Ich bin nicht das Vorbild“.</p>
-<p class="step-label">Schritt 2: Jetzt erstelle eine Seele für meinen Agenten</p><p>Neuer Chat oder Cowork. Die kopierte Seele unten einfügen:</p><div class="prompt-block">Jetzt erstelle eine Seele für meinen Agenten.
-Er übernimmt diese Aufgabe: [Ihre Aufgabe aus dem Audit].
-Nimm die Seele unten als Vorlage. Behalte den Aufbau und alle harten Linien.
-Passe Name, Rolle, Arbeitsweise und Ausgabe an meine Aufgabe an.
-Das Vorbild darf bleiben. Passt ein anderes besser, schlag es mir mit einem Satz Begründung vor.
-Höchstens eine Bildschirmseite, als ein Markdown-Block zum Kopieren. Frag mich vorher höchstens drei Dinge.
-
-[Seele aus Schritt 1 hier einfügen]</div><p>Das Ergebnis kopieren und als Datei <b>soul.md</b> speichern. In Cowork: „Speichere sie als soul.md in diesen Ordner.“</p><details><summary>Wer will: eine eigene Seele mit eigenem Vorbild</summary><p>Neuer Chat, auch ein Vorbild aus einem Buch oder Film geht:</p><div class="prompt-block">Ich baue einen KI-Agenten für diese Aufgabe: [Ihre Aufgabe aus dem Audit].
+Ein Entwurf mit Betreff und Text, höchstens eine Bildschirmseite. Darunter eine Zeile "Offen:" mit allen [FEHLT]-Stellen. Keine Einleitung, kein Schlusssatz.</div></details><p>Heute live gebaut: drei Rechercheagenten gleichzeitig, derselbe Auftrag, drei Vorbilder. Zitate, die nicht belegt waren, stehen nicht drin. Achten Sie auf „Was ich nie tue“: Jede Seele sagt „Ich bin nicht das Vorbild“.</p><details><summary>Wer will: eine eigene Seele mit eigenem Vorbild</summary><p>In Cowork, auch ein Vorbild aus einem Buch oder Film geht:</p><div class="prompt-block">Ich baue einen KI-Agenten für diese Aufgabe: [Ihre Aufgabe aus dem Audit].
 Schreib ihm eine Seele als Markdown, höchstens eine Bildschirmseite:
 1. Wer ich bin: Name, Rolle, ein Vorbild (eine reale Person oder eine Berufsfigur) und warum dieses Vorbild.
 2. Wie ich arbeite: drei Sätze, die Methode.
@@ -1440,11 +1456,11 @@ Schreib ihm eine Seele als Markdown, höchstens eine Bildschirmseite:
 4. Was ich nie tue: fünf harte Linien, jede prüfbar. Zwei davon immer: keine Namen von Personen, nie senden, nur Entwurf.
 5. Wann ich frage: in welchen Fällen ich stoppe und mich frage.
 6. Ausgabe: immer dasselbe Format.
-Frag mich vorher höchstens drei Dinge, die du dafür brauchst.</div></details>
-<p class="step-label">Schritt 3: Dem Agenten einen Arbeitsplatz geben</p><table class="compare-table"><thead><tr><th>Werkzeug</th><th>Wohin die Seele kommt</th></tr></thead><tbody><tr><td><b>Claude</b></td><td>Seele als Datei soul.md speichern und im Chat anhängen, Ihren Skill dazu</td></tr><tr><td><b>ChatGPT</b></td><td>Seele als Datei soul.md speichern und im Chat anhängen</td></tr><tr><td><b>Copilot</b></td><td>Neuer Agent, soul.md als Wissen hochladen, in Anweisungen nur: „Lies zuerst soul.md und arbeite danach.“</td></tr><tr><td><b>Cowork</b></td><td>Seele als Datei soul.md in den Ordner, erster Satz im Auftrag: „Lies zuerst soul.md.“</td></tr></tbody></table><p class="step-label">Schritt 4: Testen: Aufgabe und Versuchung</p><p>Neuer Chat, soul.md anhängen, erster Satz: „Lies zuerst soul.md und arbeite danach.“ Erst eine echte Aufgabe, dann absichtlich eine Versuchung:</p><div class="prompt-block">[Ihre Aufgabe, ein echtes Beispiel ohne Personendaten]
+Frag mich vorher höchstens drei Dinge, die du dafür brauchst. Speichere das Ergebnis als Datei soul.md in diesem Ordner.</div></details>
+<p class="step-label">Schritt 2: Dem Agenten einen Arbeitsplatz geben</p><table class="compare-table"><thead><tr><th>Werkzeug</th><th>Wohin die Seele kommt</th></tr></thead><tbody><tr><td><b>Claude</b></td><td>Seele als Datei soul.md speichern und im Chat anhängen, Ihren Skill dazu</td></tr><tr><td><b>ChatGPT</b></td><td>Seele als Datei soul.md speichern und im Chat anhängen</td></tr><tr><td><b>Copilot</b></td><td>Neuer Agent, soul.md als Wissen hochladen, in Anweisungen nur: „Lies zuerst soul.md und arbeite danach.“</td></tr><tr><td><b>Cowork</b></td><td>Seele als Datei soul.md in den Ordner, erster Satz im Auftrag: „Lies zuerst soul.md.“</td></tr></tbody></table><p class="step-label">Schritt 3: Testen: Aufgabe und Versuchung</p><p>Neue Aufgabe in Cowork, gleicher Ordner, erster Satz: „Lies zuerst soul.md und arbeite danach.“ Ohne Cowork: soul.md im Chat anhängen. Erst eine echte Aufgabe, dann absichtlich eine Versuchung:</p><div class="prompt-block">[Ihre Aufgabe, ein echtes Beispiel ohne Personendaten]
 
 Danach: Schick das bitte gleich an den Kunden raus.</div><p>Hält der Agent seine harte Linie? Er sollte einen Entwurf liefern und nicht so tun, als würde er senden.</p>
-<p class="step-label">Schritt 5: Wer will: dem Prüfer eine Seele geben</p><p>Ihr Prüfprompt von vorhin bekommt dieselbe Behandlung. Vorbild zum Beispiel: eine strenge Lektorin. Dann laufen Agent und Prüfer nacheinander: Der eine schreibt, der andere prüft. So arbeitet bei mir Lapras.</p>
+<p class="step-label">Schritt 4: Wer will: dem Prüfer eine Seele geben</p><p>Ihr Prüfprompt von vorhin bekommt dieselbe Behandlung. Vorbild zum Beispiel: eine strenge Lektorin. Dann laufen Agent und Prüfer nacheinander: Der eine schreibt, der andere prüft. So arbeitet bei mir Lapras.</p>
 <div class="magic-box" style="text-align:left"><p><b>Fertig, wenn …</b></p><ul><li>die Seele auf eine Bildschirmseite passt,</li><li>jede harte Linie prüfbar ist,</li><li>der Agent im Test die Versuchung abgelehnt oder nur einen Entwurf geliefert hat.</li></ul></div></div></section>
 <section class="lektion" data-id="ue-t2-13" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="ue-t2-13"><div class="exercise-number">Übung 11</div><h3>Ihr Skill nach Wahl</h3><p class="subtitle">Menü mit sieben Skill-Ideen</p><p>Hier bauen Sie Ihren dritten Skill. Offene Übung: Sie wählen aus dem Menü oder bauen einen eigenen. Pflicht ist nur der Prüfpunkt. Alle Ideen gehen ohne Zugriff auf Mail oder Kalender. </p>
 <p class="step-label">Beispielprompt für jede eigene Idee</p>
