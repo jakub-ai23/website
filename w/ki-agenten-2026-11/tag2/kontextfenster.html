@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Das Kontextfenster</title>
+<!-- Created: 2026-11-12 08:50 · Last updated: 2026-11-12 08:50 · Nachbau von Jakubs Erklärung (Albert/tecTrain 25.08., Tag 1 11.11. 11:11) + MET-4 Schreibtisch. Zum Bildschirm-Teilen. -->
+<style>
+:root{--bg:#141414;--ink:#f5f5f5;--muted:#b0b0b0;--gold:#d4a017;--card:#1c1c1c;--line:rgba(212,160,23,.25);--you:#2b2516;--ai:#202020;--doc:#17222d;--sys:#2e2610;--warn:#c0604a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 Inter,system-ui,sans-serif}
+main{max-width:1150px;margin:0 auto;padding:24px 20px 50px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
+h1{grid-column:1/-1;margin:0;font-size:32px}
+.sub{grid-column:1/-1;margin:-14px 0 0;color:var(--muted)}
+.fenster{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px;height:520px;display:flex;flex-direction:column}
+.kopf{display:flex;justify-content:space-between;font:600 15px system-ui,sans-serif;color:var(--muted);margin-bottom:8px}
+.meter{height:12px;background:var(--line);border-radius:6px;margin-bottom:12px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s,background .4s}
+.stapel{flex:1;display:flex;flex-direction:column;gap:4px;overflow:hidden}
+.b{border-radius:6px;padding:4px 10px;font:14px/1.3 system-ui,sans-serif;border:1px solid var(--line);transition:opacity .4s,outline .1s;flex-shrink:0}
+.b.sys{background:var(--sys)}.b.du{background:var(--you)}.b.ki{background:var(--ai)}.b.doc{background:var(--doc)}
+.b.lies{outline:3px solid var(--gold)}
+.b.blass{opacity:.35}
+.steuer{display:flex;flex-direction:column;gap:12px}
+button{font:600 16px system-ui,sans-serif;padding:12px 16px;border-radius:8px;border:0;background:var(--gold);color:#141414;cursor:pointer;text-align:left}
+button.leer{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.text{background:#221d10;border-left:4px solid var(--gold);padding:12px 16px;min-height:120px}
+.regeln{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.regeln div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:16px}
+.regeln b{display:block;color:var(--gold);margin-bottom:4px}
+@media (max-width:800px){main{grid-template-columns:1fr}.regeln{grid-template-columns:1fr 1fr}.fenster{height:420px}}
+</style>
+</head>
+<body>
+<main>
+<p class="sub" style="margin:0">Alles, was in diesem Chat steht, liegt gleichzeitig auf dem Schreibtisch der KI. Und sie liest es bei jeder Nachricht neu.</p>
+<section class="fenster">
+<div class="kopf"><span>Ein Chat</span><span id="pz">0 % voll</span></div>
+<div class="meter"><i id="m"></i></div>
+<div class="stapel" id="st"></div>
+</section>
+<section class="steuer">
+<button id="b1">1 · Nachricht schicken</button>
+<button id="b2">2 · Dokument hochladen (40 Seiten)</button>
+<button id="b3">3 · Thema wechseln</button>
+<button class="leer" id="b4">Zusammenfassen und neuer Chat</button>
+<button class="leer" id="b5">Ganz neuer Chat</button>
+<div class="text" id="tx">Drücken Sie auf „Nachricht schicken“.</div>
+</section>
+<div class="regeln">
+<div><b>Neue Aufgabe, neuer Chat</b>Ein Chat für eine Sache.</div>
+<div><b>Wird es ungenau: frisch anfangen</b>Vorher zusammenfassen lassen und mitnehmen.</div>
+<div><b>Abzweigen statt umbiegen</b>ChatGPT: drei Punkte, „Branch“. Neues Thema, neuer Zweig.</div>
+<div><b>Dauerwissen ins Projekt</b>Was immer gilt, gehört in Projekt oder Skill, nicht in den alten Chat.</div>
+</div>
+</main>
+<script>
+var st=document.getElementById('st'),tx=document.getElementById('tx'),m=document.getElementById('m'),pz=document.getElementById('pz');
+var MAX=100,voll=0,n=0,thema='Angebot für die Messe';
+function blk(cls,t,g){var d=document.createElement('div');d.className='b '+cls;d.textContent=t;d.dataset.g=g;d.style.minHeight=(g*4.6)+'px';st.appendChild(d);voll+=g;}
+function zeig(){var p=Math.min(100,Math.round(voll/MAX*100));m.style.width=p+'%';m.style.background=p>70?'var(--warn)':'var(--gold)';pz.textContent=p+' % voll';
+var alle=[].slice.call(st.children);alle.forEach(function(e,i){e.classList.toggle('blass',p>70&&i>0&&i<alle.length*0.6)});return p}
+function lesen(fertig){var alle=[].slice.call(st.children),i=0;(function nx(){if(i>0)alle[i-1].classList.remove('lies');if(i<alle.length){alle[i].classList.add('lies');i++;setTimeout(nx,Math.max(25,260-alle.length*12))}else fertig()})()}
+function start(){st.innerHTML='';voll=0;n=0;blk('sys','Anweisungen (System-Prompt, Projekt)',3);zeig()}
+document.getElementById('b1').onclick=function(){n++;blk('du','Sie: Nachricht '+n+' zum '+thema,2);
+lesen(function(){blk('ki','KI: Antwort '+n,4);var p=zeig();
+tx.innerHTML=p<40?'Sie sehen nur Ihre letzte Nachricht. Die KI liest <b>alles von oben</b>, jedes Mal, auch die Anweisungen ganz oben.':p<=70?'Der Tisch wird voller. Die KI liest immer noch alles, aber es wird mühsamer, das Richtige zu finden.':'<b>Zu voll.</b> Was früh im Chat stand, geht leichter unter. Typisch: Anweisungen vom Anfang werden übersehen, aus drei Seiten werden sechs.'})};
+document.getElementById('b2').onclick=function(){blk('doc','Dokument, 40 Seiten',22);var p=zeig();tx.innerHTML='Ein Dokument liegt jetzt ganz auf dem Tisch. Lange Texte und Dateien füllen das Fenster am schnellsten. Stand: '+p+' %.'};
+document.getElementById('b3').onclick=function(){thema=thema==='Angebot für die Messe'?'Urlaub':'Angebot für die Messe';blk('du','Sie: Neues Thema: '+thema,2);var p=zeig();tx.innerHTML='Das alte Thema liegt noch auf dem Tisch und mischt sich in die Antworten. Besser: abzweigen oder ein neuer Chat.'};
+document.getElementById('b4').onclick=function(){var alt=Math.round(voll);start();blk('doc','Zusammenfassung des alten Chats (eine halbe Seite)',3);zeig();tx.innerHTML='Frischer Tisch, das Wichtigste dabei. Vorher waren es '+alt+' Einheiten.'};
+document.getElementById('b5').onclick=function(){start();tx.innerHTML='Neuer Chat: leerer Tisch. Nur die Anweisungen aus Einstellungen, Projekt oder Skill sind wieder da. Darum gehört Dauerwissen dorthin.'};
+document.addEventListener('keydown',function(e){var k={'1':'b1','2':'b2','3':'b3','4':'b4','5':'b5'}[e.key];if(k)document.getElementById(k).click()});
+start();
+</script>
+</body>
+</html>

@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Übungen & Prompts: KI-Agenten, digitale Zwillinge, KI-Mitarbeiter</title>
+  <meta name="robots" content="noindex, nofollow">
+  <script>/* Gate: ohne Passwort zurueck zum Einstieg (Passwort wie Hauptseite) */try{if(localStorage.getItem('kiagenten2026-gate')!=='kiteam'){location.replace('index.html'+location.hash);}}catch(e){}</script>
+
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <!-- Tag 2 KI-Agenten-Workshop, Do 12.11.2026, gebaut von tools/build_tag2_player.py aus Station 3 der Hauptseite. Shell: tag1/kurs.html. White-Label-Kopie des Bueroalltag-E-Learnings (siehe UMBAU.md). Quelle bleibt unveraendert. -->
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(/fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(/fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* HEADER */
+    .site-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+
+    .logo { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: var(--white); text-decoration: none; }
+    .logo:hover { color: var(--white); }
+    .logo span { color: var(--gold); }
+
+    .back-link {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    /* MAIN */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero p { font-size: 0.95rem; color: var(--white-muted); }
+
+    /* SECTION DIVIDERS */
+    .section-divider {
+      text-align: center;
+      margin: 56px 0 40px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* EXERCISE CARDS */
+    .exercise {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .exercise-number {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .exercise h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .exercise .subtitle {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .exercise p, .exercise li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .exercise ul, .exercise ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .exercise li { margin-bottom: 6px; }
+
+    /* PROMPT BLOCKS (copyable) */
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      margin: 14px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: pre-line;
+    }
+
+    .prompt-block:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    .prompt-block::after {
+      content: 'Kopieren';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover::after { opacity: 1; }
+
+    .prompt-block.copied::after {
+      content: 'Kopiert!';
+      opacity: 1;
+    }
+
+    /* CONTEXT BLOCKS */
+    .context-block {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 14px 0;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+    }
+
+    .context-block strong { color: var(--white); }
+
+    /* STEP LABELS */
+    .step-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin: 18px 0 6px;
+    }
+
+    /* Unterschritt: gehoert zu keinem CITE-Buchstaben */
+    .sub-step {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 20px 0 6px;
+      padding-left: 12px;
+      border-left: 2px solid rgba(255,255,255,0.2);
+    }
+
+    /* COMPARISON TABLE */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.82rem;
+    }
+
+    .compare-table th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .compare-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+    }
+
+    /* ROLE CARDS (for Task Force) */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .role-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.82rem;
+    }
+
+    .role-card strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-size: 0.78rem;
+    }
+
+    /* MAGIC FORMULA */
+    .magic-box {
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 14px 0;
+      text-align: center;
+    }
+
+    .magic-box .label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 20px 24px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* COLLAPSIBLE SECTIONS */
+    details {
+      margin: 14px 0;
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details summary {
+      padding: 14px 18px;
+      background: rgba(212, 160, 23, 0.06);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    details summary:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: '+';
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    details .collapsible-content {
+      padding: 16px 18px;
+      border-top: 1px solid rgba(212, 160, 23, 0.1);
+    }
+
+    details .collapsible-content p,
+    details .collapsible-content li {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: var(--white-muted);
+    }
+
+    details .collapsible-content strong {
+      color: var(--white);
+    }
+
+    /* FLOAT ANIMATION */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* TAB SWITCHER */
+    .tab-switcher {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--charcoal-light);
+      border: none;
+      color: var(--white-muted);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:first-child { border-right: 1px solid rgba(212, 160, 23, 0.3); }
+
+    .tab-btn.active {
+      background: rgba(212, 160, 23, 0.12);
+      color: var(--gold);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: var(--charcoal-lighter);
+      color: var(--white);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* LAYOUT WITH SIDEBAR */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+    }
+
+    /* SIDEBAR NAV */
+    .sidebar-nav {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.06);
+      border-left-color: var(--gold);
+    }
+
+    .sidebar-nav .nav-section-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 12px 14px 4px;
+      opacity: 0.7;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .sidebar-nav a {
+        padding: 8px 12px;
+        font-size: 0.72rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 6px;
+        background: var(--charcoal-light);
+      }
+
+      .sidebar-nav a:hover,
+      .sidebar-nav a.active {
+        border-left: none;
+        border-bottom-color: var(--gold);
+      }
+
+      .sidebar-nav .nav-section-label {
+        width: 100%;
+        padding: 8px 0 2px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      main { padding: 32px 16px 64px; }
+      .exercise { padding: 22px 18px; }
+      .prompt-block { padding: 14px 14px; }
+      .role-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 0.75rem; }
+      .compare-table td, .compare-table th { padding: 8px; }
+    }
+
+    /* HIERARCHIE-STACK (System-Prompt vs. Projekt vs. Chat) */
+    .hierarchy-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 14px 0 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.25);
+    }
+    .hierarchy-level {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+    }
+    .hierarchy-level:last-child { border-bottom: none; }
+    .hierarchy-level .h-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+    .hierarchy-level .h-desc {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+    }
+    .hierarchy-level.l1 { background: rgba(212, 160, 23, 0.03); padding-left: 18px; }
+    .hierarchy-level.l2 { background: rgba(212, 160, 23, 0.06); padding-left: 32px; }
+    .hierarchy-level.l3 { background: rgba(212, 160, 23, 0.10); padding-left: 46px; }
+    .hierarchy-level.l4 { background: rgba(212, 160, 23, 0.14); padding-left: 60px; }
+
+    /* LLM-Karten (Start hier) */
+    .llm-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 560px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Zwei Spalten: selbst ausfuellen vs. fertiges Beispiel */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 14px 0;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+    .col-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .two-col .prompt-block { margin-top: 0; }
+    .llm-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .llm-card .llm-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .llm-card .llm-browser {
+      display: block;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #141414;
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 13px 16px;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+    .llm-card .llm-browser:hover,
+    .llm-card .llm-browser:focus { filter: brightness(1.08); }
+    .llm-apps summary {
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      list-style-position: inside;
+    }
+    .llm-apps[open] summary { margin-bottom: 8px; }
+    .llm-card .llm-stores {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .llm-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      flex: 1;
+      justify-content: center;
+      min-height: 40px;
+    }
+    .llm-store-btn:hover,
+    .llm-store-btn:focus {
+      border-color: var(--gold);
+      background: rgba(212, 160, 23, 0.08);
+      color: var(--white);
+    }
+    .llm-store-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .llm-store-btn .store-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      align-items: flex-start;
+    }
+    .llm-store-btn .store-meta small {
+      font-size: 0.62rem;
+      color: var(--white-muted);
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+    .llm-store-btn .store-meta strong {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    @media (max-width: 600px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Tag 1 online: Rahmen je Uebung (Ziel / Zeit / Abgabe) und Ausweichzeile */
+    .rahmen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 14px 0 18px; }
+    .rahmen > div { background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.25); border-radius: 10px; padding: 10px 12px; font-size: 0.85rem; line-height: 1.45; }
+    .rahmen b { display: block; font-family: var(--font-heading); font-size: 0.62rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+    .fallback { border-left: 3px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.03); padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--white-muted); margin: 16px 0 6px; }
+    .fallback strong { color: var(--white); }
+    .pruef { font-size: 0.85rem; color: var(--white-muted); margin-top: 10px; }
+    .tabelle-text { white-space: pre; overflow-x: auto; }
+    @media (max-width: 700px) { .rahmen { grid-template-columns: 1fr; } }
+
+    .form-wichtig { border: 2px solid var(--gold); background: rgba(212,160,23,0.08); border-radius: 10px; padding: 12px 16px; margin: 14px 0 10px; font-size: 0.92rem; line-height: 1.5; }
+    .form-wichtig.kurz { margin: 10px 0 0; padding: 8px 14px; font-size: 0.85rem; }
+  
+
+body{margin:0}
+.player{display:grid;grid-template-columns:320px 1fr;min-height:100vh}.player>*{min-width:0}
+.v-logo{display:block;background:#fff;padding:8px 12px;border-radius:6px;max-width:170px;width:100%;box-sizing:border-box;margin:12px 0 14px}
+/* Logoreihe: Veranstalter links, JP-Monogramm rechts daneben, beide gleich hoch (Symmetrieregel). */
+.logos{display:flex;align-items:center;gap:12px;margin:12px 0 14px}
+.logos .v-logo{margin:0;width:auto;height:46px;max-width:170px;object-fit:contain}
+.logos .t-logo{display:block;height:46px;width:auto}
+.side{border-right:1px solid rgba(255,255,255,.08);padding:20px 16px 40px;position:sticky;top:0;height:100vh;overflow:auto;background:rgba(255,255,255,.02)}
+.side .zurueck{font-size:.78rem;color:var(--white-muted);text-decoration:none;display:inline-block;margin-bottom:14px}
+.side .zurueck:hover{color:var(--gold)}
+.side h1{font-family:var(--font-heading);font-size:1rem;margin:0 0 4px;line-height:1.35}
+.side .sub{color:var(--white-muted);font-size:.78rem;margin-bottom:14px}
+.balken{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}.balken i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.stand{font-size:.75rem;color:var(--white-muted);margin:6px 0 10px}
+.teil{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:18px 6px 8px}
+.zeile{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;cursor:pointer;font-size:.86rem;line-height:1.35;color:var(--white);text-decoration:none}
+.zeile:hover{background:rgba(255,255,255,.05);color:var(--white)}.zeile.aktiv{background:rgba(212,160,23,.12)}
+.zeile .n{flex:0 0 74px;font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700;text-align:center}
+.zeile .lab{flex:0 0 74px;box-sizing:border-box;align-self:flex-start;margin-top:1px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.6rem;letter-spacing:.8px;text-transform:uppercase;font-weight:700;color:var(--white-muted);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:2px 4px;margin-left:0}
+.zeile.art-uebung{font-weight:500}
+.zeile .t{flex:1;min-width:0}
+.zeile .opt{color:var(--white-muted);font-size:.72rem;display:block;font-weight:400}
+.zeile .ck{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);margin-top:1px}
+.zeile.erledigt .ck{background:var(--gold);border-color:var(--gold)}.zeile.erledigt .t{color:var(--white-muted)}
+.zeile .jetzt{display:none;font-size:.56rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;background:var(--gold);color:#141414;border-radius:99px;padding:2px 6px;align-self:center}
+.zeile.im-raum .jetzt{display:inline-block}
+/* margin:0 ist Pflicht: das Seiten-CSS gibt <main> "margin:0 auto", und ein Rasterelement
+   mit auto-Rand schrumpft nicht mit. Auf 390 px stand es dann 551 px breit. */
+.main{margin:0;padding:0 56px 130px;max-width:900px;overflow-wrap:anywhere}
+.kopfzeile{padding-top:34px}
+.crumb{color:var(--white-muted);font-size:.8rem;margin-bottom:6px}
+.main h2.lektion-titel{font-family:var(--font-heading);font-size:1.9rem;margin:6px 0 16px;line-height:1.25}
+.tag{display:inline-block;font-size:.66rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,160,23,.4);color:var(--gold);margin-right:6px}
+.tag.leise{border-color:rgba(255,255,255,.25);color:var(--white-muted)}
+.lektion .exercise{background:none;border:0;padding:0;margin:0;box-shadow:none}
+.lektion .exercise > .exercise-number{display:none}
+.lektion .exercise > h3:first-of-type{display:none}
+.lektion table{display:block;overflow-x:auto;max-width:100%}
+.lektion img{max-width:100%}
+.prompt-block.copied{outline:2px solid var(--gold)}
+/* Die Leiste geht über die ganze Breite, die Knöpfe stehen in derselben Spalte wie der Inhalt.
+   Vorher standen sie bei Vollbild an den äußersten Bildschirmrändern (Commander 06.10.). */
+.nav{position:fixed;bottom:0;left:320px;right:0;padding:14px 0;background:rgba(20,20,20,.96);border-top:1px solid rgba(255,255,255,.08);z-index:15}
+.nav-innen{display:flex;justify-content:space-between;gap:10px;max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.knopf{border:1px solid rgba(255,255,255,.2);background:none;color:var(--white);padding:12px 22px;border-radius:8px;font:600 .92rem var(--font-body);cursor:pointer}
+.knopf:disabled{opacity:.35;cursor:default}
+.knopf.los{background:var(--gold);color:#141414;border-color:var(--gold)}
+.schublade{display:none}
+/* Live-Leiste im Player */
+.live-leiste{position:sticky;top:0;z-index:12;display:flex;align-items:center;gap:14px;margin:0 -56px;padding:10px 56px;background:linear-gradient(90deg,var(--gold-dark),var(--gold));color:var(--charcoal)}
+.live-leiste[hidden]{display:none}
+.live-leiste.neu{animation:live-neu 1.2s ease-out}
+@keyframes live-neu{0%{filter:brightness(1.45)}100%{filter:none}}
+.live-inhalt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.live-marke{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.75}
+.live-text{font-weight:600;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live-dorthin{flex:0 0 auto;background:var(--charcoal);color:var(--gold-light);border:0;border-radius:99px;padding:8px 16px;font:600 .8rem var(--font-body);cursor:pointer}
+.live-dorthin[hidden]{display:none}
+.live-hier{flex:0 0 auto;font-size:.75rem;font-weight:700}
+@media(max-width:860px){
+ .player{grid-template-columns:1fr}
+ .side{position:fixed;inset:0;z-index:30;height:auto;transform:translateX(-100%);transition:transform .25s;background:#161616}
+ .side.offen{transform:none}
+ .side .schliessen{display:block}
+ .schublade{display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:20;background:#141414;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+ .main{padding:0 16px 110px}
+ .kopfzeile{padding-top:18px}
+ .live-leiste{top:var(--schublade-h,57px);margin:0 -16px;padding:8px 16px;gap:10px}
+ .live-text{font-size:.86rem}
+ .nav{left:0;padding:12px 0}.nav-innen{padding:0 16px}.knopf{padding:12px 14px}
+ .main h2.lektion-titel{font-size:1.45rem}
+}
+.side .schliessen{display:none;float:right;background:none;border:0;color:var(--white-muted);font-size:1.4rem;cursor:pointer;line-height:1}
+/* Seitenleiste einklappbar (Desktop), wie bei ChatGPT/Claude. Zu bleibt eine 56-px-Schiene
+   mit dem Knopf. Auf dem Handy gilt weiter die Schublade, deshalb nur ab 861 px. */
+.leiste-knopf{float:right;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin:-6px -4px 0 8px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:none;color:var(--white-muted);cursor:pointer;padding:0}
+.leiste-knopf:hover{color:var(--gold);border-color:rgba(212,160,23,.5)}
+.leiste-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(min-width:861px){
+ .player{transition:grid-template-columns .2s ease}
+ /* Inhalt mittig in der Spalte, sonst klebt er bei Vollbild links und rechts bleibt die Hälfte leer. */
+ .main{width:100%;justify-self:center}
+ body.leiste-zu .player{grid-template-columns:56px 1fr}
+ body.leiste-zu .side{padding:16px 10px;overflow:hidden}
+ body.leiste-zu .side > *:not(.leiste-knopf){display:none}
+ body.leiste-zu .leiste-knopf{float:none;margin:0}
+ body.leiste-zu .leiste-knopf svg{transform:scaleX(-1)}
+ body.leiste-zu .main{width:100%;justify-self:center}
+ body.leiste-zu .nav{left:56px}
+ .nav{transition:left .2s ease}
+}
+@media(max-width:860px){.leiste-knopf{display:none}}
+.side .kontakt{margin-top:28px;padding:14px 8px 0;border-top:1px solid rgba(255,255,255,.08);font-size:.78rem;color:var(--white-muted);line-height:1.6}
+.side .kontakt a{color:var(--white-muted)}.side .kontakt a:hover{color:var(--gold)}
+/* Upload-Kasten (Bild landet in Jakubs Google Drive, nur er sieht es) */
+.upload-kasten{border:1px solid rgba(212,160,23,.45);background:rgba(212,160,23,.05);border-radius:12px;padding:20px;margin:22px 0}
+.upload-kasten h4{font-family:var(--font-heading);font-size:1.05rem;margin:0 0 6px;color:var(--white)}
+.upload-kasten .hinweis{font-size:.82rem;color:var(--white-muted);margin:0 0 14px}
+.upload-kasten .reihe{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.upload-kasten input[type=text]{flex:1 1 180px;min-width:0;background:#1f1f1f;border:1px solid rgba(255,255,255,.15);border-radius:8px;color:var(--white);padding:11px 12px;font:400 .92rem var(--font-body)}
+.upload-kasten .waehlen{flex:0 0 auto}
+.upload-kasten input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.upload-kasten ul{list-style:none;padding:0;margin:12px 0 0;font-size:.85rem}
+.upload-kasten li{padding:6px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;gap:10px;align-items:center}
+.upload-kasten li .st{margin-left:auto;font-weight:600;white-space:nowrap}
+.upload-kasten li.ok .st{color:#6fae5f}.upload-kasten li.fehler .st{color:#e07a6a}
+.upload-kasten li .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.gruppe-inhalt{display:block}
+.gruppe.zu .gruppe-inhalt{display:none}
+.teil-knopf{display:flex;align-items:center;justify-content:space-between;width:calc(100% - 12px);background:none;border:0;border-top:1px solid rgba(255,255,255,.08);padding:12px 6px 4px;margin:14px 6px 6px;cursor:pointer;font-family:var(--font-body);text-align:left}
+.stand + .gruppe .teil-knopf{border-top:0;margin-top:18px}
+.teil-knopf:hover{color:var(--gold-light)}
+.teil-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.teil-knopf .pfeil{flex:none;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s;margin-left:10px;margin-top:-3px}
+.gruppe.zu .teil-knopf .pfeil{transform:rotate(-45deg);margin-top:0}
+
+.form-hinweis{position:absolute;left:0;right:0;bottom:100%;background:#1d1a10;border-top:2px solid var(--gold);padding:14px 0;box-shadow:0 -10px 24px rgba(0,0,0,.45)}
+.form-hinweis[hidden]{display:none}
+.form-hinweis-innen{max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.form-hinweis p{margin:0 0 12px;font-size:.92rem;line-height:1.5}
+.form-hinweis .reihe{display:flex;gap:10px;flex-wrap:wrap}
+.form-hinweis .knopf{padding:10px 16px;font-size:.88rem}
+.form-danke{margin:10px 0 0;padding:10px 14px;border:1px solid #6fae5f;border-radius:8px;color:#9bd18c;font-weight:600;font-size:.9rem}
+.lektion iframe[data-formular]{scroll-margin-bottom:110px}
+@media(max-width:860px){.form-hinweis-innen{padding:0 16px}}
+
+.willkommen-bs{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 50% 30%,#232018 0%,#141414 65%);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}
+.willkommen-bs[hidden]{display:none}
+.willkommen-karte{width:100%;max-width:520px;text-align:center;margin:auto}
+.willkommen-karte img{display:block;width:min(240px,46vw);height:min(240px,46vw);object-fit:cover;object-position:top;border-radius:50%;border:3px solid var(--gold);margin:0 auto 22px;background:#1a1a1a;box-shadow:0 0 0 8px rgba(212,160,23,.08)}
+.willkommen-blase{position:relative;background:var(--charcoal-light,#1a1a1a);border:1px solid rgba(212,160,23,.35);border-radius:16px;padding:22px 22px 24px;margin-bottom:24px}
+.willkommen-blase::before{content:"";position:absolute;top:-9px;left:50%;width:16px;height:16px;background:var(--charcoal-light,#1a1a1a);border-left:1px solid rgba(212,160,23,.35);border-top:1px solid rgba(212,160,23,.35);transform:translateX(-50%) rotate(45deg)}
+.willkommen-blase p{margin:0;font-family:var(--font-heading);font-weight:600;font-size:clamp(1.1rem,4.4vw,1.45rem);line-height:1.4;text-wrap:balance}
+.willkommen-karte .knopf{padding:14px 38px;font-size:1rem}
+@media (prefers-reduced-motion:no-preference){.willkommen-karte{animation:wk-rein .5s ease-out}@keyframes wk-rein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}
+</style>
+  <link rel="stylesheet" href="quiz/quiz.css">
+<style>html{font-size:112.5%}.compare-table td:first-child,.compare-table th:first-child{min-width:7.5em;overflow-wrap:normal;word-break:normal}</style>
+<style>
+html{font-size:112.5%}.t2 .compare-table td:first-child,.t2 .compare-table th:first-child{min-width:7.5em;overflow-wrap:normal;word-break:normal}.t2 ol.plain{padding-left:1.2em;margin:8px 0}.t2 a.kueche{display:block;margin:14px 0;padding:14px 16px;border:1px solid rgba(212,160,23,.35);border-radius:10px;text-decoration:none;color:inherit}.t2 a.kueche span{display:block}.t2 .k-ttl{font-weight:700;color:var(--gold)}.t2 .pause{margin:12px 0;color:var(--white-muted)}
+</style>
+<script>document.addEventListener("click",function(e){var b=e.target.closest(".t2 .copy");if(!b)return;var c=b.closest(".code").querySelector("pre");navigator.clipboard.writeText(c.innerText).then(function(){var o=b.textContent;b.textContent="Kopiert";setTimeout(function(){b.textContent=o},1500)})});</script>
+</head>
+<body>
+<div class="willkommen-bs" id="willkommen-bs" role="dialog" aria-modal="true" aria-labelledby="wk-text" hidden><div class="willkommen-karte"><img src="../tag1/jakub-lachend.png" alt="Jakub Popluhar"><div class="willkommen-blase"><p id="wk-text">Herzlich willkommen bei unserem KI-Kurs. Dieses E-Learning wird uns die ganze Zeit begleiten.</p></div><button type="button" class="knopf los" id="wk-weiter">Weiter</button></div></div>
+<div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Inhalt</button><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
+<div class="player">
+  <aside class="side" id="side">
+    <button class="schliessen" id="schliessen" type="button" aria-label="Inhalt schließen">×</button>
+    <button class="leiste-knopf" id="leisteKnopf" type="button" aria-label="Seitenleiste einklappen" aria-expanded="true" title="Seitenleiste ein- und ausklappen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/><path d="M15 10l-2 2 2 2"/></svg></button>
+    <a href="https://jakubpopluhar.com" class="zurueck">jakubpopluhar.com</a>
+    <div class="logos"><img class="t-logo" src="../tag1/jp-logo.png" alt="Jakub Popluhar"><img class="t-logo" src="../akademie-logo.png" alt="Akademie für Künstliche Intelligenz und Digitalisierung" style="background:#fff;padding:6px 10px;border-radius:6px;box-sizing:border-box;width:auto;"></div>
+    <h1>KI-Agenten, digitale Zwillinge, KI-Mitarbeiter</h1>
+    <div class="sub">KI-Teams aufbauen für bessere Prozesse · Akademie für KI &amp; Digitalisierung · Donnerstag, 12.11.2026 · Online / Meet</div>
+    <div class="balken"><i id="balken"></i></div>
+    <div class="stand" id="stand"></div><a href="../tag1/kurs.html" style="display:block;margin:10px 0 14px;padding:10px 14px;border-radius:8px;border:1px solid var(--gold);color:var(--gold);font-weight:700;text-decoration:none;text-align:center">← Zurück zu Tag 1</a>
+    <div class="gruppe zu" data-teil="vm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Vormittag: Skills</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#willkommen" data-id="willkommen"><span class="lab">Start</span><span class="t">Willkommen zu Tag 2</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-t1ende" data-id="kicheck-t1ende"><span class="lab">Check</span><span class="t">Ihr KI-Check: Durchgang „Tag 1 Ende“</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#quiz-t1" data-id="quiz-t1"><span class="lab">Quiz</span><span class="t">Wiederholung: Was ist von gestern geblieben?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kontextfenster" data-id="kontextfenster"><span class="lab">Info</span><span class="t">Das Kontextfenster: der Schreibtisch der KI</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-1" data-id="ue-t2-1"><span class="n">1</span><span class="t">System-Prompt und Projekt-Prompt</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-2" data-id="ue-t2-2"><span class="n">2</span><span class="t">Wo gilt was: die drei Ebenen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#ue-t2-audit" data-id="ue-t2-audit"><span class="lab">Übung</span><span class="t">Das Audit: Was gebe ich der KI immer wieder?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-3" data-id="ue-t2-3"><span class="n">3</span><span class="t">Skript gegen Prosa: Bitte oder Regel?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#b1020" data-id="b1020"><span class="lab">Info</span><span class="t">Skill-Levels</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-5" data-id="ue-t2-5"><span class="n">5</span><span class="t">Word-Analyse</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-6" data-id="ue-t2-6"><span class="n">6</span><span class="t">Wovon entsteht ein Skill?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-7" data-id="ue-t2-7"><span class="n">7</span><span class="t">Wo Ihr Skill wohnt</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-8" data-id="ue-t2-8"><span class="n">8</span><span class="t">Ihr Skill für Ihre wiederkehrende Aufgabe</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="nm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Nachmittag: Prüfer und Agenten</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile art-uebung" href="#ue-t2-9" data-id="ue-t2-9"><span class="n">9</span><span class="t">Die Prüfkarte: drei Fragen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-10" data-id="ue-t2-10"><span class="n">10</span><span class="t">Ihr Prüfprompt</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#b1355" data-id="b1355"><span class="lab">Info</span><span class="t">Die KI-Küche: drei Köche, ein Vorkoster</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#b1435" data-id="b1435"><span class="lab">Info</span><span class="t">Agenten-Schwarm als Story</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-13" data-id="ue-t2-13"><span class="n">13</span><span class="t">Ihr Skill nach Wahl</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-14" data-id="ue-t2-14"><span class="n">14</span><span class="t">Version 2</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-15" data-id="ue-t2-15"><span class="n">15</span><span class="t">Wo findet man Skills?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#b1600" data-id="b1600"><span class="lab">Info</span><span class="t">Strategie</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-16" data-id="ue-t2-16"><span class="n">16</span><span class="t">Wie viel Zeit spart Ihnen Ihr Skill?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-17" data-id="ue-t2-17"><span class="n">17</span><span class="t">Ihre Skill-Karte</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue-t2-18" data-id="ue-t2-18"><span class="n">18</span><span class="t">90-Tage-Fahrplan</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#b1645" data-id="b1645"><span class="lab">Info</span><span class="t">Abschluss</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div>
+    <div class="kontakt">Fragen nach dem Kurs:<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br><a href="tel:+436641386498">+43 664 138 64 98</a></div>
+  </aside>
+  <main class="main">
+    <div class="live-leiste" id="live-leiste" hidden aria-live="polite">
+      <div class="live-inhalt"><span class="live-marke">Jetzt im Raum</span><span class="live-text" id="live-text"></span></div>
+      <button type="button" class="live-dorthin" id="live-dorthin">Dorthin</button>
+      <span class="live-hier" id="live-hier" hidden>Sie sind hier</span>
+    </div>
+    <div class="kopfzeile"><div class="crumb" id="crumb"></div><div id="tags"></div><h2 class="lektion-titel" id="ttl"></h2></div>
+    <section class="lektion" data-id="willkommen" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="willkommen"><div class="exercise-number">Start</div><h3>Willkommen zu Tag 2</h3><p class="subtitle">Donnerstag, 12.11.2026 · Skills, Prüfer, KI-Team</p><p class="intro-note"><b>Heute wird aus dem Assistenten Zeitersparnis:</b> 2 bis 3 Skills je Person, ein Prüfer, der kontrolliert, und ein KI-Team, das arbeitet wie eine Küche. Gleicher Aufbau wie gestern: Blöcke mit Uhrzeit, Ziel und aufklappbaren Übungen. Wer nur am ersten Tag dabei war, kann den Tag in dieser Reihenfolge allein nachbauen.</p><p><a href="../../tag1/kurs.html">← Zurück zu Tag 1</a></p></div></section>
+<section class="lektion" data-id="kicheck-t1ende" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="kicheck-t1ende"><div class="exercise-number">Check</div><h3>Ihr KI-Check: Durchgang „Tag 1 Ende“</h3><p class="subtitle">Kein Test, eine Standortbestimmung. Es gibt keine falschen Antworten.</p><p>Derselbe Fragebogen wie gestern. Wählen Sie bei „Welcher Durchgang?“ jetzt <strong>„Tag 1 Ende“</strong>. Am Ende von heute füllen Sie ihn ein letztes Mal aus, dann mit <strong>„Tag 2 Ende“</strong>.</p><div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;"><a href="https://form.jotform.com/263125071418047" target="_blank" rel="noopener"><img src="../qr-263125071418047.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a><p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht, zum Beispiel am Firmenrechner?</strong> QR-Code mit dem Handy scannen, oder <a href="https://form.jotform.com/263125071418047" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p></div><div class="form-wichtig"><strong>Wichtig:</strong> Ihre Antworten sind erst gespeichert, wenn Sie <strong>UNTEN IM FORMULAR</strong> auf „Senden“ klicken.</div><iframe data-formular="F263125071418047" src="https://form.jotform.com/263125071418047" title="KI-Check" style="width:100%; height:1400px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe><p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Senden“ klicken.</p></div></section>
+<section class="lektion" data-id="quiz-t1" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="quiz-t1"><div class="exercise-number">Quiz</div><h3>Wiederholung: Was ist von gestern geblieben?</h3><p class="subtitle">Wiederholung von Tag 1</p><p>Zehn Fragen zu gestern. Eine Antwort pro Frage. Die Auflösung besprechen wir gemeinsam.</p><div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;"><a href="https://form.jotform.com/263152040165042" target="_blank" rel="noopener"><img src="../qr-263152040165042.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a><p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht, zum Beispiel am Firmenrechner?</strong> QR-Code mit dem Handy scannen, oder <a href="https://form.jotform.com/263152040165042" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p></div><div class="form-wichtig"><strong>Wichtig:</strong> Ihre Antworten sind erst gespeichert, wenn Sie <strong>UNTEN IM FORMULAR</strong> auf „Senden“ klicken.</div><iframe data-formular="F263152040165042" src="https://form.jotform.com/263152040165042" title="Quiz Wiederholung Tag 1" style="width:100%; height:1400px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe><p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Senden“ klicken.</p></div></section>
+<section class="lektion" data-id="kontextfenster" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="kontextfenster"><div class="exercise-number">Info</div><h3>Das Kontextfenster: der Schreibtisch der KI</h3><p class="subtitle">Warum lange Chats schlechter werden</p><p>Alles, was in einem Chat steht, liegt gleichzeitig auf dem Schreibtisch der KI. Und sie liest es bei jeder Nachricht neu, von oben. Probieren Sie es selbst: Nachricht schicken, Dokument hochladen, Thema wechseln, dann frisch anfangen.</p><iframe src="../kontextfenster.html" title="Das Kontextfenster" style="width:100%; height:820px; border:1px solid rgba(212,160,23,0.25); border-radius:10px; background:#141414; margin-top:8px;" loading="lazy"></iframe><p class="step-label">Die vier Faustregeln</p><table class="compare-table"><tr><th>Wann</th><th>Was Sie tun</th></tr><tr><td>Neue Aufgabe</td><td>Neuer Chat. Ein Chat für eine Sache.</td></tr><tr><td>Die Antworten werden ungenau</td><td>„Fass das Wichtigste zusammen.“ Kopieren, neuer Chat, einfügen.</td></tr><tr><td>Neues Thema mitten im Chat</td><td>Abzweigen statt umbiegen. ChatGPT: drei Punkte, „Branch“.</td></tr><tr><td>Etwas soll immer gelten</td><td>Ins Projekt oder in den Skill, nicht in den alten Chat.</td></tr></table><p class="pruef">Ein volles Kontextfenster ist kein volles Gehirn, es ist ein überladener Schreibtisch.</p></div></section>
+<section class="lektion" data-id="ue-t2-1" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="ue-t2-1"><div class="exercise-number">Übung 1</div><h3>System-Prompt und Projekt-Prompt</h3><p class="subtitle">Einmal sagen, immer gültig</p><p>Was in diesem Feld steht, liest die KI vor jeder Antwort mit, in jedem neuen Chat. Damit es jeder sieht, probieren wir es zuerst mit einem Stil, der auffällt. Erst danach schreiben wir einen guten.</p>
+<div class="rahmen"><div><b>Ziel</b>Einen System-Prompt eintragen, der in jedem Chat gilt.</div><div><b>Abgabe</b>Kurz im Meet-Chat melden: der erste Satz Ihrer Urlaubsantwort</div></div><p class="step-label">Schritt 1: Das Feld finden</p><table class="compare-table"><thead><tr><th>Werkzeug</th><th>Wo das Feld ist</th></tr></thead><tbody><tr><td>ChatGPT</td><td>Profilbild → Einstellungen → Personalisierung (Personalization), dann „Benutzerdefinierte Anweisungen“ (Custom Instructions). Die Zeichenzahl ist begrenzt.</td></tr><tr><td>Claude</td><td>Initialen unten links → Einstellungen → Feld „Instructions for Claude“. Hieß früher „Personal preferences“.</td></tr><tr><td>Copilot</td><td>Profilbild → Einstellungen → Personalisierung → benutzerdefinierte Anweisungen, sofern Ihre Firma es freigibt. Copilot braucht oft einen Moment, bis die Anweisung greift: speichern, kurz warten, dann einen neuen Chat öffnen.</td></tr></tbody></table><p>Das Feld heißt überall etwas anders. Finden Sie es nicht: Schicken Sie den Text als erste Nachricht in einen neuen Chat. Dann gilt er nur dort.</p>
+<p class="step-label">Schritt 2: Einen von drei Stilen aussuchen und hineinkopieren</p><p>Nehmen Sie einen der drei. Schreiben Sie in den Meet-Chat, welchen, damit alle drei vorkommen.</p>
+<p><b>Amtsdeutsch</b></p>
+<div class="prompt-block">Antworte mir ab jetzt immer im Stil eines Amtsschreibens: Beamtendeutsch, Hauptwörter statt Verben, lange Schachtelsätze, Wendungen wie „Bezug nehmend auf Ihr Ansuchen“ und „Mit vorzüglicher Hochachtung“. Der Inhalt soll sachlich stimmen, nur der Ton ist amtlich.</div><p><b>Teenager-Slang</b></p>
+<div class="prompt-block">Antworte mir ab jetzt immer wie ein Teenager: Jugendsprache, Wörter wie „Digga“, „Jo“, „Bro“, „lowkey“ und „cringe“, viele englische Wörter, kurze Sätze, Emojis erlaubt. Der Inhalt soll sachlich stimmen, nur der Ton ist jung.</div><p><b>Der gute Freund in der Kneipe</b></p>
+<div class="prompt-block">Antworte mir ab jetzt immer wie ein guter Freund, mit dem ich nach der Arbeit in der Kneipe sitze: per Du, locker, ehrlich, mit ein bisschen Humor und einer kleinen Geschichte aus dem Leben. Der Inhalt soll sachlich stimmen, nur der Ton ist gemütlich.</div><p>Speichern nicht vergessen.</p>
+<p class="step-label">Schritt 3: Testen, in einem neuen Chat</p><div class="prompt-block">Erklär mir, wie ich am besten meinen Urlaub beim Chef beantrage.</div><p>Posten Sie den ersten Satz der Antwort in den Meet-Chat. Gleiche Frage, drei völlig verschiedene Antworten, und niemand hat den Stil in die Frage geschrieben.</p>
+<details><summary>Schritt 4: Zurück an die Arbeit, Ihr guter System-Prompt (erst öffnen, wenn ich es sage)</summary><div class="collapsible-content"><p>Der Stil gilt in jedem neuen Chat, auch in der nächsten Übung. Deshalb jetzt: Ihren Stil im Feld <b>ganz löschen</b> und stattdessen das hier einsetzen. Die [Klammern] im letzten Absatz füllen Sie selbst aus, zwei Sätze reichen.</p>
+<div class="prompt-block">Sag mir lieber „Das weiß ich nicht", als zu raten. Trenne klar, was du sicher weißt und was du vermutest, und kennzeichne Vermutungen. Erfinde keine Zahlen, Namen, Zitate oder Quellen.
+
+Wenn meine Anfrage unklar ist oder dir wichtige Informationen fehlen, stell mir zuerst kurze Rückfragen, bevor du antwortest.
+
+Gib mir nicht einfach recht. Wenn ich mich irre oder etwas übersehe, sag es direkt und begründe es.
+
+Ich bin [Rolle] bei [Firma oder Branche] und kümmere mich vor allem um [zwei, drei Hauptaufgaben]. Antworte mir auf Deutsch, per [Du oder Sie], kurz und so, dass ich es direkt verwenden kann.</div><p>Speichern, neuen Chat öffnen, dieselbe Urlaubsfrage noch einmal stellen. Jetzt klingt es wieder nach Büro.</p>
+<p>Das ist der Kontext aus CITE, nur einmal geschrieben. Die ersten drei Absätze sind Ihre Leitplanken: Sie verhindern Fehler nicht, aber die KI widerspricht öfter und sagt, wo sie unsicher ist.</p></div></details>
+<p><b>Geschafft, wenn:</b> Die Urlaubsfrage klingt im neuen Chat zuerst nach Ihrem Stil und danach wieder nach Büro, ohne dass Sie etwas in die Frage geschrieben haben.</p>
+<p class="step-label">Zum Schluss · Dasselbe fürs Projekt: Ihr Projekt-Prompt</p>
+<p>Der System-Prompt gilt in jedem Chat. Ihr Projekt aus der Projekt-Übung bekommt jetzt seine eigenen Anweisungen, die nur dort gelten. Öffnen Sie das Feld, das Sie dort nur gesucht haben.</p>
+<div class="prompt-block">Du bist mein KI-Assistent für [Firma / Abteilung / Rolle].
+
+Wissensbasis: Berücksichtige immer meine hochgeladenen Dokumente (Firma, Rolle, Prozesse) als festen Kontext.
+
+Verhalten: Antworte auf Deutsch, in Sie-Form, konkret und knapp (max. 300 Wörter), mit klaren nächsten Schritten. Wenn dir Informationen fehlen, frage nach, bevor du rätst.</div><p>Fügen Sie ihn in die <b>Anweisungen</b> (Instructions) Ihres Projekts ein. <b>Er ist ein Beispiel, kein Rezept:</b> Schreiben Sie die [Klammern] auf sich um, sonst antwortet Ihnen ein Assistent für jemand anderen. Dann speichern (Save).</p></div></section>
+<section class="lektion" data-id="ue-t2-2" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="ue-t2-2"><div class="exercise-number">Übung 2</div><h3>Wo gilt was: die drei Ebenen</h3><p class="subtitle">System-Prompt, Projekt, Chat</p><table class="compare-table"><thead><tr><th>Gilt</th><th>Was</th></tr></thead><tbody><tr><td>Überall</td><td>Ihre eigenen Anweisungen aus den Einstellungen (System-Prompt) und Ihre gespeicherten Erinnerungen</td></tr><tr><td>Nur im Projekt</td><td>Die Projekt-Anweisung und Ihre Dateien darin</td></tr><tr><td>Nur in diesem Chat</td><td>Das laufende Gespräch und Ihre aktuelle Nachricht</td></tr></tbody></table><p>Was Sie im Projekt einstellen, gilt in jedem Chat dieses Projekts. Was nur im Chat steht, ist im nächsten Chat weg.</p></div></section>
+<section class="lektion" data-id="ue-t2-audit" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="ue-t2-audit"><div class="exercise-number">Übung</div><h3>Das Audit: Was gebe ich der KI immer wieder?</h3><p class="subtitle">erst messen, dann trainieren</p><p>Ein Fitnesscoach ändert in der ersten Woche nichts. Er will wissen, was Sie wirklich essen und wie Sie wirklich trainieren. Genauso hier: Ihre KI kennt Ihre bisherigen Chats, wenn die Erinnerung eingeschaltet ist. Fragen Sie sie.</p>
+<div class="rahmen"><div><b>Ziel</b>Eine wiederkehrende Aufgabe, aus der Sie heute Ihren Skill bauen.</div><div><b>Abgabe</b>Die Aufgabe und Ihre Minuten im Formular unten, Durchgang „Vorher“.</div></div><p class="step-label">Schritt 1: Den Prompt in Ihr Werkzeug kopieren und abschicken</p><div class="prompt-block">Mach ein Audit meiner Arbeit mit dir. Nimm nur, was du aus unseren bisherigen Chats und deinen Erinnerungen wirklich weißt.
+1. Welche Aufgaben gebe ich dir immer wieder? Bis zu zehn, mit Häufigkeit und einem kurzen Beispiel, ohne Namen von Personen.
+2. Wo musste ich oft nachkorrigieren, und warum?
+3. Welche drei lohnen sich als Skill: häufig, immer gleich, teuer, wenn falsch? Je ein Satz Begründung.
+4. Was vermutest du nur? Sag es. Erfinde keine Aufgaben.
+Höchstens 300 Wörter.</div><p>Weiß Ihre KI nichts über Sie, weil die Erinnerung aus ist: Schreiben Sie dazu „Hier ist meine letzte Arbeitswoche in Stichpunkten:“ und listen Sie die Woche auf.</p>
+<p class="step-label">Schritt 2: Drei Minuten lesen, nicht tippen</p><p>Dann eine Aufgabe wählen.</p><p class="step-label">Schritt 3: Aufgabe und Minuten eintragen</p><p>Vorname, eine Aufgabe, Minuten pro Durchgang heute ohne Skill. Keine Namen von Kunden oder Kolleginnen. Nach dem Skill füllen Sie dasselbe Formular noch einmal aus, Durchgang „Nachher“, mit Stoppuhr gemessen.</p>
+<p class="step-label">Zeitmessung · Vorher und nachher</p><div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;"><a href="https://form.jotform.com/263151672525052" target="_blank" rel="noopener"><img src="../qr-263151672525052.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a><p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht, zum Beispiel am Firmenrechner?</strong> QR-Code mit dem Handy scannen, oder <a href="https://form.jotform.com/263151672525052" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p></div><div class="form-wichtig"><strong>Wichtig:</strong> Ihre Antworten sind erst gespeichert, wenn Sie <strong>UNTEN IM FORMULAR</strong> auf „Senden“ klicken.</div><iframe data-formular="F263151672525052" src="https://form.jotform.com/263151672525052" title="Zeitmessung" style="width:100%; height:1400px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe><p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Senden“ klicken.</p><p><b>Nach dem Training:</b> Schalten Sie die Erinnerung ein, und tragen Sie eine Woche lang jede KI-Aufgabe mit Minuten auf. Dann wiederholen Sie das Audit.</p>
+</div></section>
+<section class="lektion" data-id="ue-t2-3" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="ue-t2-3"><div class="exercise-number">Übung 3</div><h3>Skript gegen Prosa: Bitte oder Regel?</h3><p class="subtitle">Dieselbe Folie, dreimal</p><p>Dieselbe Folie, dreimal. Eine Bitte kann man überlesen, eine Codezeile nicht.</p>
+<table class="compare-table"><thead><tr><th>Wie</th><th>Was mit der Farbe passiert</th></tr></thead><tbody><tr><td>1 Gebeten</td><td>Im Chat gesagt. Neuer Chat: Farbe weg.</td></tr><tr><td>2 Aufgeschrieben</td><td>In der Projekt-Anweisung oder im Skill. Hält meistens, die KI liest mit und kann überlesen.</td></tr><tr><td>3 Im Code</td><td>Ein Skill mit Skript: Die Farbe steht in der Datei. Kann nicht vergessen werden.</td></tr></tbody></table><p class="step-label">Die Leiter: Wer sorgt dafür, dass es passiert?</p>
+<table class="compare-table"><thead><tr><th>Sprosse</th><th>Was es heißt</th></tr></thead><tbody><tr><td>1 Bitte</td><td>Sie sagen es, jedes Mal.</td></tr><tr><td>2 Aufgeschrieben</td><td>Die KI liest mit und kann überlesen.</td></tr><tr><td>3 Geprüft</td><td>Ein Prüfpunkt: Die KI oder jemand hakt ab.</td></tr><tr><td>4 Eingebaut</td><td>Die Regel steckt im Material, zum Beispiel eine Vorlage, die schon blau ist.</td></tr><tr><td>5 Automatisch</td><td>Ein Skript oder eine Maschine erledigt es.</td></tr></tbody></table><p>Steht „immer“ oder „nie“ davor und ist ein Fehler teuer, darf es keine Bitte bleiben.</p>
+<p>Anthropic: „instructions for flexible guidance, code for reliability“ (Plattformdoku Agent Skills, abgerufen 06.10.2026).</p>
+<p class="step-label">Dasselbe an Daten: zwei Listen, neue Nummern</p>
+<p>Alte und neue Excel-Liste, die IDs haben sich geändert, die Inhalte teilweise nicht.</p>
+<p><b>Als Bitte (rät)</b></p>
+<div class="prompt-block">Lies beide Listen und ordne die Einträge einander zu.</div><p><b>Als Regel (prüfbar)</b></p>
+<div class="prompt-block">Schreib mir eine Excel-Formel, die die Einträge der beiden Listen nach ihrem Text zuordnet, und markiere alle unsicheren Treffer, damit ich nur diese prüfen muss.</div><p>Die KI schreibt die Regel. Die Regel macht die Arbeit.</p></div></section>
+<section class="lektion" data-id="b1020" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="b1020"><div class="exercise-number">Info</div><h3>Skill-Levels</h3><div class="rahmen"><div><b>Ziel</b>Sie ordnen einen Skill nach seinem Level ein: Gerüst, Regel mit Prüfung oder Skript.</div></div><p class="pruef">Diese Übung zeigen wir im Raum.</p></div></section>
+<section class="lektion" data-id="ue-t2-5" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="ue-t2-5"><div class="exercise-number">Übung 5</div><h3>Word-Analyse</h3><p class="subtitle">Eine Vorlage hochladen, Regeln auslesen</p><p>Ihre Hausvorlage kennt jede Regel: Schrift, Farbe, Abstand. Die KI kennt keine davon, solange niemand sie aufschreibt. Hier schreibt die KI sie selbst auf, mit Fundstelle.</p>
+<div class="rahmen"><div><b>Ziel</b>Aus einer Word-Vorlage wird eine nummerierte Regelliste mit Fundstellen, und daraus ein Skill, den die KI bei jedem neuen Dokument anwendet.</div><div><b>Abgabe</b>Kurz im Meet-Chat melden: „Regelwerk fertig“</div></div><p class="step-label">Vorbereitung</p>
+<p>Nehmen Sie eine Word-Vorlage aus Ihrem Haus: Briefvorlage, Bericht, Arbeitsanweisung, Normen-Handbuch. <b>Echte Namen, Kundendaten und Vertrauliches vorher entfernen.</b> Nur die Formatierung zählt, nicht der Inhalt.</p>
+<p>Keine eigene Vorlage zur Hand oder beim Datenschutz unsicher? Üben Sie mit der Musterdatei <a href="../muster/muster-hausvorlage.docx" download>Muster E, Hausvorlage (.docx)</a> (erfundene Firma, eine Seite).</p>
+<p class="step-label">So laden Sie die Datei hoch</p>
+<table class="compare-table"><thead><tr><th>Werkzeug</th><th>Was Sie tun</th></tr></thead><tbody><tr><td><b>Claude</b></td><td>Datei in den Chat ziehen oder ins Projekt laden. Unter Einstellungen die Code-Ausführung (Analyse, Dateierstellung) einschalten, sonst liest Claude nur den Text und nicht die Formatierung.</td></tr><tr><td><b>ChatGPT</b></td><td>Datei über die Büroklammer hochladen. ChatGPT öffnet die .docx dann selbst und liest Formatvorlagen aus.</td></tr><tr><td><b>Copilot</b></td><td>Datei in OneDrive ablegen und im Copilot-Chat über „Datei anhängen“ (Büroklammer oder „/“) auswählen. Copilot sieht Formatierung oft nur teilweise: Rechnen Sie hier mit mehr „unsicher“.</td></tr></tbody></table><p class="step-label">Schritt 1: Regeln auslesen</p><p>Neuer Chat, Datei anhängen, dann diesen Prompt:</p>
+<div class="prompt-block">Im Anhang ist unsere Word-Vorlage. Lies sie als Datei aus, nicht nur als Text: Formatvorlagen, Seiteneinstellungen, Kopf- und Fußzeile, Tabellen.
+
+Schreib daraus unser Regelwerk als nummerierte Liste. Decke diese Punkte ab:
+1. Schriftart und Schriftgröße je Ebene (Fließtext, Überschrift 1, 2, 3, Aufzählung, Tabelle)
+2. Überschriften-Hierarchie: welche Formatvorlage wofür, fett/kursiv, Nummerierung automatisch oder von Hand
+3. Farben als Hex-Code (zum Beispiel #1F4E3D), je Element
+4. Abstände: vor und nach Absätzen, Zeilenabstand, Seitenränder
+5. Kopf- und Fußzeile: Inhalt, Ausrichtung, Schrift, Seitenzahl
+6. Tabellenstil: Rahmen, Kopfzeile, Hintergrundfarben
+7. Aufzählungsstil: Zeichen, Einzug
+8. Wiederkehrende Textbausteine: Metazeilen, Hinweise, Freigabezeilen, Platzhalter
+
+Jede Regel bekommt eine Fundstelle: Name der Formatvorlage oder die Stelle im Dokument (zum Beispiel „Überschrift 2, Abschnitt 1“ oder „Kopfzeile“).
+Was du nicht sicher aus der Datei lesen kannst, markiere als „unsicher“ und schreib dazu, warum. Rate keine Werte.
+Zum Schluss: drei Fragen an mich, die du brauchst, um das Regelwerk vollständig zu machen.</div><p><b>Prüfen:</b> Öffnen Sie die Vorlage in Word, klicken Sie in eine Überschrift und vergleichen Sie Schrift und Größe mit Regel 1. Stimmen zwei Stichproben, ist die Liste brauchbar. Stimmt eine nicht und steht kein „unsicher“ daneben, hat die KI geraten: Sagen Sie es ihr und lassen Sie die Regel neu lesen.</p>
+<p class="step-label">Schritt 2: Mach daraus einen Skill</p><p>Im selben Chat:</p>
+<div class="prompt-block">Mach aus diesem Regelwerk einen Skill.
+
+Aufbau:
+- name: kurz, kleingeschrieben, mit Bindestrichen (zum Beispiel hausstil-word)
+- description: ein bis zwei Sätze, wann der Skill greift. Nenne die Auslöser: neues Dokument, Bericht, Brief, Arbeitsanweisung im Hausstil, „formatiere das nach unserer Vorlage“.
+- Regeln: die nummerierte Liste von oben, ohne die als „unsicher“ markierten Regeln. Die unsicheren Punkte kommen in einen eigenen Abschnitt „Offen, bitte prüfen“.
+- Prüfschritt: Bevor du ein Dokument ablieferst, gehst du die Regeln einzeln durch und nennst jede, die du nicht einhalten konntest.
+
+Gib den Skill als einen einzigen Block aus, den ich kopieren kann.</div><p>Wohin damit: in Claude als Skill hochladen oder in die Projektanweisungen; in ChatGPT in ein Projekt; in Copilot als Agent-Anweisung oder als Notizbuch-Anweisung.</p>
+<div class="magic-box" style="text-align:left"><p><b>Werkzeug gesperrt?</b> Ohne Datei-Upload: Kopieren Sie die Formatierung aus Word (Formatvorlagen-Bereich, „Ändern“) in Stichpunkten in den Chat und lassen Sie Schritt 2 daraus laufen.</p></div>
+<div class="magic-box" style="text-align:left"><p><b>Fertig, wenn …</b></p>
+<ul><li>Ihre Regelliste nummeriert ist und jede Regel eine Fundstelle hat,</li><li>mindestens eine Regel als „unsicher“ markiert ist oder die KI ausdrücklich sagt, dass sie alles sicher lesen konnte,</li><li>zwei Stichproben in Word mit der Liste übereinstimmen,</li><li>der Skill als ein Block mit name, description und Regeln vorliegt.</li></ul></div></div></section>
+<section class="lektion" data-id="ue-t2-6" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="ue-t2-6"><div class="exercise-number">Übung 6</div><h3>Wovon entsteht ein Skill?</h3><p class="subtitle">Woraus, Vorstufen, Aufbau</p><p>Ein Skill ist eine Anleitung als Datei, die die KI aufruft, sobald Ihre Anfrage dazu passt.</p>
+<table class="compare-table"><thead><tr><th>Woraus</th><th>Wie</th></tr></thead><tbody><tr><td>Aus einer Aufgabe</td><td>die Sie schon mehrmals gleich erklärt haben</td></tr><tr><td>Aus einem gelungenen Chat</td><td>„Schreib daraus eine Anleitung, die eine KI beim nächsten Mal ohne Rückfrage befolgen kann.“</td></tr><tr><td>Aus einem Gespräch</td><td>„Ich möchte einen Skill für …“ Die KI fragt, baut, Sie speichern.</td></tr></tbody></table><p class="step-label">Die Vorstufen</p>
+<table class="compare-table"><thead><tr><th>Stufe</th><th>Wo es gilt</th></tr></thead><tbody><tr><td>Prompt</td><td>nur in diesem Chat</td></tr><tr><td>Anweisungen in den Einstellungen</td><td>in jedem Chat</td></tr><tr><td>Projekt mit Anweisung und Angaben</td><td>in jedem Chat dieses Projekts</td></tr><tr><td>Skill</td><td>sobald er passt, und er zieht in andere Werkzeuge um</td></tr></tbody></table><p class="step-label">Was in einem Skill steht</p>
+<ul><li><b>Name</b>, kurz, zum Beispiel „statusbericht“</li><li><b>Beschreibung:</b> was der Skill tut und <b>wann</b> er greift</li><li><b>Anleitung:</b> Schritte, Regeln, ein Beispiel</li><li><b>Prüfpunkt:</b> was vor der Ausgabe kontrolliert und bestätigt wird</li><li>optional Vorlagen und Skripte</li></ul>
+<p>Ein offener Standard: dieselbe Datei lässt sich in Claude, Copilot und ChatGPT hochladen, wo das Konto Skills hat.</p></div></section>
+<section class="lektion" data-id="ue-t2-7" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="ue-t2-7"><div class="exercise-number">Übung 7</div><h3>Wo Ihr Skill wohnt</h3><p class="subtitle">Je Werkzeug und Konto</p><p>In der Reihenfolge, in der die Werkzeuge im Raum sind. Was bei Ihnen geht, hängt vom Konto ab.</p>
+<table class="compare-table"><thead><tr><th>Ihr Werkzeug</th><th>Wo der Skill wohnt</th><th>Hinweis</th></tr></thead><tbody><tr><td>Copilot mit Premium-Lizenz</td><td>Skill</td><td>Copilot baut den Skill und führt ihn aus</td></tr><tr><td>Copilot ohne Lizenz</td><td>Agent mit Anweisungen</td><td>Copilot erzeugt hier nur eine .md-Datei. Deren Text kommt in die Anweisungen eines Agenten.</td></tr><tr><td>ChatGPT mit Firmenlizenz</td><td>Skill, sonst Projekt</td><td>laut Hersteller in Firmenplänen</td></tr><tr><td>ChatGPT ohne Skills im Arbeitsbereich</td><td>Projekt-Anweisung</td><td>geht immer</td></tr><tr><td>Claude</td><td>Skill</td><td>Datei- und Code-Ausführung muss eingeschaltet sein</td></tr></tbody></table><p class="step-label">Rückfall, geht in jedem Werkzeug</p>
+<div class="prompt-block">Arbeite in diesem Chat nach folgender Anleitung:
+[Inhalt Ihrer Skill-Datei einfügen]</div><p class="step-label">Die Datei speichern</p>
+<p>Text der Anleitung kopieren, in eine leere Textdatei einfügen, als <b>name-des-skills.md</b> speichern. Mac: TextEdit, vorher Format → In reinen Text umwandeln. Windows: Editor. Die Datei gehört Ihnen und zieht in jedes Werkzeug um.</p></div></section>
+<section class="lektion" data-id="ue-t2-8" data-teil="vm" data-teil-name="Vormittag: Skills" hidden><div class="exercise t2" data-ex="ue-t2-8"><div class="exercise-number">Übung 8</div><h3>Ihr Skill für Ihre wiederkehrende Aufgabe</h3><p class="subtitle">Interview, bauen, prüfen, zweimal laufen</p><p>Hier bauen Sie Ihren Skill für eine Aufgabe, die bei Ihnen immer wiederkommt: Interview, bauen lassen, Regeln prüfen, an seinen Ort, zweimal laufen lassen, einmal gestoppt.</p>
+<p class="step-label">Zwei Musterfälle zur Orientierung</p>
+<p><b>Musterfall 1: der Statusbericht</b></p>
+<div class="prompt-block">---
+name: statusbericht
+description: Schreibt meinen wöchentlichen Statusbericht aus meinen Stichpunkten. Greift, wenn ich „Statusbericht“ schreibe.
+---
+Format: drei Teile: Erledigt, Läuft, Brauche Entscheidung. Je Punkt ein Satz. Höchstens 150 Wörter.
+Regeln: Nie Kundennamen. Nie ein Termin oder eine Zahl, die nicht in meinen Stichpunkten steht.
+Prüfpunkt: Bestätige am Ende in einer Zeile: keine Kundennamen, keine erfundenen Zahlen, unter 150 Wörtern.</div><p><b>Musterfall 2: die Prüfung nach Kriterien</b></p>
+<div class="prompt-block">---
+name: einreichung-pruefen
+description: Prüft eine Einreichung gegen unsere formalen und inhaltlichen Kriterien. Greift, wenn ich „prüfen“ schreibe und eine Datei anhänge.
+---
+Schritte: 1. Jedes Kriterium einzeln prüfen: erfüllt, nicht erfüllt, unklar, mit Fundstelle. 2. Gesamturteil in einem Satz. 3. Vorschlag, wohin die Einreichung am besten passt, mit Begründung.
+Regeln: Nie ein Kriterium als erfüllt markieren ohne Fundstelle. Bei Unklarheit „unklar“, nie raten.
+Prüfpunkt: Am Ende die Zahl der geprüften Kriterien gegen die Zahl in der Liste.</div><p class="step-label">Schritt 1: Das Tutor-Interview</p><div class="prompt-block">Du bist mein Tutor, nicht mein Lieferant. Ich will eine Aufgabe, die ich regelmäßig erledige, als Skill für eine KI aufschreiben. Die Aufgabe: [Ihre wiederkehrende Aufgabe in einem Satz, zum Beispiel aus dem Aufgaben-Audit von gestern].
+Frag mich nacheinander, immer nur eine Frage auf einmal:
+1. Wann und wodurch startet die Aufgabe, und wie oft?
+2. Was bekomme ich als Input?
+3. Welche Schritte mache ich, in welcher Reihenfolge?
+4. Welche Regeln gelten immer oder nie?
+5. Wie sieht ein gutes Ergebnis aus?
+6. Woran erkenne ich einen Fehler, bevor es rausgeht?
+Fass erst zusammen, wenn ich „fertig“ schreibe.</div><p class="step-label">Schritt 2: Den Skill bauen lassen</p><p><b>Ihr Konto hat Skills</b></p>
+<div class="prompt-block">Mach aus unserem Gespräch jetzt einen Skill mit Name, Beschreibung (was er tut und wann er greift), Input, Schritten, Regeln, Prüfpunkt und einem kurzen Beispiel.</div><p><b>Ohne Skills</b></p>
+<div class="prompt-block">Schreib aus unserem Gespräch eine Anleitung im Aufbau eines Skills:
+1. Name (kurz, Kleinbuchstaben mit Bindestrichen) und Beschreibung: was der Skill tut und bei welchen Anfragen er greift, höchstens 200 Zeichen.
+2. Input: was ich jedes Mal mitgebe.
+3. Schritte, nummeriert.
+4. Regeln: was Pflicht ist, was verboten ist.
+5. Prüfpunkt: was du vor der Ausgabe kontrollierst und mir in einer Zeile bestätigst.
+6. Ein kurzes Beispiel für ein gutes Ergebnis.
+Kurz, ohne Einleitung.</div><p class="step-label">Schritt 3: Bitte oder Regel?</p><div class="prompt-block">Markiere in der Anleitung jede Regel, die mit „immer“ oder „nie“ beginnt oder so gemeint ist. Ergänze für jede einen Prüfschritt: Du bestätigst vor der Ausgabe in einer Zeile, dass sie eingehalten ist. Gib mir die ganze Anleitung neu.</div><p>Auf Ihre Karte: Welche dieser Regeln wäre so teuer, dass sie in eine Vorlage gehört statt in die Anleitung?</p>
+<p class="step-label">Schritt 4: Speichern und einbauen</p><p>Als Datei speichern und an seinen Ort bringen, siehe „Wo Ihr Skill wohnt“ oben.</p>
+<p class="step-label">Schritt 5: Lauf 1, neuer Chat</p><div class="prompt-block">Hier ist mein Input für diesmal: [einfügen]. Arbeite nach meinem Skill [Name].</div><p class="step-label">Schritt 6: Lauf 2, gestoppt</p><p>Stoppuhr am Handy, derselbe Auftrag mit anderem Input. Minuten auf die Karte. Was ist anders als bei Lauf 1? Hat die Prüfzeile gestimmt?</p>
+<p class="pruef"><b>Fertig, wenn</b> zwei Ergebnisse, beide mit Prüfzeile, eine Zahl auf der Karte. Meldung im Meet-Chat: „Skill fertig, [Minuten]“.</p></div></section>
+<section class="lektion" data-id="ue-t2-9" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="ue-t2-9"><div class="exercise-number">Übung 9</div><h3>Die Prüfkarte: drei Fragen</h3><p class="subtitle">Ihr Werkzeug für die nächsten Wochen</p><p>Ihr Werkzeug für die nächsten Wochen: in fünf Minuten gegenprüfen, was die KI geliefert hat. Drei Fragen, kein Akronym. Stellen Sie sie bei jedem Ergebnis, bevor Sie es weitergeben.</p>
+<table class="compare-table"><thead><tr><th>Frage</th><th>Was Sie tun</th></tr></thead><tbody><tr><td><b>1. Steht es da?</b></td><td>Drei Stichproben per Strg+F (Mac: Cmd+F). Zitat statt Seitenzahl verlangen.</td></tr><tr><td><b>2. Fehlt etwas?</b></td><td>Fragen Sie die KI ausdrücklich, was sie nicht gefunden hat.</td></tr><tr><td><b>3. Hält es zweimal?</b></td><td>Derselbe Prompt im neuen Chat, gleiches Urteil? Kippt es, schaut ein Mensch hin.</td></tr></tbody></table><div class="magic-box" style="text-align:left"><p><b>Tipp:</b> Fotografieren Sie diese Karte mit dem Handy. KI liefert den Entwurf, Sie machen die Endkontrolle. Sie haften für das Ergebnis, nicht die KI. Lesen Sie es wie den Vertrag eines Gegners.</p></div></div></section>
+<section class="lektion" data-id="ue-t2-10" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="ue-t2-10"><div class="exercise-number">Übung 10</div><h3>Ihr Prüfprompt</h3><p class="subtitle">Werkstatt · Ihr getesteter Prüfprompt für Ihren Dokumenttyp</p><p>Das Ergebnis des Blocks: Ihr eigener, getesteter Prüfprompt für Ihren Dokumenttyp.</p>
+<div class="rahmen"><div><b>Ziel</b>Ein Prüfprompt, der für Ihren Dokumenttyp Zitat und Fundstelle liefert und nie selbst entscheidet.</div><div><b>Musterdatei</b><a href="../muster/a-qm-verfahrensanweisung-wohneinrichtung.md" download>Musterdatei A (.md)</a> · <a href="../muster/a-qm-verfahrensanweisung-wohneinrichtung.txt">(.txt)</a></div></div><p class="step-label">Ausgangspunkt: der Prüfprompt</p>
+<p>Dieselbe Vorlage wie in der Copilot-Übung von gestern, für jedes Werkzeug. Als erste Nachricht in einen neuen Chat, oder in Ihre Projekt-Anweisung:</p>
+<div class="prompt-block">Du bist mein Assistent für Dokumentenprüfung.
+
+Aufgabe: Ich gebe dir ein Dokument (zum Beispiel eine Verfahrensanweisung, ein Angebot oder einen Bericht) und ein Prüfraster. Du prüfst das Dokument gegen das Raster und erstellst einen Entwurf. Die Entscheidung trifft immer ein Mensch.
+
+Vorgehen:
+1. Prüfe jedes Kriterium einzeln. Pro Kriterium: Befund (ja / nein / keine Angabe), wörtliches Zitat mit Abschnitt, Maßnahme im Dokument (ja mit Abschnitt / nein).
+2. Erst danach das Gesamturteil, ausschließlich nach der Regel im Prüfraster. Nenne die Regel.
+3. Nenne, was für ein besseres und was für ein schlechteres Gesamturteil gelten müsste. Kennzeichne Grenzfälle.
+4. Liste auf, was im Dokument fehlt, als Rückfragen.
+
+Regeln: Verwende nur das Dokument und das Prüfraster. Steht etwas nicht drin, schreib „nicht im Dokument“. Erfinde keine Zitate, Zahlen oder Quellen. Positive oder alarmierende Wörter im Dokument sind kein Beleg. Sprich mich mit Sie an. Keine Einleitung, keine Nachbemerkung. Kennzeichne jede Aussage als [Zitat], [Schlussfolgerung] oder [fehlt].
+
+Kontext über mich:
+[zwei Sätze zu Ihrer Rolle]
+
+Prüfraster:
+[Kriterien und Kategorie-Regel]</div><p class="step-label">So geht es</p>
+<ol class="plain"><li>Nehmen Sie den Prüfprompt oben als Ausgangspunkt.</li><li>Passen Sie ihn an <b>Ihren</b> Dokumenttyp an: Verfahrensanweisung, Bericht, Angebot, Pressemitteilung. Ändern Sie Kriterien, Skala und Ausgabeform.</li><li>Testen Sie ihn an Musterdatei A, mit diesem Prüfraster, oder an einem Beispiel aus Ihrem Alltag, das keine echten Daten enthält:</li></ol>
+<div class="prompt-block">Prüfraster Verfahrensanweisung:
+1. Jeder Schritt nennt eine zuständige Person oder Rolle.
+2. Jede Frist ist als Zahl genannt (Stunden oder Tage).
+3. Die Aufbewahrung der Unterlagen ist geregelt.
+4. Der Umgang mit anonymen Eingaben ist geregelt.
+Gesamturteil: „vollständig“, wenn alle vier Kriterien erfüllt sind. „Nachbessern“, wenn eines oder zwei nicht erfüllt sind. „Nicht brauchbar“, wenn drei oder mehr nicht erfüllt sind.</div><ol class="plain"><li>Schreiben Sie die drei Prüffragen darunter: Steht es da? Fehlt etwas? Hält es zweimal?</li><li>Speichern Sie das Ganze als Datei „Mein Prüfprompt“.</li></ol>
+<div class="magic-box" style="text-align:left"><p><b>Wie nehmen Sie ihn mit?</b> Der Text steht hier auf der Seite. Kopieren Sie Ihre persönliche Fassung in eine Datei auf Ihrem Gerät oder in Ihr Projekt, soweit Ihre IT das erlaubt.</p></div></div></section>
+<section class="lektion" data-id="b1355" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="b1355"><div class="exercise-number">Info</div><h3>Die KI-Küche: drei Köche, ein Vorkoster</h3><div class="rahmen"><div><b>Ziel</b>Sie sehen, wie ein KI-Team arbeitet: ein Auftrag, drei Rollen parallel, ein Prüfer am Ende.</div></div><a class="kueche" href="../kueche/index.html"><span class="k-kick">Erklärseite · öffnet im selben Tab</span><span class="k-ttl">Die KI-Küche: drei Köche, ein Vorkoster</span><span class="k-txt">So arbeitet ein KI-Team. Ein echter Testlauf vom 09.11.2026 mit Claude Cowork und erfundenen Übungsdateien: Drei Köche arbeiten gleichzeitig am Herd, danach prüft der Vorkoster. Ein Koch allein bräuchte 357 Sekunden. Sie starten die Animation selbst und sehen die echten Zeiten aus dem Protokoll.</span><span class="k-go">Küche öffnen →</span></a><p class="pruef">Diese Übung zeigen wir im Raum.</p><iframe src="../../kueche/index.html" title="Die KI-Küche" style="width:100%; height:900px; border:1px solid rgba(212,160,23,0.25); border-radius:10px; background:#141414; margin-top:14px;" loading="lazy"></iframe></div></section>
+<section class="lektion" data-id="b1435" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="b1435"><div class="exercise-number">Info</div><h3>Agenten-Schwarm als Story</h3><div class="rahmen"><div><b>Ziel</b>Sie sehen an einer echten Vorbereitung, wie Agenten suchen und der Mensch entscheidet.</div></div><p class="pruef">Diese Übung zeigen wir im Raum.</p></div></section>
+<section class="lektion" data-id="ue-t2-13" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="ue-t2-13"><div class="exercise-number">Übung 13</div><h3>Ihr Skill nach Wahl</h3><p class="subtitle">Menü mit sieben Skill-Ideen</p><p>Hier bauen Sie Ihren dritten Skill. Offene Übung: Sie wählen aus dem Menü oder bauen einen eigenen. Pflicht ist nur der Prüfpunkt. Alle Ideen gehen ohne Zugriff auf Mail oder Kalender. </p>
+<p class="step-label">Beispielprompt für jede eigene Idee</p>
+<div class="prompt-block">Ich möchte einen Skill für [Aufgabe]. Frag mich zuerst nacheinander: Wann startet die Aufgabe, was ist der Input, welche Schritte, welche Regeln gelten immer oder nie, wie sieht ein gutes Ergebnis aus, woran erkenne ich einen Fehler? Dann bau den Skill mit einem Prüfpunkt.</div><p class="step-label">Das Menü</p>
+<p><b>Prüfung nach Kriterien mit Fundstelle</b></p>
+<div class="prompt-block">Ich möchte einen Skill, der eine Einreichung gegen meine Kriterien prüft: je Kriterium erfüllt, nicht erfüllt oder unklar, immer mit Fundstelle. Regel: nie „erfüllt“ ohne Fundstelle. Prüfpunkt: Zahl der geprüften Kriterien gegen die Zahl in der Liste. Hier sind meine Kriterien: [einfügen]. Frag nach, dann bau den Skill.</div><p><b>Bericht aus Unterlagen im festen Format</b></p>
+<div class="prompt-block">Ich möchte einen Skill, der aus mehreren Unterlagen einen Bericht in meinem festen Format schreibt: [Gliederung]. Regeln: Jede Aussage mit Quelle aus den Unterlagen, keine Zahl, die nicht in den Unterlagen steht. Prüfpunkt: am Ende die Liste aller Zahlen mit Fundstelle. Frag nach, dann bau den Skill.</div><p><b>Fragebogen beantworten: Frage, Fundstelle, Antwort</b></p>
+<div class="prompt-block">Ich möchte einen Skill, der einen Fragebogen aus meinen Dokumenten beantwortet: je Frage die passende Fundstelle und ein Antwortvorschlag. Regel: Findet sich nichts, schreibst du „keine Fundstelle“ und erfindest nichts. Prüfpunkt: Zahl der beantworteten und der offenen Fragen. Frag nach, dann bau den Skill.</div><p><b>Präsentation im Hausstil aus Stichpunkten</b></p>
+<div class="prompt-block">Ich möchte einen Skill, der aus meinen Stichpunkten eine PowerPoint im Hausstil erstellt: Farbe [Farbe], Schrift [Schrift], höchstens drei Punkte je Folie. Regel: nichts hinzufügen, was nicht in den Stichpunkten steht. Prüfpunkt: am Ende eine Zeile, dass Farbe und Schrift eingehalten sind. Frag nach, dann bau den Skill.</div><p><b>Fach-Briefing als Routine, nur mit Quelle</b></p>
+<div class="prompt-block">Ich möchte einen Skill, der mir die wichtigsten Neuigkeiten zu [Ihr Thema] zusammenfasst: je Meldung ein Satz, was passiert ist, ein Satz, was es für meine Arbeit heißt, Quelle mit Link und Datum. Regel: keine Meldung ohne Quelle. Prüfpunkt: Zahl der Meldungen mit Quelle. Frag nach, dann bau den Skill.</div><p><b>Social-Media-Beitrag aus Ihren Notizen</b></p>
+<div class="prompt-block">Ich möchte einen Skill, der aus meinen Notizen einen LinkedIn-Beitrag macht: ein Aufhänger in einem Satz, die Kernaussage, ein Beispiel aus meinen Notizen. Regeln: nie Namen von Kunden oder Kollegen, nichts, was nicht in den Notizen steht. Prüfpunkt: zu jeder Aussage die Notiz, aus der sie kommt. Frag nach, dann bau den Skill.</div><p><b>Der Reise-Skill aus Ihrem Chat von gestern</b></p>
+<div class="prompt-block">Wir haben in diesem Chat eine Reise geplant und umgeplant. Mach daraus einen Skill, mit dem eine KI künftig Dienstreisen nach meinen Regeln plant: Beschreibung mit „wann greift er“, Input, Schritte, Regeln, Prüfpunkt, ein Beispiel. Nimm die Regeln, die ich im Gespräch nachgeschoben habe, als Pflicht auf.</div><p class="pruef"><b>Fertig, wenn</b> ein dritter Skill mit Prüfpunkt, an seinem Ort. Meldung im Meet-Chat: „Skill 3 fertig“.</p></div></section>
+<section class="lektion" data-id="ue-t2-14" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="ue-t2-14"><div class="exercise-number">Übung 14</div><h3>Version 2</h3><p class="subtitle">Fehler benennen, Regel nachtragen</p><p>Ein echter Fehler, eine Regel nachgetragen, ein gestoppter Lauf. Offene Übung mit einem Ihrer Skills. </p>
+<p class="step-label">Schritt 1: Den Fehler benennen und die Regel nachtragen</p><div class="prompt-block">In diesem Lauf ist folgendes schiefgegangen: [ein Satz]. Ergänze meinen Skill um eine Regel und einen Prüfschritt, die das künftig verhindern. Gib mir die ganze Anleitung neu, oben mit „Version 2, [Datum]“.</div><p class="step-label">Schritt 2: Am Ort ersetzen, Lauf stoppen</p><p>Die neue Fassung an die Stelle der alten setzen, denselben Input noch einmal laufen lassen, Minuten auf die Karte.</p>
+<details><summary>Bonus: einen fremden Skill lesen statt installieren</summary><div class="collapsible-content"><p>Öffnen Sie <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">github.com/anthropics/skills</a>, wählen Sie einen Skill, kopieren Sie den Text der SKILL.md und nutzen Sie den Prüf-Prompt aus „Wo findet man Skills“ (nächste Karte).</p></div></details>
+<p class="pruef"><b>Fertig, wenn</b> Ihr Skill trägt oben „Version 2“, und der Fehler kommt im neuen Lauf nicht mehr vor. Meldung im Meet-Chat: „V2 fertig“.</p></div></section>
+<section class="lektion" data-id="ue-t2-15" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="ue-t2-15"><div class="exercise-number">Übung 15</div><h3>Wo findet man Skills?</h3><p class="subtitle">Mit Prüf-Prompt für fremde Skills</p><p>Fertige Skills gibt es viele. Nicht alle sind harmlos.</p>
+<table class="compare-table"><thead><tr><th>Wo</th><th>Was Sie dort finden</th></tr></thead><tbody><tr><td>Im Werkzeug</td><td>Das Verzeichnis Ihres Anbieters. Erste Wahl.</td></tr><tr><td>Beim Hersteller</td><td><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">github.com/anthropics/skills</a>: Skills von Anthropic, zur Demonstration und zum Lernen.</td></tr><tr><td>Marktplätze</td><td>Lesen, nicht installieren. Dort prüft niemand, was drin ist.</td></tr></tbody></table><p class="step-label">Erst lesen, dann installieren</p>
+<ul><li>Nur Skills, die Sie selbst geschrieben haben oder die aus dem Verzeichnis Ihres Anbieters stammen.</li><li>Fremde Skills vorher lesen: Internetadressen, „ignoriere …“, Passwörter, Dateien versenden? Dann nicht.</li><li>Echte Firmendaten erst nach Rücksprache mit Ihrer IT.</li></ul>
+<p>Der Prüf-Prompt, bevor Sie einen fremden Skill nutzen:</p>
+<div class="prompt-block">Hier ist ein Skill. Erklär mir in fünf Sätzen, was er tut, welche Daten er anfasst, ob er Skripte enthält und was mich daran stutzig machen sollte. Installiere nichts.
+[Text des Skills einfügen]</div><p>Sicherheitsforscher fanden im Februar 2026 unter 3.984 Skills auf Entwickler-Marktplätzen 76 bösartige (Snyk).</p></div></section>
+<section class="lektion" data-id="b1600" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="b1600"><div class="exercise-number">Info</div><h3>Strategie</h3><div class="rahmen"><div><b>Ziel</b>Sie entscheiden zwischen Cloud und lokal, erkennen Schatten-KI und wissen, wann sich Automatisierung mit Zapier, Make oder n8n lohnt.</div></div></div></section>
+<section class="lektion" data-id="ue-t2-16" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="ue-t2-16"><div class="exercise-number">Übung 16</div><h3>Wie viel Zeit spart Ihnen Ihr Skill?</h3><p class="subtitle">gemessen, nicht geschätzt</p><div class="rahmen"><div><b>Ziel</b>Eine Zahl, mit der Sie in zwei Wochen nachrechnen können: wie lange Ihre Aufgabe bisher dauerte und wie lange sie mit Ihrem Skill dauert.</div></div><p>Ihre Aufgabe von gestern oder heute: wie lange sie bisher dauert und wie lange mit Ihrem Skill, im Probelauf gestoppt. Ehrliche Zahlen helfen mehr als schöne.</p>
+<table class="compare-table"><thead><tr><th>Beispiel</th><th>je Einheit</th><th>wie oft</th></tr></thead><tbody><tr><td>Vorher</td><td>je Bericht</td><td>10 pro Woche</td></tr><tr><td>Mit Skill</td><td>Ihre gemessenen Minuten</td><td>10 pro Woche</td></tr></tbody></table><p>Bei jedem Lauf die Minuten notieren, <b>inklusive Nachkontrolle</b>. Die Häufigkeit können Sie pro Woche, Monat oder Jahr angeben.</p>
+<div class="magic-box" style="text-align:left"><p><b>Ihre Zahl: gemessen, nicht geschätzt.</b></p></div></div></section>
+<section class="lektion" data-id="ue-t2-17" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="ue-t2-17"><div class="exercise-number">Übung 17</div><h3>Ihre Skill-Karte</h3><p class="subtitle">was Sie mitnehmen, auf einer Seite</p><p>Was Sie heute mitnehmen, auf einer Seite. </p>
+<table class="compare-table"><thead><tr><th>Je Skill</th><th>Was Sie eintragen</th></tr></thead><tbody><tr><td>Name und Ort</td><td>wie er heißt und wo er wohnt</td></tr><tr><td>Prüfpunkt und Sprosse</td><td>was er kontrolliert, Sprosse 2, 3 oder 4</td></tr><tr><td>Minuten</td><td>heute früh geschätzt, im gestoppten Lauf gemessen</td></tr><tr><td>Teilen</td><td>mit wem Sie den Skill teilen</td></tr></tbody></table><p>Die KI kann die Karte für Sie zusammenfassen:</p>
+<div class="prompt-block">Fasse die Skills, die wir heute gebaut haben, als Skill-Karte zusammen: je Skill Name, wo er wohnt, Prüfpunkt, Sprosse auf der Leiter (Bitte, aufgeschrieben, geprüft, eingebaut, automatisch) und eine leere Zeile für meine Minuten.</div><p class="step-label">Pflicht: Ihr Wann-Wo-Satz</p>
+<div class="prompt-block">Wenn [Tag, Uhrzeit, Situation], dann starte ich [Name meines Skills] mit [Startauftrag].</div></div></section>
+<section class="lektion" data-id="ue-t2-18" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="ue-t2-18"><div class="exercise-number">Übung 18</div><h3>90-Tage-Fahrplan</h3><p class="subtitle">2 Wochen, 1 Monat, 3 Monate</p><p>Ein Skill, der nach dem Training nicht im Kalender steht, läuft nicht. Kopieren Sie die Vorlage in ein Dokument oder in den Chat und füllen Sie jede Zeile aus.</p>
+<p class="step-label">Vorlage</p>
+<p><b>Stufe 1 · Woche 1 bis 2: ein Skill im Einsatz</b></p>
+<table class="compare-table"><thead><tr><th>Feld</th><th>Ihr Eintrag</th></tr></thead><tbody><tr><td>Ziel</td><td>Skill [Name] läuft bei [Aufgabe], jedes Mal, wenn sie anfällt</td></tr><tr><td>Messgröße</td><td>Minuten pro Woche vorher: [ ] · nachher: [ ] · Korrekturrunden je Lauf: [ ]</td></tr><tr><td>Termin im Kalender</td><td>[Datum, Uhrzeit]: Zeitbilanz ausfüllen</td></tr><tr><td>Wer prüft</td><td>[Rolle, z. B. Teamleitung oder Kollegin im selben Bereich]</td></tr></tbody></table><p><b>Stufe 2 · Monat 1: zweiter Skill und Prüfer</b></p>
+<table class="compare-table"><thead><tr><th>Feld</th><th>Ihr Eintrag</th></tr></thead><tbody><tr><td>Ziel</td><td>Zweiter Skill [Name] für [Aufgabe], dazu ein Prüfer-Skill, der das Ergebnis gegen [Regeln/Vorlage] kontrolliert</td></tr><tr><td>Teilen mit</td><td>[Rolle oder Team], das ihn ebenfalls nutzt</td></tr><tr><td>Messgröße</td><td>Minuten pro Woche vorher: [ ] · nachher: [ ] · Korrekturrunden vorher: [ ] · nachher: [ ]</td></tr><tr><td>Termin im Kalender</td><td>[Datum, Uhrzeit]: Rückblick mit der Person, mit der Sie teilen</td></tr><tr><td>Wer prüft</td><td>[Rolle]</td></tr></tbody></table><p><b>Stufe 3 · Monat 2 bis 3: Ablauf aus mehreren Skills</b></p>
+<table class="compare-table"><thead><tr><th>Feld</th><th>Ihr Eintrag</th></tr></thead><tbody><tr><td>Ziel</td><td>Ablauf [Name]: Skill A, dann Skill B, dann Prüfer, mit einem Startauftrag</td></tr><tr><td>Datenschutz- und Ablagecheck</td><td>Welche Daten fließen hinein? Wo liegen Ergebnis und Skill? Wer hat Zugriff? Freigegeben von: [Rolle]</td></tr><tr><td>Was abgeschaltet wird</td><td>[alte Vorlage, Excel-Liste, manueller Zwischenschritt], ab [Datum]</td></tr><tr><td>Messgröße</td><td>Minuten pro Woche für den ganzen Ablauf vorher: [ ] · nachher: [ ] · Korrekturrunden: [ ]</td></tr><tr><td>Termin im Kalender</td><td>[Datum, Uhrzeit]: Abschlussbilanz, 90 Tage nach dem Training</td></tr><tr><td>Wer prüft</td><td>[Rolle]</td></tr></tbody></table><p>Messen heißt stoppen, nicht schätzen: bei jedem Lauf die Minuten notieren, inklusive Nachkontrolle.</p>
+<p class="step-label">Prompt: die KI macht den Entwurf</p>
+<div class="prompt-block">Im Anhang bzw. unten stehen meine Skill-Karte und meine Zeitbilanz aus dem Training.
+Mach daraus einen Entwurf meines 90-Tage-Fahrplans in drei Stufen: Woche 1 bis 2 (ein Skill im Einsatz), Monat 1 (zweiter Skill plus Prüfer, mit wem ich teile), Monat 2 bis 3 (Ablauf aus mehreren Skills, Datenschutz- und Ablagecheck, was ich abschalte).
+Je Stufe: Ziel, eine Messgröße (Minuten pro Woche vorher und nachher, Zahl der Korrekturrunden), Termin im Kalender, wer prüft.
+
+Bevor du schreibst: Stell mir höchstens fünf Rückfragen zu allem, was in Skill-Karte und Zeitbilanz fehlt. Warte auf meine Antworten.
+Übernimm Minuten nur aus meiner Zeitbilanz. Fehlt eine Zahl, schreib [messen] statt einer Schätzung.
+Termine schlägst du als konkrete Daten vor, ich bestätige sie.
+
+Skill-Karte: [einfügen]
+Zeitbilanz: [einfügen]</div><p class="pruef"><b>Fertig, wenn</b> jede Stufe ein Ziel, eine Messgröße, einen Termin und eine prüfende Rolle hat und der erste Termin bereits in Ihrem Kalender steht.</p></div></section>
+<section class="lektion" data-id="b1645" data-teil="nm" data-teil-name="Nachmittag: Prüfer und Agenten" hidden><div class="exercise t2" data-ex="b1645"><div class="exercise-number">Info</div><h3>Abschluss</h3><div class="rahmen"><div><b>Ziel</b>Sie messen Ihren Zuwachs im dritten KI-Check und geben Feedback zu Tag 2. Dazu ein Gruppenfoto.</div></div><p class="step-label">KI-Check · Durchgang 3 · Ende Tag 2</p><div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;"><a href="https://form.jotform.com/263125071418047" target="_blank" rel="noopener"><img src="../qr-263125071418047.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a><p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht, zum Beispiel am Firmenrechner?</strong> QR-Code mit dem Handy scannen, oder <a href="https://form.jotform.com/263125071418047" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p></div><div class="form-wichtig"><strong>Wichtig:</strong> Ihre Antworten sind erst gespeichert, wenn Sie <strong>UNTEN IM FORMULAR</strong> auf „Senden“ klicken.</div><iframe data-formular="F263125071418047" src="https://form.jotform.com/263125071418047" title="KI-Check" style="width:100%; height:1400px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe><p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Senden“ klicken.</p><p class="step-label">Feedback · Tag 2</p><div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;"><a href="https://form.jotform.com/263124339920051" target="_blank" rel="noopener"><img src="../qr-263124339920051.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a><p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht, zum Beispiel am Firmenrechner?</strong> QR-Code mit dem Handy scannen, oder <a href="https://form.jotform.com/263124339920051" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p></div><div class="form-wichtig"><strong>Wichtig:</strong> Ihre Antworten sind erst gespeichert, wenn Sie <strong>UNTEN IM FORMULAR</strong> auf „Senden“ klicken.</div><iframe data-formular="F263124339920051" src="https://form.jotform.com/263124339920051" title="Feedback" style="width:100%; height:1400px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe><p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Senden“ klicken.</p></div></section>
+  </main>
+</div>
+<div class="nav"><div class="form-hinweis" id="form-hinweis" role="alert" hidden><div class="form-hinweis-innen"><p><strong>Haben Sie im Formular unten auf „Senden“ geklickt?</strong> Erst dann sind Ihre Antworten gespeichert.</p><div class="reihe"><button type="button" class="knopf los" id="form-ja">Ja, abgeschickt, weiter</button><button type="button" class="knopf" id="form-zurueck">Zurück zum Formular</button></div></div></div><div class="nav-innen"><button class="knopf" id="prev" type="button">← Zurück</button><button class="knopf los" id="next" type="button">Erledigt, weiter →</button></div></div>
+<script>
+const M = [{"id": "willkommen", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "", "art": "Start", "opt": false, "titel": "Willkommen zu Tag 2"}, {"id": "kicheck-t1ende", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check: Durchgang „Tag 1 Ende“"}, {"id": "quiz-t1", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "", "art": "Quiz", "opt": false, "titel": "Wiederholung: Was ist von gestern geblieben?"}, {"id": "kontextfenster", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "", "art": "Info", "opt": false, "titel": "Das Kontextfenster: der Schreibtisch der KI"}, {"id": "ue-t2-1", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "1", "art": "Übung", "opt": false, "titel": "System-Prompt und Projekt-Prompt"}, {"id": "ue-t2-2", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "2", "art": "Übung", "opt": false, "titel": "Wo gilt was: die drei Ebenen"}, {"id": "ue-t2-audit", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "", "art": "Übung", "opt": false, "titel": "Das Audit: Was gebe ich der KI immer wieder?"}, {"id": "ue-t2-3", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "3", "art": "Übung", "opt": false, "titel": "Skript gegen Prosa: Bitte oder Regel?"}, {"id": "b1020", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "", "art": "Info", "opt": false, "titel": "Skill-Levels"}, {"id": "ue-t2-5", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "5", "art": "Übung", "opt": false, "titel": "Word-Analyse"}, {"id": "ue-t2-6", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "6", "art": "Übung", "opt": false, "titel": "Wovon entsteht ein Skill?"}, {"id": "ue-t2-7", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "7", "art": "Übung", "opt": false, "titel": "Wo Ihr Skill wohnt"}, {"id": "ue-t2-8", "teil": "vm", "teilname": "Vormittag: Skills", "nr": "8", "art": "Übung", "opt": false, "titel": "Ihr Skill für Ihre wiederkehrende Aufgabe"}, {"id": "ue-t2-9", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "9", "art": "Übung", "opt": false, "titel": "Die Prüfkarte: drei Fragen"}, {"id": "ue-t2-10", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "10", "art": "Übung", "opt": false, "titel": "Ihr Prüfprompt"}, {"id": "b1355", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "", "art": "Info", "opt": false, "titel": "Die KI-Küche: drei Köche, ein Vorkoster"}, {"id": "b1435", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "", "art": "Info", "opt": false, "titel": "Agenten-Schwarm als Story"}, {"id": "ue-t2-13", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "13", "art": "Übung", "opt": false, "titel": "Ihr Skill nach Wahl"}, {"id": "ue-t2-14", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "14", "art": "Übung", "opt": false, "titel": "Version 2"}, {"id": "ue-t2-15", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "15", "art": "Übung", "opt": false, "titel": "Wo findet man Skills?"}, {"id": "b1600", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "", "art": "Info", "opt": false, "titel": "Strategie"}, {"id": "ue-t2-16", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "16", "art": "Übung", "opt": false, "titel": "Wie viel Zeit spart Ihnen Ihr Skill?"}, {"id": "ue-t2-17", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "17", "art": "Übung", "opt": false, "titel": "Ihre Skill-Karte"}, {"id": "ue-t2-18", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "18", "art": "Übung", "opt": false, "titel": "90-Tage-Fahrplan"}, {"id": "b1645", "teil": "nm", "teilname": "Nachmittag: Prüfer und Agenten", "nr": "", "art": "Info", "opt": false, "titel": "Abschluss"}];
+const KOHORTE = 'ki-agenten-2026-11-tag2';
+const GRUPPEN = true;
+const WACHE = true;
+const ERKENNUNG = false;
+const SPEICHER = 'kurs.' + KOHORTE;
+const S = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
+            set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+const $ = id => document.getElementById(id);
+let erledigt = new Set(S.get(SPEICHER + '.erledigt', []));
+let cur = null, imRaum = null;
+
+function beschriftung(m) { return (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + m.titel; }
+
+function zeigen(id, scrollen) {
+  const m = M.find(x => x.id === id) || M[0];
+  cur = m.id; S.set(SPEICHER + '.cur', cur); S.set(SPEICHER + '.tag', new Date().toDateString());
+  if (location.hash.slice(1) !== cur) history.replaceState(null, '', '#' + cur);
+  document.querySelectorAll('.lektion').forEach(s => s.hidden = s.dataset.id !== cur);
+  const i = M.indexOf(m);
+  $('ttl').textContent = m.titel;
+  $('crumb').textContent = m.teilname;
+  $('tags').innerHTML = '<span class="tag">' + (m.nr ? 'Übung ' + m.nr : m.art) + '</span>' + (m.opt ? '<span class="tag leise">wenn Zeit bleibt</span>' : '');
+  document.querySelectorAll('.zeile').forEach(z => {
+    z.classList.toggle('aktiv', z.dataset.id === cur);
+    z.classList.toggle('erledigt', erledigt.has(z.dataset.id));
+  });
+  const p = Math.round(erledigt.size / M.length * 100);
+  $('balken').style.width = p + '%';
+  $('stand').textContent = erledigt.size + ' von ' + M.length + ' erledigt';
+  $('dstand').textContent = (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + erledigt.size + '/' + M.length + ' erledigt';
+  $('prev').disabled = i === 0;
+  $('next').textContent = i === M.length - 1 ? 'Erledigt ✓' : (formLektion() && !abgeschickt[cur] ? 'Formular abgeschickt? Dann weiter →' : 'Erledigt, weiter →');
+  if (WACHE) hinweisZu();
+  $('side').classList.remove('offen');
+  if (GRUPPEN) gruppeOeffnen(m.teil);
+  leisteZeichnen();
+  if (scrollen !== false) window.scrollTo(0, 0);
+}
+
+function gruppeOeffnen(teil) {
+  document.querySelectorAll('.gruppe').forEach(g => {
+    if (g.dataset.teil === teil) { g.classList.remove('zu'); g.querySelector('.teil-knopf').setAttribute('aria-expanded', 'true'); }
+  });
+}
+if (GRUPPEN) document.querySelectorAll('.teil-knopf').forEach(k => k.addEventListener('click', () => {
+  const g = k.parentElement, zu = g.classList.toggle('zu');
+  k.setAttribute('aria-expanded', String(!zu));
+}));
+document.querySelectorAll('.zeile').forEach(z => z.addEventListener('click', e => { e.preventDefault(); zeigen(z.dataset.id); }));
+$('prev').onclick = () => { const i = M.findIndex(x => x.id === cur); if (i > 0) zeigen(M[i - 1].id); };
+function weiter() {
+  erledigt.add(cur); S.set(SPEICHER + '.erledigt', [...erledigt]);
+  const i = M.findIndex(x => x.id === cur); zeigen(M[Math.min(i + 1, M.length - 1)].id);
+}
+// Formular-Wache: nie blockieren. Erster Klick zeigt nur einen Hinweis im Seitenkopf-Bereich, der zweite geht durch.
+const abgeschickt = {}, gewarnt = {};
+function formLektion() { return WACHE ? document.querySelector('.lektion[data-id="' + cur + '"] iframe[data-formular]') : null; }
+function hinweisZu() { const h = $('form-hinweis'); if (h) h.hidden = true; }
+$('next').onclick = () => {
+  if (formLektion() && !abgeschickt[cur] && !gewarnt[cur]) {
+    gewarnt[cur] = true; const h = $('form-hinweis'); h.hidden = false; $('form-ja').focus(); return;
+  }
+  weiter();
+};
+if (WACHE) {
+  $('form-ja').onclick = () => { hinweisZu(); weiter(); };
+  $('form-zurueck').onclick = () => {
+    hinweisZu(); gewarnt[cur] = false;
+    const f = formLektion(); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  };
+  if (ERKENNUNG) document.querySelectorAll('iframe[data-formular]').forEach(f => {
+    let n = 0;
+    f.addEventListener('load', () => {
+      if (++n < 2) return;            // das erste load ist das leere Formular, jedes weitere eine neue Seite (Dank-Seite nach dem Absenden)
+      const id = f.closest('.lektion').dataset.id; abgeschickt[id] = true;
+      if (!f.nextElementSibling || !f.nextElementSibling.classList.contains('form-danke')) {
+        const d = document.createElement('p'); d.className = 'form-danke'; d.textContent = 'Danke, Ihre Antworten sind angekommen ✓'; f.after(d);
+      }
+      if (id === cur) { hinweisZu(); zeigen(cur, false); }
+    });
+  });
+}
+$('oeffnen').onclick = () => $('side').classList.add('offen');
+function leisteSetzen(zu) {
+  document.body.classList.toggle('leiste-zu', zu);
+  $('leisteKnopf').setAttribute('aria-expanded', String(!zu));
+  $('leisteKnopf').setAttribute('aria-label', zu ? 'Seitenleiste ausklappen' : 'Seitenleiste einklappen');
+  S.set(SPEICHER + '.leisteZu', zu);
+}
+$('leisteKnopf').onclick = () => leisteSetzen(!document.body.classList.contains('leiste-zu'));
+leisteSetzen(!!S.get(SPEICHER + '.leisteZu', false));
+$('schliessen').onclick = () => $('side').classList.remove('offen');
+window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (h && h !== cur && M.some(x => x.id === h)) zeigen(h); });
+
+// Kopieren per Klick auf einen Prompt-Block
+document.querySelectorAll('.prompt-block').forEach(block => {
+  block.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(block.textContent.trim());
+      block.classList.add('copied'); setTimeout(() => block.classList.remove('copied'), 1500);
+    } catch (e) {
+      const r = document.createRange(); r.selectNodeContents(block);
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    }
+  });
+});
+
+// Akkordeon: je Uebung nur ein Feld offen, und nur nach einem echten Klick
+let letzterKlick = 0;
+document.addEventListener('click', e => { if (e.target.closest('summary')) letzterKlick = Date.now(); }, true);
+document.querySelectorAll('.exercise').forEach(ex => {
+  ex.querySelectorAll(':scope > details, .collapsible-content > details').forEach(det => {
+    det.addEventListener('toggle', () => {
+      if (det.open && Date.now() - letzterKlick < 1000) {
+        det.parentElement.querySelectorAll(':scope > details').forEach(sib => { if (sib !== det && sib.open) sib.open = false; });
+        setTimeout(() => det.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+      }
+    });
+  });
+});
+
+// Bild-Upload in Jakubs Drive. Geht an denselben Dienst wie die Live-Leiste.
+let UPLOAD = 'https://deflifeos.popluhar.at/reise-live/upload';
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && new URLSearchParams(location.search).get('uploadUrl'))
+  UPLOAD = new URLSearchParams(location.search).get('uploadUrl');
+document.querySelectorAll('.upload-kasten').forEach(kasten => {
+  const vn = kasten.querySelector('.vorname'), feld = kasten.querySelector('input[type=file]'), liste = kasten.querySelector('.liste-upload');
+  vn.value = S.get(SPEICHER + '.vorname', '');
+  vn.addEventListener('change', () => S.set(SPEICHER + '.vorname', vn.value.trim()));
+  function eins(datei) {
+    const li = document.createElement('li');
+    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = datei.name || 'Bild';
+    const st = document.createElement('span'); st.className = 'st'; st.textContent = 'wird hochgeladen…';
+    li.append(nm, st); liste.prepend(li);
+    if (datei.size > 12 * 1024 * 1024) { li.className = 'fehler'; st.textContent = 'zu groß (max. 12 MB)'; return Promise.resolve(); }
+    return new Promise(fertig => {
+      const x = new XMLHttpRequest();
+      x.open('POST', UPLOAD);
+      x.setRequestHeader('Content-Type', 'application/octet-stream');
+      x.setRequestHeader('X-Kohorte', KOHORTE);
+      x.setRequestHeader('X-Uebung', encodeURIComponent(kasten.dataset.uebung || ''));
+      x.setRequestHeader('X-Vorname', encodeURIComponent(vn.value.trim()));
+      x.upload.onprogress = e => { if (e.lengthComputable) st.textContent = Math.round(e.loaded / e.total * 100) + ' %'; };
+      x.onload = () => {
+        let d = {}; try { d = JSON.parse(x.responseText); } catch (e) {}
+        if (x.status === 200) { li.className = 'ok'; st.textContent = 'angekommen ✓'; }
+        else { li.className = 'fehler'; st.textContent = d.fehler || ('Fehler ' + x.status); }
+        fertig();
+      };
+      x.onerror = () => { li.className = 'fehler'; st.textContent = 'keine Verbindung, bitte nochmal'; fertig(); };
+      x.send(datei);
+    });
+  }
+  feld.addEventListener('change', async () => {
+    S.set(SPEICHER + '.vorname', vn.value.trim());
+    for (const d of [...feld.files].slice(0, 5)) await eins(d);
+    feld.value = '';
+  });
+});
+
+// Live-Leiste "Jetzt im Raum": nur lesen, es wird nichts ueber die Person gesendet
+let BASIS = 'https://deflifeos.popluhar.at/reise-live/jetzt.json';
+const q = new URLSearchParams(location.search);
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && q.get('liveBasis')) BASIS = q.get('liveBasis');
+function leisteZeichnen() {
+  const leiste = $('live-leiste');
+  const m = imRaum && M.find(x => x.id === imRaum);
+  document.querySelectorAll('.zeile').forEach(z => z.classList.toggle('im-raum', !!m && z.dataset.id === imRaum));
+  if (!m) { leiste.hidden = true; return; }
+  leiste.hidden = false;
+  $('live-text').textContent = beschriftung(m);
+  const hier = imRaum === cur;
+  $('live-dorthin').hidden = hier;
+  $('live-hier').hidden = !hier;
+}
+function abfragen() {
+  fetch(BASIS + '?k=' + KOHORTE, { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (!d) return;
+      const neu = d.ziel || null;
+      if (neu === imRaum) return;
+      imRaum = neu; leisteZeichnen();
+      const l = $('live-leiste'); l.classList.remove('neu'); void l.offsetWidth; l.classList.add('neu');
+    })
+    .catch(() => { /* ohne Verbindung bleibt alles, wie es ist */ });
+}
+let takt = null;
+function starten() { clearInterval(takt); takt = null; if (!document.hidden) { abfragen(); takt = setInterval(abfragen, 5000); } }
+$('live-dorthin').onclick = () => { if (imRaum) zeigen(imRaum); };
+document.addEventListener('visibilitychange', starten);
+function schubladeHoehe() { document.documentElement.style.setProperty('--schublade-h', $('schublade').offsetHeight + 'px'); }
+window.addEventListener('resize', schubladeHoehe);
+
+schubladeHoehe();
+const start = location.hash.slice(1);
+// Wiedereinstieg nur am selben Tag, sonst landen alle auf der Willkommensseite (Commander 07.10.)
+const gestern = S.get(SPEICHER + '.tag', '') !== new Date().toDateString();
+zeigen(M.some(x => x.id === start) ? start : (gestern ? M[0].id : S.get(SPEICHER + '.cur', M[0].id)), false);
+starten();
+
+(function () {
+  // Begruessung nur beim ersten Besuch. Speicher gesperrt: einmal je Sitzung, wenn auch das nicht geht, bei jedem Laden. Blockiert nie.
+  var K = 'kurs.' + KOHORTE + '.begruesst', box = document.getElementById('willkommen-bs');
+  function gesehen() {
+    try { if (localStorage.getItem(K)) return true; } catch (e) {}
+    try { if (sessionStorage.getItem(K)) return true; } catch (e) {}
+    return false;
+  }
+  function merken() {
+    try { localStorage.setItem(K, '1'); } catch (e) {}
+    try { sessionStorage.setItem(K, '1'); } catch (e) {}
+  }
+  if (!box || gesehen()) return;
+  function zu() { box.hidden = true; merken(); document.removeEventListener('keydown', taste); }
+  function taste(e) { if (e.key === 'Escape' || e.key === 'Enter') zu(); }
+  box.hidden = false;
+  document.getElementById('wk-weiter').addEventListener('click', zu);
+  document.addEventListener('keydown', taste);
+  try { document.getElementById('wk-weiter').focus(); } catch (e) {}
+})();
+</script>
+<script src="/assets/js/site.js" defer></script>
+<script src="quiz/quiz.js"></script>
+<style>
+.ablauf{margin:14px 0 4px;padding:10px 14px;border-radius:10px;background:rgba(212,160,23,.08);border:1px solid rgba(212,160,23,.25);font-size:.9rem}
+.ablauf b{color:var(--gold)}
+.lv{margin:22px 0 10px;border:1px solid rgba(212,160,23,.3);border-radius:10px;padding:12px 14px}
+.lv-titel{font-family:var(--font-heading);font-weight:700;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.lv-kopf{display:flex;flex-wrap:wrap;gap:6px}
+.lv-kopf button{font:inherit;font-size:.85rem;font-weight:600;border:1px solid rgba(212,160,23,.35);background:transparent;color:var(--white-muted);border-radius:99px;padding:5px 12px;cursor:pointer}
+.lv-kopf button.an{background:var(--gold);color:#1a1a1a;border-color:var(--gold)}
+.lv-teil{display:none;margin-top:10px;font-size:.92rem}
+.lv-teil.an{display:block}
+.lv-teil p{margin:0 0 8px}
+.lv-teil .prompt-block{margin:6px 0 8px}
+</style><script>
+(function(){document.querySelectorAll('.lv').forEach(function(b){var k=b.querySelectorAll('.lv-kopf button'),t=b.querySelectorAll('.lv-teil');
+k.forEach(function(x){x.addEventListener('click',function(){var an=x.classList.contains('an');k.forEach(function(y){y.classList.remove('an')});t.forEach(function(y){y.classList.remove('an')});if(!an){x.classList.add('an');b.querySelector('.lv-teil[data-l="'+x.dataset.l+'"]').classList.add('an')}})})})})();
+</script>
+<style>
+.lv-teil{display:block!important;margin-top:14px;padding:12px 14px;border-radius:8px;background:rgba(255,255,255,.03)}
+.lv-teil.stufe2{border-left:5px solid #d4a017}
+.lv-teil.stufe3{border-left:5px solid #e07a5f}
+.lv-stufe{font-family:var(--font-heading);font-weight:700;font-size:1rem;margin-bottom:8px}
+.stufe2 .lv-stufe{color:#d4a017}.stufe3 .lv-stufe{color:#e07a5f}
+.lv-stufe span{font-family:inherit;font-weight:400;font-size:.85rem;color:var(--white-muted);margin-left:6px}
+.ablauf-sprung{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.ablauf-sprung span,.ablauf-sprung button{font:inherit;font-size:.85rem;font-weight:700;border-radius:99px;padding:5px 12px;border:2px solid}
+.ablauf-sprung .st1{border-color:#9fd3a8;color:#9fd3a8}
+.ablauf-sprung .st2{border-color:#d4a017;color:#d4a017;background:transparent;cursor:pointer}
+.ablauf-sprung .st3{border-color:#e07a5f;color:#e07a5f;background:transparent;cursor:pointer}
+</style>
+</body>
+</html>
