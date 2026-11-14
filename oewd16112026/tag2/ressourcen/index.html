@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ressourcen: Microsoft 365 Copilot Champions: Praxistraining · ÖWD cleaning services (über tecTrain)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+  <link rel="icon" type="image/png" href="../../../favicon.png">
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../../../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../../../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../../../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../../../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../../../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* HEADER */
+    .site-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+
+    .logo { display: flex; align-items: center; text-decoration: none; }
+
+    .back-link {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    /* MAIN */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero p { font-size: 0.95rem; color: var(--white-muted); }
+
+    /* RECOMMENDATION BOX */
+    .recommendation-box {
+      background: rgba(212, 160, 23, 0.07);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+
+    .recommendation-box .rec-label {
+      font-family: var(--font-heading);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .recommendation-box h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .recommendation-box p {
+      font-size: 0.88rem;
+      color: var(--white-muted);
+      line-height: 1.7;
+    }
+
+    .recommendation-box strong { color: var(--white); }
+
+    /* DUMMY ACCOUNT BOX */
+    .dummy-box {
+      display: flex;
+      gap: 18px;
+      background: rgba(59, 130, 246, 0.07);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 12px;
+      padding: 24px 26px;
+      margin-bottom: 48px;
+    }
+
+    .dummy-icon {
+      flex-shrink: 0;
+      color: #60a5fa;
+      margin-top: 2px;
+    }
+
+    .dummy-content { flex: 1; }
+
+    .dummy-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #60a5fa;
+      margin-bottom: 6px;
+    }
+
+    .dummy-content h3 {
+      font-family: var(--font-heading);
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .dummy-content p {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      line-height: 1.7;
+    }
+
+    .dummy-content strong { color: var(--white); }
+    .dummy-content a { color: #60a5fa; }
+    .dummy-content a:hover { color: #93c5fd; }
+
+    @media (max-width: 500px) {
+      .dummy-box { flex-direction: column; gap: 10px; padding: 18px 18px; }
+    }
+
+    /* DATENSCHUTZ BOX */
+    .privacy-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(239, 68, 68, 0.06);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 40px;
+      font-size: 0.82rem;
+      color: var(--white-muted);
+      line-height: 1.65;
+    }
+
+    .privacy-icon {
+      flex-shrink: 0;
+      color: #f87171;
+      margin-top: 1px;
+    }
+
+    .privacy-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #f87171;
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    /* SECTION DIVIDER */
+    .section-divider {
+      text-align: center;
+      margin: 48px 0 24px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* PRICING BADGES */
+    .tool-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .badge-free     { background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .badge-freemium { background: rgba(139, 92, 246, 0.12); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3); }
+    .badge-paid     { background: rgba(212, 160, 23, 0.12); color: var(--gold); border: 1px solid rgba(212, 160, 23, 0.3); }
+
+    /* TOOL GRID */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .tool-grid.single { grid-template-columns: 1fr; max-width: 420px; }
+
+    .tool-card {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 12px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .tool-card.jakub-pick {
+      border-color: rgba(212, 160, 23, 0.5);
+      background: rgba(212, 160, 23, 0.04);
+    }
+
+    .tool-card h4 {
+      font-family: var(--font-heading);
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .tool-card .tool-desc {
+      font-size: 0.84rem;
+      color: var(--white-muted);
+      line-height: 1.55;
+      margin-bottom: 4px;
+    }
+
+    .tool-card .tool-price {
+      font-size: 0.76rem;
+      color: var(--white-muted);
+    }
+
+    .tool-card .jakub-note {
+      font-size: 0.78rem;
+      color: var(--gold);
+      border-top: 1px solid rgba(212, 160, 23, 0.15);
+      padding-top: 10px;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .tool-card a.tool-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.3);
+      padding: 5px 12px;
+      border-radius: 6px;
+      align-self: flex-start;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .tool-card a.tool-link:hover {
+      background: rgba(212, 160, 23, 0.1);
+      border-color: rgba(212, 160, 23, 0.6);
+      color: var(--gold-light);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      main { padding: 32px 16px 64px; }
+      .tool-grid { grid-template-columns: 1fr; }
+      .tool-grid.single { max-width: 100%; }
+      .recommendation-box { padding: 18px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="https://jakubpopluhar.com" class="logo" aria-label="Jakub Popluhar">
+      <img src="../../../images/logos/jakub-popluhar-logo-dark.png" alt="Jakub Popluhar" height="44">
+    </a>
+    <a href="../" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Zurück
+    </a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="badge">Microsoft 365 Copilot Champions: Praxistraining &middot; ÖWD cleaning services (über tecTrain) &middot; Tag 2 &middot; 17.11.2026</div>
+      <h1>Ressourcen</h1>
+      <p>Ihr Werkzeug und Ihre Unterlagen aus dem Training, an einem Ort.</p>
+    </div>
+
+    <div class="recommendation-box">
+      <div class="rec-label">Ihr Werkzeug</div>
+      <h3>Microsoft 365 Copilot im ÖWD-Konto</h3>
+      <p>Alles aus diesem Training läuft in Copilot mit Ihrem ÖWD-Konto: <a href="https://m365.cloud.microsoft" target="_blank" rel="noopener">m365.cloud.microsoft</a>. Firmendaten gehören nur in dieses Konto. Was dort hineindarf, entscheidet Ihre IT.</p>
+    </div>
+
+    <div class="section-divider"><h2>Musterdateien und Agenten</h2></div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h4>Alles in einem Paket</h4>
+        <p class="tool-desc">Alle Musterdateien, Vorlagen und Agenten-Anweisungen für Ihren OneDrive-Ordner „Copilot-Training“.</p>
+        <a class="tool-link" href="/oewd16112026/material/Copilot-Training-OEWD.zip" target="_blank" rel="noopener">Copilot-Training-OEWD.zip &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <h4>M1 Reklamation Reinigung</h4>
+        <p class="tool-desc">Erfundene Kundenmail für Ihren ersten Agenten und das Copilot-Team.</p>
+        <a class="tool-link" href="/oewd16112026/material/M1-Reklamation-Reinigung.docx" target="_blank" rel="noopener">M1-Reklamation-Reinigung.docx &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <h4>M1 als Textdatei</h4>
+        <p class="tool-desc">Derselbe Text, wenn Word-Dateien nicht gehen.</p>
+        <a class="tool-link" href="/oewd16112026/material/M1-Reklamation-Reinigung.txt" target="_blank" rel="noopener">M1-Reklamation-Reinigung.txt &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <h4>M2 Hausregeln Kundenkommunikation</h4>
+        <p class="tool-desc">Acht Regeln, gegen die der Prüfer-Agent prüft.</p>
+        <a class="tool-link" href="/oewd16112026/material/M2-Hausregeln-Kundenkommunikation.docx" target="_blank" rel="noopener">M2-Hausregeln-Kundenkommunikation.docx &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <h4>M3 Dienstanweisung Schichtübergabe</h4>
+        <p class="tool-desc">Für Notizbuch gegen Chat und den Prüfprompt.</p>
+        <a class="tool-link" href="/oewd16112026/material/M3-Dienstanweisung-Schichtuebergabe.docx" target="_blank" rel="noopener">M3-Dienstanweisung-Schichtuebergabe.docx &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <h4>M4 Teams-Besprechung, Transkript</h4>
+        <p class="tool-desc">Aus einer Besprechung wird eine Mail.</p>
+        <a class="tool-link" href="/oewd16112026/material/M4-Teams-Besprechung-Transkript.docx" target="_blank" rel="noopener">M4-Teams-Besprechung-Transkript.docx &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <h4>M5 Vorlage Kundenbericht</h4>
+        <p class="tool-desc">Für die Word-Analyse.</p>
+        <a class="tool-link" href="/oewd16112026/material/M5-Vorlage-Kundenbericht.docx" target="_blank" rel="noopener">M5-Vorlage-Kundenbericht.docx &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <h4>M6 Dienstplan alt und neu</h4>
+        <p class="tool-desc">Zwei Listen: Bitte oder Regel.</p>
+        <a class="tool-link" href="/oewd16112026/material/M6-Dienstplan-alt-neu.xlsx" target="_blank" rel="noopener">M6-Dienstplan-alt-neu.xlsx &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <h4>Anweisungen der Agenten von Tag 2</h4>
+        <p class="tool-desc">Faktenblatt, Antwortentwurf, Prüfer, Rechercheagent zum Kopieren.</p>
+        <a class="tool-link" href="/oewd16112026/material/Agenten-Anweisungen-Tag-2.docx" target="_blank" rel="noopener">Agenten-Anweisungen-Tag-2.docx &rarr;</a>
+      </div>
+    </div>
+
+    <div class="section-divider"><h2>Vorlagen zum Weitergeben</h2></div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <h4>V1 Muster für Ihre Personalisierung</h4>
+        <p class="tool-desc">Gehört Ihnen: kopieren, anpassen, an Kolleginnen und Kollegen weitergeben.</p>
+        <a class="tool-link" href="/oewd16112026/material/V1-Personalisierung-Muster.docx" target="_blank" rel="noopener">V1-Personalisierung-Muster.docx &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <h4>V2 Anweisung „Mein ÖWD-Assistent“</h4>
+        <p class="tool-desc">Gehört Ihnen: kopieren, anpassen, an Kolleginnen und Kollegen weitergeben.</p>
+        <a class="tool-link" href="/oewd16112026/material/V2-Agent-Anweisung-Mein-OEWD-Assistent.docx" target="_blank" rel="noopener">V2-Agent-Anweisung-Mein-OEWD-Assistent.docx &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <h4>V3 CITE(R) auf einer Seite</h4>
+        <p class="tool-desc">Gehört Ihnen: kopieren, anpassen, an Kolleginnen und Kollegen weitergeben.</p>
+        <a class="tool-link" href="/oewd16112026/material/V3-CITER-auf-einer-Seite.docx" target="_blank" rel="noopener">V3-CITER-auf-einer-Seite.docx &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <h4>V4 Raster Objekt- und Kundenprofil</h4>
+        <p class="tool-desc">Gehört Ihnen: kopieren, anpassen, an Kolleginnen und Kollegen weitergeben.</p>
+        <a class="tool-link" href="/oewd16112026/material/V4-Raster-Objekt-und-Kundenprofil.docx" target="_blank" rel="noopener">V4-Raster-Objekt-und-Kundenprofil.docx &rarr;</a>
+      </div>
+    </div>
+
+    <p style="color: var(--white-muted); font-size: 0.85rem; margin-top: 32px;">Alle Musterdateien sind erfunden. Jede Vorlage trägt die Fußzeile „Vorlage: Jakub Popluhar, Training ÖWD 11/2026“.</p>
+
+  </main>
+
+  <footer>
+    <p>
+      Jakub Popluhar M.Ed.
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a>
+    </p>
+  </footer>
+
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

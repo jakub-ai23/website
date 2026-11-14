@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft 365 Copilot Champions: Praxistraining · E-Learning · ÖWD cleaning services (über tecTrain)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <!-- ERZEUGT von ~/.claude/skills/elearning-seite/scripts/bau.py aus der Hülle. Inhalt in delivery/<Training>/elearning/ ändern, dann neu bauen. Nicht von Hand pflegen. -->
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --ink: 255,255,255;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* HEADER */
+    .site-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+
+    .logo { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: var(--white); text-decoration: none; }
+    .logo:hover { color: var(--white); }
+    .logo span { color: var(--gold); }
+
+    .back-link {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    /* MAIN */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero p { font-size: 0.95rem; color: var(--white-muted); }
+
+    /* SECTION DIVIDERS */
+    .section-divider {
+      text-align: center;
+      margin: 56px 0 40px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* EXERCISE CARDS */
+    .exercise {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .exercise-number {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .exercise h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .exercise .subtitle {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .exercise p, .exercise li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .exercise ul, .exercise ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .exercise li { margin-bottom: 6px; }
+
+    /* PROMPT BLOCKS (copyable) */
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      margin: 14px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: pre-line;
+    }
+
+    .prompt-block:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    .prompt-block::after {
+      content: 'Kopieren';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover::after { opacity: 1; }
+
+    .prompt-block.copied::after {
+      content: 'Kopiert!';
+      opacity: 1;
+    }
+
+    /* CONTEXT BLOCKS */
+    .context-block {
+      background: rgba(var(--ink),0.03);
+      border: 1px solid rgba(var(--ink),0.06);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 14px 0;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+    }
+
+    .context-block strong { color: var(--white); }
+
+    /* STEP LABELS */
+    .step-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin: 18px 0 6px;
+    }
+
+    /* Unterschritt: gehoert zu keinem CITE-Buchstaben */
+    .sub-step {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.78rem;
+      color: rgba(var(--ink),0.55);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 20px 0 6px;
+      padding-left: 12px;
+      border-left: 2px solid rgba(var(--ink),0.2);
+    }
+
+    /* COMPARISON TABLE */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.82rem;
+    }
+
+    .compare-table th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .compare-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(var(--ink),0.05);
+      vertical-align: top;
+    }
+
+    /* ROLE CARDS (for Task Force) */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .role-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.82rem;
+    }
+
+    .role-card strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-size: 0.78rem;
+    }
+
+    /* MAGIC FORMULA */
+    .magic-box {
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 14px 0;
+      text-align: center;
+    }
+
+    .magic-box .label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 20px 24px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(var(--ink),0.05);
+    }
+
+    footer p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* COLLAPSIBLE SECTIONS */
+    details {
+      margin: 14px 0;
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details summary {
+      padding: 14px 18px;
+      background: rgba(212, 160, 23, 0.06);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    details summary:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: '+';
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    details .collapsible-content {
+      padding: 16px 18px;
+      border-top: 1px solid rgba(212, 160, 23, 0.1);
+    }
+
+    details .collapsible-content p,
+    details .collapsible-content li {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: var(--white-muted);
+    }
+
+    details .collapsible-content strong {
+      color: var(--white);
+    }
+
+    /* FLOAT ANIMATION */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* TAB SWITCHER */
+    .tab-switcher {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--charcoal-light);
+      border: none;
+      color: var(--white-muted);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:first-child { border-right: 1px solid rgba(212, 160, 23, 0.3); }
+
+    .tab-btn.active {
+      background: rgba(212, 160, 23, 0.12);
+      color: var(--gold);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: var(--charcoal-lighter);
+      color: var(--white);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* LAYOUT WITH SIDEBAR */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+    }
+
+    /* SIDEBAR NAV */
+    .sidebar-nav {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.06);
+      border-left-color: var(--gold);
+    }
+
+    .sidebar-nav .nav-section-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 12px 14px 4px;
+      opacity: 0.7;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .sidebar-nav a {
+        padding: 8px 12px;
+        font-size: 0.72rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 6px;
+        background: var(--charcoal-light);
+      }
+
+      .sidebar-nav a:hover,
+      .sidebar-nav a.active {
+        border-left: none;
+        border-bottom-color: var(--gold);
+      }
+
+      .sidebar-nav .nav-section-label {
+        width: 100%;
+        padding: 8px 0 2px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      main { padding: 32px 16px 64px; }
+      .exercise { padding: 22px 18px; }
+      .prompt-block { padding: 14px 14px; }
+      .role-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 0.75rem; }
+      .compare-table td, .compare-table th { padding: 8px; }
+    }
+
+    /* HIERARCHIE-STACK (System-Prompt vs. Projekt vs. Chat) */
+    .hierarchy-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 14px 0 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.25);
+    }
+    .hierarchy-level {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+    }
+    .hierarchy-level:last-child { border-bottom: none; }
+    .hierarchy-level .h-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+    .hierarchy-level .h-desc {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+    }
+    .hierarchy-level.l1 { background: rgba(212, 160, 23, 0.03); padding-left: 18px; }
+    .hierarchy-level.l2 { background: rgba(212, 160, 23, 0.06); padding-left: 32px; }
+    .hierarchy-level.l3 { background: rgba(212, 160, 23, 0.10); padding-left: 46px; }
+    .hierarchy-level.l4 { background: rgba(212, 160, 23, 0.14); padding-left: 60px; }
+
+    /* LLM-Karten (Start hier) */
+    .llm-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 560px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Zwei Spalten: selbst ausfuellen vs. fertiges Beispiel */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 14px 0;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+    .col-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .two-col .prompt-block { margin-top: 0; }
+    .llm-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .llm-card .llm-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .llm-card .llm-browser {
+      display: block;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #141414;
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 13px 16px;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+    .llm-card .llm-browser:hover,
+    .llm-card .llm-browser:focus { filter: brightness(1.08); }
+    .llm-apps summary {
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      list-style-position: inside;
+    }
+    .llm-apps[open] summary { margin-bottom: 8px; }
+    .llm-card .llm-stores {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .llm-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      background: rgba(var(--ink),0.04);
+      border: 1px solid rgba(var(--ink),0.12);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      flex: 1;
+      justify-content: center;
+      min-height: 40px;
+    }
+    .llm-store-btn:hover,
+    .llm-store-btn:focus {
+      border-color: var(--gold);
+      background: rgba(212, 160, 23, 0.08);
+      color: var(--white);
+    }
+    .llm-store-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .llm-store-btn .store-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      align-items: flex-start;
+    }
+    .llm-store-btn .store-meta small {
+      font-size: 0.62rem;
+      color: var(--white-muted);
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+    .llm-store-btn .store-meta strong {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    @media (max-width: 600px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Rahmen je Übung (Ziel, Abgabe), Ausweg, geklappt, Stufen */
+    .rahmen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 14px 0 18px; }
+    .rahmen > div { background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.25); border-radius: 10px; padding: 10px 12px; font-size: 0.85rem; line-height: 1.45; }
+    .rahmen b { display: block; font-family: var(--font-heading); font-size: 0.62rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+    .fallback { border-left: 3px solid rgba(var(--ink),0.25); background: rgba(var(--ink),0.03); padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--white-muted); margin: 16px 0 6px; }
+    .fallback strong { color: var(--white); }
+    .pruef { font-size: 0.85rem; color: var(--white-muted); margin-top: 10px; }
+    .tabelle-text { white-space: pre; overflow-x: auto; }
+    @media (max-width: 700px) { .rahmen { grid-template-columns: 1fr; } }
+
+    .form-wichtig { border: 2px solid var(--gold); background: rgba(212,160,23,0.08); border-radius: 10px; padding: 12px 16px; margin: 14px 0 10px; font-size: 0.92rem; line-height: 1.5; }
+    .form-wichtig.kurz { margin: 10px 0 0; padding: 8px 14px; font-size: 0.85rem; }
+  
+
+body{margin:0}
+.player{display:grid;grid-template-columns:320px 1fr;min-height:100vh}.player>*{min-width:0}
+.v-logo{display:block;background:#fff;padding:8px 12px;border-radius:6px;max-width:170px;width:100%;box-sizing:border-box;margin:12px 0 14px}
+/* Logoreihe: Veranstalter links, JP-Monogramm rechts daneben, beide gleich hoch (Symmetrieregel). */
+.logos{display:flex;align-items:center;gap:12px;margin:12px 0 14px}
+.logos .v-logo{margin:0;width:auto;height:46px;max-width:170px;object-fit:contain}
+.logos .t-logo{display:block;height:46px;width:auto}
+.side{border-right:1px solid rgba(var(--ink),.08);padding:20px 16px 40px;position:sticky;top:0;height:100vh;overflow:auto;background:rgba(var(--ink),.02)}
+.side .zurueck{font-size:.78rem;color:var(--white-muted);text-decoration:none;display:inline-block;margin-bottom:14px}
+.side .zurueck:hover{color:var(--gold)}
+.side h1{font-family:var(--font-heading);font-size:1rem;margin:0 0 4px;line-height:1.35}
+.side .sub{color:var(--white-muted);font-size:.78rem;margin-bottom:14px}
+.balken{height:6px;background:rgba(var(--ink),.08);border-radius:3px;overflow:hidden}.balken i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.stand{font-size:.75rem;color:var(--white-muted);margin:6px 0 10px}
+.teil{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:18px 6px 8px}
+.zeile{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;cursor:pointer;font-size:.86rem;line-height:1.35;color:var(--white);text-decoration:none}
+.zeile:hover{background:rgba(var(--ink),.05);color:var(--white)}.zeile.aktiv{background:rgba(212,160,23,.12)}
+.zeile .n{flex:0 0 74px;font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700;text-align:center}
+.zeile .lab{flex:0 0 74px;box-sizing:border-box;align-self:flex-start;margin-top:1px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.6rem;letter-spacing:.8px;text-transform:uppercase;font-weight:700;color:var(--white-muted);border:1px solid rgba(var(--ink),.18);border-radius:4px;padding:2px 4px;margin-left:0}
+.zeile.art-uebung{font-weight:500}
+.zeile .t{flex:1;min-width:0}
+.zeile .opt{color:var(--white-muted);font-size:.72rem;display:block;font-weight:400}
+.zeile .ck{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(var(--ink),.25);margin-top:1px}
+.zeile.erledigt .ck{background:var(--gold);border-color:var(--gold)}.zeile.erledigt .t{color:var(--white-muted)}
+.zeile .jetzt{display:none;font-size:.56rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;background:var(--gold);color:#141414;border-radius:99px;padding:2px 6px;align-self:center}
+.zeile.im-raum .jetzt{display:inline-block}
+/* margin:0 ist Pflicht: das Seiten-CSS gibt <main> "margin:0 auto", und ein Rasterelement
+   mit auto-Rand schrumpft nicht mit. Auf 390 px stand es dann 551 px breit. */
+.main{margin:0;padding:0 56px 130px;max-width:900px;overflow-wrap:break-word;hyphens:auto}
+.kopfzeile{padding-top:34px}
+.crumb{color:var(--white-muted);font-size:.8rem;margin-bottom:6px}
+.main h2.lektion-titel{font-family:var(--font-heading);font-size:1.9rem;margin:6px 0 16px;line-height:1.25}
+.tag{display:inline-block;font-size:.66rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,160,23,.4);color:var(--gold);margin-right:6px}
+.tag.leise{border-color:rgba(var(--ink),.25);color:var(--white-muted)}
+.lektion .exercise{background:none;border:0;padding:0;margin:0;box-shadow:none}
+.lektion .exercise > .exercise-number{display:none}
+.lektion .exercise > h3:first-of-type{display:none}
+.lektion table{display:block;overflow-x:auto;max-width:100%}
+.lektion img{max-width:100%}
+.prompt-block.copied{outline:2px solid var(--gold)}
+/* Die Leiste geht über die ganze Breite, die Knöpfe stehen in derselben Spalte wie der Inhalt.
+   Vorher standen sie bei Vollbild an den äußersten Bildschirmrändern (Commander 06.10.). */
+.nav{position:fixed;bottom:0;left:320px;right:0;padding:14px 0;background:rgba(20,20,20,.96);border-top:1px solid rgba(var(--ink),.08);z-index:15}
+.nav-innen{display:flex;justify-content:space-between;gap:10px;max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.knopf{border:1px solid rgba(var(--ink),.2);background:none;color:var(--white);padding:12px 22px;border-radius:8px;font:600 .92rem var(--font-body);cursor:pointer}
+.knopf:disabled{opacity:.35;cursor:default}
+.knopf.los{background:var(--gold);color:#141414;border-color:var(--gold)}
+.schublade{display:none}
+/* Live-Leiste im Player */
+.live-leiste{position:sticky;top:0;z-index:12;display:flex;align-items:center;gap:14px;margin:0 -56px;padding:10px 56px;background:linear-gradient(90deg,var(--gold-dark),var(--gold));color:var(--charcoal)}
+.live-leiste[hidden]{display:none}
+.live-leiste.neu{animation:live-neu 1.2s ease-out}
+@keyframes live-neu{0%{filter:brightness(1.45)}100%{filter:none}}
+.live-inhalt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.live-marke{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.75}
+.live-text{font-weight:600;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live-dorthin{flex:0 0 auto;background:var(--charcoal);color:var(--gold-light);border:0;border-radius:99px;padding:8px 16px;font:600 .8rem var(--font-body);cursor:pointer}
+.live-dorthin[hidden]{display:none}
+.live-hier{flex:0 0 auto;font-size:.75rem;font-weight:700}
+@media(max-width:860px){
+ .player{grid-template-columns:1fr}
+ .side{position:fixed;inset:0;z-index:30;height:auto;transform:translateX(-100%);transition:transform .25s;background:#161616}
+ .side.offen{transform:none}
+ .side .schliessen{display:block}
+ .schublade{display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:20;background:#141414;padding:10px 16px;border-bottom:1px solid rgba(var(--ink),.08)}
+ .main{padding:0 16px 110px}
+ .kopfzeile{padding-top:18px}
+ .live-leiste{top:var(--schublade-h,57px);margin:0 -16px;padding:8px 16px;gap:10px}
+ .live-text{font-size:.86rem}
+ .nav{left:0;padding:12px 0}.nav-innen{padding:0 16px}.knopf{padding:12px 14px}
+ .main h2.lektion-titel{font-size:1.45rem}
+}
+.side .schliessen{display:none;float:right;background:none;border:0;color:var(--white-muted);font-size:1.4rem;cursor:pointer;line-height:1}
+/* Seitenleiste einklappbar (Desktop), wie bei ChatGPT/Claude. Zu bleibt eine 56-px-Schiene
+   mit dem Knopf. Auf dem Handy gilt weiter die Schublade, deshalb nur ab 861 px. */
+.leiste-knopf{float:right;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin:-6px -4px 0 8px;border-radius:8px;border:1px solid rgba(var(--ink),.12);background:none;color:var(--white-muted);cursor:pointer;padding:0}
+.leiste-knopf:hover{color:var(--gold);border-color:rgba(212,160,23,.5)}
+.leiste-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(min-width:861px){
+ .player{transition:grid-template-columns .2s ease}
+ /* Inhalt mittig in der Spalte, sonst klebt er bei Vollbild links und rechts bleibt die Hälfte leer. */
+ .main{width:100%;justify-self:center}
+ body.leiste-zu .player{grid-template-columns:56px 1fr}
+ body.leiste-zu .side{padding:16px 10px;overflow:hidden}
+ body.leiste-zu .side > *:not(.leiste-knopf){display:none}
+ body.leiste-zu .leiste-knopf{float:none;margin:0}
+ body.leiste-zu .leiste-knopf svg{transform:scaleX(-1)}
+ body.leiste-zu .main{width:100%;justify-self:center}
+ body.leiste-zu .nav{left:56px}
+ .nav{transition:left .2s ease}
+}
+@media(max-width:860px){.leiste-knopf{display:none}}
+.side .kontakt{margin-top:28px;padding:14px 8px 0;border-top:1px solid rgba(var(--ink),.08);font-size:.78rem;color:var(--white-muted);line-height:1.6}
+.side .kontakt a{color:var(--white-muted)}.side .kontakt a:hover{color:var(--gold)}
+/* Upload-Kasten (Bild landet in Jakubs Google Drive, nur er sieht es) */
+.upload-kasten{border:1px solid rgba(212,160,23,.45);background:rgba(212,160,23,.05);border-radius:12px;padding:20px;margin:22px 0}
+.upload-kasten h4{font-family:var(--font-heading);font-size:1.05rem;margin:0 0 6px;color:var(--white)}
+.upload-kasten .hinweis{font-size:.82rem;color:var(--white-muted);margin:0 0 14px}
+.upload-kasten .reihe{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.upload-kasten input[type=text]{flex:1 1 180px;min-width:0;background:#1f1f1f;border:1px solid rgba(var(--ink),.15);border-radius:8px;color:var(--white);padding:11px 12px;font:400 .92rem var(--font-body)}
+.upload-kasten .waehlen{flex:0 0 auto}
+.upload-kasten input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.upload-kasten ul{list-style:none;padding:0;margin:12px 0 0;font-size:.85rem}
+.upload-kasten li{padding:6px 0;border-top:1px solid rgba(var(--ink),.06);display:flex;gap:10px;align-items:center}
+.upload-kasten li .st{margin-left:auto;font-weight:600;white-space:nowrap}
+.upload-kasten li.ok .st{color:#6fae5f}.upload-kasten li.fehler .st{color:#e07a6a}
+.upload-kasten li .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.gruppe-inhalt{display:block}
+.gruppe.zu .gruppe-inhalt{display:none}
+.teil-knopf{display:flex;align-items:center;justify-content:space-between;width:calc(100% - 12px);background:none;border:0;border-top:1px solid rgba(var(--ink),.08);padding:12px 6px 4px;margin:14px 6px 6px;cursor:pointer;font-family:var(--font-body);text-align:left}
+.stand + .gruppe .teil-knopf{border-top:0;margin-top:18px}
+.teil-knopf:hover{color:var(--gold-light)}
+.teil-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.teil-knopf .pfeil{flex:none;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s;margin-left:10px;margin-top:-3px}
+.gruppe.zu .teil-knopf .pfeil{transform:rotate(-45deg);margin-top:0}
+
+.form-hinweis{position:absolute;left:0;right:0;bottom:100%;background:#1d1a10;border-top:2px solid var(--gold);padding:14px 0;box-shadow:0 -10px 24px rgba(0,0,0,.45)}
+.form-hinweis[hidden]{display:none}
+.form-hinweis-innen{max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.form-hinweis p{margin:0 0 12px;font-size:.92rem;line-height:1.5}
+.form-hinweis .reihe{display:flex;gap:10px;flex-wrap:wrap}
+.form-hinweis .knopf{padding:10px 16px;font-size:.88rem}
+.form-danke{margin:10px 0 0;padding:10px 14px;border:1px solid #6fae5f;border-radius:8px;color:#9bd18c;font-weight:600;font-size:.9rem}
+.lektion iframe[data-formular]{scroll-margin-bottom:110px}
+@media(max-width:860px){.form-hinweis-innen{padding:0 16px}}
+
+.willkommen-bs{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 50% 30%,#232018 0%,#141414 65%);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}
+.willkommen-bs[hidden]{display:none}
+.willkommen-karte{width:100%;max-width:520px;text-align:center;margin:auto}
+.willkommen-karte img{display:block;width:min(240px,46vw);height:min(240px,46vw);object-fit:cover;object-position:top;border-radius:50%;border:3px solid var(--gold);margin:0 auto 22px;background:#1a1a1a;box-shadow:0 0 0 8px rgba(212,160,23,.08)}
+.willkommen-blase{position:relative;background:var(--charcoal-light,#1a1a1a);border:1px solid rgba(212,160,23,.35);border-radius:16px;padding:22px 22px 24px;margin-bottom:24px}
+.willkommen-blase::before{content:"";position:absolute;top:-9px;left:50%;width:16px;height:16px;background:var(--charcoal-light,#1a1a1a);border-left:1px solid rgba(212,160,23,.35);border-top:1px solid rgba(212,160,23,.35);transform:translateX(-50%) rotate(45deg)}
+.willkommen-blase p{margin:0;font-family:var(--font-heading);font-weight:600;font-size:clamp(1.1rem,4.4vw,1.45rem);line-height:1.4;text-wrap:balance}
+.willkommen-karte .knopf{padding:14px 38px;font-size:1rem}
+@media (prefers-reduced-motion:no-preference){.willkommen-karte{animation:wk-rein .5s ease-out}@keyframes wk-rein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}
+    .profispur { border-left: 3px solid var(--gold); background: rgba(212,160,23,0.05); padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: 0.88rem; margin: 16px 0 6px; }
+    .profispur strong { color: var(--gold); }
+  </style>
+  <link rel="stylesheet" href="quiz/quiz.css">
+  <style>
+/* Satzspiegel (14.11.2026): gleiche Abstände, sauberer Umbruch, auch in Tabellen.
+   Blöcke 16px, Zwischenüberschrift 22px oben und 8px unten (gehört zu dem, was folgt). */
+.lektion .exercise > .subtitle,.lektion .exercise > .rahmen,.lektion .exercise > .sozialform,.lektion .exercise > .prompt-block,
+.lektion .exercise > details,.lektion .exercise > .profispur,.lektion .exercise > .fallback,.lektion .exercise > .pruef,
+.lektion .exercise > table,.lektion .exercise > ul,.lektion .exercise > ol,.lektion .exercise > p{margin-top:0;margin-bottom:16px}
+.lektion .exercise > .step-label{margin:22px 0 8px}
+.lektion .exercise > .subtitle + .rahmen,.lektion .exercise > .subtitle + .sozialform{margin-top:0}
+.main h2.lektion-titel,.exercise h3,.step-label,.subtitle,.rahmen > div,.compare-table th,.lektion th,summary{text-wrap:balance}
+.exercise p,.exercise li,.lektion td,.compare-table td,.fallback,.pruef,.profispur,.sozialform{text-wrap:pretty}
+.lektion td,.lektion th,.compare-table td,.compare-table th{overflow-wrap:normal;word-break:normal;hyphens:auto;vertical-align:top}
+.rahmen{align-items:stretch}
+/* Folgemodul mit Countdown */
+.fm-haupt{display:block;text-align:center;background:var(--gold);color:#141414;font-family:var(--font-heading);font-weight:800;font-size:1.2rem;padding:18px 22px;border-radius:12px;text-decoration:none;margin:6px 0 20px}
+.fm-haupt:hover{color:#141414;background:var(--gold-light)}
+.fm-odpocet{background:rgba(212,160,23,.10);border:1px solid var(--gold);border-radius:14px;padding:16px 18px;margin:0 0 20px}
+.fm-kopf{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.fm-wann{opacity:.85;margin-top:4px}
+.fm-zahlen{display:flex;gap:10px;margin:14px 0 0}
+.fm-zahlen>div{flex:1;min-width:60px;background:var(--charcoal);border:1px solid rgba(212,160,23,.5);border-radius:10px;padding:10px 6px;text-align:center}
+.fm-zahlen b{display:block;font-family:var(--font-heading);font-weight:800;font-size:clamp(1.6rem,5vw,2.6rem);line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+.fm-zahlen span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.fm-seite{color:var(--gold)!important;font-weight:600}
+/* Werkzeug-Leiste auf der Willkommenslektion */
+.werkzeuge{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px}
+.werkzeuge span{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-right:4px}
+.werkzeuge a{display:inline-block;padding:7px 14px;border:1px solid var(--gold);border-radius:99px;color:var(--gold);font-weight:600;font-size:.9rem;text-decoration:none}
+/* Sozialform: allein oder gemeinsam */
+.sozialform{background:rgba(212,160,23,.12);border:1px solid var(--gold);border-radius:10px;padding:12px 16px;margin:0 0 18px}
+/* Hellmodus: dunkel bleibt Standard, ☀ oder ?hell schaltet um.
+   Grund: am geteilten Bildschirm neben dunklem ChatGPT war zu wenig Kontrast. */
+html.hell{--gold:#a87a0c;--gold-light:#b8890f;--gold-dark:#8a6408;--charcoal:#ffffff;--charcoal-light:#f6f6f4;--charcoal-lighter:#eeeeea;--white:#1a1a1a;--white-muted:#555555;--ink:0,0,0}
+html.hell .nav{background:rgba(255,255,255,.96)}
+html.hell .schublade,html.hell .side{background:#fafaf8}
+html.hell .upload-kasten input[type=text]{background:#fff}
+html.hell .prompt-block,html.hell .prompt-block *{color:#000}
+html.hell .prompt-block{background:#fff3d4;border-left:4px solid #a87a0c;font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+html.hell .prompt-block:hover{background:#ffeab3}
+html.hell .willkommen-bs{background:radial-gradient(ellipse at 50% 30%,#fff7e0 0%,#ffffff 65%)}
+html.hell .knopf.los,html.hell .zeile .jetzt,html.hell .cta,html.hell .cta:hover{color:#141414}
+html.hell svg rect[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.03)}
+html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
+.tema-knopf{position:fixed;top:10px;right:12px;z-index:40;width:38px;height:38px;border-radius:50%;border:1px solid rgba(var(--ink),.25);background:var(--charcoal-light);color:var(--white);font-size:18px;line-height:1;cursor:pointer}
+@media print{.tema-knopf{display:none}}
+  </style>
+  <script>(function(){var h=document.documentElement,q=location.search,t=/[?&](hell|light|svetla)\b/.test(q)?'hell':/[?&](dunkel|dark|tmava)\b/.test(q)?'dunkel':null;try{t=t||localStorage.getItem('tema');if(t)localStorage.setItem('tema',t)}catch(e){}if(t==='hell')h.classList.add('hell')})();</script>
+</head>
+<body>
+<div class="willkommen-bs" id="willkommen-bs" role="dialog" aria-modal="true" aria-labelledby="wk-text" hidden><div class="willkommen-karte"><img src="jakub-lachend.png" alt="Jakub Popluhar"><div class="willkommen-blase"><p id="wk-text">Herzlich willkommen zum Workshop „Microsoft 365 Copilot Champions: Praxistraining“. Dieses E-Learning begleitet uns durch alle Tage.</p></div><button type="button" class="knopf los" id="wk-weiter">Weiter</button></div></div>
+<div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Inhalt</button><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
+<div class="player">
+  <aside class="side" id="side">
+    <button class="schliessen" id="schliessen" type="button" aria-label="Inhalt schließen">×</button>
+    <button class="leiste-knopf" id="leisteKnopf" type="button" aria-label="Seitenleiste einklappen" aria-expanded="true" title="Seitenleiste ein- und ausklappen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/><path d="M15 10l-2 2 2 2"/></svg></button>
+    <a href="https://jakubpopluhar.com" class="zurueck">jakubpopluhar.com</a>
+    <div class="logos"><img class="t-logo" src="jp-logo.png" alt="Jakub Popluhar"></div>
+    <h1>Microsoft 365 Copilot Champions: Praxistraining</h1>
+    <div class="sub">ÖWD cleaning services (über tecTrain) · Tag 1 · Montag, 16. November 2026</div>
+    <div class="balken"><i id="balken"></i></div>
+    <div class="stand" id="stand"></div>
+    <div class="gruppe zu" data-teil="vm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Tag 1: Vormittag</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#willkommen" data-id="willkommen"><span class="lab">Start</span><span class="t">Willkommen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Ihr KI-Check</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#etikett" data-id="etikett"><span class="lab">Info</span><span class="t">Copilot öffnen und Ihr Etikett ablesen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#split" data-id="split"><span class="lab">Trick</span><span class="t">Den Bildschirm teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#t1-01" data-id="t1-01"><span class="lab">Demo</span><span class="t">Dieselbe Reklamation, zweimal</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t1-04" data-id="t1-04"><span class="n">1</span><span class="t">Die Namensliste</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t1-06" data-id="t1-06"><span class="n">2</span><span class="t">Ohne und mit Kontext</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t1-07" data-id="t1-07"><span class="n">3</span><span class="t">CITE(R) an der eigenen Reise</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t1-08" data-id="t1-08"><span class="n">4</span><span class="t">Aus einer Teams-Besprechung wird eine Mail</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t1-09" data-id="t1-09"><span class="n">5</span><span class="t">Lieferant oder Tutor</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t1-10" data-id="t1-10"><span class="n">6</span><span class="t">Zwei Regler, Gedächtnis und Ihr Konto</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#mittag" data-id="mittag"><span class="lab">Pause</span><span class="t">Mahlzeit, und wie es weitergeht</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="nm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Tag 1: Nachmittag</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile art-uebung" href="#t1-11" data-id="t1-11"><span class="n">7</span><span class="t">Ihre Wissensbasis: Firma und Rolle</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t1-12" data-id="t1-12"><span class="n">8</span><span class="t">Personalisierung: einmal sagen, immer gültig</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t1-13" data-id="t1-13"><span class="n">9</span><span class="t">Ihr erster Copilot-Agent, mit Stoppuhr</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t1-14" data-id="t1-14"><span class="n">10</span><span class="t">Nur aus der Quelle: Notizbuch gegen Chat</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t1-lok" data-id="t1-lok"><span class="n">11</span><span class="t">Welche Daten gehören in Copilot?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#lokale-ki" data-id="lokale-ki"><span class="lab">Demo</span><span class="t">KI ohne Internet</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t1-17" data-id="t1-17"><span class="n">12</span><span class="t">Ihr Zeitfresser für morgen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Zum Schluss</span><span class="t">Ihr KI-Check, zweiter Durchgang</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#t1-18" data-id="t1-18"><span class="lab">Demo</span><span class="t">Eine Folie in den Farben von owd.at</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#bis-morgen" data-id="bis-morgen"><span class="lab">Danach</span><span class="t">Bis morgen: Ihre Hausaufgabe und Ihre Unterlagen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="res"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Tag 1: Bonus: wenn Zeit bleibt</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#bonus-sortierung" data-id="bonus-sortierung"><span class="lab">Bonus</span><span class="t">Profispur 7A: Reklamationen sortieren<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#bonus-formate" data-id="bonus-formate"><span class="lab">Bonus</span><span class="t">Welches Format liest Copilot sicher?<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#bonus-euaiact" data-id="bonus-euaiact"><span class="lab">Bonus</span><span class="t">EU AI Act im Copilot-Notizbuch<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#bonus-flughoehe" data-id="bonus-flughoehe"><span class="lab">Bonus</span><span class="t">Die Flughöhe: dieselbe Formel, zwei Stufen<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div>
+    <div class="kontakt">Fragen nach dem Kurs:<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br><a href="tel:+436641386498">+43 664 138 64 98</a></div>
+  </aside>
+  <main class="main">
+    <div class="live-leiste" id="live-leiste" hidden aria-live="polite">
+      <div class="live-inhalt"><span class="live-marke">Jetzt im Raum</span><span class="live-text" id="live-text"></span></div>
+      <button type="button" class="live-dorthin" id="live-dorthin">Dorthin</button>
+      <span class="live-hier" id="live-hier" hidden>Sie sind hier</span>
+    </div>
+    <div class="kopfzeile"><div class="crumb" id="crumb"></div><div id="tags"></div><h2 class="lektion-titel" id="ttl"></h2></div>
+    
+<section class="lektion" data-id="willkommen" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="willkommen">
+      <div class="exercise-number">Start</div>
+      <div class="werkzeuge"><span>Werkzeug öffnen:</span><a href="https://m365.cloud.microsoft" target="_blank" rel="noopener">Microsoft 365 Copilot</a></div>
+      <h3>Willkommen</h3>
+      <p class="subtitle">Microsoft 365 Copilot Champions: Praxistraining · ÖWD cleaning services (über tecTrain) · Montag, 16. November 2026 · Trainer: Jakub Popluhar, M.Ed.</p>
+      <p>Willkommen bei den Copilot Champions. Am Ende des ersten Tages läuft Ihr erster eigener Copilot-Agent, am Ende des zweiten ist er geprüft und hat eine Zahl.</p>
+
+      <p class="step-label">Drei Dinge für heute</p>
+      <ol>
+        <li><strong>Diese Seite bleibt den ganzen Tag offen.</strong> Wenn Sie einen Prompt antippen, ist er kopiert, und Sie fügen ihn mit einem Griff in Ihr KI-Fenster ein. Links stehen alle Abschnitte. Weiter geht es unten rechts.</li>
+        <li><strong>In Formularen immer unten auf „Senden“ klicken.</strong> Erst dann sind Ihre Antworten gespeichert, auch wenn das Formular vorher schon fertig aussieht.</li>
+        <li><strong>Keine echten Personen- oder Firmendaten.</strong> Wo es um echte Unterlagen geht, üben wir mit erfundenen Beispielen.</li>
+      </ol>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Was Sie in den Übungen schreiben, bleibt bei Ihnen. Legen Sie es in einer Notiz ab, denn später am Tag bauen wir darauf auf.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Als Erstes kommt Ihr KI-Check.</p>
+
+    </div></section>
+<section class="lektion" data-id="kicheck" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="kicheck">
+      <div class="exercise-number">Check</div>
+      <h3>Ihr KI-Check</h3>
+      <p class="subtitle">Eine Standortbestimmung für Sie und für mich: Wo stehen Sie heute Morgen mit KI? Falsche Antworten gibt es hier keine. Zehn bis fünfzehn Minuten. Am Ende des Tages füllen Sie denselben Fragebogen noch einmal aus, und dann sehen wir beide, was sich bewegt hat.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Wählen Sie im Formular bei „Durchgang“ jetzt <strong>„Tag 1 morgens“</strong>.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
+        <a href="https://form.jotform.com/263174826000046" target="_blank" rel="noopener"><img src="kicheck-qr.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
+        <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht?</strong> Am Firmenrechner kommt das vor. Scannen Sie den QR-Code mit dem Handy, oder <a href="https://form.jotform.com/263174826000046" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p>
+      </div>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was Sie ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
+      <iframe id="Form-FORM_KICHECK-1" data-formular="FORM_KICHECK" src="https://form.jotform.com/263174826000046" title="Ihr KI-Check" style="width:100%; height:2600px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/263174826000046" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+
+    </div></section>
+<section class="lektion" data-id="etikett" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="etikett">
+      <div class="exercise-number">Info</div>
+      <h3>Copilot öffnen und Ihr Etikett ablesen</h3>
+      <p class="subtitle">Zwei Minuten, bevor die erste Übung beginnt. Was Sie heute in Copilot sehen, hängt an einem einzigen Wort unter Ihrem Namen.</p>
+      <p class="step-label">Schritt 1: Copilot öffnen</p>
+      <p>Öffnen Sie Copilot in einem zweiten Browserfenster: <a href="https://m365.cloud.microsoft" target="_blank" rel="noopener" style="color:var(--gold);">m365.cloud.microsoft</a>. Melden Sie sich mit Ihrem ÖWD-Konto an. Heute arbeiten wir nur in diesem Konto, ein privates Microsoft-Konto bleibt zu.</p>
+      <p class="step-label">Schritt 2: Unter Ihren Namen schauen und es mir sagen</p>
+      <p>Unter Ihrem Namen steht eines von drei Etiketten. Sagen Sie mir laut, welches. Ich schreibe mit, damit ich am Nachmittag weiß, wer welchen Weg nimmt.</p>
+      <table class="compare-table">
+      <tr><th style="width:34%">Etikett</th><th>Was das heute für Sie heißt</th></tr>
+      <tr><td>Copilot Chat (Basic)</td><td>Chat mit Websuche und Datei-Upload im Chat. Copilot in Word, Excel und PowerPoint gibt es nicht. Ein Agent bekommt keine Dateien als Wissen, Sie nehmen bei den Übungen den Weg „ohne Lizenz“.</td></tr>
+      <tr><td>M365 Copilot (Basic)</td><td>Wie oben, dazu der Standardzugang in den Office-Apps.</td></tr>
+      <tr><td>M365 Copilot (Premium)</td><td>Die volle Lizenz. Ihr Agent bekommt Ihre Dateien als Wissen, Copilot sieht auf Wunsch Mails und Teams.</td></tr>
+      </table>
+      <p>Sehen Sie etwas nicht, das am Beamer zu sehen ist, gibt es drei mögliche Gründe: Ihr Etikett, eine Einstellung Ihrer IT, oder Microsoft ändert gerade die Oberfläche. Raten Sie nicht, fragen Sie mich. Bei jeder Übung steht ein Ausweg.</p>
+      <p class="step-label">Schritt 3: Ihr Ordner für die zwei Tage</p>
+      <p>Legen Sie in Ihrem OneDrive einen Ordner „Copilot-Training“ an. Dort landet alles, was Copilot später wiederfinden soll.</p>
+    </div></section>
+<section class="lektion" data-id="split" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="split">
+      <div class="exercise-number">Trick</div>
+      <h3>Den Bildschirm teilen</h3>
+      <p class="subtitle">Der wichtigste Handgriff des Tages, er dauert zehn Sekunden. Links dieses Übungsblatt, rechts Ihr KI-Werkzeug, jedes in einem eigenen Browserfenster. Ein zweites Fenster öffnen Sie mit Strg+N (Mac: cmd+N). Online dabei? Dann links das Meeting, rechts der Browser.</p>
+
+      <p class="step-label">Mac</p>
+      <p>Das Fenster mit diesem Übungsblatt anklicken. Den <strong>grünen Knopf</strong> links oben im Fenster <strong>gedrückt halten</strong>, etwa eine Sekunde lang. Es erscheinen zwei Hälften. Die linke Hälfte anklicken, dann aus der Liste rechts das Fenster mit Ihrem KI-Werkzeug wählen.</p>
+<svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Mac: grünen Knopf gedrückt halten, dann Bildschirmhälfte wählen">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <circle cx="28" cy="37" r="5" fill="#ff5f57"/>
+        <circle cx="45" cy="37" r="5" fill="#febc2e"/>
+        <circle cx="62" cy="37" r="9" fill="#28c840"/>
+        <circle cx="62" cy="37" r="15" fill="none" stroke="var(--gold)" stroke-dasharray="4 3"/>
+        <text x="84" y="42" fill="var(--gold)" font-size="13" font-family="monospace">gedrückt halten</text>
+        <text x="20" y="110" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ein Fenster,</text>
+        <text x="20" y="130" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ganzer Bildschirm</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
+        <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">KI-</text>
+        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Werkzeug</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. grün halten</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. Hälfte anklicken, Fenster wählen</text>
+      </svg>
+
+      <p class="step-label">Windows</p>
+      <p>Das Übungsblatt anklicken, dann <strong>Windows-Taste + Pfeil links</strong>. Es springt in die linke Hälfte, Windows zeigt die übrigen Fenster zur Auswahl für rechts. Das Fenster mit Ihrem KI-Werkzeug anklicken.</p>
+<svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Windows: Windows-Taste plus Pfeil links, dann zweites Fenster wählen">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <rect x="40" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="72" y="107" fill="var(--gold)" font-size="16" font-family="monospace" text-anchor="middle">&#8862;</text>
+        <text x="116" y="107" fill="var(--gold)" font-size="16" font-family="monospace">+</text>
+        <rect x="136" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="168" y="108" fill="var(--gold)" font-size="18" font-family="monospace" text-anchor="middle">&#8592;</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
+        <rect x="502" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <rect x="566" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <text x="560" y="128" fill="var(--gold)" font-size="12" font-family="monospace" text-anchor="middle">zweites Fenster wählen</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. Taste + Pfeil</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. rechts aus der Auswahl klicken</text>
+      </svg>
+
+      <p class="step-label">Nur ein Fenster mit zwei Tabs?</p>
+      <p>Geht auch: dieses Übungsblatt und Ihr KI-Werkzeug als zwei Tabs. Ein Klick auf den Tab genügt. Per Tastatur: <strong>Strg+Tab</strong> (Mac: control+Tab) springt zum nächsten Tab.</p>
+
+      <p style="color: var(--white-muted); font-size:0.85rem;">Wenn gar nichts klappt: Fenster mit der Maus an den linken oder rechten Bildschirmrand ziehen, bis eine Hälfte aufleuchtet, loslassen. Mit zweitem Bildschirm: das Übungsblatt auf den einen, das KI-Werkzeug auf den anderen.</p>
+      <p style="color: var(--gold); font-size: 0.85rem;">Wer heute nicht teilt, klickt den ganzen Tag zwischen Übungsblatt und KI-Werkzeug hin und her und verliert bei jedem Wechsel den Faden.</p>
+    </div></section>
+<section class="lektion" data-id="t1-01" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="t1-01">
+      <div class="exercise-number">Demo</div>
+      <h3>Dieselbe Reklamation, zweimal</h3>
+      <p class="subtitle">Ich zeige es vorne am Beamer. Achten Sie darauf, was der Agent anders macht als der normale Chat.</p>
+      <p class="step-label">Schritt 1: Ihr Tipp</p>
+      <p>Eine erfundene Kundenmail: Die Büros im zweiten Stock wurden am Freitag nicht gereinigt, zum zweiten Mal in vier Wochen. Ich gebe sie zuerst dem normalen Copilot Chat und danach einem Agenten, den ich vorbereitet habe. Beide bekommen denselben Satz:</p>
+      <div class="prompt-block">Beantworte diese Mail.</div>
+      <p>Was wird der Agent anders machen als der Chat? Schreiben Sie es auf, bevor ich abschicke.</p>
+      <p>Mein Tipp: ____________________</p>
+      <p class="step-label">Schritt 2: Was war anders?</p>
+      <p>Drei Dinge, die Ihnen aufgefallen sind: ____________________</p>
+      <p>So einen Agenten bauen Sie heute Nachmittag selbst, für Ihre eigene Arbeit.</p>
+    </div></section>
+<section class="lektion" data-id="t1-04" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="t1-04">
+      <div class="exercise-number">Übung 1</div>
+      <h3>Die Namensliste</h3>
+      <p class="subtitle">Alle im Raum stellen dieselbe Frage. Wie ähnlich werden die Listen?</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Sehen: Copilot liefert das Häufigste.</div>
+        <div><b>Abgabe</b>Auf Zuruf: Wer hat Gruber, wer Huber?</div>
+      </div>
+      <p class="step-label">Schritt 1: Erst schätzen, dann fragen (neuer Chat)</p>
+      <p>Schätzen Sie auf Ihrem Zettel: Wie viele Ihrer zehn Nachnamen hat auch jemand anderer im Raum?</p>
+      <p>Meine Schätzung: ____ von 10 · Tatsächlich: ____ von 10</p>
+      <div class="prompt-block">Erstelle mir eine Liste von 10 Mitarbeitern einer fiktiven Firma in Österreich.
+Vorname, Nachname, Abteilung.</div>
+      <details>
+        <summary>Schritt 2: Deutschland und Polen, im selben Chat (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Schicken Sie die beiden Nachrichten nacheinander. Warten Sie jedes Mal die Antwort ab.</p>
+      <div class="prompt-block">Gleiche Aufgabe, aber die Firma ist in Deutschland.</div>
+      <div class="prompt-block">Gleiche Aufgabe, aber die Firma ist in Polen.</div>
+      <p>Drei Nachbarländer, zwei davon mit derselben Sprache. Trotzdem drei verschiedene Listen.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3: Eine Zeile für Ihre Arbeit (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Wo liefert Ihnen Copilot das Häufigste, ohne dass Sie erfahren, was es weggelassen hat: im Dienstplan, im Stelleninserat, in der Antwort an einen Kunden? Schreiben Sie eine Zeile auf.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Auflösung (erst aufklappen, wenn wir verglichen haben) (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Copilot hat sich diese Namen nicht ausgedacht. Es hat ausgerechnet, welche Namen am häufigsten vorkommen. Deshalb steht in den Listen der anderen fast dasselbe.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Bitten Sie um zehn Namen, die Copilot normalerweise nicht vorschlagen würde. Wie fremd wirken sie?<br><strong>Stufe 3:</strong> Lassen Sie Copilot erklären, warum die Listen im Raum so ähnlich waren, und prüfen Sie, ob die Erklärung zu dem passt, was Sie gesehen haben.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Die Übung läuft in jedem Copilot-Konto. Hängt die Seite, tippen Sie den Prompt vom Beamer ab.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Bei denselben Nachnamen gehen viele Hände hoch.</p>
+    </div></section>
+<section class="lektion" data-id="t1-06" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="t1-06">
+      <div class="exercise-number">Übung 2</div>
+      <h3>Ohne und mit Kontext</h3>
+      <p class="subtitle">Derselbe Auftrag, erst ohne, dann mit Kontext. Zum Schluss dieselbe Technik für eine Nachricht an einen Kunden.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Erleben, was Kontext im Prompt ausmacht.</div>
+        <div><b>Abgabe</b>Auf Zuruf: erster Satz beider Entwürfe.</div>
+      </div>
+      <p class="step-label">Schritt 1: Der einfache Prompt (neuer Chat)</p>
+      <div class="prompt-block">Mach mir einen Entwurf für ein internes Schreiben, mit dem die Einführung einer neuen Homeoffice-Regelung bekanntgegeben wird.</div>
+      <p>Lesen Sie die Antwort an. Merken Sie sich den ersten Satz.</p>
+      <details>
+        <summary>Schritt 2: Was Copilot nicht weiß (aufklappen)</summary>
+        <div class="collapsible-content">
+      <ol><li>Platzproblem: Es wurden Schreibtische abgebaut, um Miete zu sparen. Kommen alle gleichzeitig, reichen die Arbeitsplätze nicht.</li><li>Infrastruktur: Besprechungsräume, Drucker und WLAN sind auf reduzierten Betrieb ausgelegt.</li><li>Logistik: Parkplätze, Kantine, Pendlerverkehr. Auch der Reinigungsaufwand steigt.</li><li>Kosten: neue Arbeitsplätze, Möbel, Hardware, Lizenzen.</li><li>Akzeptanz: Das Team ist skeptisch. „Schon wieder neue Regeln?“</li></ol>
+      <p>Copilot wusste nichts davon. Es hat geraten, darum war das Ergebnis allgemein.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3: Jetzt mit Kontext (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Gleicher Prompt, diesmal mit Kontext. Neuer Chat, dann:</p>
+      <div class="prompt-block">Mach mir einen Entwurf für ein internes Schreiben, mit dem die Einführung einer neuen Homeoffice-Regelung bekanntgegeben wird.
+
+Kontext:
+Wir haben im letzten Jahr Schreibtische abgebaut, um Mietkosten zu sparen. Wenn 100% gleichzeitig ins Büro kommen, gibt es nicht genug Arbeitsplätze.
+Meetingräume, Drucker, WLAN sind auf reduzierten Betrieb ausgelegt. Pendlerströme, Parkplatzknappheit und Kantinenkapazität sind ein Problem.
+Kurzfristig müssten neue Arbeitsplätze geschaffen werden: Möbel, Hardware, Lizenzen.
+Die Mitarbeiter sind skeptisch: "Schon wieder neue Regeln, zuerst flexible Arbeitsmodelle, jetzt zurück ins Büro?" Viele fühlen sich fremdbestimmt und sehen nicht, dass Innovation oder Geschwindigkeit von ihnen abhängen.
+Das Schreiben muss diese Sorgen adressieren, nicht ignorieren.
+
+Die Regelung: 3 Tage Büro, 2 Tage Home Office, mit Desk-Sharing-System ab 1. Mai.</div>
+      <p>Vergleichen Sie den ersten Satz mit dem aus Schritt 1.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 4: Die Stil-Maschine (zwei oder drei davon, im selben Chat) (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Derselbe Inhalt, ein anderer Empfänger. Jeder Stil als eigene Nachricht.</p>
+      <div class="prompt-block">Schreibe die Homeoffice-Regelung als Disney-Märchen. Beginne mit "Es war einmal" und gib der Geschichte einen Helden, ein Hindernis und ein gutes Ende. Maximal 300 Wörter.</div>
+      <div class="prompt-block">Erkläre die Homeoffice-Regelung unserem neuen Lehrling am ersten Arbeitstag, und zwar in seiner Jugendsprache. Maximal 300 Wörter.</div>
+      <div class="prompt-block">Schreibe die Homeoffice-Regelung in meinem Dialekt. Ich komme aus [Ort oder Region]. Maximal 300 Wörter.</div>
+      <p>Beim Dialekt merken Sie, wo Copilot dünn wird. Beim Lehrling sehen Sie, wie sehr derselbe Inhalt vom Empfänger abhängt.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 5: Dieselbe Technik für Ihren Alltag (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Eine Nachricht an einen Kunden, mit Kontext und Länge. Neuer Chat:</p>
+      <div class="prompt-block">Gleiche Technik: Schreib eine kurze Nachricht an einen Kunden.
+Kontext: Der Posten im Objekt wird ab heute 18:00 durch eine Vertretung besetzt, die Ansprechperson bleibt gleich, der Kunde hatte letzte Woche wegen einer Verspätung reklamiert.
+Ton: sachlich, beruhigend. Höchstens 80 Wörter.</div>
+      <p>Was davon hätten Sie ohne den Kontext bekommen?</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Lassen Sie Copilot vor dem Entwurf drei Rückfragen zu Ihrem Empfänger stellen, und beantworten Sie sie.<br><strong>Stufe 3:</strong> Bauen Sie aus Schritt 3 eine Vorlage mit [Platzhaltern], die für jede neue Regelung im Haus funktioniert.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Hängt eine Antwort, öffnen Sie einen neuen Chat und schicken Sie den Prompt noch einmal ab.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Der Entwurf mit Kontext nennt das Platzproblem und die Skepsis im Team, der Entwurf ohne Kontext bleibt allgemein.</p>
+    </div></section>
+<section class="lektion" data-id="t1-07" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="t1-07">
+      <div class="exercise-number">Übung 3</div>
+      <h3>CITE(R) an der eigenen Reise</h3>
+      <p class="subtitle">Sie planen eine Reise in kurzen Nachrichten. Jede legt eine Schicht drauf, und mittendrin ändert sich etwas.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Einen ganzen Auftrag in kurzen Nachrichten bauen.</div>
+        <div><b>Abgabe</b>Auf Zuruf: zwei Punkte zum Selbstprüfen.</div>
+      </div>
+      <p class="step-label">Schritt 1, T wie Task: nur die Aufgabe (neuer Chat)</p>
+      <p>Das ist Ihre Reise. Ziel, Personen, Dauer: alles frei. Eine Zeile, sonst nichts.</p>
+      <div class="prompt-block">Plane mir eine Reise nach [Reiseziel].</div>
+      <details>
+        <summary>Schritt 2, C wie Context: Wer fährt mit (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Wir sind 4 Erwachsene.</div>
+      <p>Warten Sie die Antwort ab. Dann ändert sich etwas:</p>
+      <div class="prompt-block">Es sind doch nicht 4 Erwachsene. Wir sind 2 Erwachsene und 2 Kinder, 6 und 9 Jahre alt. Wie würdest du die Reise umplanen?</div>
+      <p>Jetzt kommen die Kinder doch nicht mit. Überlegen Sie kurz, was Sie schreiben würden, bevor Sie weiterlesen.</p>
+      <div class="prompt-block">Vergiss die letzte Nachricht. Es bleibt doch bei 4 Erwachsenen ohne Kinder. Plane zurück auf den Stand davor.</div>
+      <p>Gelöscht ist nichts. Die Nachricht steht weiter im Chat, und Copilot liest sie mit. Sie haben nur gesagt, wie es damit umgehen soll.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3, I wie Intent: das Ziel nachschieben (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Neue Nachricht, im selben Chat. Sie schreiben nichts noch einmal.</p>
+      <div class="prompt-block">Ziel: Ich will am Ende einen Plan, den ich genau so weiterschicken kann, ohne etwas nachzubessern.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 4, E wie Execution: die Ausführung nachschieben (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Format: Tag für Tag, pro Tag höchstens drei Zeilen. Max. 300 Wörter. Keine Einleitung, keine Nachbemerkung.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 5, R wie Reality: Copilot prüft sich selbst (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Prüfe deinen eigenen Plan: Was davon ist unsicher, veraltet oder nur geraten? Markiere es und sag mir, was ich selbst nachprüfen muss.</div>
+      <p>Ein paar kurze Nachrichten, und am Ende steht ein vollständiger Auftrag. Den Kontext trägt das Gespräch.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 6, wenn Sie früher fertig sind: die Reise verkaufen (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Bevor du den Text schreibst: Stell mir 3 bis 5 Rückfragen zu der Person, der ich die Reise verkaufen will, damit der Text genau zu ihr passt. Warte auf meine Antworten.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Was hinter den fünf Buchstaben steckt (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>C = Context: Was ist die Ausgangssituation? · I = Intent: Was genau will ich erreichen? · T = Task: Was soll Copilot machen? · E = Execution: Format, Ton, Länge · R = Reality: Was muss ich selbst prüfen?</p>
+      <p>Sie wollen die Rolle nicht jedes Mal mitschreiben? Genau dorthin kommt sie heute Nachmittag, in die Personalisierung.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Lassen Sie Copilot den Plan einer bestimmten Person schmackhaft machen und vorher drei bis fünf Rückfragen zu ihr stellen (Prompt in Schritt 6).<br><strong>Stufe 3:</strong> Legen Sie Schritt 5 neben die Quellenangaben, die Copilot in seine Antwort setzt. Welche Angabe im Plan hat keine Quelle?</p>
+      <p class="fallback"><strong>Ausweg:</strong> Die Prompts brauchen nur den Copilot Chat. Ist die Websuche aus, plant Copilot aus seinem Wissen, das reicht für diese Übung.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Ein Plan Tag für Tag unter 300 Wörtern, darunter mindestens zwei markierte Stellen, die Sie selbst nachprüfen müssen.</p>
+    </div></section>
+<section class="lektion" data-id="t1-08" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="t1-08">
+      <div class="exercise-number">Übung 4</div>
+      <h3>Aus einer Teams-Besprechung wird eine Mail</h3>
+      <p class="subtitle">Ein Transkript und ein Prompt mit allen fünf Teilen von CITE(R). Microsoft nennt dasselbe in eigenen Worten: Ziel, Kontext, Erwartung, Quelle.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Eine Mail: Entschieden, Aufgaben, Offen.</div>
+        <div><b>Abgabe</b>Auf Zuruf: Wo steht bei Ihnen [fehlt]?</div>
+      </div>
+      <p class="fallback"><strong>Daten:</strong> Die Musterdatei M4 ist erfunden und nennt nur Rollen. Eine echte Besprechung nehmen Sie nur mit Freigabe Ihrer IT.</p>
+      <p>Laden Sie die <a href="/oewd16112026/material/M4-Teams-Besprechung-Transkript.docx" target="_blank" rel="noopener" style="color:var(--gold);">Musterdatei M4 Teams-Besprechung (.docx)</a> in Ihren OneDrive-Ordner „Copilot-Training“.</p>
+      <p class="step-label">Schritt 1: Datei anhängen, Prompt abschicken (neuer Chat)</p>
+      <p><strong>Sie</strong> hängen M4 an (Büroklammer oder „/“) und kopieren den Prompt darunter. <strong>Copilot</strong> antwortet. <strong>Sie</strong> lesen drei Minuten, ohne zu tippen.</p>
+      <div class="prompt-block">Context: Hier ist das Transkript einer Teams-Besprechung der Objektleitung. Es geht um die neue Regel zur Schichtübergabe.
+Intent: Alle sollen danach dasselbe Verständnis haben, was entschieden wurde und wer was bis wann tut.
+Task: Zieh die Entscheidungen und Aufgaben aus dem Transkript. Schreib daraus eine Mail an alle Teilnehmenden mit drei Abschnitten: Entschieden, Aufgaben (wer, was, bis wann), Offen.
+Execution: Höchstens 200 Wörter, Sie-Form, keine Einleitung.
+Reality: Erfinde keine Frist und keinen Verantwortlichen. Steht etwas nicht im Transkript, schreib [fehlt].</div>
+      <details>
+        <summary>Schritt 2: Copilot redet Ihnen nach dem Mund (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Fragen Sie im selben Chat zuerst so:</p>
+      <div class="prompt-block">Ist diese Mail gut?</div>
+      <p>Dann so:</p>
+      <div class="prompt-block">Nenne mir die drei größten Schwächen dieser Mail.</div>
+      <p>Vergleichen Sie beide Antworten. Welche Frage hilft Ihnen beim Verbessern?</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3: Drei Leitplanken, die immer gelten (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Die magische Formel, wenn Ihnen selbst Kontext fehlt:</p>
+      <div class="prompt-block">Bevor du antwortest: Stelle mir 3 bis 5 gezielte Fragen, um meine Situation besser zu verstehen. Warte mit dem Entwurf, bis ich geantwortet habe.</div>
+      <p>Morgen wird aus genau diesem Ablauf ein Agent, der es jedes Mal so macht.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Lassen Sie Copilot zu jeder Aufgabe in der Mail die Stelle im Transkript zitieren, aus der sie stammt.<br><strong>Stufe 3:</strong> Mit Premium-Lizenz und Freigabe Ihrer IT: derselbe Prompt in Teams an einer echten Besprechung, die ein Transkript hat.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Datei-Upload gesperrt? Öffnen Sie die Musterdatei, kopieren Sie den Text und fügen Sie ihn direkt unter dem Prompt ein.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Bei der Aufgabe ohne Verantwortlichen steht [fehlt], und Copilot hat keine Frist dazuerfunden.</p>
+    </div></section>
+<section class="lektion" data-id="t1-09" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="t1-09">
+      <div class="exercise-number">Übung 5</div>
+      <h3>Lieferant oder Tutor</h3>
+      <p class="subtitle">Dasselbe Thema, zwei Haltungen. Erst liefert Copilot Ihnen eine Antwort, dann bringt es Ihnen die Sache bei.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Lieferant und Tutor an einem Thema erleben.</div>
+        <div><b>Abgabe</b>Auf Zuruf: die Übungsfrage Ihres Tutors.</div>
+      </div>
+      <p class="step-label">Schritt 1: Erst als Lieferant (neuer Chat)</p>
+      <p>Wählen Sie etwas, das Sie gern besser könnten, zum Beispiel Pivot-Tabellen in Excel.</p>
+      <div class="prompt-block">Erkläre mir kurz: [Ihr Thema].</div>
+      <details>
+        <summary>Schritt 2: Dann im selben Chat als Tutor (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Du bist jetzt mein Tutor für [Ihr Thema]. Gib mir nicht sofort die Lösung, sondern erkläre mir die Regel und stell mir eine Übungsaufgabe. Warte auf meine Antwort und korrigiere mich dann.</div>
+      <p>Der Lieferant erledigt die Aufgabe. Der Tutor baut Ihre Fähigkeit auf. Für Champions ist der Tutor der Modus, mit dem sich Ihre Kolleginnen und Kollegen Copilot selbst beibringen.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Nehmen Sie als Tutor-Thema eine Regel aus Ihrem Bereich, zum Beispiel die Kollektivvertragsregel für Nachtzuschläge. Nur als Lernthema, ohne echte Daten.<br><strong>Stufe 3:</strong> Schreiben Sie einen Tutor-Prompt, mit dem sich eine Kollegin eine Copilot-Funktion selbst beibringen lässt, und testen Sie ihn an sich.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Die Übung läuft in jedem Copilot-Konto. Fällt Ihnen kein Thema ein, nehmen Sie Pivot-Tabellen in Excel.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Zwei verschiedene Antworten auf dasselbe Thema, und ein Copilot, der Ihnen eine Übungsfrage stellt und auf Ihre Antwort wartet.</p>
+    </div></section>
+<section class="lektion" data-id="t1-10" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="t1-10">
+      <div class="exercise-number">Übung 6</div>
+      <h3>Zwei Regler, Gedächtnis und Ihr Konto</h3>
+      <p class="subtitle">Wie lange Copilot nachdenkt, was es sich über Sie merkt, und was Ihr ÖWD-Konto mit Ihren Eingaben macht.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Modus, Gedächtnis und temporären Chat finden.</div>
+        <div><b>Abgabe</b>Auf Zuruf: Was weiß Copilot schon über Sie?</div>
+      </div>
+      <p class="step-label">Schritt 1: Zwei Modi, dieselbe Frage (neuer Chat)</p>
+      <p>Finden Sie den Modusschalter neben dem Eingabefeld: Auto, Quick response, Think deeper. Bei Ihnen können die Namen schon deutsch sein. Stellen Sie die Frage einmal in Quick response und einmal in Think deeper.</p>
+      <div class="prompt-block">Ein Tischtennisschläger und ein Ball kosten zusammen 11 €. Der Schläger kostet 10 € mehr als der Ball. Was kostet der Ball?</div>
+      <details>
+        <summary>Schritt 2: Was Copilot über Sie weiß (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Was weißt du über mich?</div>
+      <p>Dann sehen Sie nach: Einstellungen, dort Personalisierung und die gespeicherten Erinnerungen. Lesen Sie jeden Eintrag. Ausschalten und löschen sind zwei verschiedene Dinge: Was Sie ausschalten, bleibt gespeichert.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3: Der temporäre Chat (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Oben rechts finden Sie den temporären Chat. Heute arbeiten wir im normalen Chat, weil wir morgen das Gedächtnis brauchen. Den temporären Chat nehmen Sie für Sensibles.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 4: Ihr Konto und die 3-Sekunden-Regel (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Ihr ÖWD-Konto trainiert kein Modell. Ein privates Microsoft-Konto auf copilot.com tut es standardmäßig. Darum gehören ÖWD-Daten nie in ein privates Konto.</p>
+      <p>Drei Sekunden, bevor Sie absenden:</p>
+      <table class="compare-table">
+      <tr><th style="width:42%">Statt</th><th>schreiben Sie</th></tr>
+      <tr><td>Name des Objekts</td><td>„ein Bürogebäude in Salzburg“</td></tr>
+      <tr><td>Name einer Sicherheitskraft</td><td>„eine Kollegin aus der Nachtschicht“</td></tr>
+      <tr><td>Stundensatz</td><td>„ein mittlerer Betrag“</td></tr>
+      </table>
+        </div>
+      </details>
+      <details>
+        <summary>Auflösung zu Schritt 1 (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Der Ball kostet 50 Cent, der Schläger 10,50 €. Wer schnell antwortet, sagt oft 1 €. Vergleichen Sie, welcher Modus Ihnen was geliefert hat.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Löschen Sie eine gespeicherte Erinnerung, die nicht stimmt, und fragen Sie danach noch einmal „Was weißt du über mich?“<br><strong>Stufe 3:</strong> Schreiben Sie drei Sätze aus Ihrer Arbeitswoche mit der 3-Sekunden-Regel um und lassen Sie Copilot prüfen, ob noch etwas Erkennbares drinsteht.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Sind die Schalter grau, hat Ihre IT das Gedächtnis abgeschaltet. Das ist dann Ihr Befund, notieren Sie ihn.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Sie haben gelesen, was Copilot über Sie gespeichert hat, und wissen, wo der temporäre Chat ist.</p>
+    </div></section>
+<section class="lektion" data-id="mittag" data-teil="vm" data-teil-name="Tag 1: Vormittag" hidden><div class="exercise" data-ex="mittag">
+      <div class="exercise-number">Pause</div>
+      <h3>Mahlzeit, und wie es weitergeht</h3>
+      <p class="subtitle">Bis hierher geschafft. Lassen Sie diese Seite offen, dann geht es nach der Pause genau hier weiter.</p>
+      <p class="step-label">Was Sie jetzt in der Hand haben</p>
+      <p>Vier Prompts, die Sie wieder verwenden: mit Kontext, CITE(R), die Mail aus der Besprechung und der Tutor. Dazu wissen Sie, was Copilot über Sie gespeichert hat.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Falls Sie uns schon jetzt verlassen müssen: Unten bei „Zum Schluss“ finden Sie den KI-Check und das Feedback. Beides dauert zusammen fünf Minuten.</p>
+
+    </div></section>
+<section class="lektion" data-id="t1-11" data-teil="nm" data-teil-name="Tag 1: Nachmittag" hidden><div class="exercise" data-ex="t1-11">
+      <div class="exercise-number">Übung 7</div>
+      <h3>Ihre Wissensbasis: Firma und Rolle</h3>
+      <p class="subtitle">Zwei Dokumente, die Copilot ab heute schlauer machen. Ihr erster Agent liest sie in einer Stunde.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Zwei Word-Dateien: ÖWD und Ihre Rolle.</div>
+        <div><b>Abgabe</b>Auf Zuruf: zwei Angaben, die Sie geprüft haben.</div>
+      </div>
+      <p class="fallback"><strong>Daten:</strong> Firma: nur öffentliche Angaben, die darf Copilot im Netz suchen. Rolle: Sie beschreiben nur sich selbst, ohne Namen von Kolleginnen, Kollegen oder Kunden.</p>
+      <p>Modus: <strong>Auto</strong>. Think deeper braucht hier zu lange.</p>
+      <p class="step-label">Schritt 1, 1a Ihre Firma: Sie kopieren, Copilot recherchiert (neuer Chat)</p>
+      <p><strong>Sie</strong> kopieren den Prompt und schicken ihn ab. <strong>Copilot</strong> recherchiert. <strong>Sie</strong> lesen danach drei Minuten, ohne zu tippen.</p>
+      <div class="prompt-block">Recherchiere im Internet die Firma ÖWD, Salzburg. Nutze die Website, das Impressum, Presseberichte und öffentliche Verzeichnisse.
+Schreibe daraus ein Kontextdokument, das ich in Zukunft an den Anfang jeder Konversation setzen kann: Branche, Größe, Produkte, Kunden, Standorte, Besonderheiten.
+Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst, schreibst du nicht hin, sondern listest es am Ende unter "offen".
+Höchstens eine Seite.</div>
+      <details>
+        <summary>Schritt 2: Sie prüfen zwei Angaben (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Nehmen Sie zwei Angaben, die Sie sicher beurteilen können, zum Beispiel Standorte oder Leistungen. Das ist der Kern der Übung: Copilot erfindet Angaben über Ihre echte Firma genauso bereitwillig wie über alles andere. Sie merken es nur, wenn Sie hinschauen. Ist etwas falsch:</p>
+      <div class="prompt-block">Ich habe zwei Angaben geprüft. [Angabe] stimmt nicht, richtig ist [Korrektur]. Außerdem fehlt: [Ergänzung]. Überarbeite das Dokument mit meinen Korrekturen und Ergänzungen und streiche alles, wofür du keine Quelle hast.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3: Sie fragen Copilot, was fehlt (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Was fehlt in diesem Dokument, das für eine KI wichtig wäre? Schlage 3 Ergänzungen vor.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 4, 1b Ihre Rolle: Copilot fragt, Sie antworten (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Ihre Firma findet Copilot im Netz. Ihre Rolle steht nirgends. Auch wer schon viel mit KI arbeitet: Diesen Teil bitte nicht überspringen. Neuer Chat:</p>
+      <div class="prompt-block">Hilf mir, ein Kontextdokument über meine berufliche Rolle zu erstellen. Stelle mir 3-5 gezielte Fragen, z.B. zu meiner Position, meinen täglichen Aufgaben, meinen Verantwortlichkeiten, mit wem ich zusammenarbeite, und was meine größten Herausforderungen sind. Warte auf meine Antworten.</div>
+      <p>Sie beantworten die Fragen. Sprechen geht schneller als Tippen: Das Mikrofon finden Sie im Eingabefeld. Danach:</p>
+      <div class="prompt-block">Erstelle jetzt das Kontextdokument basierend auf meinen Antworten. Schreibe es so, dass ich es in Zukunft am Anfang jeder Konversation einfügen kann, damit du sofort weißt, wer ich bin und was ich mache. Höchstens eine Seite.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 5: Als Word-Datei in OneDrive speichern (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Ihr Agent liest Dateien aus OneDrive. Darum speichern Sie beide Dokumente als Word-Datei in Ihrem Ordner „Copilot-Training“, zum Beispiel als „OEWD-Firma.docx“ und „Meine-Rolle.docx“. In jedem der beiden Chats:</p>
+      <div class="prompt-block">Gib mir den ganzen Text oben als Word-Datei mit dem Namen [Name].docx zum Herunterladen.
+Kannst du keine Datei erstellen, gib ihn als reinen Text in einem einzigen Block aus. Dann kopiere ich ihn selbst in ein leeres Word-Dokument.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 6: Stufe 2 und Stufe 3 (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Stufe 2, Sie haben schon ein Kontextdokument:</p>
+      <div class="prompt-block">Hier ist mein bisheriges Kontextdokument:
+[einfügen]
+Vergleiche es mit dem Firmendokument, das du eben recherchiert hast: Was steht nur in meinem, was nur in deinem, was widerspricht sich? Mach daraus ein Dokument. Stell mir zu jedem Widerspruch eine Frage und warte auf meine Antworten.</div>
+      <p>Stufe 3, Sie arbeiten schon mit Vorlagen:</p>
+      <div class="prompt-block">Hier sind 2 meiner besten [Berichte / Kundenmails / Abläufe]:
+[einfügen]
+Was genau macht sie gut? Leite daraus eine Prüfliste mit höchstens 8 Punkten ab: Tiefe, Belege, Aufbau, Fachbegriffe, Länge. Jeder Punkt muss sich mit Ja oder Nein prüfen lassen.</div>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Sie haben schon ein Kontextdokument? Lassen Sie Copilot es mit der Recherche aus 1a zusammenführen (Prompt in Schritt 6).<br><strong>Stufe 3:</strong> Bauen Sie aus zwei Ihrer besten Texte eine Prüfliste mit höchstens acht Punkten, die sich mit Ja oder Nein prüfen lassen (Prompt in Schritt 6).</p>
+      <p class="fallback"><strong>Ausweg:</strong> Websuche abgeschaltet? Beschreiben Sie ÖWD in fünf Stichworten und ersetzen Sie den ersten Absatz durch: „Hier sind meine Stichworte zu meiner Firma: [Stichworte].“ Der Rest bleibt gleich.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Zwei Word-Dateien im OneDrive-Ordner „Copilot-Training“. Die Firmendatei hat Quellen in Klammern und einen Abschnitt „offen“.</p>
+    </div></section>
+<section class="lektion" data-id="t1-12" data-teil="nm" data-teil-name="Tag 1: Nachmittag" hidden><div class="exercise" data-ex="t1-12">
+      <div class="exercise-number">Übung 8</div>
+      <h3>Personalisierung: einmal sagen, immer gültig</h3>
+      <p class="subtitle">Was in diesem Feld steht, liest Copilot in jedem neuen Chat mit. Erst ein Stil, der auffällt, dann ein guter Text.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Anweisungen eintragen, die in jedem Chat gelten.</div>
+        <div><b>Abgabe</b>Auf Zuruf: Fragt Copilot jetzt von selbst nach?</div>
+      </div>
+      <p class="step-label">Schritt 1: Das Feld finden, einen auffälligen Stil eintragen</p>
+      <p>Profilbild, dann Einstellungen, dann Personalisierung und dort die benutzerdefinierten Anweisungen. Ist Ihr Feld leer, tragen Sie einen der drei Stile ein und speichern. Steht schon Text drin: nichts löschen, weiter mit Schritt 4.</p>
+      <div class="prompt-block">Antworte mir ab jetzt immer im Stil eines österreichischen Amtsschreibens: Beamtendeutsch, Hauptwörter statt Verben, lange Schachtelsätze, Wendungen wie „Bezug nehmend auf Ihr Ansuchen“ und „Mit vorzüglicher Hochachtung“. Der Inhalt soll sachlich stimmen, nur der Ton ist amtlich.</div>
+      <div class="prompt-block">Antworte mir ab jetzt immer wie ein Teenager: Jugendsprache, Wörter wie „Digga“, „Jo“, „Bro“, „lowkey“ und „cringe“, viele englische Wörter, kurze Sätze, Emojis erlaubt. Der Inhalt soll sachlich stimmen, nur der Ton ist jung.</div>
+      <div class="prompt-block">Antworte mir ab jetzt immer wie ein guter Freund, mit dem ich nach der Arbeit im Beisl sitze: per Du, locker, ehrlich, mit ein bisschen Schmäh und einer kleinen Geschichte aus dem Leben. Der Inhalt soll sachlich stimmen, nur der Ton ist gemütlich.</div>
+      <details>
+        <summary>Schritt 2: Testen, in einem neuen Chat (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Copilot braucht einen Moment: speichern, kurz warten, dann einen neuen Chat öffnen.</p>
+      <div class="prompt-block">Erklär mir, wie ich am besten meinen Urlaub beim Chef beantrage.</div>
+      <p>Gleiche Frage, drei verschiedene Antworten im Raum, und niemand hat den Stil in die Frage geschrieben.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3: Der Stil fliegt raus, der gute Text kommt rein (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Löschen Sie den Stil-Test aus dem Feld und tragen Sie das hier ein. Die [Klammern] im letzten Absatz füllen Sie selbst aus.</p>
+      <div class="prompt-block">Sag mir lieber „Das weiß ich nicht", als zu raten. Trenne klar, was du sicher weißt und was du vermutest, und kennzeichne Vermutungen. Erfinde keine Zahlen, Namen, Zitate oder Quellen.
+Wenn meine Anfrage unklar ist oder dir wichtige Informationen fehlen, stell mir zuerst kurze Rückfragen, bevor du antwortest.
+Gib mir nicht einfach recht. Wenn ich mich irre oder etwas übersehe, sag es direkt und begründe es.
+Ich bin [Rolle] bei ÖWD in Salzburg und kümmere mich vor allem um [zwei, drei Hauptaufgaben]. Antworte mir auf Deutsch, per [Du oder Sie], kurz und so, dass ich es direkt verwenden kann.</div>
+      <p>Speichern, kurz warten, neuer Chat, noch einmal die Urlaubsfrage. Die ersten drei Absätze sind Ihre Leitplanken. Sie verhindern Fehler nicht ganz, aber Copilot widerspricht öfter und sagt, wo es unsicher ist.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 4: Für alle, die schon Text im Feld haben (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Stufe 2, Ihren Text behalten und ergänzen:</p>
+      <div class="prompt-block">Hier sind meine bisherigen Anweisungen an dich:
+[Ihr Text aus dem Feld]
+Und hier drei Leitplanken, die zusätzlich gelten sollen:
+[die ersten drei Absätze aus Schritt 3]
+Führe beides zu einer Fassung zusammen, ohne meine Inhalte zu verlieren, höchstens 1.500 Zeichen. Sag mir danach, was du gekürzt oder geändert hast.</div>
+      <p>Stufe 3, prüfen, ob Ihre Anweisungen wirklich greifen:</p>
+      <div class="prompt-block">Nenne mir die Regeln, die in deinen Anweisungen von mir stehen, als nummerierte Liste. Mehr nicht.</div>
+        </div>
+      </details>
+      <p>Das allgemeine Muster aus Schritt 3 bekommen Sie heute Abend als Vorlage V1 mit.</p>
+      <p class="profispur"><strong>Stufe 2:</strong> Steht schon Text im Feld? Lassen Sie Copilot Ihren Text mit den drei Leitplanken zusammenführen (Prompt in Schritt 4).<br><strong>Stufe 3:</strong> Lassen Sie sich im neuen Chat Ihre Regeln als Liste nennen. Dann testen Sie die wichtigste mit einer echten Frage, bei der Sie die richtige Antwort kennen.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Feld nicht da oder von Ihrer IT gesperrt? Schicken Sie den Text als erste Nachricht in einen neuen Chat. Dann gilt er nur in diesem Chat.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Im neuen Chat fragt Copilot nach oder kennzeichnet Vermutungen, obwohl Ihre Frage nichts davon verlangt.</p>
+    </div></section>
+<section class="lektion" data-id="t1-13" data-teil="nm" data-teil-name="Tag 1: Nachmittag" hidden><div class="exercise" data-ex="t1-13">
+      <div class="exercise-number">Übung 9</div>
+      <h3>Ihr erster Copilot-Agent, mit Stoppuhr</h3>
+      <p class="subtitle">Aus Ihren zwei Dateien und einer Anweisung wird ein Assistent, der ÖWD und Ihre Rolle kennt. Ich starte die Stoppuhr, sobald Sie auf „Neuer Agent“ klicken.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Ein eigener Agent, der den Mailtest besteht.</div>
+        <div><b>Abgabe</b>Auf Zuruf: Ihre Minuten bis zum ersten Test.</div>
+      </div>
+      <p class="fallback"><strong>Daten:</strong> Als Wissen nur Ihre zwei Dateien aus Übung 7. Getestet wird mit der erfundenen Musterdatei M1.</p>
+      <p>Vorher: zwei Dateien und eine leere Agentenseite. Nachher: ein Agent in der linken Leiste. Fertig ist die Übung, wenn Test 2 besteht und Sie den Agenten im neuen Chat wiederfinden. Laden Sie dafür die <a href="/oewd16112026/material/M1-Reklamation-Reinigung.docx" target="_blank" rel="noopener" style="color:var(--gold);">Musterdatei M1 Reklamation (.docx)</a> in Ihren Ordner „Copilot-Training“.</p>
+      <p class="step-label">Schritt 1: Sie legen den Agenten an und tragen die Anweisungen ein</p>
+      <p>Klickweg: Agents &amp; Skills, dann „Neuer Agent“, dann „Zum Konfigurieren überspringen“, Registerkarte „Konfigurieren“. Name: <strong>Mein ÖWD-Assistent</strong>. Kopieren Sie diesen Text in das Feld „Anweisungen“ und ersetzen Sie die [Klammern]:</p>
+      <div class="prompt-block">Du bist mein KI-Assistent für meine Arbeit bei ÖWD, Bereich [Ihr Bereich].
+Wissen: Nutze immer meine Dokumente zu Firma und Rolle als festen Kontext. Lies vor jeder Antwort die Dateien in deinem Wissen.
+Verhalten: Antworte auf Deutsch, per [Du/Sie], konkret und knapp (höchstens 300 Wörter), mit klaren nächsten Schritten.
+Wenn dir Informationen fehlen, frag nach, bevor du rätst. Was nicht in meinen Dokumenten steht, markierst du mit [fehlt], statt es zu erfinden.
+Du verschickst nichts. Du schreibst Entwürfe, die ich prüfe.</div>
+      <details>
+        <summary>Schritt 2: Wissen hinzufügen, je nach Ihrem Etikett (aufklappen)</summary>
+        <div class="collapsible-content">
+      <table class="compare-table">
+      <tr><th style="width:34%">Ihr Etikett</th><th>So kommt Ihr Wissen in den Agenten</th></tr>
+      <tr><td>M365 Copilot (Premium)</td><td>Unter „Wissen“ die zwei Dateien aus Ihrem OneDrive-Ordner auswählen. Den Text nicht in die Anweisungen kopieren.</td></tr>
+      <tr><td>Copilot Chat (Basic) oder M365 Copilot (Basic), Agent sichtbar</td><td>Kommt nach „Plus“ nur „Fügen Sie einen Link ein“, ist das Hochladen für Sie nicht freigeschaltet. Das ist eine Einstellung Ihrer IT, Sie haben alles richtig gemacht. Kopieren Sie den Inhalt der zwei Dateien in die Anweisungen, direkt unter die Zeile „Wissen:“. Alles zusammen darf höchstens 8.000 Zeichen lang sein. Zu lang? Nehmen Sie nur das Rollendokument.</td></tr>
+      <tr><td>Kein „Neuer Agent“ zu sehen</td><td>Der Ausweg unten. Oder ein Notizbuch mit Ihren zwei Dateien, falls es bei Ihnen freigeschaltet ist.</td></tr>
+      </table>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3: Test 1, kennt er Sie? (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Rechts im Bereich „Ausprobieren“:</p>
+      <div class="prompt-block">Was weißt du über meine Firma und meine Rolle? Nenne mir zu jeder Angabe, in welchem meiner Dokumente sie steht.</div>
+      <p>Stimmt es, klicken Sie auf „Erstellen“.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 4: Test 2, eine echte Aufgabe (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Hängen Sie die Musterdatei M1 an oder fügen Sie ihren Text unter dem Prompt ein:</p>
+      <div class="prompt-block">Hilf mir, diese Mail zu beantworten. Schreib noch keine Antwort. Frag mich zuerst, welches Ziel ich mit der Antwort habe, und biete mir Möglichkeiten an: Rückruf zusagen, Termin vor Ort, Sachverhalt klären, an die Objektleitung weiterleiten. Erst wenn ich das Ziel genannt habe, schreibst du den Entwurf. Was nicht in meinen Dokumenten steht, markierst du mit [fehlt].</div>
+      <p>Die Mail ist an eine erfundene Firma adressiert. Antworten Sie, als wäre es Ihre.</p>
+      <p>Prüfpunkt: Fragt er zuerst nach dem Ziel? Übernimmt er die Vertragsnummer MSR-2024-0817 wörtlich, ohne zu behaupten, er habe den Vertrag geprüft? Sagt er etwas zu, das in Ihren Dokumenten nicht steht, zum Beispiel eine Gutschrift? Dann fehlt ihm eine Regel. Die bekommt er morgen mit den Hausregeln M2. Stoppuhr ablesen, Minuten auf den Zettel.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 5: Wiederfinden (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Schließen Sie den Chat. Öffnen Sie einen neuen Chat, dann links unter den Agents Ihren „Mein ÖWD-Assistent“, und stellen Sie Test 1 noch einmal. Erst jetzt ist die Übung fertig.</p>
+      <p>Etwas ändern? Drei Punkte neben dem Agenten, dann „Bearbeiten“.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Was Sie gerade gebaut haben: die Begriffe in Copilot (aufklappen)</summary>
+        <div class="collapsible-content">
+      <table class="compare-table">
+      <tr><th style="width:24%">Begriff</th><th style="width:40%">Was es ist</th><th>Wofür</th></tr>
+      <tr><td>Chat</td><td>ein Gespräch</td><td>eine Frage, ein Entwurf</td></tr>
+      <tr><td>Agent</td><td>Assistent mit Name, Anweisungen, Wissen</td><td>eine Aufgabe, die wiederkommt</td></tr>
+      <tr><td>Notizbuch</td><td>Ordner mit Quellen, antwortet aus ihnen</td><td>ein Thema oder Projekt</td></tr>
+      <tr><td>Seite</td><td>bearbeitbares Dokument aus einem Chat</td><td>ein Ergebnis weiterbearbeiten, teilen</td></tr>
+      <tr><td>Skill</td><td>Anleitung als Datei im Agenten</td><td>Regeln, die immer gelten (nur Premium)</td></tr>
+      </table>
+      <p>Was bei ChatGPT ein Projekt ist, ist in Copilot meistens ein Agent oder ein Notizbuch. Ein Umzug geht nicht automatisch, Sie legen neu an.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Ergänzen Sie in den Anweisungen eine Regel aus Ihrem Bereich, die immer gilt, und testen Sie, ob der Agent sie im Mailtest einhält.<br><strong>Stufe 3:</strong> Bauen Sie einen zweiten Agenten, der Kundenmails einem Bereich zuordnet: Bonus „Profispur 7A: Reklamationen sortieren“.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Kein „Neuer Agent“ zu sehen? Schicken Sie die Anweisung aus Schritt 1 als erste Nachricht in einen neuen Chat und hängen Sie Ihre zwei Dateien an. Das gilt dann nur in diesem Chat.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Ihr Agent fragt zuerst nach Ihrem Ziel, übernimmt die Vertragsnummer aus der Mail wörtlich und sagt nichts zu, was nicht in Ihren Dokumenten steht. Im neuen Chat finden Sie ihn links unter den Agents.</p>
+    </div></section>
+<section class="lektion" data-id="t1-14" data-teil="nm" data-teil-name="Tag 1: Nachmittag" hidden><div class="exercise" data-ex="t1-14">
+      <div class="exercise-number">Übung 10</div>
+      <h3>Nur aus der Quelle: Notizbuch gegen Chat</h3>
+      <p class="subtitle">Eine Dienstanweisung, zwei Fenster, drei Fragen. Eine der Antworten steht nicht im Dokument.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Sehen, wer antwortet, obwohl nichts dasteht.</div>
+        <div><b>Abgabe</b>Auf Zuruf: Wer schrieb „nicht im Dokument“?</div>
+      </div>
+      <p class="fallback"><strong>Daten:</strong> Die Musterdatei M3 ist erfunden. Ein Notizbuch liegt im Microsoft-Mandanten von ÖWD, was hineindarf, regelt trotzdem Ihre IT.</p>
+      <p>Laden Sie die <a href="/oewd16112026/material/M3-Dienstanweisung-Schichtuebergabe.docx" target="_blank" rel="noopener" style="color:var(--gold);">Musterdatei M3 Dienstanweisung (.docx)</a> in Ihren Ordner „Copilot-Training“.</p>
+      <p class="step-label">Schritt 1: Zwei Fenster, dieselbe Datei, derselbe Prompt</p>
+      <p>Links: m365.cloud.microsoft, dann Notebooks, „Neu“, „Verweise hinzufügen“ und die Datei M3 hochladen. Rechts: ein neuer Copilot Chat, M3 anhängen. In beide Fenster:</p>
+      <div class="prompt-block">Antworte nur aus der angehängten Dienstanweisung.
+1. Innerhalb welcher Frist muss ein Vorfall gemeldet werden? Zitiere die Stelle wörtlich.
+2. Wer ist bei der Schichtübergabe verantwortlich? Zitiere die Stelle.
+3. Wie lange werden die Übergabeprotokolle aufbewahrt?
+Steht etwas nicht im Dokument, schreib „nicht im Dokument“.</div>
+      <details>
+        <summary>Schritt 2: Vergleichen (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Schauen Sie zuerst nach links, dann nach rechts. Achten Sie auf Frage 3: Welche Seite schreibt „nicht im Dokument“, welche antwortet trotzdem? Und stimmen die Zitate bei Frage 1 und 2 wörtlich? Suchen Sie eines mit Strg+F in der Datei.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Was das für Ihre Daten heißt (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Ein Notizbuch antwortet aus Ihren Quellen. Daraus folgt nicht, dass dort beliebige Daten hineindürfen. Die Daten bleiben im Microsoft-Mandanten von ÖWD, die Regeln Ihrer IT gelten trotzdem.</p>
+      <p>Wer ein Notizbuch teilt, gibt Zugriff auf alle verknüpften Dateien. Prüfen Sie vorher, was drinliegt.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Stellen Sie im Notizbuch eine Frage, deren Antwort nur zur Hälfte im Dokument steht. Was macht Copilot mit der anderen Hälfte?<br><strong>Stufe 3:</strong> Legen Sie Ihre zwei Dateien aus Übung 7 dazu ins Notizbuch und fragen Sie, was die Dienstanweisung für Ihre Rolle bedeutet.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Kein Notizbuch zu sehen? Öffnen Sie zwei Chats mit derselben Datei: einen mit dem Satz „Antworte nur aus der angehängten Dienstanweisung“, einen ohne.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Sie können in einem Satz sagen, was links und was rechts bei Frage 3 passiert ist.</p>
+    </div></section>
+<section class="lektion" data-id="t1-lok" data-teil="nm" data-teil-name="Tag 1: Nachmittag" hidden><div class="exercise" data-ex="t1-lok">
+      <div class="exercise-number">Übung 11</div>
+      <h3>Welche Daten gehören in Copilot?</h3>
+      <p class="subtitle">Sieben Datenarten aus Ihrem Alltag, drei Spuren. Erst sortieren Sie allein, dann zeige ich eine KI ohne Internet.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Sieben Datenarten auf drei Spuren legen.</div>
+        <div><b>Abgabe</b>Auf Zuruf: Wo war sich der Raum uneinig?</div>
+      </div>
+      <p class="step-label">Schritt 1: Sortieren, jede Person für sich, acht Minuten</p>
+      <p>Schreiben Sie hinter jede Zeile einen Buchstaben: <strong>C</strong> = Copilot im ÖWD-Konto · <strong>L</strong> = lokal, im Haus · <strong>X</strong> = gar nicht in eine KI. Sie können die Liste auch in eine Notiz kopieren.</p>
+      <div class="prompt-block">1. Stelleninserat Sicherheitskraft Salzburg: ___
+2. Kundenreklamation, Namen schon entfernt: ___
+3. Dienstplan mit Namen und Krankenständen: ___
+4. Einsatzbericht mit Namen eines Verdächtigen und Videostandbild: ___
+5. Lohnliste eines Standorts: ___
+6. Bewerbungsunterlagen für drei Stellen: ___
+7. Schulungsunterlage Brandschutz: ___</div>
+      <details>
+        <summary>Schritt 2: Vergleichen, auf Zuruf (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Wo war sich der Raum einig, wo nicht? Die Faustregel kommt erst nach der Demo.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Die Faustregel (erst nach der Demo aufklappen) (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Copilot im ÖWD-Konto: 1, 2, 7. Lokal möglich: 6, Bewerbungen bleiben aber auch lokal ein Hochrisiko-Bereich, entscheiden muss ein Mensch. Nummer 3 und 5: zuerst Ihre IT und Ihre Datenschutzstelle fragen. Krankenstände sind Gesundheitsdaten und besonders geschützt. Lokal ist dafür eine Option, über die Ihre IT entscheidet. Nummer 4: zuerst Ihre IT und die Rechtsabteilung fragen.</p>
+      <p>Ihre IT-Richtlinie geht immer vor dieser Faustregel. Ihr Copilot-Konto verarbeitet Daten im Microsoft-Mandanten von ÖWD, was dort hineindarf, entscheidet ÖWD. Ihre IT hat Copilot gewählt, und das ist richtig. Für das Wenige, das selbst dort nicht hindarf, gibt es eine zweite Spur.</p>
+      <p>Lokal ändert nichts an DSGVO und AI Act. Das ist eine Faustregel. Für Rechtsfragen ist Ihre Rechtsabteilung zuständig.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Ergänzen Sie zwei Datenarten aus Ihrem eigenen Bereich und legen Sie auch diese auf eine Spur.<br><strong>Stufe 3:</strong> Welche Aufgabe aus Ihrem Bereich gehört in die zweite Spur? Ein Satz genügt. Morgen kommt er in Ihren Fahrplan.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Copilot brauchen Sie hier nicht. Zettel und Stift genügen, die Liste steht auch auf der Folie.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Jede der sieben Zeilen trägt einen Buchstaben, und Sie können für eine davon in einem Satz begründen, warum.</p>
+    </div></section>
+<section class="lektion" data-id="lokale-ki" data-teil="nm" data-teil-name="Tag 1: Nachmittag" hidden><div class="exercise" data-ex="lokale-ki">
+      <div class="exercise-number">Demo</div>
+      <h3>KI ohne Internet</h3>
+      <p class="subtitle">Ich zeige vorne ein Sprachmodell, das auf meinem Rechner läuft, mit ausgeschaltetem WLAN. Achten Sie darauf, ob es die Fragen zu einem Dokument richtig beantwortet.</p>
+      <p class="step-label">Schritt 1: Ihr Tipp</p>
+      <p>Schafft ein Modell ohne Internet dieselbe Aufgabe wie Copilot? Ja, nein oder teilweise?</p>
+      <p>Mein Tipp: ____ · Tatsächlich: ____</p>
+      <p class="step-label">Schritt 2: Was Sie mitnehmen</p>
+      <p>Welche Ihrer Datenarten aus der Übung davor würden Sie nach dieser Demo anders einsortieren? ____</p>
+    </div></section>
+<section class="lektion" data-id="t1-17" data-teil="nm" data-teil-name="Tag 1: Nachmittag" hidden><div class="exercise" data-ex="t1-17">
+      <div class="exercise-number">Übung 12</div>
+      <h3>Ihr Zeitfresser für morgen</h3>
+      <p class="subtitle">Die Aufgabe, die Sie heute früh in der Vorstellungsrunde genannt haben, in einem Satz und mit Minuten. Morgen wird daraus Ihr zweiter Agent.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Eine Aufgabe mit geschätzten Minuten.</div>
+        <div><b>Abgabe</b>Zettel an mich, ohne Namen von Personen.</div>
+      </div>
+      <p class="step-label">Schritt 1: Drei Zeilen, fünf Minuten</p>
+      <p>Gemeint ist die Aufgabe selbst, zum Beispiel „Ich beantworte Anfragen zu Reinigungsangeboten“. Ihre Rolle („Ich bin im Verkauf“) kennt Copilot schon aus Ihrer Wissensbasis.</p>
+      <div class="prompt-block">Meine Aufgabe: [ein Satz]
+So oft: [täglich / wöchentlich / monatlich]
+Minuten heute, geschätzt: [Zahl]</div>
+      <p>Morgen früh kommt Ihre Zahl ins Zeitformular. Am Ende von morgen messen wir, wie lange es mit Ihrem Agenten dauert.</p>
+      <p class="profispur"><strong>Stufe 2:</strong> Notieren Sie dazu, an welcher Stelle dieser Aufgabe Sie heute am meisten nachbessern.<br><strong>Stufe 3:</strong> Schätzen Sie zusätzlich, wie viele Minuten die Aufgabe mit einem guten Agenten höchstens dauern dürfte, damit er sich für Sie lohnt.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Copilot brauchen Sie hier nicht. Kein Zettel zur Hand? Dann schreiben Sie die drei Zeilen in eine Notiz am Laptop und zeigen sie mir.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Auf Ihrem Zettel stehen eine Aufgabe in einem Satz, wie oft sie anfällt, und eine Minutenzahl.</p>
+    </div></section>
+<section class="lektion" data-id="kicheck-ende" data-teil="nm" data-teil-name="Tag 1: Nachmittag" hidden><div class="exercise" data-ex="kicheck-ende">
+      <div class="exercise-number">Zum Schluss</div>
+      <h3>Ihr KI-Check, zweiter Durchgang</h3>
+      <p class="subtitle">Derselbe Fragebogen wie heute Morgen. Füllen Sie ihn jetzt noch einmal aus, dann sehen Sie schwarz auf weiß, was Sie heute dazugelernt haben, und ich sehe, wo ich beim nächsten Mal nachschärfen muss. Erst der Check, dann der Abschied.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Wählen Sie im Formular bei „Durchgang“ jetzt <strong>„Tag 1 abends“</strong>.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
+        <a href="https://form.jotform.com/263174826000046" target="_blank" rel="noopener"><img src="kicheck-qr.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
+        <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht?</strong> Am Firmenrechner kommt das vor. Scannen Sie den QR-Code mit dem Handy, oder <a href="https://form.jotform.com/263174826000046" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p>
+      </div>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was Sie ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
+      <iframe id="Form-FORM_KICHECK-19" data-formular="FORM_KICHECK" src="https://form.jotform.com/263174826000046" title="Ihr KI-Check, zweiter Durchgang" style="width:100%; height:2600px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/263174826000046" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+
+    </div></section>
+<section class="lektion" data-id="t1-18" data-teil="nm" data-teil-name="Tag 1: Nachmittag" hidden><div class="exercise" data-ex="t1-18">
+      <div class="exercise-number">Demo</div>
+      <h3>Eine Folie in den Farben von owd.at</h3>
+      <p class="subtitle">Ich bitte Copilot vorne um eine Folie im Design der ÖWD-Website. Achten Sie nur auf die Farben.</p>
+      <p class="step-label">Schritt 1: Der Auftrag</p>
+      <div class="prompt-block">Bau mir eine Folie im Design von owd.at: gleiche Farben, gleiche Schrift. Thema: Drei Regeln für die Schichtübergabe.</div>
+      <p class="step-label">Schritt 2: Ihr Tipp</p>
+      <p>Stimmen die Farben? Ja oder nein, auf Zuruf.</p>
+      <p>Mein Tipp: ____ · Tatsächlich: ____</p>
+      <p>Warum es so ausgeht, erfahren Sie morgen früh als Erstes.</p>
+    </div></section>
+<section class="lektion" data-id="bis-morgen" data-teil="nm" data-teil-name="Tag 1: Nachmittag" hidden><div class="exercise" data-ex="bis-morgen">
+      <div class="exercise-number">Danach</div>
+      <h3>Bis morgen: Ihre Hausaufgabe und Ihre Unterlagen</h3>
+      <p class="subtitle">Sie haben heute Ihren ersten eigenen Copilot-Agenten gebaut.</p>
+      <p class="step-label">Ihre Aufgabe bis morgen früh</p>
+      <p>Lassen Sie Ihren Agenten einmal an einer echten Aufgabe laufen, ohne Kundennamen. Morgen fragen wir als Erstes: Hat er gehalten, was in seinen Anweisungen steht? Und Sie erfahren, warum die Farben der Folie vorhin nicht gestimmt haben.</p>
+      <p>Bringen Sie morgen eine eigene, anonymisierte Unterlage mit, an der Sie arbeiten wollen. Dann arbeiten wir mit Ihrer Unterlage.</p>
+      <p class="step-label">Ihre Unterlagen für morgen</p>
+      <p>Legen Sie alles in Ihren OneDrive-Ordner „Copilot-Training“. Morgen hängen Sie die Dateien von dort an Ihre Agenten an. Alle Musterdateien sind erfunden, Firma und Personen gibt es nicht.</p>
+      <ul><li><a href="/oewd16112026/material/Copilot-Training-OEWD.zip" target="_blank" rel="noopener" style="color:var(--gold);">Alles in einem Paket (.zip)</a></li><li><a href="/oewd16112026/material/M1-Reklamation-Reinigung.docx" target="_blank" rel="noopener" style="color:var(--gold);">M1 Reklamation Reinigung (.docx)</a> · <a href="/oewd16112026/material/M1-Reklamation-Reinigung.txt" target="_blank" rel="noopener" style="color:var(--gold);">als Text (.txt)</a></li><li><a href="/oewd16112026/material/M2-Hausregeln-Kundenkommunikation.docx" target="_blank" rel="noopener" style="color:var(--gold);">M2 Hausregeln Kundenkommunikation (.docx)</a></li><li><a href="/oewd16112026/material/M3-Dienstanweisung-Schichtuebergabe.docx" target="_blank" rel="noopener" style="color:var(--gold);">M3 Dienstanweisung Schichtübergabe (.docx)</a></li><li><a href="/oewd16112026/material/M4-Teams-Besprechung-Transkript.docx" target="_blank" rel="noopener" style="color:var(--gold);">M4 Teams-Besprechung, Transkript (.docx)</a></li><li><a href="/oewd16112026/material/M5-Vorlage-Kundenbericht.docx" target="_blank" rel="noopener" style="color:var(--gold);">M5 Vorlage Kundenbericht (.docx)</a></li><li><a href="/oewd16112026/material/M6-Dienstplan-alt-neu.xlsx" target="_blank" rel="noopener" style="color:var(--gold);">M6 Dienstplan alt und neu (.xlsx)</a></li><li><a href="/oewd16112026/material/Agenten-Anweisungen-Tag-2.docx" target="_blank" rel="noopener" style="color:var(--gold);">Anweisungen für die vier Agenten von morgen (.docx)</a></li></ul>
+      <p class="step-label">Ihre Vorlagen zum Weitergeben</p>
+      <ul><li><a href="/oewd16112026/material/V1-Personalisierung-Muster.docx" target="_blank" rel="noopener" style="color:var(--gold);">V1 Muster für Ihre Personalisierung (.docx)</a></li><li><a href="/oewd16112026/material/V2-Agent-Anweisung-Mein-OEWD-Assistent.docx" target="_blank" rel="noopener" style="color:var(--gold);">V2 Anweisung „Mein ÖWD-Assistent“ (.docx)</a></li><li><a href="/oewd16112026/material/V3-CITER-auf-einer-Seite.docx" target="_blank" rel="noopener" style="color:var(--gold);">V3 CITE(R) auf einer Seite (.docx)</a></li><li><a href="/oewd16112026/material/V4-Raster-Objekt-und-Kundenprofil.docx" target="_blank" rel="noopener" style="color:var(--gold);">V4 Raster Objekt- und Kundenprofil (.docx)</a></li></ul>
+      <p>Die Vorlagen gehören Ihnen. Kopieren, anpassen, an Ihre Kolleginnen und Kollegen weitergeben. Für Champions ist das der erste Inhalt Ihrer Toolbox.</p>
+      <p>Diese Seite ist online bis 31. Dezember 2026.</p>
+    </div></section>
+<section class="lektion" data-id="bonus-sortierung" data-teil="res" data-teil-name="Tag 1: Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="bonus-sortierung">
+      <div class="exercise-number">Bonus</div>
+      <h3>Profispur 7A: Reklamationen sortieren</h3>
+      <p class="subtitle">Ihr erster Agent steht schon? Dann bauen Sie einen zweiten, der jede Kundenmail einem Bereich zuordnet und weiß, wann er abgibt.</p>
+      <p class="step-label">Schritt 1: Der Bauplan in fünf Teilen</p>
+      <div class="prompt-block">AUSLÖSER: Was kommt rein? (z. B. eine eingehende Kundenmail)
+WISSEN: Woraus darf der Agent schöpfen? (nur die Dateien in seinem Wissen)
+REGELN: Wonach entscheidet er? (Bereiche, Kriterien, Reihenfolge)
+ESKALATION: Wann gibt er ab, und an wen? (Unsicherheit, Beschwerde, Geld)
+AUSGABE: In welchem Format antwortet er? (immer gleich, damit man es weiterverarbeiten kann)</div>
+      <p class="step-label">Schritt 2: Das Beispiel als Anweisungen eines neuen Agenten</p>
+      <p>Ersetzen Sie die [Klammer] durch das, was bei Ihnen gilt.</p>
+      <div class="prompt-block">Du sortierst eingehende Kundenmails eines Sicherheits- und Reinigungsdienstes.
+AUSLÖSER: Ich füge eine Kundenmail ein.
+WISSEN: Nutze nur die Hausregeln in deinem Wissen.
+REGELN:
+1. Bestimme den Bereich: Reinigung, Sicherheit, Rechnung, Sonstiges.
+2. Bestimme das Anliegen in höchstens fünf Wörtern.
+3. Weiter an: [wer bei Ihnen welchen Bereich bekommt, als Rolle].
+ESKALATION: Die Forderung nach einer Gutschrift, ein Personenschaden oder ein drohender Vertragsverlust gehen immer an die Objektleitung, egal welcher Bereich. Bist du unsicher, schreibe „UNSICHER“ und nenne den Grund.
+AUSGABE: genau eine Zeile:
+Bereich | Anliegen | Weiter an | Dringlichkeit 1-3 | Begründung in 10 Wörtern</div>
+      <p class="step-label">Schritt 3: Testen wie ein Profi</p>
+      <div class="prompt-block">Erfinde 5 realistische Kundenmails an einen Sicherheits- und Reinigungsdienst, eine davon ein Grenzfall, verrate nicht welche.</div>
+      <p>Schicken Sie die Mails einzeln durch Ihren Agenten. Wo entscheidet er falsch oder unsicher? Genau dort fehlt eine Regel. Ergänzen Sie sie und testen Sie noch einmal. Fertig ist es, wenn alle fünf Mails mit einer Zeile im festen Format landen und der Grenzfall eskaliert oder als „UNSICHER“ markiert ist.</p>
+    </div></section>
+<section class="lektion" data-id="bonus-formate" data-teil="res" data-teil-name="Tag 1: Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="bonus-formate">
+      <div class="exercise-number">Bonus</div>
+      <h3>Welches Format liest Copilot sicher?</h3>
+      <p class="subtitle">Ob Copilot eine Datei wirklich lesen kann, hängt am Format. Fragen Sie es selbst.</p>
+      <p>Im Chat nimmt Copilot PDF, DOCX, XLSX, PPTX, PNG, JPEG, TXT, JSON, CSV und MD an. Eine Wortgrenze nennt Microsoft nicht. Lange Dokumente teilen Sie am besten in mehrere Teile.</p>
+      <p class="step-label">Schritt 1: Eine eigene Datei, ehrlich gelesen (neuer Chat)</p>
+      <p>Nehmen Sie eine Datei ohne Personendaten, am besten ein PDF oder eine PowerPoint. Hängen Sie sie an, dann:</p>
+      <div class="prompt-block">Im Anhang ist eine Datei. Sag mir ehrlich, wie du sie gelesen hast.
+1. Was hast du als Text gelesen, was nur als Bild oder gar nicht?
+2. In welcher Reihenfolge hast du den Inhalt gelesen?
+3. Was ist verloren gegangen: Farben, Tabellen, Diagramme, Kästen, Bilder?
+4. In welchem Format soll ich dir das nächste Mal geben, damit du es sicher liest?
+Wenn du etwas nicht sicher weißt, sag es. Höchstens 200 Wörter.</div>
+      <p>Wer beides hat: dieselbe Datei einmal als PDF und einmal als PowerPoint anhängen und die Antworten vergleichen. Farbe ist für Copilot keine Information. Was „dringend“ ist, gehört in eine eigene Spalte.</p>
+    </div></section>
+<section class="lektion" data-id="bonus-euaiact" data-teil="res" data-teil-name="Tag 1: Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="bonus-euaiact">
+      <div class="exercise-number">Bonus</div>
+      <h3>EU AI Act im Copilot-Notizbuch</h3>
+      <p class="subtitle">Ein echtes EU-Gesetz als feste Quelle, mit Artikel und Absatz bei jeder Antwort. In Copilot habe ich diese Übung noch nicht im Raum gefahren, sagen Sie mir, was bei Ihnen passiert.</p>
+      <p>Das ist eine Übung mit Texten. Rechtsberatung leistet sie nicht: Für verbindliche Auskünfte gilt der Text im Amtsblatt, bei konkreten Fragen Ihre Rechtsabteilung.</p>
+      <p class="step-label">Schritt 1: Beide Quellen holen und ins Notizbuch laden</p>
+      <p>Seit 27.07.2026 gilt die Fassung mit der Änderung durch Verordnung (EU) 2026/1744. Laden Sie darum beide Texte: <a href="/oewd16112026/material/EU-AI-Act-DE.pdf" target="_blank" rel="noopener" style="color:var(--gold);">Verordnung (EU) 2024/1689 (PDF)</a> und <a href="/oewd16112026/material/EU-AI-Act-Aenderung-2026-1744.txt" target="_blank" rel="noopener" style="color:var(--gold);">Änderung 2026/1744 (Textdatei)</a>. Dann m365.cloud.microsoft, Notebooks, „Neu“, „Verweise hinzufügen“, beide Dateien hochladen. Laden Sie nur diese zwei EU-Texte hoch, Firmendokumente bleiben draußen.</p>
+      <p class="step-label">Schritt 2: Der Rahmen vor jeder Frage</p>
+      <div class="prompt-block">Antworte nur aus den beiden hochgeladenen Dateien: der Verordnung (EU) 2024/1689 (Grundtext) und der Änderungsverordnung (EU) 2026/1744 vom Juli 2026. Wo die Änderung eine Stelle neu fasst, gilt die neue Fassung. Für Fristen gilt Artikel 113 in der Fassung von Artikel 1 Nummer 40 der Änderungsverordnung. Nenne bei jeder Aussage Artikel und Absatz. Was nicht in den Dateien steht, kennzeichne mit „nicht in den Quellen“.</div>
+      <p class="step-label">Schritt 3: Eine Frage für Kolleginnen ohne Jus-Studium</p>
+      <p>Rahmen einfügen, darunter:</p>
+      <div class="prompt-block">Frage: Erkläre die Risikostufen des EU AI Act in einfachen Worten, für Kolleginnen und Kollegen ohne juristisches Vorwissen. Mach eine Tabelle mit den Spalten: Stufe | was das bedeutet (ein Satz) | ein Beispiel aus dem Gesetzestext | Fundstelle | gilt ab (Fassung nach der Änderung 2026/1744).</div>
+      <p class="step-label">Schritt 4: Betrifft das meinen Bereich?</p>
+      <p>Rahmen einfügen, Ihre Datei „Meine-Rolle.docx“ als weitere Quelle dazu, dann:</p>
+      <div class="prompt-block">Frage: Hier ist mein Kontextdokument über meine Firma und meine Rolle: [Kontextdokument einfügen]. Die Angaben zu Firma und Rolle nimmst du aus diesem Dokument, die Rechtslage nur aus den beiden hochgeladenen Dateien. Prüfe für meine Tätigkeit Schritt für Schritt: 1. Ist das eine verbotene Praktik nach Artikel 5? 2. Ist es hochriskant nach Artikel 6 und Anhang III? Wenn ja: welche Nummer, und ab wann gelten die Pflichten in der Fassung nach der Änderung 2026/1744? 3. Gilt eine Transparenzpflicht nach Artikel 50, und für wen (Anbieter oder Betreiber)? 4. Was verlangt Artikel 4 (KI-Kompetenz) von meinem Arbeitgeber? Schließe mit höchstens drei Punkten, die ich mit unserer Rechts- oder Compliance-Abteilung klären sollte.</div>
+      <p class="step-label">Schritt 5: Gegenprüfung, immer nach Schritt 4</p>
+      <div class="prompt-block">Prüfe deine letzte Antwort Satz für Satz gegen die beiden hochgeladenen Quellen. Mach eine Tabelle: Aussage | belegt / nicht belegt / falsch | Fundstelle (Artikel, Absatz) | wörtliches Kurzzitat aus der Quelle. Markiere besonders jedes Datum und jeden Betrag, der so nicht in den Quellen steht.</div>
+      <p>Lesen Sie zuerst nur die Tabelle. Jedes Datum und jeden Betrag suchen Sie selbst im PDF. Mit festen Quellen erfindet Copilot weniger, aber nicht nichts.</p>
+      <p>Kein Notizbuch bei Ihnen? Hängen Sie beide Dateien in einem normalen Chat an. Rahmen und Prompts bleiben gleich.</p>
+    </div></section>
+<section class="lektion" data-id="bonus-flughoehe" data-teil="res" data-teil-name="Tag 1: Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="bonus-flughoehe">
+      <div class="exercise-number">Bonus</div>
+      <h3>Die Flughöhe: dieselbe Formel, zwei Stufen</h3>
+      <p class="subtitle">Wenn Zeit bleibt. Die Stufe der Erklärung stellen Sie selbst ein.</p>
+      <p class="step-label">Schritt 1: Die Formel zu Copilot bringen (neuer Chat)</p>
+      <p>Machen Sie einen Bildausschnitt vom Kasten unten (Windows-Taste + Umschalt + S, am Mac Umschalt + cmd + 4) und fügen Sie ihn mit Strg+V ein. Geht kein Bild, tippen Sie den Kasten an und fügen den Text ein. Ins Bild kommt nur die Formel.</p>
+      <div class="prompt-block">ν̄ = R · (1/2² - 1/n²)</div>
+      <p class="step-label">Schritt 2: Zwei Flughöhen, im selben Chat</p>
+      <div class="prompt-block">Erklär mir die Formel auf dem Bild, als wäre ich eine Fachkraft mit einem PhD in Physik.</div>
+      <div class="prompt-block">Und jetzt noch einmal dieselbe Formel, als wäre ich 10 Jahre alt.</div>
+      <p>Die Lehre ist die Flughöhe. Ob die Physik stimmt, kann hier niemand prüfen. Bei Ihren eigenen Themen ist das anders.</p>
+    </div></section>
+  </main>
+</div>
+<div class="nav"><div class="form-hinweis" id="form-hinweis" role="alert" hidden><div class="form-hinweis-innen"><p><strong>Haben Sie im Formular unten auf „Senden“ geklickt?</strong> Erst dann sind Ihre Antworten gespeichert.</p><div class="reihe"><button type="button" class="knopf los" id="form-ja">Ja, abgeschickt, weiter</button><button type="button" class="knopf" id="form-zurueck">Zurück zum Formular</button></div></div></div><div class="nav-innen"><button class="knopf" id="prev" type="button">← Zurück</button><button class="knopf los" id="next" type="button">Erledigt, weiter →</button></div></div>
+<script>
+const M = [{"id": "willkommen", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "", "art": "Start", "opt": false, "titel": "Willkommen"}, {"id": "kicheck", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check"}, {"id": "etikett", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "", "art": "Info", "opt": false, "titel": "Copilot öffnen und Ihr Etikett ablesen"}, {"id": "split", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "", "art": "Trick", "opt": false, "titel": "Den Bildschirm teilen"}, {"id": "t1-01", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "", "art": "Demo", "opt": false, "titel": "Dieselbe Reklamation, zweimal"}, {"id": "t1-04", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "1", "art": "Übung", "opt": false, "titel": "Die Namensliste"}, {"id": "t1-06", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "2", "art": "Übung", "opt": false, "titel": "Ohne und mit Kontext"}, {"id": "t1-07", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "3", "art": "Übung", "opt": false, "titel": "CITE(R) an der eigenen Reise"}, {"id": "t1-08", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "4", "art": "Übung", "opt": false, "titel": "Aus einer Teams-Besprechung wird eine Mail"}, {"id": "t1-09", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "5", "art": "Übung", "opt": false, "titel": "Lieferant oder Tutor"}, {"id": "t1-10", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "6", "art": "Übung", "opt": false, "titel": "Zwei Regler, Gedächtnis und Ihr Konto"}, {"id": "mittag", "teil": "vm", "teilname": "Tag 1: Vormittag", "nr": "", "art": "Pause", "opt": false, "titel": "Mahlzeit, und wie es weitergeht"}, {"id": "t1-11", "teil": "nm", "teilname": "Tag 1: Nachmittag", "nr": "7", "art": "Übung", "opt": false, "titel": "Ihre Wissensbasis: Firma und Rolle"}, {"id": "t1-12", "teil": "nm", "teilname": "Tag 1: Nachmittag", "nr": "8", "art": "Übung", "opt": false, "titel": "Personalisierung: einmal sagen, immer gültig"}, {"id": "t1-13", "teil": "nm", "teilname": "Tag 1: Nachmittag", "nr": "9", "art": "Übung", "opt": false, "titel": "Ihr erster Copilot-Agent, mit Stoppuhr"}, {"id": "t1-14", "teil": "nm", "teilname": "Tag 1: Nachmittag", "nr": "10", "art": "Übung", "opt": false, "titel": "Nur aus der Quelle: Notizbuch gegen Chat"}, {"id": "t1-lok", "teil": "nm", "teilname": "Tag 1: Nachmittag", "nr": "11", "art": "Übung", "opt": false, "titel": "Welche Daten gehören in Copilot?"}, {"id": "lokale-ki", "teil": "nm", "teilname": "Tag 1: Nachmittag", "nr": "", "art": "Demo", "opt": false, "titel": "KI ohne Internet"}, {"id": "t1-17", "teil": "nm", "teilname": "Tag 1: Nachmittag", "nr": "12", "art": "Übung", "opt": false, "titel": "Ihr Zeitfresser für morgen"}, {"id": "kicheck-ende", "teil": "nm", "teilname": "Tag 1: Nachmittag", "nr": "", "art": "Zum Schluss", "opt": false, "titel": "Ihr KI-Check, zweiter Durchgang"}, {"id": "t1-18", "teil": "nm", "teilname": "Tag 1: Nachmittag", "nr": "", "art": "Demo", "opt": false, "titel": "Eine Folie in den Farben von owd.at"}, {"id": "bis-morgen", "teil": "nm", "teilname": "Tag 1: Nachmittag", "nr": "", "art": "Danach", "opt": false, "titel": "Bis morgen: Ihre Hausaufgabe und Ihre Unterlagen"}, {"id": "bonus-sortierung", "teil": "res", "teilname": "Tag 1: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Profispur 7A: Reklamationen sortieren"}, {"id": "bonus-formate", "teil": "res", "teilname": "Tag 1: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Welches Format liest Copilot sicher?"}, {"id": "bonus-euaiact", "teil": "res", "teilname": "Tag 1: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "EU AI Act im Copilot-Notizbuch"}, {"id": "bonus-flughoehe", "teil": "res", "teilname": "Tag 1: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Die Flughöhe: dieselbe Formel, zwei Stufen"}];
+const KOHORTE = 'oewd16112026-tag1';
+const GRUPPEN = true;
+const WACHE = true;
+const ERKENNUNG = false;
+const SPEICHER = 'kurs.' + KOHORTE;
+const S = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
+            set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+const $ = id => document.getElementById(id);
+let erledigt = new Set(S.get(SPEICHER + '.erledigt', []));
+let cur = null, imRaum = null;
+
+function beschriftung(m) { return (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + m.titel; }
+
+function zeigen(id, scrollen) {
+  const m = M.find(x => x.id === id) || M[0];
+  cur = m.id; S.set(SPEICHER + '.cur', cur); S.set(SPEICHER + '.tag', new Date().toDateString());
+  if (location.hash.slice(1) !== cur) history.replaceState(null, '', '#' + cur);
+  document.querySelectorAll('.lektion').forEach(s => s.hidden = s.dataset.id !== cur);
+  const i = M.indexOf(m);
+  $('ttl').textContent = m.titel;
+  $('crumb').textContent = m.teilname;
+  $('tags').innerHTML = '<span class="tag">' + (m.nr ? 'Übung ' + m.nr : m.art) + '</span>' + (m.opt ? '<span class="tag leise">wenn Zeit bleibt</span>' : '');
+  document.querySelectorAll('.zeile').forEach(z => {
+    z.classList.toggle('aktiv', z.dataset.id === cur);
+    z.classList.toggle('erledigt', erledigt.has(z.dataset.id));
+  });
+  const p = Math.round(erledigt.size / M.length * 100);
+  $('balken').style.width = p + '%';
+  $('stand').textContent = erledigt.size + ' von ' + M.length + ' erledigt';
+  $('dstand').textContent = (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + erledigt.size + '/' + M.length + ' erledigt';
+  $('prev').disabled = i === 0;
+  $('next').textContent = i === M.length - 1 ? 'Erledigt ✓' : (formLektion() && !abgeschickt[cur] ? 'Formular abgeschickt? Dann weiter →' : 'Erledigt, weiter →');
+  if (WACHE) hinweisZu();
+  $('side').classList.remove('offen');
+  if (GRUPPEN) gruppeOeffnen(m.teil);
+  leisteZeichnen();
+  if (scrollen !== false) window.scrollTo(0, 0);
+}
+
+function gruppeOeffnen(teil) {
+  document.querySelectorAll('.gruppe').forEach(g => {
+    if (g.dataset.teil === teil) { g.classList.remove('zu'); g.querySelector('.teil-knopf').setAttribute('aria-expanded', 'true'); }
+  });
+}
+if (GRUPPEN) document.querySelectorAll('.teil-knopf').forEach(k => k.addEventListener('click', () => {
+  const g = k.parentElement, zu = g.classList.toggle('zu');
+  k.setAttribute('aria-expanded', String(!zu));
+}));
+document.querySelectorAll('.zeile').forEach(z => z.addEventListener('click', e => { e.preventDefault(); zeigen(z.dataset.id); }));
+$('prev').onclick = () => { const i = M.findIndex(x => x.id === cur); if (i > 0) zeigen(M[i - 1].id); };
+function weiter() {
+  erledigt.add(cur); S.set(SPEICHER + '.erledigt', [...erledigt]);
+  const i = M.findIndex(x => x.id === cur); zeigen(M[Math.min(i + 1, M.length - 1)].id);
+}
+// Formular-Wache: nie blockieren. Erster Klick zeigt nur einen Hinweis im Seitenkopf-Bereich, der zweite geht durch.
+const abgeschickt = {}, gewarnt = {};
+function formLektion() { return WACHE ? document.querySelector('.lektion[data-id="' + cur + '"] iframe[data-formular]') : null; }
+function hinweisZu() { const h = $('form-hinweis'); if (h) h.hidden = true; }
+$('next').onclick = () => {
+  if (formLektion() && !abgeschickt[cur] && !gewarnt[cur]) {
+    gewarnt[cur] = true; const h = $('form-hinweis'); h.hidden = false; $('form-ja').focus(); return;
+  }
+  weiter();
+};
+if (WACHE) {
+  $('form-ja').onclick = () => { hinweisZu(); weiter(); };
+  $('form-zurueck').onclick = () => {
+    hinweisZu(); gewarnt[cur] = false;
+    const f = formLektion(); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  };
+  if (ERKENNUNG) document.querySelectorAll('iframe[data-formular]').forEach(f => {
+    let n = 0;
+    f.addEventListener('load', () => {
+      if (++n < 2) return;            // das erste load ist das leere Formular, jedes weitere eine neue Seite (Dank-Seite nach dem Absenden)
+      const id = f.closest('.lektion').dataset.id; abgeschickt[id] = true;
+      if (!f.nextElementSibling || !f.nextElementSibling.classList.contains('form-danke')) {
+        const d = document.createElement('p'); d.className = 'form-danke'; d.textContent = 'Danke, Ihre Antworten sind angekommen ✓'; f.after(d);
+      }
+      if (id === cur) { hinweisZu(); zeigen(cur, false); }
+    });
+  });
+}
+$('oeffnen').onclick = () => $('side').classList.add('offen');
+function leisteSetzen(zu) {
+  document.body.classList.toggle('leiste-zu', zu);
+  $('leisteKnopf').setAttribute('aria-expanded', String(!zu));
+  $('leisteKnopf').setAttribute('aria-label', zu ? 'Seitenleiste ausklappen' : 'Seitenleiste einklappen');
+  S.set(SPEICHER + '.leisteZu', zu);
+}
+$('leisteKnopf').onclick = () => leisteSetzen(!document.body.classList.contains('leiste-zu'));
+leisteSetzen(!!S.get(SPEICHER + '.leisteZu', false));
+$('schliessen').onclick = () => $('side').classList.remove('offen');
+window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (h && h !== cur && M.some(x => x.id === h)) zeigen(h); });
+
+// Kopieren per Klick auf einen Prompt-Block
+document.querySelectorAll('.prompt-block').forEach(block => {
+  block.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(block.textContent.trim());
+      block.classList.add('copied'); setTimeout(() => block.classList.remove('copied'), 1500);
+    } catch (e) {
+      const r = document.createRange(); r.selectNodeContents(block);
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    }
+  });
+});
+
+// Akkordeon: je Uebung nur ein Feld offen, und nur nach einem echten Klick
+let letzterKlick = 0;
+document.addEventListener('click', e => { if (e.target.closest('summary')) letzterKlick = Date.now(); }, true);
+document.querySelectorAll('.exercise').forEach(ex => {
+  ex.querySelectorAll(':scope > details, .collapsible-content > details').forEach(det => {
+    det.addEventListener('toggle', () => {
+      if (det.open && Date.now() - letzterKlick < 1000) {
+        det.parentElement.querySelectorAll(':scope > details').forEach(sib => { if (sib !== det && sib.open) sib.open = false; });
+        setTimeout(() => det.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+      }
+    });
+  });
+});
+
+// Bild-Upload in Jakubs Drive. Geht an denselben Dienst wie die Live-Leiste.
+let UPLOAD = 'https://deflifeos.popluhar.at/reise-live/upload';
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && new URLSearchParams(location.search).get('uploadUrl'))
+  UPLOAD = new URLSearchParams(location.search).get('uploadUrl');
+document.querySelectorAll('.upload-kasten').forEach(kasten => {
+  const vn = kasten.querySelector('.vorname'), feld = kasten.querySelector('input[type=file]'), liste = kasten.querySelector('.liste-upload');
+  vn.value = S.get(SPEICHER + '.vorname', '');
+  vn.addEventListener('change', () => S.set(SPEICHER + '.vorname', vn.value.trim()));
+  function eins(datei) {
+    const li = document.createElement('li');
+    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = datei.name || 'Bild';
+    const st = document.createElement('span'); st.className = 'st'; st.textContent = 'wird hochgeladen…';
+    li.append(nm, st); liste.prepend(li);
+    if (datei.size > 12 * 1024 * 1024) { li.className = 'fehler'; st.textContent = 'zu groß (max. 12 MB)'; return Promise.resolve(); }
+    return new Promise(fertig => {
+      const x = new XMLHttpRequest();
+      x.open('POST', UPLOAD);
+      x.setRequestHeader('Content-Type', 'application/octet-stream');
+      x.setRequestHeader('X-Kohorte', KOHORTE);
+      x.setRequestHeader('X-Uebung', encodeURIComponent(kasten.dataset.uebung || ''));
+      x.setRequestHeader('X-Vorname', encodeURIComponent(vn.value.trim()));
+      x.upload.onprogress = e => { if (e.lengthComputable) st.textContent = Math.round(e.loaded / e.total * 100) + ' %'; };
+      x.onload = () => {
+        let d = {}; try { d = JSON.parse(x.responseText); } catch (e) {}
+        if (x.status === 200) { li.className = 'ok'; st.textContent = 'angekommen ✓'; }
+        else { li.className = 'fehler'; st.textContent = d.fehler || ('Fehler ' + x.status); }
+        fertig();
+      };
+      x.onerror = () => { li.className = 'fehler'; st.textContent = 'keine Verbindung, bitte nochmal'; fertig(); };
+      x.send(datei);
+    });
+  }
+  feld.addEventListener('change', async () => {
+    S.set(SPEICHER + '.vorname', vn.value.trim());
+    for (const d of [...feld.files].slice(0, 5)) await eins(d);
+    feld.value = '';
+  });
+});
+
+// Live-Leiste "Jetzt im Raum": nur lesen, es wird nichts ueber die Person gesendet
+let BASIS = 'https://deflifeos.popluhar.at/reise-live/jetzt.json';
+const q = new URLSearchParams(location.search);
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && q.get('liveBasis')) BASIS = q.get('liveBasis');
+function leisteZeichnen() {
+  const leiste = $('live-leiste');
+  const m = imRaum && M.find(x => x.id === imRaum);
+  document.querySelectorAll('.zeile').forEach(z => z.classList.toggle('im-raum', !!m && z.dataset.id === imRaum));
+  if (!m) { leiste.hidden = true; return; }
+  leiste.hidden = false;
+  $('live-text').textContent = beschriftung(m);
+  const hier = imRaum === cur;
+  $('live-dorthin').hidden = hier;
+  $('live-hier').hidden = !hier;
+}
+function abfragen() {
+  fetch(BASIS + '?k=' + KOHORTE, { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (!d) return;
+      const neu = d.ziel || null;
+      if (neu === imRaum) return;
+      imRaum = neu; leisteZeichnen();
+      const l = $('live-leiste'); l.classList.remove('neu'); void l.offsetWidth; l.classList.add('neu');
+    })
+    .catch(() => { /* ohne Verbindung bleibt alles, wie es ist */ });
+}
+let takt = null;
+function starten() { clearInterval(takt); takt = null; if (!document.hidden) { abfragen(); takt = setInterval(abfragen, 5000); } }
+$('live-dorthin').onclick = () => { if (imRaum) zeigen(imRaum); };
+document.addEventListener('visibilitychange', starten);
+function schubladeHoehe() { document.documentElement.style.setProperty('--schublade-h', $('schublade').offsetHeight + 'px'); }
+window.addEventListener('resize', schubladeHoehe);
+
+schubladeHoehe();
+const start = location.hash.slice(1);
+// Wiedereinstieg nur am selben Tag, sonst landen alle auf der Willkommensseite (Commander 07.10.)
+const gestern = S.get(SPEICHER + '.tag', '') !== new Date().toDateString();
+zeigen(M.some(x => x.id === start) ? start : (gestern ? M[0].id : S.get(SPEICHER + '.cur', M[0].id)), false);
+starten();
+
+(function () {
+  // Begruessung nur beim ersten Besuch. Speicher gesperrt: einmal je Sitzung, wenn auch das nicht geht, bei jedem Laden. Blockiert nie.
+  var K = 'kurs.' + KOHORTE + '.begruesst', box = document.getElementById('willkommen-bs');
+  function gesehen() {
+    try { if (localStorage.getItem(K)) return true; } catch (e) {}
+    try { if (sessionStorage.getItem(K)) return true; } catch (e) {}
+    return false;
+  }
+  function merken() {
+    try { localStorage.setItem(K, '1'); } catch (e) {}
+    try { sessionStorage.setItem(K, '1'); } catch (e) {}
+  }
+  if (!box || gesehen()) return;
+  function zu() { box.hidden = true; merken(); document.removeEventListener('keydown', taste); }
+  function taste(e) { if (e.key === 'Escape' || e.key === 'Enter') zu(); }
+  box.hidden = false;
+  document.getElementById('wk-weiter').addEventListener('click', zu);
+  document.addEventListener('keydown', taste);
+  try { document.getElementById('wk-weiter').focus(); } catch (e) {}
+})();
+</script>
+<script src="/assets/js/site.js" defer></script>
+<script src="quiz/quiz.js"></script>
+<button class="tema-knopf" id="tema-knopf" type="button" aria-label="Hell / dunkel" title="Hell / dunkel">☀</button>
+<script>(function(){var b=document.getElementById('tema-knopf'),h=document.documentElement;function s(){b.textContent=h.classList.contains('hell')?'☾':'☀'}s();b.onclick=function(){var l=h.classList.toggle('hell');s();try{localStorage.setItem('tema',l?'hell':'dunkel')}catch(e){}}})();</script>
+</body>
+</html>
