@@ -1087,14 +1087,19 @@ Minuten pro Durchgang vorher, ohne Copilot-Agent (freiwillig): [Zahl]</div>
 <section class="lektion" data-id="haus-html" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="haus-html">
       <div class="exercise-number">Demo</div>
       <h3>Das Haus aus dem Foto</h3>
-      <p class="subtitle">Copilot Chat baut eine Webseite in ÖWD-Farben. Dann ändere ich eine einzige Farbe. Achten Sie darauf, was sich sonst noch ändert.</p>
+      <p class="subtitle">Ich gebe Copilot nur die Adresse einer Webseite und bitte um eine Seite in genau diesem Design. Dann gebe ich die Farben als Code. Dann ändere ich eine einzige Farbe.</p>
       <p class="step-label">Schritt 1: Ihr Tipp</p>
       <div class="quiz"><script type="application/json">{"id": "haus-tipp", "typ": "tipp", "etikett": "Ihr Tipp", "frage": "Copilot hat eine Webseite gebaut. Sie schreiben: „Ändere nur die Farbe der Überschrift. Sonst nichts.“ Was passiert?", "hilfe": "Eine Antwort. Die Auflösung sehen Sie vorne.", "optionen": ["Nur die Überschrift ändert sich", "Copilot baut die ganze Seite neu, und andere Stellen können sich mitändern", "Copilot lehnt ab"], "richtig": ["Copilot baut die ganze Seite neu, und andere Stellen können sich mitändern"], "hinweis": "Der Chat sieht nur das Foto des Hauses, nicht den Bauplan. Also baut er das Haus neu.", "auflösen": "später", "mischen": false, "punkte": 0}</script></div>
       <p class="step-label">Schritt 2: Was Sie vorne sehen, und zum Mitmachen (neuer Chat)</p>
+      <p>Erst nur die Webseite:</p>
+      <div class="prompt-block">Hier ist unsere Webseite: [Adresse der Webseite Ihrer Firma].
+Baue mir eine einfache HTML-Seite für eine interne Ankündigung: „Neue Schulung: Copilot im Dienstalltag“, genau im Design dieser Webseite: gleiche Farben, gleiche Schrift.
+Gib mir den vollständigen Code in einem Block.</div>
+      <p>Stimmen die Farben? Copilot liest von einer Webseite vor allem den Text. Das Design muss es meist raten. Jetzt dasselbe mit den Farben als Code:</p>
       <div class="prompt-block">Baue mir eine einfache HTML-Seite für eine interne Ankündigung: „Neue Schulung: Copilot im Dienstalltag“.
 Überschrift in #E30613, Fließtext in Schwarz, eine Hinweisbox in #5F6E78 mit weißer Schrift.
 Gib mir den vollständigen Code in einem Block.</div>
-      <p>Farben gibt man der Maschine als Code: #E30613 ist eindeutig, „ÖWD-Rot“ muss sie raten. Dann die kleine Änderung:</p>
+      <p>#E30613 ist eindeutig, „ÖWD-Rot“ oder „wie auf unserer Webseite“ muss die Maschine raten. Dann die kleine Änderung:</p>
       <div class="prompt-block">Ändere nur die Farbe der Überschrift auf #5F6E78. Sonst nichts. Sag mir danach, was du sonst noch geändert hast.</div>
       <p>Legen Sie beide Fassungen nebeneinander. Was ist außer der Überschrift anders?</p>
       <details>
