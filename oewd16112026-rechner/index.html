@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Was kostet Ihre Aufgabe?</title>
+<!-- Created: 2026-11-16 · Last updated: 2026-11-16 · Jakub 16.11. abends: statt Jotform ein HTML, in das er die Zurufe einträgt, Speicher nur im Browser, Export für den Trainer, Schmerz in Stunden und Euro. Quellen der Gehälter siehe QUELLEN unten. -->
+<style>
+:root{--bg:#121417;--panel:#1c1f24;--line:#30353d;--text:#f2f3f5;--muted:#a6adb7;--rot:#E30613;--grau:#5F6E78;--gut:#3aa675;}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#f5f6f7;--panel:#fff;--line:#d9dde2;--text:#111;--muted:#5F6E78;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:1180px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:clamp(24px,3.4vw,38px);margin:0 0 4px}
+h1 span{color:var(--rot)}
+.lead{color:var(--muted);margin:0 0 22px}
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:0 0 22px}
+.kachel{background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--rot);border-radius:10px;padding:14px 16px}
+.kachel .z{font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-.5px}
+.kachel .t{color:var(--muted);font-size:14px}
+.kachel.gut{border-left-color:var(--gut)}
+.wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:900px}
+th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{font-size:13px;color:var(--muted);font-weight:600}
+td.zahl,th.zahl{text-align:right;white-space:nowrap}
+input,select{font:inherit;color:var(--text);background:transparent;border:1px solid var(--line);border-radius:6px;padding:6px 8px;width:100%}
+input[type=number]{text-align:right}
+button{font:inherit;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:8px;padding:8px 14px;cursor:pointer}
+button.haupt{background:var(--rot);border-color:var(--rot);color:#fff;font-weight:700}
+button.x{padding:4px 10px;color:var(--muted)}
+.zeile{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0}
+.annahmen{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:18px}
+.annahmen label{font-size:14px;color:var(--muted);display:block;margin-bottom:4px}
+.klein{font-size:13px;color:var(--muted)}
+#trainer{display:none;margin-top:18px;padding:14px;border:1px dashed var(--rot);border-radius:10px}
+body.trainer #trainer{display:block}
+details{margin-top:18px}
+summary{cursor:pointer;color:var(--muted)}
+.szen{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+</style>
+</head>
+<body>
+<main>
+<h1>Was kostet Ihre Aufgabe <span>heute</span>?</h1>
+<p class="lead">Eine Aufgabe, die Stunden pro Woche, wie viele Personen sie machen. Daraus rechnet die Seite, was die Aufgabe im Jahr an Zeit und an Personalkosten bindet. Alle Zahlen bleiben in diesem Browser.</p>
+
+<div class="big">
+  <div class="kachel"><div class="z" id="sumStd">0</div><div class="t">Stunden pro Jahr, heute</div></div>
+  <div class="kachel"><div class="z" id="sumEur">0 €</div><div class="t">Personalkosten pro Jahr, heute</div></div>
+  <div class="kachel"><div class="z" id="sumVZ">0</div><div class="t">entspricht so vielen Vollzeitstellen</div></div>
+</div>
+
+<div class="wrap">
+<table>
+<thead><tr>
+  <th style="width:24%">Aufgabe</th>
+  <th style="width:9%">Kennung</th>
+  <th class="zahl" style="width:9%">Std. pro Woche je Person</th>
+  <th class="zahl" style="width:8%">Personen</th>
+  <th style="width:22%">Gehalt</th>
+  <th class="zahl" style="width:10%">Std. pro Jahr</th>
+  <th class="zahl" style="width:12%">€ pro Jahr</th>
+  <th></th>
+</tr></thead>
+<tbody id="rows"></tbody>
+</table>
+</div>
+<div class="zeile"><button class="haupt" id="neu">+ Aufgabe</button><span class="klein">Beispiel: „PowerPoint-Präsentationen, 2 Stunden pro Woche, 12 Personen“</span></div>
+
+<details open>
+<summary>Und wenn KI einen Teil davon übernimmt? (Szenarien. Ihre echte Zahl messen Sie selbst.)</summary>
+<div class="szen" id="szen"></div>
+<p class="klein">Wie viel es wirklich ist, misst jede Person an ihrer eigenen Aufgabe: Minuten vorher, Minuten nachher. Beispiel aus einem Training im August 2026: ein Exposé für den Außendienst, vorher nach Schätzung der Kundin 30 bis 90 Minuten, mit Skill gemessen 4,5 bis 8 Minuten.</p>
+</details>
+
+<details>
+<summary>So wird gerechnet, und woher die Gehälter kommen</summary>
+<div class="annahmen">
+  <div><label for="lnk">Lohnnebenkosten Arbeitgeber, Aufschlag auf Brutto (Annahme)</label><input type="number" id="lnk" step="1" min="0"> <span class="klein">Prozent. Bitte mit Ihrer Personalabteilung prüfen.</span></div>
+  <div><label for="std">Bezahlte Arbeitsstunden pro Jahr bei Vollzeit (Annahme)</label><input type="number" id="std" step="10" min="1"> <span class="klein">40 Stunden, abzüglich Urlaub und Feiertage.</span></div>
+  <div><label for="wo">Arbeitswochen pro Jahr (Annahme)</label><input type="number" id="wo" step="1" min="1"></div>
+</div>
+<p class="klein">Stunden pro Jahr = Stunden pro Woche × Personen × Arbeitswochen. Kosten pro Stunde = Jahresbrutto × (1 + Lohnnebenkosten) ÷ bezahlte Stunden pro Jahr. Stundenlöhne werden mit 173,33 Stunden pro Monat und 14 Gehältern auf ein Jahresbrutto gerechnet.</p>
+<p class="klein">QUELLEN: Grundstundenlöhne laut Kollektivvertrag Wachorgane im Bewachungsgewerbe, gültig ab 1.1.2026 (wko.at): Verwendungsgruppe A Wachdienst 12,63 €, B Service und Sicherheitsdienst 13,87 €, C Sonderdienst 15,46 €, D Mobiler Dienst 13,95 €, ohne Zulagen. Jahresgehälter aus Stellenausschreibungen auf owd.at, abgerufen am 16.11.2026: Personalmanager 45.000 € brutto (40 Stunden), Servicemanager ab 48.000 € brutto. Überzahlungen und Zulagen sind nicht eingerechnet.</p>
+</details>
+
+<div id="trainer">
+  <strong>Nur für den Trainer</strong>
+  <div class="zeile">
+    <button id="exCsv">Export CSV</button>
+    <button id="exJson">Export JSON</button>
+    <label class="klein" style="display:inline-flex;gap:6px;align-items:center">Import JSON <input type="file" id="imp" accept=".json,application/json" style="width:auto"></label>
+    <button id="leeren">Alles löschen (zweimal klicken)</button>
+  </div>
+  <p class="klein">Einblenden mit <code>#trainer</code> am Ende der Adresse oder der Taste T. Die Daten liegen nur in diesem Browser auf diesem Rechner.</p>
+</div>
+</main>
+
+<script>
+(function(){
+  var KEY = 'rechner-oewd-1711';
+  var GEHALT = [
+    {id:'kv-a', name:'Wachdienst (KV Gruppe A, 12,63 €/Std.)', std:12.63},
+    {id:'kv-b', name:'Service und Sicherheitsdienst (KV B, 13,87 €/Std.)', std:13.87},
+    {id:'kv-d', name:'Mobiler Dienst (KV D, 13,95 €/Std.)', std:13.95},
+    {id:'kv-c', name:'Sonderdienst (KV C, 15,46 €/Std.)', std:15.46},
+    {id:'pm', name:'Personalmanager (Ausschreibung, 45.000 €/Jahr)', jahr:45000},
+    {id:'sm', name:'Servicemanager (Ausschreibung, ab 48.000 €/Jahr)', jahr:48000},
+    {id:'eigen', name:'Eigenes Jahresbrutto …'}
+  ];
+  var START = {lnk:30, std:1720, wo:46, rows:[]};
+  var s;
+  try { s = JSON.parse(localStorage.getItem(KEY)) || null; } catch(e){ s = null; }
+  if(!s) s = JSON.parse(JSON.stringify(START));
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
+  var eur = new Intl.NumberFormat('de-AT',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+  var num = new Intl.NumberFormat('de-AT',{maximumFractionDigits:0});
+  var num1 = new Intl.NumberFormat('de-AT',{minimumFractionDigits:1,maximumFractionDigits:1});
+  function n(v){ v = parseFloat(String(v).replace(',','.')); return isFinite(v) ? v : 0; }
+  function jahresbrutto(r){
+    var g = GEHALT.filter(function(x){return x.id===r.gehalt;})[0] || GEHALT[0];
+    if(g.id==='eigen') return n(r.eigen);
+    if(g.jahr) return g.jahr;
+    return g.std * 173.33 * 14;
+  }
+  function calc(r){
+    var h = n(r.h) * n(r.p) * n(s.wo);
+    var stdKosten = jahresbrutto(r) * (1 + n(s.lnk)/100) / Math.max(1,n(s.std));
+    return {h:h, eur:h*stdKosten};
+  }
+  var tb = document.getElementById('rows');
+  function zeile(r, i){
+    var tr = document.createElement('tr');
+    var opts = GEHALT.map(function(g){return '<option value="'+g.id+'"'+(g.id===r.gehalt?' selected':'')+'>'+g.name+'</option>';}).join('');
+    tr.innerHTML =
+      '<td><input data-k="aufgabe" placeholder="z. B. Dienstplan erstellen"></td>'+
+      '<td><input data-k="kennung" placeholder="Anna M."></td>'+
+      '<td><input type="number" step="0.5" min="0" data-k="h"></td>'+
+      '<td><input type="number" step="1" min="0" data-k="p"></td>'+
+      '<td><select data-k="gehalt">'+opts+'</select><input type="number" step="1000" min="0" data-k="eigen" placeholder="Jahresbrutto €" style="margin-top:4px;'+(r.gehalt==='eigen'?'':'display:none')+'"></td>'+
+      '<td class="zahl" data-o="h"></td><td class="zahl" data-o="eur"></td>'+
+      '<td><button class="x" title="Zeile löschen">✕</button></td>';
+    tr.querySelectorAll('[data-k]').forEach(function(el){
+      var k = el.getAttribute('data-k');
+      if(el.tagName!=='SELECT') el.value = r[k] == null ? '' : r[k];
+      el.addEventListener('input', function(){
+        r[k] = el.value;
+        if(k==='gehalt'){ tr.querySelector('[data-k=eigen]').style.display = el.value==='eigen' ? '' : 'none'; }
+        save(); rechne();
+      });
+    });
+    tr.querySelector('.x').addEventListener('click', function(){ s.rows.splice(i,1); save(); render(); });
+    return tr;
+  }
+  function render(){
+    tb.innerHTML='';
+    s.rows.forEach(function(r,i){ tb.appendChild(zeile(r,i)); });
+    ['lnk','std','wo'].forEach(function(k){ document.getElementById(k).value = s[k]; });
+    rechne();
+  }
+  function rechne(){
+    var H=0,E=0;
+    Array.prototype.forEach.call(tb.children, function(tr,i){
+      var c = calc(s.rows[i]); H+=c.h; E+=c.eur;
+      tr.querySelector('[data-o=h]').textContent = num.format(c.h);
+      tr.querySelector('[data-o=eur]').textContent = eur.format(c.eur);
+    });
+    document.getElementById('sumStd').textContent = num.format(H);
+    document.getElementById('sumEur').textContent = eur.format(E);
+    document.getElementById('sumVZ').textContent = num1.format(H/Math.max(1,n(s.std)));
+    var sz = document.getElementById('szen'); sz.innerHTML='';
+    [25,50,75].forEach(function(p){
+      var d=document.createElement('div'); d.className='kachel gut';
+      d.innerHTML='<div class="z">'+eur.format(E*p/100)+'</div><div class="t">wenn KI '+p+' % der Zeit spart: '+num.format(H*p/100)+' Stunden pro Jahr frei</div>';
+      sz.appendChild(d);
+    });
+  }
+  ['lnk','std','wo'].forEach(function(k){
+    document.getElementById(k).addEventListener('input', function(e){ s[k]=e.target.value; save(); rechne(); });
+  });
+  document.getElementById('neu').addEventListener('click', function(){
+    s.rows.push({aufgabe:'',kennung:'',h:'',p:'1',gehalt:'kv-a',eigen:''}); save(); render();
+    var inp = tb.lastChild && tb.lastChild.querySelector('input'); if(inp) inp.focus();
+  });
+  function laden(name, typ, text){
+    var b = new Blob([text],{type:typ}); var a=document.createElement('a');
+    a.href=URL.createObjectURL(b); a.download=name; document.body.appendChild(a); a.click(); a.remove();
+  }
+  function stamp(){ var d=new Date(); return d.toISOString().slice(0,16).replace(/[:T]/g,'-'); }
+  document.getElementById('exJson').addEventListener('click', function(){ laden('rechner-oewd-'+stamp()+'.json','application/json',JSON.stringify(s,null,2)); });
+  document.getElementById('exCsv').addEventListener('click', function(){
+    var q=function(v){ v=String(v==null?'':v); return '"'+v.replace(/"/g,'""')+'"'; };
+    var lines=[['Aufgabe','Kennung','Std pro Woche je Person','Personen','Gehalt','Jahresbrutto','Std pro Jahr','EUR pro Jahr'].map(q).join(';')];
+    s.rows.forEach(function(r){
+      var g=(GEHALT.filter(function(x){return x.id===r.gehalt;})[0]||GEHALT[0]).name; var c=calc(r);
+      lines.push([r.aufgabe,r.kennung,r.h,r.p,g,Math.round(jahresbrutto(r)),Math.round(c.h),Math.round(c.eur)].map(q).join(';'));
+    });
+    lines.push(''); lines.push(q('Annahmen: Lohnnebenkosten '+s.lnk+' %, '+s.std+' bezahlte Std/Jahr, '+s.wo+' Arbeitswochen'));
+    laden('rechner-oewd-'+stamp()+'.csv','text/csv;charset=utf-8','﻿'+lines.join('\r\n'));
+  });
+  document.getElementById('imp').addEventListener('change', function(e){
+    var f=e.target.files[0]; if(!f) return; var rd=new FileReader();
+    rd.onload=function(){ try{ var d=JSON.parse(rd.result); if(d && Array.isArray(d.rows)){ s=d; save(); render(); } }catch(err){} };
+    rd.readAsText(f);
+  });
+  var scharf=false;
+  document.getElementById('leeren').addEventListener('click', function(e){
+    if(!scharf){ scharf=true; e.target.textContent='Wirklich löschen? Nochmal klicken'; setTimeout(function(){scharf=false; e.target.textContent='Alles löschen (zweimal klicken)';},4000); return; }
+    s=JSON.parse(JSON.stringify(START)); save(); render(); scharf=false; e.target.textContent='Alles löschen (zweimal klicken)';
+  });
+  function trainerCheck(){ document.body.classList.toggle('trainer', location.hash==='#trainer'); }
+  window.addEventListener('hashchange', trainerCheck); trainerCheck();
+  document.addEventListener('keydown', function(e){
+    if(e.key && e.key.toLowerCase()==='t' && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) document.body.classList.toggle('trainer');
+  });
+  render();
+})();
+</script>
+</body>
+</html>
