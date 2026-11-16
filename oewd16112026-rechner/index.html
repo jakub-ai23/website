@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Was kostet Ihre Aufgabe?</title>
-<!-- Created: 2026-11-16 · Last updated: 2026-11-16 · Jakub 16.11. abends: statt Jotform ein HTML, in das er die Zurufe einträgt, Speicher nur im Browser, Export für den Trainer, Schmerz in Stunden und Euro. Quellen der Gehälter siehe QUELLEN unten. -->
+<!-- Created: 2026-11-16 · Last updated: 2026-11-16 22:45 · Jakub 16.11. abends: statt Jotform ein HTML, in das er die Zurufe einträgt, Speicher nur im Browser, Export für den Trainer, Schmerz in Stunden und Euro. Quellen der Gehälter siehe QUELLEN unten. -->
 <style>
 :root{--bg:#121417;--panel:#1c1f24;--line:#30353d;--text:#f2f3f5;--muted:#a6adb7;--rot:#E30613;--grau:#5F6E78;--gut:#3aa675;}
 @media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#f5f6f7;--panel:#fff;--line:#d9dde2;--text:#111;--muted:#5F6E78;}}
@@ -80,7 +80,7 @@ summary{cursor:pointer;color:var(--muted)}
 <div class="annahmen">
   <div><label for="lnk">Lohnnebenkosten Arbeitgeber, Aufschlag auf Brutto (Annahme)</label><input type="number" id="lnk" step="1" min="0"> <span class="klein">Prozent. Bitte mit Ihrer Personalabteilung prüfen.</span></div>
   <div><label for="std">Bezahlte Arbeitsstunden pro Jahr bei Vollzeit (Annahme)</label><input type="number" id="std" step="10" min="1"> <span class="klein">40 Stunden, abzüglich Urlaub und Feiertage.</span></div>
-  <div><label for="wo">Arbeitswochen pro Jahr (Annahme)</label><input type="number" id="wo" step="1" min="1"></div>
+  <div><label for="wo">Arbeitswochen pro Jahr (Annahme)</label><input type="number" id="wo" step="1" min="1"> <span class="klein">43 Wochen à 40 Stunden ergeben die 1.720 Stunden.</span></div>
 </div>
 <p class="klein">Stunden pro Jahr = Stunden pro Woche × Personen × Arbeitswochen. Kosten pro Stunde = Jahresbrutto × (1 + Lohnnebenkosten) ÷ bezahlte Stunden pro Jahr. Stundenlöhne werden mit 173,33 Stunden pro Monat und 14 Gehältern auf ein Jahresbrutto gerechnet.</p>
 <p class="klein">QUELLEN: Grundstundenlöhne laut Kollektivvertrag Wachorgane im Bewachungsgewerbe, gültig ab 1.1.2026 (wko.at): Verwendungsgruppe A Wachdienst 12,63 €, B Service und Sicherheitsdienst 13,87 €, C Sonderdienst 15,46 €, D Mobiler Dienst 13,95 €, ohne Zulagen. Jahresgehälter aus Stellenausschreibungen auf owd.at, abgerufen am 16.11.2026: Personalmanager 45.000 € brutto (40 Stunden), Servicemanager ab 48.000 € brutto. Überzahlungen und Zulagen sind nicht eingerechnet.</p>
@@ -110,10 +110,11 @@ summary{cursor:pointer;color:var(--muted)}
     {id:'sm', name:'Servicemanager (Ausschreibung, ab 48.000 €/Jahr)', jahr:48000},
     {id:'eigen', name:'Eigenes Jahresbrutto …'}
   ];
-  var START = {lnk:30, std:1720, wo:46, rows:[]};
+  var START = {lnk:30, std:1720, wo:43, rows:[]};  // 43 Wochen x 40 h = 1.720 h (vorher 46, frische Prüfung 16.11. G12)
   var s;
   try { s = JSON.parse(localStorage.getItem(KEY)) || null; } catch(e){ s = null; }
   if(!s) s = JSON.parse(JSON.stringify(START));
+  if(s && String(s.wo)==='46') { s.wo = 43; }  // alter Startwert aus dem Browser-Speicher
   function save(){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
   var eur = new Intl.NumberFormat('de-AT',{style:'currency',currency:'EUR',maximumFractionDigits:0});
   var num = new Intl.NumberFormat('de-AT',{maximumFractionDigits:0});
