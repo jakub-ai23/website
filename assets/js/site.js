@@ -165,6 +165,10 @@ function jpLoadClarity() {
   try {
     var path = location.pathname;
     if (/(ki-check|weiter|community|ars[0-9]|syl[0-9]|tt[0-9]|hw[0-9]|sportunion|viennaup|techtrain|pmi|ewi|bfi-|-onepager|training\/)/i.test(path)) return;
+    // Alle E-Learnings aus (Commander 16.11.2026, ÖWD: Teilnehmende landeten über das Popup auf /ki-check/ statt in der Kursseite).
+    // Kursordner tragen ein Datum (oewd16112026, proeko13112026 ...), E-Learning-Seiten haben Lektionen oder Übungen im DOM.
+    if (/\d{6}/.test(path)) return;
+    if (document.querySelector('.lektion, .exercise, [data-ex], #schublade')) return;
 
     var en = (document.documentElement.lang || 'de').toLowerCase().indexOf('en') === 0;
     var T = en
