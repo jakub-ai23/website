@@ -952,6 +952,7 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
       <p>Zuerst, nach dem KI-Check: Wir gehen die Fragen des KI-Checks gemeinsam durch, zum Aufwärmen.</p>
       <p>Erst Ihr Agent: Finden Sie ihn selbst. Danach öffnen Sie einen neuen, normalen Chat und fragen nach Ihrer Reise aus Übung 3 von gestern. Die Antwort kennen Sie selbst.</p>
       <div class="prompt-block">Gestern haben wir zusammen eine Reise geplant. Wohin ging sie, und wer ist am Ende mitgefahren?</div>
+      <p>Haben Sie gestern im temporären Chat geplant? Dann fragen Sie trotzdem und schauen, was kommt.</p>
       <p>Weiß Copilot es? Wenn nein: warum nicht? Wenn ja: woher? Überlegen Sie kurz. Die Antwort kommt in der nächsten Übung.</p>
       <details>
         <summary>Schritt 2: Ihre Hausaufgabe (aufklappen)</summary>
@@ -986,7 +987,7 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
       <tr><td>nur in diesem Chat</td><td>das laufende Gespräch und Ihre aktuelle Nachricht</td></tr>
       <tr><td>sobald er passt</td><td>ein Skill im Agenten (nur mit Premium-Lizenz)</td></tr>
       </table>
-      <p>Wusste der neue Chat Ihre Reise? Dann klicken Sie unter der Antwort auf „Quellen“ (Sources). Steht dort „Früherer Chat“ (Past Chat), hat Copilot Ihre alten Chats durchsucht. Steht dort nichts, kam es aus dem Gedächtnis oder gar nicht. Neue Aufgabe, neuer Chat. Was immer gelten soll, gehört in den Agenten oder in die Personalisierung.</p>
+      <p>Wusste der neue Chat Ihre Reise? Dann klicken Sie unter der Antwort auf „Quellen“ (Sources). Steht dort „Früherer Chat“ (Past Chat), hat Copilot Ihre alten Chats durchsucht. Steht dort nichts, kam es aus dem Gedächtnis oder gar nicht. Wer gestern im temporären Chat geplant hat, bekommt keine Antwort: Der temporäre Chat wird nicht gespeichert, so ist er gebaut. Neue Aufgabe, neuer Chat. Was immer gelten soll, gehört in den Agenten oder in die Personalisierung.</p>
         </div>
       </details>
       <details>
@@ -1013,8 +1014,8 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
       <h3>Das Audit: Was gebe ich Copilot immer wieder?</h3>
       <p class="subtitle">Erst messen, dann bauen. Was Copilot aus seinen Erinnerungen über Ihre Arbeit weiß, hängt an Ihrem Konto. Fragen Sie es und sehen Sie nach.</p>
       <div class="rahmen">
-        <div><b>Ziel</b>Eine Aufgabe für Ihren Agenten, mit Minuten.</div>
-        <div><b>Abgabe</b>Minuten vorher ins Zeitformular eintragen.</div>
+        <div><b>Ziel</b>Eine Aufgabe, Minuten nach Gefühl.</div>
+        <div><b>Abgabe</b>Aufgabe ins Zeitformular, Minuten freiwillig.</div>
       </div>
       <p class="step-label">Schritt 1: Den Prompt kopieren und abschicken (neuer Chat)</p>
       <div class="prompt-block">Mach ein Audit meiner Arbeit mit dir. Nimm nur, was du aus unseren bisherigen Chats und deinen Erinnerungen wirklich weißt.
@@ -1027,10 +1028,10 @@ Höchstens 300 Wörter.</div>
       <details>
         <summary>Schritt 2: Ins Zeitformular (aufklappen)</summary>
         <div class="collapsible-content">
-      <p>Das Zeitformular öffnen Sie hier: <a href="https://form.jotform.com/263174738378066" target="_blank" rel="noopener" style="color:var(--gold);">Zeitformular</a>. Jetzt füllen Sie drei Felder aus, die anderen bleiben bis zum Nachmittag leer:</p>
+      <p>Das Zeitformular öffnen Sie hier: <a href="https://form.jotform.com/263174738378066" target="_blank" rel="noopener" style="color:var(--gold);">Zeitformular</a>. Jetzt füllen Sie Kennung und Aufgabe aus. Die Minuten sind freiwillig, eine Schätzung nach Gefühl genügt. Die anderen Felder bleiben bis zum Nachmittag leer:</p>
       <div class="prompt-block">Kennung: Ihr Vorname und der erste Buchstabe Ihres Nachnamens, wie im KI-Check
 Aufgabe in einem Satz (nicht Ihre Rolle): [ein Satz]
-Minuten pro Durchgang vorher, ohne Copilot-Agent: [Zahl]</div>
+Minuten pro Durchgang vorher, ohne Copilot-Agent (freiwillig): [Zahl]</div>
       <p>Am Nachmittag stoppen wir dieselbe Aufgabe mit Ihrem Agenten.</p>
         </div>
       </details>
@@ -1042,7 +1043,7 @@ Minuten pro Durchgang vorher, ohne Copilot-Agent: [Zahl]</div>
       </details>
       <p class="profispur"><strong>Stufe 2:</strong> Lassen Sie Copilot zu jeder vorgeschlagenen Aufgabe schätzen, wie oft sie im Monat anfällt, und halten Sie die Zahl gegen Ihre eigene Erfahrung.<br><strong>Stufe 3:</strong> Premium und nur mit OK Ihrer IT: Lassen Sie Copilot Ihre gesendeten Mails nach wiederkehrenden Typen durchsehen (Prompt in Schritt 3).</p>
       <p class="fallback"><strong>Ausweg:</strong> Weiß Copilot nichts über Sie, weil das Gedächtnis aus ist? Schreiben Sie unter den Prompt „Hier ist meine letzte Arbeitswoche in Stichpunkten:“ und nehmen Sie Ihre Notizen von gestern.</p>
-      <p class="pruef">So sieht es aus, wenn es geklappt hat: Sie haben eine Aufgabe in einem Satz und eine Minutenzahl, und beides steht im Zeitformular.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Ihre Aufgabe steht in einem Satz im Zeitformular. Die Minuten sind freiwillig.</p>
     </div></section>
 <section class="lektion" data-id="t2-04" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="t2-04">
       <div class="exercise-number">Übung 4</div>
@@ -1527,7 +1528,7 @@ Getestet am: [Datum], von: [Ihr Name oder Ihre Rolle]</div>
       <details>
         <summary>Schritt 2: Die Zeitbilanz (aufklappen)</summary>
         <div class="collapsible-content">
-      <p>Ins Zeitformular kommen die Minuten aus Lauf 2 von heute Vormittag, gestoppt, als „Minuten pro Durchgang nachher“. Das ist eine zweite Abgabe im selben Formular, mit derselben Kennung wie heute früh. Das Zeitformular öffnen Sie hier: <a href="https://form.jotform.com/263174738378066" target="_blank" rel="noopener" style="color:var(--gold);">Zeitformular</a>. Ehrliche Zahlen helfen mehr als schöne. Dazu ein Satz, was sich verändert hat.</p>
+      <p>Ins Zeitformular kommen die Minuten aus Lauf 2 von heute Vormittag, gestoppt, als „Minuten pro Durchgang nachher“. Das ist eine zweite Abgabe im selben Formular, mit derselben Kennung wie heute früh. Das Zeitformular öffnen Sie hier: <a href="https://form.jotform.com/263174738378066" target="_blank" rel="noopener" style="color:var(--gold);">Zeitformular</a>. Die Minuten sind freiwillig, eine Schätzung genügt. Ehrliche Zahlen helfen mehr als schöne. Dazu ein Satz, was sich verändert hat.</p>
         </div>
       </details>
       <details>
@@ -1546,7 +1547,7 @@ Getestet am: [Datum], von: [Ihr Name oder Ihre Rolle]</div>
       </details>
       <p class="profispur"><strong>Stufe 2:</strong> Lassen Sie Copilot die Karte für alle Agenten zusammenfassen, die Sie in den zwei Tagen gebaut haben (Prompt in Schritt 3).<br><strong>Stufe 3:</strong> Notieren Sie für eine Kollegin, bei welcher ihrer Aufgaben Ihr Agent ähnlich viel Zeit sparen könnte, und was sie dafür ändern müsste.</p>
       <p class="fallback"><strong>Ausweg:</strong> Zeitformular lädt nicht? Schreiben Sie beide Zahlen auf einen Zettel und geben Sie sie mir vor dem Abschluss.</p>
-      <p class="pruef">So sieht es aus, wenn es geklappt hat: Im Zeitformular stehen beide Zahlen, und Ihr Wenn-dann-Satz steht auf Ihrer Karte.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Im Zeitformular stehen Ihre Zahlen, soweit Sie sie geben wollen, und Ihr Wenn-dann-Satz steht auf Ihrer Karte.</p>
     </div></section>
 <section class="lektion" data-id="lokale-ki" data-teil="nm" data-teil-name="Tag 2: Nachmittag" hidden><div class="exercise" data-ex="lokale-ki">
       <div class="exercise-number">Demo</div>
