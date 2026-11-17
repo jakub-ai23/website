@@ -1176,10 +1176,15 @@ Kurz, ohne Einleitung.</div>
       <p>Speichern Sie die Anleitung als Datei in Ihrem Ordner „Copilot-Training“. Vom Chat in den Agenten kopieren klappt oft nicht, die Datei klappt.</p>
       <div class="prompt-block">Gib mir den ganzen Text oben als Word-Datei mit dem Namen [Name].docx zum Herunterladen.
 Kannst du keine Datei erstellen, gib ihn als reinen Text in einem einzigen Block aus. Dann kopiere ich ihn selbst in ein leeres Word-Dokument.</div>
-      <p>Für einen Skill brauchen Sie eine Textdatei mit dem Namen SKILL.md: Text in den Editor (Windows) oder TextEdit (Mac, vorher „In reinen Text umwandeln“) einfügen, als SKILL.md in einen Ordner mit dem Namen des Skills speichern und den Ordner als ZIP packen (Windows: Rechtsklick, „Senden an“, „ZIP-komprimierter Ordner“). Eine .md-Datei öffnen Sie mit dem Editor, Word stolpert darüber.</p>
+      <p>Für einen Skill brauchen Sie eine Textdatei mit dem Namen SKILL.md. Sie beginnt mit diesem Kopf, darunter steht Ihre Anleitung:</p>
+      <div class="prompt-block">---
+name: wochenbericht-objektkunde
+description: Schreibt den Wochenbericht für einen Objektkunden aus Stichpunkten. Greift, wenn ich „Wochenbericht“ schreibe.
+---</div>
+      <p>Text in den Editor (Windows) oder TextEdit (Mac, vorher „In reinen Text umwandeln“) einfügen und als SKILL.md speichern. Dann zippen Sie <strong>die Datei SKILL.md selbst</strong>: Windows rechts anklicken, „Senden an“, „ZIP-komprimierter Ordner“; Mac rechts anklicken, „Komprimieren“. So liegt SKILL.md im ZIP ganz oben, wie Microsoft es verlangt. Eine .md-Datei öffnen Sie mit dem Editor, Word stolpert darüber.</p>
       <table class="compare-table">
       <tr><th style="width:30%">Ihr Konto</th><th>Wohin die Anleitung kommt</th></tr>
-      <tr><td>Premium mit Skills</td><td>Agent öffnen, Konfigurieren, Skills, hinzufügen. Die Datei als .zip hochladen oder den Skill per Beschreibung erzeugen lassen. Microsoft kennzeichnet Skills teils noch als Vorschau. Sehen Sie den Bereich nicht, nehmen Sie die nächste Zeile.</td></tr>
+      <tr><td>Premium mit Skills</td><td>Agent öffnen, bearbeiten, Bereich „Skills“, Pfeil neben „Add“: „Upload“ für Ihre ZIP, oder „Create with chat“, dann baut Copilot den Skill aus Ihrer Beschreibung. Danach die Anweisungen des Agenten kontrollieren, Copilot schreibt sie dabei mit um. Microsoft kennzeichnet Skills teils noch als Vorschau. Sehen Sie den Bereich nicht, nehmen Sie die nächste Zeile.</td></tr>
       <tr><td>ohne Skills</td><td>Der Text kommt in die Anweisungen eines neuen Agenten oder ergänzt die Anweisungen Ihres Agenten von gestern (höchstens 8.000 Zeichen).</td></tr>
       <tr><td>überall</td><td>Der Ausweg unten: Anleitung als erste Nachricht in einen neuen Chat.</td></tr>
       </table>
@@ -1301,6 +1306,7 @@ Gesamturteil: „vollständig“, wenn alle vier erfüllt sind. „Nachbessern�
         <div><b>Ziel</b>Ein Rechercheagent mit Fundstelle je Aussage.</div>
         <div><b>Abgabe</b>Auf Zuruf: Ihre Prüfzeile aus dem Agenten.</div>
       </div>
+      <p class="fallback"><strong>Daten:</strong> Recherchiert wird in öffentlichen Quellen. Suchanfragen enthalten keine personenbezogenen Daten, so steht es auch in den Grenzen des Agenten. Die Skill-Datei enthält nur die Anweisungen.</p>
       <p class="step-label">Schritt 1: Der Auftrag als einzelner Prompt (normaler Chat)</p>
       <div class="prompt-block">Rechercheauftrag: Was kann Microsoft 365 Copilot mit und ohne Lizenz?
 Zweck: Ich bin Copilot-Champion und muss Kolleginnen ehrlich sagen, was in ihrem Konto geht.
@@ -1379,6 +1385,14 @@ Hat eine Aussage keine Fundstelle, schreib davor in Großbuchstaben OHNE BELEG.<
 Gib je Aussage aus: hält / hält nicht / nicht prüfbar, mit einem wörtlichen Zitat von der Seite.
 Erfinde nichts. Was du nicht prüfen kannst, schreibst du als „nicht prüfbar“.</div>
       <p>Kopieren Sie das Ergebnis des Rechercheagenten hinein. Den Agenten, der die Arbeit verteilt, spielen Sie selbst.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Wenn Ihre IT Cowork freigegeben hat: der Rechercheagent als Skill (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>In Cowork legen Sie keinen eigenen Agenten an. Cowork ist selbst der Agent und arbeitet mit Skills. Ihr Rechercheagent wird dort ein Skill. Eine eingebaute Tiefenrecherche („Deep Research“) bringt Cowork schon mit.</p>
+      <ol><li>Laden Sie den fertigen Skill: <a href="/oewd16112026/material/Skill-Rechercheagent.zip" target="_blank" rel="noopener" style="color:var(--gold);">Skill Rechercheagent (.zip)</a>. Darin liegt eine SKILL.md mit denselben Anweisungen wie in Schritt 2.</li><li>In Cowork links „Customize“, Reiter „Skills“, Pfeil neben „Add“, „Upload skill“, die ZIP wählen.</li><li>Neue Unterhaltung, dann der Auftrag aus Schritt 1. Rechts in der Seitenleiste sehen Sie unter „Skills“, ob er geladen wurde.</li></ol>
+      <p>Dieselbe ZIP passt auch in einen Copilot-Agenten mit Skills: Agent bearbeiten, „Skills“, Pfeil neben „Add“, „Upload“. Cowork wird nach Nutzung abgerechnet. Nutzen Sie es nur, wenn Ihre IT es freigibt.</p>
         </div>
       </details>
       <details>
@@ -1466,6 +1480,23 @@ Höchstens eine Bildschirmseite.</div>
       <ol><li>Im Copilot Chat <strong>@Faktenblatt</strong> eingeben und in der Liste anklicken (nicht Enter drücken, oben steht oft ein anderer Agent). M1 über „/“ anhängen und dazuschreiben: „Lies die angehängte Kundenmail.“</li><li>Ergebnis kopieren. Unten im Eingabefeld den Agenten mit dem x entfernen, es geht immer nur einer. Dann <strong>@Antwortentwurf</strong>, das Faktenblatt einfügen und dazuschreiben: „Schreib daraus den Antwortentwurf an den Kunden.“</li><li>Ergebnis kopieren, Agenten mit dem x entfernen, <strong>@Prüfer</strong> und den Entwurf einfügen, dazu das Faktenblatt und den Text der Hausregeln M2.</li><li>Fehlt ein Rückruftermin, setzen Sie ihn als Teamleitung selbst ein, zum Beispiel Mittwoch, 10 bis 11 Uhr. Sagt der Prüfer „nein“ oder „mit Auflagen“: Seinen Einwand an <strong>@Antwortentwurf</strong> zurückgeben. Das ist Version 2.</li><li>Version 2 noch einmal an <strong>@Prüfer</strong>.</li><li>Auf Zuruf: „Freigabe ja nach Version 2“, oder was sonst passiert ist.</li></ol>
       <p>Copilot zeigt den Entwurf als Outlook-Karte mit dem Knopf „Senden“ (Send). Nicht klicken, Sie kopieren nur.</p>
       <p>Die @-Erwähnung funktioniert erst, wenn der Agent angelegt ist. Im Testbereich beim Bauen geht sie noch nicht.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Wenn Ihre IT Cowork freigegeben hat: dieselbe Küche in einem Auftrag (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Hier verteilt Cowork die Arbeit. Vor dem Start wissen Sie, was hineingeht, was herauskommt und woran Sie sehen, dass es fertig ist.</p>
+      <table class="compare-table">
+      <tr><th style="width:30%">Vorher (rein)</th><th style="width:34%">Nachher (raus)</th><th>Fertig, wenn</th></tr>
+      <tr><td>M1 und M2 in Ihrem OneDrive-Ordner „Copilot-Training“</td><td>vier Word-Dateien: 0 Protokoll · 1 Faktenblatt · 2 Antwortentwurf · 3 Prüfbericht</td><td>der Prüfbericht jede der 8 Hausregeln mit Zitat bewertet und das Protokoll sagt, was nacheinander und was parallel lief</td></tr>
+      </table>
+      <div class="prompt-block">In meinem OneDrive-Ordner „Copilot-Training“ liegen M1-Reklamation-Reinigung.docx und M2-Hausregeln-Kundenkommunikation.docx. Erledige vier Aufgaben und lege jedes Ergebnis als eigene Word-Datei an.
+1. Faktenblatt: Lies M1 und schreib „1-faktenblatt“ mit drei Überschriften: Was ist passiert, Was fordert der Kunde, Was ist offen. Höchstens 120 Wörter, keine Bewertung.
+2. Antwortentwurf: Schreib aus dem Faktenblatt „2-antwortentwurf“, streng nach den Hausregeln in M2. Was fehlt, markierst du mit [fehlt]. Erfinde keine Termine.
+3. Prüfer: Prüfe den Entwurf gegen M2 und das Faktenblatt. Nimm dafür die Originaldatei M2, keine Zusammenfassung. Schreib „3-pruefbericht“: Freigabe ja, mit Auflagen oder nein, dann jede Hausregel mit erfüllt oder nicht erfüllt und Zitat.
+4. Protokoll: Schreib „0-protokoll“: Was lief nacheinander, was parallel? Welche Werkzeuge hast du benutzt? Was du nicht weißt, schreibst du als „unbekannt“.
+Sende nichts. Alles bleibt Entwurf.</div>
+      <p>Die Dateien sehen Sie rechts in der Seitenleiste und in Ihrem OneDrive. Vergleichen Sie mit Ihrem Ergebnis aus Schritt 4: Wo war es mit Ihnen als Teamleitung besser, wo mit Cowork? Cowork wird nach Nutzung abgerechnet. Nutzen Sie es nur, wenn Ihre IT es freigibt.</p>
         </div>
       </details>
       <details>
