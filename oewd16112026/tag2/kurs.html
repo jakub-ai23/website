@@ -883,10 +883,10 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
 @media print{.tema-knopf{display:none}}
   </style>
   <script>(function(){var h=document.documentElement,q=location.search,t=/[?&](hell|light|svetla)\b/.test(q)?'hell':/[?&](dunkel|dark|tmava)\b/.test(q)?'dunkel':null;try{t=t||localStorage.getItem('tema');if(t)localStorage.setItem('tema',t)}catch(e){}if(t==='hell')h.classList.add('hell')})();</script>
-</head>
+<style>.tagwahl{display:flex;gap:8px;margin:14px 0 6px}.tagwahl a{flex:1;text-align:center;padding:9px 10px;border:1px solid var(--gold);border-radius:8px;color:var(--gold);text-decoration:none;font-weight:700;font-size:.92rem;line-height:1.2}.tagwahl a[aria-current="page"]{background:var(--gold);color:#141414}.tagwahl a:hover{background:rgba(212,160,23,.15)}.tagwahl a[aria-current="page"]:hover{background:var(--gold)}.schublade .tagwahl{margin:0 0 0 auto;flex:0 0 auto}.schublade .tagwahl a{flex:0 0 auto;padding:6px 10px;font-size:.85rem}@media (max-width:520px){.schublade #dstand{display:none}}</style></head>
 <body>
 <div class="willkommen-bs" id="willkommen-bs" role="dialog" aria-modal="true" aria-labelledby="wk-text" hidden><div class="willkommen-karte"><img src="jakub-lachend.png" alt="Jakub Popluhar"><div class="willkommen-blase"><p id="wk-text">Herzlich willkommen zum Workshop „Microsoft 365 Copilot Champions: Praxistraining“. Dieses E-Learning begleitet uns durch alle Tage.</p></div><button type="button" class="knopf los" id="wk-weiter">Weiter</button></div></div>
-<div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Inhalt</button><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
+<div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Inhalt</button><nav class="tagwahl" aria-label="Tag wechseln"><a href="../tag1/kurs.html">Tag 1</a><a href="../tag2/kurs.html" aria-current="page">Tag 2</a></nav><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
 <div class="player">
   <aside class="side" id="side">
     <button class="schliessen" id="schliessen" type="button" aria-label="Inhalt schließen">×</button>
@@ -894,10 +894,10 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
     <a href="https://jakubpopluhar.com" class="zurueck">jakubpopluhar.com</a>
     <div class="logos"><img class="t-logo" src="jp-logo.png" alt="Jakub Popluhar"></div>
     <h1>Microsoft 365 Copilot Champions: Praxistraining</h1>
-    <div class="sub">ÖWD cleaning services (über tecTrain) · Tag 2 · Dienstag, 17. November 2026</div>
+    <div class="sub">ÖWD cleaning services (über tecTrain) · Tag 2 · Dienstag, 17. November 2026</div><nav class="tagwahl" aria-label="Tag wechseln"><a href="../tag1/kurs.html">Tag 1</a><a href="../tag2/kurs.html" aria-current="page">Tag 2</a></nav>
     <div class="balken"><i id="balken"></i></div>
     <div class="stand" id="stand"></div>
-    <div class="gruppe zu" data-teil="vm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Tag 2: Vormittag</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#willkommen" data-id="willkommen"><span class="lab">Start</span><span class="t">Willkommen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Ihr KI-Check</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-01" data-id="t2-01"><span class="n">1</span><span class="t">Wiederfinden: Ihr Agent von gestern</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-02" data-id="t2-02"><span class="n">2</span><span class="t">Wo gilt was: vier Ebenen in Copilot</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-03" data-id="t2-03"><span class="n">3</span><span class="t">Das Audit: Was gebe ich Copilot immer wieder?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-04" data-id="t2-04"><span class="n">4</span><span class="t">Bitte oder Regel? Zwei Dienstpläne</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#haus-html" data-id="haus-html"><span class="lab">Demo</span><span class="t">Das Haus aus dem Foto</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-06" data-id="t2-06"><span class="n">5</span><span class="t">Ihr Copilot-Agent für Ihre Aufgabe, Version 1</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#mittag" data-id="mittag"><span class="lab">Pause</span><span class="t">Mahlzeit, und wie es weitergeht</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="nm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Tag 2: Nachmittag</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile art-uebung" href="#t2-08" data-id="t2-08"><span class="n">6</span><span class="t">Der Prüfer: Ihr Prüfprompt</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-09" data-id="t2-09"><span class="n">7</span><span class="t">Ihr Rechercheagent in Copilot</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#claude-chrome" data-id="claude-chrome"><span class="lab">Demo</span><span class="t">Ein Agent, der handelt</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-11" data-id="t2-11"><span class="n">8</span><span class="t">Copilot-Team: eine Reklamation, drei Agenten</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-12" data-id="t2-12"><span class="n">9</span><span class="t">Teilen und Toolbox</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ttt2" data-id="ttt2"><span class="n">10</span><span class="t">Ihre erste Einheit für Kolleginnen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-13" data-id="t2-13"><span class="n">11</span><span class="t">Zeitbilanz und Agent-Karte</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#lokale-ki" data-id="lokale-ki"><span class="lab">Demo</span><span class="t">KI ohne Internet</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-14" data-id="t2-14"><span class="n">12</span><span class="t">Ihr 90-Tage-Fahrplan als Champion</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Zum Schluss</span><span class="t">Ihr KI-Check zum Abschluss</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback" data-id="feedback"><span class="lab">Feedback</span><span class="t">Ihr Feedback und Ihr Satz in eigenen Worten</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#weiter" data-id="weiter"><span class="lab">Danach</span><span class="t">Ihr Selbsttest: zehn Arbeitstage, drei Zahlen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="res"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Tag 2: Bonus: wenn Zeit bleibt</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#t2-05" data-id="t2-05"><span class="lab">Bonus</span><span class="t">Word-Analyse: vom guten Beispiel zur Regelliste<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#bonus-skill-wahl" data-id="bonus-skill-wahl"><span class="lab">Bonus</span><span class="t">Ihr zweiter Agent nach Wahl<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#bonus-tribunal" data-id="bonus-tribunal"><span class="lab">Bonus</span><span class="t">Das Tribunal: eine Entscheidung, vier Hüte<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#bonus-experte" data-id="bonus-experte"><span class="lab">Bonus</span><span class="t">Modelling of Excellence<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div>
+    <div class="gruppe zu" data-teil="vm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Tag 2: Vormittag</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#willkommen" data-id="willkommen"><span class="lab">Start</span><span class="t">Willkommen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Ihr KI-Check</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#einstieg-folien" data-id="einstieg-folien"><span class="lab">Demo</span><span class="t">Dieselbe Folie, dreimal</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#formate" data-id="formate"><span class="n">1</span><span class="t">Welches Format versteht die Maschine?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-01" data-id="t2-01"><span class="n">2</span><span class="t">Wiederfinden: Ihr Agent von gestern</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#t2-02" data-id="t2-02"><span class="lab">Info</span><span class="t">Wiederholung: Wo gilt was</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-03" data-id="t2-03"><span class="n">3</span><span class="t">Das Audit: Was gebe ich Copilot immer wieder?</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#haus-html" data-id="haus-html"><span class="lab">Demo</span><span class="t">Das Haus aus dem Foto</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-06" data-id="t2-06"><span class="n">4</span><span class="t">Ihr Copilot-Agent für Ihre Aufgabe, Version 1</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#mittag" data-id="mittag"><span class="lab">Pause</span><span class="t">Mahlzeit, und wie es weitergeht</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="nm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Tag 2: Nachmittag</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile art-uebung" href="#t2-08" data-id="t2-08"><span class="n">5</span><span class="t">Der Prüfer: Ihr Prüfprompt</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-09" data-id="t2-09"><span class="n">6</span><span class="t">Ihr Rechercheagent in Copilot</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#claude-chrome" data-id="claude-chrome"><span class="lab">Demo</span><span class="t">Ein Agent, der handelt</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-11" data-id="t2-11"><span class="n">7</span><span class="t">Copilot-Team: eine Reklamation, drei Agenten</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-12" data-id="t2-12"><span class="n">8</span><span class="t">Teilen und Toolbox</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ttt2" data-id="ttt2"><span class="n">9</span><span class="t">Ihre erste Einheit für Kolleginnen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-13" data-id="t2-13"><span class="n">10</span><span class="t">Zeitbilanz und Agent-Karte</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#lokale-ki" data-id="lokale-ki"><span class="lab">Demo</span><span class="t">KI ohne Internet</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#t2-14" data-id="t2-14"><span class="n">11</span><span class="t">Ihr 90-Tage-Fahrplan als Champion</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Zum Schluss</span><span class="t">Ihr KI-Check zum Abschluss</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback" data-id="feedback"><span class="lab">Feedback</span><span class="t">Ihr Feedback und Ihr Satz in eigenen Worten</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#weiter" data-id="weiter"><span class="lab">Danach</span><span class="t">Ihr Selbsttest: zehn Arbeitstage, drei Zahlen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="res"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Tag 2: Bonus: wenn Zeit bleibt</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#t2-05" data-id="t2-05"><span class="lab">Bonus</span><span class="t">Word-Analyse: vom guten Beispiel zur Regelliste<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#bonus-skill-wahl" data-id="bonus-skill-wahl"><span class="lab">Bonus</span><span class="t">Ihr zweiter Agent nach Wahl<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#bonus-tribunal" data-id="bonus-tribunal"><span class="lab">Bonus</span><span class="t">Das Tribunal: eine Entscheidung, vier Hüte<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#bonus-experte" data-id="bonus-experte"><span class="lab">Bonus</span><span class="t">Modelling of Excellence<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div>
     <div class="kontakt">Fragen nach dem Kurs:<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br><a href="tel:+436641386498">+43 664 138 64 98</a></div>
   </aside>
   <main class="main">
@@ -940,8 +940,57 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/263174826000046" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
 
     </div></section>
-<section class="lektion" data-id="t2-01" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="t2-01">
+<section class="lektion" data-id="einstieg-folien" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="einstieg-folien">
+      <div class="exercise-number">Demo</div>
+      <h3>Dieselbe Folie, dreimal</h3>
+      <p class="subtitle">Dreimal derselbe Auftrag: eine Folie zum Unterschied zwischen lokaler KI und Cloud-KI, in den Farben der Webseite meiner Firma, mit Logo. Schauen Sie, was jedes Mal herauskam.</p>
+      <p class="step-label">Drei Wege, ein Auftrag</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:18px 0">
+      <figure style="margin:0"><img src="/oewd16112026/material/einstieg-1-chat.png" alt="Folie aus dem ChatGPT-Chat: Farben geraten, kein Logo" style="width:100%;border-radius:8px;display:block"><figcaption style="margin-top:8px"><strong>1 · ChatGPT im Chat</strong><br>Gebeten. Farben geraten, das Logo fehlt.</figcaption></figure>
+      <figure style="margin:0"><img src="/oewd16112026/material/einstieg-2-work.png" alt="Folie aus dem ChatGPT-Work-Modus: nah an den Farben der Webseite" style="width:100%;border-radius:8px;display:block"><figcaption style="margin-top:8px"><strong>2 · ChatGPT im Work-Modus</strong><br>Hat die Webseite angeschaut. Nah dran, aber jedes Mal neu geraten.</figcaption></figure>
+      <figure style="margin:0"><img src="/oewd16112026/material/einstieg-3-skill.png" alt="Folie aus Claude mit Skill: Farbe, Schrift und Logo nach Regel" style="width:100%;border-radius:8px;display:block"><figcaption style="margin-top:8px"><strong>3 · Claude mit Skill</strong><br>Regeln und Skript: Farbe, Schrift, Logo links unten. Jedes Mal.</figcaption></figure>
+      </div>
+      <p>Eine Bitte kann man überlesen. Eine Codezeile nicht.</p>
+      <details>
+        <summary>Die Leiter: Wer sorgt dafür, dass es passiert? (aufklappen)</summary>
+        <div class="collapsible-content">
+      <table class="compare-table">
+      <tr><th style="width:30%">Sprosse</th><th>Was es heißt</th></tr>
+      <tr><td>1 Bitte</td><td>Sie sagen es, jedes Mal.</td></tr>
+      <tr><td>2 Aufgeschrieben</td><td>In den Anweisungen des Agenten. Copilot liest mit und kann überlesen.</td></tr>
+      <tr><td>3 Geprüft</td><td>Ein Prüfpunkt: Copilot oder ein Mensch hakt ab.</td></tr>
+      <tr><td>4 Eingebaut</td><td>Die Regel steckt im Material, zum Beispiel eine Vorlage, die schon die Hausfarbe hat.</td></tr>
+      <tr><td>5 Automatisch</td><td>Ein Skript oder eine Maschine erledigt es.</td></tr>
+      </table>
+      <p>Steht „immer“ oder „nie“ davor und ist ein Fehler teuer, darf es keine Bitte bleiben.</p>
+        </div>
+      </details>
+    </div></section>
+<section class="lektion" data-id="formate" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="formate">
       <div class="exercise-number">Übung 1</div>
+      <h3>Welches Format versteht die Maschine?</h3>
+      <p class="subtitle">Gestern beim Format-Check gesehen, heute als Quiz. Welche Dateien liest Copilot sauber? Das entscheidet, was Sie in Notizbücher und Agenten legen.</p>
+      <div class="rahmen">
+        <div><b>Ziel</b>Wissen, welche Dateien Copilot sicher liest.</div>
+        <div><b>Abgabe</b>Auf Zuruf: Welche Frage hat Sie überrascht?</div>
+      </div>
+      <p class="fallback"><strong>Daten:</strong> Echte Arbeitsdateien sind erlaubt, Sie arbeiten im Copilot-Firmenkonto von ÖWD. Lieber vorsichtig? Nehmen Sie eine Musterdatei.</p>
+      <p class="step-label">Erst tippen</p>
+      <div class="quiz"><script type="application/json">{"id": "format-tipp", "typ": "tipp", "etikett": "Frage 1", "frage": "Welche Dateien kann Copilot Ihrer Meinung nach am einfachsten lesen? Klicken Sie alle an, die Sie für richtig halten.", "hilfe": "Mehrfachauswahl. Die Auflösung sehen Sie mit dem Knopf darunter.", "optionen": ["Eine Textdatei", "Ein eingescanntes PDF", "Eine saubere Excel-Tabelle", "Eine PowerPoint-Folie", "Ein Word-Dokument mit echten Überschriften"], "richtig": ["Eine Textdatei", "Eine saubere Excel-Tabelle", "Ein Word-Dokument mit echten Überschriften"], "hinweis": "Der Scan ist ein Bild, der Text muss erst erkannt werden. Die Folie ist eine Sammlung von Kästen ohne sichere Reihenfolge.", "auflösen": "später", "mischen": true, "punkte": 0}</script></div>
+      <p class="step-label">Dann prüfen</p>
+      <div class="quiz"><script type="application/json">{"id": "format-bester-text", "typ": "einfach", "etikett": "Frage 2", "frage": "Sie haben einen langen Text, mit dem Copilot dauerhaft arbeiten soll. Welches Format geben Sie ihm?", "optionen": ["Eine Textdatei oder Markdown", "Ein hübsch gestaltetes Word-Dokument", "Ein PDF", "Eine PowerPoint-Zusammenfassung"], "richtig": "Eine Textdatei oder Markdown", "hinweis": "Bei Text steht die Struktur in den Zeichen selbst. Nichts muss geraten werden.", "auflösen": "sofort", "punkte": 1}</script></div>
+      <div class="quiz"><script type="application/json">{"id": "format-liste", "typ": "einfach", "etikett": "Frage 3", "frage": "Sie wollen 200 Kundendatensätze auswerten lassen. Was geben Sie?", "optionen": ["Die Tabelle als CSV oder saubere Excel-Datei", "Einen Screenshot der Tabelle", "Das Ganze als PDF gedruckt", "Die Tabelle in ein Word-Dokument kopiert"], "richtig": "Die Tabelle als CSV oder saubere Excel-Datei", "hinweis": "Eine Zeile ist ein Datensatz, eine Spalte ist eine Eigenschaft. Alles andere zerlegt die Tabelle.", "auflösen": "sofort", "punkte": 1}</script></div>
+      <div class="quiz"><script type="application/json">{"id": "format-farbe", "typ": "einfach", "etikett": "Frage 4", "frage": "In Ihrer Excel-Liste sind die dringenden Fälle nur rot eingefärbt, ohne eigene Spalte. Sie geben Copilot die Datei und bitten um alle dringenden Fälle. Worauf können Sie sich verlassen?", "optionen": ["Auf nichts: Die Farbe geht beim Einlesen oft verloren, und Copilot sagt Ihnen nicht, dass sie fehlt", "Copilot erkennt Rot immer und filtert richtig", "Copilot fragt immer nach, was Rot bedeutet", "Copilot färbt die Zeilen in der Antwort ebenfalls rot"], "richtig": "Auf nichts: Die Farbe geht beim Einlesen oft verloren, und Copilot sagt Ihnen nicht, dass sie fehlt", "hinweis": "Die Farbe steckt zwar in der Datei, wird beim Lesen als Text aber oft weggelassen. Eine Spalte „dringend: ja oder nein“ geht nicht verloren.", "auflösen": "sofort", "punkte": 2}</script></div>
+      <div class="quiz"><script type="application/json">{"id": "format-eigenes", "typ": "text", "etikett": "Ihre Übertragung", "frage": "Welche Datei geben Sie in Ihrem Alltag am häufigsten an Copilot? Und in welchem Format läge sie besser?", "hilfe": "Ein Satz genügt.", "hinweis": "Die Probe für jedes Format: Geben Sie der Maschine, was Sie am Telefon vorlesen könnten. Was beim Vorlesen verloren ginge, geht auch bei ihr verloren.", "auflösen": "später", "knopf": "Die Probe zeigen"}</script></div>
+      <p class="step-label">Danach an Ihrer eigenen Datei prüfen</p>
+      <p>Hängen Sie Ihre häufigste Datei im Copilot Chat an (über „/“ oder das Plus) und schicken Sie:</p>
+      <div class="prompt-block">Welche Informationen aus dieser Datei kannst du nicht sicher lesen, zum Beispiel Farben, Bilder oder verbundene Zellen? Sag es ehrlich und rate nicht.</div>
+      <p class="profispur"><strong>Stufe 2:</strong> Fragen Sie Copilot zu Ihrer häufigsten Datei: „Welche Informationen aus dieser Datei kannst du nicht sicher lesen?“<br><strong>Stufe 3:</strong> Bauen Sie aus einer Liste mit farbigen Markierungen eine Spalte „dringend: ja oder nein“. Lassen Sie Copilot beide Fassungen nach dringenden Fällen durchsuchen und vergleichen Sie.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Das Quiz lädt nicht? Seite neu laden. Geht es dann noch nicht, schauen Sie bei Ihrer Nachbarin mit.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Sie haben alle Fragen beantwortet und können bei Frage 4 sagen, warum die Farbe allein nicht reicht.</p>
+    </div></section>
+<section class="lektion" data-id="t2-01" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="t2-01">
+      <div class="exercise-number">Übung 2</div>
       <h3>Wiederfinden: Ihr Agent von gestern</h3>
       <p class="subtitle">Bevor ich irgendetwas zeige: Öffnen Sie Ihren Agenten von gestern. Danach eine Frage zu gestern an einen ganz neuen Chat.</p>
       <div class="rahmen">
@@ -966,20 +1015,10 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Ihr Agent ist offen, und Sie können sagen, ob er bei der Hausaufgabe getan hat, was in seinen Anweisungen steht.</p>
     </div></section>
 <section class="lektion" data-id="t2-02" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="t2-02">
-      <div class="exercise-number">Übung 2</div>
-      <h3>Wo gilt was: vier Ebenen in Copilot</h3>
-      <p class="subtitle">Dieselbe Frage, einmal außerhalb und einmal in Ihrem Agenten.</p>
-      <div class="rahmen">
-        <div><b>Ziel</b>Den Unterschied zwischen Chat und Agent sehen.</div>
-        <div><b>Abgabe</b>Auf Zuruf: Was wusste nur Ihr Agent?</div>
-      </div>
-      <p class="step-label">Schritt 1: Zweimal dieselbe Frage</p>
-      <p>Zuerst in einem neuen Chat außerhalb Ihres Agenten, dann in Ihrem Agenten:</p>
-      <div class="prompt-block">Nach welchen Regeln arbeitest du für mich? Nenne drei und sag zu jeder, wo genau sie steht.</div>
-      <p>Mit Premium-Lizenz durchsucht auch der normale Chat Ihr OneDrive. Nennt er Regeln, fragen Sie nach, woher er sie hat.</p>
-      <details>
-        <summary>Schritt 2: Die vier Ebenen (aufklappen)</summary>
-        <div class="collapsible-content">
+      <div class="exercise-number">Info</div>
+      <h3>Wiederholung: Wo gilt was</h3>
+      <p class="subtitle">Das hatten wir gestern. Hier zum Nachschlagen: wo bei Copilot was gilt und wo Sie es morgen wiederfinden.</p>
+      <p class="step-label">Die vier Ebenen</p>
       <table class="compare-table">
       <tr><th style="width:36%">Gilt</th><th>Was</th></tr>
       <tr><td>überall</td><td>Personalisierung und gespeicherte Erinnerungen</td></tr>
@@ -987,11 +1026,9 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
       <tr><td>nur in diesem Chat</td><td>das laufende Gespräch und Ihre aktuelle Nachricht</td></tr>
       <tr><td>sobald er passt</td><td>ein Skill im Agenten (nur mit Premium-Lizenz)</td></tr>
       </table>
-      <p>Wusste der neue Chat Ihre Reise? Dann klicken Sie unter der Antwort auf „Quellen“ (Sources). Steht dort „Früherer Chat“ (Past Chat), hat Copilot Ihre alten Chats durchsucht. Steht dort nichts, kam es aus dem Gedächtnis oder gar nicht. Wer gestern im temporären Chat geplant hat, bekommt keine Antwort: Der temporäre Chat wird nicht gespeichert, so ist er gebaut. Neue Aufgabe, neuer Chat. Was immer gelten soll, gehört in den Agenten oder in die Personalisierung.</p>
-        </div>
-      </details>
+      <p>Was immer gelten soll, gehört in den Agenten oder in die Personalisierung.</p>
       <details>
-        <summary>Schritt 3: Wo wohnt es, wo finden Sie es morgen? (aufklappen)</summary>
+        <summary>Wo wohnt es, wo finden Sie es morgen? (aufklappen)</summary>
         <div class="collapsible-content">
       <table class="compare-table">
       <tr><th style="width:22%">Was</th><th style="width:28%">Wo angelegt</th><th style="width:26%">Wo wiedergefunden</th><th>Im neuen Chat</th></tr>
@@ -1005,9 +1042,6 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
       </table>
         </div>
       </details>
-      <p class="profispur"><strong>Stufe 2:</strong> Stellen Sie dieselbe Frage zusätzlich im temporären Chat. Was bleibt dort übrig?<br><strong>Stufe 3:</strong> Erklären Sie mit der Tabelle in Schritt 3 einer Kollegin, wo bei Copilot was wohnt und wo sie es morgen wiederfindet.</p>
-      <p class="fallback"><strong>Ausweg:</strong> Kein Agent vorhanden? Vergleichen Sie einen neuen Chat mit einem Chat, in dem Ihre Rolle als erste Nachricht steht.</p>
-      <p class="pruef">So sieht es aus, wenn es geklappt hat: Sie können für beide Antworten sagen, woher Copilot sein Wissen hatte: aus der Personalisierung, aus einem früheren Chat, aus dem Wissen des Agenten oder aus gar nichts.</p>
     </div></section>
 <section class="lektion" data-id="t2-03" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="t2-03">
       <div class="exercise-number">Übung 3</div>
@@ -1026,63 +1060,21 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
 Höchstens 300 Wörter.</div>
       <p><strong>Sie</strong> lesen in Ruhe, ohne zu tippen. Dann wählen Sie eine Aufgabe.</p>
       <details>
-        <summary>Schritt 2: Ins Zeitformular (aufklappen)</summary>
+        <summary>Schritt 2: Ihre Aufgabe ins Zeitformular (aufklappen)</summary>
         <div class="collapsible-content">
-      <p>Das Zeitformular öffnen Sie hier: <a href="https://form.jotform.com/263174738378066" target="_blank" rel="noopener" style="color:var(--gold);">Zeitformular</a>. Jetzt füllen Sie Kennung und Aufgabe aus. Die Minuten sind freiwillig, eine Schätzung nach Gefühl genügt. Die anderen Felder bleiben bis zum Nachmittag leer:</p>
-      <div class="prompt-block">Kennung: Ihr Vorname und der erste Buchstabe Ihres Nachnamens, wie im KI-Check
-Aufgabe in einem Satz (nicht Ihre Rolle): [ein Satz]
-Minuten pro Durchgang vorher, ohne Copilot-Agent (freiwillig): [Zahl]</div>
-      <p>Noch vor dem Mittag stoppen wir dieselbe Aufgabe mit Ihrem Agenten.</p>
+      <ol><li>Öffnen Sie das <a href="https://form.jotform.com/263174738378066" target="_blank" rel="noopener" style="color:var(--gold);">Zeitformular</a>.</li><li><strong>Kennung:</strong> Ihr Vorname und der erste Buchstabe Ihres Nachnamens, wie im KI-Check.</li><li><strong>Aufgabe:</strong> die eine Aufgabe in einem Satz, zum Beispiel „Wochenbericht an den Objektkunden schreiben“. Nicht Ihre Rolle.</li><li><strong>Minuten vorher:</strong> wie lange die Aufgabe heute ohne Agent dauert, nach Gefühl. Das Feld ist freiwillig.</li><li>Die übrigen Felder bleiben leer. Ganz unten auf „Absenden“ klicken.</li></ol>
+      <p>Vor dem Mittag stoppen Sie dieselbe Aufgabe mit Ihrem Agenten. Die Minuten mit Agent tragen Sie am Nachmittag in der Zeitbilanz ein.</p>
         </div>
       </details>
       <details>
-        <summary>Schritt 3: Premium, nur mit OK Ihrer IT (aufklappen)</summary>
+        <summary>Schritt 3: Ihre gesendeten Mails (Premium, Ihre IT hat zugestimmt) (aufklappen)</summary>
         <div class="collapsible-content">
       <div class="prompt-block">Schau dir meine gesendeten Mails der letzten zwei Wochen an. Welche Art von Mail schreibe ich immer wieder? Nenne Typen, keine Namen von Personen, keine Inhalte einzelner Mails.</div>
         </div>
       </details>
-      <p class="profispur"><strong>Stufe 2:</strong> Lassen Sie Copilot zu jeder vorgeschlagenen Aufgabe schätzen, wie oft sie im Monat anfällt, und halten Sie die Zahl gegen Ihre eigene Erfahrung.<br><strong>Stufe 3:</strong> Premium und nur mit OK Ihrer IT: Lassen Sie Copilot Ihre gesendeten Mails nach wiederkehrenden Typen durchsehen (Prompt in Schritt 3).</p>
+      <p class="profispur"><strong>Stufe 2:</strong> Lassen Sie Copilot zu jeder vorgeschlagenen Aufgabe schätzen, wie oft sie im Monat anfällt, und halten Sie die Zahl gegen Ihre eigene Erfahrung.<br><strong>Stufe 3:</strong> Mit Premium, Ihre IT hat zugestimmt: Lassen Sie Copilot Ihre gesendeten Mails nach wiederkehrenden Typen durchsehen (Prompt in Schritt 3).</p>
       <p class="fallback"><strong>Ausweg:</strong> Weiß Copilot nichts über Sie, weil das Gedächtnis aus ist? Schreiben Sie unter den Prompt „Hier ist meine letzte Arbeitswoche in Stichpunkten:“ und nehmen Sie Ihre Notizen von gestern.</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Ihre Aufgabe steht in einem Satz im Zeitformular. Die Minuten sind freiwillig.</p>
-    </div></section>
-<section class="lektion" data-id="t2-04" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="t2-04">
-      <div class="exercise-number">Übung 4</div>
-      <h3>Bitte oder Regel? Zwei Dienstpläne</h3>
-      <p class="subtitle">Zwei Dienstpläne, dieselbe Frage: Bitte oder Regel? Warum die Farben der Folie gestern nicht gestimmt haben, zeige ich gleich danach in der Demo.</p>
-      <div class="rahmen">
-        <div><b>Ziel</b>Sehen, wann eine Bitte reicht und wann nicht.</div>
-        <div><b>Abgabe</b>Auf Zuruf: Wie viele Treffer sind unsicher?</div>
-      </div>
-      <p class="fallback"><strong>Daten:</strong> Die Musterdatei M6 hat erfundene Namen und Personalnummern. Ihre echten Dienstpläne gehen auch, Sie arbeiten im Copilot-Firmenkonto von ÖWD.</p>
-      <p>Laden Sie die <a href="/oewd16112026/material/M6-Dienstplan-alt-neu.xlsx" target="_blank" rel="noopener" style="color:var(--gold);">Musterdatei M6 Dienstplan (.xlsx)</a> in Ihren Ordner „Copilot-Training“. Copilot in Excel braucht die Datei in OneDrive, automatisches Speichern an und automatische Berechnung.</p>
-      <p class="step-label">Schritt 1: Die Bitte</p>
-      <p>Öffnen Sie M6 in Excel und dort Copilot. Ohne Copilot in Excel: Datei im Copilot Chat anhängen.</p>
-      <div class="prompt-block">Lies beide Dienstpläne und ordne zu.</div>
-      <details>
-        <summary>Schritt 2: Die Regel (aufklappen)</summary>
-        <div class="collapsible-content">
-      <p>Neuer Chat, dieselbe Datei:</p>
-      <div class="prompt-block">Schreib mir eine Excel-Formel, die die Personalnummern alt und neu nach Namen vergleicht, und markiere alle unsicheren Treffer.</div>
-      <p>Vergleichen Sie: Wo hat Schritt 1 still zugeordnet, wo zeigt Ihnen Schritt 2 eine Unsicherheit?</p>
-        </div>
-      </details>
-      <details>
-        <summary>Die Leiter: Wer sorgt dafür, dass es passiert? (aufklappen)</summary>
-        <div class="collapsible-content">
-      <table class="compare-table">
-      <tr><th style="width:30%">Sprosse</th><th>Was es heißt</th></tr>
-      <tr><td>1 Bitte</td><td>Sie sagen es, jedes Mal.</td></tr>
-      <tr><td>2 Aufgeschrieben</td><td>In den Anweisungen des Agenten. Copilot liest mit und kann überlesen.</td></tr>
-      <tr><td>3 Geprüft</td><td>Ein Prüfpunkt: Copilot oder ein Mensch hakt ab.</td></tr>
-      <tr><td>4 Eingebaut</td><td>Die Regel steckt im Material, zum Beispiel eine Vorlage, die schon die Hausfarbe hat.</td></tr>
-      <tr><td>5 Automatisch</td><td>Ein Skript oder eine Maschine erledigt es.</td></tr>
-      </table>
-      <p>Eine Bitte kann man überlesen. Eine Vorlage nicht. Steht „immer“ oder „nie“ davor und ist ein Fehler teuer, darf es keine Bitte bleiben.</p>
-        </div>
-      </details>
-      <p class="profispur"><strong>Stufe 2:</strong> Lassen Sie Copilot alle unsicheren Zeilen in einer eigenen Spalte „prüfen“ ausgeben und kontrollieren Sie zwei davon von Hand.<br><strong>Stufe 3:</strong> Welche Regel aus Ihrem Alltag ist so teuer, dass sie in eine Vorlage gehört und keine Bitte bleiben darf? Schreiben Sie sie auf.</p>
-      <p class="fallback"><strong>Ausweg:</strong> Kein Copilot in Excel? Hängen Sie die Datei im Copilot Chat an, lassen Sie sich dort die Formel schreiben und setzen Sie sie selbst in Excel ein.</p>
-      <p class="pruef">So sieht es aus, wenn es geklappt hat: Sie sehen, welche Zeilen keine eindeutige Zuordnung haben, und welcher der beiden Wege Ihnen das gezeigt hat.</p>
     </div></section>
 <section class="lektion" data-id="haus-html" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="haus-html">
       <div class="exercise-number">Demo</div>
@@ -1127,7 +1119,7 @@ Gib mir den vollständigen Code in einem Block.</div>
       </details>
     </div></section>
 <section class="lektion" data-id="t2-06" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="t2-06">
-      <div class="exercise-number">Übung 5</div>
+      <div class="exercise-number">Übung 4</div>
       <h3>Ihr Copilot-Agent für Ihre Aufgabe, Version 1</h3>
       <p class="subtitle">Ihre Aufgabe aus dem Audit wird ein Agent: Interview, bauen, Regeln prüfen, einbauen, zweimal laufen lassen, einmal gestoppt.</p>
       <div class="rahmen">
@@ -1192,6 +1184,14 @@ description: Schreibt den Wochenbericht für einen Objektkunden aus Stichpunkten
         </div>
       </details>
       <details>
+        <summary>Für Schnelle: der Skill-Bauer von Anthropic, fertig für Copilot (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Anthropic, die Firma hinter Claude, hat einen Skill veröffentlicht, der Skills baut, prüft und verbessert. Ich habe ihn für Copilot gekürzt, denn Copilot nimmt höchstens 30.000 Zeichen. Download: <a href="/oewd16112026/material/skill-creator-copilot.zip" target="_blank" rel="noopener" style="color:var(--gold);">Skill-Bauer für Copilot (.zip)</a>. Nur mit Premium und Skills.</p>
+      <ol><li>Agent öffnen, bearbeiten, Bereich „Skills“, Pfeil neben „Add“, „Upload“, die ZIP wählen.</li><li>Im Agenten schreiben: „Arbeite mit skill-creator: Bau mir einen Skill für [Ihre Aufgabe].“</li><li>Der Skill ist auf Englisch geschrieben. Greift er nicht von selbst, nennen Sie ihn beim Namen.</li></ol>
+      <p>Zwei Dinge prüft Copilot beim Hochladen jeder SKILL.md: höchstens 30.000 Zeichen. Und steht in der Beschreibung ein Doppelpunkt, gehört die ganze Beschreibung in Anführungszeichen.</p>
+        </div>
+      </details>
+      <details>
         <summary>Schritt 5: Lauf 1, neuer Chat in Ihrem Agenten (aufklappen)</summary>
         <div class="collapsible-content">
       <div class="prompt-block">Hier ist mein Input für diesmal: [einfügen]. Arbeite nach meiner Anleitung [Name].</div>
@@ -1246,7 +1246,7 @@ description: Schreibt den Wochenbericht für einen Objektkunden aus Stichpunkten
 
     </div></section>
 <section class="lektion" data-id="t2-08" data-teil="nm" data-teil-name="Tag 2: Nachmittag" hidden><div class="exercise" data-ex="t2-08">
-      <div class="exercise-number">Übung 6</div>
+      <div class="exercise-number">Übung 5</div>
       <h3>Der Prüfer: Ihr Prüfprompt</h3>
       <p class="subtitle">In einem Ergebnis von heute Vormittag steckt ein Fehler. Ich zeige es vorne am Beamer. Wer findet ihn? Danach bauen Sie einen Prüfer, der so etwas findet.</p>
       <div class="rahmen">
@@ -1299,7 +1299,7 @@ Gesamturteil: „vollständig“, wenn alle vier erfüllt sind. „Nachbessern�
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Der Test an der Musterdatei M3 ergibt „nachbessern“ oder „nicht brauchbar“, zu jedem Kriterium steht ein Zitat oder „nicht im Dokument“, und die fehlende Aufbewahrung ist erkannt.</p>
     </div></section>
 <section class="lektion" data-id="t2-09" data-teil="nm" data-teil-name="Tag 2: Nachmittag" hidden><div class="exercise" data-ex="t2-09">
-      <div class="exercise-number">Übung 7</div>
+      <div class="exercise-number">Übung 6</div>
       <h3>Ihr Rechercheagent in Copilot</h3>
       <p class="subtitle">Derselbe Auftrag erst als einzelner Prompt, dann an einen Agenten. Der Unterschied zeigt sich beim zweiten Auftrag.</p>
       <div class="rahmen">
@@ -1435,7 +1435,7 @@ Erfinde nichts. Was du nicht prüfen kannst, schreibst du als „nicht prüfbar�
       <p>Das ist ein Agent, der handelt. Ihr Copilot-Agent berät. Handelnde Agenten bei Microsoft baut Ihre IT mit Copilot Studio.</p>
     </div></section>
 <section class="lektion" data-id="t2-11" data-teil="nm" data-teil-name="Tag 2: Nachmittag" hidden><div class="exercise" data-ex="t2-11">
-      <div class="exercise-number">Übung 8</div>
+      <div class="exercise-number">Übung 7</div>
       <h3>Copilot-Team: eine Reklamation, drei Agenten</h3>
       <p class="subtitle">Sie sind die Teamleitung. Drei Agenten arbeiten nacheinander, und Sie geben jedes Ergebnis von Hand weiter.</p>
       <div class="rahmen">
@@ -1505,12 +1505,12 @@ Sende nichts. Alles bleibt Entwurf.</div>
       <p>Bei mehreren KI-Agenten geht selten etwas beim Arbeiten verloren. Es geht bei der Übergabe verloren. Vergleichen Sie Ihren Tipp vom Zettel mit dem Prüfbericht.</p>
         </div>
       </details>
-      <p class="profispur"><strong>Stufe 2:</strong> Mit Premium-Lizenz: Geben Sie dem Prüfer die Hausregeln M2 als Wissen mit und vergleichen Sie seinen Befund mit dem ersten Lauf.<br><strong>Stufe 3:</strong> Agent 2 bekommt Ihre Anleitung aus Übung 5 als Anweisung. Was ändert sich am Prüfbericht?</p>
+      <p class="profispur"><strong>Stufe 2:</strong> Mit Premium-Lizenz: Geben Sie dem Prüfer die Hausregeln M2 als Wissen mit und vergleichen Sie seinen Befund mit dem ersten Lauf.<br><strong>Stufe 3:</strong> Agent 2 bekommt Ihre Anleitung aus Übung 4 als Anweisung. Was ändert sich am Prüfbericht?</p>
       <p class="fallback"><strong>Ausweg:</strong> Die @-Erwähnung geht nicht, oder Sie können keine Agenten anlegen? Drei Chats nebeneinander, die Anweisungen jeweils als erste Nachricht, Übergabe per Kopieren. Gleiches Ergebnis, mehr Klicks.</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Der Prüfbericht zeigt alle acht Hausregeln mit „erfüllt“ und Zitat, oder Version 2 des Entwurfs liegt vor, nachdem der Prüfer Einwände hatte.</p>
     </div></section>
 <section class="lektion" data-id="t2-12" data-teil="nm" data-teil-name="Tag 2: Nachmittag" hidden><div class="exercise" data-ex="t2-12">
-      <div class="exercise-number">Übung 9</div>
+      <div class="exercise-number">Übung 8</div>
       <h3>Teilen und Toolbox</h3>
       <p class="subtitle">Als Champion geben Sie weiter, was bei Ihnen geprüft funktioniert. Jede Person legt genau einen Eintrag in die gemeinsame Ablage.</p>
       <div class="rahmen">
@@ -1518,7 +1518,7 @@ Sende nichts. Alles bleibt Entwurf.</div>
         <div><b>Abgabe</b>Auf Zuruf: Name und Zweck Ihres Eintrags.</div>
       </div>
       <p class="step-label">Schritt 1: Ihren Eintrag beschreiben</p>
-      <p>Nehmen Sie einen getesteten Prompt oder Agenten aus Übung 5 oder 6. Füllen Sie die Zeilen aus:</p>
+      <p>Nehmen Sie einen getesteten Prompt oder Agenten aus Übung 4 oder 5. Füllen Sie die Zeilen aus:</p>
       <div class="prompt-block">Name: [kurz]
 Zweck: [wofür, in einem Satz]
 Prompt oder Agent: [Text oder Name des Agenten]
@@ -1553,7 +1553,7 @@ Getestet am: [Datum], von: [Ihr Name oder Ihre Rolle]</div>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Ihr Prompt oder Agent liegt in der gemeinsamen Ablage, mit Zweck, Prüfpunkt und Datum.</p>
     </div></section>
 <section class="lektion" data-id="ttt2" data-teil="nm" data-teil-name="Tag 2: Nachmittag" hidden><div class="exercise" data-ex="ttt2">
-      <div class="exercise-number">Übung 10</div>
+      <div class="exercise-number">Übung 9</div>
       <h3>Ihre erste Einheit für Kolleginnen</h3>
       <p class="subtitle">Heute sind Sie dran. Erst planen Sie mit Copilot eine Einheit von 30 Minuten, dann führen Sie einmal zu zweit, ohne selbst zu tippen.</p>
       <div class="sozialform">Schritt 1 allein im eigenen Chat. Die Übung im Aufklapper machen Sie zu zweit.</div>
@@ -1589,7 +1589,7 @@ Getestet am: [Datum], von: [Ihr Name oder Ihre Rolle]</div>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Ihr Ablauf sagt, dass die Kollegin selbst tippt, und jede Person hat einmal geführt, ohne selbst zu tippen.</p>
     </div></section>
 <section class="lektion" data-id="t2-13" data-teil="nm" data-teil-name="Tag 2: Nachmittag" hidden><div class="exercise" data-ex="t2-13">
-      <div class="exercise-number">Übung 11</div>
+      <div class="exercise-number">Übung 10</div>
       <h3>Zeitbilanz und Agent-Karte</h3>
       <p class="subtitle">Minuten vorher, Minuten nachher, und ein Satz, wann Sie Ihren Agenten ab morgen starten.</p>
       <div class="rahmen">
@@ -1636,7 +1636,7 @@ Getestet am: [Datum], von: [Ihr Name oder Ihre Rolle]</div>
       <p>Copilot im ÖWD-Konto ist Ihre erste Spur. Eine KI ohne Internet im eigenen Haus wäre eine zweite, für das Wenige, das selbst dort nicht hindarf. Welche Aufgabe aus Ihrem Bereich gehört in die zweite Spur? Ein Satz genügt, er kommt gleich in Ihren Fahrplan. ____</p>
     </div></section>
 <section class="lektion" data-id="t2-14" data-teil="nm" data-teil-name="Tag 2: Nachmittag" hidden><div class="exercise" data-ex="t2-14">
-      <div class="exercise-number">Übung 12</div>
+      <div class="exercise-number">Übung 11</div>
       <h3>Ihr 90-Tage-Fahrplan als Champion</h3>
       <p class="subtitle">Ein Agent, der nach dem Training nicht im Kalender steht, läuft nicht. Drei Stufen, jede mit Termin, und Ihre Kolleginnen kommen in Stufe 2 dazu.</p>
       <div class="rahmen">
@@ -1683,7 +1683,7 @@ Wer prüft: [Rolle]</div>
       <details>
         <summary>Schritt 3: Der erste Termin, jetzt (aufklappen)</summary>
         <div class="collapsible-content">
-      <p>Öffnen Sie Outlook und tragen Sie den Termin aus Stufe 1 ein, mit dem Wenn-dann-Satz aus Übung 11 im Text.</p>
+      <p>Öffnen Sie Outlook und tragen Sie den Termin aus Stufe 1 ein, mit dem Wenn-dann-Satz aus Übung 10 im Text.</p>
         </div>
       </details>
       <p class="profispur"><strong>Stufe 2:</strong> Tragen Sie in Stufe 2 die Rolle der Kollegin oder des Kollegen ein, die Ihren Agenten als Erste mitnutzt.<br><strong>Stufe 3:</strong> Planen Sie Stufe 3 als Ablauf aus zwei Agenten und Ihrem Prüfer, so wie im Copilot-Team heute Nachmittag.</p>
@@ -1700,7 +1700,7 @@ Wer prüft: [Rolle]</div>
         <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht?</strong> Am Firmenrechner kommt das vor. Scannen Sie den QR-Code mit dem Handy, oder <a href="https://form.jotform.com/263174826000046" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p>
       </div>
       <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was Sie ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
-      <iframe id="Form-FORM_KICHECK-18" data-formular="FORM_KICHECK" src="https://form.jotform.com/263174826000046" title="Ihr KI-Check zum Abschluss" style="width:100%; height:2600px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <iframe id="Form-FORM_KICHECK-19" data-formular="FORM_KICHECK" src="https://form.jotform.com/263174826000046" title="Ihr KI-Check zum Abschluss" style="width:100%; height:2600px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
       <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/263174826000046" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
 
@@ -1714,7 +1714,7 @@ Wer prüft: [Rolle]</div>
         <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht?</strong> Am Firmenrechner kommt das vor. Scannen Sie den QR-Code mit dem Handy, oder <a href="https://form.jotform.com/263174267622055" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p>
       </div>
       <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was Sie ganz <strong>UNTEN IM FORMULAR</strong> mit „Senden“ abschicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
-      <iframe id="Form-FORM_FEEDBACK-19" data-formular="FORM_FEEDBACK" src="https://form.jotform.com/263174267622055" title="Ihr Feedback" style="width:100%; height:2200px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <iframe id="Form-FORM_FEEDBACK-20" data-formular="FORM_FEEDBACK" src="https://form.jotform.com/263174267622055" title="Ihr Feedback" style="width:100%; height:2200px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
       <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Senden“ klicken.</p>
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/263174267622055" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
 
@@ -1842,7 +1842,7 @@ Erstelle jetzt die Lösung basierend auf diesen Fakten. Nutze konsequent den Sti
 </div>
 <div class="nav"><div class="form-hinweis" id="form-hinweis" role="alert" hidden><div class="form-hinweis-innen"><p><strong>Haben Sie im Formular ganz unten auf „Absenden“ oder „Senden“ geklickt?</strong> Erst dann sind Ihre Antworten gespeichert.</p><div class="reihe"><button type="button" class="knopf los" id="form-ja">Ja, abgeschickt, weiter</button><button type="button" class="knopf" id="form-zurueck">Zurück zum Formular</button></div></div></div><div class="nav-innen"><button class="knopf" id="prev" type="button">← Zurück</button><button class="knopf los" id="next" type="button">Erledigt, weiter →</button></div></div>
 <script>
-const M = [{"id": "willkommen", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "", "art": "Start", "opt": false, "titel": "Willkommen"}, {"id": "kicheck", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check"}, {"id": "t2-01", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "1", "art": "Übung", "opt": false, "titel": "Wiederfinden: Ihr Agent von gestern"}, {"id": "t2-02", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "2", "art": "Übung", "opt": false, "titel": "Wo gilt was: vier Ebenen in Copilot"}, {"id": "t2-03", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "3", "art": "Übung", "opt": false, "titel": "Das Audit: Was gebe ich Copilot immer wieder?"}, {"id": "t2-04", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "4", "art": "Übung", "opt": false, "titel": "Bitte oder Regel? Zwei Dienstpläne"}, {"id": "haus-html", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "", "art": "Demo", "opt": false, "titel": "Das Haus aus dem Foto"}, {"id": "t2-06", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "5", "art": "Übung", "opt": false, "titel": "Ihr Copilot-Agent für Ihre Aufgabe, Version 1"}, {"id": "mittag", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "", "art": "Pause", "opt": false, "titel": "Mahlzeit, und wie es weitergeht"}, {"id": "t2-08", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "6", "art": "Übung", "opt": false, "titel": "Der Prüfer: Ihr Prüfprompt"}, {"id": "t2-09", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "7", "art": "Übung", "opt": false, "titel": "Ihr Rechercheagent in Copilot"}, {"id": "claude-chrome", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "", "art": "Demo", "opt": false, "titel": "Ein Agent, der handelt"}, {"id": "t2-11", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "8", "art": "Übung", "opt": false, "titel": "Copilot-Team: eine Reklamation, drei Agenten"}, {"id": "t2-12", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "9", "art": "Übung", "opt": false, "titel": "Teilen und Toolbox"}, {"id": "ttt2", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "10", "art": "Übung", "opt": false, "titel": "Ihre erste Einheit für Kolleginnen"}, {"id": "t2-13", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "11", "art": "Übung", "opt": false, "titel": "Zeitbilanz und Agent-Karte"}, {"id": "lokale-ki", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "", "art": "Demo", "opt": false, "titel": "KI ohne Internet"}, {"id": "t2-14", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "12", "art": "Übung", "opt": false, "titel": "Ihr 90-Tage-Fahrplan als Champion"}, {"id": "kicheck-ende", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "", "art": "Zum Schluss", "opt": false, "titel": "Ihr KI-Check zum Abschluss"}, {"id": "feedback", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback und Ihr Satz in eigenen Worten"}, {"id": "weiter", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "", "art": "Danach", "opt": false, "titel": "Ihr Selbsttest: zehn Arbeitstage, drei Zahlen"}, {"id": "t2-05", "teil": "res", "teilname": "Tag 2: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Word-Analyse: vom guten Beispiel zur Regelliste"}, {"id": "bonus-skill-wahl", "teil": "res", "teilname": "Tag 2: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Ihr zweiter Agent nach Wahl"}, {"id": "bonus-tribunal", "teil": "res", "teilname": "Tag 2: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Das Tribunal: eine Entscheidung, vier Hüte"}, {"id": "bonus-experte", "teil": "res", "teilname": "Tag 2: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Modelling of Excellence"}];
+const M = [{"id": "willkommen", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "", "art": "Start", "opt": false, "titel": "Willkommen"}, {"id": "kicheck", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "", "art": "Check", "opt": false, "titel": "Ihr KI-Check"}, {"id": "einstieg-folien", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "", "art": "Demo", "opt": false, "titel": "Dieselbe Folie, dreimal"}, {"id": "formate", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "1", "art": "Übung", "opt": false, "titel": "Welches Format versteht die Maschine?"}, {"id": "t2-01", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "2", "art": "Übung", "opt": false, "titel": "Wiederfinden: Ihr Agent von gestern"}, {"id": "t2-02", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "", "art": "Info", "opt": false, "titel": "Wiederholung: Wo gilt was"}, {"id": "t2-03", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "3", "art": "Übung", "opt": false, "titel": "Das Audit: Was gebe ich Copilot immer wieder?"}, {"id": "haus-html", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "", "art": "Demo", "opt": false, "titel": "Das Haus aus dem Foto"}, {"id": "t2-06", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "4", "art": "Übung", "opt": false, "titel": "Ihr Copilot-Agent für Ihre Aufgabe, Version 1"}, {"id": "mittag", "teil": "vm", "teilname": "Tag 2: Vormittag", "nr": "", "art": "Pause", "opt": false, "titel": "Mahlzeit, und wie es weitergeht"}, {"id": "t2-08", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "5", "art": "Übung", "opt": false, "titel": "Der Prüfer: Ihr Prüfprompt"}, {"id": "t2-09", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "6", "art": "Übung", "opt": false, "titel": "Ihr Rechercheagent in Copilot"}, {"id": "claude-chrome", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "", "art": "Demo", "opt": false, "titel": "Ein Agent, der handelt"}, {"id": "t2-11", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "7", "art": "Übung", "opt": false, "titel": "Copilot-Team: eine Reklamation, drei Agenten"}, {"id": "t2-12", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "8", "art": "Übung", "opt": false, "titel": "Teilen und Toolbox"}, {"id": "ttt2", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "9", "art": "Übung", "opt": false, "titel": "Ihre erste Einheit für Kolleginnen"}, {"id": "t2-13", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "10", "art": "Übung", "opt": false, "titel": "Zeitbilanz und Agent-Karte"}, {"id": "lokale-ki", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "", "art": "Demo", "opt": false, "titel": "KI ohne Internet"}, {"id": "t2-14", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "11", "art": "Übung", "opt": false, "titel": "Ihr 90-Tage-Fahrplan als Champion"}, {"id": "kicheck-ende", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "", "art": "Zum Schluss", "opt": false, "titel": "Ihr KI-Check zum Abschluss"}, {"id": "feedback", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "", "art": "Feedback", "opt": false, "titel": "Ihr Feedback und Ihr Satz in eigenen Worten"}, {"id": "weiter", "teil": "nm", "teilname": "Tag 2: Nachmittag", "nr": "", "art": "Danach", "opt": false, "titel": "Ihr Selbsttest: zehn Arbeitstage, drei Zahlen"}, {"id": "t2-05", "teil": "res", "teilname": "Tag 2: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Word-Analyse: vom guten Beispiel zur Regelliste"}, {"id": "bonus-skill-wahl", "teil": "res", "teilname": "Tag 2: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Ihr zweiter Agent nach Wahl"}, {"id": "bonus-tribunal", "teil": "res", "teilname": "Tag 2: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Das Tribunal: eine Entscheidung, vier Hüte"}, {"id": "bonus-experte", "teil": "res", "teilname": "Tag 2: Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Modelling of Excellence"}];
 const KOHORTE = 'oewd16112026-tag2';
 const GRUPPEN = true;
 const WACHE = true;
