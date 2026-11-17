@@ -883,7 +883,7 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
 @media print{.tema-knopf{display:none}}
   </style>
   <script>(function(){var h=document.documentElement,q=location.search,t=/[?&](hell|light|svetla)\b/.test(q)?'hell':/[?&](dunkel|dark|tmava)\b/.test(q)?'dunkel':null;try{t=t||localStorage.getItem('tema');if(t)localStorage.setItem('tema',t)}catch(e){}if(t==='hell')h.classList.add('hell')})();</script>
-<style>.tagwahl{display:flex;gap:8px;margin:14px 0 6px}.tagwahl a{flex:1;text-align:center;padding:9px 10px;border:1px solid var(--gold);border-radius:8px;color:var(--gold);text-decoration:none;font-weight:700;font-size:.92rem;line-height:1.2}.tagwahl a[aria-current="page"]{background:var(--gold);color:#141414}.tagwahl a:hover{background:rgba(212,160,23,.15)}.tagwahl a[aria-current="page"]:hover{background:var(--gold)}.schublade .tagwahl{margin:0 0 0 auto;flex:0 0 auto}.schublade .tagwahl a{flex:0 0 auto;padding:6px 10px;font-size:.85rem}@media (max-width:520px){.schublade #dstand{display:none}}</style></head>
+<style>.tagwahl{display:flex;gap:8px;margin:14px 0 6px}.tagwahl a{flex:1;text-align:center;padding:9px 10px;border:1px solid var(--gold);border-radius:8px;color:var(--gold);text-decoration:none;font-weight:700;font-size:.92rem;line-height:1.2}.tagwahl a[aria-current="page"]{background:var(--gold);color:#141414}.tagwahl a:hover{background:rgba(212,160,23,.15)}.tagwahl a[aria-current="page"]:hover{background:var(--gold)}.schublade .tagwahl{margin:0 54px 0 auto;flex:0 0 auto}.schublade .tagwahl a{flex:0 0 auto;padding:6px 10px;font-size:.85rem}@media (max-width:520px){.schublade #dstand{display:none}}</style><style>.dl-knopf{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;margin:4px 2px;border-radius:8px;background:var(--gold);color:#141414 !important;font-weight:700;text-decoration:none !important;line-height:1.25;font-size:.95rem}.dl-knopf::before{content:"\2193";font-weight:800}.dl-knopf:hover{background:var(--gold-light)}</style></head>
 <body>
 <div class="willkommen-bs" id="willkommen-bs" role="dialog" aria-modal="true" aria-labelledby="wk-text" hidden><div class="willkommen-karte"><img src="jakub-lachend.png" alt="Jakub Popluhar"><div class="willkommen-blase"><p id="wk-text">Herzlich willkommen zum Workshop „Microsoft 365 Copilot Champions: Praxistraining“. Dieses E-Learning begleitet uns durch alle Tage.</p></div><button type="button" class="knopf los" id="wk-weiter">Weiter</button></div></div>
 <div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Inhalt</button><nav class="tagwahl" aria-label="Tag wechseln"><a href="../tag1/kurs.html">Tag 1</a><a href="../tag2/kurs.html" aria-current="page">Tag 2</a></nav><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
@@ -985,7 +985,7 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
         </div>
       </details>
       <p class="profispur"><strong>Profispur:</strong> Fragen Sie Ihren Agenten: „Nenne mir die Regeln aus deinen Anweisungen als nummerierte Liste.“ Stimmt die Liste mit dem überein, was Sie gestern eingetragen haben?<br><strong>Profispur, schwer:</strong> Schreiben Sie eine Zeile auf, was Ihr Agent gestern Abend falsch gemacht hat. Daraus wird heute Nachmittag eine Regel.</p>
-      <p class="fallback"><strong>Ausweg:</strong> Agent nicht gefunden? Links auf „Agents“ klicken, die Liste klappt auf. Fehlt er ganz, legen Sie ihn mit der <a href="/oewd16112026/material/V2-Agent-Anweisung-Mein-OEWD-Assistent.docx" target="_blank" rel="noopener" style="color:var(--gold);">Vorlage V2</a> neu an.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Agent nicht gefunden? Links auf „Agents“ klicken, die Liste klappt auf. Fehlt er ganz, legen Sie ihn mit der <a class="dl-knopf" href="/oewd16112026/material/V2-Agent-Anweisung-Mein-OEWD-Assistent.docx" download target="_blank" rel="noopener">Vorlage V2</a> neu an.</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Ihr Agent ist offen, und Sie können sagen, ob er bei der Hausaufgabe getan hat, was in seinen Anweisungen steht.</p>
     </div></section>
 <section class="lektion" data-id="t2-02" data-teil="vm" data-teil-name="Tag 2: Vormittag" hidden><div class="exercise" data-ex="t2-02">
@@ -1046,7 +1046,7 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
         <summary>Weg 3 für Sie: der ÖWD-Folien-Skill (aufklappen)</summary>
         <div class="collapsible-content">
       <p>Damit Copilot die Farben nicht rät, bekommt er sie als Regel. Der Skill enthält die Farbcodes, die Schrift und die Logo-Regel der ÖWD-Vorlage, dazu einen Prüfpunkt.</p>
-      <ol><li>Laden Sie den Skill: <a href="/oewd16112026/material/Skill-OEWD-Folien.zip" target="_blank" rel="noopener" style="color:var(--gold);">ÖWD-Folien-Skill (.zip)</a>. Darin liegt eine einzige Datei, die SKILL.md.</li><li>In Cowork: links „Customize“, Reiter „Skills“, Pfeil neben „Add“, „Upload skill“. Oder in Ihrem Agenten: bearbeiten, „Skills“, Pfeil neben „Add“, „Upload“.</li><li>Testen:</li></ol>
+      <ol><li>Laden Sie den Skill: <a class="dl-knopf" href="/oewd16112026/material/Skill-OEWD-Folien.zip" download target="_blank" rel="noopener">ÖWD-Folien-Skill (.zip)</a>. Darin liegt eine einzige Datei, die SKILL.md.</li><li>In Cowork: links „Customize“, Reiter „Skills“, Pfeil neben „Add“, „Upload skill“. Oder in Ihrem Agenten: bearbeiten, „Skills“, Pfeil neben „Add“, „Upload“.</li><li>Testen:</li></ol>
       <div class="prompt-block">Bau mir drei Folien über unsere Reinigungsstandards für neue Mitarbeitende, im ÖWD-Design.</div>
       <ol><li>Entpacken Sie die ZIP und öffnen Sie die SKILL.md im Editor. So sehen Sie, was ein Skill ist: eine Textdatei mit Regeln. Ändern Sie eine Regel, laden Sie die SKILL.md neu hoch und testen Sie noch einmal.</li></ol>
         </div>
@@ -1193,7 +1193,7 @@ Höchstens 30.000 Zeichen. Gib mir die Datei SKILL.md zum Herunterladen. Geht da
       <details>
         <summary>Profispur: der Skill-Bauer von Anthropic, fertig für Copilot (aufklappen)</summary>
         <div class="collapsible-content">
-      <p>Anthropic, die Firma hinter Claude, hat einen Skill veröffentlicht, der Skills baut, prüft und verbessert. Ich habe ihn für Copilot gekürzt, denn Copilot nimmt höchstens 30.000 Zeichen. Download: <a href="/oewd16112026/material/skill-creator-copilot.zip" target="_blank" rel="noopener" style="color:var(--gold);">Skill-Bauer für Copilot (.zip)</a>. Nur mit Premium und Skills.</p>
+      <p>Anthropic, die Firma hinter Claude, hat einen Skill veröffentlicht, der Skills baut, prüft und verbessert. Ich habe ihn für Copilot gekürzt, denn Copilot nimmt höchstens 30.000 Zeichen. Download: <a class="dl-knopf" href="/oewd16112026/material/skill-creator-copilot.zip" download target="_blank" rel="noopener">Skill-Bauer für Copilot (.zip)</a>. Nur mit Premium und Skills.</p>
       <ol><li>Agent öffnen, bearbeiten, Bereich „Skills“, Pfeil neben „Add“, „Upload“, die ZIP wählen.</li><li>Im Agenten schreiben: „Arbeite mit skill-creator: Bau mir einen Skill für [Ihre Aufgabe].“</li><li>Der Skill ist auf Englisch geschrieben. Greift er nicht von selbst, nennen Sie ihn beim Namen.</li></ol>
         </div>
       </details>
@@ -1303,7 +1303,7 @@ Erfinde nichts. Was du nicht prüfen kannst, schreibst du als „nicht prüfbar�
         <summary>In Cowork: der Rechercheagent als Skill (aufklappen)</summary>
         <div class="collapsible-content">
       <p>In Cowork legen Sie keinen eigenen Agenten an. Cowork ist selbst der Agent und arbeitet mit Skills. Ihr Rechercheagent wird dort ein Skill. Eine eingebaute Tiefenrecherche („Deep Research“) bringt Cowork schon mit.</p>
-      <ol><li>Laden Sie den fertigen Skill: <a href="/oewd16112026/material/Skill-Rechercheagent.zip" target="_blank" rel="noopener" style="color:var(--gold);">Skill Rechercheagent (.zip)</a>. Darin liegt eine SKILL.md mit denselben Anweisungen wie in Schritt 2.</li><li>In Cowork links „Customize“, Reiter „Skills“, Pfeil neben „Add“, „Upload skill“, die ZIP wählen.</li><li>Neue Unterhaltung, dann der Auftrag aus Schritt 1. Rechts in der Seitenleiste sehen Sie unter „Skills“, ob er geladen wurde.</li></ol>
+      <ol><li>Laden Sie den fertigen Skill: <a class="dl-knopf" href="/oewd16112026/material/Skill-Rechercheagent.zip" download target="_blank" rel="noopener">Skill Rechercheagent (.zip)</a>. Darin liegt eine SKILL.md mit denselben Anweisungen wie in Schritt 2.</li><li>In Cowork links „Customize“, Reiter „Skills“, Pfeil neben „Add“, „Upload skill“, die ZIP wählen.</li><li>Neue Unterhaltung, dann der Auftrag aus Schritt 1. Rechts in der Seitenleiste sehen Sie unter „Skills“, ob er geladen wurde.</li></ol>
       <p>Dieselbe ZIP passt auch in einen Copilot-Agenten mit Skills: Agent bearbeiten, „Skills“, Pfeil neben „Add“, „Upload“. Cowork ist bei ÖWD freigegeben und wird nach Nutzung abgerechnet.</p>
         </div>
       </details>
@@ -1359,7 +1359,8 @@ Erfinde nichts. Was du nicht prüfen kannst, schreibst du als „nicht prüfbar�
       <tr><th style="width:30%">Vorher (rein)</th><th style="width:34%">Nachher (raus)</th><th>Fertig, wenn</th></tr>
       <tr><td>M1 Reklamationsmail, M2 Hausregeln</td><td>1 Faktenblatt · 2 Antwortentwurf · 3 Prüfbericht</td><td>der Prüfbericht alle 8 Hausregeln mit „erfüllt“ und Zitat zeigt, oder Version 2 nach dem Einwand des Prüfers vorliegt</td></tr>
       </table>
-      <p>Die Anweisungen aller Agenten von heute liegen auch als Datei bereit: <a href="/oewd16112026/material/Agenten-Anweisungen-Tag-2.docx" target="_blank" rel="noopener" style="color:var(--gold);">Agenten-Anweisungen (.docx)</a>. Abtippen müssen Sie nichts. Die Musterdateien liegen in Ihrem Ordner „Copilot-Training“ oder hier: <a href="/oewd16112026/material/M1-Reklamation-Reinigung.docx" target="_blank" rel="noopener" style="color:var(--gold);">M1 Reklamation (.docx)</a> und <a href="/oewd16112026/material/M2-Hausregeln-Kundenkommunikation.docx" target="_blank" rel="noopener" style="color:var(--gold);">M2 Hausregeln (.docx)</a>.</p>
+      <p><strong>Das brauchen Sie:</strong> <a class="dl-knopf" href="/oewd16112026/material/Agenten-Anweisungen-Tag-2.docx" download target="_blank" rel="noopener">Agenten-Anweisungen (.docx)</a> <a class="dl-knopf" href="/oewd16112026/material/M1-Reklamation-Reinigung.docx" download target="_blank" rel="noopener">M1 Reklamation (.docx)</a> <a class="dl-knopf" href="/oewd16112026/material/M2-Hausregeln-Kundenkommunikation.docx" download target="_blank" rel="noopener">M2 Hausregeln (.docx)</a></p>
+      <p>In der Word-Datei stehen die Anweisungen der drei Agenten zum Kopieren. M1 und M2 liegen auch in Ihrem Ordner „Copilot-Training“.</p>
       <p class="step-label">Schritt 1: Ihre Vorhersage, dann Agent 1 anlegen</p>
       <p>Auf den Zettel, eine Minute: Welche Hausregel wird der erste Entwurf brechen?</p>
       <p>Dann ein neuer Agent mit dem Namen <strong>Faktenblatt</strong> und diesen Anweisungen:</p>
@@ -1563,7 +1564,7 @@ Sende nichts. Alles bleibt Entwurf.</div>
       <div class="exercise-number">Bonus</div>
       <h3>Word-Analyse: vom guten Beispiel zur Regelliste</h3>
       <p class="subtitle">Ihre Vorlage kennt jede Regel: Schrift, Farbe, Abstand. Copilot schreibt sie auf, mit Fundstelle.</p>
-      <p>Keine eigene Vorlage? Laden Sie die <a href="/oewd16112026/material/M5-Vorlage-Kundenbericht.docx" target="_blank" rel="noopener" style="color:var(--gold);">Musterdatei M5 Kundenbericht (.docx)</a> in Ihren Ordner „Copilot-Training“.</p>
+      <p>Keine eigene Vorlage? Laden Sie die <a class="dl-knopf" href="/oewd16112026/material/M5-Vorlage-Kundenbericht.docx" download target="_blank" rel="noopener">Musterdatei M5 Kundenbericht (.docx)</a> in Ihren Ordner „Copilot-Training“.</p>
       <p class="step-label">Schritt 1: Datei anhängen, Regeln auslesen (neuer Chat)</p>
       <p><strong>Sie</strong> legen die Vorlage in OneDrive und hängen sie über das Plus links im Eingabefeld oder „/“ an. <strong>Copilot</strong> liest. Copilot sieht Formatierung oft nur teilweise, rechnen Sie mit mehr „unsicher“.</p>
       <div class="prompt-block">Im Anhang ist unsere Word-Vorlage. Lies sie als Datei aus, nicht nur als Text: Formatvorlagen, Seiteneinstellungen, Kopf- und Fußzeile, Tabellen.
