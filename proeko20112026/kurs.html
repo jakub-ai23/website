@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI za pracovným stolom, modul 2 · e-learning · PROEKO</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <!-- ERZEUGT von ~/.claude/skills/elearning-seite/scripts/bau.py aus der Hülle. Inhalt in delivery/<Training>/elearning/ ändern, dann neu bauen. Nicht von Hand pflegen. -->
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --ink: 255,255,255;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* HEADER */
+    .site-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+
+    .logo { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: var(--white); text-decoration: none; }
+    .logo:hover { color: var(--white); }
+    .logo span { color: var(--gold); }
+
+    .back-link {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    /* MAIN */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero p { font-size: 0.95rem; color: var(--white-muted); }
+
+    /* SECTION DIVIDERS */
+    .section-divider {
+      text-align: center;
+      margin: 56px 0 40px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* EXERCISE CARDS */
+    .exercise {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .exercise-number {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .exercise h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .exercise .subtitle {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .exercise p, .exercise li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .exercise ul, .exercise ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .exercise li { margin-bottom: 6px; }
+
+    /* PROMPT BLOCKS (copyable) */
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      margin: 14px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: pre-line;
+    }
+
+    .prompt-block:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    .prompt-block::after {
+      content: 'Kopírovať';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover::after { opacity: 1; }
+
+    .prompt-block.copied::after {
+      content: 'Skopírované!';
+      opacity: 1;
+    }
+
+    /* CONTEXT BLOCKS */
+    .context-block {
+      background: rgba(var(--ink),0.03);
+      border: 1px solid rgba(var(--ink),0.06);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 14px 0;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+    }
+
+    .context-block strong { color: var(--white); }
+
+    /* STEP LABELS */
+    .step-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin: 18px 0 6px;
+    }
+
+    /* Unterschritt: gehoert zu keinem CITE-Buchstaben */
+    .sub-step {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.78rem;
+      color: rgba(var(--ink),0.55);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 20px 0 6px;
+      padding-left: 12px;
+      border-left: 2px solid rgba(var(--ink),0.2);
+    }
+
+    /* COMPARISON TABLE */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.82rem;
+    }
+
+    .compare-table th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .compare-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(var(--ink),0.05);
+      vertical-align: top;
+    }
+
+    /* ROLE CARDS (for Task Force) */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .role-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.82rem;
+    }
+
+    .role-card strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-size: 0.78rem;
+    }
+
+    /* MAGIC FORMULA */
+    .magic-box {
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 14px 0;
+      text-align: center;
+    }
+
+    .magic-box .label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 20px 24px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(var(--ink),0.05);
+    }
+
+    footer p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* COLLAPSIBLE SECTIONS */
+    details {
+      margin: 14px 0;
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details summary {
+      padding: 14px 18px;
+      background: rgba(212, 160, 23, 0.06);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    details summary:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: '+';
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    details .collapsible-content {
+      padding: 16px 18px;
+      border-top: 1px solid rgba(212, 160, 23, 0.1);
+    }
+
+    details .collapsible-content p,
+    details .collapsible-content li {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: var(--white-muted);
+    }
+
+    details .collapsible-content strong {
+      color: var(--white);
+    }
+
+    /* FLOAT ANIMATION */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* TAB SWITCHER */
+    .tab-switcher {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--charcoal-light);
+      border: none;
+      color: var(--white-muted);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:first-child { border-right: 1px solid rgba(212, 160, 23, 0.3); }
+
+    .tab-btn.active {
+      background: rgba(212, 160, 23, 0.12);
+      color: var(--gold);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: var(--charcoal-lighter);
+      color: var(--white);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* LAYOUT WITH SIDEBAR */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+    }
+
+    /* SIDEBAR NAV */
+    .sidebar-nav {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.06);
+      border-left-color: var(--gold);
+    }
+
+    .sidebar-nav .nav-section-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 12px 14px 4px;
+      opacity: 0.7;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .sidebar-nav a {
+        padding: 8px 12px;
+        font-size: 0.72rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 6px;
+        background: var(--charcoal-light);
+      }
+
+      .sidebar-nav a:hover,
+      .sidebar-nav a.active {
+        border-left: none;
+        border-bottom-color: var(--gold);
+      }
+
+      .sidebar-nav .nav-section-label {
+        width: 100%;
+        padding: 8px 0 2px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      main { padding: 32px 16px 64px; }
+      .exercise { padding: 22px 18px; }
+      .prompt-block { padding: 14px 14px; }
+      .role-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 0.75rem; }
+      .compare-table td, .compare-table th { padding: 8px; }
+    }
+
+    /* HIERARCHIE-STACK (System-Prompt vs. Projekt vs. Chat) */
+    .hierarchy-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 14px 0 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.25);
+    }
+    .hierarchy-level {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+    }
+    .hierarchy-level:last-child { border-bottom: none; }
+    .hierarchy-level .h-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+    .hierarchy-level .h-desc {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+    }
+    .hierarchy-level.l1 { background: rgba(212, 160, 23, 0.03); padding-left: 18px; }
+    .hierarchy-level.l2 { background: rgba(212, 160, 23, 0.06); padding-left: 32px; }
+    .hierarchy-level.l3 { background: rgba(212, 160, 23, 0.10); padding-left: 46px; }
+    .hierarchy-level.l4 { background: rgba(212, 160, 23, 0.14); padding-left: 60px; }
+
+    /* LLM-Karten (Start hier) */
+    .llm-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 560px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Zwei Spalten: selbst ausfuellen vs. fertiges Beispiel */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 14px 0;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+    .col-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .two-col .prompt-block { margin-top: 0; }
+    .llm-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .llm-card .llm-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .llm-card .llm-browser {
+      display: block;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #141414;
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 13px 16px;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+    .llm-card .llm-browser:hover,
+    .llm-card .llm-browser:focus { filter: brightness(1.08); }
+    .llm-apps summary {
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      list-style-position: inside;
+    }
+    .llm-apps[open] summary { margin-bottom: 8px; }
+    .llm-card .llm-stores {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .llm-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      background: rgba(var(--ink),0.04);
+      border: 1px solid rgba(var(--ink),0.12);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      flex: 1;
+      justify-content: center;
+      min-height: 40px;
+    }
+    .llm-store-btn:hover,
+    .llm-store-btn:focus {
+      border-color: var(--gold);
+      background: rgba(212, 160, 23, 0.08);
+      color: var(--white);
+    }
+    .llm-store-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .llm-store-btn .store-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      align-items: flex-start;
+    }
+    .llm-store-btn .store-meta small {
+      font-size: 0.62rem;
+      color: var(--white-muted);
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+    .llm-store-btn .store-meta strong {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    @media (max-width: 600px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Rahmen je Übung (Ziel, Abgabe), Ausweg, geklappt, Stufen */
+    .rahmen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 14px 0 18px; }
+    .rahmen > div { background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.25); border-radius: 10px; padding: 10px 12px; font-size: 0.85rem; line-height: 1.45; }
+    .rahmen b { display: block; font-family: var(--font-heading); font-size: 0.62rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+    .fallback { border-left: 3px solid rgba(var(--ink),0.25); background: rgba(var(--ink),0.03); padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--white-muted); margin: 16px 0 6px; }
+    .fallback strong { color: var(--white); }
+    .pruef { font-size: 0.85rem; color: var(--white-muted); margin-top: 10px; }
+    .tabelle-text { white-space: pre; overflow-x: auto; }
+    @media (max-width: 700px) { .rahmen { grid-template-columns: 1fr; } }
+
+    .form-wichtig { border: 2px solid var(--gold); background: rgba(212,160,23,0.08); border-radius: 10px; padding: 12px 16px; margin: 14px 0 10px; font-size: 0.92rem; line-height: 1.5; }
+    .form-wichtig.kurz { margin: 10px 0 0; padding: 8px 14px; font-size: 0.85rem; }
+  
+
+body{margin:0}
+.player{display:grid;grid-template-columns:320px 1fr;min-height:100vh}.player>*{min-width:0}
+.v-logo{display:block;background:#fff;padding:8px 12px;border-radius:6px;max-width:170px;width:100%;box-sizing:border-box;margin:12px 0 14px}
+/* Logoreihe: Veranstalter links, JP-Monogramm rechts daneben, beide gleich hoch (Symmetrieregel). */
+.logos{display:flex;align-items:center;gap:12px;margin:12px 0 14px}
+.logos .v-logo{margin:0;width:auto;height:46px;max-width:170px;object-fit:contain}
+.logos .t-logo{display:block;height:46px;width:auto}
+.side{border-right:1px solid rgba(var(--ink),.08);padding:20px 16px 40px;position:sticky;top:0;height:100vh;overflow:auto;background:rgba(var(--ink),.02)}
+.side .zurueck{font-size:.78rem;color:var(--white-muted);text-decoration:none;display:inline-block;margin-bottom:14px}
+.side .zurueck:hover{color:var(--gold)}
+.side h1{font-family:var(--font-heading);font-size:1rem;margin:0 0 4px;line-height:1.35}
+.side .sub{color:var(--white-muted);font-size:.78rem;margin-bottom:14px}
+.balken{height:6px;background:rgba(var(--ink),.08);border-radius:3px;overflow:hidden}.balken i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.stand{font-size:.75rem;color:var(--white-muted);margin:6px 0 10px}
+.teil{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:18px 6px 8px}
+.zeile{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;cursor:pointer;font-size:.86rem;line-height:1.35;color:var(--white);text-decoration:none}
+.zeile:hover{background:rgba(var(--ink),.05);color:var(--white)}.zeile.aktiv{background:rgba(212,160,23,.12)}
+.zeile .n{flex:0 0 74px;font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700;text-align:center}
+.zeile .lab{flex:0 0 74px;box-sizing:border-box;align-self:flex-start;margin-top:1px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.6rem;letter-spacing:.8px;text-transform:uppercase;font-weight:700;color:var(--white-muted);border:1px solid rgba(var(--ink),.18);border-radius:4px;padding:2px 4px;margin-left:0}
+.zeile.art-uebung{font-weight:500}
+.zeile .t{flex:1;min-width:0}
+.zeile .opt{color:var(--white-muted);font-size:.72rem;display:block;font-weight:400}
+.zeile .ck{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(var(--ink),.25);margin-top:1px}
+.zeile.erledigt .ck{background:var(--gold);border-color:var(--gold)}.zeile.erledigt .t{color:var(--white-muted)}
+.zeile .jetzt{display:none;font-size:.56rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;background:var(--gold);color:#141414;border-radius:99px;padding:2px 6px;align-self:center}
+.zeile.im-raum .jetzt{display:inline-block}
+/* margin:0 ist Pflicht: das Seiten-CSS gibt <main> "margin:0 auto", und ein Rasterelement
+   mit auto-Rand schrumpft nicht mit. Auf 390 px stand es dann 551 px breit. */
+.main{margin:0;padding:0 56px 130px;max-width:900px;overflow-wrap:break-word;hyphens:auto}
+.kopfzeile{padding-top:34px}
+.crumb{color:var(--white-muted);font-size:.8rem;margin-bottom:6px}
+.main h2.lektion-titel{font-family:var(--font-heading);font-size:1.9rem;margin:6px 0 16px;line-height:1.25}
+.tag{display:inline-block;font-size:.66rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,160,23,.4);color:var(--gold);margin-right:6px}
+.tag.leise{border-color:rgba(var(--ink),.25);color:var(--white-muted)}
+.lektion .exercise{background:none;border:0;padding:0;margin:0;box-shadow:none}
+.lektion .exercise > .exercise-number{display:none}
+.lektion .exercise > h3:first-of-type{display:none}
+.lektion table{display:block;overflow-x:auto;max-width:100%}
+.lektion img{max-width:100%}
+.prompt-block.copied{outline:2px solid var(--gold)}
+/* Die Leiste geht über die ganze Breite, die Knöpfe stehen in derselben Spalte wie der Inhalt.
+   Vorher standen sie bei Vollbild an den äußersten Bildschirmrändern (Commander 06.10.). */
+.nav{position:fixed;bottom:0;left:320px;right:0;padding:14px 0;background:rgba(20,20,20,.96);border-top:1px solid rgba(var(--ink),.08);z-index:15}
+.nav-innen{display:flex;justify-content:space-between;gap:10px;max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.knopf{border:1px solid rgba(var(--ink),.2);background:none;color:var(--white);padding:12px 22px;border-radius:8px;font:600 .92rem var(--font-body);cursor:pointer}
+.knopf:disabled{opacity:.35;cursor:default}
+.knopf.los{background:var(--gold);color:#141414;border-color:var(--gold)}
+.schublade{display:none}
+/* Live-Leiste im Player */
+.live-leiste{position:sticky;top:0;z-index:12;display:flex;align-items:center;gap:14px;margin:0 -56px;padding:10px 56px;background:linear-gradient(90deg,var(--gold-dark),var(--gold));color:var(--charcoal)}
+.live-leiste[hidden]{display:none}
+.live-leiste.neu{animation:live-neu 1.2s ease-out}
+@keyframes live-neu{0%{filter:brightness(1.45)}100%{filter:none}}
+.live-inhalt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.live-marke{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.75}
+.live-text{font-weight:600;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live-dorthin{flex:0 0 auto;background:var(--charcoal);color:var(--gold-light);border:0;border-radius:99px;padding:8px 16px;font:600 .8rem var(--font-body);cursor:pointer}
+.live-dorthin[hidden]{display:none}
+.live-hier{flex:0 0 auto;font-size:.75rem;font-weight:700}
+@media(max-width:860px){
+ .player{grid-template-columns:1fr}
+ .side{position:fixed;inset:0;z-index:30;height:auto;transform:translateX(-100%);transition:transform .25s;background:#161616}
+ .side.offen{transform:none}
+ .side .schliessen{display:block}
+ .schublade{display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:20;background:#141414;padding:10px 16px;border-bottom:1px solid rgba(var(--ink),.08)}
+ .main{padding:0 16px 110px}
+ .kopfzeile{padding-top:18px}
+ .live-leiste{top:var(--schublade-h,57px);margin:0 -16px;padding:8px 16px;gap:10px}
+ .live-text{font-size:.86rem}
+ .nav{left:0;padding:12px 0}.nav-innen{padding:0 16px}.knopf{padding:12px 14px}
+ .main h2.lektion-titel{font-size:1.45rem}
+}
+.side .schliessen{display:none;float:right;background:none;border:0;color:var(--white-muted);font-size:1.4rem;cursor:pointer;line-height:1}
+/* Seitenleiste einklappbar (Desktop), wie bei ChatGPT/Claude. Zu bleibt eine 56-px-Schiene
+   mit dem Knopf. Auf dem Handy gilt weiter die Schublade, deshalb nur ab 861 px. */
+.leiste-knopf{float:right;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin:-6px -4px 0 8px;border-radius:8px;border:1px solid rgba(var(--ink),.12);background:none;color:var(--white-muted);cursor:pointer;padding:0}
+.leiste-knopf:hover{color:var(--gold);border-color:rgba(212,160,23,.5)}
+.leiste-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(min-width:861px){
+ .player{transition:grid-template-columns .2s ease}
+ /* Inhalt mittig in der Spalte, sonst klebt er bei Vollbild links und rechts bleibt die Hälfte leer. */
+ .main{width:100%;justify-self:center}
+ body.leiste-zu .player{grid-template-columns:56px 1fr}
+ body.leiste-zu .side{padding:16px 10px;overflow:hidden}
+ body.leiste-zu .side > *:not(.leiste-knopf){display:none}
+ body.leiste-zu .leiste-knopf{float:none;margin:0}
+ body.leiste-zu .leiste-knopf svg{transform:scaleX(-1)}
+ body.leiste-zu .main{width:100%;justify-self:center}
+ body.leiste-zu .nav{left:56px}
+ .nav{transition:left .2s ease}
+}
+@media(max-width:860px){.leiste-knopf{display:none}}
+.side .kontakt{margin-top:28px;padding:14px 8px 0;border-top:1px solid rgba(var(--ink),.08);font-size:.78rem;color:var(--white-muted);line-height:1.6}
+.side .kontakt a{color:var(--white-muted)}.side .kontakt a:hover{color:var(--gold)}
+/* Upload-Kasten (Bild landet in Jakubs Google Drive, nur er sieht es) */
+.upload-kasten{border:1px solid rgba(212,160,23,.45);background:rgba(212,160,23,.05);border-radius:12px;padding:20px;margin:22px 0}
+.upload-kasten h4{font-family:var(--font-heading);font-size:1.05rem;margin:0 0 6px;color:var(--white)}
+.upload-kasten .hinweis{font-size:.82rem;color:var(--white-muted);margin:0 0 14px}
+.upload-kasten .reihe{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.upload-kasten input[type=text]{flex:1 1 180px;min-width:0;background:#1f1f1f;border:1px solid rgba(var(--ink),.15);border-radius:8px;color:var(--white);padding:11px 12px;font:400 .92rem var(--font-body)}
+.upload-kasten .waehlen{flex:0 0 auto}
+.upload-kasten input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.upload-kasten ul{list-style:none;padding:0;margin:12px 0 0;font-size:.85rem}
+.upload-kasten li{padding:6px 0;border-top:1px solid rgba(var(--ink),.06);display:flex;gap:10px;align-items:center}
+.upload-kasten li .st{margin-left:auto;font-weight:600;white-space:nowrap}
+.upload-kasten li.ok .st{color:#6fae5f}.upload-kasten li.fehler .st{color:#e07a6a}
+.upload-kasten li .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.gruppe-inhalt{display:block}
+.gruppe.zu .gruppe-inhalt{display:none}
+.teil-knopf{display:flex;align-items:center;justify-content:space-between;width:calc(100% - 12px);background:none;border:0;border-top:1px solid rgba(var(--ink),.08);padding:12px 6px 4px;margin:14px 6px 6px;cursor:pointer;font-family:var(--font-body);text-align:left}
+.stand + .gruppe .teil-knopf{border-top:0;margin-top:18px}
+.teil-knopf:hover{color:var(--gold-light)}
+.teil-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.teil-knopf .pfeil{flex:none;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s;margin-left:10px;margin-top:-3px}
+.gruppe.zu .teil-knopf .pfeil{transform:rotate(-45deg);margin-top:0}
+
+.form-hinweis{position:absolute;left:0;right:0;bottom:100%;background:#1d1a10;border-top:2px solid var(--gold);padding:14px 0;box-shadow:0 -10px 24px rgba(0,0,0,.45)}
+.form-hinweis[hidden]{display:none}
+.form-hinweis-innen{max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.form-hinweis p{margin:0 0 12px;font-size:.92rem;line-height:1.5}
+.form-hinweis .reihe{display:flex;gap:10px;flex-wrap:wrap}
+.form-hinweis .knopf{padding:10px 16px;font-size:.88rem}
+.form-danke{margin:10px 0 0;padding:10px 14px;border:1px solid #6fae5f;border-radius:8px;color:#9bd18c;font-weight:600;font-size:.9rem}
+.lektion iframe[data-formular]{scroll-margin-bottom:110px}
+@media(max-width:860px){.form-hinweis-innen{padding:0 16px}}
+
+.willkommen-bs{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 50% 30%,#232018 0%,#141414 65%);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}
+.willkommen-bs[hidden]{display:none}
+.willkommen-karte{width:100%;max-width:520px;text-align:center;margin:auto}
+.willkommen-karte img{display:block;width:min(240px,46vw);height:min(240px,46vw);object-fit:cover;object-position:top;border-radius:50%;border:3px solid var(--gold);margin:0 auto 22px;background:#1a1a1a;box-shadow:0 0 0 8px rgba(212,160,23,.08)}
+.willkommen-blase{position:relative;background:var(--charcoal-light,#1a1a1a);border:1px solid rgba(212,160,23,.35);border-radius:16px;padding:22px 22px 24px;margin-bottom:24px}
+.willkommen-blase::before{content:"";position:absolute;top:-9px;left:50%;width:16px;height:16px;background:var(--charcoal-light,#1a1a1a);border-left:1px solid rgba(212,160,23,.35);border-top:1px solid rgba(212,160,23,.35);transform:translateX(-50%) rotate(45deg)}
+.willkommen-blase p{margin:0;font-family:var(--font-heading);font-weight:600;font-size:clamp(1.1rem,4.4vw,1.45rem);line-height:1.4;text-wrap:balance}
+.willkommen-karte .knopf{padding:14px 38px;font-size:1rem}
+@media (prefers-reduced-motion:no-preference){.willkommen-karte{animation:wk-rein .5s ease-out}@keyframes wk-rein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}
+    .profispur { border-left: 3px solid var(--gold); background: rgba(212,160,23,0.05); padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: 0.88rem; margin: 16px 0 6px; }
+    .profispur strong { color: var(--gold); }
+  </style>
+  <link rel="stylesheet" href="quiz/quiz.css">
+  <style>
+/* Satzspiegel (14.11.2026): gleiche Abstände, sauberer Umbruch, auch in Tabellen.
+   Blöcke 16px, Zwischenüberschrift 22px oben und 8px unten (gehört zu dem, was folgt). */
+.lektion .exercise > .subtitle,.lektion .exercise > .rahmen,.lektion .exercise > .sozialform,.lektion .exercise > .prompt-block,
+.lektion .exercise > details,.lektion .exercise > .profispur,.lektion .exercise > .fallback,.lektion .exercise > .pruef,
+.lektion .exercise > table,.lektion .exercise > ul,.lektion .exercise > ol,.lektion .exercise > p{margin-top:0;margin-bottom:16px}
+.lektion .exercise > .step-label{margin:22px 0 8px}
+.lektion .exercise > .subtitle + .rahmen,.lektion .exercise > .subtitle + .sozialform{margin-top:0}
+.main h2.lektion-titel,.exercise h3,.step-label,.subtitle,.rahmen > div,.compare-table th,.lektion th,summary{text-wrap:balance}
+.exercise p,.exercise li,.lektion td,.compare-table td,.fallback,.pruef,.profispur,.sozialform{text-wrap:pretty}
+.lektion td,.lektion th,.compare-table td,.compare-table th{overflow-wrap:normal;word-break:normal;hyphens:auto;vertical-align:top}
+.rahmen{align-items:stretch}
+/* Folgemodul mit Countdown (PROEKO 13.11.2026, Modul 2) */
+.fm-haupt{display:block;text-align:center;background:var(--gold);color:#141414;font-family:var(--font-heading);font-weight:800;font-size:1.2rem;padding:18px 22px;border-radius:12px;text-decoration:none;margin:6px 0 20px}
+.fm-haupt:hover{color:#141414;background:var(--gold-light)}
+.fm-odpocet{background:rgba(212,160,23,.10);border:1px solid var(--gold);border-radius:14px;padding:16px 18px;margin:0 0 20px}
+.fm-kopf{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.fm-wann{opacity:.85;margin-top:4px}
+.fm-zahlen{display:flex;gap:10px;margin:14px 0 0}
+.fm-zahlen>div{flex:1;min-width:60px;background:var(--charcoal);border:1px solid rgba(212,160,23,.5);border-radius:10px;padding:10px 6px;text-align:center}
+.fm-zahlen b{display:block;font-family:var(--font-heading);font-weight:800;font-size:clamp(1.6rem,5vw,2.6rem);line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+.fm-zahlen span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.fm-seite{color:var(--gold)!important;font-weight:600}
+/* Werkzeug-Leiste auf der Willkommenslektion (PROEKO 13.11.2026) */
+.werkzeuge{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px}
+.werkzeuge span{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-right:4px}
+.werkzeuge a{display:inline-block;padding:7px 14px;border:1px solid var(--gold);border-radius:99px;color:var(--gold);font-weight:600;font-size:.9rem;text-decoration:none}
+/* Sozialform: allein oder gemeinsam (PROEKO 13.11.2026, Breakout-Räume) */
+.sozialform{background:rgba(212,160,23,.12);border:1px solid var(--gold);border-radius:10px;padding:12px 16px;margin:0 0 18px}
+/* Hellmodus (PROEKO 13.11.2026): dunkel bleibt Standard, ☀ oder ?hell schaltet um.
+   Grund: am geteilten Bildschirm neben dunklem ChatGPT war zu wenig Kontrast. */
+html.hell{--gold:#a87a0c;--gold-light:#b8890f;--gold-dark:#8a6408;--charcoal:#ffffff;--charcoal-light:#f6f6f4;--charcoal-lighter:#eeeeea;--white:#1a1a1a;--white-muted:#555555;--ink:0,0,0}
+html.hell .nav{background:rgba(255,255,255,.96)}
+html.hell .schublade,html.hell .side{background:#fafaf8}
+html.hell .upload-kasten input[type=text]{background:#fff}
+html.hell .prompt-block,html.hell .prompt-block *{color:#000}
+html.hell .prompt-block{background:#fff3d4;border-left:4px solid #a87a0c;font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+html.hell .prompt-block:hover{background:#ffeab3}
+html.hell .willkommen-bs{background:radial-gradient(ellipse at 50% 30%,#fff7e0 0%,#ffffff 65%)}
+html.hell .knopf.los,html.hell .zeile .jetzt,html.hell .cta,html.hell .cta:hover{color:#141414}
+html.hell svg rect[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.03)}
+html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
+.tema-knopf{position:fixed;top:10px;right:12px;z-index:40;width:38px;height:38px;border-radius:50%;border:1px solid rgba(var(--ink),.25);background:var(--charcoal-light);color:var(--white);font-size:18px;line-height:1;cursor:pointer}
+@media print{.tema-knopf{display:none}}
+  </style>
+  <script>(function(){var h=document.documentElement,q=location.search,t=/[?&](hell|light|svetla)\b/.test(q)?'hell':/[?&](dunkel|dark|tmava)\b/.test(q)?'dunkel':null;try{t=t||localStorage.getItem('tema');if(t)localStorage.setItem('tema',t)}catch(e){}if(t==='hell')h.classList.add('hell')})();</script>
+</head>
+<body>
+<div class="willkommen-bs" id="willkommen-bs" role="dialog" aria-modal="true" aria-labelledby="wk-text" hidden><div class="willkommen-karte"><img src="jakub-lachend.png" alt="Jakub Popluhar"><div class="willkommen-blase"><p id="wk-text">Vitajte na seminári „AI za pracovným stolom, modul 2“. Tento e-learning je s nami počas celého seminára.</p></div><button type="button" class="knopf los" id="wk-weiter">Ďalej</button></div></div>
+<div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Obsah</button><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
+<div class="player">
+  <aside class="side" id="side">
+    <button class="schliessen" id="schliessen" type="button" aria-label="Zavrieť obsah">×</button>
+    <button class="leiste-knopf" id="leisteKnopf" type="button" aria-label="Zbaliť bočný panel" aria-expanded="true" title="Zbaliť alebo rozbaliť bočný panel"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/><path d="M15 10l-2 2 2 2"/></svg></button>
+    <a href="https://jakubpopluhar.com" class="zurueck">jakubpopluhar.com</a>
+    <div class="logos"><img class="v-logo" src="kunde-logo.png" alt="PROEKO"><img class="t-logo" src="jp-logo.png" alt="Jakub Popluhar"></div>
+    <h1>AI za pracovným stolom, modul 2</h1>
+    <div class="sub">PROEKO · Piatok 20. 11. 2026</div>
+    <div class="balken"><i id="balken"></i></div>
+    <div class="stand" id="stand"></div>
+    <div class="gruppe zu" data-teil="uvod"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Úvod</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#willkommen" data-id="willkommen"><span class="lab">Štart</span><span class="t">Vitajte</span><span class="jetzt">Teraz</span><span class="ck"></span></a><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Váš AI check</span><span class="jetzt">Teraz</span><span class="ck"></span></a><a class="zeile" href="#slovnik" data-id="slovnik"><span class="lab">Info</span><span class="t">Slovník na dnes</span><span class="jetzt">Teraz</span><span class="ck"></span></a><a class="zeile" href="#werkzeug" data-id="werkzeug"><span class="lab">Info</span><span class="t">Otvorte svoj nástroj AI</span><span class="jetzt">Teraz</span><span class="ck"></span></a><a class="zeile" href="#split" data-id="split"><span class="lab">Tip</span><span class="t">Dve okná vedľa seba</span><span class="jetzt">Teraz</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="kontext"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Váš kontextový dokument</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile art-uebung" href="#kontext" data-id="kontext"><span class="n">1</span><span class="t">Váš kontextový dokument: cesta A alebo B</span><span class="jetzt">Teraz</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="c1"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Časť 1: Váš asistent</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile art-uebung" href="#systemprompt" data-id="systemprompt"><span class="n">2</span><span class="t">Systémový prompt: raz napíšete, platí všade</span><span class="jetzt">Teraz</span><span class="ck"></span></a><a class="zeile art-uebung" href="#asistent" data-id="asistent"><span class="n">3</span><span class="t">Váš asistent: projekt s Vaším dokumentom</span><span class="jetzt">Teraz</span><span class="ck"></span></a><a class="zeile" href="#vrstvy" data-id="vrstvy"><span class="lab">Info</span><span class="t">Prompt layering a kontrolná karta</span><span class="jetzt">Teraz</span><span class="ck"></span></a><a class="zeile" href="#pauza" data-id="pauza"><span class="lab">Prestávka</span><span class="t">Prestávka a čo bude ďalej</span><span class="jetzt">Teraz</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="c2"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Časť 2: Vlastné dokumenty a AI akt</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile art-uebung" href="#aiakt" data-id="aiakt"><span class="n">4</span><span class="t">AI akt z prvej ruky: zdroj, ktorý cituje</span><span class="jetzt">Teraz</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="c3"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Časť 3: Tieňová AI a interné pravidlá</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#tienova" data-id="tienova"><span class="lab">Info</span><span class="t">Tieňová AI: AI v práci bez pravidiel</span><span class="jetzt">Teraz</span><span class="ck"></span></a><a class="zeile art-uebung" href="#pravidla" data-id="pravidla"><span class="n">5</span><span class="t">Podklad pre interné pravidlá</span><span class="jetzt">Teraz</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="zaver"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Na záver</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Na záver</span><span class="t">Váš AI check, druhýkrát</span><span class="jetzt">Teraz</span><span class="ck"></span></a><a class="zeile" href="#feedback" data-id="feedback"><span class="lab">Spätná väzba</span><span class="t">Vaša spätná väzba</span><span class="jetzt">Teraz</span><span class="ck"></span></a><a class="zeile" href="#dalej" data-id="dalej"><span class="lab">Záver</span><span class="t">Čo ďalej po seminári</span><span class="jetzt">Teraz</span><span class="ck"></span></a></div></div>
+    <div class="kontakt">Otázky po seminári:<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br><a href="tel:+436641386498">+43 664 138 64 98</a></div>
+  </aside>
+  <main class="main">
+    <div class="live-leiste" id="live-leiste" hidden aria-live="polite">
+      <div class="live-inhalt"><span class="live-marke">Práve robíme</span><span class="live-text" id="live-text"></span></div>
+      <button type="button" class="live-dorthin" id="live-dorthin">Prejsť tam</button>
+      <span class="live-hier" id="live-hier" hidden>Ste tu</span>
+    </div>
+    <div class="kopfzeile"><div class="crumb" id="crumb"></div><div id="tags"></div><h2 class="lektion-titel" id="ttl"></h2></div>
+    
+<section class="lektion" data-id="willkommen" data-teil="uvod" data-teil-name="Úvod" hidden><div class="exercise" data-ex="willkommen">
+      <div class="exercise-number">Štart</div>
+      <div class="werkzeuge"><span>Otvoriť nástroj:</span><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a><a href="https://copilot.microsoft.com" target="_blank" rel="noopener">Copilot</a><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></div>
+      <h3>Vitajte</h3>
+      <p class="subtitle">AI za pracovným stolom, modul 2 · PROEKO · Piatok 20. 11. 2026 · Lektor: Jakub Popluhár, M.Ed.</p>
+      <p>Vitajte v module 2. Do 12.00 hod. si vytvoríte vlastného asistenta, ktorý pozná Vašu rolu a Vaše dokumenty, a odnesiete si podklad pre interné pravidlá používania AI.</p>
+
+      <p class="step-label">Tri veci na dnes</p>
+      <ol>
+        <li><strong>Táto stránka zostane otvorená počas celého seminára.</strong> Keď kliknete na prompt, skopíruje sa a jedným hmatom ho vložíte do okna s AI. Vľavo sú všetky časti, ďalej sa posuniete tlačidlom vpravo dole.</li>
+        <li><strong>Vo formulároch vždy kliknite dole na „Odoslať“.</strong> Až potom sa Vaše odpovede uložia, aj keď formulár už vyzerá vyplnený.</li>
+        <li><strong>Žiadne skutočné osobné ani interné údaje.</strong> Kde ide o skutočné dokumenty, cvičíme na vymyslených príkladoch.</li>
+      </ol>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Čo v cvičeniach napíšete, zostane u Vás. Uložte si to do poznámky, neskôr na tom budeme stavať.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Ako prvý príde Váš AI check.</p>
+
+    </div></section>
+<section class="lektion" data-id="kicheck" data-teil="uvod" data-teil-name="Úvod" hidden><div class="exercise" data-ex="kicheck">
+      <div class="exercise-number">Check</div>
+      <h3>Váš AI check</h3>
+      <p class="subtitle">Krátky prieskum pre Vás aj pre mňa: ako ste na tom dnes ráno s AI? Nesprávne odpovede tu nie sú. Na konci seminára vyplníte ten istý dotazník ešte raz a obaja uvidíme, čo sa zmenilo.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Vo formulári pri otázke „Kedy vypĺňate?“ zvoľte teraz <strong>„Prvýkrát“</strong>.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
+        <a href="https://docs.google.com/forms/d/17P3ZLxJ3NKtR84puv9P_F4aoWJmd06k96LLA9r7icDE/viewform?embedded=true&hl=sk" target="_blank" rel="noopener"><img src="kicheck-qr.png" alt="QR kód k formuláru" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
+        <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formulár sa nenačíta?</strong> Na služobnom počítači sa to stáva. Naskenujte QR kód telefónom alebo <a href="https://docs.google.com/forms/d/17P3ZLxJ3NKtR84puv9P_F4aoWJmd06k96LLA9r7icDE/viewform?embedded=true&hl=sk" target="_blank" rel="noopener" style="color:var(--gold);">formulár otvorte v novom okne</a>.</p>
+      </div>
+      <div class="form-wichtig"><strong>Dôležité:</strong> Uloží sa len to, čo úplne <strong>DOLE VO FORMULÁRI</strong> odošlete tlačidlom „Odoslať“. Tlačidlo vpravo dole na tejto stránke („Formulár odoslaný? Potom ďalej“) len prejde na ďalšiu časť a nič neodošle. Teda: najprv odoslať, potom ďalej.</div>
+      <iframe id="Form-FORM_KICHECK-1" data-formular="FORM_KICHECK" src="https://docs.google.com/forms/d/17P3ZLxJ3NKtR84puv9P_F4aoWJmd06k96LLA9r7icDE/viewform?embedded=true&hl=sk" title="Váš AI check" style="width:100%; height:2600px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nezabudnite: dole vo formulári kliknite na „Odoslať“.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formulár sa nenačíta? <a href="https://docs.google.com/forms/d/17P3ZLxJ3NKtR84puv9P_F4aoWJmd06k96LLA9r7icDE/viewform?embedded=true&hl=sk" target="_blank" rel="noopener" style="color:var(--gold);">Otvorte ho v novom okne</a>.</p>
+
+    </div></section>
+<section class="lektion" data-id="slovnik" data-teil="uvod" data-teil-name="Úvod" hidden><div class="exercise" data-ex="slovnik">
+      <div class="exercise-number">Info</div>
+      <h3>Slovník na dnes</h3>
+      <p class="subtitle">Keď poviem cudzie slovo, zastavte ma. Tu je každé po slovensky a jednou vetou.</p>
+      <table class="compare-table"><tr><th style="width:28%">Pojem</th><th style="width:26%">Po slovensky</th><th>Jednou vetou</th></tr><tr><td>Prompt</td><td>zadanie</td><td>Čo AI napíšete.</td></tr><tr><td>Systémový prompt</td><td>vlastné pokyny</td><td>Pokyny, ktoré AI číta pred každou odpoveďou.</td></tr><tr><td>Projekt · Gem · Notebook</td><td>priestor s pamäťou</td><td>Pokyny a dokumenty platia v každom jeho chate.</td></tr><tr><td>Kontextové okno</td><td>pracovný stôl AI</td><td>Všetko, čo AI práve vidí.</td></tr><tr><td>Halucinácia</td><td>vymyslená odpoveď</td><td>AI znie isto, ale fakt chýba.</td></tr><tr><td>Prompt layering</td><td>zadanie po vrstvách</td><td>Zložitá úloha v krokoch, nie naraz.</td></tr><tr><td>Shadow AI</td><td>tieňová AI</td><td>AI v práci bez vedomia a pravidiel úradu.</td></tr></table>
+    </div></section>
+<section class="lektion" data-id="werkzeug" data-teil="uvod" data-teil-name="Úvod" hidden><div class="exercise" data-ex="werkzeug">
+      <div class="exercise-number">Info</div>
+      <h3>Otvorte svoj nástroj AI</h3>
+      <p class="subtitle">Otvorte teraz v druhom okne prehliadača nástroj, ktorý smiete používať aj v práci. Na dnes stačia bezplatné verzie. Všetky prompty tu fungujú v každom zo štyroch.</p>
+      <div class="llm-grid">
+        <div class="llm-card"><div class="llm-name">ChatGPT</div><a class="llm-browser" href="https://chatgpt.com" target="_blank" rel="noopener">Otvoriť v prehliadači →</a></div>
+        <div class="llm-card"><div class="llm-name">Claude</div><a class="llm-browser" href="https://claude.ai" target="_blank" rel="noopener">Otvoriť v prehliadači →</a></div>
+        <div class="llm-card"><div class="llm-name">Gemini</div><a class="llm-browser" href="https://gemini.google.com" target="_blank" rel="noopener">Otvoriť v prehliadači →</a></div>
+        <div class="llm-card"><div class="llm-name">Copilot</div><a class="llm-browser" href="https://copilot.microsoft.com" target="_blank" rel="noopener">Otvoriť v prehliadači →</a></div>
+      </div>
+
+      <p class="step-label">Druhý účet Google</p>
+      <p>Gemini a NotebookLM potrebujú účet Google. Ak ho na dnes ešte nemáte, založte si ho teraz, trvá to tri minúty. Najlepšie bezplatný druhý účet len na skúšanie, nie pracovnú adresu ani súkromnú schránku. Meno si zvoľte ľubovoľne, telefónne číslo môžete nechať prázdne.</p>
+
+      <p class="step-label">Keď je niečo na služobnom počítači zablokované</p>
+      <table class="compare-table">
+        <tr><th style="width:36%">Problém</th><th>Náhradná cesta</th></tr>
+        <tr><td>ChatGPT alebo Claude je zablokovaný</td><td>Použite Copilot s pracovným účtom (m365.cloud.microsoft, tam „Chat“). Všetky dnešné prompty fungujú bez zmeny.</td></tr>
+        <tr><td>Copilot je zablokovaný</td><td>Použite jeden z ďalších troch, ak to Vaša organizácia povoľuje.</td></tr>
+        <tr><td>Gemini alebo NotebookLM je zablokovaný</td><td>Pri každom cvičení je náhradná cesta. Všetko ostatné funguje v každom chate.</td></tr>
+        <tr><td>Nahranie súboru nefunguje</td><td>Skopírujte text priamo do chatu. Dlhé texty po častiach.</td></tr>
+        <tr><td>Limit vyčerpaný („skúste neskôr“)</td><td>Prejdite na druhý nástroj a chaty udržujte krátke: dlhé chaty minú limit rýchlejšie. Dajte mi vedieť v chate alebo nahlas.</td></tr>
+      </table>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Ak Vaša organizácia niečo zablokovala, neobchádzajte to. Súkromné zariadenie alebo druhý účet je len na cvičenia s vymyslenými alebo zovšeobecnenými údajmi, nikdy nie na dokumenty Vašej organizácie.</p>
+    </div></section>
+<section class="lektion" data-id="split" data-teil="uvod" data-teil-name="Úvod" hidden><div class="exercise" data-ex="split">
+      <div class="exercise-number">Tip</div>
+      <h3>Dve okná vedľa seba</h3>
+      <p class="subtitle">Najdôležitejší hmat dňa, trvá desať sekúnd. Vľavo tento e-learning, vpravo Váš nástroj AI, každý vo vlastnom okne prehliadača. Druhé okno otvoríte klávesmi Ctrl+N (Mac: cmd+N). Ste online? Potom vľavo Zoom, vpravo prehliadač.</p>
+
+      <p class="step-label">Mac</p>
+      <p>Kliknite na okno s e-learningom. <strong>Zelené tlačidlo</strong> vľavo hore v okne <strong>podržte</strong> asi sekundu, neklikajte. Objavia sa dve polovice. Kliknite na ľavú a zo zoznamu vpravo vyberte okno s nástrojom AI.</p>
+<svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Mac: podržať zelené tlačidlo, potom zvoliť polovicu obrazovky">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <circle cx="28" cy="37" r="5" fill="#ff5f57"/>
+        <circle cx="45" cy="37" r="5" fill="#febc2e"/>
+        <circle cx="62" cy="37" r="9" fill="#28c840"/>
+        <circle cx="62" cy="37" r="15" fill="none" stroke="var(--gold)" stroke-dasharray="4 3"/>
+        <text x="84" y="42" fill="var(--gold)" font-size="13" font-family="monospace">podržať</text>
+        <text x="20" y="110" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">jedno okno,</text>
+        <text x="20" y="130" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">celá obrazovka</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">e-learning</text>
+        <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">nástroj</text>
+        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">AI</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. podržať zelené</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. polovica, potom okno</text>
+      </svg>
+
+      <p class="step-label">Windows</p>
+      <p>Kliknite na e-learning a stlačte <strong>kláves Windows + šípku doľava</strong>. Okno skočí do ľavej polovice a Windows ponúkne ostatné okná na pravú stranu. Kliknite na okno s nástrojom AI.</p>
+<svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Windows: kláves Windows a šípka doľava, potom zvoliť druhé okno">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <rect x="40" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="72" y="107" fill="var(--gold)" font-size="16" font-family="monospace" text-anchor="middle">&#8862;</text>
+        <text x="116" y="107" fill="var(--gold)" font-size="16" font-family="monospace">+</text>
+        <rect x="136" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="168" y="108" fill="var(--gold)" font-size="18" font-family="monospace" text-anchor="middle">&#8592;</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">e-learning</text>
+        <rect x="502" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <rect x="566" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <text x="560" y="128" fill="var(--gold)" font-size="12" font-family="monospace" text-anchor="middle">zvoliť druhé okno</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. kláves + šípka</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. vpravo kliknúť na okno</text>
+      </svg>
+
+      <p class="step-label">Len jedno okno s dvoma kartami?</p>
+      <p>Ide to aj tak: e-learning a nástroj AI ako dve karty. Stačí kliknúť na kartu. Klávesnicou: <strong>Ctrl+Tab</strong> (Mac: control+Tab) prejde na ďalšiu kartu.</p>
+
+      <p style="color: var(--white-muted); font-size:0.85rem;">Keď nič nefunguje: okno potiahnite myšou k ľavému alebo pravému okraju obrazovky, kým sa nerozsvieti polovica, a pustite. S druhou obrazovkou: e-learning na jednu, nástroj AI na druhú.</p>
+      <p style="color: var(--gold); font-size: 0.85rem;">Kto dnes obrazovku nerozdelí, celý čas kliká medzi e-learningom a nástrojom AI a pri každej zmene stratí niť.</p>
+    </div></section>
+<section class="lektion" data-id="kontext" data-teil="kontext" data-teil-name="Váš kontextový dokument" hidden><div class="exercise" data-ex="kontext">
+      <div class="exercise-number">Cvičenie 1</div>
+      <h3>Váš kontextový dokument: cesta A alebo B</h3>
+      <p class="subtitle">Dve cesty podľa toho, či máte dokument z modulu 1. Na konci má každý uložený dokument o svojej role.</p>
+      <div class="sozialform"><strong>Každý pracuje sám, vo vlastnom chate.</strong> Aj vo vedľajšej miestnosti (breakout room) si každý vytvorí vlastnú verziu. Výsledky potom porovnáme.</div>
+      <div class="rahmen">
+        <div><b>Cieľ</b>Uložený dokument, ktorý opisuje Vašu rolu.</div>
+        <div><b>Výstup</b>Do chatu v Zoome: „A hotovo“ alebo „B hotovo“.</div>
+      </div>
+      <p class="fallback"><strong>Údaje:</strong> Do dokumentu patrí len to, čo smie byť aj na webe Vášho úradu. Vaše úlohy áno. Žiadne osobné údaje, žiadne mená kolegov či občanov, žiadne čísla spisov.</p>
+      <table class="compare-table"><tr><th style="width:22%">Cesta</th><th>Pre koho</th></tr><tr><td>A</td><td>Dokument z modulu 1 nemáte. Urobíte jeden dokument o organizácii a o svojej role.</td></tr><tr><td>B</td><td>Máte z modulu 1 dokument o organizácii. Doplníte k nemu svoju rolu a jeden proces.</td></tr></table>
+      <p class="step-label">Cesta A, krok 1: Organizácia, tú vyhľadá AI</p>
+      <p>Otvorte nový chat. Do hranatých zátvoriek doplňte názov a mesto.</p>
+      <div class="prompt-block">Vyhľadaj na webe verejne dostupné údaje o tejto organizácii: [názov organizácie, mesto]. Zhrň, čo robí, aké má oddelenia a pre koho pracuje. Ku každému údaju uveď zdroj. Čo nenájdeš, výslovne označ ako nenájdené.</div>
+      <details>
+        <summary>Cesta A, kroky 2 až 4: overiť, rola, uložiť (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <p><strong>Krok 2: Jeden údaj overte.</strong> Je niečo zle? Nechajte to opraviť. Ak všetko sedí, pokračujte.</p>
+      <div class="prompt-block">V údaji [vložte údaj] je chyba. Správne je: [vložte opravu]. Oprav to a skontroluj, či text neobsahuje ďalšie údaje, ktoré nemajú zdroj.</div>
+      <p><strong>Krok 3: Vaša rola, v tom istom chate.</strong> Vašu organizáciu AI nájde na webe, Vašu rolu nie. AI Vám preto položí otázky. Odpovede pokojne nadiktujte, mikrofón v Zoome si zatiaľ stlmte.</p>
+      <div class="prompt-block">Moju organizáciu už poznáš. Pomôž mi vytvoriť kontextový dokument o mojej pracovnej role v nej. Polož mi 3 až 5 cielených otázok, napríklad o mojej pozícii, mojich každodenných úlohách, mojich zodpovednostiach, s kým spolupracujem a aké sú moje najväčšie výzvy. Počkaj na moje odpovede.</div>
+      <p class="step-label">Krok 4: Napísať a uložiť.</p>
+      <div class="prompt-block">Teraz zo všetkého napíš kontextový dokument s dvoma nadpismi: „Organizácia“ a „Moja rola“. Ako čistý text, aby som ho mohol skopírovať do Wordu. Bez mien osôb.</div>
+      <p>Text skopírujte, vložte do Wordu alebo Poznámkového bloku a uložte pod názvom „Kontextový dokument“. AI nežiadajte, aby Vám vyrobila súbor vo formáte Word: to v module 1 nefungovalo.</p>
+        </div>
+      </details>
+      <p class="step-label">Cesta B, krok 1: Doplňte rolu</p>
+      <p>Otvorte svoj dokument z modulu 1 a skontrolujte, či ešte platí. Potom nový chat: dokument nahrajte alebo vložte a pridajte:</p>
+      <div class="prompt-block">Toto je môj dokument o mojej organizácii. Najprv si ho celý prečítaj. Potom mi pomôž doplniť ho o moju pracovnú rolu. Polož mi 3 až 5 cielených otázok o mojej pozícii, mojich každodenných úlohách, mojich zodpovednostiach, s kým spolupracujem a aké sú moje najväčšie výzvy. Nepýtaj sa na nič, čo už v dokumente je. Počkaj na moje odpovede.</div>
+      <details>
+        <summary>Cesta B, kroky 2 a 3: proces a nová verzia (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <p><strong>Krok 2: Jeden proces z Vášho dňa.</strong> Najlepšie úloha, ktorú ste si pripravili: stanovisko, metodika alebo odpoveď na podanie.</p>
+      <div class="prompt-block">Pomôž mi zdokumentovať pracovný proces, ktorý sa opakuje. Polož mi 3 až 5 cielených otázok: Ako sa proces volá? Ako často ho robím? Aké má kroky? Kde sa zasekáva? Kto ďalší je zapojený? Počkaj na moje odpovede.</div>
+      <p class="step-label">Krok 3: Nová verzia.</p>
+      <div class="prompt-block">Teraz celý dokument napíš nanovo s tromi nadpismi: „Organizácia“, „Moja rola“, „Môj proces“. Ako čistý text na skopírovanie do Wordu. Bez mien osôb a bez čísel spisov.</div>
+      <p>Text vložte do Wordu alebo Poznámkového bloku a uložte ako novú verziu.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Úroveň 2:</strong> Opýtajte sa: „Čo v tomto dokumente chýba, čo by bolo pre AI dôležité? Navrhni 3 doplnenia.“ Potom doplňte štýl písania alebo tím.<br><strong>Úroveň 3:</strong> Vyrozprávajte AI svoj bežný týždeň a nechajte z neho urobiť tabuľku: úloha, koľkokrát týždenne, koľko minút. Pridajte ju do dokumentu.</p>
+      <p class="fallback"><strong>Náhradná cesta:</strong> Nástroj nevie hľadať na webe? Organizáciu opíšte sami v piatich bodoch a pokračujte otázkami o role.</p>
+      <p class="pruef">Podarilo sa, ak: Máte uložený súbor s nadpisom „Moja rola“ a AI by z neho vedela povedať, čo celý deň robíte.</p>
+    </div></section>
+<section class="lektion" data-id="systemprompt" data-teil="c1" data-teil-name="Časť 1: Váš asistent" hidden><div class="exercise" data-ex="systemprompt">
+      <div class="exercise-number">Cvičenie 2</div>
+      <h3>Systémový prompt: raz napíšete, platí všade</h3>
+      <p class="subtitle">Čo je v tomto poli, AI číta pred každou odpoveďou, v každom novom chate, aj v projekte. Raz napíšete, platí stále.</p>
+      <div class="sozialform"><strong>Každý pracuje sám, vo vlastnom chate.</strong> Aj vo vedľajšej miestnosti (breakout room) si každý vytvorí vlastnú verziu. Výsledky potom porovnáme.</div>
+      <div class="rahmen">
+        <div><b>Cieľ</b>Systémový prompt, ktorý platí v každom chate.</div>
+        <div><b>Výstup</b>Do chatu: prvá veta odpovede o dovolenke.</div>
+      </div>
+      <p class="step-label">Krok 1: Nájdite pole</p>
+      <table class="compare-table"><tr><th style="width:22%">Nástroj</th><th>Kde pole nájdete</th></tr><tr><td>ChatGPT</td><td>Profilový obrázok → Nastavenia → Personalizácia, potom pole „Vlastné pokyny“ (Custom Instructions).</td></tr><tr><td>Claude</td><td>Iniciály vľavo dole → Nastavenia, pole s pokynmi pre Clauda (Instructions for Claude).</td></tr><tr><td>Copilot</td><td>Profilový obrázok → Nastavenia → Personalizácia, vlastné pokyny, ak to Vaša organizácia povoľuje. Po uložení chvíľu počkajte a otvorte nový chat.</td></tr><tr><td>Gemini</td><td>Nastavenia → pokyny pre Gemini (osobný kontext).</td></tr></table>
+      <p>V slovenskom rozhraní sa názvy môžu mierne líšiť.</p>
+      <p class="step-label">Krok 2: Vložte svoj systémový prompt</p>
+      <p>Skopírujte text do poľa. Do hranatých zátvoriek v poslednom odseku doplňte svoje údaje, stačia dve vety. Potom uložte.</p>
+      <div class="prompt-block">Radšej napíš „neviem“, ako by si mal hádať. Jasne oddeľ, čo vieš isto a čo len predpokladáš, a predpoklady označ. Nevymýšľaj si čísla, mená, citáty ani zdroje.
+Ak je moja úloha nejasná alebo ti chýbajú dôležité informácie, najprv mi polož krátke doplňujúce otázky a až potom odpovedaj.
+Nedávaj mi automaticky za pravdu. Ak sa mýlim alebo niečo prehliadam, povedz mi to priamo a zdôvodni to.
+Som [rola] v [úrad alebo organizácia] a venujem sa najmä [dve, tri hlavné úlohy]. Odpovedaj po slovensky, [vykaj mi / tykaj mi], stručne a tak, aby som to mohol hneď použiť.</div>
+      <p>Mená, rodné čísla ani interné údaje do poľa nepatria.</p>
+      <details>
+        <summary>Krok 3: Test v novom chate (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Vysvetli mi, ako najlepšie požiadať vedúceho o dovolenku.</div>
+      <p>Prvú vetu odpovede napíšte do chatu v Zoome. Pýta sa AI najprv, o akú dovolenku ide? To je veta z Vášho promptu. Štýl ste do otázky nenapísali, a predsa platí.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Ukážka a na doma: dva štýly (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <p>Na seminári to ukážem na svojej obrazovke. Doma si to môžete vyskúšať sami: jeden z týchto riadkov dočasne vložte do poľa, položte otázku o dovolenke a porovnajte. <strong>Potom štýl z poľa zmažte</strong>, inak platí aj vo Vašom projekte.</p>
+      <div class="prompt-block">Odpovedaj mi odteraz vždy štýlom úradného listu: dlhé súvetia, podstatné mená namiesto slovies, obraty ako „v nadväznosti na Vašu žiadosť“ a „s úctou“. Obsah musí byť vecne správny, mení sa len tón.</div>
+      <div class="prompt-block">Odpovedaj mi odteraz vždy ako 16-ročný tínedžer: hovorovou slovenčinou, s miernym slangom a krátkymi vetami. Obsah musí byť vecne správny, mení sa len tón.</div>
+        </div>
+      </details>
+      <p class="profispur"><strong>Úroveň 2:</strong> Doplňte vetu o tom, ako má AI pracovať s Vaším kontextovým dokumentom.<br><strong>Úroveň 3:</strong> Napíšte AI: „Prečítaj si moje vlastné pokyny a navrhni 3 zlepšenia, aby si mi lepšie pomáhal.“</p>
+      <p class="fallback"><strong>Náhradná cesta:</strong> Pole nenájdete alebo ho Vaša organizácia vypla? Pošlite text ako prvú správu do nového chatu. Potom platí len v ňom.</p>
+      <p class="pruef">Podarilo sa, ak: V novom chate AI vyká alebo tyká tak, ako ste chceli, a pri nejasnej otázke sa najprv opýta.</p>
+    </div></section>
+<section class="lektion" data-id="asistent" data-teil="c1" data-teil-name="Časť 1: Váš asistent" hidden><div class="exercise" data-ex="asistent">
+      <div class="exercise-number">Cvičenie 3</div>
+      <h3>Váš asistent: projekt s Vaším dokumentom</h3>
+      <p class="subtitle">Projekt je vlastný priestor pre jednu tému. Vaše dokumenty v ňom ležia natrvalo a každý nový chat v projekte ich pozná.</p>
+      <div class="sozialform"><strong>Každý pracuje sám, vo vlastnom chate.</strong> Aj vo vedľajšej miestnosti (breakout room) si každý vytvorí vlastnú verziu. Výsledky potom porovnáme.</div>
+      <div class="rahmen">
+        <div><b>Cieľ</b>Asistent, ktorý pozná Vašu rolu.</div>
+        <div><b>Výstup</b>Do chatu v Zoome: „Asistent je hotový“.</div>
+      </div>
+      <p class="fallback"><strong>Údaje:</strong> Nahrajte len svoj kontextový dokument: žiadne osobné údaje, žiadne spisy, žiadne údaje občanov.</p>
+      <p class="step-label">Krok 1: Test bez asistenta</p>
+      <p>Otvorte bežný nový chat, mimo projektu, a opýtajte sa:</p>
+      <div class="prompt-block">Čo o mne vieš?</div>
+      <p>Odpoveď si zapamätajte. Na konci ju porovnáte.</p>
+      <p>Potom sa len pozerajte: projekt najprv ukážem v ChatGPT na zdieľanej obrazovke. Zatiaľ nič nezakladajte. Až potom to urobíte sami, krok za krokom, a po každom kroku zdvihnete ruku. Systémový prompt z cvičenia 2 platí všade, projekt platí len pre jednu tému.</p>
+      <details>
+        <summary>Krok 2: Založte projekt, klik za klikom (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <table class="compare-table"><tr><th style="width:22%">Nástroj</th><th>Založiť · dokument · pokyny</th></tr><tr><td>ChatGPT</td><td>Ľavý panel: Projekty (Projects), potom Nový projekt. V projekte Súbory (Sources): nahrať kontextový dokument. Pole Pokyny (Instructions) zatiaľ len nájdite.</td></tr><tr><td>Gemini</td><td>Gemy, potom Nový Gem. Vedomosti: pridať súbor. Pole Pokyny zatiaľ len nájdite.</td></tr><tr><td>Copilot</td><td>Notebooky, potom Nový notebook, alebo Agent, ak ho Vaša organizácia má. Pridať súbor. Pole pre pokyny zatiaľ len nájdite.</td></tr><tr><td>Claude</td><td>Projekty (Projects), potom Nový projekt. Vedomosti projektu (Project knowledge): súbor. Pokyny projektu (Project instructions) zatiaľ len nájdite.</td></tr></table>
+      <p>Rozhrania sú čiastočne v angličtine, preto uvádzam oba názvy.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Krok 3: Pokyny projektu (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <p>Skopírujte, text v hranatých zátvorkách prepíšte podľa seba a uložte. Inak Vám bude odpovedať asistent pre niekoho iného.</p>
+      <div class="prompt-block">Si môj asistent pre [moja agenda, napr. metodika informačného systému].
+O mne a mojej organizácii vieš z dokumentov v tomto projekte. Používaj ich vždy.
+Píš spisovnou slovenčinou, vecne a zdvorilo. Vykaj mi.
+Keď niečo nie je jasné, najprv sa ma spýtaj. Neistotu výslovne označ. Pri faktoch uveď zdroj.
+Nepracuj s menami, rodnými číslami ani číslami spisov.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Krok 4: Test s asistentom (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <p>Otvorte nový chat <strong>v projekte</strong>:</p>
+      <div class="prompt-block">Čo vieš o mojej organizácii a o mojej role? Pri každom údaji uveď, v ktorom dokumente je.</div>
+      <p>Porovnajte s krokom 1. Kto chce, prečíta dve vety nahlas.</p>
+      <table class="compare-table"><tr><th style="width:36%">Čo sa stalo</th><th>Čo urobiť</th></tr><tr><td>AI o Vás nič nevie</td><td>Chat ste asi otvorili mimo projektu. Otvorte projekt a v ňom nový chat.</td></tr><tr><td>Copilot nevidí pokyny</td><td>Ste v chate, nie na úrovni notebooku. Šípkou vľavo hore späť, potom tri bodky a pokyny.</td></tr><tr><td>AI sa pýta na to, čo je v dokumente</td><td>Napíšte: „Najprv si prečítaj dokumenty v tomto projekte.“</td></tr></table>
+        </div>
+      </details>
+      <details>
+        <summary>Krok 5: Prvá skutočná úloha, Vaša AI dielňa (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <p>Vezmite úlohu, ktorú ste si pripravili: stanovisko, metodiku alebo odpoveď na podanie.</p>
+      <div class="prompt-block">Pomôž mi s touto úlohou: [opakujúca sa úloha, bez mien a čísel spisov]. Najprv mi polož 3 otázky. Potom navrhni osnovu. Celý text ešte nepíš.</div>
+      <p>Prečítajte si osnovu a opravte ju. Až potom: „Napíš časť 1 podľa osnovy.“ Krok, kontrola, ďalší krok.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Úroveň 2:</strong> Pridajte do pokynov: „Keď napíšem ‚vysvetli:‘, nedávaj mi hotovú odpoveď, ale veď ma otázkami, kým to nepochopím.“ Vyskúšajte to na pojme zo svojej agendy.<br><strong>Úroveň 3:</strong> Nahrajte do projektu aj vzor dokumentu, ktorý často píšete (bez mien), a požiadajte o nový v rovnakej štruktúre.</p>
+      <p class="fallback"><strong>Náhradná cesta:</strong> Nástroj nemá projekty? Kontextový dokument vložte na začiatok každého nového chatu. Funguje to rovnako, len ručne.</p>
+      <p class="pruef">Podarilo sa, ak: Nový chat v projekte opíše Vašu organizáciu a rolu a pri každom údaji uvedie dokument, hoci ste nič nevkladali.</p>
+    </div></section>
+<section class="lektion" data-id="vrstvy" data-teil="c1" data-teil-name="Časť 1: Váš asistent" hidden><div class="exercise" data-ex="vrstvy">
+      <div class="exercise-number">Info</div>
+      <h3>Prompt layering a kontrolná karta</h3>
+      <p class="subtitle">Kde ste dnes pracovali v krokoch namiesto jednej dlhej správy? Napíšte to do chatu.</p>
+      <p>To bol prompt layering: nie jedna dlhá požiadavka, ale kroky, a po každom kontrola. V cvičení 1 ste hľadali, overovali, odpovedali a až potom písali. V cvičení 3 ste testovali, opravovali a až potom pokračovali.</p>
+      <table class="compare-table"><tr><th style="width:36%">Otázka</th><th>Čo urobíte</th></tr><tr><td>1 · Stojí to tam?</td><td>Tri náhodné miesta overte cez Ctrl+F (Mac: Cmd+F). Pýtajte si citát, nie číslo strany.</td></tr><tr><td>2 · Chýba niečo?</td><td>Opýtajte sa AI priamo, čo nenašla.</td></tr><tr><td>3 · Platí to aj druhýkrát?</td><td>Ten istý prompt v novom chate. Iný záver? Pozrie sa na to človek.</td></tr></table>
+      <p>Za výsledok zodpovedáte Vy, nie AI.</p>
+    </div></section>
+<section class="lektion" data-id="pauza" data-teil="c1" data-teil-name="Časť 1: Váš asistent" hidden><div class="exercise" data-ex="pauza">
+      <div class="exercise-number">Prestávka</div>
+      <h3>Prestávka a čo bude ďalej</h3>
+      <p class="subtitle">Doteraz zvládnuté. Nechajte túto stránku otvorenú, po prestávke budeme pokračovať presne tu.</p>
+      <p class="step-label">Čo už máte v ruke</p>
+      <p>Kontextový dokument o Vašej role a vlastného asistenta, ktorý ho pozná.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Ak musíte odísť skôr: dole v časti „Na záver“ nájdete AI check a spätnú väzbu. Spolu trvajú päť minút.</p>
+
+    </div></section>
+<section class="lektion" data-id="aiakt" data-teil="c2" data-teil-name="Časť 2: Vlastné dokumenty a AI akt" hidden><div class="exercise" data-ex="aiakt">
+      <div class="exercise-number">Cvičenie 4</div>
+      <h3>AI akt z prvej ruky: zdroj, ktorý cituje</h3>
+      <p class="subtitle">Notebook odpovedá len z dokumentov, ktoré doň nahráte, a ukáže miesto. Dnes je to nariadenie EÚ, v práci Vaša metodika.</p>
+      <div class="sozialform"><strong>Každý pracuje sám, vo vlastnom chate.</strong> Aj vo vedľajšej miestnosti (breakout room) si každý vytvorí vlastnú verziu. Výsledky potom porovnáme.</div>
+      <div class="rahmen">
+        <div><b>Cieľ</b>Odpoveď k Vašej práci, s overeným článkom.</div>
+        <div><b>Výstup</b>Do chatu: „Pre moju rolu platí: … (čl. …)“</div>
+      </div>
+      <p class="fallback"><strong>Údaje:</strong> Nahrávate verejný dokument EÚ a svoj kontextový dokument: žiadne osobné údaje, žiadne spisy.</p>
+      <p class="step-label">Krok 1: Najprv si tipnite</p>
+      <p>Na obrazovke položím notebooku, v ktorom je len nariadenie, otázku: „Kto vyhral majstrovstvá sveta vo futbale 2026?“ Čo odpovie? Napíšte svoj tip do chatu v Zoome.</p>
+      <p>Uzavretý notebook znamená: odpovedá len zo zdrojov. Neznamená to, že je bezpečný pre osobné údaje.</p>
+      <p class="step-label">Krok 2: Založte notebook alebo druhý projekt „AI akt“</p>
+      <p>Stiahnite si oba súbory po slovensky: <a href="https://eur-lex.europa.eu/legal-content/SK/TXT/PDF/?uri=OJ:L_202401689" target="_blank" rel="noopener" style="color:var(--gold);">nariadenie (EÚ) 2024/1689</a> a jeho zmenu, <a href="https://eur-lex.europa.eu/legal-content/SK/TXT/PDF/?uri=OJ:L_202601744" target="_blank" rel="noopener" style="color:var(--gold);">nariadenie (EÚ) 2026/1744</a>. Nahrajte ich spolu so svojím kontextovým dokumentom.</p>
+      <p>Projekt, Gem alebo agent Copilotu môže hľadať aj na internete. Notebook (NotebookLM, Copilot Notebook) je uzavretý a odpovedá len z Vašich zdrojov, preto je pri zákonoch presnejší.</p>
+      <table class="compare-table"><tr><th style="width:30%">Kto</th><th>Kde</th></tr><tr><td>Začínate s AI</td><td>Druhý projekt „AI akt“ vo svojom nástroji, rovnako ako v cvičení 3.</td></tr><tr><td>Používate AI denne</td><td><a href="https://notebooklm.google.com" target="_blank" rel="noopener" style="color:var(--gold);">notebooklm.google.com</a>, nový notebook. Najprv v nastaveniach zvoľte slovenčinu ako jazyk výstupu.</td></tr></table>
+      <details>
+        <summary>Krok 3: Dve otázky (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <p>Pred každú otázku vložte tento rámec:</p>
+      <div class="prompt-block">Odpovedaj len z nahratých súborov: nariadenie (EÚ) 2024/1689, jeho zmena, nariadenie (EÚ) 2026/1744, a môj kontextový dokument. Kde zmena mení text, platí nové znenie. Lehoty sú v článku 113 v znení zmeny. Pri každom tvrdení uveď článok a odsek. Čo v súboroch nie je, označ „nie je v zdrojoch“.</div>
+      <div class="prompt-block">Čo hrozí organizácii, ktorá poruší zákaz z článku 5? Uveď článok a čo platí pre orgány verejnej moci.</div>
+      <div class="prompt-block">Jeden z mojich zdrojov opisuje moju organizáciu a moju rolu. Na čo si mám pri svojej práci podľa AI aktu dávať pozor? Cituj príslušné miesta.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Krok 4: Overte jeden článok sami (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <p>Kliknite na sivé číslo citácie v odpovedi, alebo si vypýtajte číslo článku a nájdite ho v PDF. Hovorí to miesto naozaj to, čo stojí v odpovedi? Notebook si vymýšľa menej, lebo sa drží zdrojov, ale aj tak sa môže mýliť.</p>
+      <p>Potom napíšte do chatu jednu vetu: „Pre moju rolu platí: … (čl. …)“.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Úroveň 2:</strong> Opýtajte sa: „Čo vyžaduje článok 4 od mojej organizácie?“ a „Používame niečo z prílohy III?“ Odpoveď si odložte na cvičenie 5.<br><strong>Úroveň 3:</strong> V štúdiu NotebookLM nechajte vyrobiť infografiku, myšlienkovú mapu alebo kartičky. Alebo položte tú istú otázku v projekte aj v notebooku a porovnajte citáty.</p>
+      <p class="fallback"><strong>Náhradná cesta:</strong> NotebookLM je zablokovaný? Založte druhý projekt „AI akt“ vo svojom nástroji. PDF sa nenahrá? Napíšte mi do chatu, pošlem text článkov.</p>
+      <p class="pruef">Podarilo sa, ak: Máte odpoveď s číslom článku a príslušné miesto v nariadení ste si sami prečítali.</p>
+    </div></section>
+<section class="lektion" data-id="tienova" data-teil="c3" data-teil-name="Časť 3: Tieňová AI a interné pravidlá" hidden><div class="exercise" data-ex="tienova">
+      <div class="exercise-number">Info</div>
+      <h3>Tieňová AI: AI v práci bez pravidiel</h3>
+      <p class="subtitle">Problémom nie je nástroj. Problémom je, že sa o tom nehovorí.</p>
+      <table class="compare-table"><tr><th style="width:18%">Číslo</th><th>Čo znamená</th></tr><tr><td>88 %</td><td>zamestnancov zadalo pracovné informácie do verejných nástrojov AI (PagerDuty 2026, 1 250 kancelárskych zamestnancov v 4 krajinách)</td></tr><tr><td>47 %</td><td>používateľov AI pracuje so súkromným účtom, nie s pracovným (LayerX a Netskope 2026)</td></tr><tr><td>29 %</td><td>zamestnávateľov má vôbec nejaké pravidlá pre AI (Littler 2024, 627 HR manažérov v Európe)</td></tr></table>
+      <p class="step-label">A u Vás?</p>
+      <ul><li>Má Váš úrad písomné pravidlá pre AI?</li><li>Ktoré nástroje smiete v práci používať?</li><li>Kto Vám to povedal, a kedy?</li></ul>
+      <p class="step-label">Podchytiť bez zákazov</p>
+      <ol><li><strong>Povoliť:</strong> jeden nástroj, ktorý úrad schváli a zaplatí. Inak ľudia siahnu po súkromnom.</li><li><strong>Pravidlá na jednu stranu:</strong> čo smie dnu, čo nikdy, kto kontroluje.</li><li><strong>Naučiť:</strong> školenie a rozhovor v tíme. To žiada článok 4 AI aktu.</li></ol>
+    </div></section>
+<section class="lektion" data-id="pravidla" data-teil="c3" data-teil-name="Časť 3: Tieňová AI a interné pravidlá" hidden><div class="exercise" data-ex="pravidla">
+      <div class="exercise-number">Cvičenie 5</div>
+      <h3>Podklad pre interné pravidlá</h3>
+      <p class="subtitle">Najprv jedno pravidlo jednou vetou, potom z neho Váš asistent urobí návrh pravidiel na jednu stranu.</p>
+      <div class="sozialform"><strong>Každý pracuje sám, vo vlastnom chate.</strong> Aj vo vedľajšej miestnosti (breakout room) si každý vytvorí vlastnú verziu. Výsledky potom porovnáme.</div>
+      <div class="rahmen">
+        <div><b>Cieľ</b>Vaše pravidlo a návrh pravidiel na jednu stranu.</div>
+        <div><b>Výstup</b>Do chatu: Vaše pravidlo, potom „Podklad hotový“.</div>
+      </div>
+      <p class="step-label">Krok 1: Jedno pravidlo, jednou vetou</p>
+      <p>Tri minúty potichu. Napíšte jedno pravidlo pre AI vo svojom úrade. Tri podmienky: bez názvu produktu, jedna veta, kolega ho použije bez ďalšej otázky. Príklady:</p>
+      <ul><li>Žiadny text o občanovi neopustí úrad, kým ho celý neprečíta človek.</li><li>Mená, rodné čísla a čísla spisov nikdy nejdú do nástroja, ktorý nám nepatrí.</li><li>Kto prevezme odpoveď AI, podpíše ju svojím menom.</li></ul>
+      <p>Potom svoju vetu napíšte do chatu v Zoome.</p>
+      <details>
+        <summary>Krok 2: Návrh na jednu stranu, vo Vašom asistentovi (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <p>Otvorte nový chat vo svojom projekte z cvičenia 3. Do hranatých zátvoriek vložte svoje pravidlo a dve z chatu.</p>
+      <div class="prompt-block">Tu sú pravidlá pre AI v našom úrade: [Vaše pravidlo a dve pravidlá z chatu]. Najprv mi polož 3 otázky o našom úrade. Počkaj na odpovede. Potom napíš návrh interných pravidiel na jednu stranu v piatich častiach:
+1. Ktoré nástroje smieme používať a s akým účtom.
+2. Ktoré údaje do AI nikdy nepatria.
+3. Ako výsledok AI skontroluje človek, skôr ako ho použijeme.
+4. Kedy a ako označujeme, že text vznikol s pomocou AI.
+5. Kto za pravidlá zodpovedá a na koho sa obrátiť s otázkou.
+Zohľadni článok 4 AI aktu (gramotnosť v oblasti AI). Píš zrozumiteľne, bez právnického žargónu. Na konci označ, čo musí ešte posúdiť právne oddelenie.</div>
+      <p>Návrh si uložte. Je to podklad, nie hotová smernica: rozhoduje Váš úrad.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Úroveň 2:</strong> Nechajte návrh skontrolovať: „Stojí to tam? Chýba niečo? Platí to aj druhýkrát?“ Pomôže kontrolná karta.<br><strong>Úroveň 3:</strong> V notebooku „AI akt“ sa opýtajte: „Zodpovedá tento návrh článku 4? Čo chýba?“</p>
+      <p class="fallback"><strong>Náhradná cesta:</strong> Bez projektu: vložte do nového chatu svoj kontextový dokument a potom prompt z kroku 2.</p>
+      <p class="pruef">Podarilo sa, ak: Máte jednu stranu s piatimi časťami: nástroje, údaje, kontrola, označovanie a kto zodpovedá.</p>
+    </div></section>
+<section class="lektion" data-id="kicheck-ende" data-teil="zaver" data-teil-name="Na záver" hidden><div class="exercise" data-ex="kicheck-ende">
+      <div class="exercise-number">Na záver</div>
+      <h3>Váš AI check, druhýkrát</h3>
+      <p class="subtitle">Ten istý dotazník ako na začiatku. Vyplňte ho teraz ešte raz. Vy uvidíte čierne na bielom, čo ste sa dnes naučili, a ja uvidím, čo mám nabudúce vylepšiť. Najprv AI check, potom rozlúčka.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Vo formulári pri otázke „Kedy vypĺňate?“ zvoľte teraz <strong>„Na konci“</strong>.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
+        <a href="https://docs.google.com/forms/d/17P3ZLxJ3NKtR84puv9P_F4aoWJmd06k96LLA9r7icDE/viewform?embedded=true&hl=sk" target="_blank" rel="noopener"><img src="kicheck-qr.png" alt="QR kód k formuláru" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
+        <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formulár sa nenačíta?</strong> Na služobnom počítači sa to stáva. Naskenujte QR kód telefónom alebo <a href="https://docs.google.com/forms/d/17P3ZLxJ3NKtR84puv9P_F4aoWJmd06k96LLA9r7icDE/viewform?embedded=true&hl=sk" target="_blank" rel="noopener" style="color:var(--gold);">formulár otvorte v novom okne</a>.</p>
+      </div>
+      <div class="form-wichtig"><strong>Dôležité:</strong> Uloží sa len to, čo úplne <strong>DOLE VO FORMULÁRI</strong> odošlete tlačidlom „Odoslať“. Tlačidlo vpravo dole na tejto stránke („Formulár odoslaný? Potom ďalej“) len prejde na ďalšiu časť a nič neodošle. Teda: najprv odoslať, potom ďalej.</div>
+      <iframe id="Form-FORM_KICHECK-13" data-formular="FORM_KICHECK" src="https://docs.google.com/forms/d/17P3ZLxJ3NKtR84puv9P_F4aoWJmd06k96LLA9r7icDE/viewform?embedded=true&hl=sk" title="Váš AI check, druhýkrát" style="width:100%; height:2600px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nezabudnite: dole vo formulári kliknite na „Odoslať“.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formulár sa nenačíta? <a href="https://docs.google.com/forms/d/17P3ZLxJ3NKtR84puv9P_F4aoWJmd06k96LLA9r7icDE/viewform?embedded=true&hl=sk" target="_blank" rel="noopener" style="color:var(--gold);">Otvorte ho v novom okne</a>.</p>
+
+    </div></section>
+<section class="lektion" data-id="feedback" data-teil="zaver" data-teil-name="Na záver" hidden><div class="exercise" data-ex="feedback">
+      <div class="exercise-number">Spätná väzba</div>
+      <h3>Vaša spätná väzba</h3>
+      <p class="subtitle">Dve minúty. Váš aha moment, Vaše najdôležitejšie zistenie, čo mám nabudúce urobiť lepšie a nakoľko Vám pomohla táto stránka. Meno je nepovinné. Úprimná odpoveď mi pomôže viac ako zdvorilá.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
+        <a href="https://docs.google.com/forms/d/1g87kasNpFuAhPuNKXvhp7gTtIu8D9UMxtPd83DxbcAw/viewform?embedded=true&hl=sk" target="_blank" rel="noopener"><img src="feedback-qr.png" alt="QR kód k formuláru" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
+        <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formulár sa nenačíta?</strong> Na služobnom počítači sa to stáva. Naskenujte QR kód telefónom alebo <a href="https://docs.google.com/forms/d/1g87kasNpFuAhPuNKXvhp7gTtIu8D9UMxtPd83DxbcAw/viewform?embedded=true&hl=sk" target="_blank" rel="noopener" style="color:var(--gold);">formulár otvorte v novom okne</a>.</p>
+      </div>
+      <div class="form-wichtig"><strong>Dôležité:</strong> Uloží sa len to, čo úplne <strong>DOLE VO FORMULÁRI</strong> odošlete tlačidlom „Odoslať“. Tlačidlo vpravo dole na tejto stránke („Formulár odoslaný? Potom ďalej“) len prejde na ďalšiu časť a nič neodošle. Teda: najprv odoslať, potom ďalej.</div>
+      <iframe id="Form-FORM_FEEDBACK-14" data-formular="FORM_FEEDBACK" src="https://docs.google.com/forms/d/1g87kasNpFuAhPuNKXvhp7gTtIu8D9UMxtPd83DxbcAw/viewform?embedded=true&hl=sk" title="Vaša spätná väzba" style="width:100%; height:2200px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nezabudnite: dole vo formulári kliknite na „Odoslať“.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formulár sa nenačíta? <a href="https://docs.google.com/forms/d/1g87kasNpFuAhPuNKXvhp7gTtIu8D9UMxtPd83DxbcAw/viewform?embedded=true&hl=sk" target="_blank" rel="noopener" style="color:var(--gold);">Otvorte ho v novom okne</a>.</p>
+
+    </div></section>
+<section class="lektion" data-id="dalej" data-teil="zaver" data-teil-name="Na záver" hidden><div class="exercise" data-ex="dalej">
+      <div class="exercise-number">Záver</div>
+      <h3>Čo ďalej po seminári</h3>
+      <p class="subtitle">Ďakujem za dnešný seminár. Táto stránka je online do 31. 12. 2026.</p>
+      <p class="step-label">Vaša úloha do piatku 27. 11. 2026</p>
+      <p>Použite svojho asistenta na tri skutočné úlohy, nie prázdny chat. Potom mi na adresu <a href="mailto:jakub@popluhar.at" target="_blank" rel="noopener" style="color:var(--gold);">jakub@popluhar.at</a> pošlite jeden riadok: ktorá úloha a čo fungovalo.</p>
+      <div style="text-align:center; margin: 28px 0 8px; padding: 28px 22px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
+        <p style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Zostaňme v kontakte</p>
+        <p style="font-size: 0.9rem; color: var(--white-muted); margin-bottom: 18px;">Jedným kliknutím si vyžiadate podklady a budete dostávať novinky.</p>
+        <a href="https://jakubpopluhar.com/dalej/?kurs=proeko20112026" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; border: 2px solid var(--gold);">Zostať v kontakte &rarr;</a>
+        <p style="font-size: 0.8rem; color: var(--white-muted); margin-top: 10px;">Vašu e-mailovú adresu potrebujem, aby k Vám podklady spoľahlivo prišli.</p>
+        <div style="margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(212,160,23,0.2);">
+          <p style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; margin-bottom: 6px;">LinkedIn: spojme sa</p>
+          <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener"><img src="linkedin-qr.png" alt="QR kód k profilu Jakuba Popluhára na sieti LinkedIn" width="180" height="180" style="display:block; margin: 0 auto 14px; width:180px; height:180px; border-radius:10px; background:#fff; padding:6px;"></a>
+          <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener" style="display:inline-block; color:var(--gold); border: 2px solid var(--gold); padding:10px 26px; border-radius:8px; font-weight:700; font-size:0.9rem;">Spojiť sa cez LinkedIn &rarr;</a>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:16px; font-size:0.85rem;"><a href="ressourcen/" style="color:var(--gold);">Všetky nástroje a zdroje &rarr;</a></p>
+
+    </div></section>
+  </main>
+</div>
+<div class="nav"><div class="form-hinweis" id="form-hinweis" role="alert" hidden><div class="form-hinweis-innen"><p><strong>Stlačili ste vo formulári dole „Odoslať“?</strong> Až potom sa Vaše odpovede uložia.</p><div class="reihe"><button type="button" class="knopf los" id="form-ja">Áno, odoslané, ďalej</button><button type="button" class="knopf" id="form-zurueck">Späť na formulár</button></div></div></div><div class="nav-innen"><button class="knopf" id="prev" type="button">← Späť</button><button class="knopf los" id="next" type="button">Hotovo, ďalej →</button></div></div>
+<script>
+const M = [{"id": "willkommen", "teil": "uvod", "teilname": "Úvod", "nr": "", "art": "Štart", "opt": false, "titel": "Vitajte"}, {"id": "kicheck", "teil": "uvod", "teilname": "Úvod", "nr": "", "art": "Check", "opt": false, "titel": "Váš AI check"}, {"id": "slovnik", "teil": "uvod", "teilname": "Úvod", "nr": "", "art": "Info", "opt": false, "titel": "Slovník na dnes"}, {"id": "werkzeug", "teil": "uvod", "teilname": "Úvod", "nr": "", "art": "Info", "opt": false, "titel": "Otvorte svoj nástroj AI"}, {"id": "split", "teil": "uvod", "teilname": "Úvod", "nr": "", "art": "Tip", "opt": false, "titel": "Dve okná vedľa seba"}, {"id": "kontext", "teil": "kontext", "teilname": "Váš kontextový dokument", "nr": "1", "art": "Cvičenie", "opt": false, "titel": "Váš kontextový dokument: cesta A alebo B"}, {"id": "systemprompt", "teil": "c1", "teilname": "Časť 1: Váš asistent", "nr": "2", "art": "Cvičenie", "opt": false, "titel": "Systémový prompt: raz napíšete, platí všade"}, {"id": "asistent", "teil": "c1", "teilname": "Časť 1: Váš asistent", "nr": "3", "art": "Cvičenie", "opt": false, "titel": "Váš asistent: projekt s Vaším dokumentom"}, {"id": "vrstvy", "teil": "c1", "teilname": "Časť 1: Váš asistent", "nr": "", "art": "Info", "opt": false, "titel": "Prompt layering a kontrolná karta"}, {"id": "pauza", "teil": "c1", "teilname": "Časť 1: Váš asistent", "nr": "", "art": "Prestávka", "opt": false, "titel": "Prestávka a čo bude ďalej"}, {"id": "aiakt", "teil": "c2", "teilname": "Časť 2: Vlastné dokumenty a AI akt", "nr": "4", "art": "Cvičenie", "opt": false, "titel": "AI akt z prvej ruky: zdroj, ktorý cituje"}, {"id": "tienova", "teil": "c3", "teilname": "Časť 3: Tieňová AI a interné pravidlá", "nr": "", "art": "Info", "opt": false, "titel": "Tieňová AI: AI v práci bez pravidiel"}, {"id": "pravidla", "teil": "c3", "teilname": "Časť 3: Tieňová AI a interné pravidlá", "nr": "5", "art": "Cvičenie", "opt": false, "titel": "Podklad pre interné pravidlá"}, {"id": "kicheck-ende", "teil": "zaver", "teilname": "Na záver", "nr": "", "art": "Na záver", "opt": false, "titel": "Váš AI check, druhýkrát"}, {"id": "feedback", "teil": "zaver", "teilname": "Na záver", "nr": "", "art": "Spätná väzba", "opt": false, "titel": "Vaša spätná väzba"}, {"id": "dalej", "teil": "zaver", "teilname": "Na záver", "nr": "", "art": "Záver", "opt": false, "titel": "Čo ďalej po seminári"}];
+const KOHORTE = 'proeko20112026';
+const GRUPPEN = true;
+const WACHE = true;
+const ERKENNUNG = false;
+const SPEICHER = 'kurs.' + KOHORTE;
+const S = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
+            set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+const $ = id => document.getElementById(id);
+let erledigt = new Set(S.get(SPEICHER + '.erledigt', []));
+let cur = null, imRaum = null;
+
+function beschriftung(m) { return (m.nr ? 'Cvičenie ' + m.nr : m.art) + ' · ' + m.titel; }
+
+function zeigen(id, scrollen) {
+  const m = M.find(x => x.id === id) || M[0];
+  cur = m.id; S.set(SPEICHER + '.cur', cur); S.set(SPEICHER + '.tag', new Date().toDateString());
+  if (location.hash.slice(1) !== cur) history.replaceState(null, '', '#' + cur);
+  document.querySelectorAll('.lektion').forEach(s => s.hidden = s.dataset.id !== cur);
+  const i = M.indexOf(m);
+  $('ttl').textContent = m.titel;
+  $('crumb').textContent = m.teilname;
+  $('tags').innerHTML = '<span class="tag">' + (m.nr ? 'Cvičenie ' + m.nr : m.art) + '</span>' + (m.opt ? '<span class="tag leise">ak zostane čas</span>' : '');
+  document.querySelectorAll('.zeile').forEach(z => {
+    z.classList.toggle('aktiv', z.dataset.id === cur);
+    z.classList.toggle('erledigt', erledigt.has(z.dataset.id));
+  });
+  const p = Math.round(erledigt.size / M.length * 100);
+  $('balken').style.width = p + '%';
+  $('stand').textContent = erledigt.size + ' z ' + M.length + ' hotových';
+  $('dstand').textContent = (m.nr ? 'Cvičenie ' + m.nr : m.art) + ' · ' + erledigt.size + '/' + M.length + ' hotových';
+  $('prev').disabled = i === 0;
+  $('next').textContent = i === M.length - 1 ? 'Hotovo ✓' : (formLektion() && !abgeschickt[cur] ? 'Formulár odoslaný? Potom ďalej →' : 'Hotovo, ďalej →');
+  if (WACHE) hinweisZu();
+  $('side').classList.remove('offen');
+  if (GRUPPEN) gruppeOeffnen(m.teil);
+  leisteZeichnen();
+  if (scrollen !== false) window.scrollTo(0, 0);
+}
+
+function gruppeOeffnen(teil) {
+  document.querySelectorAll('.gruppe').forEach(g => {
+    if (g.dataset.teil === teil) { g.classList.remove('zu'); g.querySelector('.teil-knopf').setAttribute('aria-expanded', 'true'); }
+  });
+}
+if (GRUPPEN) document.querySelectorAll('.teil-knopf').forEach(k => k.addEventListener('click', () => {
+  const g = k.parentElement, zu = g.classList.toggle('zu');
+  k.setAttribute('aria-expanded', String(!zu));
+}));
+document.querySelectorAll('.zeile').forEach(z => z.addEventListener('click', e => { e.preventDefault(); zeigen(z.dataset.id); }));
+$('prev').onclick = () => { const i = M.findIndex(x => x.id === cur); if (i > 0) zeigen(M[i - 1].id); };
+function weiter() {
+  erledigt.add(cur); S.set(SPEICHER + '.erledigt', [...erledigt]);
+  const i = M.findIndex(x => x.id === cur); zeigen(M[Math.min(i + 1, M.length - 1)].id);
+}
+// Formular-Wache: nie blockieren. Erster Klick zeigt nur einen Hinweis im Seitenkopf-Bereich, der zweite geht durch.
+const abgeschickt = {}, gewarnt = {};
+function formLektion() { return WACHE ? document.querySelector('.lektion[data-id="' + cur + '"] iframe[data-formular]') : null; }
+function hinweisZu() { const h = $('form-hinweis'); if (h) h.hidden = true; }
+$('next').onclick = () => {
+  if (formLektion() && !abgeschickt[cur] && !gewarnt[cur]) {
+    gewarnt[cur] = true; const h = $('form-hinweis'); h.hidden = false; $('form-ja').focus(); return;
+  }
+  weiter();
+};
+if (WACHE) {
+  $('form-ja').onclick = () => { hinweisZu(); weiter(); };
+  $('form-zurueck').onclick = () => {
+    hinweisZu(); gewarnt[cur] = false;
+    const f = formLektion(); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  };
+  if (ERKENNUNG) document.querySelectorAll('iframe[data-formular]').forEach(f => {
+    let n = 0;
+    f.addEventListener('load', () => {
+      if (++n < 2) return;            // das erste load ist das leere Formular, jedes weitere eine neue Seite (Dank-Seite nach dem Absenden)
+      const id = f.closest('.lektion').dataset.id; abgeschickt[id] = true;
+      if (!f.nextElementSibling || !f.nextElementSibling.classList.contains('form-danke')) {
+        const d = document.createElement('p'); d.className = 'form-danke'; d.textContent = 'Ďakujem, Vaše odpovede sú uložené ✓'; f.after(d);
+      }
+      if (id === cur) { hinweisZu(); zeigen(cur, false); }
+    });
+  });
+}
+$('oeffnen').onclick = () => $('side').classList.add('offen');
+function leisteSetzen(zu) {
+  document.body.classList.toggle('leiste-zu', zu);
+  $('leisteKnopf').setAttribute('aria-expanded', String(!zu));
+  $('leisteKnopf').setAttribute('aria-label', zu ? 'Rozbaliť bočný panel' : 'Zbaliť bočný panel');
+  S.set(SPEICHER + '.leisteZu', zu);
+}
+$('leisteKnopf').onclick = () => leisteSetzen(!document.body.classList.contains('leiste-zu'));
+leisteSetzen(!!S.get(SPEICHER + '.leisteZu', false));
+$('schliessen').onclick = () => $('side').classList.remove('offen');
+window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (h && h !== cur && M.some(x => x.id === h)) zeigen(h); });
+
+// Kopieren per Klick auf einen Prompt-Block
+document.querySelectorAll('.prompt-block').forEach(block => {
+  block.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(block.textContent.trim());
+      block.classList.add('copied'); setTimeout(() => block.classList.remove('copied'), 1500);
+    } catch (e) {
+      const r = document.createRange(); r.selectNodeContents(block);
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    }
+  });
+});
+
+// Akkordeon: je Uebung nur ein Feld offen, und nur nach einem echten Klick
+let letzterKlick = 0;
+document.addEventListener('click', e => { if (e.target.closest('summary')) letzterKlick = Date.now(); }, true);
+document.querySelectorAll('.exercise').forEach(ex => {
+  ex.querySelectorAll(':scope > details, .collapsible-content > details').forEach(det => {
+    det.addEventListener('toggle', () => {
+      if (det.open && Date.now() - letzterKlick < 1000) {
+        det.parentElement.querySelectorAll(':scope > details').forEach(sib => { if (sib !== det && sib.open) sib.open = false; });
+        setTimeout(() => det.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+      }
+    });
+  });
+});
+
+// Bild-Upload in Jakubs Drive. Geht an denselben Dienst wie die Live-Leiste.
+let UPLOAD = 'https://deflifeos.popluhar.at/reise-live/upload';
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && new URLSearchParams(location.search).get('uploadUrl'))
+  UPLOAD = new URLSearchParams(location.search).get('uploadUrl');
+document.querySelectorAll('.upload-kasten').forEach(kasten => {
+  const vn = kasten.querySelector('.vorname'), feld = kasten.querySelector('input[type=file]'), liste = kasten.querySelector('.liste-upload');
+  vn.value = S.get(SPEICHER + '.vorname', '');
+  vn.addEventListener('change', () => S.set(SPEICHER + '.vorname', vn.value.trim()));
+  function eins(datei) {
+    const li = document.createElement('li');
+    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = datei.name || 'Obrázok';
+    const st = document.createElement('span'); st.className = 'st'; st.textContent = 'nahráva sa…';
+    li.append(nm, st); liste.prepend(li);
+    if (datei.size > 12 * 1024 * 1024) { li.className = 'fehler'; st.textContent = 'príliš veľký (max. 12 MB)'; return Promise.resolve(); }
+    return new Promise(fertig => {
+      const x = new XMLHttpRequest();
+      x.open('POST', UPLOAD);
+      x.setRequestHeader('Content-Type', 'application/octet-stream');
+      x.setRequestHeader('X-Kohorte', KOHORTE);
+      x.setRequestHeader('X-Uebung', encodeURIComponent(kasten.dataset.uebung || ''));
+      x.setRequestHeader('X-Vorname', encodeURIComponent(vn.value.trim()));
+      x.upload.onprogress = e => { if (e.lengthComputable) st.textContent = Math.round(e.loaded / e.total * 100) + ' %'; };
+      x.onload = () => {
+        let d = {}; try { d = JSON.parse(x.responseText); } catch (e) {}
+        if (x.status === 200) { li.className = 'ok'; st.textContent = 'nahrané ✓'; }
+        else { li.className = 'fehler'; st.textContent = d.fehler || ('Chyba ' + x.status); }
+        fertig();
+      };
+      x.onerror = () => { li.className = 'fehler'; st.textContent = 'bez pripojenia, skúste znova'; fertig(); };
+      x.send(datei);
+    });
+  }
+  feld.addEventListener('change', async () => {
+    S.set(SPEICHER + '.vorname', vn.value.trim());
+    for (const d of [...feld.files].slice(0, 5)) await eins(d);
+    feld.value = '';
+  });
+});
+
+// Live-Leiste "Jetzt im Raum": nur lesen, es wird nichts ueber die Person gesendet
+let BASIS = 'https://deflifeos.popluhar.at/reise-live/jetzt.json';
+const q = new URLSearchParams(location.search);
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && q.get('liveBasis')) BASIS = q.get('liveBasis');
+function leisteZeichnen() {
+  const leiste = $('live-leiste');
+  const m = imRaum && M.find(x => x.id === imRaum);
+  document.querySelectorAll('.zeile').forEach(z => z.classList.toggle('im-raum', !!m && z.dataset.id === imRaum));
+  if (!m) { leiste.hidden = true; return; }
+  leiste.hidden = false;
+  $('live-text').textContent = beschriftung(m);
+  const hier = imRaum === cur;
+  $('live-dorthin').hidden = hier;
+  $('live-hier').hidden = !hier;
+}
+function abfragen() {
+  fetch(BASIS + '?k=' + KOHORTE, { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (!d) return;
+      const neu = d.ziel || null;
+      if (neu === imRaum) return;
+      imRaum = neu; leisteZeichnen();
+      const l = $('live-leiste'); l.classList.remove('neu'); void l.offsetWidth; l.classList.add('neu');
+    })
+    .catch(() => { /* ohne Verbindung bleibt alles, wie es ist */ });
+}
+let takt = null;
+function starten() { clearInterval(takt); takt = null; if (!document.hidden) { abfragen(); takt = setInterval(abfragen, 5000); } }
+$('live-dorthin').onclick = () => { if (imRaum) zeigen(imRaum); };
+document.addEventListener('visibilitychange', starten);
+function schubladeHoehe() { document.documentElement.style.setProperty('--schublade-h', $('schublade').offsetHeight + 'px'); }
+window.addEventListener('resize', schubladeHoehe);
+
+schubladeHoehe();
+const start = location.hash.slice(1);
+// Wiedereinstieg nur am selben Tag, sonst landen alle auf der Willkommensseite (Commander 07.10.)
+const gestern = S.get(SPEICHER + '.tag', '') !== new Date().toDateString();
+zeigen(M.some(x => x.id === start) ? start : (gestern ? M[0].id : S.get(SPEICHER + '.cur', M[0].id)), false);
+starten();
+
+(function () {
+  // Begruessung nur beim ersten Besuch. Speicher gesperrt: einmal je Sitzung, wenn auch das nicht geht, bei jedem Laden. Blockiert nie.
+  var K = 'kurs.' + KOHORTE + '.begruesst', box = document.getElementById('willkommen-bs');
+  function gesehen() {
+    try { if (localStorage.getItem(K)) return true; } catch (e) {}
+    try { if (sessionStorage.getItem(K)) return true; } catch (e) {}
+    return false;
+  }
+  function merken() {
+    try { localStorage.setItem(K, '1'); } catch (e) {}
+    try { sessionStorage.setItem(K, '1'); } catch (e) {}
+  }
+  if (!box || gesehen()) return;
+  function zu() { box.hidden = true; merken(); document.removeEventListener('keydown', taste); }
+  function taste(e) { if (e.key === 'Escape' || e.key === 'Enter') zu(); }
+  box.hidden = false;
+  document.getElementById('wk-weiter').addEventListener('click', zu);
+  document.addEventListener('keydown', taste);
+  try { document.getElementById('wk-weiter').focus(); } catch (e) {}
+})();
+</script>
+<script src="/assets/js/site.js" defer></script>
+<script src="quiz/quiz.js"></script>
+<button class="tema-knopf" id="tema-knopf" type="button" aria-label="Prepnúť svetlý/tmavý režim" title="Prepnúť svetlý/tmavý režim">☀</button>
+<script>(function(){var b=document.getElementById('tema-knopf'),h=document.documentElement;function s(){b.textContent=h.classList.contains('hell')?'☾':'☀'}s();b.onclick=function(){var l=h.classList.toggle('hell');s();try{localStorage.setItem('tema',l?'hell':'dunkel')}catch(e){}}})();</script>
+</body>
+</html>
