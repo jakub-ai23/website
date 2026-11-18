@@ -883,7 +883,7 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
 @media print{.tema-knopf{display:none}}
   </style>
   <script>(function(){var h=document.documentElement,q=location.search,t=/[?&](hell|light|svetla)\b/.test(q)?'hell':/[?&](dunkel|dark|tmava)\b/.test(q)?'dunkel':null;try{t=t||localStorage.getItem('tema');if(t)localStorage.setItem('tema',t)}catch(e){}if(t==='hell')h.classList.add('hell')})();</script>
-</head>
+<style>table.erkl{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95em}table.erkl th,table.erkl td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(var(--ink),.15);vertical-align:top}table.erkl th{font-weight:700;opacity:.75;font-size:.85em;letter-spacing:.04em;text-transform:uppercase}</style></head>
 <body>
 <div class="willkommen-bs" id="willkommen-bs" role="dialog" aria-modal="true" aria-labelledby="wk-text" hidden><div class="willkommen-karte"><img src="jakub-lachend.png" alt="Jakub Popluhar"><div class="willkommen-blase"><p id="wk-text">Herzlich willkommen zum Workshop „ChatGPT Business im Arbeitsalltag“. Dieses E-Learning begleitet uns den ganzen Tag.</p></div><button type="button" class="knopf los" id="wk-weiter">Weiter</button></div></div>
 <div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Inhalt</button><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
@@ -1015,7 +1015,9 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
         <div><b>Ziel</b>Einen Auftrag Schicht für Schicht aufbauen.</div>
         <div><b>Abgabe</b>Kurz melden: „Angebotstext fertig“</div>
       </div>
-      <p>| Baustein | Frage | |---|---| | C = Context | Was ist die Ausgangssituation? | | I = Intent | Was genau will ich erreichen? | | T = Task | Was soll die KI machen? | | E = Execution | Wie soll sie es machen? Format, Ton, Länge | | R = Reality | Stimmt das Ergebnis? Was muss ich prüfen? |</p>
+      <p class="step-label">Kurz erklärt</p>
+      <p>Die KI kennt nur, was im Chat steht. Ein einzelner Satz liefert eine Durchschnittsantwort, die für jede Firma passen könnte. Jede Schicht macht daraus Ihre Antwort: die Lage (C), das Ziel (I), die Form (E). Das R ist Ihr Teil: Sie prüfen, bevor etwas das Haus verlässt.</p>
+      <table class="erkl"><thead><tr><th>Baustein</th><th>Frage</th></tr></thead><tbody><tr><td>C = Context</td><td>Was ist die Ausgangssituation?</td></tr><tr><td>I = Intent</td><td>Was genau will ich erreichen?</td></tr><tr><td>T = Task</td><td>Was soll die KI machen?</td></tr><tr><td>E = Execution</td><td>Wie soll sie es machen? Format, Ton, Länge</td></tr><tr><td>R = Reality</td><td>Stimmt das Ergebnis? Was muss ich prüfen?</td></tr></tbody></table>
       <p class="step-label">Schritt 1 (T = Task): Nur die Aufgabe, neuer Chat</p>
       <div class="prompt-block">Schreib einen Begleittext zu einem Photovoltaik-Angebot.</div>
       <details>
@@ -1055,6 +1057,9 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
         <div><b>Ziel</b>Die KI holt sich selbst, was ihr fehlt.</div>
         <div><b>Abgabe</b>Kurz melden: die beste Frage, die sie stellte</div>
       </div>
+      <p class="step-label">Kurz erklärt</p>
+      <p>Fehlen der KI Angaben, rät sie. Und sie rät plausibel, darum fällt es kaum auf. Mit Rückfragen drehen Sie das um: Die KI holt sich selbst, was ihr fehlt, und Sie merken dabei, was Sie noch gar nicht entschieden haben.</p>
+      <table class="erkl"><thead><tr><th>Wann</th><th>Was Sie schreiben</th></tr></thead><tbody><tr><td>Alles, was nach außen geht</td><td>„Stell mir zuerst 3 bis 5 Fragen.“</td></tr><tr><td>Eine schnelle interne Notiz</td><td>direkt los</td></tr></tbody></table>
       <p class="step-label">Schritt 1: Aufgabe nennen und Rückfragen verlangen (neuer Chat)</p>
       <div class="prompt-block">Ich brauche eine Stellenanzeige für einen Bohrmeister bei einem Bau- und Energieunternehmen in Niederösterreich.
 
@@ -1087,6 +1092,10 @@ Bevor du schreibst: Stell mir 3 bis 5 Fragen, die du brauchst, um das wirklich g
         <div><b>Abgabe</b>Kurz melden: „Firmendokument fertig“</div>
       </div>
       <p class="fallback"><strong>Daten:</strong> Nur öffentliche Angaben. Keine Kunden, Preise oder internen Zahlen in das Dokument.</p>
+      <p class="step-label">Kurz erklärt</p>
+      <p>Ein Kontextdokument ist ein Steckbrief, den Sie einmal schreiben und immer wieder mitgeben. Die KI weiß dann, für wen sie arbeitet. Zwei Dokumente reichen für den Anfang:</p>
+      <table class="erkl"><thead><tr><th>Dokument</th><th>Was drinsteht</th><th>Übung</th></tr></thead><tbody><tr><td>Ihre Firma</td><td>Sparten, Leistungen, Kunden, Ton</td><td>3</td></tr><tr><td>Ihre Rolle</td><td>Aufgaben, Ansprechpartner, Zeitfresser</td><td>4</td></tr></tbody></table>
+      <p>Wichtig: Die KI erfindet auch über Ihre eigene Firma. Darum steht hinter jeder Angabe eine Quelle, und Sie prüfen zwei davon.</p>
       <p class="step-label">Schritt 1: Recherchieren lassen (neuer Chat)</p>
       <div class="prompt-block">Recherchiere im Internet die BUILD! Unternehmensgruppe in Judenau, Niederösterreich (build.at). Nutze die Website, das Impressum und öffentliche Verzeichnisse.
 
@@ -1121,6 +1130,8 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
         <div><b>Abgabe</b>Kurz melden: „Rollendokument fertig“</div>
       </div>
       <p class="fallback"><strong>Daten:</strong> Keine Namen von Kunden oder Kolleginnen und Kollegen. Schreiben Sie die Rolle, zum Beispiel „Bauleitung“.</p>
+      <p class="step-label">Kurz erklärt</p>
+      <p>Die Firma ist für alle bei BUILD! gleich. Den Unterschied macht die Rolle: Die Bauleitung braucht andere Antworten als das Büro oder der Vertrieb. Hier stellt die KI die Fragen, Sie antworten, und am Ende steht Ihr zweites Dokument. Das ist dieselbe Technik wie in Übung 2.</p>
       <p class="step-label">Schritt 1: Interview starten (neuer Chat)</p>
       <div class="prompt-block">Ich arbeite bei der BUILD! Unternehmensgruppe (Bau, Photovoltaik, Tiefenbohrung, Brunnenbau, Erdbau, Energiegemeinschaft).
 
@@ -1155,6 +1166,10 @@ Schreibe danach eine Rollenbeschreibung, die ich jeder KI mitgeben kann. Höchst
         <div><b>Ziel</b>Ein System-Prompt, der in jedem Chat gilt.</div>
         <div><b>Abgabe</b>Kurz melden: der erste Satz der Testantwort</div>
       </div>
+      <p class="step-label">Kurz erklärt: Wo gilt was</p>
+      <p>ChatGPT liest bei jeder Antwort mehrere Ebenen mit. Was Sie wo eintragen, entscheidet, wie oft Sie sich wiederholen müssen.</p>
+      <table class="erkl"><thead><tr><th>Ebene</th><th>Gilt wo</th><th>Was hinein gehört</th></tr></thead><tbody><tr><td>System-Prompt (Benutzerdefinierte Anweisungen)</td><td>in jedem Chat</td><td>wer Sie sind, wie Sie Antworten haben wollen</td></tr><tr><td>Gedächtnis</td><td>in jedem Chat</td><td>was ChatGPT sich selbst aus Gesprächen merkt (Übung 7)</td></tr><tr><td>Projekt</td><td>nur in diesem Projekt</td><td>Dokumente und Anweisungen zu einem Thema (Übung 6)</td></tr><tr><td>Chat</td><td>nur in diesem Gespräch</td><td>die Aufgabe von jetzt</td></tr></tbody></table>
+      <p>Je weiter unten in der Tabelle, desto mehr Gewicht. Widersprechen sich zwei Ebenen, gewinnt fast immer Ihre aktuelle Nachricht.</p>
       <p class="step-label">Schritt 1: Das Feld finden</p>
       <p>ChatGPT: Profilbild → Einstellungen → Personalisierung → „Benutzerdefinierte Anweisungen“ (Custom Instructions).</p>
       <p class="step-label">Schritt 2: Erst ein Stil, der auffällt (zum Ausprobieren)</p>
@@ -1187,6 +1202,10 @@ Wenn dir Angaben fehlen, frag nach, bevor du schreibst. Sag mir, wenn du etwas n
         <div><b>Abgabe</b>Kurz melden: „Projekt steht“</div>
       </div>
       <p class="fallback"><strong>Daten:</strong> Hochladen nur im Firmenkonto von ChatGPT Business, und keine personenbezogenen Daten von Kunden oder Bewerbern.</p>
+      <p class="step-label">Kurz erklärt</p>
+      <p>Ein Projekt ist ein eigener Raum für ein Thema, zum Beispiel Angebote Photovoltaik. Darin liegen drei Dinge zusammen:</p>
+      <table class="erkl"><thead><tr><th>Im Projekt</th><th>Wozu</th></tr></thead><tbody><tr><td>Dateien</td><td>Ihr Firmen- und Rollendokument, Vorlagen, Preislisten ohne Kundendaten</td></tr><tr><td>Anweisungen</td><td>wie ChatGPT in diesem Projekt arbeitet</td></tr><tr><td>Chats</td><td>jeder neue Chat startet mit diesem Wissen</td></tr></tbody></table>
+      <p>Für Arbeit, die immer wiederkommt, ist das Projekt das richtige Werkzeug. Im Team teilen Sie es mit „Chat“ (nur nutzen) oder „Bearbeiten“ (auch ändern).</p>
       <p class="step-label">Schritt 1: Projekt anlegen</p>
       <p>Seitenleiste → „Neues Projekt“. Name zum Beispiel: <code>BUILD! Angebote</code> oder <code>BUILD! Büro</code>.</p>
       <details>
@@ -1227,6 +1246,10 @@ Frag nach, wenn dir Angaben fehlen. Schreib im Ton von BUILD!: klar, freundlich,
         <div><b>Abgabe</b>Kurz melden: eine Sache, die Sie gelöscht haben</div>
       </div>
       <p class="fallback"><strong>Daten:</strong> Was im Gedächtnis steht, fließt in jede Antwort ein. Keine Kundendaten merken lassen.</p>
+      <p class="step-label">Kurz erklärt</p>
+      <p>Das Gedächtnis füllt ChatGPT selbst, aus Ihren Gesprächen. Das ist bequem, aber Sie entscheiden nicht Satz für Satz, was hineinkommt. Zwei Dinge sollten Sie wissen:</p>
+      <table class="erkl"><thead><tr><th>Gut zu wissen</th><th>Was es bedeutet</th></tr></thead><tbody><tr><td>Was im Gedächtnis steht, fließt in jede Antwort ein</td><td>ein falscher Eintrag färbt alles</td></tr><tr><td>Einen Chat löschen löscht die Erinnerung nicht automatisch</td><td>Erinnerungen eigens prüfen und löschen</td></tr></tbody></table>
+      <p>Faustregel: Was immer gelten soll, schreiben Sie bewusst in den System-Prompt oder ins Projekt. Das Gedächtnis prüfen Sie ab und zu.</p>
       <p class="step-label">Schritt 1: Fragen (neuer Chat)</p>
       <div class="prompt-block">Was weißt du über mich aus früheren Gesprächen? Liste alles auf, was du dir gemerkt hast.</div>
       <details>
