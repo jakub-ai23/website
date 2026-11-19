@@ -1030,7 +1030,7 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
 <section class="lektion" data-id="systemprompt" data-teil="kontext" data-teil-name="Systémový prompt a kontextový dokument" hidden><div class="exercise" data-ex="systemprompt">
       <div class="exercise-number">Cvičenie 1</div>
       <h3>Systémový prompt: raz napíšete, platí všade</h3>
-      <p class="subtitle">Čo je v tomto poli, AI číta pred každou odpoveďou, v každom novom chate, aj v projekte. Raz napíšete, platí stále.</p>
+      <p class="subtitle">Čo je v tomto poli, AI číta pred každou odpoveďou, v každom novom chate. Aby to každý videl, skúsime najprv štýl, ktorý je hneď počuť. Až potom napíšeme dobrý.</p>
       <div class="sozialform"><strong>Každý pracuje sám, vo vlastnom chate.</strong> Aj vo vedľajšej miestnosti (breakout room) si každý vytvorí vlastnú verziu. Výsledky potom porovnáme.</div>
       <div class="rahmen">
         <div><b>Cieľ</b>Systémový prompt, ktorý platí v každom chate.</div>
@@ -1039,31 +1039,32 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
       <p class="step-label">Krok 1: Nájdite pole</p>
       <table class="compare-table"><tr><th style="width:22%">Nástroj</th><th>Kde pole nájdete</th></tr><tr><td>ChatGPT</td><td>Profilový obrázok → Nastavenia → Personalizácia, potom pole „Vlastné pokyny“ (Custom Instructions).</td></tr><tr><td>Claude</td><td>Iniciály vľavo dole → Nastavenia, pole s pokynmi pre Clauda (Instructions for Claude).</td></tr><tr><td>Copilot</td><td>Profilový obrázok → Nastavenia → Personalizácia, vlastné pokyny, ak to Vaša organizácia povoľuje. Po uložení chvíľu počkajte a otvorte nový chat.</td></tr><tr><td>Gemini</td><td>Nastavenia → pokyny pre Gemini (osobný kontext).</td></tr></table>
       <p>V slovenskom rozhraní sa názvy môžu mierne líšiť.</p>
-      <p class="step-label">Krok 2: Vložte svoj systémový prompt</p>
-      <p>Skopírujte text do poľa. Do hranatých zátvoriek v poslednom odseku doplňte svoje údaje, stačia dve vety. Potom uložte.</p>
+      <p class="step-label">Krok 2: Vyberte si jeden z troch štýlov a vložte ho do poľa</p>
+      <p>Zoberte jeden z troch. Napíšte do chatu v Zoome, ktorý ste si vybrali, aby sa objavili všetky tri. Potom uložte.</p>
+      <p class="step-label">Úradný list</p>
+      <div class="prompt-block">Odpovedaj mi odteraz vždy štýlom úradného listu: dlhé súvetia, podstatné mená namiesto slovies, obraty ako „v nadväznosti na Vašu žiadosť“ a „s úctou“. Obsah musí byť vecne správny, mení sa len tón.</div>
+      <p class="step-label">Tínedžer</p>
+      <div class="prompt-block">Odpovedaj mi odteraz vždy ako 16-ročný tínedžer zo Slovenska: ako správu kamošovi, najviac päť krátkych riadkov, žiadne nadpisy ani zoznamy, v každej vete slang, ktorý dnes používajú teenageri, napríklad bro, brácho, kámo, fakt, brutál, mega, cringe, chill, random, fr, lowkey, nwm, dik, xD. Žiadne vulgarizmy. Keď sa začnem točiť v kruhu alebo váham medzi dvoma možnosťami, napíš „Bro, stop.“ a polož mi jedinú otázku: aký je tvoj ďalší krok ešte dnes? Obsah musí byť vecne správny, mení sa len tón.</div>
+      <p class="step-label">Kamarát na pive</p>
+      <div class="prompt-block">Odpovedaj mi odteraz vždy ako dobrý kamarát, s ktorým po práci sedím na pive: tykaj mi, hovor uvoľnene a úprimne, s trochou humoru a krátkym príbehom zo života. Obsah musí byť vecne správny, mení sa len tón.</div>
+      <p class="step-label">Krok 3: Test v novom chate</p>
+      <div class="prompt-block">Vysvetli mi, ako najlepšie požiadať vedúceho o dovolenku.</div>
+      <p>Prvú vetu odpovede napíšte do chatu v Zoome. Tá istá otázka, tri úplne iné odpovede, a nikto nenapísal štýl do otázky.</p>
+      <details>
+        <summary>Krok 4: Späť k práci, Váš dobrý systémový prompt (rozbaľte, až keď to poviem) (rozbaliť)</summary>
+        <div class="collapsible-content">
+      <p>Štýl platí v každom novom chate, aj v ďalšom cvičení. Preto teraz: štýl z poľa <strong>celý zmažte</strong> a namiesto neho vložte tento text. Do hranatých zátvoriek v poslednom odseku doplňte svoje údaje, stačia dve vety.</p>
       <div class="prompt-block">Radšej napíš „neviem“, ako by si mal hádať. Jasne oddeľ, čo vieš isto a čo len predpokladáš, a predpoklady označ. Nevymýšľaj si čísla, mená, citáty ani zdroje.
 Ak je moja úloha nejasná alebo ti chýbajú dôležité informácie, najprv mi polož krátke doplňujúce otázky a až potom odpovedaj.
 Nedávaj mi automaticky za pravdu. Ak sa mýlim alebo niečo prehliadam, povedz mi to priamo a zdôvodni to.
 Som [rola] v [úrad alebo organizácia] a venujem sa najmä [dve, tri hlavné úlohy]. Odpovedaj po slovensky, [vykaj mi / tykaj mi], stručne a tak, aby som to mohol hneď použiť.</div>
+      <p>Uložte, otvorte nový chat a položte tú istú otázku o dovolenke. Teraz to znie zase ako v kancelárii.</p>
       <p>Mená, rodné čísla ani interné údaje do poľa nepatria.</p>
-      <details>
-        <summary>Krok 3: Test v novom chate (rozbaliť)</summary>
-        <div class="collapsible-content">
-      <div class="prompt-block">Vysvetli mi, ako najlepšie požiadať vedúceho o dovolenku.</div>
-      <p>Prvú vetu odpovede napíšte do chatu v Zoome. Pýta sa AI najprv, o akú dovolenku ide? To je veta z Vášho promptu. Štýl ste do otázky nenapísali, a predsa platí.</p>
-        </div>
-      </details>
-      <details>
-        <summary>Ukážka a na doma: dva štýly (rozbaliť)</summary>
-        <div class="collapsible-content">
-      <p>Na seminári to ukážem na svojej obrazovke. Doma si to môžete vyskúšať sami: jeden z týchto riadkov dočasne vložte do poľa, položte otázku o dovolenke a porovnajte. <strong>Potom štýl z poľa zmažte</strong>, inak platí aj vo Vašom projekte.</p>
-      <div class="prompt-block">Odpovedaj mi odteraz vždy štýlom úradného listu: dlhé súvetia, podstatné mená namiesto slovies, obraty ako „v nadväznosti na Vašu žiadosť“ a „s úctou“. Obsah musí byť vecne správny, mení sa len tón.</div>
-      <div class="prompt-block">Odpovedaj mi odteraz vždy ako 16-ročný tínedžer: hovorovou slovenčinou, s miernym slangom a krátkymi vetami. Obsah musí byť vecne správny, mení sa len tón.</div>
         </div>
       </details>
       <p class="profispur"><strong>Úroveň 2:</strong> Keď budete mať kontextový dokument z cvičenia 2, doplňte vetu o tom, ako má AI s ním pracovať.<br><strong>Úroveň 3:</strong> Napíšte AI: „Prečítaj si moje vlastné pokyny a navrhni 3 zlepšenia, aby si mi lepšie pomáhal.“</p>
       <p class="fallback"><strong>Náhradná cesta:</strong> Pole nenájdete alebo ho Vaša organizácia vypla? Pošlite text ako prvú správu do nového chatu. Potom platí len v ňom.</p>
-      <p class="pruef">Podarilo sa, ak: V novom chate AI vyká alebo tyká tak, ako ste chceli, a pri nejasnej otázke sa najprv opýta.</p>
+      <p class="pruef">Podarilo sa, ak: Otázka o dovolenke znie v novom chate najprv vo Vašom štýle a potom zase pracovne, bez toho, aby ste do otázky niečo napísali.</p>
     </div></section>
 <section class="lektion" data-id="kontext" data-teil="kontext" data-teil-name="Systémový prompt a kontextový dokument" hidden><div class="exercise" data-ex="kontext">
       <div class="exercise-number">Cvičenie 2</div>
