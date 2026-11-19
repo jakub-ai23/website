@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI für Sportvereine, Modul 2: Mitgliedergewinnung · E-Learning · SPORTUNION Wien</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <!-- ERZEUGT von ~/.claude/skills/elearning-seite/scripts/bau.py aus der Hülle. Inhalt in delivery/<Training>/elearning/ ändern, dann neu bauen. Nicht von Hand pflegen. -->
+  <style>
+    @font-face { font-family: 'Great Vibes'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/great-vibes-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #d4a017;
+      --gold-light: #e8b84a;
+      --gold-dark: #b8890f;
+      --ink: 255,255,255;
+      --charcoal: #141414;
+      --charcoal-light: #1a1a1a;
+      --charcoal-lighter: #222222;
+      --white: #f5f5f5;
+      --white-muted: #b0b0b0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* HEADER */
+    .site-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.12);
+      position: sticky;
+      top: 0;
+      background: var(--charcoal);
+      z-index: 100;
+    }
+
+    .logo { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: var(--white); text-decoration: none; }
+    .logo:hover { color: var(--white); }
+    .logo span { color: var(--gold); }
+
+    .back-link {
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    /* MAIN */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 40px 80px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(212, 160, 23, 0.4);
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero p { font-size: 0.95rem; color: var(--white-muted); }
+
+    /* SECTION DIVIDERS */
+    .section-divider {
+      text-align: center;
+      margin: 56px 0 40px;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(212, 160, 23, 0.2);
+    }
+
+    .section-divider h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--charcoal);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* EXERCISE CARDS */
+    .exercise {
+      background: var(--charcoal-light);
+      border: 1px solid rgba(212, 160, 23, 0.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .exercise-number {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .exercise h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .exercise .subtitle {
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .exercise p, .exercise li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .exercise ul, .exercise ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .exercise li { margin-bottom: 6px; }
+
+    /* PROMPT BLOCKS (copyable) */
+    .prompt-block {
+      background: rgba(212, 160, 23, 0.06);
+      border-left: 3px solid var(--gold);
+      padding: 16px 18px;
+      margin: 14px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: pre-line;
+    }
+
+    .prompt-block:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    .prompt-block::after {
+      content: 'Kopieren';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .prompt-block:hover::after { opacity: 1; }
+
+    .prompt-block.copied::after {
+      content: 'Kopiert!';
+      opacity: 1;
+    }
+
+    /* CONTEXT BLOCKS */
+    .context-block {
+      background: rgba(var(--ink),0.03);
+      border: 1px solid rgba(var(--ink),0.06);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 14px 0;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+    }
+
+    .context-block strong { color: var(--white); }
+
+    /* STEP LABELS */
+    .step-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin: 18px 0 6px;
+    }
+
+    /* Unterschritt: gehoert zu keinem CITE-Buchstaben */
+    .sub-step {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.78rem;
+      color: rgba(var(--ink),0.55);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 20px 0 6px;
+      padding-left: 12px;
+      border-left: 2px solid rgba(var(--ink),0.2);
+    }
+
+    /* COMPARISON TABLE */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.82rem;
+    }
+
+    .compare-table th {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .compare-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(var(--ink),0.05);
+      vertical-align: top;
+    }
+
+    /* ROLE CARDS (for Task Force) */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .role-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.82rem;
+    }
+
+    .role-card strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-size: 0.78rem;
+    }
+
+    /* MAGIC FORMULA */
+    .magic-box {
+      background: rgba(212, 160, 23, 0.08);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 14px 0;
+      text-align: center;
+    }
+
+    .magic-box .label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 20px 24px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(var(--ink),0.05);
+    }
+
+    footer p { font-size: 0.78rem; color: var(--white-muted); line-height: 1.8; }
+    footer a { color: var(--white-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    /* COLLAPSIBLE SECTIONS */
+    details {
+      margin: 14px 0;
+      border: 1px solid rgba(212, 160, 23, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details summary {
+      padding: 14px 18px;
+      background: rgba(212, 160, 23, 0.06);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gold);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    details summary:hover {
+      background: rgba(212, 160, 23, 0.1);
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: '+';
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    details .collapsible-content {
+      padding: 16px 18px;
+      border-top: 1px solid rgba(212, 160, 23, 0.1);
+    }
+
+    details .collapsible-content p,
+    details .collapsible-content li {
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+      color: var(--white-muted);
+    }
+
+    details .collapsible-content strong {
+      color: var(--white);
+    }
+
+    /* FLOAT ANIMATION */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* TAB SWITCHER */
+    .tab-switcher {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.3);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--charcoal-light);
+      border: none;
+      color: var(--white-muted);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:first-child { border-right: 1px solid rgba(212, 160, 23, 0.3); }
+
+    .tab-btn.active {
+      background: rgba(212, 160, 23, 0.12);
+      color: var(--gold);
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: var(--charcoal-lighter);
+      color: var(--white);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* LAYOUT WITH SIDEBAR */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+    }
+
+    /* SIDEBAR NAV */
+    .sidebar-nav {
+      position: sticky;
+      top: 80px;
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--white-muted);
+      border-radius: 6px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.06);
+      border-left-color: var(--gold);
+    }
+
+    .sidebar-nav .nav-section-label {
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 12px 14px 4px;
+      opacity: 0.7;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+
+      .sidebar-nav a {
+        padding: 8px 12px;
+        font-size: 0.72rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        border-radius: 6px;
+        background: var(--charcoal-light);
+      }
+
+      .sidebar-nav a:hover,
+      .sidebar-nav a.active {
+        border-left: none;
+        border-bottom-color: var(--gold);
+      }
+
+      .sidebar-nav .nav-section-label {
+        width: 100%;
+        padding: 8px 0 2px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      main { padding: 32px 16px 64px; }
+      .exercise { padding: 22px 18px; }
+      .prompt-block { padding: 14px 14px; }
+      .role-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 0.75rem; }
+      .compare-table td, .compare-table th { padding: 8px; }
+    }
+
+    /* HIERARCHIE-STACK (System-Prompt vs. Projekt vs. Chat) */
+    .hierarchy-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 14px 0 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 160, 23, 0.25);
+    }
+    .hierarchy-level {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+    }
+    .hierarchy-level:last-child { border-bottom: none; }
+    .hierarchy-level .h-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+    .hierarchy-level .h-desc {
+      font-size: 0.82rem;
+      color: var(--white-muted);
+    }
+    .hierarchy-level.l1 { background: rgba(212, 160, 23, 0.03); padding-left: 18px; }
+    .hierarchy-level.l2 { background: rgba(212, 160, 23, 0.06); padding-left: 32px; }
+    .hierarchy-level.l3 { background: rgba(212, 160, 23, 0.10); padding-left: 46px; }
+    .hierarchy-level.l4 { background: rgba(212, 160, 23, 0.14); padding-left: 60px; }
+
+    /* LLM-Karten (Start hier) */
+    .llm-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 560px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Zwei Spalten: selbst ausfuellen vs. fertiges Beispiel */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 14px 0;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+    .col-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .two-col .prompt-block { margin-top: 0; }
+    .llm-card {
+      background: rgba(212, 160, 23, 0.04);
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .llm-card .llm-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .llm-card .llm-browser {
+      display: block;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #141414;
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 13px 16px;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+    .llm-card .llm-browser:hover,
+    .llm-card .llm-browser:focus { filter: brightness(1.08); }
+    .llm-apps summary {
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--white-muted);
+      list-style-position: inside;
+    }
+    .llm-apps[open] summary { margin-bottom: 8px; }
+    .llm-card .llm-stores {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .llm-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      background: rgba(var(--ink),0.04);
+      border: 1px solid rgba(var(--ink),0.12);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      flex: 1;
+      justify-content: center;
+      min-height: 40px;
+    }
+    .llm-store-btn:hover,
+    .llm-store-btn:focus {
+      border-color: var(--gold);
+      background: rgba(212, 160, 23, 0.08);
+      color: var(--white);
+    }
+    .llm-store-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .llm-store-btn .store-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      align-items: flex-start;
+    }
+    .llm-store-btn .store-meta small {
+      font-size: 0.62rem;
+      color: var(--white-muted);
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+    .llm-store-btn .store-meta strong {
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    @media (max-width: 600px) {
+      .llm-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Rahmen je Übung (Ziel, Abgabe), Ausweg, geklappt, Stufen */
+    .rahmen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 14px 0 18px; }
+    .rahmen > div { background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.25); border-radius: 10px; padding: 10px 12px; font-size: 0.85rem; line-height: 1.45; }
+    .rahmen b { display: block; font-family: var(--font-heading); font-size: 0.62rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+    .fallback { border-left: 3px solid rgba(var(--ink),0.25); background: rgba(var(--ink),0.03); padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--white-muted); margin: 16px 0 6px; }
+    .fallback strong { color: var(--white); }
+    .pruef { font-size: 0.85rem; color: var(--white-muted); margin-top: 10px; }
+    .tabelle-text { white-space: pre; overflow-x: auto; }
+    @media (max-width: 700px) { .rahmen { grid-template-columns: 1fr; } }
+
+    .form-wichtig { border: 2px solid var(--gold); background: rgba(212,160,23,0.08); border-radius: 10px; padding: 12px 16px; margin: 14px 0 10px; font-size: 0.92rem; line-height: 1.5; }
+    .form-wichtig.kurz { margin: 10px 0 0; padding: 8px 14px; font-size: 0.85rem; }
+  
+
+body{margin:0}
+.player{display:grid;grid-template-columns:320px 1fr;min-height:100vh}.player>*{min-width:0}
+.v-logo{display:block;background:#fff;padding:8px 12px;border-radius:6px;max-width:170px;width:100%;box-sizing:border-box;margin:12px 0 14px}
+/* Logoreihe: Veranstalter links, JP-Monogramm rechts daneben, beide gleich hoch (Symmetrieregel). */
+.logos{display:flex;align-items:center;gap:12px;margin:12px 0 14px}
+.logos .v-logo{margin:0;width:auto;height:46px;max-width:170px;object-fit:contain}
+.logos .t-logo{display:block;height:46px;width:auto}
+.side{border-right:1px solid rgba(var(--ink),.08);padding:20px 16px 40px;position:sticky;top:0;height:100vh;overflow:auto;background:rgba(var(--ink),.02)}
+.side .zurueck{font-size:.78rem;color:var(--white-muted);text-decoration:none;display:inline-block;margin-bottom:14px}
+.side .zurueck:hover{color:var(--gold)}
+.side h1{font-family:var(--font-heading);font-size:1rem;margin:0 0 4px;line-height:1.35}
+.side .sub{color:var(--white-muted);font-size:.78rem;margin-bottom:14px}
+.balken{height:6px;background:rgba(var(--ink),.08);border-radius:3px;overflow:hidden}.balken i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.stand{font-size:.75rem;color:var(--white-muted);margin:6px 0 10px}
+.teil{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:18px 6px 8px}
+.zeile{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;cursor:pointer;font-size:.86rem;line-height:1.35;color:var(--white);text-decoration:none}
+.zeile:hover{background:rgba(var(--ink),.05);color:var(--white)}.zeile.aktiv{background:rgba(212,160,23,.12)}
+.zeile .n{flex:0 0 74px;font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700;text-align:center}
+.zeile .lab{flex:0 0 74px;box-sizing:border-box;align-self:flex-start;margin-top:1px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.6rem;letter-spacing:.8px;text-transform:uppercase;font-weight:700;color:var(--white-muted);border:1px solid rgba(var(--ink),.18);border-radius:4px;padding:2px 4px;margin-left:0}
+.zeile.art-uebung{font-weight:500}
+.zeile .t{flex:1;min-width:0}
+.zeile .opt{color:var(--white-muted);font-size:.72rem;display:block;font-weight:400}
+.zeile .ck{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(var(--ink),.25);margin-top:1px}
+.zeile.erledigt .ck{background:var(--gold);border-color:var(--gold)}.zeile.erledigt .t{color:var(--white-muted)}
+.zeile .jetzt{display:none;font-size:.56rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;background:var(--gold);color:#141414;border-radius:99px;padding:2px 6px;align-self:center}
+.zeile.im-raum .jetzt{display:inline-block}
+/* margin:0 ist Pflicht: das Seiten-CSS gibt <main> "margin:0 auto", und ein Rasterelement
+   mit auto-Rand schrumpft nicht mit. Auf 390 px stand es dann 551 px breit. */
+.main{margin:0;padding:0 56px 130px;max-width:900px;overflow-wrap:break-word;hyphens:auto}
+.kopfzeile{padding-top:34px}
+.crumb{color:var(--white-muted);font-size:.8rem;margin-bottom:6px}
+.main h2.lektion-titel{font-family:var(--font-heading);font-size:1.9rem;margin:6px 0 16px;line-height:1.25}
+.tag{display:inline-block;font-size:.66rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:4px;border:1px solid rgba(212,160,23,.4);color:var(--gold);margin-right:6px}
+.tag.leise{border-color:rgba(var(--ink),.25);color:var(--white-muted)}
+.lektion .exercise{background:none;border:0;padding:0;margin:0;box-shadow:none}
+.lektion .exercise > .exercise-number{display:none}
+.lektion .exercise > h3:first-of-type{display:none}
+.lektion table{display:block;overflow-x:auto;max-width:100%}
+.lektion img{max-width:100%}
+.prompt-block.copied{outline:2px solid var(--gold)}
+/* Die Leiste geht über die ganze Breite, die Knöpfe stehen in derselben Spalte wie der Inhalt.
+   Vorher standen sie bei Vollbild an den äußersten Bildschirmrändern (Commander 06.10.). */
+.nav{position:fixed;bottom:0;left:320px;right:0;padding:14px 0;background:rgba(20,20,20,.96);border-top:1px solid rgba(var(--ink),.08);z-index:15}
+.nav-innen{display:flex;justify-content:space-between;gap:10px;max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.knopf{border:1px solid rgba(var(--ink),.2);background:none;color:var(--white);padding:12px 22px;border-radius:8px;font:600 .92rem var(--font-body);cursor:pointer}
+.knopf:disabled{opacity:.35;cursor:default}
+.knopf.los{background:var(--gold);color:#141414;border-color:var(--gold)}
+.schublade{display:none}
+/* Live-Leiste im Player */
+.live-leiste{position:sticky;top:0;z-index:12;display:flex;align-items:center;gap:14px;margin:0 -56px;padding:10px 56px;background:linear-gradient(90deg,var(--gold-dark),var(--gold));color:var(--charcoal)}
+.live-leiste[hidden]{display:none}
+.live-leiste.neu{animation:live-neu 1.2s ease-out}
+@keyframes live-neu{0%{filter:brightness(1.45)}100%{filter:none}}
+.live-inhalt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.live-marke{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.75}
+.live-text{font-weight:600;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live-dorthin{flex:0 0 auto;background:var(--charcoal);color:var(--gold-light);border:0;border-radius:99px;padding:8px 16px;font:600 .8rem var(--font-body);cursor:pointer}
+.live-dorthin[hidden]{display:none}
+.live-hier{flex:0 0 auto;font-size:.75rem;font-weight:700}
+@media(max-width:860px){
+ .player{grid-template-columns:1fr}
+ .side{position:fixed;inset:0;z-index:30;height:auto;transform:translateX(-100%);transition:transform .25s;background:#161616}
+ .side.offen{transform:none}
+ .side .schliessen{display:block}
+ .schublade{display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:20;background:#141414;padding:10px 16px;border-bottom:1px solid rgba(var(--ink),.08)}
+ .main{padding:0 16px 110px}
+ .kopfzeile{padding-top:18px}
+ .live-leiste{top:var(--schublade-h,57px);margin:0 -16px;padding:8px 16px;gap:10px}
+ .live-text{font-size:.86rem}
+ .nav{left:0;padding:12px 0}.nav-innen{padding:0 16px}.knopf{padding:12px 14px}
+ .main h2.lektion-titel{font-size:1.45rem}
+}
+.side .schliessen{display:none;float:right;background:none;border:0;color:var(--white-muted);font-size:1.4rem;cursor:pointer;line-height:1}
+/* Seitenleiste einklappbar (Desktop), wie bei ChatGPT/Claude. Zu bleibt eine 56-px-Schiene
+   mit dem Knopf. Auf dem Handy gilt weiter die Schublade, deshalb nur ab 861 px. */
+.leiste-knopf{float:right;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin:-6px -4px 0 8px;border-radius:8px;border:1px solid rgba(var(--ink),.12);background:none;color:var(--white-muted);cursor:pointer;padding:0}
+.leiste-knopf:hover{color:var(--gold);border-color:rgba(212,160,23,.5)}
+.leiste-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media(min-width:861px){
+ .player{transition:grid-template-columns .2s ease}
+ /* Inhalt mittig in der Spalte, sonst klebt er bei Vollbild links und rechts bleibt die Hälfte leer. */
+ .main{width:100%;justify-self:center}
+ body.leiste-zu .player{grid-template-columns:56px 1fr}
+ body.leiste-zu .side{padding:16px 10px;overflow:hidden}
+ body.leiste-zu .side > *:not(.leiste-knopf){display:none}
+ body.leiste-zu .leiste-knopf{float:none;margin:0}
+ body.leiste-zu .leiste-knopf svg{transform:scaleX(-1)}
+ body.leiste-zu .main{width:100%;justify-self:center}
+ body.leiste-zu .nav{left:56px}
+ .nav{transition:left .2s ease}
+}
+@media(max-width:860px){.leiste-knopf{display:none}}
+.side .kontakt{margin-top:28px;padding:14px 8px 0;border-top:1px solid rgba(var(--ink),.08);font-size:.78rem;color:var(--white-muted);line-height:1.6}
+.side .kontakt a{color:var(--white-muted)}.side .kontakt a:hover{color:var(--gold)}
+/* Upload-Kasten (Bild landet in Jakubs Google Drive, nur er sieht es) */
+.upload-kasten{border:1px solid rgba(212,160,23,.45);background:rgba(212,160,23,.05);border-radius:12px;padding:20px;margin:22px 0}
+.upload-kasten h4{font-family:var(--font-heading);font-size:1.05rem;margin:0 0 6px;color:var(--white)}
+.upload-kasten .hinweis{font-size:.82rem;color:var(--white-muted);margin:0 0 14px}
+.upload-kasten .reihe{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.upload-kasten input[type=text]{flex:1 1 180px;min-width:0;background:#1f1f1f;border:1px solid rgba(var(--ink),.15);border-radius:8px;color:var(--white);padding:11px 12px;font:400 .92rem var(--font-body)}
+.upload-kasten .waehlen{flex:0 0 auto}
+.upload-kasten input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.upload-kasten ul{list-style:none;padding:0;margin:12px 0 0;font-size:.85rem}
+.upload-kasten li{padding:6px 0;border-top:1px solid rgba(var(--ink),.06);display:flex;gap:10px;align-items:center}
+.upload-kasten li .st{margin-left:auto;font-weight:600;white-space:nowrap}
+.upload-kasten li.ok .st{color:#6fae5f}.upload-kasten li.fehler .st{color:#e07a6a}
+.upload-kasten li .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.gruppe-inhalt{display:block}
+.gruppe.zu .gruppe-inhalt{display:none}
+.teil-knopf{display:flex;align-items:center;justify-content:space-between;width:calc(100% - 12px);background:none;border:0;border-top:1px solid rgba(var(--ink),.08);padding:12px 6px 4px;margin:14px 6px 6px;cursor:pointer;font-family:var(--font-body);text-align:left}
+.stand + .gruppe .teil-knopf{border-top:0;margin-top:18px}
+.teil-knopf:hover{color:var(--gold-light)}
+.teil-knopf:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.teil-knopf .pfeil{flex:none;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s;margin-left:10px;margin-top:-3px}
+.gruppe.zu .teil-knopf .pfeil{transform:rotate(-45deg);margin-top:0}
+
+.form-hinweis{position:absolute;left:0;right:0;bottom:100%;background:#1d1a10;border-top:2px solid var(--gold);padding:14px 0;box-shadow:0 -10px 24px rgba(0,0,0,.45)}
+.form-hinweis[hidden]{display:none}
+.form-hinweis-innen{max-width:900px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+.form-hinweis p{margin:0 0 12px;font-size:.92rem;line-height:1.5}
+.form-hinweis .reihe{display:flex;gap:10px;flex-wrap:wrap}
+.form-hinweis .knopf{padding:10px 16px;font-size:.88rem}
+.form-danke{margin:10px 0 0;padding:10px 14px;border:1px solid #6fae5f;border-radius:8px;color:#9bd18c;font-weight:600;font-size:.9rem}
+.lektion iframe[data-formular]{scroll-margin-bottom:110px}
+@media(max-width:860px){.form-hinweis-innen{padding:0 16px}}
+
+.willkommen-bs{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at 50% 30%,#232018 0%,#141414 65%);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}
+.willkommen-bs[hidden]{display:none}
+.willkommen-karte{width:100%;max-width:520px;text-align:center;margin:auto}
+.willkommen-karte img{display:block;width:min(240px,46vw);height:min(240px,46vw);object-fit:cover;object-position:top;border-radius:50%;border:3px solid var(--gold);margin:0 auto 22px;background:#1a1a1a;box-shadow:0 0 0 8px rgba(212,160,23,.08)}
+.willkommen-blase{position:relative;background:var(--charcoal-light,#1a1a1a);border:1px solid rgba(212,160,23,.35);border-radius:16px;padding:22px 22px 24px;margin-bottom:24px}
+.willkommen-blase::before{content:"";position:absolute;top:-9px;left:50%;width:16px;height:16px;background:var(--charcoal-light,#1a1a1a);border-left:1px solid rgba(212,160,23,.35);border-top:1px solid rgba(212,160,23,.35);transform:translateX(-50%) rotate(45deg)}
+.willkommen-blase p{margin:0;font-family:var(--font-heading);font-weight:600;font-size:clamp(1.1rem,4.4vw,1.45rem);line-height:1.4;text-wrap:balance}
+.willkommen-karte .knopf{padding:14px 38px;font-size:1rem}
+@media (prefers-reduced-motion:no-preference){.willkommen-karte{animation:wk-rein .5s ease-out}@keyframes wk-rein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}
+    .profispur { border-left: 3px solid var(--gold); background: rgba(212,160,23,0.05); padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: 0.88rem; margin: 16px 0 6px; }
+    .profispur strong { color: var(--gold); }
+  </style>
+  <link rel="stylesheet" href="quiz/quiz.css">
+  <style>
+/* Satzspiegel (14.11.2026): gleiche Abstände, sauberer Umbruch, auch in Tabellen.
+   Blöcke 16px, Zwischenüberschrift 22px oben und 8px unten (gehört zu dem, was folgt). */
+.lektion .exercise > .subtitle,.lektion .exercise > .rahmen,.lektion .exercise > .sozialform,.lektion .exercise > .prompt-block,
+.lektion .exercise > details,.lektion .exercise > .profispur,.lektion .exercise > .fallback,.lektion .exercise > .pruef,
+.lektion .exercise > table,.lektion .exercise > ul,.lektion .exercise > ol,.lektion .exercise > p{margin-top:0;margin-bottom:16px}
+.lektion .exercise > .step-label{margin:22px 0 8px}
+.lektion .exercise > .subtitle + .rahmen,.lektion .exercise > .subtitle + .sozialform{margin-top:0}
+.main h2.lektion-titel,.exercise h3,.step-label,.subtitle,.rahmen > div,.compare-table th,.lektion th,summary{text-wrap:balance}
+.exercise p,.exercise li,.lektion td,.compare-table td,.fallback,.pruef,.profispur,.sozialform{text-wrap:pretty}
+.lektion td,.lektion th,.compare-table td,.compare-table th{overflow-wrap:normal;word-break:normal;hyphens:auto;vertical-align:top}
+.rahmen{align-items:stretch}
+/* Folgemodul mit Countdown (PROEKO 13.11.2026, Modul 2) */
+.fm-haupt{display:block;text-align:center;background:var(--gold);color:#141414;font-family:var(--font-heading);font-weight:800;font-size:1.2rem;padding:18px 22px;border-radius:12px;text-decoration:none;margin:6px 0 20px}
+.fm-haupt:hover{color:#141414;background:var(--gold-light)}
+.fm-odpocet{background:rgba(212,160,23,.10);border:1px solid var(--gold);border-radius:14px;padding:16px 18px;margin:0 0 20px}
+.fm-kopf{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.fm-wann{opacity:.85;margin-top:4px}
+.fm-zahlen{display:flex;gap:10px;margin:14px 0 0}
+.fm-zahlen>div{flex:1;min-width:60px;background:var(--charcoal);border:1px solid rgba(212,160,23,.5);border-radius:10px;padding:10px 6px;text-align:center}
+.fm-zahlen b{display:block;font-family:var(--font-heading);font-weight:800;font-size:clamp(1.6rem,5vw,2.6rem);line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+.fm-zahlen span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.fm-seite{color:var(--gold)!important;font-weight:600}
+/* Werkzeug-Leiste auf der Willkommenslektion (PROEKO 13.11.2026) */
+.werkzeuge{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px}
+.werkzeuge span{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-right:4px}
+.werkzeuge a{display:inline-block;padding:7px 14px;border:1px solid var(--gold);border-radius:99px;color:var(--gold);font-weight:600;font-size:.9rem;text-decoration:none}
+/* Sozialform: allein oder gemeinsam (PROEKO 13.11.2026, Breakout-Räume) */
+.sozialform{background:rgba(212,160,23,.12);border:1px solid var(--gold);border-radius:10px;padding:12px 16px;margin:0 0 18px}
+/* Hellmodus (PROEKO 13.11.2026): dunkel bleibt Standard, ☀ oder ?hell schaltet um.
+   Grund: am geteilten Bildschirm neben dunklem ChatGPT war zu wenig Kontrast. */
+html.hell{--gold:#a87a0c;--gold-light:#b8890f;--gold-dark:#8a6408;--charcoal:#ffffff;--charcoal-light:#f6f6f4;--charcoal-lighter:#eeeeea;--white:#1a1a1a;--white-muted:#555555;--ink:0,0,0}
+html.hell .nav{background:rgba(255,255,255,.96)}
+html.hell .schublade,html.hell .side{background:#fafaf8}
+html.hell .upload-kasten input[type=text]{background:#fff}
+html.hell .prompt-block,html.hell .prompt-block *{color:#000}
+html.hell .prompt-block{background:#fff3d4;border-left:4px solid #a87a0c;font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+html.hell .prompt-block:hover{background:#ffeab3}
+html.hell .willkommen-bs{background:radial-gradient(ellipse at 50% 30%,#fff7e0 0%,#ffffff 65%)}
+html.hell .knopf.los,html.hell .zeile .jetzt,html.hell .cta,html.hell .cta:hover{color:#141414}
+html.hell svg rect[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.03)}
+html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
+.tema-knopf{position:fixed;top:10px;right:12px;z-index:40;width:38px;height:38px;border-radius:50%;border:1px solid rgba(var(--ink),.25);background:var(--charcoal-light);color:var(--white);font-size:18px;line-height:1;cursor:pointer}
+@media print{.tema-knopf{display:none}}
+  </style>
+  <script>(function(){var h=document.documentElement,q=location.search,t=/[?&](hell|light|svetla)\b/.test(q)?'hell':/[?&](dunkel|dark|tmava)\b/.test(q)?'dunkel':null;try{t=t||localStorage.getItem('tema');if(t)localStorage.setItem('tema',t)}catch(e){}if(t==='hell')h.classList.add('hell')})();</script>
+</head>
+<body>
+<div class="willkommen-bs" id="willkommen-bs" role="dialog" aria-modal="true" aria-labelledby="wk-text" hidden><div class="willkommen-karte"><img src="jakub-lachend.png" alt="Jakub Popluhar"><div class="willkommen-blase"><p id="wk-text">Herzlich willkommen zum Workshop „KI für Sportvereine, Modul 2: Mitgliedergewinnung“. Dieses E-Learning begleitet uns den ganzen Abend.</p></div><button type="button" class="knopf los" id="wk-weiter">Weiter</button></div></div>
+<div class="schublade" id="schublade"><button class="knopf" id="oeffnen" type="button">☰ Inhalt</button><span id="dstand" style="font-size:.8rem;color:var(--white-muted)"></span></div>
+<div class="player">
+  <aside class="side" id="side">
+    <button class="schliessen" id="schliessen" type="button" aria-label="Inhalt schließen">×</button>
+    <button class="leiste-knopf" id="leisteKnopf" type="button" aria-label="Seitenleiste einklappen" aria-expanded="true" title="Seitenleiste ein- und ausklappen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/><path d="M15 10l-2 2 2 2"/></svg></button>
+    <a href="https://jakubpopluhar.com" class="zurueck">jakubpopluhar.com</a>
+    <div class="logos"><img class="v-logo" src="kunde-logo.png" alt="SPORTUNION Wien"><img class="t-logo" src="jp-logo.png" alt="Jakub Popluhar"></div>
+    <h1>KI für Sportvereine, Modul 2: Mitgliedergewinnung</h1>
+    <div class="sub">SPORTUNION Wien · Donnerstag, 26. November 2026</div>
+    <div class="balken"><i id="balken"></i></div>
+    <div class="stand" id="stand"></div>
+    <div class="gruppe zu" data-teil="vm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Teil 1: CITER und System-Prompt</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#willkommen" data-id="willkommen"><span class="lab">Start</span><span class="t">Willkommen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck" data-id="kicheck"><span class="lab">Check</span><span class="t">Dein KI-Check</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#werkzeug" data-id="werkzeug"><span class="lab">Info</span><span class="t">Dein KI-Werkzeug öffnen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#split" data-id="split"><span class="lab">Trick</span><span class="t">Den Bildschirm teilen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue1" data-id="ue1"><span class="n">1</span><span class="t">CITER</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue2" data-id="ue2"><span class="n">2</span><span class="t">Der System-Prompt</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#pause" data-id="pause"><span class="lab">Pause</span><span class="t">Pause, und wie es weitergeht</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="nm"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Teil 2: Dein Verein im Projekt</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile art-uebung" href="#ue3" data-id="ue3"><span class="n">3</span><span class="t">Deine KI-Wissensbasis aufbauen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile art-uebung" href="#ue4" data-id="ue4"><span class="n">4</span><span class="t">Projekt anlegen</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#kicheck-ende" data-id="kicheck-ende"><span class="lab">Zum Schluss</span><span class="t">Dein KI-Check, zweiter Durchgang</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#feedback" data-id="feedback"><span class="lab">Feedback</span><span class="t">Dein Feedback</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#modul3" data-id="modul3"><span class="lab">Weiter</span><span class="t">Modul 3: Automatisierte Workflows</span><span class="jetzt">Jetzt</span><span class="ck"></span></a><a class="zeile" href="#weiter" data-id="weiter"><span class="lab">Danach</span><span class="t">Wie es nach dem Training weitergeht</span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div><div class="gruppe zu" data-teil="res"><button type="button" class="teil teil-knopf" aria-expanded="false"><span>Bonus: wenn Zeit bleibt</span><span class="pfeil" aria-hidden="true"></span></button><div class="gruppe-inhalt"><a class="zeile" href="#bonus-flughoehe" data-id="bonus-flughoehe"><span class="lab">Bonus</span><span class="t">Die Flughöhe<span class="opt">wenn Zeit bleibt</span></span><span class="jetzt">Jetzt</span><span class="ck"></span></a></div></div>
+    <div class="kontakt"><a class="fm-seite" href="https://sportunion-akademie.at/content/SPORTUNION_Akademie/funktionaerskurse/funktionaerskurse/wi26058-ki_fuer_sportvereine_modul_3_automatisierte_workflows/3317" target="_blank" rel="noopener">Modul 3: Automatisierte Workflows →</a><br><br>Fragen nach dem Kurs:<br><a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br><a href="tel:+436641386498">+43 664 138 64 98</a></div>
+  </aside>
+  <main class="main">
+    <div class="live-leiste" id="live-leiste" hidden aria-live="polite">
+      <div class="live-inhalt"><span class="live-marke">Jetzt im Raum</span><span class="live-text" id="live-text"></span></div>
+      <button type="button" class="live-dorthin" id="live-dorthin">Dorthin</button>
+      <span class="live-hier" id="live-hier" hidden>Du bist hier</span>
+    </div>
+    <div class="kopfzeile"><div class="crumb" id="crumb"></div><div id="tags"></div><h2 class="lektion-titel" id="ttl"></h2></div>
+    
+<section class="lektion" data-id="willkommen" data-teil="vm" data-teil-name="Teil 1: CITER und System-Prompt" hidden><div class="exercise" data-ex="willkommen">
+      <div class="exercise-number">Start</div>
+      <div class="werkzeuge"><span>Werkzeug öffnen:</span><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></div>
+      <h3>Willkommen</h3>
+      <p class="subtitle">KI für Sportvereine, Modul 2: Mitgliedergewinnung · SPORTUNION Wien · Donnerstag, 26. November 2026 · Trainer: Jakub Popluhar, M.Ed.</p>
+      <p>Schön, dass du da bist. Am Ende des Abends hast du einen System-Prompt und ein Projekt, das deinen Verein kennt.</p>
+
+      <p class="step-label">Drei Dinge für heute</p>
+      <ol>
+        <li><strong>Diese Seite bleibt den ganzen Abend offen.</strong> Wenn du einen Prompt antippst, ist er kopiert, und du fügst ihn mit einem Griff in dein KI-Fenster ein. Links stehen alle Abschnitte. Weiter geht es unten rechts.</li>
+        <li><strong>In Formularen immer unten auf „Senden“ klicken.</strong> Erst dann sind deine Antworten gespeichert, auch wenn das Formular vorher schon fertig aussieht.</li>
+        <li><strong>Keine echten Daten von Mitgliedern.</strong> Keine Namen, Telefonnummern oder Gesundheitsdaten, Platzhalter wie [Name] reichen.</li>
+      </ol>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Was du in den Übungen schreibst, bleibt bei dir. Leg es in einer Notiz ab, denn später am Abend bauen wir darauf auf.</p>
+      <p style="color: var(--gold); font-size: 0.9rem;">Als Erstes kommt dein KI-Check.</p>
+
+    </div></section>
+<section class="lektion" data-id="kicheck" data-teil="vm" data-teil-name="Teil 1: CITER und System-Prompt" hidden><div class="exercise" data-ex="kicheck">
+      <div class="exercise-number">Check</div>
+      <h3>Dein KI-Check</h3>
+      <p class="subtitle">Eine Standortbestimmung für dich und für mich: Wo stehst du heute mit KI? Falsche Antworten gibt es hier keine. Fünf Minuten. Am Ende des Abends füllst du denselben Fragebogen noch einmal aus, und dann sehen wir beide, was sich bewegt hat.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Wähle im Formular bei „Durchgang“ jetzt <strong>„Anfang“</strong>.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
+        <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener"><img src="kicheck-qr.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
+        <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht?</strong> Das kommt vor. Scanne den QR-Code mit dem Handy, oder <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p>
+      </div>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was du ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
+      <iframe id="Form-FORM_KICHECK-1" data-formular="FORM_KICHECK" src="https://form.jotform.com/263225552531048" title="Dein KI-Check" style="width:100%; height:2600px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+
+    </div></section>
+<section class="lektion" data-id="werkzeug" data-teil="vm" data-teil-name="Teil 1: CITER und System-Prompt" hidden><div class="exercise" data-ex="werkzeug">
+      <div class="exercise-number">Info</div>
+      <h3>Dein KI-Werkzeug öffnen</h3>
+      <p class="subtitle">Öffne jetzt in einem zweiten Browserfenster ChatGPT, Gemini oder Claude. Für heute genügen die kostenlosen Versionen. Alle Prompts hier funktionieren in jedem der drei.</p>
+      <div class="llm-grid">
+        <div class="llm-card"><div class="llm-name">ChatGPT</div><a class="llm-browser" href="https://chatgpt.com" target="_blank" rel="noopener">Im Browser öffnen →</a></div>
+        <div class="llm-card"><div class="llm-name">Claude</div><a class="llm-browser" href="https://claude.ai" target="_blank" rel="noopener">Im Browser öffnen →</a></div>
+        <div class="llm-card"><div class="llm-name">Gemini</div><a class="llm-browser" href="https://gemini.google.com" target="_blank" rel="noopener">Im Browser öffnen →</a></div>
+      </div>
+
+      <p class="step-label">Noch kein Konto?</p>
+      <p>Melde dich am besten vorher an, sonst kannst du nichts speichern. Gemini braucht ein Google-Konto. Das Anlegen dauert drei Minuten, die Telefonnummer darfst du leer lassen. ChatGPT funktioniert zur Not auch ohne Anmeldung, dann aber ohne System-Prompt und Projekt.</p>
+
+      <p class="step-label">Wenn etwas nicht geht</p>
+      <table class="compare-table">
+        <tr><th style="width:36%">Problem</th><th>Ausweg</th></tr>
+        <tr><td>ChatGPT geht nicht</td><td>Nimm Gemini oder Claude. Alle Prompts laufen dort unverändert.</td></tr>
+        <tr><td>Datei-Upload geht nicht</td><td>Kopiere den Text direkt in den Chat. Bei langen Texten in Teilen.</td></tr>
+        <tr><td>Nutzungslimit erreicht („später wieder“)</td><td>Wechsle auf ein zweites Werkzeug und halte Chats kurz: Lange Chats verbrauchen mehr Kontingent. Sag mir im Teams-Chat Bescheid.</td></tr>
+      </table>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Gib keine echten Daten von Mitgliedern ein: keine Namen, Telefonnummern oder Gesundheitsdaten. Für die Übungen reichen Platzhalter wie [Name].</p>
+    </div></section>
+<section class="lektion" data-id="split" data-teil="vm" data-teil-name="Teil 1: CITER und System-Prompt" hidden><div class="exercise" data-ex="split">
+      <div class="exercise-number">Trick</div>
+      <h3>Den Bildschirm teilen</h3>
+      <p class="subtitle">Der wichtigste Handgriff des Abends, er dauert zehn Sekunden. Links dieses Übungsblatt, rechts dein KI-Werkzeug, jedes in einem eigenen Browserfenster. Ein zweites Fenster öffnest du mit Strg+N (Mac: cmd+N). Links Teams, rechts der Browser mit deinem KI-Werkzeug.</p>
+
+      <p class="step-label">Mac</p>
+      <p>Das Fenster mit diesem Übungsblatt anklicken. Den <strong>grünen Knopf</strong> links oben im Fenster <strong>gedrückt halten</strong>, etwa eine Sekunde lang. Es erscheinen zwei Hälften. Die linke Hälfte anklicken, dann aus der Liste rechts das Fenster mit deinem KI-Werkzeug wählen.</p>
+<svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Mac: grünen Knopf gedrückt halten, dann Bildschirmhälfte wählen">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <circle cx="28" cy="37" r="5" fill="#ff5f57"/>
+        <circle cx="45" cy="37" r="5" fill="#febc2e"/>
+        <circle cx="62" cy="37" r="9" fill="#28c840"/>
+        <circle cx="62" cy="37" r="15" fill="none" stroke="var(--gold)" stroke-dasharray="4 3"/>
+        <text x="84" y="42" fill="var(--gold)" font-size="13" font-family="monospace">gedrückt halten</text>
+        <text x="20" y="110" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ein Fenster,</text>
+        <text x="20" y="130" fill="rgba(255,255,255,0.45)" font-size="13" font-family="monospace">ganzer Bildschirm</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
+        <text x="560" y="88" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">KI-</text>
+        <text x="560" y="106" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Werkzeug</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. grün halten</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. Hälfte anklicken, Fenster wählen</text>
+      </svg>
+
+      <p class="step-label">Windows</p>
+      <p>Das Übungsblatt anklicken, dann <strong>Windows-Taste + Pfeil links</strong>. Es springt in die linke Hälfte, Windows zeigt die übrigen Fenster zur Auswahl für rechts. Das Fenster mit deinem KI-Werkzeug anklicken.</p>
+<svg viewBox="0 0 640 210" style="width:100%; max-width:560px; display:block; margin:12px auto;" role="img" aria-label="Windows: Windows-Taste plus Pfeil links, dann zweites Fenster wählen">
+        <rect x="8" y="24" width="240" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <rect x="8" y="24" width="240" height="26" rx="10" fill="rgba(212,160,23,0.10)"/>
+        <rect x="40" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="72" y="107" fill="var(--gold)" font-size="16" font-family="monospace" text-anchor="middle">&#8862;</text>
+        <text x="116" y="107" fill="var(--gold)" font-size="16" font-family="monospace">+</text>
+        <rect x="136" y="84" width="64" height="34" rx="6" fill="rgba(212,160,23,0.12)" stroke="var(--gold)"/>
+        <text x="168" y="108" fill="var(--gold)" font-size="18" font-family="monospace" text-anchor="middle">&#8592;</text>
+        <path d="M268 100 L322 100" stroke="var(--gold)" stroke-width="2"/>
+        <path d="M322 100 l-9 -6 v12 z" fill="var(--gold)"/>
+        <rect x="344" y="24" width="288" height="150" rx="10" fill="rgba(255,255,255,0.04)" stroke="var(--gold)" stroke-opacity="0.45"/>
+        <line x1="488" y1="24" x2="488" y2="174" stroke="var(--gold)" stroke-opacity="0.6" stroke-width="2"/>
+        <text x="416" y="95" fill="var(--gold)" font-size="13" font-family="monospace" text-anchor="middle">Übungsblatt</text>
+        <rect x="502" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <rect x="566" y="52" width="56" height="40" rx="5" fill="rgba(212,160,23,0.10)" stroke="var(--gold)" stroke-opacity="0.5"/>
+        <text x="560" y="128" fill="var(--gold)" font-size="12" font-family="monospace" text-anchor="middle">zweites Fenster wählen</text>
+        <text x="8" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">1. Taste + Pfeil</text>
+        <text x="344" y="200" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace">2. rechts aus der Auswahl klicken</text>
+      </svg>
+
+      <p class="step-label">Nur ein Fenster mit zwei Tabs?</p>
+      <p>Geht auch: dieses Übungsblatt und dein KI-Werkzeug als zwei Tabs. Ein Klick auf den Tab genügt. Per Tastatur: <strong>Strg+Tab</strong> (Mac: control+Tab) springt zum nächsten Tab.</p>
+
+      <p style="color: var(--white-muted); font-size:0.85rem;">Wenn gar nichts klappt: Fenster mit der Maus an den linken oder rechten Bildschirmrand ziehen, bis eine Hälfte aufleuchtet, loslassen. Mit zweitem Bildschirm: das Übungsblatt auf den einen, das KI-Werkzeug auf den anderen.</p>
+      <p style="color: var(--gold); font-size: 0.85rem;">Wer heute nicht teilt, klickt den ganzen Abend zwischen Übungsblatt und KI-Werkzeug hin und her und verliert bei jedem Wechsel den Faden.</p>
+    </div></section>
+<section class="lektion" data-id="ue1" data-teil="vm" data-teil-name="Teil 1: CITER und System-Prompt" hidden><div class="exercise" data-ex="ue1">
+      <div class="exercise-number">Übung 1</div>
+      <h3>CITER</h3>
+      <p class="subtitle">Du planst ein Trainingslager. Kurze Nachrichten, jede legt eine Schicht drauf.</p>
+      <div class="sozialform"><strong>Jede Person arbeitet allein, im eigenen Chat.</strong> Auch im Breakout-Raum macht jede Person ihre eigene Version. Danach vergleichen wir die Ergebnisse.</div>
+      <div class="rahmen">
+        <div><b>Ziel</b>Einen ganzen Auftrag in fünf Nachrichten bauen.</div>
+        <div><b>Abgabe</b>Teams-Chat: „Trainingslager fertig“</div>
+      </div>
+      <p>Ort, Dauer und Team darfst du frei wählen. Die Prompts sind das Gerüst, du füllst es mit deinem eigenen Trainingslager.</p>
+      <p>| Baustein | Frage | |---|---| | C = Kontext | Wie ist die Ausgangssituation? | | I = Ziel | Was genau will ich erreichen? | | T = Aufgabe | Was soll die KI machen? | | E = Ausführung | Format, Ton, Länge | | R = Realität | Stimmt das Ergebnis? Was muss ich prüfen? |</p>
+      <p class="step-label">Schritt 1 (T = Aufgabe): nur die Aufgabe, neuer Chat</p>
+      <div class="prompt-block">Plane mir ein Trainingslager in [Ort].</div>
+      <details>
+        <summary>Schritt 2 (C = Kontext): Wer fährt mit (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Wir sind 16 Erwachsene aus unserer Mannschaft, 3 Tage im März.</div>
+      <p>Warte die Antwort ab. Dann ändert sich etwas:</p>
+      <div class="prompt-block">Es sind doch keine Erwachsenen. Wir fahren mit der U12: 14 Kinder, 10 bis 12 Jahre alt, und 3 Betreuer. Wie würdest du das Trainingslager umplanen?</div>
+      <p>Und gleich wieder zurück. Überleg kurz, was du jetzt schreibst, bevor du weiterliest.</p>
+      <div class="prompt-block">Vergiss die letzte Nachricht. Es bleibt doch bei den 16 Erwachsenen. Plane zurück auf den Stand davor.</div>
+      <p>Gelöscht ist nichts. Du hast der KI nur gesagt, wie sie damit umgehen soll.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3 (I = Ziel): das Ziel nachschieben (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Ziel: Ich will am Ende einen Plan, den ich genau so ans Team weiterschicken kann, ohne etwas nachzubessern.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 4 (E = Ausführung): das Format nachschieben (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Format: Tag für Tag, pro Tag höchstens drei Zeilen. Max. 300 Wörter. Keine Einleitung, keine Nachbemerkung.</div>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 5 (R = Realität): die KI prüft sich selbst (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Prüfe deinen eigenen Plan: Was davon ist unsicher, veraltet oder nur geraten? Markiere es und sag mir, was ich selbst nachprüfen muss.</div>
+      <p>Du hast nichts wiederholt. Den Kontext trägt das Gespräch, die einzelne Nachricht muss nicht alles enthalten.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Lass dir den Plan danach als Einladung ans Team schreiben, höchstens 120 Wörter.<br><strong>Stufe 3:</strong> Lass die KI vor dem Plan zuerst drei bis fünf Rückfragen stellen und beantworte sie.</p>
+      <p class="fallback"><strong>Ausweg:</strong> ChatGPT geht nicht? Nimm Gemini: gleiche Prompts, gleiches Ergebnis.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Ein Plan in deinem Format, mit markierten Stellen zum Nachprüfen.</p>
+    </div></section>
+<section class="lektion" data-id="ue2" data-teil="vm" data-teil-name="Teil 1: CITER und System-Prompt" hidden><div class="exercise" data-ex="ue2">
+      <div class="exercise-number">Übung 2</div>
+      <h3>Der System-Prompt</h3>
+      <p class="subtitle">Was in diesem Feld steht, liest die KI in jedem neuen Chat mit.</p>
+      <div class="sozialform"><strong>Jede Person arbeitet allein, im eigenen Chat.</strong> Auch im Breakout-Raum macht jede Person ihre eigene Version. Danach vergleichen wir die Ergebnisse.</div>
+      <div class="rahmen">
+        <div><b>Ziel</b>Einen System-Prompt eintragen, der überall gilt.</div>
+        <div><b>Abgabe</b>Teams-Chat: erster Satz deiner Antwort</div>
+      </div>
+      <p>Ich zeige es zuerst am geteilten Bildschirm. Danach probierst du es selbst.</p>
+      <p>| Werkzeug | Wo das Feld ist | |---|---| | ChatGPT | Profilbild → Einstellungen → Personalisierung → „Benutzerdefinierte Anweisungen“ | | Gemini | Einstellungen → „Anweisungen für Gemini“ | | Claude | Initialen unten links → Einstellungen → Feld „Instructions for Claude“ |</p>
+      <p class="step-label">Schritt 1: einen Stil aussuchen und ins Feld kopieren, speichern</p>
+      <div class="prompt-block">Antworte mir ab jetzt immer im Stil eines österreichischen Amtsschreibens: Beamtendeutsch, Hauptwörter statt Verben, lange Schachtelsätze, Wendungen wie „Bezug nehmend auf Ihr Ansuchen“. Der Inhalt soll sachlich stimmen, nur der Ton ist amtlich.</div>
+      <div class="prompt-block">Antworte mir ab jetzt immer wie ein Teenager: Jugendsprache, Wörter wie „Digga“, „Bro“, „lowkey“ und „cringe“, kurze Sätze, Emojis erlaubt. Der Inhalt soll sachlich stimmen, nur der Ton ist jung.</div>
+      <div class="prompt-block">Antworte mir ab jetzt immer wie ein guter Freund, mit dem ich nach dem Training im Beisl sitze: per Du, locker, ehrlich, mit ein bisschen Schmäh. Der Inhalt soll sachlich stimmen, nur der Ton ist gemütlich.</div>
+      <details>
+        <summary>Schritt 2: testen, in einem neuen Chat (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Erklär mir, wie ich am besten neue Mitglieder für unseren Verein gewinne.</div>
+      <p>Schreib den ersten Satz der Antwort in den Teams-Chat. Gleiche Frage, drei ganz verschiedene Antworten.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3: dein guter System-Prompt (erst aufklappen, wenn ich es sage) (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Lösch deinen Stil im Feld ganz und setz das hier ein. Die [Klammern] im letzten Absatz füllst du selbst aus.</p>
+      <div class="prompt-block">Sag mir lieber „Das weiß ich nicht“, als zu raten. Trenne klar, was du sicher weißt und was du vermutest. Erfinde keine Zahlen, Namen, Zitate oder Quellen.
+Wenn meine Anfrage unklar ist oder dir wichtige Informationen fehlen, stell mir zuerst kurze Rückfragen.
+Gib mir nicht einfach recht. Wenn ich mich irre oder etwas übersehe, sag es direkt und begründe es.
+Ich bin [Funktion] im Verein [Name, Sportart, Ort] und kümmere mich vor allem um [zwei, drei Aufgaben]. Antworte mir auf Deutsch, per Du, kurz und so, dass ich es direkt verwenden kann.</div>
+      <p>Speichern, neuen Chat öffnen, dieselbe Testfrage noch einmal stellen. Jetzt klingt es nach deinem Verein.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Schreib in den letzten Absatz zusätzlich, wie euer Verein klingt: locker, sachlich oder herzlich.<br><strong>Stufe 3:</strong> Bitte die KI: „Lies meinen System-Prompt und schlag drei Verbesserungen vor.“</p>
+      <p class="fallback"><strong>Ausweg:</strong> Feld nicht gefunden? Schick den Text als erste Nachricht in einen neuen Chat. Dann gilt er nur dort.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Die Testfrage klingt im neuen Chat erst nach deinem Stil, dann nach deinem Verein, obwohl in der Frage nichts davon steht.</p>
+    </div></section>
+<section class="lektion" data-id="pause" data-teil="vm" data-teil-name="Teil 1: CITER und System-Prompt" hidden><div class="exercise" data-ex="pause">
+      <div class="exercise-number">Pause</div>
+      <h3>Pause, und wie es weitergeht</h3>
+      <p class="subtitle">Bis hierher geschafft. Lass diese Seite offen, dann geht es nach der Pause genau hier weiter.</p>
+      <p class="step-label">Was du jetzt in der Hand hast</p>
+      <p>Ein System-Prompt, der in jedem neuen Chat gilt.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Falls du schon jetzt gehen musst: Unten bei „Zum Schluss“ findest du den KI-Check und das Feedback. Beides dauert zusammen fünf Minuten.</p>
+
+    </div></section>
+<section class="lektion" data-id="ue3" data-teil="nm" data-teil-name="Teil 2: Dein Verein im Projekt" hidden><div class="exercise" data-ex="ue3">
+      <div class="exercise-number">Übung 3</div>
+      <h3>Deine KI-Wissensbasis aufbauen</h3>
+      <p class="subtitle">Zwei Dokumente, die deine KI ab sofort schlauer machen: dein Verein und deine Rolle.</p>
+      <div class="sozialform"><strong>Jede Person arbeitet allein, im eigenen Chat.</strong> Auch im Breakout-Raum macht jede Person ihre eigene Version. Danach vergleichen wir die Ergebnisse.</div>
+      <div class="rahmen">
+        <div><b>Ziel</b>Zwei Kontextdokumente: Verein und Rolle.</div>
+        <div><b>Abgabe</b>Teams-Chat: „Wissensbasis fertig“</div>
+      </div>
+      <p class="fallback"><strong>Daten:</strong> Keine personenbezogenen Daten: keine Namen, Telefonnummern oder Gesundheitsdaten von Mitgliedern. Ins Dokument kommt nur, was auch auf eurer Website stehen dürfte.</p>
+      <p>Speichere beide Dokumente als Textdatei (.txt) oder in einer Notiz. Du brauchst sie gleich beim Projekt.</p>
+      <p class="step-label">Schritt 1 (1a): Kopieren, Vereinsnamen einsetzen, abschicken</p>
+      <div class="prompt-block">Recherchiere im Internet den Verein [Vereinsname], [Ort]. Nutze die Website, das Impressum, Presseberichte und öffentliche Verzeichnisse.
+Schreibe daraus ein Kontextdokument, das ich in Zukunft an den Anfang jeder Konversation setzen kann: Sportart, Größe, Angebote, Zielgruppen, Trainingsorte, Besonderheiten.
+Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst, schreibst du nicht hin, sondern listest es am Ende unter „offen“.</div>
+      <details>
+        <summary>Schritt 2 (1a): Zwei Angaben prüfen und speichern (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Nimm zwei Angaben, die du sicher kennst, zum Beispiel Gründungsjahr oder Trainingsort. Ist etwas falsch:</p>
+      <div class="prompt-block">Ich habe zwei Angaben geprüft. [Angabe] stimmt nicht, richtig ist [Korrektur]. Außerdem fehlt: [Ergänzung]. Überarbeite das Dokument und streiche alles, wofür du keine Quelle hast.</div>
+      <p>Dann das Dokument kopieren und speichern.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3 (1b): Deine Rolle, die KI stellt dir Fragen (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Hilf mir, ein Kontextdokument über meine Rolle im Verein zu erstellen. Stelle mir 3 bis 5 gezielte Fragen, z. B. zu meiner Funktion, meinen Aufgaben, mit wem ich zusammenarbeite und was meine größten Herausforderungen sind. Warte auf meine Antworten.</div>
+      <p>Beantworte die Fragen, gern diktiert: Mikrofon-Symbol in der Eingabezeile, in Teams vorher stumm schalten.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 4 (1b): Dokument erstellen und speichern (aufklappen)</summary>
+        <div class="collapsible-content">
+      <div class="prompt-block">Erstelle jetzt das Kontextdokument basierend auf meinen Antworten. Schreibe es so, dass ich es in Zukunft am Anfang jeder Konversation einfügen kann.</div>
+      <p>Kopieren und speichern.</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Frag die KI: „Was fehlt in diesem Dokument, das für eine KI wichtig wäre? Schlage 3 Ergänzungen vor.“<br><strong>Stufe 3:</strong> Bau ein drittes Dokument, zum Beispiel über euren Schreibstil oder über Eltern und Sponsoren.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Keine Websuche möglich? Schreib fünf Stichworte zu deinem Verein und ersetze den ersten Absatz durch: „Hier sind meine Stichworte zu meinem Verein: [Stichworte].“</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Zwei gespeicherte Dokumente, eines über deinen Verein mit Quellen und einem Teil „offen“, eines über deine Rolle.</p>
+    </div></section>
+<section class="lektion" data-id="ue4" data-teil="nm" data-teil-name="Teil 2: Dein Verein im Projekt" hidden><div class="exercise" data-ex="ue4">
+      <div class="exercise-number">Übung 4</div>
+      <h3>Projekt anlegen</h3>
+      <p class="subtitle">Ein Projekt mit deinen Dokumenten und festen Regeln, das deinen Verein kennt.</p>
+      <div class="sozialform"><strong>Jede Person arbeitet allein, im eigenen Chat.</strong> Auch im Breakout-Raum macht jede Person ihre eigene Version. Danach vergleichen wir die Ergebnisse.</div>
+      <div class="rahmen">
+        <div><b>Ziel</b>Ein Projekt, das deinen Verein kennt.</div>
+        <div><b>Abgabe</b>Teams-Chat: „Projekt steht“</div>
+      </div>
+      <p class="fallback"><strong>Daten:</strong> Lade nur Dokumente hoch, die keine personenbezogenen Daten von Mitgliedern enthalten.</p>
+      <p>Ich zeige es zuerst am geteilten Bildschirm. Schau nur zu, noch nichts kopieren. Der System-Prompt aus Übung 2 gilt in jedem Chat. Der Projekt-Prompt gilt nur in diesem einen Projekt.</p>
+      <p>| Ebene | Was dort gilt | |---|---| | In jedem Chat | System-Prompt („Benutzerdefinierte Anweisungen“) | | Nur in diesem Projekt | Projekt-Prompt und deine Dokumente | | Nur in diesem Chat | das laufende Gespräch und deine aktuelle Nachricht |</p>
+      <p>| Werkzeug | So legst du es an | |---|---| | ChatGPT | Links neben „Projekte“ (Projects) aufs Plus, Namen vergeben. Unter „Quellen“ (Sources) die Dokumente hochladen. Das Feld „Anweisungen“ (Instructions) nur finden. | | Gemini | Links „Gems verwalten“, dann „Neuer Gem“. Unter „Wissen“ die Dokumente hinzufügen. | | Claude | „Projekte“, dann „Neues Projekt“. Dokumente ins Projektwissen hochladen. |</p>
+      <p class="step-label">Schritt 1: Projekt-Prompt kopieren, [Klammern] umschreiben, ins Feld „Anweisungen“, speichern</p>
+      <div class="prompt-block">Du bist mein KI-Assistent für [Verein / Funktion].
+Wissensbasis: Berücksichtige immer meine hochgeladenen Dokumente (Verein, Rolle) als festen Kontext.
+Verhalten: Antworte auf Deutsch, per Du, konkret und knapp (max. 300 Wörter), mit klaren nächsten Schritten. Wenn dir Informationen fehlen, frage nach, bevor du rätst.</div>
+      <details>
+        <summary>Schritt 2: Prüfen, ob das Projekt dich kennt (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Öffne den neuen Chat im Projekt selbst:</p>
+      <div class="prompt-block">Was weißt du über meinen Verein und meine Rolle? Nenne mir zu jeder Angabe, in welchem meiner Dokumente sie steht.</div>
+      <p>Kennt die KI deinen Verein nicht, lief der Chat außerhalb des Projekts, oder die Dokumente liegen nicht im Projekt.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Schritt 3: Eine echte Aufgabe, Protokoll aus Stichworten (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Die Stichworte sind erfunden. Schreib in den Projekt-Chat:</p>
+      <div class="prompt-block">Mach aus diesen Stichworten ein Protokoll mit den Abschnitten Beschlüsse, Aufgaben (wer, was, bis wann) und offene Punkte. Erfinde keine Termine oder Zuständigkeiten, die nicht in den Stichworten stehen. Was unklar ist, kommt unter „offen“.
+Vorstandssitzung, 14.10.
+Teilnehmende: A, B, C
+- Hallenzeiten für Jänner bei der Gemeinde anfragen (B)
+- Neue Trainingsdressen: drei Angebote einholen, bis 30.10. (C)
+- Zuschuss 2.000 Euro bewilligt? unklar, A fragt nach
+- Nächste Sitzung 4.11., 19 Uhr</div>
+      <p>Prüfpunkt: Steht beim Zuschuss „offen“ und nicht „bewilligt“?</p>
+        </div>
+      </details>
+      <p class="profispur"><strong>Stufe 2:</strong> Gib dem Projekt die echte Aufgabe unten: Protokoll aus Stichworten.<br><strong>Stufe 3:</strong> Leg ein zweites Projekt an, zum Beispiel nur für Social Media oder für Elternbriefe.</p>
+      <p class="fallback"><strong>Ausweg:</strong> Keine Dokumente aus Übung 3? Schreib fünf Stichworte zu deinem Verein in einen Chat, lass daraus ein kurzes Dokument machen und lade das hoch.</p>
+      <p class="pruef">So sieht es aus, wenn es geklappt hat: Auf die Prüffrage nennt die KI Angaben aus deinen Dokumenten und sagt, wo sie stehen.</p>
+    </div></section>
+<section class="lektion" data-id="kicheck-ende" data-teil="nm" data-teil-name="Teil 2: Dein Verein im Projekt" hidden><div class="exercise" data-ex="kicheck-ende">
+      <div class="exercise-number">Zum Schluss</div>
+      <h3>Dein KI-Check, zweiter Durchgang</h3>
+      <p class="subtitle">Derselbe Fragebogen wie am Anfang. Füll ihn jetzt noch einmal aus, dann siehst du schwarz auf weiß, was du heute dazugelernt hast, und ich sehe, wo ich beim nächsten Mal nachschärfen muss. Erst der Check, dann der Abschied.</p>
+      <p style="color: var(--white-muted); font-size: 0.85rem;">Wähle im Formular bei „Durchgang“ jetzt <strong>„Ende“</strong>.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
+        <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener"><img src="kicheck-qr.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
+        <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht?</strong> Das kommt vor. Scanne den QR-Code mit dem Handy, oder <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p>
+      </div>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was du ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
+      <iframe id="Form-FORM_KICHECK-9" data-formular="FORM_KICHECK" src="https://form.jotform.com/263225552531048" title="Dein KI-Check, zweiter Durchgang" style="width:100%; height:2600px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+
+    </div></section>
+<section class="lektion" data-id="feedback" data-teil="nm" data-teil-name="Teil 2: Dein Verein im Projekt" hidden><div class="exercise" data-ex="feedback">
+      <div class="exercise-number">Feedback</div>
+      <h3>Ihr Feedback</h3>
+      <p class="subtitle">Zwei Minuten. Dein Aha-Moment, deine wichtigste Erkenntnis, was ich beim nächsten Mal besser machen soll, und wie hilfreich diese Kursseite war. Name und Verein sind freiwillig, helfen mir aber sehr. Ehrlich hilft mir mehr als nett.</p>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
+        <a href="https://form.jotform.com/263225395789068" target="_blank" rel="noopener"><img src="feedback-qr.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
+        <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht?</strong> Das kommt vor. Scanne den QR-Code mit dem Handy, oder <a href="https://form.jotform.com/263225395789068" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p>
+      </div>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was du ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
+      <iframe id="Form-FORM_FEEDBACK-10" data-formular="FORM_FEEDBACK" src="https://form.jotform.com/263225395789068" title="Dein Feedback" style="width:100%; height:2200px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+      <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
+      <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/263225395789068" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
+
+    </div></section>
+<section class="lektion" data-id="modul3" data-teil="nm" data-teil-name="Teil 2: Dein Verein im Projekt" hidden><div class="exercise" data-ex="modul3">
+      <div class="exercise-number">Weiter</div>
+      <h3>Modul 3: Automatisierte Workflows</h3>
+      <div class="fm-odpocet" hidden data-od="2026-11-26T18:00:00+01:00" data-bis="2026-12-18T18:00:00+01:00">
+        <div class="fm-kopf">Modul 3: Automatisierte Workflows</div>
+        <div class="fm-wann">Freitag, 18. Dezember 2026 · 18:00 Uhr · online, MS Teams</div>
+        <div class="fm-zahlen"><div><b class="fm-d">0</b><span>Tage</span></div><div><b class="fm-h">00</b><span>Std</span></div><div><b class="fm-m">00</b><span>Min</span></div><div><b class="fm-s">00</b><span>Sek</span></div></div>
+      </div>
+      <a class="fm-haupt" href="https://sportunion-akademie.at/content/SPORTUNION_Akademie/funktionaerskurse/funktionaerskurse/wi26058-ki_fuer_sportvereine_modul_3_automatisierte_workflows/3317" target="_blank" rel="noopener">Zur Anmeldung →</a>
+      <p class="subtitle">Bring dein Kontextdokument und deinen System-Prompt mit. Darauf baut Modul 3 auf.</p>
+      <p class="fm-termin"><strong>Freitag, 18. Dezember 2026 · 18:00 Uhr · online, MS Teams</strong></p>
+      <p class="step-label">Was dich dort erwartet</p>
+      <ul><li>Automatisierte Workflows für den Vereinsalltag</li></ul>
+      <p style="color: var(--white-muted); font-size: 0.8rem;">Quelle: Ausschreibung der SPORTUNION Akademie, Kurs WI26058</p>
+      <script>
+      (function(){
+        var b = document.currentScript.parentNode.querySelector('.fm-odpocet');
+        var od = Date.parse(b.dataset.od), bis = Date.parse(b.dataset.bis), pad = function(n){ return String(n).padStart(2, '0'); };
+        function tik(){
+          var t = Date.now(), zeig = (t >= od || /[?&]vorschau\b/.test(location.search)) && t < bis;
+          b.hidden = !zeig;
+          if (zeig) {
+            var s = Math.max(0, Math.floor((bis - t) / 1000));
+            b.querySelector('.fm-d').textContent = Math.floor(s / 86400);
+            b.querySelector('.fm-h').textContent = pad(Math.floor(s % 86400 / 3600));
+            b.querySelector('.fm-m').textContent = pad(Math.floor(s % 3600 / 60));
+            b.querySelector('.fm-s').textContent = pad(s % 60);
+            setTimeout(tik, 1000);
+          }
+        }
+        tik();
+      })();
+      </script>
+
+    </div></section>
+<section class="lektion" data-id="weiter" data-teil="nm" data-teil-name="Teil 2: Dein Verein im Projekt" hidden><div class="exercise" data-ex="weiter">
+      <div class="exercise-number">Danach</div>
+      <h3>Wie es nach dem Training weitergeht</h3>
+      <p class="subtitle">Danke für diesen Abend. Diese Seite ist online bis Donnerstag, 31. Dezember 2026.</p>
+      <p class="step-label">Dein Auftrag bis Mittwoch, 2. Dezember</p>
+      <p>Nutze deinen System-Prompt und dein Projekt diese Woche für eine echte Vereinsaufgabe und bring das Ergebnis am 18.12. mit.</p>
+      <div style="text-align:center; margin: 28px 0 8px; padding: 28px 22px; background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.2); border-radius: 12px;">
+        <p style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Bleiben wir in Kontakt</p>
+        <p style="font-size: 0.9rem; color: var(--white-muted); margin-bottom: 18px;">Unterlagen anfordern und den Newsletter bekommen, mit einem Klick.</p>
+        <a href="https://jakubpopluhar.com/weiter/?kurs=sportunionm2" style="display:inline-block; background:var(--gold); color:#141414; padding:14px 36px; border-radius:8px; font-weight:700; font-size:0.95rem; border: 2px solid var(--gold);">In Kontakt bleiben &rarr;</a>
+        <p style="font-size: 0.8rem; color: var(--white-muted); margin-top: 10px;">Deine E-Mail-Adresse brauche ich, damit die Unterlagen sicher bei dir ankommen.</p>
+        <div style="margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(212,160,23,0.2);">
+          <p style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; margin-bottom: 6px;">LinkedIn: Lass uns vernetzen</p>
+          <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener"><img src="linkedin-qr.png" alt="QR-Code zu Jakub Popluhars LinkedIn-Profil" width="180" height="180" style="display:block; margin: 0 auto 14px; width:180px; height:180px; border-radius:10px; background:#fff; padding:6px;"></a>
+          <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener" style="display:inline-block; color:var(--gold); border: 2px solid var(--gold); padding:10px 26px; border-radius:8px; font-weight:700; font-size:0.9rem;">Auf LinkedIn vernetzen &rarr;</a>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:16px; font-size:0.85rem;"><a href="ressourcen/" style="color:var(--gold);">Alle Werkzeuge und Quellen &rarr;</a></p>
+
+    </div></section>
+<section class="lektion" data-id="bonus-flughoehe" data-teil="res" data-teil-name="Bonus: wenn Zeit bleibt" hidden><div class="exercise" data-ex="bonus-flughoehe">
+      <div class="exercise-number">Bonus</div>
+      <h3>Die Flughöhe</h3>
+      <p class="subtitle">Dieselbe Sache, zwei Stufen. Die Stufe stellst du ein, nicht die KI.</p>
+      <p>Schau dir diese Formel zehn Sekunden an. Kannst du sie erklären?</p>
+      <div class="prompt-block">ν̄ = R · (1/2² − 1/n²)</div>
+      <p class="step-label">Schritt 1: als Fachperson fragen, neuer Chat</p>
+      <div class="prompt-block">Erkläre mir diese Formel so, wie du es einem Doktor der Physik erklären würdest: ν̄ = R · (1/2² − 1/n²)</div>
+      <p class="step-label">Schritt 2: im selben Chat für ein Kind</p>
+      <div class="prompt-block">Erkläre mir dieselbe Formel jetzt so, dass ein Kind von 10 Jahren sie versteht.</div>
+      <p class="step-label">Schritt 3: Lieferant oder Tutor</p>
+      <div class="prompt-block">Was heißt ‚20‘ auf Englisch?</div>
+      <div class="prompt-block">Du bist mein Englischlehrer. Bring mir bei, wie man zählt. Gib mir nicht sofort die Lösung, sondern erkläre mir die Regel und lass mich üben.</div>
+      <p>Der Lieferant löst das Problem. Der Tutor baut Wissen auf.</p>
+    </div></section>
+  </main>
+</div>
+<div class="nav"><div class="form-hinweis" id="form-hinweis" role="alert" hidden><div class="form-hinweis-innen"><p><strong>Hast du im Formular unten auf „Senden“ geklickt?</strong> Erst dann sind deine Antworten gespeichert.</p><div class="reihe"><button type="button" class="knopf los" id="form-ja">Ja, abgeschickt, weiter</button><button type="button" class="knopf" id="form-zurueck">Zurück zum Formular</button></div></div></div><div class="nav-innen"><button class="knopf" id="prev" type="button">← Zurück</button><button class="knopf los" id="next" type="button">Erledigt, weiter →</button></div></div>
+<script>
+const M = [{"id": "willkommen", "teil": "vm", "teilname": "Teil 1: CITER und System-Prompt", "nr": "", "art": "Start", "opt": false, "titel": "Willkommen"}, {"id": "kicheck", "teil": "vm", "teilname": "Teil 1: CITER und System-Prompt", "nr": "", "art": "Check", "opt": false, "titel": "Dein KI-Check"}, {"id": "werkzeug", "teil": "vm", "teilname": "Teil 1: CITER und System-Prompt", "nr": "", "art": "Info", "opt": false, "titel": "Dein KI-Werkzeug öffnen"}, {"id": "split", "teil": "vm", "teilname": "Teil 1: CITER und System-Prompt", "nr": "", "art": "Trick", "opt": false, "titel": "Den Bildschirm teilen"}, {"id": "ue1", "teil": "vm", "teilname": "Teil 1: CITER und System-Prompt", "nr": "1", "art": "Übung", "opt": false, "titel": "CITER"}, {"id": "ue2", "teil": "vm", "teilname": "Teil 1: CITER und System-Prompt", "nr": "2", "art": "Übung", "opt": false, "titel": "Der System-Prompt"}, {"id": "pause", "teil": "vm", "teilname": "Teil 1: CITER und System-Prompt", "nr": "", "art": "Pause", "opt": false, "titel": "Pause, und wie es weitergeht"}, {"id": "ue3", "teil": "nm", "teilname": "Teil 2: Dein Verein im Projekt", "nr": "3", "art": "Übung", "opt": false, "titel": "Deine KI-Wissensbasis aufbauen"}, {"id": "ue4", "teil": "nm", "teilname": "Teil 2: Dein Verein im Projekt", "nr": "4", "art": "Übung", "opt": false, "titel": "Projekt anlegen"}, {"id": "kicheck-ende", "teil": "nm", "teilname": "Teil 2: Dein Verein im Projekt", "nr": "", "art": "Zum Schluss", "opt": false, "titel": "Dein KI-Check, zweiter Durchgang"}, {"id": "feedback", "teil": "nm", "teilname": "Teil 2: Dein Verein im Projekt", "nr": "", "art": "Feedback", "opt": false, "titel": "Dein Feedback"}, {"id": "modul3", "teil": "nm", "teilname": "Teil 2: Dein Verein im Projekt", "nr": "", "art": "Weiter", "opt": false, "titel": "Modul 3: Automatisierte Workflows"}, {"id": "weiter", "teil": "nm", "teilname": "Teil 2: Dein Verein im Projekt", "nr": "", "art": "Danach", "opt": false, "titel": "Wie es nach dem Training weitergeht"}, {"id": "bonus-flughoehe", "teil": "res", "teilname": "Bonus: wenn Zeit bleibt", "nr": "", "art": "Bonus", "opt": true, "titel": "Die Flughöhe"}];
+const KOHORTE = 'sportunionm2';
+const GRUPPEN = true;
+const WACHE = true;
+const ERKENNUNG = false;
+const SPEICHER = 'kurs.' + KOHORTE;
+const S = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
+            set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+const $ = id => document.getElementById(id);
+let erledigt = new Set(S.get(SPEICHER + '.erledigt', []));
+let cur = null, imRaum = null;
+
+function beschriftung(m) { return (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + m.titel; }
+
+function zeigen(id, scrollen) {
+  const m = M.find(x => x.id === id) || M[0];
+  cur = m.id; S.set(SPEICHER + '.cur', cur); S.set(SPEICHER + '.tag', new Date().toDateString());
+  if (location.hash.slice(1) !== cur) history.replaceState(null, '', '#' + cur);
+  document.querySelectorAll('.lektion').forEach(s => s.hidden = s.dataset.id !== cur);
+  const i = M.indexOf(m);
+  $('ttl').textContent = m.titel;
+  $('crumb').textContent = m.teilname;
+  $('tags').innerHTML = '<span class="tag">' + (m.nr ? 'Übung ' + m.nr : m.art) + '</span>' + (m.opt ? '<span class="tag leise">wenn Zeit bleibt</span>' : '');
+  document.querySelectorAll('.zeile').forEach(z => {
+    z.classList.toggle('aktiv', z.dataset.id === cur);
+    z.classList.toggle('erledigt', erledigt.has(z.dataset.id));
+  });
+  const p = Math.round(erledigt.size / M.length * 100);
+  $('balken').style.width = p + '%';
+  $('stand').textContent = erledigt.size + ' von ' + M.length + ' erledigt';
+  $('dstand').textContent = (m.nr ? 'Übung ' + m.nr : m.art) + ' · ' + erledigt.size + '/' + M.length + ' erledigt';
+  $('prev').disabled = i === 0;
+  $('next').textContent = i === M.length - 1 ? 'Erledigt ✓' : (formLektion() && !abgeschickt[cur] ? 'Formular abgeschickt? Dann weiter →' : 'Erledigt, weiter →');
+  if (WACHE) hinweisZu();
+  $('side').classList.remove('offen');
+  if (GRUPPEN) gruppeOeffnen(m.teil);
+  leisteZeichnen();
+  if (scrollen !== false) window.scrollTo(0, 0);
+}
+
+function gruppeOeffnen(teil) {
+  document.querySelectorAll('.gruppe').forEach(g => {
+    if (g.dataset.teil === teil) { g.classList.remove('zu'); g.querySelector('.teil-knopf').setAttribute('aria-expanded', 'true'); }
+  });
+}
+if (GRUPPEN) document.querySelectorAll('.teil-knopf').forEach(k => k.addEventListener('click', () => {
+  const g = k.parentElement, zu = g.classList.toggle('zu');
+  k.setAttribute('aria-expanded', String(!zu));
+}));
+document.querySelectorAll('.zeile').forEach(z => z.addEventListener('click', e => { e.preventDefault(); zeigen(z.dataset.id); }));
+$('prev').onclick = () => { const i = M.findIndex(x => x.id === cur); if (i > 0) zeigen(M[i - 1].id); };
+function weiter() {
+  erledigt.add(cur); S.set(SPEICHER + '.erledigt', [...erledigt]);
+  const i = M.findIndex(x => x.id === cur); zeigen(M[Math.min(i + 1, M.length - 1)].id);
+}
+// Formular-Wache: nie blockieren. Erster Klick zeigt nur einen Hinweis im Seitenkopf-Bereich, der zweite geht durch.
+const abgeschickt = {}, gewarnt = {};
+function formLektion() { return WACHE ? document.querySelector('.lektion[data-id="' + cur + '"] iframe[data-formular]') : null; }
+function hinweisZu() { const h = $('form-hinweis'); if (h) h.hidden = true; }
+$('next').onclick = () => {
+  if (formLektion() && !abgeschickt[cur] && !gewarnt[cur]) {
+    gewarnt[cur] = true; const h = $('form-hinweis'); h.hidden = false; $('form-ja').focus(); return;
+  }
+  weiter();
+};
+if (WACHE) {
+  $('form-ja').onclick = () => { hinweisZu(); weiter(); };
+  $('form-zurueck').onclick = () => {
+    hinweisZu(); gewarnt[cur] = false;
+    const f = formLektion(); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  };
+  if (ERKENNUNG) document.querySelectorAll('iframe[data-formular]').forEach(f => {
+    let n = 0;
+    f.addEventListener('load', () => {
+      if (++n < 2) return;            // das erste load ist das leere Formular, jedes weitere eine neue Seite (Dank-Seite nach dem Absenden)
+      const id = f.closest('.lektion').dataset.id; abgeschickt[id] = true;
+      if (!f.nextElementSibling || !f.nextElementSibling.classList.contains('form-danke')) {
+        const d = document.createElement('p'); d.className = 'form-danke'; d.textContent = 'Danke, deine Antworten sind angekommen ✓'; f.after(d);
+      }
+      if (id === cur) { hinweisZu(); zeigen(cur, false); }
+    });
+  });
+}
+$('oeffnen').onclick = () => $('side').classList.add('offen');
+function leisteSetzen(zu) {
+  document.body.classList.toggle('leiste-zu', zu);
+  $('leisteKnopf').setAttribute('aria-expanded', String(!zu));
+  $('leisteKnopf').setAttribute('aria-label', zu ? 'Seitenleiste ausklappen' : 'Seitenleiste einklappen');
+  S.set(SPEICHER + '.leisteZu', zu);
+}
+$('leisteKnopf').onclick = () => leisteSetzen(!document.body.classList.contains('leiste-zu'));
+leisteSetzen(!!S.get(SPEICHER + '.leisteZu', false));
+$('schliessen').onclick = () => $('side').classList.remove('offen');
+window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (h && h !== cur && M.some(x => x.id === h)) zeigen(h); });
+
+// Kopieren per Klick auf einen Prompt-Block
+document.querySelectorAll('.prompt-block').forEach(block => {
+  block.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(block.textContent.trim());
+      block.classList.add('copied'); setTimeout(() => block.classList.remove('copied'), 1500);
+    } catch (e) {
+      const r = document.createRange(); r.selectNodeContents(block);
+      const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    }
+  });
+});
+
+// Akkordeon: je Uebung nur ein Feld offen, und nur nach einem echten Klick
+let letzterKlick = 0;
+document.addEventListener('click', e => { if (e.target.closest('summary')) letzterKlick = Date.now(); }, true);
+document.querySelectorAll('.exercise').forEach(ex => {
+  ex.querySelectorAll(':scope > details, .collapsible-content > details').forEach(det => {
+    det.addEventListener('toggle', () => {
+      if (det.open && Date.now() - letzterKlick < 1000) {
+        det.parentElement.querySelectorAll(':scope > details').forEach(sib => { if (sib !== det && sib.open) sib.open = false; });
+        setTimeout(() => det.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+      }
+    });
+  });
+});
+
+// Bild-Upload in Jakubs Drive. Geht an denselben Dienst wie die Live-Leiste.
+let UPLOAD = 'https://deflifeos.popluhar.at/reise-live/upload';
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && new URLSearchParams(location.search).get('uploadUrl'))
+  UPLOAD = new URLSearchParams(location.search).get('uploadUrl');
+document.querySelectorAll('.upload-kasten').forEach(kasten => {
+  const vn = kasten.querySelector('.vorname'), feld = kasten.querySelector('input[type=file]'), liste = kasten.querySelector('.liste-upload');
+  vn.value = S.get(SPEICHER + '.vorname', '');
+  vn.addEventListener('change', () => S.set(SPEICHER + '.vorname', vn.value.trim()));
+  function eins(datei) {
+    const li = document.createElement('li');
+    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = datei.name || 'Bild';
+    const st = document.createElement('span'); st.className = 'st'; st.textContent = 'wird hochgeladen…';
+    li.append(nm, st); liste.prepend(li);
+    if (datei.size > 12 * 1024 * 1024) { li.className = 'fehler'; st.textContent = 'zu groß (max. 12 MB)'; return Promise.resolve(); }
+    return new Promise(fertig => {
+      const x = new XMLHttpRequest();
+      x.open('POST', UPLOAD);
+      x.setRequestHeader('Content-Type', 'application/octet-stream');
+      x.setRequestHeader('X-Kohorte', KOHORTE);
+      x.setRequestHeader('X-Uebung', encodeURIComponent(kasten.dataset.uebung || ''));
+      x.setRequestHeader('X-Vorname', encodeURIComponent(vn.value.trim()));
+      x.upload.onprogress = e => { if (e.lengthComputable) st.textContent = Math.round(e.loaded / e.total * 100) + ' %'; };
+      x.onload = () => {
+        let d = {}; try { d = JSON.parse(x.responseText); } catch (e) {}
+        if (x.status === 200) { li.className = 'ok'; st.textContent = 'angekommen ✓'; }
+        else { li.className = 'fehler'; st.textContent = d.fehler || ('Fehler ' + x.status); }
+        fertig();
+      };
+      x.onerror = () => { li.className = 'fehler'; st.textContent = 'keine Verbindung, bitte nochmal'; fertig(); };
+      x.send(datei);
+    });
+  }
+  feld.addEventListener('change', async () => {
+    S.set(SPEICHER + '.vorname', vn.value.trim());
+    for (const d of [...feld.files].slice(0, 5)) await eins(d);
+    feld.value = '';
+  });
+});
+
+// Live-Leiste "Jetzt im Raum": nur lesen, es wird nichts ueber die Person gesendet
+let BASIS = 'https://deflifeos.popluhar.at/reise-live/jetzt.json';
+const q = new URLSearchParams(location.search);
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname) && q.get('liveBasis')) BASIS = q.get('liveBasis');
+function leisteZeichnen() {
+  const leiste = $('live-leiste');
+  const m = imRaum && M.find(x => x.id === imRaum);
+  document.querySelectorAll('.zeile').forEach(z => z.classList.toggle('im-raum', !!m && z.dataset.id === imRaum));
+  if (!m) { leiste.hidden = true; return; }
+  leiste.hidden = false;
+  $('live-text').textContent = beschriftung(m);
+  const hier = imRaum === cur;
+  $('live-dorthin').hidden = hier;
+  $('live-hier').hidden = !hier;
+}
+function abfragen() {
+  fetch(BASIS + '?k=' + KOHORTE, { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (!d) return;
+      const neu = d.ziel || null;
+      if (neu === imRaum) return;
+      imRaum = neu; leisteZeichnen();
+      const l = $('live-leiste'); l.classList.remove('neu'); void l.offsetWidth; l.classList.add('neu');
+    })
+    .catch(() => { /* ohne Verbindung bleibt alles, wie es ist */ });
+}
+let takt = null;
+function starten() { clearInterval(takt); takt = null; if (!document.hidden) { abfragen(); takt = setInterval(abfragen, 5000); } }
+$('live-dorthin').onclick = () => { if (imRaum) zeigen(imRaum); };
+document.addEventListener('visibilitychange', starten);
+function schubladeHoehe() { document.documentElement.style.setProperty('--schublade-h', $('schublade').offsetHeight + 'px'); }
+window.addEventListener('resize', schubladeHoehe);
+
+schubladeHoehe();
+const start = location.hash.slice(1);
+// Wiedereinstieg nur am selben Tag, sonst landen alle auf der Willkommensseite (Commander 07.10.)
+const gestern = S.get(SPEICHER + '.tag', '') !== new Date().toDateString();
+zeigen(M.some(x => x.id === start) ? start : (gestern ? M[0].id : S.get(SPEICHER + '.cur', M[0].id)), false);
+starten();
+
+(function () {
+  // Begruessung nur beim ersten Besuch. Speicher gesperrt: einmal je Sitzung, wenn auch das nicht geht, bei jedem Laden. Blockiert nie.
+  var K = 'kurs.' + KOHORTE + '.begruesst', box = document.getElementById('willkommen-bs');
+  function gesehen() {
+    try { if (localStorage.getItem(K)) return true; } catch (e) {}
+    try { if (sessionStorage.getItem(K)) return true; } catch (e) {}
+    return false;
+  }
+  function merken() {
+    try { localStorage.setItem(K, '1'); } catch (e) {}
+    try { sessionStorage.setItem(K, '1'); } catch (e) {}
+  }
+  if (!box || gesehen()) return;
+  function zu() { box.hidden = true; merken(); document.removeEventListener('keydown', taste); }
+  function taste(e) { if (e.key === 'Escape' || e.key === 'Enter') zu(); }
+  box.hidden = false;
+  document.getElementById('wk-weiter').addEventListener('click', zu);
+  document.addEventListener('keydown', taste);
+  try { document.getElementById('wk-weiter').focus(); } catch (e) {}
+})();
+</script>
+<script src="/assets/js/site.js" defer></script>
+<script src="quiz/quiz.js"></script>
+<button class="tema-knopf" id="tema-knopf" type="button" aria-label="Hell / dunkel" title="Hell / dunkel">☀</button>
+<script>(function(){var b=document.getElementById('tema-knopf'),h=document.documentElement;function s(){b.textContent=h.classList.contains('hell')?'☾':'☀'}s();b.onclick=function(){var l=h.classList.toggle('hell');s();try{localStorage.setItem('tema',l?'hell':'dunkel')}catch(e){}}})();</script>
+</body>
+</html>
