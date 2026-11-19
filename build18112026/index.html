@@ -1,112 +1,82 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatGPT Business im Arbeitsalltag · BUILD! Unternehmensgruppe</title>
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#141414">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="icon" type="image/png" href="../favicon.png">
-  <!-- Willkommensseite, ERZEUGT von elearning-seite/scripts/bau.py. Leitet ab 18. November 2026, 09:00 Uhr auf kurs.html weiter, sobald die Datei existiert. -->
-  <style>
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/inter-400.woff2) format('woff2'); }
-    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/inter-600.woff2) format('woff2'); }
-    @font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 300 800; font-display: swap; src: url(../fonts/montserrat.woff2) format('woff2'); }
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --gold: #d4a017; --gold-light: #e8b84a;
-      --charcoal: #141414; --charcoal-light: #1a1a1a; --charcoal-lighter: #222222;
-      --white: #f5f5f5; --white-muted: #b0b0b0;
-      --font-heading: 'Montserrat', sans-serif; --font-body: 'Inter', sans-serif;
-    }
-    body { font-family: var(--font-body); background: var(--charcoal); color: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    a { color: var(--gold); text-decoration: none; }
-    a:hover { color: var(--gold-light); }
-    main { max-width: 820px; margin: 0 auto; padding: 32px 16px 24px; }
-    .logos { display: flex; align-items: center; gap: 14px; margin: 4px 0 22px; }
-    .logos img { height: 46px; width: auto; }
-    .logos span { font-family: var(--font-heading); font-weight: 600; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--white-muted); }
-    .exercise { background: var(--charcoal-light); border: 1px solid rgba(212, 160, 23, 0.12); border-radius: 12px; padding: 28px 24px; margin-bottom: 24px; }
-    .exercise h1 { font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.4rem, 4vw, 1.9rem); line-height: 1.25; margin-bottom: 6px; text-wrap: balance; }
-    .subtitle { font-size: 0.9rem; color: var(--white-muted); font-style: italic; margin-bottom: 16px; }
-    .step-label { font-family: var(--font-heading); font-weight: 600; font-size: 0.8rem; color: var(--gold); margin: 20px 0 6px; }
-    .exercise p, .exercise li { font-size: 0.95rem; margin-bottom: 10px; }
-    .exercise ol { padding-left: 20px; margin-bottom: 14px; }
-    .countdown { background: var(--charcoal-lighter); border-top: 4px solid var(--gold); border-radius: 12px; padding: 20px 22px; margin: 18px 0 6px; }
-    .exercise .countdown-label { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-muted); font-weight: 600; margin-bottom: 2px !important; }
-    .exercise .countdown-wert { font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.4rem, 4vw, 2rem); font-variant-numeric: tabular-nums; margin-bottom: 0 !important; }
-    .compare-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.85rem; }
-    .compare-table th { font-family: var(--font-heading); font-weight: 600; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(212, 160, 23, 0.3); }
-    .compare-table td { padding: 9px 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); vertical-align: top; }
-    .compare-table td:first-child { white-space: nowrap; color: var(--white-muted); width: 22%; }
-    html, body { overflow-x: hidden; } .compare-table { table-layout: fixed; } .compare-table td:last-child { overflow-wrap: anywhere; }
-    footer { max-width: 820px; margin: 0 auto; padding: 8px 16px 40px; font-size: 0.85rem; color: var(--white-muted); }
-    footer a { color: var(--white-muted); }
-    @media (max-width: 600px) { .exercise { padding: 22px 18px; } .compare-table td, .compare-table th { padding: 8px; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="strict-origin">
+<title>Persönliche Lernseite · Jakub Popluhar</title>
+<style>
+  :root { --bg: #0a0a0a; --card: #141414; --ink: #f2f0eb; --muted: #a6a39a; --gold: #d4a017; --line: rgba(212,160,23,0.28); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(ellipse at 50% -10%, rgba(212,160,23,0.16), transparent 60%), var(--bg); color: var(--ink);
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+         min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 32px 16px; }
+  .gate { width: 100%; max-width: 400px; text-align: center; animation: rein .5s ease-out; }
+  @keyframes rein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .foto { display: block; width: 128px; height: 128px; object-fit: cover; object-position: top; border-radius: 50%;
+          border: 3px solid var(--gold); box-shadow: 0 0 0 8px rgba(212,160,23,0.08); margin: 0 auto -34px; position: relative; z-index: 1; background: #1a1a1a; }
+  .karte { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 50px 22px 22px; }
+  .marke { font-size: 0.66rem; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .gate h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .gate p { color: var(--muted); font-size: 0.95rem; line-height: 1.55; margin-bottom: 20px; text-wrap: balance; }
+  form { display: flex; gap: 8px; }
+  input { flex: 1; min-width: 0; padding: 13px 14px; border-radius: 11px; border: 1px solid var(--line); background: #0e0e0e;
+          color: var(--ink); font-size: 1rem; outline: none; }
+  input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,160,23,0.18); }
+  button { padding: 13px 18px; border-radius: 11px; border: 0; background: var(--gold); color: #0a0a0a; font-weight: 700; font-size: 1rem; cursor: pointer; }
+  button:hover { filter: brightness(1.08); }
+  .err { color: #e8a07f; min-height: 1.4em; margin-top: 14px; font-size: 0.9rem; line-height: 1.45; text-wrap: balance; }
+  .fuss { margin-top: 22px; font-size: 0.8rem; color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .fuss img { height: 20px; width: auto; opacity: .9; }
+</style>
 </head>
 <body>
-  <main>
-    <div class="logos"><img src="jp-logo.png" alt="Jakub Popluhar"><span>BUILD! Unternehmensgruppe</span></div>
-
-    <section class="exercise">
-      <h1>Herzlich willkommen zum Workshop „ChatGPT Business im Arbeitsalltag“!</h1>
-      <p class="subtitle">Mittwoch, 18. November 2026 · Online (Google Meet) · Trainer: Jakub Popluhar, M.Ed.</p>
-
-      <div class="countdown" aria-live="polite">
-        <p class="countdown-label" id="cd-label">Ihr E-Learning wird freigeschaltet in</p>
-        <p class="countdown-wert" id="cd-wert">18. November 2026, 09:00 Uhr</p>
-      </div>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Am Kurstag finden Sie hier alle Übungen, Tipps und Prompts zum Kopieren. Speichern Sie diese Adresse.</p>
-
-      <p class="step-label">Bitte vorher bereitlegen</p>
-      <ol>
-        <li><strong>Laptop.</strong> Nicht nur das Handy: Sie arbeiten in zwei Fenstern nebeneinander.</li>
-        <li><strong>ChatGPT Business</strong>, angemeldet mit Ihrem Firmenkonto.</li>
-        <li><strong>Eine echte Aufgabe</strong> aus Ihrem Alltag, zum Beispiel ein Angebot, eine Kundenmail oder ein Bericht.</li>
-      </ol>
-      <p style="color: var(--white-muted); font-size: 0.85rem;">Bitte keine echten Personen- oder Firmendaten mitbringen. Wo es um echte Unterlagen geht, üben wir mit erfundenen Beispielen.</p>
-
-      <p class="step-label">Der Tag</p>
-      <table class="compare-table"><colgroup><col style="width:72px"><col></colgroup>
-        <tr><td>09:00</td><td>Start</td></tr>
-        <tr><td>09:45</td><td>Übungen</td></tr>
-        <tr><td>10:45</td><td>Abschluss</td></tr>
-      </table>
-    </section>
-  </main>
-  <footer>Jakub Popluhar, M.Ed. · <a href="https://jakubpopluhar.com/">jakubpopluhar.com</a> · <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a></footer>
-  <script>
-    (function () {
-      // Öffnung: Startzeit aus elearning.json
-      var start = Date.parse('2026-11-18T09:00:00+01:00');
-      var label = document.getElementById('cd-label');
-      var wert = document.getElementById('cd-wert');
-      function offen() {
-        fetch('kurs.html', { method: 'HEAD', cache: 'no-store' }).then(function (r) {
-          if (r.ok) {
-            label.textContent = 'Ihr E-Learning ist geöffnet';
-            wert.innerHTML = '<a href="kurs.html" style="color:inherit">Zum E-Learning →</a>';
-            location.replace('kurs.html');
-          } else {
-            label.textContent = 'Gleich geht es los';
-            wert.textContent = 'Das E-Learning wird gerade freigeschaltet';
-            setTimeout(offen, 30000);
-          }
-        }).catch(function () { setTimeout(offen, 30000); });
-      }
-      function tick() {
-        var rest = start - Date.now();
-        if (rest <= 0) { offen(); return; }
-        var min = Math.ceil(rest / 60000);
-        var d = Math.floor(min / 1440), h = Math.floor((min % 1440) / 60), m = min % 60;
-        wert.textContent = (d ? d + (d === 1 ? ' Tag ' : ' Tagen ') : '') + h + ' h ' + m + ' min';
-        setTimeout(tick, 15000);
-      }
-      tick();
-    })();
-  </script>
-  <script src="/assets/js/site.js" defer></script>
+<main class="gate" id="gate">
+  <img class="foto" src="jakub-lachend.png" alt="Jakub Popluhar">
+  <div class="karte">
+    <div class="marke">Persönliche Lernseite</div>
+    <h1>Schön, dass ihr da seid.</h1>
+    <p>Alles aus unserer Stunde vom 18.11., nur für euch zwei. Das Passwort steht in meiner Mail.</p>
+    <form id="gate-form" autocomplete="off">
+      <input type="password" id="gate-input" placeholder="Passwort" aria-label="Passwort" autocomplete="off">
+      <button type="submit">Öffnen</button>
+    </form>
+    <div class="err" id="gate-err" role="alert"></div>
+  </div>
+  <div class="fuss"><img src="jp-logo.png" alt="">Jakub Popluhar · KI-Training</div>
+</main>
+<script id="payload" type="application/octet-stream">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</script>
+<script>
+(function () {
+  var ITER = 250000, KEY = 'jp-lernseite-18112026';
+  function b64(s) { var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
+  async function entschluessle(pw) {
+    var raw = b64(document.getElementById('payload').textContent.trim());
+    var salt = raw.slice(0, 16), data = raw.slice(16);
+    var base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveBits']);
+    var bits = new Uint8Array(await crypto.subtle.deriveBits({ name: 'PBKDF2', salt: salt, iterations: ITER, hash: 'SHA-256' }, base, 384));
+    var key = await crypto.subtle.importKey('raw', bits.slice(0, 32), 'AES-CBC', false, ['decrypt']);
+    var plain = await crypto.subtle.decrypt({ name: 'AES-CBC', iv: bits.slice(32, 48) }, key, data);
+    return new TextDecoder().decode(plain);
+  }
+  function zeige(htmlText) { document.open(); document.write(htmlText); document.close(); }
+  async function versuche(pw, gemerkt) {
+    try {
+      var t = await entschluessle(pw);
+      try { sessionStorage.setItem(KEY, pw); } catch (e) {}
+      zeige(t);
+    } catch (e) {
+      try { sessionStorage.removeItem(KEY); } catch (e2) {}
+      if (!gemerkt) { document.getElementById('gate-err').textContent = 'Falsches Passwort. ChatGPT würde jetzt „Gute Idee!“ sagen. Ich bremse dich: Das Passwort steht in meiner Mail.'; }
+    }
+  }
+  var g = null; try { g = sessionStorage.getItem(KEY); } catch (e) {}
+  if (g) { versuche(g, true); }
+  document.getElementById('gate-form').addEventListener('submit', function (ev) {
+    ev.preventDefault(); var v = document.getElementById('gate-input').value; if (v) versuche(v, false);
+  });
+})();
+</script>
 </body>
 </html>

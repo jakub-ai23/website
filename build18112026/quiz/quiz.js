@@ -138,7 +138,7 @@
 
       if (c.typ === "text") {
         if (offen) {
-          var eig = el("div", "quiz-eigen", "Ihre Vorhersage: " + s.antwort);
+          var eig = el("div", "quiz-eigen", "Deine Vorhersage: " + s.antwort);
           wo.appendChild(eig);
         } else {
           var ta = el("textarea");
@@ -351,7 +351,7 @@
   function abschluss(wo) {
     function zeichnen() {
       wo.innerHTML = "";
-      wo.appendChild(el("span", "quiz-pill", "Ihr Stand"));
+      wo.appendChild(el("span", "quiz-pill", "Dein Stand"));
       var t = el("table"), n = 0, g = 0;
       reg.forEach(function (c) {
         var b = bewertung(c), s = stand[c.id];
@@ -397,7 +397,7 @@
       }
 
       var st = el("p", "quiz-status", offene.length
-        ? "Alle Fragen sind Pflicht. Wenn Sie etwas nicht wissen, ist \u201eIch weiß nicht\u201c eine gültige Antwort."
+        ? "Alle Fragen sind Pflicht. Wenn du etwas nicht weißt, ist \u201eIch weiß nicht\u201c eine gültige Antwort."
         : "Noch nichts gesendet. Alles liegt nur in diesem Browser.");
       wo.appendChild(st);
     }
