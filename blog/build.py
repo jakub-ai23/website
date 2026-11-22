@@ -927,6 +927,23 @@ def split_faq(md):
     return md[:m.start()] + after, items, title
 
 
+# Kurz-gesagt-Kasten (2026-11-22, Jakub: "so wie The Guardian: Titel und Untertitel reichen").
+# Der Zusammenfassungsabsatz ("**Kurz gesagt:** ..." oder Blockzitat "> **Kurz gesagt**")
+# wird NICHT mehr oben im Text gezeigt. Er wandert als erste Frage in die FAQ (sichtbar unten,
+# FAQPage-JSON-LD) und als "abstract" ins BlogPosting-Schema, damit KI-Suchmaschinen ihn weiter finden.
+SUMMARY_LABEL = {"de": "Worum geht es in diesem Artikel?", "en": "What is this article about?"}
+SUMMARY_RE = re.compile(
+    r"(?ms)^(?:>\s*)?\*\*(?:Kurz gesagt|In short)[:.]?\*\*:?[ \t]*\n?(.*?)(?:\n[ \t]*\n|\Z)")
+
+
+def split_summary(md):
+    m = SUMMARY_RE.search(md)
+    if not m or md[:m.start()].strip():   # only a summary that opens the body
+        return md, ""
+    text = re.sub(r"(?m)^>\s?", "", m.group(1)).strip()
+    return md[:m.start()] + md[m.end():], text
+
+
 def strip_md(text):
     t = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
     t = re.sub(r"[*_`>]", "", t)
@@ -960,7 +977,10 @@ def render_article(lang, p):
     share = share_html(s, canonical, p["title"])
     # split off a trailing "Quellen"/"Sources"/"Hinweis" section -> render ultra small
     parts = re.split(r"(?m)^(?=##\s+(?:Quellen|Sources|Hinweis)\b)", p["_body"], maxsplit=1)
-    main_md, faq_items, faq_title = split_faq(parts[0])
+    main_md, summary = split_summary(parts[0])
+    main_md, faq_items, faq_title = split_faq(main_md)
+    if summary and faq_items:
+        faq_items = [(SUMMARY_LABEL[lang], summary)] + faq_items
     body_html = md_to_html(main_md)
     if faq_items:
         body_html += "\n" + faq_html(faq_title, faq_items)
@@ -1019,6 +1039,8 @@ def render_article(lang, p):
         "mainEntityOfPage": canonical,
         "inLanguage": lang,
     }
+    if summary:
+        posting["abstract"] = strip_md(summary)
     de_slug, en_slug = slug_for(p["_stem"], "de"), slug_for(p["_stem"], "en")
     head = hreflang_links(f"{de_slug}/" if de_slug else None,
                           f"{en_slug}/" if en_slug else None) + "\n" + jsonld(posting)
