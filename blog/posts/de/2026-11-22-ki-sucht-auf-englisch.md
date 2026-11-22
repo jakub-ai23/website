@@ -15,7 +15,7 @@ caption: Dieselbe Frage, zwei Sprachen. Links die englische Runde, rechts die Su
 **Kurz gesagt:** KI-Rechercheagenten lesen bei Preisfragen im Ausland zuerst englische Seiten, und die sind für Ausländer geschrieben und zeigen Ausländerpreise. Mit der Anweisung, in der Landessprache auf lokalen Seiten nach den Paketen der Einheimischen zu suchen, sank eine Empfehlung für mobiles Internet in Thailand, auf den Philippinen und in Vietnam von rund 89 auf rund 30 Euro. Den größten Unterschied brachte Thailand: 590 statt 1.599 Baht.
 
 
-Seit zwei Tagen plane ich eine große Familienreise, bei der meine Familie mehrere Länder in Südostasien besucht. Mein Vater ist nervös, meine Mutter sucht parallel selbst und schickt mir alle paar Minuten eine neue Frage. Auf dem Tisch stehen Wasser und Kaffee, auf dem Bildschirm laufen Rechercheagenten los und kommen wieder zurück.
+Seit zwei Tagen plane ich eine große Geschäftsreise nach Südostasien, und meine Familie begleitet mich eine Zeit lang. Mein Vater ist nervös, meine Mutter sucht parallel selbst und schickt mir alle paar Minuten eine neue Frage. Auf dem Tisch stehen Wasser und Kaffee, auf dem Bildschirm laufen Rechercheagenten los und kommen wieder zurück.
 
 Sonntag, 14:36, die nächste Frage: Wie kommen wir in Thailand, auf den Philippinen und in Vietnam günstig ins Internet, ohne dass meine österreichische Nummer für Kunden verstummt? Ich diktiere auf Slowakisch: „Pošli viacero agentov do vojny.“ Schick mehrere Agenten in den Krieg.
 
