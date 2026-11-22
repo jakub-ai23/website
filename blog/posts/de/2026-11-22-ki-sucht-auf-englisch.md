@@ -15,7 +15,7 @@ caption: Dieselbe Frage, zwei Sprachen. Links die englische Runde, rechts die Su
 **Kurz gesagt:** KI-Rechercheagenten lesen bei Preisfragen im Ausland zuerst englische Seiten, und die sind für Ausländer geschrieben und zeigen Ausländerpreise. Mit der Anweisung, in der Landessprache auf lokalen Seiten nach den Paketen der Einheimischen zu suchen, sank eine Empfehlung für mobiles Internet in Thailand, auf den Philippinen und in Vietnam von rund 89 auf rund 30 Euro. Den größten Unterschied brachte Thailand: 590 statt 1.599 Baht.
 
 
-Seit zwei Tagen plane ich eine große Geschäftsreise nach Südostasien, und meine Familie begleitet mich eine Zeit lang. Mein Vater ist nervös, meine Mutter sucht parallel selbst und schickt mir alle paar Minuten eine neue Frage. Auf dem Tisch stehen Wasser und Kaffee, auf dem Bildschirm laufen Rechercheagenten los und kommen wieder zurück.
+Seit Wochen plane ich eine große Geschäftsreise nach Südostasien. Für einen Teil davon kommen meine Eltern nach, und seit zwei Tagen klären wir, wie wir alle unterwegs ins Internet kommen. Mein Vater ist nervös, meine Mutter sucht parallel selbst und schickt mir alle paar Minuten eine neue Frage. Auf dem Tisch stehen Wasser und Kaffee, auf dem Bildschirm laufen Rechercheagenten los und kommen wieder zurück.
 
 Sonntag, 14:36, die nächste Frage: Wie kommen wir in Thailand, auf den Philippinen und in Vietnam günstig ins Internet, ohne dass meine österreichische Nummer für Kunden verstummt? Ich diktiere auf Slowakisch: „Pošli viacero agentov do vojny.“ Schick mehrere Agenten in den Krieg.
 
@@ -53,7 +53,7 @@ Ehrlich gehört dazu: nicht überall gleich stark.
 
 **Vietnam.** Die Seiten der Netzbetreiber waren für den Agenten nicht lesbar, sie luden leer oder blockten. Die Preise stammen deshalb aus dem Viettel-Store und aus Händler- und Ratgeberseiten, also aus schwächeren Quellen, und sind an der Theke zu prüfen. Dazu kommt ein Befund, der die These schärft: Das Touristenpaket von Viettel liegt schon fast beim Einheimischenpreis. Der große Aufschlag steckte in der westlichen Reise-eSIM für 45 Euro.
 
-**Thailand.** Seit 16. Mai 2026 registrieren Ausländer SIM-Karten nur noch persönlich mit Reisepass. Dass ein Tourist das 590-Baht-Paket seither im Laden bekommen hat, hat noch niemand berichtet. Die Seite von AIS schließt Ausländer nicht aus, aber das Paket ist für Touristen noch nicht im Laden bestätigt. Der Rückfall ist die Touristen-SIM.
+**Thailand.** Seit 16. Mai 2026 registrieren Ausländer SIM-Karten nur noch persönlich mit Reisepass. Dazu kommt das Kleingedruckte unter den Preisen auf der AIS-Seite: „จำหน่ายเฉพาะช่องทางออนไลน์เอไอเอส“, verkauft nur über die Onlinekanäle von AIS. Das 590-Baht-Paket gibt es also nur online, auf einer Seite in Thai. Die Seite schließt Ausländer nicht aus, aber ob ein Tourist dort wirklich kaufen kann, weiß ich noch nicht. Ich probiere es vor Ort aus und berichte. Bis dahin ist der Rückfall die Touristen-SIM.
 
 Der größte Hebel lag klar in Thailand.
 
