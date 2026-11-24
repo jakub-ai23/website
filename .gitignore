@@ -64,3 +64,9 @@ HANDOFF.md
 
 # Neue Startseite in Arbeit (26.10.), erst nach GO live
 index-v2.html
+index-v3.html
+
+# EWI-Vorlagen (24.11. offline, Jakub): nur lokal als Vorlage fuer Skill ewi-cv-clone, nie public
+ewi-cv-v2/
+ewi-cv-v2-cz/
+ewi-cv-v2-sk/
