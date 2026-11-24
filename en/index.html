@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jakub Popluhar | AI Trainer for Teams and Leaders</title>
-  <meta name="description" content="AI trainer for executives, teams and companies across the DACH region. Practical, hands-on AI training, AI Personal Coaching, in-house training, keynotes. Human in the Lead. AI in Support.">
+  <meta name="description" content="AI trainer for executives, teams and companies across the DACH region. Hands-on AI training, AI Personal Training, in-house training, keynotes. Human in the Lead. AI in Support.">
   <meta name="theme-color" content="#141414">
   <meta property="og:title" content="Jakub Popluhar | AI Trainer for Teams and Leaders">
   <meta property="og:description" content="AI trainer for teams and leaders across the DACH region. Human in the Lead. AI in Support.">
@@ -1013,6 +1013,19 @@
       font-size: 0.95rem;
     }
 
+    .proof-rating {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 6px 14px; margin-top: 8px;
+    }
+    .pr-stars {
+      font-size: 1.5rem; letter-spacing: 2px; line-height: 1;
+      background: linear-gradient(90deg, var(--gold) calc(var(--r) / 5 * 100%), rgba(255,255,255,0.22) 0);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .pr-num { font-family: var(--font-heading); font-weight: 800; font-size: 1.6rem; line-height: 1; }
+    .pr-num small { font-size: 0.9rem; font-weight: 600; color: var(--white-muted); }
+    .pr-txt { flex-basis: 100%; color: var(--white-muted); font-size: 0.85rem; line-height: 1.5; }
+
 
     /* ========== SLIDE 4: SERVICES ========== */
     .slide-services {
@@ -1139,7 +1152,7 @@
       text-align: center;
     }
 
-    /* ===== Agenda / schedule ===== */
+    /* ===== Agenda / Terminkalender ===== */
     .agenda {
       max-width: 1000px;
       margin: 0 auto;
@@ -1269,13 +1282,66 @@
     }
 
 
-    /* ===== Links to the subpages ===== */
-    .service-note { color: var(--white-muted); font-size: 0.86rem; margin: 14px 0 4px; }
-    .service-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
-    .about-more { display: inline-flex; margin-top: 20px; }
+    /* ===== Verweise auf die Unterseiten ===== */
+    .service-note {
+      color: var(--white-muted);
+      font-size: 0.86rem;
+      margin: 14px 0 4px;
+    }
+
+    .service-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .about-more {
+      display: inline-flex;
+      margin-top: 20px;
+    }
+
+    /* ===== Weitere Angebotsstufen unter dem Hauptangebot ===== */
+    .service-rungs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .service-rung {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      border-radius: 12px;
+      background: rgba(20, 20, 20, 0.5);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .service-rung:hover { border-color: rgba(212, 160, 23, 0.5); transform: translateY(-2px); }
+    @media (prefers-reduced-motion: reduce) { .service-rung:hover { transform: none; } }
+    .service-rung .rung-label {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--white);
+    }
+    .service-rung .rung-desc {
+      font-size: 0.78rem;
+      color: var(--white-muted);
+      line-height: 1.4;
+    }
+    .service-rung .rung-go { margin-left: auto; color: var(--gold); font-size: 0.9rem; font-weight: 600; }
+    @media (max-width: 900px) {
+      .service-rung .rung-desc { display: none; }
+    }
+    @media (max-width: 640px) {
+      .service-rungs { grid-template-columns: 1fr; gap: 8px; }
+      .service-rung .rung-desc { display: inline; }
+    }
 
 
-    /* ===== Link to the dates subpage ===== */
+    /* ===== Link zur Termin-Unterseite ===== */
     .agenda-more {
       max-width: 1000px;
       margin: 22px auto 0;
@@ -1299,7 +1365,7 @@
       border-color: var(--gold-light);
     }
 
-    /* ===== Individual appointment prompt ===== */
+    /* ===== Individueller Termin prompt ===== */
     .training-cta-note {
       max-width: 1000px;
       margin: 34px auto 0;
@@ -1441,20 +1507,6 @@
       font-weight: 500;
       display: block;
     }
-
-    /* Blog teaser slide */
-    .slide-blog { background: var(--charcoal); min-height: auto; padding: var(--section-y) 0; }
-    .slide-blog .container { max-width: 1100px; width: 100%; text-align: center; }
-    .blog-eyebrow { font-family: var(--font-heading); letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-size: 0.78rem; }
-    .blog-heading { font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0.6rem 0 2rem; }
-    .blog-teaser-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
-    .blog-card { display: flex; flex-direction: column; gap: 0.6rem; text-align: left; padding: 1.4rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: var(--charcoal-light); transition: border-color 0.2s, transform 0.2s; }
-    .blog-card:hover { border-color: var(--gold); transform: translateY(-3px); }
-    .blog-card-meta { font-family: var(--font-heading); font-size: 0.68rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); }
-    .blog-card-title { font-family: var(--font-heading); font-weight: 600; font-size: 1.05rem; line-height: 1.3; color: var(--white); }
-    .blog-all-btn { display: inline-block; font-family: var(--font-heading); font-weight: 600; padding: 0.8rem 2rem; border: 1px solid var(--gold); border-radius: 999px; color: var(--gold); transition: background 0.2s, color 0.2s; }
-    .blog-all-btn:hover { background: var(--gold); color: var(--charcoal); }
-    @media (max-width: 768px) { .blog-teaser-grid { grid-template-columns: 1fr; } }
 
     /* ========== SLIDE 7: CTA + FOOTER ========== */
     .slide-cta {
@@ -1713,6 +1765,20 @@
       border-color: var(--gold);
     }
 
+    /* Blog teaser slide */
+    .slide-blog { background: var(--charcoal); min-height: auto; padding: var(--section-y) 0; }
+    .slide-blog .container { max-width: 1100px; width: 100%; text-align: center; }
+    .blog-eyebrow { font-family: var(--font-heading); letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-size: 0.78rem; }
+    .blog-heading { font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0.6rem 0 2rem; }
+    .blog-teaser-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+    .blog-card { display: flex; flex-direction: column; gap: 0.6rem; text-align: left; padding: 1.4rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: var(--charcoal-light); transition: border-color 0.2s, transform 0.2s; }
+    .blog-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .blog-card-meta { font-family: var(--font-heading); font-size: 0.68rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); }
+    .blog-card-title { font-family: var(--font-heading); font-weight: 600; font-size: 1.05rem; line-height: 1.3; color: var(--white); }
+    .blog-all-btn { display: inline-block; font-family: var(--font-heading); font-weight: 600; padding: 0.8rem 2rem; border: 1px solid var(--gold); border-radius: 999px; color: var(--gold); transition: background 0.2s, color 0.2s; }
+    .blog-all-btn:hover { background: var(--gold); color: var(--charcoal); }
+    @media (max-width: 768px) { .blog-teaser-grid { grid-template-columns: 1fr; } }
+
     /* Footer inside CTA slide */
     .slide-footer {
       width: 100%;
@@ -1913,6 +1979,7 @@
 
       .training-cta-note .btn-training { width: 100%; justify-content: center; }
 
+
       .proof-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -2103,7 +2170,7 @@
 .kicheck-meta span{display:inline-flex;align-items:center;gap:7px}
 @media(max-width:520px){.kicheck-meta{gap:14px;font-size:.8rem}}
 
-/* --- Language flag per date row (2026-08-21) --- */
+/* --- Sprachfahne pro Terminzeile (2026-08-21) --- */
 .ag .ag-lang{font-size:15px;line-height:1;margin-right:7px;cursor:default}
 @media(max-width:520px){.ag .ag-lang{font-size:14px;margin-right:5px}}
 
@@ -2125,14 +2192,225 @@
   .ag-prov{margin-left:0;height:44px;width:auto;min-width:112px}
   .ag-body{flex:1 1 100%}
 }
+/* ===== VORSCHAU, Desktop zuerst (2026-09-15) ===== */
+
+/* --- Hero: Bild randlos --- */
+.slide-hero { padding: 0 !important; display: block; }
+.hero-ohrid {
+  position: relative; display: flex; align-items: flex-end;
+  width: 100%; max-width: none; margin: 0; padding: 0;
+  aspect-ratio: 1440 / 830; max-height: 900px; overflow: hidden; background: var(--charcoal);
+}
+.hero-ohrid-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 46%; }
+.hero-ohrid-veil { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(0deg, rgba(12,12,12,.96) 0%, rgba(12,12,12,.88) 20%, rgba(12,12,12,.5) 40%, rgba(12,12,12,.08) 62%, rgba(12,12,12,0) 78%),
+              linear-gradient(90deg, rgba(12,12,12,.74) 0%, rgba(12,12,12,.32) 34%, rgba(12,12,12,0) 58%); }
+.hero-ohrid-content { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px 60px; text-align: left; }
+
+/* Zwei Zeilen, auch bei der laengsten Wechselzeile ("...was Ihre Konkurrenz schon nutzt.", 50 Zeichen) */
+.hero-ohrid-content h1 {
+  max-width: 27ch;
+  min-height: 2.25em;
+  font-size: clamp(2.2rem, 3.4vw, 3.3rem);
+  line-height: 1.12;
+  text-shadow: 0 2px 30px rgba(0,0,0,.7);
+}
+.hero-ohrid-content .hero-sub { max-width: 46ch; text-shadow: 0 1px 16px rgba(0,0,0,.8); }
+.hero-ohrid-content .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+
+/* --- Divider: die Logoleiste stand absolut und lag ueber dem Foto. Jetzt eigene Bank darunter. --- */
+.slide-hero .hero-trust {
+  position: static;
+  background: var(--charcoal);
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  padding: 26px 0;
+  opacity: 1;
+}
+
+/* --- Ueber mich: Text links, Bild rechts. Symmetrie wie im Referenzbeispiel. --- */
+.slide-about .container { grid-template-columns: 1.2fr 0.8fr; }
+.slide-about .about-image-wrapper { order: 2; justify-self: end; }
+.slide-about .about-content { order: 1; }
+.about-image, .about-stats { margin-left: auto; }
+
+/* Schmal: das Bild bleibt liegen, der Text bleibt DARUEBER. Nur der Ausschnitt
+   wandert und der Schleier wird dichter, weil kleine Schrift auf einem vollen
+   Foto sonst nicht lesbar ist. */
+@media (max-width: 820px) {
+  .hero-ohrid { aspect-ratio: 3 / 4; max-height: none; min-height: 86svh; }
+  .hero-ohrid-bg { object-position: 38% 64%; }
+  .hero-ohrid-veil {
+    background: linear-gradient(0deg, rgba(12,12,12,.95) 0%, rgba(12,12,12,.93) 30%, rgba(12,12,12,.86) 46%, rgba(12,12,12,.6) 58%, rgba(12,12,12,.25) 70%, rgba(12,12,12,0) 86%);
+  }
+  .hero-ohrid-content { padding: 0 22px 36px; text-align: left; }
+  .hero-ohrid-content h1 { max-width: 100%; min-height: 0; font-size: clamp(1.9rem, 7.4vw, 2.6rem); }
+  .hero-ohrid-content .hero-sub { max-width: 100%; }
+  .hero-ohrid-content .hero-ctas { gap: 10px; margin-top: 20px; }
+  /* Das Badge liegt auf der hellsten Stelle des Fotos, es braucht eigenen Grund. */
+  .hero-ohrid-content .hero-badge { background: rgba(12,12,12,.55); backdrop-filter: blur(3px); }
+  /* Ueber mich: auf schmalen Schirmen einspaltig, Text vor Bild. */
+  .slide-about .container { grid-template-columns: 1fr; }
+  .slide-about .about-image-wrapper { justify-self: center; }
+  .slide-about .about-image-wrapper { order: 1; } .slide-about .about-content { order: 2; }
+  .about-image, .about-stats { margin-left: 0; }
+}
+
+/* Sehr schmal: hochkant, damit der Raum nicht zum Streifen wird. */
+@media (max-width: 480px) {
+  .hero-ohrid { aspect-ratio: 5 / 7; min-height: 88svh; }
+  .hero-ohrid-bg { object-position: 36% 66%; }
+  .hero-ohrid-content .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-ohrid-content .hero-ctas .btn { justify-content: center; }
+}
+
+/* --- Lernseite statt Behauptung (2026-10-26) --- */
+.slide-elearning{background:var(--charcoal-light);min-height:auto;padding:var(--section-y) 0}
+.slide-elearning .container{max-width:1100px;width:100%}
+.el-head{text-align:center;max-width:720px;margin:0 auto 34px}
+.el-head h2{font-family:var(--font-heading);font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.2;margin:8px 0 12px}
+.el-head p{color:#a9a69d;font-size:1.05rem;line-height:1.6;margin:0}
+.el-stats{display:flex;justify-content:center;gap:clamp(18px,5vw,56px);margin:0 auto 34px;flex-wrap:wrap}
+.el-stats div{text-align:center}
+.el-stats b{display:block;font-family:var(--font-heading);font-size:clamp(1.6rem,3.4vw,2.2rem);color:var(--gold)}
+.el-stats span{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#a9a69d}
+.el-shots{display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:start}
+.el-shots figure{margin:0}
+.el-shots img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid rgba(212,160,23,.22);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.el-side{display:grid;gap:16px}
+.el-shots figcaption{font-size:.8rem;color:#8d8a82;margin-top:8px}
+.el-quote{max-width:720px;margin:36px auto 0;text-align:center}
+.el-quote .stars{color:var(--gold);letter-spacing:4px;font-size:1rem;margin-bottom:10px}
+.el-quote blockquote{margin:0;font-size:clamp(1.1rem,2.4vw,1.35rem);font-style:italic;line-height:1.5}
+.el-quote cite{display:block;margin-top:10px;font-style:normal;color:var(--gold);font-weight:600;font-size:.9rem}
+@media(max-width:820px){.el-shots{grid-template-columns:1fr}.el-side{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.el-side{grid-template-columns:1fr}.el-stats{flex-wrap:nowrap;gap:12px}.el-stats b{font-size:1.35rem}.el-stats span{font-size:.66rem;letter-spacing:.03em}}
+.service-featured-image img.photo{width:100%;height:auto;border-radius:12px;object-fit:cover;aspect-ratio:4/3}
+
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:10px}
+.offer-card{display:flex;flex-direction:column;background:var(--charcoal-lighter);border:1px solid rgba(212,160,23,.18);border-radius:14px;overflow:hidden;text-align:left}
+.offer-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.offer-body{display:flex;flex-direction:column;gap:10px;padding:20px 20px 22px;flex:1}
+.offer-body .service-badge{align-self:flex-start}
+.offer-body h3{font-family:var(--font-heading);font-size:1.3rem;margin:0}
+.offer-body p{color:#a9a69d;margin:0;line-height:1.55;flex:1}
+.offer-body .btn{align-self:flex-start;margin-top:6px}
+@media(max-width:900px){.offer-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}}
+.proof-rating .pr-stars{font-size:2.2rem}
+.proof-rating .pr-num{font-size:2.5rem}
+.proof-rating .pr-txt{font-size:1.1rem;margin-top:4px}
+.proof-rating .pr-txt strong{color:var(--gold);font-size:1.5rem;font-family:var(--font-heading)}
+.offer-body .service-badge{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(212,160,23,.4);background:rgba(212,160,23,.08);border-radius:999px;padding:5px 12px}
+
+.el-photo{margin:0 auto;max-width:1000px}
+.el-photo img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid rgba(212,160,23,.22)}
+.one-proof{margin-top:56px;text-align:center}
+.one-proof .proof-grid{margin-top:14px}
+.t-tr{display:block;font-size:.85em;color:#a9a69d;margin-top:8px;font-style:normal}
+.speak-strip{display:grid;grid-template-columns:2fr 1fr;gap:14px;max-width:1000px;margin:34px auto 0}
+.speak-strip figure{margin:0}
+.speak-strip img{width:100%;height:100%;max-height:420px;object-fit:cover;border-radius:12px;display:block}
+.speak-strip figcaption{grid-column:1/-1;text-align:center;font-size:.85rem;color:#a9a69d}
+@media(max-width:600px){.speak-strip{grid-template-columns:1fr}.speak-strip img{max-height:none}}
+
+.proof-grid-6{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.proof-grid-6{grid-template-columns:1fr}}
+.star-off{color:rgba(212,160,23,.25)}
+.el-split{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.el-split .el-photo{margin:0;max-width:none}
+.el-split .el-photo figcaption{font-size:.85rem;color:#a9a69d;margin-top:10px;line-height:1.5}
+.el-text h2{font-family:var(--font-heading);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.2;margin:8px 0 14px}
+.el-text>p{color:#a9a69d;line-height:1.6;margin:0 0 22px}
+.el-text .el-stats{justify-content:flex-start;margin:0 0 24px}
+.el-text .el-stats div{text-align:left}
+.el-text .el-quote{text-align:left;margin:0}
+.speak-one{grid-template-columns:1fr;max-width:420px}
+@media(max-width:820px){.el-split{grid-template-columns:1fr}}
+
+.t-orig{margin-top:10px;font-style:normal;font-size:.8rem;color:#8d8a82}
+.t-orig summary{cursor:pointer;list-style:none;color:var(--gold);font-size:.75rem;letter-spacing:.04em}
+.t-orig summary::-webkit-details-marker{display:none}
+.t-orig[open] summary{margin-bottom:6px}
+.proof-orgs{text-align:center;margin:28px auto 0;color:#a9a69d;font-size:.9rem;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;max-width:900px}
+.proof-orgs span{color:#e9e6dd;font-weight:600}
+
+.t-logo{background:#fff;border-radius:8px;height:64px;display:flex;align-items:center;justify-content:center;padding:10px 16px;margin:-4px 0 16px}
+.t-logo img{max-height:44px;max-width:80%;width:auto;height:auto}
+.proof-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px;margin:30px auto 0;max-width:1000px}
+.proof-logos span{color:#a9a69d;font-size:.9rem;flex-basis:100%;text-align:center}
+.proof-logos img{height:44px;width:auto;max-width:170px;background:#fff;border-radius:8px;padding:8px 14px;box-sizing:content-box;object-fit:contain}
+.proof-logos img.dark{background:#e2001a}
+.slide-proof-sk{min-height:auto;padding-top:var(--section-y-tight);padding-bottom:var(--section-y-tight)}
+.slide-proof-sk .slide-content{text-align:center}
+.slide-proof-sk .proof-grid{margin-top:16px}
+@media(max-width:600px){.proof-logos img{height:34px;padding:6px 10px}}
+.t-logo img[src*="heinzel"]{max-height:56px;height:56px}
+.proof-logos img[src*="heinzel"]{height:52px;padding:4px 14px}
+#proof .proof-grid,#feedback-seminare .proof-grid{align-items:stretch}
+#proof .testimonial-card blockquote:first-child{margin-top:28px}
+.about-link{margin-top:18px}.about-link a{color:var(--gold);font-weight:600;text-decoration:none}
+.stars-none{visibility:hidden}
+#feedback-seminare .proof-grid{grid-template-columns:repeat(2,minmax(0,360px));justify-content:center}
+@media(max-width:900px){#feedback-seminare .proof-grid{grid-template-columns:1fr}}
+#proof .testimonial-card blockquote:first-child{margin-top:0}
+
+.hr-faq{background:var(--charcoal);min-height:auto;padding:var(--section-y) 0}
+.faq-list{max-width:760px;margin:0 auto;display:grid;gap:12px;text-align:left}
+.faq-list details{background:var(--charcoal-lighter);border:1px solid rgba(212,160,23,.18);border-radius:12px;padding:16px 20px}
+.faq-list summary{cursor:pointer;font-weight:600;font-family:var(--font-heading);list-style:none}
+.faq-list summary::after{content:'+';float:right;color:var(--gold)}
+.faq-list details[open] summary::after{content:'\2212'}
+.faq-list p{color:#a9a69d;margin:12px 0 0;line-height:1.6}
+.v3-todo{color:#e2001a !important;font-weight:600}
+.contact-head{margin-bottom:28px}
+.one-bg{min-height:auto;padding:var(--section-y-tight) 0}.one-bg .one-proof{margin-top:0}
+.t-result{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:6px 10px;margin:0 0 14px}
+.t-before{font-family:var(--font-heading);font-size:1.3rem;color:#a9a69d;text-decoration:line-through}
+.t-arrow{color:var(--gold)}
+.t-after{font-family:var(--font-heading);font-size:1.9rem;font-weight:800;color:var(--gold)}
+.t-what{flex-basis:100%;text-align:center;font-size:.8rem;color:#a9a69d}
+.proof-cta{text-align:center;margin-top:28px}
+
+.kicheck-slim{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:center;padding:18px 20px;background:var(--charcoal-lighter);border-top:1px solid rgba(212,160,23,.15);border-bottom:1px solid rgba(212,160,23,.15);font-size:.95rem;color:#c9c6bd;text-align:center}
+.kicheck-slim a{color:var(--gold);font-weight:700;text-decoration:none}
+.contact-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;max-width:1100px;margin:0 auto}
+.contact-split .contact-head{text-align:left}
+.contact-split .contact-form-wrapper{max-width:none}
+.contact-proof{background:var(--charcoal-lighter);border:1px solid rgba(212,160,23,.25);border-radius:16px;padding:32px 28px;text-align:center}
+.contact-proof blockquote{font-style:italic;line-height:1.6;margin:8px 0 16px}
+.cp-name{font-weight:700;margin:0 0 20px}.cp-name span{display:block;color:var(--gold);font-weight:500;font-size:.9rem}
+@media(max-width:900px){.contact-split{grid-template-columns:1fr}.contact-split .contact-head{text-align:center}}
+
+.jump-band{position:relative;min-height:clamp(260px,38vw,460px);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.jump-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.jump-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.05) 30%,rgba(20,20,20,.85))}
+.jump-band h2{position:relative;font-family:var(--font-heading);font-size:clamp(1.6rem,4vw,2.8rem);margin:0 20px clamp(28px,4vw,48px);text-align:center;text-shadow:0 2px 18px rgba(0,0,0,.5)}
+.jump-v{background:var(--charcoal);padding:var(--section-y-tight) 0 var(--section-y)}
+.jump-wrap{text-align:center}
+.jump-wrap h2{font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.6rem);max-width:700px;margin:0 auto 2rem}
+.jump-video{width:100%;max-width:720px;border-radius:16px;box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 1px rgba(212,160,23,.18);display:block;margin:0 auto}
+.jump-ps{margin:1.4rem auto 0;font-size:.86rem;color:#a9a69d;max-width:520px}
+.offer-list{margin:0;padding-left:18px;color:#c9c6bd;font-size:.92rem;line-height:1.55;flex:1}
+.offer-list li{margin:2px 0}
+.offer-body p{flex:0 0 auto}
+.offer-body .btn{margin-top:auto}
+.offer-list{margin-bottom:14px}
+.el-levels{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:8px}
+.el-levels li{background:rgba(212,160,23,.07);border:1px solid rgba(212,160,23,.2);border-radius:10px;padding:10px 14px;color:#d9d6cc}
+.el-levels b{color:var(--gold)}
+.el-text>p+ul+p{margin-bottom:22px}
+.about-stats-new{justify-content:flex-start;margin:22px 0 0}.about-stats-new div{text-align:left}
+.faq-list{max-width:1100px;grid-template-columns:1fr 1fr;align-items:start}
+@media(max-width:820px){.faq-list{grid-template-columns:1fr}}
+.faq-list summary{padding-right:22px;position:relative}.faq-list summary::after{position:absolute;right:0;top:0;float:none}
 </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Jakub Popluhar - AI Training & Consumer Psychology",
-    "url": "https://jakubpopluhar.com/en/",
-    "description": "Practical, hands-on AI training for executives and teams. AI Personal Coaching, in-house training and keynotes.",
+    "url": "https://jakubpopluhar.com",
+    "description": "Hands-on AI training for teams in companies in Austria and Germany: in-house training, open seminars and one-to-one training, with a certificate of attendance covering EU AI Act Art. 4.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Vienna",
@@ -2158,8 +2436,112 @@
       },
       "description": "DACH region (Germany, Austria, Switzerland)"
     },
-    "serviceType": ["AI Training", "AI Personal Coaching", "Keynote Speaking", "In-house Training", "Consumer Psychology"]
+    "serviceType": ["AI Training", "AI Personal Training", "Keynote Speaking", "In-house training", "Consumer Psychology"]
   }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is the training for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For teams in companies in Austria and Germany, from beginners to advanced users. There are also open seminars for individual employees, and one-to-one training."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI tools does the training use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool your team uses: Microsoft 365 Copilot, ChatGPT, Claude or Gemini."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there training for specific departments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Content and exercises are tailored to the department, for example HR, sales, marketing or admin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many people per training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ideally 8 to 12 people, which leaves time to guide each person on their own task. That said, we agree the exact group size with you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a training day last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As a rule, one hands-on day. Two half-days are also possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the training take place on site or online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At your premises or live online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a hands-on day cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That depends on format, duration and location. After a short intro call, you will receive a written proposal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the learning page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every training has its own learning page with all the exercises and prompts ready to copy, with core tasks for everyone and bonus tasks for the fast finishers. Participants work in split screen: the learning page on the left, the AI tool on the right."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "May my employees use real data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if your data is in a secure environment. Then we work directly with your data on your computers. There is also a simple rule for what may and may not go into the AI, which your team applies in daily work afterwards."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do participants get a certificate of attendance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Everyone receives a certificate of attendance covering data protection and the EU AI Act. This lets you document AI literacy under Art. 4."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the EU AI Act require of companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Since 2 February 2025, Article 4 has required companies that use AI to ensure their employees have a sufficient level of AI literacy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is Jakub Popluhar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI trainer in Vienna. Qualified secondary-school teacher (M.Ed., TU München and LMU München), third-generation teacher, AI trainer at ARS, tecTrain and BFI."
+      }
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -2195,14 +2577,14 @@
           <li class="nav-drop" data-nav-drop>
             <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Services <span class="caret"></span></button>
             <ul class="nav-drop-menu">
-              <li><a href="/en/ki-personal-training/">One-on-one coaching<small>One person, your own real tasks</small></a></li>
-              <li><a href="/en/trainings/">In-house training<small>Your team, one hands-on day at your organisation</small></a></li>
-              <li><a href="/en/termine/">Open seminars<small>Scheduled seminars with my partners</small></a></li>
+              <li><a href="/en/ki-personal-training/">One-to-one coaching<small>Just you, on your own real tasks</small></a></li>
+              <li><a href="/en/trainings/">In-house training<small>Your team, one hands-on day at your premises</small></a></li>
+              <li><a href="/en/termine/">Public courses<small>Open seminars with my partners</small></a></li>
             </ul>
           </li>
           <li><a href="/en/blog/">Blog</a></li>
           <li><a href="#about" data-slide="1">About</a></li>
-          <li><a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Book Call</a></li>
+          <li><a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Intro call</a></li>
         </ul>
         <div class="nav-lang" aria-label="Language"><button class="nav-lang-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Change language"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg><span class="nav-lang-arrow"></span></button><div class="nav-lang-menu"><a href="/" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg></a><a href="/en/" class="active" aria-current="page" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></a><a href="/sk/" title="Slovenčina" aria-label="Slovenčina"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#fff"/><rect y="2" width="9" height="4" fill="#0B4EA2"/><rect y="4" width="9" height="2" fill="#EE1C25"/><path d="M1.9,1.25 h2.6 v2.2 c0,1.05 -1.3,1.6 -1.3,1.6 s-1.3,-0.55 -1.3,-1.6 z" fill="#EE1C25" stroke="#fff" stroke-width="0.26"/><path d="M3.05,1.75 h0.3 v0.5 h0.6 v0.32 h-0.6 v0.55 h0.78 v0.32 h-0.78 v0.9 h-0.3 v-0.9 h-0.78 v-0.32 h0.78 v-0.55 h-0.6 v-0.32 h0.6 z" fill="#fff"/></svg></a></div></div>
         <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -2231,150 +2613,168 @@
 
     <!-- SLIDE 1: HERO + TRUST -->
     <section class="slide slide-hero active" id="hero" data-index="0">
-      <div class="hero-main">
-        <div class="hero-content slide-content">
+      <div class="hero-main hero-ohrid">
+        <img class="hero-ohrid-bg" src="../images/hero-raum.jpg" alt="Jakub Popluhar in front of a group, School for Young Leaders, Ohrid">
+        <div class="hero-ohrid-veil"></div>
+        <div class="hero-content slide-content hero-ohrid-content">
           <div class="hero-badge">AI Trainer for Teams and Leaders</div>
-          <h1>"You don't know&nbsp;<span id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
-          <p class="hero-sub">You know AI is changing your business. You just don't know where to start. That's what I'm here for.</p>
+          <h1>Your team can do more with AI than they think.</h1>
+          <p class="hero-sub">Hands-on training for teams: your real tasks, your tools, and a certificate of attendance covering the EU AI Act.</p>
 <div class="hero-ctas">
-            <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Book a session &rarr;</a>
-            <a href="#about" class="btn btn-secondary" data-slide="1">Learn more</a>
+            <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Book an intro call &rarr;</a>
+            <a href="/en/trainings/" class="btn btn-secondary">See the courses</a>
           </div>
-        </div>
-        <div class="hero-image slide-content">
-          <img src="../images/profile/14-web.png" alt="Jakub Popluhar">
         </div>
       </div>
 
       <div class="hero-trust">
-        <p class="trust-bar-label">Trusted by</p>
+        <p class="trust-bar-label">Trainer at</p>
         <div class="trust-marquee">
           <div class="trust-track">
             <img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" class="trust-logo-img">
             <img src="../images/logos/tectrain.png" alt="tecTrain" class="trust-logo-img">
             <img src="../images/logos/digital-campus-vorarlberg.svg" alt="Digital Campus Vorarlberg" class="trust-logo-img">
             <img src="../images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" class="trust-logo-img">
-            <div class="trust-item"><img src="../images/logos/x-sieben.png" alt="X SIEBEN" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
             <img src="../images/logos/tsm.svg" alt="TSM" class="trust-logo-img">
-            <img src="../images/logos/innovatic-group.svg" alt="Innovatic Group" class="trust-logo-img">
-            <div class="trust-item"><img src="../images/logos/became-ai-icon.svg" alt="became ai" class="trust-logo-img"><span class="trust-name">became ai</span></div>
-            <img src="../images/logos/sport-union.svg" alt="Sport Union" class="trust-logo-img">
-            <img src="../images/logos/youknowmebest.svg" alt="YouKnowMeBest" class="trust-logo-img">
-            <img src="../images/logos/fitrock.svg" alt="FitRock" class="trust-logo-img">
-            <div class="trust-item"><img src="../images/logos/zr-bjj.svg" alt="ZR Team Vienna" class="trust-logo-img"><span class="trust-name">ZR Team Vienna</span></div>
+            <div class="trust-item"><img src="../images/logos/x-sieben.png" alt="X SIEBEN" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
           </div>
           <div class="trust-track" aria-hidden="true">
             <img src="../images/logos/ars-akademie.svg" alt="" class="trust-logo-img">
             <img src="../images/logos/tectrain.png" alt="" class="trust-logo-img">
             <img src="../images/logos/digital-campus-vorarlberg.svg" alt="" class="trust-logo-img">
             <img src="../images/logos/bfi-vorarlberg.png" alt="" class="trust-logo-img">
-            <div class="trust-item"><img src="../images/logos/x-sieben.png" alt="" class="trust-logo-img"><span class="trust-name">X SIEBEN</span></div>
             <img src="../images/logos/tsm.svg" alt="" class="trust-logo-img">
-            <img src="../images/logos/innovatic-group.svg" alt="" class="trust-logo-img">
-            <div class="trust-item"><img src="../images/logos/became-ai-icon.svg" alt="" class="trust-logo-img"><span class="trust-name">became ai</span></div>
-            <img src="../images/logos/sport-union.svg" alt="" class="trust-logo-img">
-            <img src="../images/logos/youknowmebest.svg" alt="" class="trust-logo-img">
-            <img src="../images/logos/fitrock.svg" alt="" class="trust-logo-img">
-            <img src="../images/logos/zr-bjj.svg" alt="" class="trust-logo-img">
           </div>
         </div>
       </div>
     </section>
 
     <!-- SLIDE 2: ABOUT -->
-    <section class="slide slide-about" id="about" data-index="1">
+    <section class="slide slide-proof" id="proof" data-index="7">
       <div class="container slide-content">
-        <div class="about-image-wrapper">
-          <div class="about-image">
-            <img src="../images/profile/7-web.png" alt="Jakub Popluhar" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
-          </div>
-          <div class="about-stats">
-            <div class="about-stat">
-              <span class="number">5</span>
-              <span class="label">Languages</span>
-            </div>
-            <div class="about-stat">
-              <span class="number">ARS</span>
-              <span class="label">Trainer</span>
-            </div>
-            <div class="about-stat">
-              <span class="number">4.69/5</span>
-              <span class="label">Trainer rating</span>
-            </div>
+        <div class="section-header">
+          <p class="section-label">Feedback</p>
+          <div class="proof-rating">
+            <span class="pr-stars" style="--r:4.69" role="img" aria-label="4.69 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="pr-num">4.69<small> / 5</small></span>
+            <span class="pr-txt">from <strong>111</strong> anonymous feedback forms</span>
           </div>
         </div>
 
-        <div class="about-content">
-          <p class="section-label">Who I am</p>
-          <h2>I test everything on myself before I show it to you.</h2>
-          <p class="about-text">I'm an AI trainer for executives and teams across the DACH region, in open seminars with my partners and in-house at your company. Tools change every month; the fundamentals don't - how you think with AI, prompt it, check it, keep control. Human in the Lead. AI in Support.</p>
-
-          <ul class="about-credentials">
-            <li><span class="check">&#10003;</span> AI Trainer at ARS (Austria's largest private seminar provider), tecTrain, BFI and Hill Digital</li>
-            <li><span class="check">&#10003;</span> Linguistics & American Studies - semantics is the foundation of all AI communication</li>
-            <li><span class="check">&#10003;</span> Speaker, President Ivanov's School for Young Leaders</li>
-            <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
-            <li><span class="check">&#10003;</span> First sponsored roundnet player in Europe · Former national floorball player · PADI Divemaster · Skydiver</li>
-          </ul>
+        <div class="proof-grid">
+            <div class="testimonial-card">
+<blockquote>&ldquo;There is so much potential still to explore. Jakub&rsquo;s wide knowledge has definitely expanded my AI horizons.&rdquo;</blockquote>
+              <div class="testimonial-author"><div class="author-info"><span class="name">Ulla G&uuml;rlich</span><span class="role">Heinzel Holding GmbH</span></div></div>
+            </div>
+            <div class="testimonial-card">
+<blockquote>&ldquo;my prompts need to be much clearer if I want better results. Copilot can do a lot more than I knew until today.&rdquo;</blockquote>
+              <div class="testimonial-author"><div class="author-info"><span class="name">Christina Buchgeher</span><span class="role">N&Ouml; Landesgesundheitsagentur</span></div></div>
+            </div>
+            <div class="testimonial-card">
+              <blockquote>&ldquo;Lots of new, really usable instructions and prompts for fine-tuning the answers.&rdquo;<details class="t-orig"><summary>translated</summary>&bdquo;Ve&#318;a nov&yacute;ch dobre pou&#382;ite&#318;n&yacute;ch in&scaron;trukci&iacute; - promtov na vyladenie odpoved&iacute;.&ldquo;</details></blockquote>
+              <div class="testimonial-author"><div class="author-info"><span class="name">Angelika Kopj&aacute;k</span><span class="role">Participant, “AI in the workplace” seminar</span></div></div>
+            </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 3: SPEAKING (Option A — Split) -->
-    <section class="slide slide-speaking" id="speaking" data-index="2">
+    <!-- SLIDE 9: BLOG -->
+    <section class="slide slide-elearning" id="lernseite">
       <div class="container slide-content">
-        <div class="speaking-split">
-          <div class="speaking-text">
-            <p class="section-label">International Speaker</p>
-            <h2>On stage with heads of state</h2>
-
-            <div class="speaking-event-a">
-              <h3>President Ivanov's School for Young Leaders</h3>
-              <p class="speaking-subtitle">16th cohort · Ohrid, North Macedonia · November 2025</p>
-            </div>
-
-            <p class="podium-label" style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--white-muted); margin-bottom: 12px;">Shared Podium With</p>
-            <ul class="podium-list">
-              <li><span class="podium-name">Katalin Novák</span><span class="podium-title">Former President of Hungary</span></li>
-              <li><span class="podium-name">Prof. Dr. Jeffrey Sachs</span><span class="podium-title">Columbia University</span></li>
-              <li><span class="podium-name">Lt. Gen. Michael Dubie</span><span class="podium-title">Strategic Leadership</span></li>
-              <li><span class="podium-name">Prof. Djordjija Petkoski</span><span class="podium-title">Wharton School · AI & Sustainability</span></li>
+        <div class="el-split">
+          <figure class="el-photo"><img src="../images/story/uebung-lernseite-von-hinten.jpg" alt="Seminar: participants work on the learning page while Jakub Popluhar walks between the rows" loading="lazy" decoding="async"><figcaption>Split screen: the learning page on the left, the AI tool on the right. Everyone works at their own pace.</figcaption></figure>
+          <div class="el-text">
+            <h2>Third-generation teacher. Using AI every day.</h2>
+            <p>Qualified secondary-school teacher, studied at TU M&uuml;nchen and LMU M&uuml;nchen. Every group has beginners sitting next to experts. That is why every learning page has two levels:</p>
+            <ul class="el-levels">
+              <li><b>Core tasks</b> for everyone, with prompts to copy</li>
+              <li><b>Bonus tasks</b> for the fast finishers, all the way up to the expert quiz</li>
             </ul>
-          </div>
-
-          <div class="speaking-photo-a">
-            <div>
-              <img src="../images/speaking/ivanov-certificate-web.jpg" alt="Jakub Popluhar with President Dr. Gjorge Ivanov" loading="lazy">
-              <p class="photo-caption">President Dr. Gjorge Ivanov presents the certificate</p>
+            <p>Nobody waits, nobody gets left behind.</p>
+            <div class="el-quote">
+<blockquote>&ldquo;the exercises were great! The copy-and-paste text was extremely helpful.&rdquo;</blockquote>
+              <cite>Christina Buchgeher &middot; N&Ouml; Landesgesundheitsagentur</cite>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+<div class="kicheck-slim"><span>Test yourself: where do you stand with AI? Twelve questions, two minutes.</span><a href="/en/ki-check/">Start the AI Check &rarr;</a></div>
 
-        <div class="speaking-eval-a">
-          <blockquote>"Creative, interactive methods and practical insights into consumer psychology."</blockquote>
-          <p class="eval-source">- Participant evaluation · Rated <strong>"among the most transformative sessions"</strong></p>
+
+    <section class="slide slide-services" id="services" data-index="5">
+      <div class="container slide-content">
+        <div class="section-header">
+          <p class="section-label">Services</p>
+          <h2>How we work together</h2>
         </div>
+
+        <div class="offer-grid">
+          <article class="offer-card">
+            <img src="../images/story/viennaup-gruppe.jpg" alt="Jakub Popluhar with a training group in Vienna" loading="lazy" decoding="async">
+            <div class="offer-body">
+              <span class="service-badge">In-house</span>
+              <h3>Training for your team</h3>
+              <ul class="offer-list">
+                <li>One hands-on day at your premises, on real tasks</li>
+                <li>With Copilot, ChatGPT, Claude or Gemini</li>
+                <li>By department: HR, sales, marketing, admin</li>
+                <li>Certificate of attendance covering the EU AI Act</li>
+              </ul>
+              <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Book an intro call &rarr;</a>
+            </div>
+          </article>
+          <article class="offer-card">
+            <img src="../images/story/seminar-raum.jpg" alt="Open seminar on AI with Jakub Popluhar" loading="lazy" decoding="async">
+            <div class="offer-body">
+              <span class="service-badge">Open</span>
+              <h3>Open seminars</h3>
+              <ul class="offer-list">
+                <li>Fixed dates with my partners, in Vienna and online</li>
+                <li>AI in everyday office work and prompting</li>
+                <li>Microsoft 365 Copilot and HR in practice</li>
+                <li>Workflows and AI agents</li>
+              </ul>
+              <a href="/en/trainings/" class="btn btn-secondary">More about the courses &rarr;</a>
+            </div>
+          </article>
+          <article class="offer-card">
+            <img src="../images/personal/jakub-coaching-1to1.jpg" alt="Jakub Popluhar in a one-to-one session" loading="lazy" decoding="async">
+            <div class="offer-body">
+              <span class="service-badge">1:1</span>
+              <h3>One-to-one training</h3>
+              <ul class="offer-list">
+                <li>Get the most out of AI in the shortest time</li>
+                <li>On your own tasks and files</li>
+                <li>First session in person, then live online</li>
+                <li>Your pace, your questions, your tools</li>
+              </ul>
+              <a href="/en/trainings/" class="btn btn-secondary">More about the courses &rarr;</a>
+            </div>
+          </article>
+        </div>
+
       </div>
     </section>
 
-    <!-- SLIDE 4: TRANSFORMATION -->
+    <!-- SLIDE 7: OPEN TRAININGS (ARS) -->
     <section class="slide slide-transformation" id="transformation" data-index="3">
       <div class="container slide-content">
         <div class="section-header">
-          <p class="section-label">Transformation</p>
-          <h2>Before vs. After</h2>
-          <p>The difference after a single session.</p>
+          <p class="section-label">After a hands-on day</p>
+          <h2>Before and after</h2>
+          <p>The change we aim for in your team.</p>
         </div>
 
         <div class="transform-grid">
           <div class="transform-col transform-before">
             <h3>Without training</h3>
             <table>
-              <tr><td class="icon-cell">&#10007;</td><td>Can't even find the app - clicks the wrong links</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Uses AI like Google - no structure, no context</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Chats scattered everywhere, time wasted every day</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>Uploads screenshots and hopes it works</td></tr>
-              <tr><td class="icon-cell">&#10007;</td><td>No idea what AI can do - and what it can't</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Uses AI like a search engine</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Good results are down to luck</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Everyone starts from scratch every day</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Unsure which data may go into the AI</td></tr>
+              <tr><td class="icon-cell">&#10007;</td><td>Nobody knows what their colleagues can already do</td></tr>
             </table>
           </div>
 
@@ -2383,13 +2783,13 @@
           </div>
 
           <div class="transform-col transform-after">
-            <h3>After one session</h3>
+            <h3>After the training</h3>
             <table>
-              <tr><td class="icon-cell">&#10003;</td><td>Own projects with system prompts - the AI knows your business</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Master document: the AI understands context, goals and language</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Workspace organised - 40 minutes saved a day</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Knows which format works and which doesn't</td></tr>
-              <tr><td class="icon-cell">&#10003;</td><td>Uses the AI itself to write better prompts</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Asks with context and gets usable results</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Their own templates and assistants for recurring tasks</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>A clear rule on what may go into the AI and what may not</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>AI champions in the team who help others</td></tr>
+              <tr><td class="icon-cell">&#10003;</td><td>Certificate of attendance covering EU AI Act Art.&nbsp;4</td></tr>
             </table>
           </div>
         </div>
@@ -2397,72 +2797,43 @@
     </section>
 
     <!-- SLIDE 5: HERO TESTIMONIAL -->
-    <section class="slide slide-hero-testimonial" id="hero-testimonial" data-index="4">
-      <div class="container slide-content">
-        <div class="hero-testimonial-wrapper">
-          <div class="hero-testimonial-quote">
-            <div class="stars" style="font-size: 1.2rem; letter-spacing: 4px; margin-bottom: 24px; color: var(--gold);">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote>"It was incredible! It completely changed the way I see business - and how we should be doing business. I booked the second session on the spot."</blockquote>
-          </div>
-          <div class="hero-testimonial-author">
-            <div class="hero-testimonial-info">
-              <span class="name">Managing Partner</span>
-              <span class="role">Private Equity</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-<section class="kicheck-band" id="ki-check-cta" aria-labelledby="kicheck-title">
-  <div class="kicheck-inner">
-    <p class="kicheck-eyebrow">Free &amp; no sign-up</p>
-    <h2 class="kicheck-title" id="kicheck-title">Rather see where you stand first?</h2>
-    <p class="kicheck-sub">Twelve questions on language models, prompting, everyday use and security.
-      At the end you know where you stand &ndash; and which training fits you.</p>
-    <a href="/en/ki-check/" class="btn btn-primary">Start the AI check &rarr;</a>
-    <div class="kicheck-meta">
-      <span>12 questions</span><span>2 minutes</span><span>Instant result</span>
-    </div>
-  </div>
-</section>
 
 
     <!-- SLIDE 6: SERVICES -->
-    <section class="slide slide-services" id="services" data-index="5">
+
+    <!-- SLIDE 4: TRANSFORMATION -->
+    <section class="slide slide-about" id="about" data-index="1">
       <div class="container slide-content">
-        <div class="section-header">
-          <p class="section-label">Services</p>
-          <h2>How I work with you</h2>
+        <div class="about-image-wrapper">
+          <div class="about-image">
+            <img src="../images/profile/7-web.png" alt="Jakub Popluhar" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+          </div>
         </div>
 
-        <div class="service-featured">
-          <div class="service-featured-image">
-            <img src="../images/profile/15-web.png" alt="Jakub Popluhar" loading="lazy">
-          </div>
-          <div class="service-featured-content">
-            <span class="service-badge">Premium</span>
-            <h3>AI Personal Coaching</h3>
-            <p class="desc">No lectures. No off-the-shelf programme. We work live, together, on exactly your use cases - I come to you. Every session delivers a concrete output you can put to use immediately.</p>
-            <ul class="service-points">
-              <li><span class="icon">&#10003;</span> Live, on-site - your office, your machine, your data security</li>
-              <li><span class="icon">&#10003;</span> Highly personalised - your questions, your processes, your industry</li>
-              <li><span class="icon">&#10003;</span> Hands-on with the right tools for your business</li>
-              <li><span class="icon">&#10003;</span> Psychology + AI: understand why teams resist AI - and how to change that</li>
-            </ul>
-            <p class="service-note">First session preferably on site with you, after that live online.</p>
-            <div class="service-cta-row">
-              <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-primary" target="_blank" rel="noopener">Free intro call &rarr;</a>
-              <a href="/ki-personal-training/" class="btn btn-secondary">Format and prices, from &euro; 290/hr (German page) &rarr;</a>
+        <div class="about-content">
+          <p class="section-label">About me</p>
+          <h2>First on my own work. Then on yours.</h2>
+          <p class="about-text">AI trainer for teams and leaders in Austria and Germany. People decide, AI does the groundwork.</p>
+
+          <ul class="about-credentials">
+            <li><span class="check">&#10003;</span> AI trainer at ARS, tecTrain and BFI</li>
+            <li><span class="check">&#10003;</span> AI concepts for HR at Hill Digital, member of Hill Woltron</li>
+            <li><span class="check">&#10003;</span> M.Ed., Linguistics &amp; American Studies</li>
+            <li><span class="check">&#10003;</span> Speaker, President Ivanov's School for Young Leaders</li>
+            <li><span class="check">&#10003;</span> TU München · LMU München · Univ. of Sunshine Coast</li>
+            <li><span class="check">&#10003;</span> Former national floorball player &middot; Skydiver</li>
+          </ul>
+            <div class="el-stats about-stats-new">
+              <div><b>735</b><span>hours spent building with AI myself</span></div>
+              <div><b>1,130</b><span>work sessions</span></div>
             </div>
-          </div>
         </div>
-
-
       </div>
     </section>
 
-    <!-- SLIDE 7: OPEN TRAININGS (ARS) -->
+    <!-- SLIDE 3: SPEAKING (Option A — Split) -->
+
     <section class="slide slide-trainings" id="trainings" data-index="6">
       <div class="container slide-content">
         <div class="section-header">
@@ -2475,37 +2846,125 @@
         </div>
 
         <div class="agenda" data-preview-limit="3">
-          <div class="ag" data-date="2026-11-06">
-            <div class="ag-date"><div class="ag-day">06</div><div class="ag-mon">Nov</div></div>
+          <div class="ag" data-date="2026-10-28">
+            <div class="ag-date"><div class="ag-day">28</div><div class="ag-mon">Oct</div></div>
             <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> Consumer psychology and AI</h3><p><span class="ag-fmt" role="img" aria-label="On site" title="On site"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; Half day &middot; 09:00&ndash;13:00</p></div>
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> Workshop: HR in practice with AI</h3><p><span class="ag-fmt" role="img" aria-label="In person or online" title="In person or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Vienna or online &middot; Full day &middot; 09:00 to 17:00</p></div>
             </div>
             <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
-            <a href="https://ars.at/seminar/333096/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+            <a href="https://ars.at/seminar/333183/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
           </div>
           <div class="ag" data-date="2026-11-11" data-end="2026-11-12">
-            <div class="ag-date"><div class="ag-day range">11&ndash;12</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-date"><div class="ag-day range">11-12</div><div class="ag-mon">Nov</div></div>
             <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> KI-Agenten Workshop: building AI teams</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; 2 days &middot; 09:00&ndash;17:00 each day</p></div>
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> AI agents workshop: building AI teams</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; 2 days &middot; 09:00 to 17:00 each day</p></div>
             </div>
             <div class="ag-prov"><img src="../images/logos/akademie-ki.png" alt="KI Akademie" loading="lazy" decoding="async"></div>
             <a href="https://www.akademie-ki.com/ki-agenten-workshop-ki-teams-aufbauen/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
           </div>
-          <div class="ag" data-date="2026-11-12">
-            <div class="ag-date"><div class="ag-day">12</div><div class="ag-mon">Nov</div></div>
+          <div class="ag" data-date="2026-11-19">
+            <div class="ag-date"><div class="ag-day">19</div><div class="ag-mon">Nov</div></div>
             <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> AI agents and generative AI at work</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; Full day &middot; 09:00&ndash;16:10</p></div>
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> AI agents and generative AI at work</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; Full day &middot; 09:00 to 16:10</p></div>
             </div>
             <div class="ag-prov"><img src="../images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" loading="lazy" decoding="async"></div>
             <a href="https://www.bfi-vorarlberg.at/de/kurs/16/2/127747/KI-Agenten-und-generative-KI-im-Unternehmensalltag" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
           </div>
+          <div class="ag" data-date="2026-11-20">
+            <div class="ag-date"><div class="ag-day">20</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> Prompting at work: using AI reliably, module 1</h3><p><span class="ag-fmt" role="img" aria-label="In person" title="In person"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; Afternoon &middot; 13:30 to 18:15</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/bfi-wien.svg" alt="BFI Wien" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi.wien/kurs/2838/KB002302/prompting-im-arbeitsalltag-ki-verlaesslich-einsetzen/26BTDB0235" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
           <div class="ag" data-date="2026-11-25">
             <div class="ag-date"><div class="ag-day">25</div><div class="ag-mon">Nov</div></div>
             <div class="ag-body">
-              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Seminar language German" title="Seminar language: German">🇦🇹</span> AI in HR</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; Full day &middot; 08:30&ndash;16:30 &middot; Live online course</p></div>
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> AI in everyday HR work</h3><p><span class="ag-fmt" role="img" aria-label="Online" title="Online"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Online &middot; Full day &middot; 08:30 to 16:30 &middot; Live online course</p></div>
             </div>
             <div class="ag-prov"><img src="../images/logos/digital-campus-vorarlberg.svg" alt="Digital Campus Vorarlberg" loading="lazy" decoding="async"></div>
             <a href="https://www.digitalcampusvorarlberg.at/unser-kursangebot/ki-campus/ki-im-hr-alltag-6429#/2026FK642901" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2026-11-27">
+            <div class="ag-date"><div class="ag-day">27</div><div class="ag-mon">Nov</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> Prompting at work: using AI reliably, module 2</h3><p><span class="ag-fmt" role="img" aria-label="In person" title="In person"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; Afternoon &middot; 13:30 to 18:15</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/bfi-wien.svg" alt="BFI Wien" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi.wien/kurs/2838/KB002302/prompting-im-arbeitsalltag-ki-verlaesslich-einsetzen/26BTDB0235" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-01-26">
+            <div class="ag-date"><div class="ag-day">26</div><div class="ag-mon">Jan</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> Using Microsoft 365 Copilot efficiently</h3><p><span class="ag-fmt" role="img" aria-label="In person or online" title="In person or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Vienna or online &middot; Full day &middot; 09:00 to 17:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
+            <a href="https://ars.at/seminar/332641/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-01-27" data-end="2027-01-28">
+            <div class="ag-date"><div class="ag-day range">27-28</div><div class="ag-mon">Jan</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> Programme: AI for everyday office work</h3><p><span class="ag-fmt" role="img" aria-label="In person" title="In person"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; 2 days &middot; 09:00 to 18:00 each day</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/bfi-vorarlberg.png" alt="BFI Vorarlberg" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi-vorarlberg.at/de/kurs/16/2/127747/KI-Agenten-und-generative-KI-im-Unternehmensalltag" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-02-12">
+            <div class="ag-date"><div class="ag-day">12</div><div class="ag-mon">Feb</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> Using Claude in a privacy-compliant way</h3><p><span class="ag-fmt" role="img" aria-label="In person or online" title="In person or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Vienna or online &middot; Full day &middot; 09:00 to 17:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
+            <a href="https://ars.at/seminar/333220/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-02-22">
+            <div class="ag-date"><div class="ag-day">22</div><div class="ag-mon">Feb</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> Consumer psychology and AI</h3><p><span class="ag-fmt" role="img" aria-label="In person" title="In person"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; Half day &middot; 09:00 to 13:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
+            <a href="https://ars.at/seminar/333096/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-03-01">
+            <div class="ag-date"><div class="ag-day">01</div><div class="ag-mon">Mar</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> Prompt engineering for ChatGPT and similar tools</h3><p><span class="ag-fmt" role="img" aria-label="In person" title="In person"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Full day</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/tectrain.png" alt="tecTrain" loading="lazy" decoding="async"></div>
+            <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/prompt-engineering-fuer-chatgpt-und-co" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-04-06">
+            <div class="ag-date"><div class="ag-day">06</div><div class="ag-mon">Apr</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> Using Claude in a privacy-compliant way</h3><p><span class="ag-fmt" role="img" aria-label="In person or online" title="In person or online"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><line x1="8.5" y1="21" x2="15.5" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Vienna or online &middot; Full day &middot; 09:00 to 17:00</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/ars-akademie.svg" alt="ARS Akademie" loading="lazy" decoding="async"></div>
+            <a href="https://ars.at/seminar/333220/" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-04-20" data-end="2027-04-21">
+            <div class="ag-date"><div class="ag-day range">20-21</div><div class="ag-mon">Apr</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> Programme: AI for everyday office work</h3><p><span class="ag-fmt" role="img" aria-label="In person" title="In person"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; 2 days &middot; 09:00 to 18:00 each day</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/bfi-wien.svg" alt="BFI Wien" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi.wien/kurs/2838/KB002302/prompting-im-arbeitsalltag-ki-verlaesslich-einsetzen" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-05-07">
+            <div class="ag-date"><div class="ag-day">07</div><div class="ag-mon">May</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> Prompting at work: using AI reliably, module 2</h3><p><span class="ag-fmt" role="img" aria-label="In person" title="In person"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; Afternoon &middot; 13:30 to 18:15</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/bfi-wien.svg" alt="BFI Wien" loading="lazy" decoding="async"></div>
+            <a href="https://www.bfi.wien/kurs/2838/KB002302/prompting-im-arbeitsalltag-ki-verlaesslich-einsetzen" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
+          </div>
+          <div class="ag" data-date="2027-05-24">
+            <div class="ag-date"><div class="ag-day">24</div><div class="ag-mon">May</div></div>
+            <div class="ag-body">
+              <div class="txt"><h3><span class="ag-lang" role="img" aria-label="Training language German" title="Training language: German">🇦🇹</span> AI fundamentals with ChatGPT</h3><p><span class="ag-fmt" role="img" aria-label="In person" title="In person"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.8-5.7 6.8-11A6.8 6.8 0 105.2 10.5c0 5.3 6.8 11 6.8 11z"/><circle cx="12" cy="10.2" r="2.5"/></svg></span>Vienna &middot; Full day</p></div>
+            </div>
+            <div class="ag-prov"><img src="../images/logos/tectrain.png" alt="tecTrain" loading="lazy" decoding="async"></div>
+            <a href="https://www.tectrain.at/kurskatalog/kuenstliche-intelligenz-machine-learning/chatgpt-und-kuenstliche-intelligenz-in-der-praxis" class="btn-training" target="_blank" rel="noopener">Register &rarr;</a>
           </div>
         </div>
 
@@ -2513,124 +2972,39 @@
           <a href="/en/termine/">See all dates &rarr;</a>
         </div>
 
-        <div class="training-cta-note">
-          <p>No date that fits?<span>Would you like to request an individual appointment? Get in touch.</span></p>
-          <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn-training" target="_blank" rel="noopener">Request an appointment &rarr;</a>
-        </div>
       </div>
     </section>
 
     <!-- SLIDE 8: PROOF -->
-    <section class="slide slide-proof" id="proof" data-index="7">
-      <div class="container slide-content">
-        <div class="section-header">
-          <p class="section-label">Results</p>
-          <h2>It works.</h2>
-        </div>
-
-        <div class="proof-grid">
-            <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>"Before, my chats were scattered everywhere and unorganised. Now everything's sorted - marketing, training, SOPs, strategy. We organised and personalised my LLM so I don't have to write a prompt every single time. That alone saves me 40 minutes a day."</blockquote>
-              <div class="testimonial-author">
-                <img class="avatar-img" src="../images/testimonials/patrik-hubek-web.png" alt="Patrik Hubek" loading="lazy">
-                <div class="author-info">
-                  <span class="name">Patrik Hubek</span>
-                  <span class="role">FitRock | Health & Fitness</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>"I thought I knew how to use ChatGPT - until Jakub showed me what's really possible. No theory, just: do it yourself, try it, understand it. After one session I knew more than I had after months on my own."</blockquote>
-              <div class="testimonial-author">
-                <img class="avatar-img" src="../images/testimonials/tea-shashaj-web.png" alt="Tea Shashaj" loading="lazy">
-                <div class="author-info">
-                  <span class="name">Tea Shashaj</span>
-                  <span class="role">YouKnowMeBest | E-Commerce</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>"I run a martial arts gym - tech isn't my world. I couldn't even find the app. Forty-five minutes later I had an AI project for bringing in new members - and the crazy part: the AI itself helped me ask the right questions. On my own I'd never have got there."</blockquote>
-              <div class="testimonial-author">
-                <img class="avatar-img" src="../images/testimonials/petar-pecija-web.png" alt="Petar Pecija" loading="lazy">
-                <div class="author-info">
-                  <span class="name">Petar Pecija</span>
-                  <span class="role">ZR Team Vienna | Sport</span>
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 9: BLOG -->
-    <section class="slide slide-blog" id="blog" data-index="8">
-      <div class="container slide-content">
-        <span class="blog-eyebrow">From the blog</span>
-        <h2 class="blog-heading">Latest posts</h2>
-        <div class="blog-teaser-grid">
-        <!-- BLOG-TEASER:START -->
-        <a class="blog-card" href="/en/blog/ai-workshop-lessons-ohrid/"><span class="blog-card-meta" style="color:#d4a017">Nov 10, 2026 &middot; From Practice</span><span class="blog-card-title">On Monday I listened. On Wednesday I ran the room.</span></a>
-        <a class="blog-card" href="/en/blog/local-ai-job-applications/"><span class="blog-card-meta" style="color:#d4a017">Oct 27, 2026 &middot; From Practice</span><span class="blog-card-title">Privacy perfect, degrees invented: local AI put to the job application test</span></a>
-        <a class="blog-card" href="/en/blog/do-ai-agents-make-mistakes/"><span class="blog-card-meta" style="color:#d4a017">Aug 21, 2026 &middot; From Practice</span><span class="blog-card-title">Do my AI agents make mistakes? Yes and no</span></a>
-        <!-- BLOG-TEASER:END -->
-        </div>
-        <a class="blog-all-btn" href="/en/blog/">Read the blog</a>
-      </div>
-    </section>
 
     <!-- SLIDE 10: CTA -->
+
+
     <section class="slide slide-cta" id="contact" data-index="9">
       <div class="container slide-content">
-        <div class="cta-main-new">
-          <h2>How can your company adopt AI if you haven't done it yourself?</h2>
+        <div class="contact-split">
+        <div class="contact-main">
+        <div class="section-header contact-head">
+          <p class="section-label">Contact</p>
+          <h2>Let&rsquo;s talk about your team.</h2>
+          <p>I&rsquo;ll get back to you within 24 hours.</p>
         </div>
-
-        <div class="cta-offers">
-          <div class="cta-offer-card cta-offer-featured">
-            <span class="offer-badge">1:1</span>
-            <h3>AI Personal Coaching</h3>
-            <p>Your personal trainer for working with AI. On your real tasks, with a result you keep.</p>
-            <a href="/ki-personal-training/" class="btn btn-primary">Format and prices (German page) &rarr;</a>
-          </div>
-
-          <div class="cta-offer-card">
-            <span class="offer-badge">Team</span>
-            <h3>In-house training</h3>
-            <p>AI skills and consumer psychology for your team. Including AI literacy under EU AI Act Art. 4.</p>
-            <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="btn btn-secondary" target="_blank" rel="noopener">I am interested in training &rarr;</a>
-          </div>
-
-          <div class="cta-offer-card">
-            <span class="offer-badge">Group</span>
-            <h3>Open seminars</h3>
-            <p>Fixed dates with my partners, open for individual registration. Booking directly with the organiser.</p>
-            <a href="/en/termine/" class="btn btn-secondary">See all dates &rarr;</a>
-          </div>
-        </div>
-
         <div class="contact-form-wrapper">
-          <h3>Get in touch</h3>
-          <p class="form-sub">I'll respond within 24 hours.</p>
           <form class="contact-form" id="contactForm" action="https://formspree.io/f/xzdaybpa" method="POST">
             <div class="form-row">
               <input type="text" name="name" placeholder="First and last name *" required>
               <input type="email" name="email" placeholder="Email address *" required>
             </div>
             <div class="form-row">
-              <input type="text" name="company" placeholder="Company / Position">
+              <input type="text" name="company" placeholder="Company / role">
               <input type="tel" name="phone" placeholder="Phone number" autocomplete="tel">
             </div>
             <select name="interest" required>
               <option value="" disabled selected>I'm interested in... *</option>
-              <option value="AI Personal Coaching">AI Personal Coaching</option>
-              <option value="Keynote / Impulsvortrag">Keynote</option>
-              <option value="Inhouse-Training (Team)">In-house Training (Team)</option>
+              <option value="Inhouse-Training (Team)">Training for my team</option>
+              <option value="Offenes Seminar">Open seminar</option>
+              <option value="KI-Personal-Training">One-to-one training</option>
+              <option value="Keynote / Impulsvortrag">Keynote / short talk</option>
               <option value="Sonstiges">Other</option>
             </select>
             <textarea name="message" placeholder="Tell me briefly how I can help..."></textarea>
@@ -2642,7 +3016,41 @@
             <button type="submit" class="btn-submit">Send message &rarr;</button>
           </form>
           <div class="form-success" id="formSuccess">Thank you! I'll be in touch.</div>
-          <div style="height:96px;" aria-hidden="true"></div>
+        </div>
+        </div>
+        <aside class="contact-proof">
+          <blockquote>&ldquo;The tricks, communicating the right way and setting up projects now save me a great deal of time, and that also keeps my workflows clean.&rdquo;</blockquote>
+          <p class="cp-name">Deniz Yava&scaron;<span>Maschinenfabrik ALBERT GmbH</span></p>
+        </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="jump-v" aria-label="Getting started together">
+      <div class="container jump-wrap">
+        <h2>Let&rsquo;s jump into the world of AI together.</h2>
+        <video class="jump-video" controls playsinline muted loop autoplay preload="metadata" poster="../images/personal/ki-angebot-poster.jpg">
+          <source src="../images/personal/ki-angebot.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <section class="slide hr-faq" id="fragen">
+      <div class="container slide-content">
+        <div class="section-header"><p class="section-label">For HR and management</p><h2>Frequently asked questions</h2></div>
+        <div class="faq-list">
+          <details><summary>Who is the training for?</summary><p>For teams in companies in Austria and Germany, from beginners to advanced users. There are also open seminars for individual employees, and one-to-one training.</p></details>
+          <details><summary>Which AI tools does the training use?</summary><p>The tool your team uses: Microsoft 365 Copilot, ChatGPT, Claude or Gemini.</p></details>
+          <details><summary>Is there training for specific departments?</summary><p>Yes. Content and exercises are tailored to the department, for example HR, sales, marketing or admin.</p></details>
+          <details><summary>How many people per training?</summary><p>Ideally 8 to 12 people, which leaves time to guide each person on their own task. That said, we agree the exact group size with you.</p></details>
+          <details><summary>How long does a training day last?</summary><p>As a rule, one hands-on day. Two half-days are also possible.</p></details>
+          <details><summary>Does the training take place on site or online?</summary><p>At your premises or live online.</p></details>
+          <details><summary>What does a hands-on day cost?</summary><p>That depends on format, duration and location. After a short intro call, you will receive a written proposal.</p></details>
+          <details><summary>What is the learning page?</summary><p>Every training has its own learning page with all the exercises and prompts ready to copy, with core tasks for everyone and bonus tasks for the fast finishers. Participants work in split screen: the learning page on the left, the AI tool on the right.</p></details>
+          <details><summary>May my employees use real data?</summary><p>Yes, if your data is in a secure environment. Then we work directly with your data on your computers. There is also a simple rule for what may and may not go into the AI, which your team applies in daily work afterwards.</p></details>
+          <details><summary>Do participants get a certificate of attendance?</summary><p>Yes. Everyone receives a certificate of attendance covering data protection and the EU AI Act. This lets you document AI literacy under Art.&nbsp;4.</p></details>
+          <details><summary>What does the EU AI Act require of companies?</summary><p>Since 2 February 2025, Article 4 has required companies that use AI to ensure their employees have a sufficient level of AI literacy.</p></details>
+          <details><summary>Who is Jakub Popluhar?</summary><p>AI trainer in Vienna. Qualified secondary-school teacher (M.Ed., TU München and LMU München), third-generation teacher, AI trainer at ARS, tecTrain and BFI.</p></details>
         </div>
       </div>
     </section>
@@ -2657,8 +3065,8 @@
         <a href="https://www.linkedin.com/in/jakubpopluhar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
       <ul class="footer-links">
-        <li><a href="../impressum.html">Impressum</a></li>
-        <li><a href="../datenschutz.html">Datenschutz</a></li>
+        <li><a href="../impressum.html">Legal notice</a></li>
+        <li><a href="../datenschutz.html">Privacy policy</a></li>
       </ul>
       <p class="footer-copy">&copy; 2026 Jakub Popluhar</p>
     </div>
@@ -2899,11 +3307,11 @@
               contactForm.style.display = 'none';
               document.getElementById('formSuccess').style.display = 'block';
             } else {
-              btn.textContent = 'Error - please try again';
+              btn.textContent = 'Error, please try again';
               btn.disabled = false;
             }
           } catch {
-            btn.textContent = 'Error - please try again';
+            btn.textContent = 'Error, please try again';
             btn.disabled = false;
           }
         });
@@ -2938,5 +3346,6 @@
   });
 })();
 </script>
+
 </body>
 </html>

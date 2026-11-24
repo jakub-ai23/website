@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI training for your department · Jakub Popluhar</title>
-<meta name="description" content="AI training for HR, sales, marketing and office assistants: a hands-on day with Copilot, ChatGPT, Claude or Gemini, with a certificate covering the EU AI Act.">
+<meta name="description" content="AI training for HR, sales, marketing and admin: a hands-on day with Copilot, ChatGPT, Claude or Gemini, with a certificate of attendance covering the EU AI Act.">
 <link rel="canonical" href="https://jakubpopluhar.com/en/trainings/">
 <link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/trainings/">
 <link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/trainings/">
 <link rel="alternate" hreflang="sk" href="https://jakubpopluhar.com/sk/trainings/">
 <link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/trainings/">
 <meta property="og:title" content="AI training for your department · Jakub Popluhar">
-<meta property="og:description" content="AI training for HR, sales, marketing and office assistants: one hands-on day with Copilot, ChatGPT, Claude or Gemini, in German or English, with a certificate of attendance covering EU AI Act Art. 4.">
+<meta property="og:description" content="AI training for HR, sales, marketing and admin: a hands-on day with Copilot, ChatGPT, Claude or Gemini, in German or English, with a certificate of attendance covering EU AI Act Art. 4.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://jakubpopluhar.com/en/trainings/">
@@ -78,7 +78,7 @@
   @media (max-width: 760px) { .ladder { grid-template-columns: 1fr; } }
   .rung { position: relative; border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; background: rgba(20,20,20,0.55); }
   .rung.here { border-color: rgba(212,160,23,0.55); background: rgba(212,160,23,0.07); }
-  .rung .rung-title{font-family:var(--font-heading);font-size:1rem;font-weight:700;margin:0 0 .35rem;color:var(--ink)}
+  .rung h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
   .rung p { font-size: 0.86rem; color: #cfccc3; margin: 0 0 0.7rem; }
   .rung a { font-size: 0.82rem; font-weight: 600; text-decoration: none; }
   /* Marke sitzt in der Ecke, damit alle drei Ueberschriften auf einer Linie bleiben */
@@ -539,14 +539,6 @@
   /* UK- und US-Flagge beim Hinweis auf Englisch (Inline-SVG, Emoji-Flaggen zeigt Windows als Buchstaben) */
   .en-flags { display: inline-flex; gap: 5px; vertical-align: -2px; margin-right: 8px; }
   .en-flags .flag { width: 22px; height: 15px; display: block; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,0.25); }
-
-  /* Flaggen UK + US hinter Hinweisen auf Englisch (Inline-SVG, Groesse wie im Umschalter) */
-  .flags-en { display: inline-flex; gap: 6px; vertical-align: middle; margin-left: 0.5rem; }
-  .flags-en .flag { width: 22px; height: 15px; display: block; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25); }
-  /* Sprachmarke an Links, die auf eine deutsche Seite fuehren (wie auf der Startseite) */
-  .lang-flag { display: inline-block; font-family: var(--font-heading); font-size: 0.6rem; font-weight: 700;
-    letter-spacing: 1px; padding: 1px 5px; border-radius: 4px; vertical-align: middle;
-    border: 1px solid rgba(212, 160, 23, 0.45); color: var(--gold); background: rgba(212, 160, 23, 0.08); }
   /* Tap-Ziele mind. 24px (WCAG 2.2 AA), Review 26.10. */
   .train-card details.more summary, .faq summary, .t-orig summary { min-height: 24px; display: flex; align-items: center; }
   .faq summary { display: block; padding-top: 2px; padding-bottom: 2px; }
@@ -573,14 +565,14 @@
           <li class="nav-drop" data-nav-drop>
             <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Services <span class="caret"></span></button>
             <ul class="nav-drop-menu">
-              <li><a href="/en/ki-personal-training/">One-on-one coaching<small>One person, your own real tasks</small></a></li>
-              <li><a href="/en/trainings/">In-house training<small>Your team, one hands-on day at your organisation</small></a></li>
-              <li><a href="/en/termine/">Open seminars<small>Scheduled seminars with my partners</small></a></li>
+              <li><a href="/en/ki-personal-training/">One-to-one coaching<small>Just you, on your own real tasks</small></a></li>
+              <li><a href="/en/trainings/">In-house training<small>Your team, one hands-on day at your premises</small></a></li>
+              <li><a href="/en/termine/">Public courses<small>Open seminars with my partners</small></a></li>
             </ul>
           </li>
           <li><a href="/en/blog/">Blog</a></li>
           <li><a href="/en/#about">About</a></li>
-          <li><a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Book Call</a></li>
+          <li><a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Intro call</a></li>
         </ul>
         <div class="nav-lang" aria-label="Language"><button class="nav-lang-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Change language"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg><span class="nav-lang-arrow"></span></button><div class="nav-lang-menu"><a href="/trainings/" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg></a><a href="/en/trainings/" class="active" aria-current="page" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></a><a href="/sk/trainings/" title="Slovenčina" aria-label="Slovenčina"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#fff"/><rect y="2" width="9" height="4" fill="#0B4EA2"/><rect y="4" width="9" height="2" fill="#EE1C25"/><path d="M1.9,1.25 h2.6 v2.2 c0,1.05 -1.3,1.6 -1.3,1.6 s-1.3,-0.55 -1.3,-1.6 z" fill="#EE1C25" stroke="#fff" stroke-width="0.26"/><path d="M3.05,1.75 h0.3 v0.5 h0.6 v0.32 h-0.6 v0.55 h0.78 v0.32 h-0.78 v0.9 h-0.3 v-0.9 h-0.78 v-0.32 h0.78 v-0.55 h-0.6 v-0.32 h0.6 z" fill="#fff"/></svg></a></div></div>
         <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -596,7 +588,7 @@
     <div class="hero-badge">Training for your team · at your premises or live online</div>
     <h1 class="hero-title">AI training for your department</h1>
     <p class="hero-lede">
-      One hands-on day for HR, sales, marketing or office assistants, using the tool your organisation uses: Microsoft 365 Copilot, ChatGPT, Claude or Gemini.
+      A hands-on day for HR, sales, marketing or admin, with the tool your organisation already works with: Microsoft 365 Copilot, ChatGPT, Claude or Gemini.
       The next morning your team applies what it practised to its own tasks.
     </p>
     <ul class="hero-facts">
@@ -607,7 +599,7 @@
     <p class="hero-note">* The ideal group size for hands-on training. Naturally, we agree the exact group size with you.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Book an intro call →</a>
-      <a class="btn btn-ghost" href="#kontakt">Write a short message about what you need ↓</a>
+      <a class="btn btn-ghost" href="#kontakt">Tell me briefly what you need ↓</a>
     </div>
   </div>
 </header>
@@ -618,7 +610,7 @@
       <div class="rung here">
         <span class="here-label">You are here</span>
         <p class="rung-title">Training for your team</p>
-        <p>One hands-on day for your team, content and tool matched to your department, with its own learning page.</p>
+        <p>A hands-on day for your team, content and tool matched to your department, with its own learning page.</p>
         <a href="#abteilungen">Training by department ↓</a>
       </div>
       <div class="rung">
@@ -641,7 +633,7 @@
       <div class="eyebrow">Training by department</div>
       <h2>Which training suits your team?</h2>
       <p>Every training has the same solid core: making reliable requests to the AI, staying on top of data protection, building your own AI helpers. It is then tailored to your department, your examples and your tool.</p>
-      <p class="note">All trainings available in German or English.<span class="flags-en" aria-hidden="true"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg><svg class="flag" viewBox="0 0 19 10" role="img" aria-hidden="true" focusable="false"><rect width="19" height="10" fill="#fff"/><rect y="0.0" width="19" height="0.77" fill="#B22234"/><rect y="1.538" width="19" height="0.77" fill="#B22234"/><rect y="3.077" width="19" height="0.77" fill="#B22234"/><rect y="4.615" width="19" height="0.77" fill="#B22234"/><rect y="6.154" width="19" height="0.77" fill="#B22234"/><rect y="7.692" width="19" height="0.77" fill="#B22234"/><rect y="9.231" width="19" height="0.77" fill="#B22234"/><rect width="7.6" height="5.385" fill="#3C3B6E"/></svg></span></p>
+      <p class="note"><span class="en-flags"><svg class="flag" viewBox="0 0 60 30" role="img" aria-label="United Kingdom" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg><svg class="flag" viewBox="0 0 19 10" role="img" aria-label="United States" focusable="false"><rect width="19" height="10" fill="#fff"/><rect y="0.000" width="19" height="0.769" fill="#B22234"/><rect y="1.538" width="19" height="0.769" fill="#B22234"/><rect y="3.077" width="19" height="0.769" fill="#B22234"/><rect y="4.615" width="19" height="0.769" fill="#B22234"/><rect y="6.154" width="19" height="0.769" fill="#B22234"/><rect y="7.692" width="19" height="0.769" fill="#B22234"/><rect y="9.231" width="19" height="0.769" fill="#B22234"/><rect width="7.6" height="5.385" fill="#3C3B6E"/></svg></span>All trainings available in German or English.</p>
     </div>
 
     <div class="train-grid">
@@ -651,7 +643,7 @@
         <div class="learn-label">You will learn</div>
         <ul class="learn"><li>Reliable requests to the AI with the CITE(R) framework</li><li>Build your own AI helpers with NotebookLM and Custom GPTs</li><li>Data protection: the three-second rule for what may go into the AI</li></ul>
         <details class="more"><summary>Learn more</summary>
-          <p class="train-for">How a language model works and where its limits are. By the end of the training, everyone has their own prompts and an AI helper they have built themselves.</p><p class="train-for">With ChatGPT, Claude, Gemini or Copilot. One hands-on day or two half-days.</p>
+          <p class="train-for">How a language model works and where its limits are. By the end of the training, everyone has their own prompts and an AI helper they have built themselves.</p><p class="train-for">With ChatGPT, Claude, Gemini or Copilot. A hands-on day or two half-days.</p>
           <a class="btn btn-ghost" href="/en/trainings/ki-am-schreibtisch/">Full training description →</a>
         </details>
       </article>
@@ -661,7 +653,7 @@
         <div class="learn-label">You will learn</div>
         <ul class="learn"><li>Copilot directly in Word, Excel, Outlook and Teams</li><li>Check documents with Copilot</li><li>Where Copilot is reliable and where you need to double-check</li></ul>
         <details class="more"><summary>Learn more</summary>
-          <p class="train-for">For organisations with Microsoft 365 Copilot, even if the licences are only just being rolled out. One hands-on day.</p>
+          <p class="train-for">For organisations with Microsoft 365 Copilot, even if the licences are only just being rolled out. A hands-on day.</p>
           <a class="btn btn-ghost" href="/en/trainings/copilot/">Full training description →</a>
         </details>
       </article>
@@ -669,9 +661,9 @@
         <div class="train-tag">Sales</div>
         <h3>AI in sales</h3>
         <div class="learn-label">You will learn</div>
-        <ul class="learn"><li>Prepare customer documents and prospect profiles with AI</li><li>Draft and check introductory letters to new customers</li><li>Set up projects so the AI knows your documents</li></ul>
+        <ul class="learn"><li>Prepare customer documents and sales brochures with AI</li><li>Draft and check letters to new customers</li><li>Set up projects so the AI knows your documents</li></ul>
         <details class="more"><summary>Learn more</summary>
-          <p class="train-for">Practised on your own sales documents. One hands-on day, in a team or individually.</p>
+          <p class="train-for">Practised on your own sales documents. A hands-on day, in a team or individually.</p>
         </details>
       </article>
       <article class="train-card">
@@ -700,6 +692,7 @@
         <ul class="learn"><li>The four barriers that stop a purchase, and the five motivators</li><li>Use AI so that frameworks such as SLAY are applied consistently in every text</li><li>Generate hook variants with AI and test them</li></ul>
         <details class="more"><summary>Learn more</summary>
           <p class="train-for">Grounded in science: consumer psychology and behavioural economics. AI amplifies what you put into it: good psychology gets better, bad psychology gets more expensive.</p><p class="train-for">For marketing, communications and sales. One day, with an optional second day to go deeper.</p>
+          <a class="btn btn-ghost" href="/en/trainings/konsumentenpsychologie/">Full training description →</a>
         </details>
       </article>
       <article class="train-card">
@@ -727,7 +720,7 @@
       <div><b>People make the decisions</b>The AI prepares, your team checks and decides. This is practised in every exercise.</div>
       <div><b>Certificate of attendance</b>Each person receives a certificate covering data protection and EU AI Act Article&nbsp;4.</div>
     </div>
-    <p class="more-line">Executives, office assistants or a department not listed here? The training is tailored to your organisation, so <a href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">just get in touch</a>.</p>
+    <p class="more-line">Managers, assistants or a department not listed here? The training is tailored to your organisation, so <a href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">just get in touch</a>.</p>
   </div>
 </section>
 
@@ -750,12 +743,12 @@
       </div>
       <div class="why-item">
         <div class="big">700+</div>
-        <h3>hours of my own AI practice</h3>
+        <h3>hours of my own practice</h3>
         <p>Active work with AI agents since February 2026, on 9 out of 10 days. I teach what I use myself.</p>
       </div>
       <div class="why-item">
         <h3>Beginners and experts in one group</h3>
-        <p>Qualified secondary-school teacher (M.Ed., TU München and LMU München), third-generation teacher. Every learning page has core tasks for everyone and bonus tasks for those who finish early.</p>
+        <p>Qualified secondary-school teacher (M.Ed., TU München and LMU München), third-generation teacher. Every learning page has core tasks for everyone and bonus tasks for the fast finishers.</p>
       </div>
       <div class="why-item">
         <h3>Tailored, not off the peg</h3>
@@ -792,7 +785,7 @@
           <li><h3>Intro call</h3><p>We discuss where AI should help in your organisation and what impact you expect from it.</p></li>
           <li><h3>Proposal</h3><p>You then receive a written proposal.</p></li>
           <li><h3>Preparation</h3><p>I build the exercises and the learning page around the tasks of your department and the tool your organisation uses.</p></li>
-          <li><h3>Training</h3><p>Your team works on a split screen: on the left the learning page with all exercises and prompts to copy, on the right the AI tool. Core tasks for everyone, bonus tasks for those who finish early.</p></li>
+          <li><h3>Training</h3><p>Your team works in split screen: on the left the learning page with all exercises and prompts to copy, on the right the AI tool. Core tasks for everyone, bonus tasks for the fast finishers.</p></li>
           <li><h3>Follow-up</h3><p>After the training I keep supporting you, with e-learning and exercises, so that what your team has learned sticks in everyday work.</p></li>
         </ol>
       </div>
@@ -813,14 +806,14 @@
     <div class="faq">
       <details><summary>Which training suits my team?</summary><p>We work that out in the intro call. As a rule of thumb: if people do not work much with AI yet, start with “AI at your desk” or the training for your own tool. HR, sales and marketing get a training with examples from their department.</p></details>
       <details><summary>We have Copilot. Do we still need ChatGPT?</summary><p>No. We train with the tool your team uses: Microsoft 365 Copilot, ChatGPT, Claude or Gemini.</p></details>
-      <details><summary>My people are at very different levels. Does that work in one group?</summary><p>Yes. Every learning page has core tasks for everyone, with prompts to copy, and bonus tasks for those who finish early. Nobody waits, nobody is left behind.</p></details>
+      <details><summary>My people are at very different levels. Does that work in one group?</summary><p>Yes. Every learning page has core tasks for everyone, with prompts to copy, and bonus tasks for the fast finishers. Nobody waits, nobody is left behind.</p></details>
       <details><summary>How many people per training?</summary><p>Ideally 8 to 12 people, which leaves time to guide each person on their own task. That said, we agree the exact group size with you.</p></details>
-      <details><summary>How long does a training last?</summary><p>As a rule, one hands-on day. Two half-days are also possible.</p></details>
-      <details><summary>What does a training cost?</summary><p>That depends on format, duration and location. After a short intro call, you will receive a written proposal.</p></details>
+      <details><summary>How long does a training day last?</summary><p>As a rule, one hands-on day. Two half-days are also possible.</p></details>
+      <details><summary>What does the training cost?</summary><p>That depends on format, duration and location. After a short intro call, you will receive a written proposal.</p></details>
       <details><summary>May my employees use real data?</summary><p>Yes, if your data is in a secure environment. Then we work directly with your data on your computers. There is also a simple rule for what may and may not go into the AI, which your team applies in daily work afterwards.</p></details>
       <details><summary>Do participants get a certificate for the EU AI Act?</summary><p>Yes. Each person receives a certificate of attendance covering data protection and the EU AI Act. This lets you document AI literacy under Article&nbsp;4, which has applied since 2 February 2025.</p></details>
       <details><summary>Does the training take place on site or online?</summary><p>At your premises or live online.</p></details>
-      <details><summary>Which languages are the trainings held in?</summary><p>Every training is available in German or in English.<span class="flags-en" aria-hidden="true"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg><svg class="flag" viewBox="0 0 19 10" role="img" aria-hidden="true" focusable="false"><rect width="19" height="10" fill="#fff"/><rect y="0.0" width="19" height="0.77" fill="#B22234"/><rect y="1.538" width="19" height="0.77" fill="#B22234"/><rect y="3.077" width="19" height="0.77" fill="#B22234"/><rect y="4.615" width="19" height="0.77" fill="#B22234"/><rect y="6.154" width="19" height="0.77" fill="#B22234"/><rect y="7.692" width="19" height="0.77" fill="#B22234"/><rect y="9.231" width="19" height="0.77" fill="#B22234"/><rect width="7.6" height="5.385" fill="#3C3B6E"/></svg></span></p></details>
+      <details><summary>Is the training available in English?</summary><p><span class="en-flags"><svg class="flag" viewBox="0 0 60 30" role="img" aria-label="United Kingdom" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg><svg class="flag" viewBox="0 0 19 10" role="img" aria-label="United States" focusable="false"><rect width="19" height="10" fill="#fff"/><rect y="0.000" width="19" height="0.769" fill="#B22234"/><rect y="1.538" width="19" height="0.769" fill="#B22234"/><rect y="3.077" width="19" height="0.769" fill="#B22234"/><rect y="4.615" width="19" height="0.769" fill="#B22234"/><rect y="6.154" width="19" height="0.769" fill="#B22234"/><rect y="7.692" width="19" height="0.769" fill="#B22234"/><rect y="9.231" width="19" height="0.769" fill="#B22234"/><rect width="7.6" height="5.385" fill="#3C3B6E"/></svg></span>Yes. Every training is available in German or in English.</p></details>
     </div>
   </div>
 </section>
@@ -868,62 +861,96 @@
   <div class="container">
     <div class="script">Jakub Popluhar</div>
     AI Trainer &amp; Consultant &nbsp;·&nbsp; <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br>
-    <a href="/en/#about">About</a> &nbsp;·&nbsp; <a href="/en/termine/">Dates</a> &nbsp;·&nbsp; <a href="/impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="/datenschutz.html">Datenschutz</a>
+    <a href="/en/#about">About</a> &nbsp;·&nbsp; <a href="/en/termine/">Dates</a> &nbsp;·&nbsp; <a href="/impressum.html">Legal notice</a> &nbsp;·&nbsp; <a href="/datenschutz.html">Privacy policy</a>
   </div>
 </footer>
 
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "AI training for your department",
+ "serviceType": "AI training for companies",
+ "description": "Hands-on day for HR, sales, marketing and admin with Microsoft 365 Copilot, ChatGPT, Claude or Gemini, in German or English, with a certificate of attendance covering EU AI Act Art. 4.",
+ "url": "https://jakubpopluhar.com/trainings/",
+ "provider": {
+  "@type": "Person",
+  "name": "Jakub Popluhar",
+  "jobTitle": "AI trainer & consultant",
+  "url": "https://jakubpopluhar.com/"
+ },
+ "areaServed": [
+  {
+   "@type": "Country",
+   "name": "AT"
+  },
+  {
+   "@type": "Country",
+   "name": "DE"
+  },
+  {
+   "@type": "Country",
+   "name": "SK"
+  }
+ ],
+ "availableLanguage": [
+  "de",
+  "en"
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
  "@type": "ItemList",
- "name": "AI trainings for companies by Jakub Popluhar",
+ "name": "AI training for companies by Jakub Popluhar",
  "itemListElement": [
   {
    "@type": "ListItem",
    "position": 1,
-   "url": "https://jakubpopluhar.com/en/trainings/ki-am-schreibtisch/",
+   "url": "https://jakubpopluhar.com/trainings/ki-am-schreibtisch/",
    "name": "AI at your desk"
   },
   {
    "@type": "ListItem",
    "position": 2,
-   "url": "https://jakubpopluhar.com/en/trainings/copilot/",
+   "url": "https://jakubpopluhar.com/trainings/copilot/",
    "name": "Copilot in everyday work"
   },
   {
    "@type": "ListItem",
    "position": 3,
-   "url": "https://jakubpopluhar.com/en/trainings/",
+   "url": "https://jakubpopluhar.com/trainings/",
    "name": "ChatGPT, Claude or Gemini"
   },
   {
    "@type": "ListItem",
    "position": 4,
-   "url": "https://jakubpopluhar.com/en/trainings/",
+   "url": "https://jakubpopluhar.com/trainings/",
    "name": "AI champions for your organisation"
   },
   {
    "@type": "ListItem",
    "position": 5,
-   "url": "https://jakubpopluhar.com/en/trainings/hr-kurs/",
+   "url": "https://jakubpopluhar.com/trainings/hr-kurs/",
    "name": "AI in everyday HR work"
   },
   {
    "@type": "ListItem",
    "position": 6,
-   "url": "https://jakubpopluhar.com/en/trainings/",
+   "url": "https://jakubpopluhar.com/trainings/",
    "name": "AI in sales"
   },
   {
    "@type": "ListItem",
    "position": 7,
-   "url": "https://jakubpopluhar.com/en/trainings/konsumentenpsychologie/",
+   "url": "https://jakubpopluhar.com/trainings/konsumentenpsychologie/",
    "name": "AI in marketing"
   },
   {
    "@type": "ListItem",
    "position": 8,
-   "url": "https://jakubpopluhar.com/en/trainings/",
+   "url": "https://jakubpopluhar.com/trainings/",
    "name": "AI workflows and your own helpers"
   }
  ]
@@ -955,7 +982,7 @@
    "name": "My people are at very different levels. Does that work in one group?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Yes. Every learning page has core tasks for everyone, with prompts to copy, and bonus tasks for those who finish early. Nobody waits, nobody is left behind."
+    "text": "Yes. Every learning page has core tasks for everyone, with prompts to copy, and bonus tasks for the fast finishers. Nobody waits, nobody is left behind."
    }
   },
   {
@@ -968,7 +995,7 @@
   },
   {
    "@type": "Question",
-   "name": "How long does a training last?",
+   "name": "How long does a training day last?",
    "acceptedAnswer": {
     "@type": "Answer",
     "text": "As a rule, one hands-on day. Two half-days are also possible."
@@ -976,7 +1003,7 @@
   },
   {
    "@type": "Question",
-   "name": "What does a training cost?",
+   "name": "What does the training cost?",
    "acceptedAnswer": {
     "@type": "Answer",
     "text": "That depends on format, duration and location. After a short intro call, you will receive a written proposal."
@@ -1008,46 +1035,12 @@
   },
   {
    "@type": "Question",
-   "name": "Which languages are the trainings held in?",
+   "name": "Is the training available in English?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Every training is available in German or in English."
+    "text": "Yes. Every training is available in German or in English."
    }
   }
- ]
-}
-</script>
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "Service",
- "name": "AI training for companies",
- "serviceType": "AI training",
- "description": "In-house AI training for HR, sales, marketing and office assistants: one hands-on day with Microsoft 365 Copilot, ChatGPT, Claude or Gemini, in German or English, with a certificate of attendance covering EU AI Act Art. 4.",
- "url": "https://jakubpopluhar.com/en/trainings/",
- "provider": {
-  "@type": "Person",
-  "name": "Jakub Popluhar",
-  "url": "https://jakubpopluhar.com/",
-  "jobTitle": "AI Trainer & Consultant"
- },
- "areaServed": [
-  {
-   "@type": "Country",
-   "name": "Austria"
-  },
-  {
-   "@type": "Country",
-   "name": "Germany"
-  },
-  {
-   "@type": "Country",
-   "name": "Slovakia"
-  }
- ],
- "availableLanguage": [
-  "de",
-  "en"
  ]
 }
 </script>
@@ -1147,7 +1140,7 @@
       var set = function (n, v) { var el = f.querySelector('[name="' + n + '"]'); if (el && typeof v === 'string') el.value = v; };
       set('name', a.n); set('email', a.e); set('company', a.c); set('message', a.m);
       if (a.i) set('interest', a.i);
-      set('_subject', 'Correction: Request training page (EN)');
+      set('_subject', 'Correction: enquiry from training page (EN)');
       var hint = document.getElementById('editHint'); if (hint) hint.hidden = false;
       history.replaceState(null, '', location.pathname + '#kontakt');
       setTimeout(function () { document.getElementById('kontakt').scrollIntoView(); }, 50);

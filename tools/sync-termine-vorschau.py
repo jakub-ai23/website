@@ -34,6 +34,10 @@ SHORT = {
     "AI fundamentals and practical applications with ChatGPT": "AI fundamentals with ChatGPT",
     "Consumer psychology in the age of artificial intelligence": "Consumer psychology and AI",
     "Using Claude in a data-compliant way at work": "Using Claude in a data-compliant way",
+    # EN-Titel nach dem Lektorat 2026-11-24
+    "Programme: Artificial intelligence for everyday office work": "Programme: AI for everyday office work",
+    "Artificial intelligence for everyday office work": "AI for everyday office work",
+    "Using Claude in a privacy-compliant way at work": "Using Claude in a privacy-compliant way",
 }
 # Kurze Zusatzhinweise wandern in die Vorschau, lange Beschreibungen nicht.
 NOTE_MAX = 40

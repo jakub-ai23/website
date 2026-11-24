@@ -69,6 +69,11 @@ PERSON = {
     "sameAs": SAMEAS,
 }
 
+def person(lang):
+    """PERSON with the job title in the page language (EN pages must not carry German)."""
+    return dict(PERSON, jobTitle="AI Trainer") if lang == "en" else PERSON
+
+
 WARNINGS = []  # collected lint warnings, printed at end (non-fatal)
 
 # Kategorien (1 pro Post). Reihenfolge = Reihenfolge der Cluster im Index.
@@ -551,11 +556,11 @@ NAV_TEXT = {
         "de_title": "Deutsch", "en_title": "English",
     },
     "en": {
-        "services": "Services", "blog": "Blog", "about": "About", "cta": "Book Call",
+        "services": "Services", "blog": "Blog", "about": "About", "cta": "Intro call",
         "items": [
-            ("/en/ki-personal-training/", "One-on-one coaching", "One person, your own real tasks"),
-            ("/en/trainings/", "In-house training", "Your team, one hands-on day at your organisation"),
-            ("/en/termine/", "Open seminars", "Scheduled seminars with my partners"),
+            ("/en/ki-personal-training/", "One-to-one coaching", "Just you, on your own real tasks"),
+            ("/en/trainings/", "In-house training", "Your team, one hands-on day at your premises"),
+            ("/en/termine/", "Public courses", "Open seminars with my partners"),
         ],
         "lang_aria": "Language", "lang_btn": "Change language",
         "de_title": "Deutsch", "en_title": "English",
@@ -857,7 +862,7 @@ def render_index(lang, posts):
         lang=lang, title=s["index_title"],
         description=clamp_description(s["index_desc"], lang, "blog index"),
         ogtitle=s["index_h1"], ogtype="website", canonical=canonical, ogimage=DEFAULT_OG,
-        head_extra=hreflang_links("", "") + "\n" + jsonld(PERSON),
+        head_extra=hreflang_links("", "") + "\n" + jsonld(person(lang)),
         nav=nav_html(s, s["other_lang_href_index"]),
         content=content, footer=footer_html(s), scripts="",
     )
@@ -890,7 +895,7 @@ def render_category(lang, cat, posts):
         lang=lang, title=page_title(f"{label} - Blog"), description=cat['desc_'+lang],
         ogtitle=label, ogtype="website", canonical=canonical, ogimage=DEFAULT_OG,
         head_extra=(hreflang_links(f"{cat['slug']}/", f"{cat_slug(cat, 'en')}/")
-                    + "\n" + jsonld(PERSON) + "\n" + jsonld(breadcrumb)),
+                    + "\n" + jsonld(person(lang)) + "\n" + jsonld(breadcrumb)),
         nav=nav_html(s, other_lang_category(lang, cat)),
         content=content, footer=footer_html(s), scripts="",
     )
@@ -1034,7 +1039,7 @@ def render_article(lang, p):
         "datePublished": p["date"],
         "dateModified": p["date"],
         "image": jsonld_image,
-        "author": PERSON,
+        "author": person(lang),
         "publisher": {"@type": "Person", "name": "Jakub Popluhar", "url": "https://jakubpopluhar.com/"},
         "mainEntityOfPage": canonical,
         "inLanguage": lang,

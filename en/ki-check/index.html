@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI check · Where do you stand with AI? Jakub Popluhar</title>
-<meta name="description" content="An honest two-minute self-test: twelve questions on language models, prompting, everyday use and safety. You get the answer to every question at the end.">
+<title>AI Check · Where do you stand with AI? Jakub Popluhar</title>
+<meta name="description" content="An honest two-minute self-test: twelve questions on language models, prompting, everyday use and security. At the end you get the answer to every question.">
 <link rel="canonical" href="https://jakubpopluhar.com/en/ki-check/">
 <link rel="alternate" hreflang="de" href="https://jakubpopluhar.com/ki-check/">
 <link rel="alternate" hreflang="en" href="https://jakubpopluhar.com/en/ki-check/">
 <link rel="alternate" hreflang="x-default" href="https://jakubpopluhar.com/ki-check/">
-<meta property="og:title" content="AI check · Where do you stand with AI?">
-<meta property="og:description" content="Twelve questions, two minutes, an honest answer to every one. Not an exam.">
+<meta property="og:title" content="AI Check · Where do you stand with AI?">
+<meta property="og:description" content="Twelve questions, two minutes, an honest answer to every question. Not an exam.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://jakubpopluhar.com/en/ki-check/">
@@ -347,7 +347,19 @@
       .nav-right, .site-nav { align-items: center; }
       .nav-lang, .lang-switch { order: -1; margin-right: 6px; }
     }
-  </style>
+  
+/* --- Trainingssprachen (Sprach-Chips, 2026-08-18) --- */
+.langbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:22px 0 4px}
+.langbar .lead{font-family:var(--font-heading,inherit);font-size:13px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted,#9a978e);font-weight:600;margin-right:6px}
+.langbar .chip{display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--border,rgba(212,160,23,0.18));
+  border-radius:999px;padding:8px 15px;background:rgba(212,160,23,0.05)}
+.langbar .chip .name{font-family:var(--font-heading,inherit);font-weight:600;font-size:14px}
+.langbar .chip .flags{font-size:15px;letter-spacing:2px;line-height:1}
+.langbar .chip .hint{color:var(--muted,#9a978e);font-size:12px;font-weight:400}
+@media(max-width:520px){.langbar{gap:8px}.langbar .chip{padding:7px 12px}}
+</style>
 </head>
 <body>
 
@@ -359,15 +371,15 @@
     <div class="nav-drop" data-nav-drop>
       <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-haspopup="true">Services <span class="caret"></span></button>
       <ul class="nav-drop-menu">
-        <li><a href="/en/ki-personal-training/">One-on-one coaching<small>One person, your own real tasks</small></a></li>
-        <li><a href="/en/trainings/">In-house training<small>Your team, one hands-on day at your organisation</small></a></li>
-        <li><a href="/en/termine/">Open seminars<small>Scheduled seminars with my partners</small></a></li>
+        <li><a href="/en/ki-personal-training/">One-to-one coaching<small>Just you, on your own real tasks</small></a></li>
+        <li><a href="/en/trainings/">In-house training<small>Your team, one hands-on day at your premises</small></a></li>
+        <li><a href="/en/termine/">Public courses<small>Open seminars with my partners</small></a></li>
       </ul>
     </div>
     <a href="/en/#proof">Results</a>
     <a href="/en/blog/">Blog</a>
     <a href="/en/#about">About</a>
-    <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Book Call</a>
+    <a href="https://cal.eu/jakubpopluhar/erstgespraech" class="nav-cta" target="_blank" rel="noopener">Book a call</a>
   </nav>
     <div class="nav-lang" aria-label="Language"><button class="nav-lang-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Change language"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg><span class="nav-lang-arrow"></span></button><div class="nav-lang-menu"><a href="/ki-check/" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg></a><a href="/en/ki-check/" class="active" aria-current="page" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></a></div></div>
     <button class="nav-toggle" id="siteNavToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="siteNavLinks">
@@ -419,12 +431,13 @@
   </script>
 
 
-
 <div class="page">
   <div class="quiz-head">
-    <div class="eyebrow">AI check · two minutes</div>
-    <h1>Find out where you actually stand with AI.</h1>
-    <p class="meta">Twelve questions on language models, prompting, everyday use and safety. Not an exam, and "I don't know" is a perfectly legitimate answer. At the end you get the answer to every question, including the ones you got right.</p>
+    <div class="eyebrow">AI Check · two minutes</div>
+    <h1>Find out where you really stand with AI.</h1>
+    <p class="meta">Twelve questions on language models, prompting, everyday use and security. Not an exam, and “I don't know” is a perfectly legitimate answer. At the end you get the answer to every question, including the ones you got right.</p>
+
+
   </div>
 
 <div id="survey">
@@ -437,18 +450,18 @@
       </div>
     </div>
 
-    <!-- ===== STEP 1: TEASER (free value: up to 2 answers revealed, NO score) — right after the quiz ===== -->
+    <!-- ===== SCHRITT 1: TEASER (Gratis-Wert: bis zu 2 Auflösungen, KEIN Score) — direkt nach dem Quiz ===== -->
     <div id="teaser" class="hidden">
       <h2 id="resTitle">Done.</h2>
       <p class="lead" id="resLead"></p>
       <ul class="misslist" id="misslist"></ul>
     </div>
 
-    <!-- ===== STEP 2: GATE (score + remaining answers in exchange for email) — right below the teaser ===== -->
+    <!-- ===== SCHRITT 2: GATE (Score + restliche Auflösungen + Tipps gegen E-Mail) — direkt unter dem Teaser ===== -->
     <div id="gate" class="hidden">
       <form class="leadform" id="leadform" novalidate>
-        <div class="sub" style="margin-bottom:2px">Score and the remaining answers: by email.</div>
-        <h3 style="margin-bottom:16px">Where should we send them?</h3>
+        <div class="sub" style="margin-bottom:2px">Your score and the remaining answers: by email.</div>
+        <h3 style="margin-bottom:16px">Where shall I send it?</h3>
         <div class="frow">
           <div class="field"><label>First name</label><input type="text" name="vorname" autocomplete="given-name"></div>
           <div class="field"><label>Last name</label><input type="text" name="nachname" autocomplete="family-name"></div>
@@ -458,14 +471,14 @@
         <div class="field"><label>Phone <span class="opt-tag">(optional)</span></label><input type="tel" name="telefon" autocomplete="tel" inputmode="tel"></div>
         <label class="consent">
           <input type="checkbox" name="consent">
-          <span>I would like to receive my score by email and future emails from Jakub Popluhar and REAL TEAM, s.r.o. about AI topics and offers. I can unsubscribe at any time. The <a href="/datenschutz.html" target="_blank" rel="noopener">privacy policy</a> applies.</span>
+          <span>I would like to receive my score by email, and future emails from Jakub Popluhar and REAL TEAM, s.r.o. about AI topics and offers. I can unsubscribe at any time. The <a href="/datenschutz.html" target="_blank" rel="noopener">privacy policy</a> applies.</span>
         </label>
-        <p class="formerr" id="formerr">Please fill in first name, last name and email, and confirm your consent.</p>
+        <p class="formerr" id="formerr">Please fill in your first name, last name and email, and confirm your consent.</p>
         <button type="submit" class="btn btn-wide" id="sendBtn">Send my score</button>
       </form>
     </div>
 
-    <!-- ===== STEP 3: DONE (confirmation + mini-CTA) — after submitting ===== -->
+    <!-- ===== SCHRITT 3: DONE (Bestätigung + Mini-CTA) — nach dem Absenden ===== -->
     <div id="done" class="hidden">
       <div class="bomb">
         <b>Done. Your score is on its way.</b>
@@ -474,46 +487,46 @@
 
       <div class="cta-mini">
         <span>Don't want to wait?</span>
-        <a class="btn-mini" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Book a 15-minute discovery call</a>
+        <a class="btn-mini" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Book an intro call</a>
       </div>
     </div>
 
-      <p class="disclaimer">The check is for orientation, not certification. Questions: <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a></p>
+      <p class="disclaimer">The check is for orientation, not certification. Questions about it: <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a></p>
 </div>
 
 <footer>
   <div class="container">
     <div class="script">Jakub Popluhar</div>
     AI Trainer &amp; Consultant &nbsp;·&nbsp; <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a><br>
-    <a href="/en/termine/">Dates</a> &nbsp;·&nbsp; <a href="/impressum.html">Imprint</a> &nbsp;·&nbsp; <a href="/datenschutz.html">Privacy</a>
+    <a href="/en/#about">About</a> &nbsp;·&nbsp; <a href="/en/termine/">Dates</a> &nbsp;·&nbsp; <a href="/impressum.html">Legal notice</a> &nbsp;·&nbsp; <a href="/datenschutz.html">Privacy policy</a>
   </div>
 </footer>
 
 <script>
 (function(){
-  // Questions without the correct answer (the proxy scores and returns the result).
-  var THEMES={basics:'What is AI?',reden:'Talking to AI',alltag:'AI in practice',sicherheit:'AI and security'};
+  // Fragen ohne richtige Antwort (der Proxy wertet aus und liefert das Ergebnis zurück).
+  var THEMES={basics:'What is AI?',reden:'Talking to AI',alltag:'AI in everyday work',sicherheit:'AI and security'};
   var Q=[
-    {id:'q1',theme:'basics',q:'What is an AI assistant?',choices:['A ready-made program that uses a language model to answer your questions and write texts','A robot that walks around the office','A search engine like Google','I don\'t know']},
-    {id:'q2',theme:'basics',q:'What is an AI agent?',choices:['An AI assistant that also plans steps itself, uses tools (calendar, mail) and completes a task for you','A person who operates the AI','A virus on the computer','I don\'t know']},
-    {id:'q3',theme:'basics',q:'What is the difference between an AI assistant and an AI agent?',choices:['The assistant answers, the agent acts on its own and uses tools','There is none, it is the same thing','The agent is simply more expensive','I don\'t know']},
-    {id:'q4',theme:'reden',q:'What is a system prompt?',choices:['Fixed rules you give the model for the whole conversation, e.g. role, tone and language','The very first question you ask in the chat','A technical term for an especially long prompt','I don\'t know']},
-    {id:'q5',theme:'reden',q:'AI almost always agrees with you, even when you are wrong (sycophancy). How can you change that?',choices:['Tell it clearly to be honest and push back, ideally as a fixed rule (system prompt)','You can\'t, that is just how it is','Just ask more politely','I don\'t know']},
-    {id:'q6',theme:'reden',q:'When do you get a better answer from AI?',choices:['When you say exactly what you want and add an example','When you ask as briefly as possible','When you write the same thing several times','I don\'t know']},
-    {id:'q7',theme:'alltag',q:'In ChatGPT or Gemini you can often choose: fast or “thinking” (Thinking/Pro). When do you use the thinking model?',choices:['For difficult, important tasks','Never, it only wastes time','Only for very simple questions','I didn\'t know that existed']},
-    {id:'q8',theme:'alltag',q:'Haiku, Sonnet and Opus, what are they?',choices:['Three differently sized models of the same family (Claude)','Three different companies','Three different apps','I don\'t know']},
-    {id:'q9',theme:'alltag',q:'You want the AI to work from the same documents of yours (e.g. your handbook) again and again, across many conversations. What is the best way?',choices:['Put the documents once into a project (knowledge base), then the AI draws on them in every conversation','Upload the documents fresh into every single chat window','Copy the content into the question every time','I don\'t know']},
-    {id:'q10',theme:'sicherheit',q:'An AI agent can send mails and delete things itself. What is smart?',choices:['Give it only few rights and approve important steps yourself','Allow it everything, then it is faster','Rights don\'t matter, the AI makes no mistakes','I don\'t know']},
-    {id:'q11',theme:'sicherheit',q:'Can you just enter applicants\' data into any AI tool?',choices:['No, first check where the data goes and who sees it','Yes, as long as the answer is good in the end','Yes, AI tools are always secure','I don\'t know']},
-    {id:'q12',theme:'sicherheit',q:'AI that pre-sorts applications: how does the EU see this?',choices:['As especially sensitive (high-risk), with strict rules','As completely normal, like any app','As completely banned','I don\'t know']}
+    {id:'q1',theme:'basics',q:'What is an AI assistant (such as the standard ChatGPT or Claude)?',choices:['A ready-made program that uses a language model to answer your questions and write texts','A digital database that stores every fact on the internet without a single error','A program that carries out tasks on your PC on its own, without any input from you','I don\'t know']},
+    {id:'q2',theme:'basics',q:'What is an AI agent?',choices:['An AI assistant that also plans intermediate steps itself, uses tools and completes a more complex task for you','A term for a premium subscription with a language model provider','An in-house IT employee who writes the prompts for senior management','I don\'t know']},
+    {id:'q3',theme:'basics',q:'What is the key difference between an AI assistant and an AI agent?',choices:['The assistant always waits for your input and answers; the agent plans steps on its own and acts using tools','There is no real difference, they are just two marketing terms for the same software','The assistant can only write texts, while the agent is used exclusively for programming software','I don\'t know']},
+    {id:'q4',theme:'reden',q:'What is a system prompt?',choices:['Fixed rules you give the model for the whole conversation, e.g. role, tone and language','The very first question you ask in the chat','A technical term for a particularly long prompt','I don\'t know']},
+    {id:'q5',theme:'reden',q:'The language model almost always agrees with you and tries to please, even when you are demonstrably wrong (sycophancy). How do you change that?',choices:['By giving the model a clear rule in the prompt: “Be critical and contradict me when I am wrong”','It cannot be changed technically, because language models are programmed never to contradict you','By simply phrasing the instruction especially politely and with “could” and “would”','I don\'t know']},
+    {id:'q6',theme:'reden',q:'When do you get the most precise and useful answer from a language model?',choices:['When I give the AI a clear role, the goal, an example and the format I want','When I keep the instruction as short and vague as possible, so the model has maximum freedom','When I simply copy the same short instruction into the chat three times in a row','I don\'t know']},
+    {id:'q7',theme:'alltag',q:'In ChatGPT or Gemini you can often choose between a standard model and a thinking model (“Thinking” / “Reasoning” / “Pro”). When do you switch on the thinking model?',choices:['For complex tasks with several steps (e.g. checking logic or drafting a strategy)','For simple yes/no questions or quick translations, to save time','Only when the normal standard model is unavailable because it is overloaded','I didn\'t know there was a difference']},
+    {id:'q8',theme:'alltag',q:'Haiku, Sonnet and Opus: what do these terms mean in the context of AI?',choices:['Three models of different size and strength within the same model family (Claude)','Three competing software companies from Europe that develop their own AI','New add-on modules that you have to activate in Microsoft Copilot','I don\'t know']},
+    {id:'q9',theme:'alltag',q:'You want a language model to work from your own documents on a permanent basis (e.g. a 100-page handbook). What is the best way?',choices:['Upload the documents once to a “project” set up for this, so the model can access them with every new question','Manually copy the relevant passages and paste them into the chat window again with every question','Print out the document and type up the most important paragraphs for the model','I don\'t know']},
+    {id:'q10',theme:'sicherheit',q:'An AI agent is allowed to send emails, delete data or make bookings for you. Which security principle is sensible here?',choices:['Give the agent only the minimum permissions it needs and always have critical steps approved by a human','Allow the agent full system access, because otherwise it is held back and cannot work flexibly','Permissions do not matter, because modern agents no longer make mistakes thanks to their programming','I don\'t know']},
+    {id:'q11',theme:'sicherheit',q:'Are you allowed to simply enter personal data (e.g. application documents or customer files) into any online AI tool?',choices:['No, you first need to clarify where the data ends up, whether it is used for training and whether the company has approved the tool','Yes, as long as the tool is well known and popular worldwide (like the standard web version of ChatGPT)','Yes, as long as I only use the data for a quick analysis and close the chat window straight afterwards','I don\'t know']},
+    {id:'q12',theme:'sicherheit',q:'You use AI to automatically pre-sort and assess incoming job applications in your company. How does the EU AI Act (the European AI law) classify this use?',choices:['As a high-risk application with strict obligations around documentation, transparency and human oversight','As a completely harmless everyday application, since it only serves to save time internally','As a technology that is banned outright and may not be used in Europe under any circumstances','I don\'t know']}
   ];
   var TOTAL=Q.length;
-  // Shuffle the answer options (avoid position bias). Only the real options are shuffled;
-  // "I don't know" (last option) stays at the bottom. value stays the original index,
-  // so the proxy scores unchanged. Once per question -> stable when navigating back.
+  // Antwort-Optionen mischen (Position-Bias vermeiden). Nur die echten Optionen mischen,
+  // "Ich weiß es nicht" (letzte Option) bleibt unten. value bleibt der Original-Index,
+  // daher wertet der Proxy unveraendert korrekt aus. Einmal pro Frage -> stabil beim Zurueckblaettern.
   function shuffle(n){var a=[];for(var i=0;i<n;i++)a.push(i);for(var i=n-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
   Q.forEach(function(item){var last=item.choices.length-1;var ord=shuffle(last);ord.push(last);item.order=ord;});
-  // group into 4 rounds of 3 (order = theme order in the array)
+  // in 4 Runden zu je 3 gruppieren (Reihenfolge = Themen-Reihenfolge im Array)
   var ROUNDS=[];
   for(var i=0;i<TOTAL;i+=3) ROUNDS.push(Q.slice(i,i+3));
   var answers={};
@@ -533,7 +546,7 @@
 
   function renderRound(){
     var items=ROUNDS[round];
-    roundlabel.textContent='Round '+(round+1)+' of '+ROUNDS.length+' · '+THEMES[items[0].theme];
+    roundlabel.textContent='Runde '+(round+1)+' von '+ROUNDS.length+' · '+THEMES[items[0].theme];
     host.innerHTML='';
     items.forEach(function(item,i){
       var num=round*3+i+1;
@@ -549,7 +562,7 @@
       host.appendChild(wrap);
     });
     updateProg();
-    nextBtn.textContent=(round===ROUNDS.length-1)?'Continue to result':'Next';
+    nextBtn.textContent=(round===ROUNDS.length-1)?'See my result':'Next';
     nextBtn.disabled=!roundComplete(round);
     backBtn.classList.toggle('hidden',round===0);
     window.scrollTo({top:0,behavior:'smooth'});
@@ -568,7 +581,7 @@
   nextBtn.addEventListener('click',function(){
     if(!roundComplete(round))return;
     if(round<ROUNDS.length-1){round++;renderRound();}
-    else{ // last round done -> score server-side (no email), show teaser + gate
+    else{ // letzte Runde fertig -> serverseitig scoren (ohne E-Mail), Teaser + Gate zeigen
       document.getElementById('survey').classList.add('hidden');
       loadTeaser();
     }
@@ -579,7 +592,7 @@
 
   var BREVO_ENDPOINT='https://deflifeos.popluhar.at/api/brevo-jp/subscribe';
 
-  // Step 1: after the quiz, score only (NO email, no contact) -> show up to 2 answers as free value.
+  // Schritt 1: nach dem Quiz nur scoren (KEINE E-Mail, kein Kontakt) -> 2 Auflösungen als Gratis-Wert zeigen.
   async function loadTeaser(){
     try{
       var res=await fetch(BREVO_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},
@@ -588,7 +601,7 @@
       if(!res.ok||!data.ok||!data.result) throw new Error('score');
       renderTeaser(data.result);
       document.getElementById('teaser').classList.remove('hidden');
-    }catch(ex){ /* cannot score -> straight to the gate, result comes by email */ }
+    }catch(ex){ /* kann nicht scoren -> ohne Teaser direkt aufs Gate, Ergebnis kommt per Mail */ }
     document.getElementById('gate').classList.remove('hidden');
     window.scrollTo({top:0,behavior:'smooth'});
   }
@@ -599,12 +612,12 @@
     var lead=document.getElementById('resLead');
     if(r.all_right){
       document.getElementById('resTitle').textContent='Well done, all correct.';
-      lead.style.display='';lead.textContent='Your score comes by email.';
+      lead.style.display='';lead.textContent='Your score is on its way by email.';
     }else{
       var n=teaser.length;
       document.getElementById('resTitle').textContent=(n===1)
-        ? 'Well done. One detail:'
-        : 'Well done. Two details:';
+        ? 'Well done. Just one finer point:'
+        : 'Well done. Just two finer points:';
       lead.style.display='none';
       teaser.forEach(function(w){
         var li=document.createElement('li');
@@ -618,7 +631,7 @@
     }
   }
 
-  // Step 2: submit email -> proxy saves the contact (List 13) + sends the result mail. Then the done screen.
+  // Schritt 2: E-Mail absenden -> Proxy speichert Kontakt (Liste 13) + schickt die Ergebnis-Mail. Dann Danke-Screen.
   document.getElementById('leadform').addEventListener('submit',async function(e){
     e.preventDefault();
     var f=e.target,err=document.getElementById('formerr'),btn=document.getElementById('sendBtn');
@@ -635,7 +648,7 @@
       document.getElementById('done').classList.remove('hidden');
       window.scrollTo({top:0,behavior:'smooth'});
     }catch(ex){
-      err.textContent='That did not work. Please write to info@hill-digital.at.';
+      err.textContent='Sorry, that did not work. Please write to info@hill-digital.at.';
       err.style.display='block';
     }finally{btn.disabled=false;}
   });
@@ -643,7 +656,6 @@
 </script>
 <!-- Analytics-Beacon: NICHT entfernen, sonst ist die Seite ungetrackt. -->
 <script src="/assets/js/site.js" defer></script>
-
 <script>
 /* Sprachumschalter: aufklappen, per Klick daneben und Escape wieder zu. */
 (function () {

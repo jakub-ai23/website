@@ -168,7 +168,19 @@
       .nav-right, .site-nav { align-items: center; }
       .nav-lang, .lang-switch { order: -1; margin-right: 6px; }
     }
-  </style>
+  
+/* --- Trainingssprachen (Sprach-Chips, 2026-08-18) --- */
+.langbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:22px 0 4px}
+.langbar .lead{font-family:var(--font-heading,inherit);font-size:13px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted,#9a978e);font-weight:600;margin-right:6px}
+.langbar .chip{display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--border,rgba(212,160,23,0.18));
+  border-radius:999px;padding:8px 15px;background:rgba(212,160,23,0.05)}
+.langbar .chip .name{font-family:var(--font-heading,inherit);font-weight:600;font-size:14px}
+.langbar .chip .flags{font-size:15px;letter-spacing:2px;line-height:1}
+.langbar .chip .hint{color:var(--muted,#9a978e);font-size:12px;font-weight:400}
+@media(max-width:520px){.langbar{gap:8px}.langbar .chip{padding:7px 12px}}
+</style>
 </head>
 <body>
 
@@ -185,17 +197,26 @@
         <a class="back-link" href="/en/trainings/">&larr; All trainings</a>
         <span class="lang-switch" aria-label="Language"><button class="nav-lang-btn" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Change language"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg><span class="nav-lang-arrow"></span></button><div class="nav-lang-menu"><a href="/trainings/ki-am-schreibtisch/" title="Deutsch" aria-label="Deutsch"><svg class="flag" viewBox="0 0 9 6" role="img" aria-hidden="true" focusable="false"><rect width="9" height="6" fill="#ED2939"/><rect y="2" width="9" height="2" fill="#fff"/></svg></a><a href="/en/trainings/ki-am-schreibtisch/" class="active" aria-current="page" title="English" aria-label="English"><svg class="flag" viewBox="0 0 60 30" role="img" aria-hidden="true" focusable="false"><rect width="60" height="30" fill="#012169"/><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30 M60,0 0,30" stroke="#C8102E" stroke-width="3"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></a></div></span>
       </div>
-      <span class="hero-badge">Training offer · Jakub Popluhar</span>
-      <h1 class="hero-title">AI at your desk<br>Asking AI properly, AI helpers that actually help</h1>
-      <p class="hero-sub">A training day that brings together AI foundations, safe prompting and your own AI helpers for emails, documents, spreadsheets and research. Hands-on, usable straight away, with or without prior knowledge.</p>
+      <span class="hero-badge">Training course · Jakub Popluhar</span>
+      <h1 class="hero-title">AI at your desk<br>Asking AI the right way, AI helpers that actually help</h1>
+      <p class="hero-sub">A training day that brings together AI foundations, safe prompting and your own AI helpers for emails, texts, spreadsheets and research. Practical, usable straight away, with or without prior knowledge.</p>
       <div class="hero-meta">
         <strong>Trainer:</strong> Jakub Popluhar, M.Ed. &nbsp;·&nbsp;
-        <strong>Format:</strong> On site, full day (morning + afternoon) &nbsp;·&nbsp;
+        <strong>Format:</strong> In person, full day (morning + afternoon) &nbsp;·&nbsp;
         <strong>Topics:</strong> AI foundations, prompting, data protection, your own AI assistants
       </div>
+
+<div class="langbar" aria-label="Training languages">
+  <span class="lead">Training languages</span>
+  <span class="chip"><span class="flags" aria-hidden="true">🇦🇹🇩🇪🇨🇭</span><span class="name">Deutsch</span></span>
+  <span class="chip"><span class="flags" aria-hidden="true">🇬🇧🇺🇸</span><span class="name">English</span></span>
+  <span class="chip"><span class="flags" aria-hidden="true">🇸🇰</span><span class="name">Sloven&#269;ina</span></span>
+  <span class="chip"><span class="flags" aria-hidden="true">🇨🇿</span><span class="name">&#268;e&#353;tina</span><span class="hint">on request</span></span>
+</div>
+
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Book an intro call →</a>
-        <a class="btn" href="/trainings/ki-am-schreibtisch/KI-am-Schreibtisch-Jakub-Popluhar.pdf" download>Download as PDF (German) ↓</a>
+        <a class="btn" href="../../../trainings/ki-am-schreibtisch/KI-am-Schreibtisch-Jakub-Popluhar.pdf" download>Download as PDF (German) ↓</a>
       </div>
     </div>
   </header>
@@ -203,9 +224,9 @@
   <section>
     <div class="container">
       <h2>Why this training?</h2>
-      <p>Most staff have long been using artificial intelligence. Only rarely properly. They treat a high-powered thinking tool like a better search engine, enter sensitive data into uncontrolled tools, and trust results that sound convincing but can be wrong.</p>
-      <p>The result is three quiet costs: productivity given away, unexamined data protection risks, and a growing uncertainty about what is and is not allowed when working with AI.</p>
-      <p>This training day puts the two together: the morning builds the foundation, how AI really works and how to produce reliable, checkable results, the afternoon builds your own AI helpers for recurring office tasks, with legally sound handling of data.</p>
+      <p>Most employees already use artificial intelligence. Few of them use it well. They treat a highly capable thinking tool like a better search engine, enter sensitive data into uncontrolled tools and trust results that sound convincing but may be wrong.</p>
+      <p>The result is three hidden costs: lost productivity, unchecked data protection risks and growing uncertainty about what is and is not allowed when working with AI.</p>
+      <p>This training day brings both together: in the morning the foundation (how AI really works and how to produce reliable, checkable results), in the afternoon your own AI helpers for recurring office tasks, with legally sound handling of data.</p>
     </div>
   </section>
 
@@ -216,12 +237,12 @@
         <div class="format-card">
           <div class="tag">Morning</div>
           <h3>Part 1, AI foundations and prompting</h3>
-          <p>How a language model really works, spotting the usual failures such as hallucinations, the CITE(R) framework for reliable prompts, shadow AI, and the three-second rule for names, figures and strategies before you send anything.</p>
+          <p>How a language model really works, spotting typical errors such as hallucinations, the CITE(R) framework for reliable prompts, shadow AI and the three-second rule for names, figures and strategies before you send anything.</p>
         </div>
         <div class="format-card">
           <div class="tag">Afternoon</div>
           <h3>Part 2, your own AI helpers</h3>
-          <p>Modeling of Excellence and prompt layering for complex tasks, building your own AI assistants with NotebookLM and Custom GPTs, GDPR and the EU AI Act translated into plain terms, Zero Trust against deepfakes and CEO fraud.</p>
+          <p>Modeling of Excellence and prompt layering for complex tasks, building your own AI assistants with NotebookLM and Custom GPTs, GDPR and the EU AI Act explained in plain terms, zero trust against deepfakes and CEO fraud.</p>
         </div>
       </div>
       <div class="pill-list">
@@ -236,19 +257,19 @@
 
   <section>
     <div class="container">
-      <h2>What do participants learn?</h2>
+      <h2>What will participants learn?</h2>
       <ul>
-        <li>You understand how AI works, and you see through the usual failures such as hallucinations and sycophancy, the model simply agreeing with you.</li>
+        <li>You understand how AI works and can see through typical errors such as hallucinations and the model agreeing with you too readily.</li>
         <li>You use the CITE(R) framework to write prompts that deliver reliable, usable results.</li>
         <li>You build your own AI assistants with NotebookLM and Custom GPTs for recurring office tasks.</li>
-        <li>You solve complex tasks step by step with prompt layering instead of mediocrity at the push of a button.</li>
-        <li>You know the data protection foundations, the three-second rule and the key requirements of the EU AI Act.</li>
-        <li>You recognise manipulation and forgery, from deepfakes to CEO fraud, and you know how to protect yourself.</li>
+        <li>You solve complex tasks step by step with prompt layering instead of settling for mediocre results at the push of a button.</li>
+        <li>You know the data protection basics, the three-second rule and the key requirements of the EU AI Act.</li>
+        <li>You recognise manipulation and forgery, from deepfakes to CEO fraud, and know how to protect yourself.</li>
       </ul>
       <h3>Who is this training for?</h3>
       <ul>
-        <li>Working professionals who want to use AI tools safely and productively in everyday work.</li>
-        <li>Staff from a range of specialist areas and departments.</li>
+        <li>Working professionals who want to use AI tools safely and productively in their everyday work.</li>
+        <li>Employees from a range of departments and specialist areas.</li>
         <li>People who want to make processes more efficient and better structured.</li>
       </ul>
     </div>
@@ -261,7 +282,7 @@
         <img src="/images/profile/headshot.png" alt="Jakub Popluhar">
         <div>
           <h3>Jakub Popluhar, M.Ed.</h3>
-          <p>AI trainer and implementation consultant focused on artificial intelligence and consumer psychology. State-certified secondary school teacher of English and PE (Bavaria). Jakub combines the craft of teaching with hands-on experience in AI implementation, and gets complex technology down to the point where it works in the office on Monday.</p>
+          <p>AI trainer and implementation consultant focused on artificial intelligence and consumer psychology. State-certified secondary-school teacher of English and PE (Bavaria). Jakub combines the craft of teaching with hands-on experience in AI implementation, and explains complex technology so clearly that it works in the office on Monday.</p>
         </div>
       </div>
     </div>
@@ -271,16 +292,16 @@
     <div class="container">
       <h2>Frequently asked questions</h2>
       <details>
-        <summary>Do I need prior knowledge for the training?</summary>
+        <summary>Do I need any prior knowledge for the training?</summary>
         <p>No. The training is designed for participants with and without prior AI knowledge. Everyone starts at their own level.</p>
       </details>
       <details>
         <summary>Which AI tools are covered?</summary>
-        <p>The methods are tool-independent and work with the common assistants such as ChatGPT, Claude or Gemini. The free versions are enough for all the content.</p>
+        <p>The methods are not tied to one tool and work with common assistants such as ChatGPT, Claude or Gemini. The free versions are enough for all the content.</p>
       </details>
       <details>
-        <summary>Is the training built to be data protection compliant and legally sound?</summary>
-        <p>Yes. Data protection foundations and the key requirements of the EU AI Act are a fixed part of it.</p>
+        <summary>Is the training compliant with data protection law and legally sound?</summary>
+        <p>Yes. Data protection basics and the key requirements of the EU AI Act are built in.</p>
       </details>
       <details>
         <summary>Can the training be booked as in-house training?</summary>
@@ -291,8 +312,8 @@
 
   <section class="cta-band">
     <div class="container">
-      <h2>Twenty minutes in which you have to buy nothing.</h2>
-      <p>In the intro call we work out whether this training suits your organisation. If another format fits better, I will tell you which one.</p>
+      <h2>Twenty minutes in which you don't have to buy anything.</h2>
+      <p>In the intro call we work out whether this training suits your organisation. If another format suits you better, I will tell you which one.</p>
       <a class="btn btn-primary" href="https://cal.eu/jakubpopluhar/erstgespraech" target="_blank" rel="noopener">Book an intro call →</a>
     </div>
   </section>
@@ -301,7 +322,7 @@
     <div class="container">
       <div class="script">Jakub Popluhar</div>
       <div class="contact">AI Trainer &amp; Consultant &nbsp;·&nbsp; <a href="mailto:jakub@popluhar.at">jakub@popluhar.at</a></div>
-      <div class="legal"><a href="/en/trainings/">All trainings</a> &nbsp;&middot;&nbsp; <a href="/impressum.html">Imprint</a> &nbsp;&middot;&nbsp; <a href="/datenschutz.html">Privacy</a></div>
+      <div class="legal"><a href="/en/trainings/">All trainings</a> &nbsp;&middot;&nbsp; <a href="/impressum.html">Legal notice</a> &nbsp;&middot;&nbsp; <a href="/datenschutz.html">Privacy policy</a></div>
     </div>
   </footer>
 </main>
