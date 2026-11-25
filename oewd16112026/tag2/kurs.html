@@ -1084,7 +1084,7 @@ Höchstens 300 Wörter.</div>
       <h3>Das Haus aus dem Foto</h3>
       <p class="subtitle">Ich gebe Copilot nur die Adresse einer Webseite und bitte um eine Seite in genau diesem Design. Dann gebe ich die Farben als Code. Dann ändere ich eine einzige Farbe.</p>
       <p class="step-label">Schritt 1: Ihr Tipp</p>
-      <div class="quiz"><script type="application/json">{"id": "haus-tipp", "typ": "tipp", "etikett": "Ihr Tipp", "frage": "Copilot hat eine Webseite gebaut. Sie schreiben: „Ändere nur die Farbe der Überschrift. Sonst nichts.“ Was passiert?", "hilfe": "Eine Antwort. Die Auflösung sehen Sie vorne.", "optionen": ["Nur die Überschrift ändert sich", "Copilot baut die ganze Seite neu, und andere Stellen können sich mitändern", "Copilot lehnt ab"], "richtig": ["Copilot baut die ganze Seite neu, und andere Stellen können sich mitändern"], "hinweis": "Der Chat sieht nur das Foto des Hauses, nicht den Bauplan. Also baut er das Haus neu.", "auflösen": "später", "mischen": false, "punkte": 0}</script></div>
+      <div class="quiz"><script type="application/json">{"id": "haus-tipp", "typ": "tipp", "etikett": "Ihr Tipp", "frage": "Copilot hat eine Webseite gebaut. Sie schreiben: „Ändere nur die Farbe der Überschrift. Sonst nichts.“ Was passiert?", "hilfe": "Eine Antwort. Die Auflösung sehen Sie vorne.", "optionen": ["Nur die Überschrift ändert sich", "Copilot baut die ganze Seite neu, und andere Stellen können sich mitändern", "Copilot lehnt ab"], "richtig": ["Nur die Überschrift ändert sich"], "hinweis": "Früher hat der Chat bei jeder Änderung die ganze Seite neu gebaut. Im Training am 17.11. hat Copilot nur die eine Stelle im Code geändert. Die Werkzeuge werden schnell besser: Testen Sie es selbst, bevor Sie es weitersagen.", "auflösen": "später", "mischen": false, "punkte": 0}</script></div>
       <p class="step-label">Schritt 2: Was Sie vorne sehen, und zum Mitmachen (neuer Chat)</p>
       <p>Erst nur die Webseite:</p>
       <div class="prompt-block">Hier ist unsere Webseite: [Adresse der Webseite Ihrer Firma].
@@ -1100,10 +1100,10 @@ Gib mir den vollständigen Code in einem Block.</div>
       <details>
         <summary>Schritt 3: Haus und Chirurg, was es gibt und was nicht (aufklappen)</summary>
         <div class="collapsible-content">
-      <p>Der Chat bekommt nur das Foto des Hauses und baut es bei jeder Änderung neu. Das gilt für Webseiten, PowerPoint und Word aus dem Chat. Cowork arbeitet wie ein Chirurg: Es sieht den Bauplan, also den Code, und schneidet nur an der einen Stelle.</p>
+      <p>Früher bekam der Chat nur das Foto des Hauses und baute es bei jeder Änderung neu. Im Training am 17.11. hat Copilot dagegen nur die eine Stelle im Code geändert. Das ist neu, und es kann sich wieder ändern. Darum: Testen Sie es selbst, bevor Sie es weitersagen. Mit dem dritten Prompt oben und einem Blick auf beide Fassungen dauert das zwei Minuten. Cowork arbeitet wie ein Chirurg: Es sieht den Bauplan, also die Datei, und schneidet nur an der einen Stelle.</p>
       <table class="compare-table">
       <tr><th style="width:50%">Das gibt es im Chat</th><th>Das gibt es im Chat nicht</th></tr>
-      <tr><td>eine HTML-Seite in Ihren Farben bauen</td><td>eine Stelle in einer fertigen Datei ändern, ohne neu zu bauen</td></tr>
+      <tr><td>eine HTML-Seite in Ihren Farben bauen</td><td>die Sicherheit, dass nur eine Stelle geändert wurde: Vergleichen Sie beide Fassungen selbst</td></tr>
       <tr><td>Farben exakt treffen, wenn Sie den Code nennen</td><td>Einträge auf der Seite für andere speichern: Sie bleiben in Ihrem Browser</td></tr>
       <tr><td>eine Regel befolgen, um die Sie bitten</td><td>eine Regel erzwingen: Die Bitte steht im Prompt, erzwingen kann nur eine Vorlage, eine Formel oder ein Prüfschritt</td></tr>
       </table>
@@ -1116,7 +1116,7 @@ Gib mir den vollständigen Code in einem Block.</div>
         <div class="collapsible-content">
       <div class="quiz"><script type="application/json">{"id": "haus-farbe", "typ": "einfach", "etikett": "Frage 1", "frage": "Wie geben Sie Copilot eine Hausfarbe, damit sie exakt stimmt?", "optionen": ["Als Farbcode, zum Beispiel #E30613", "Als Wort, zum Beispiel „ÖWD-Rot“", "Als Screenshot des Logos"], "richtig": "Als Farbcode, zum Beispiel #E30613", "hinweis": "Den Code muss niemand raten. Das Wort schon.", "auflösen": "sofort", "punkte": 1}</script></div>
       <div class="quiz"><script type="application/json">{"id": "haus-browser", "typ": "einfach", "etikett": "Frage 2", "frage": "Sie tragen auf einer HTML-Seite aus dem Chat etwas ein und schicken die Datei einer Kollegin. Was sieht sie?", "optionen": ["Die ursprüngliche Seite, ohne Ihre Einträge", "Ihre Einträge", "Eine Fehlermeldung"], "richtig": "Die ursprüngliche Seite, ohne Ihre Einträge", "hinweis": "Ihre Einträge bleiben in Ihrem Browser. Speichern für alle braucht einen Server dahinter.", "auflösen": "sofort", "punkte": 1}</script></div>
-      <div class="quiz"><script type="application/json">{"id": "haus-chirurg", "typ": "einfach", "etikett": "Frage 3", "frage": "Was macht Cowork anders als der Chat?", "optionen": ["Es sieht den Code und ändert nur die eine Stelle", "Es hat ein klügeres Sprachmodell", "Es baut schneller neu"], "richtig": "Es sieht den Code und ändert nur die eine Stelle", "hinweis": "Nicht die KI ist anders, sondern der Zugriff.", "auflösen": "sofort", "punkte": 1}</script></div>
+      <div class="quiz"><script type="application/json">{"id": "haus-chirurg", "typ": "einfach", "etikett": "Frage 3", "frage": "Früher baute der Chat bei jeder Änderung neu, im Training hat Copilot nur die eine Stelle geändert. Was folgt daraus?", "optionen": ["Selbst testen, bevor ich es weitersage", "Der Chat baut nie mehr neu", "Cowork brauche ich nicht mehr"], "richtig": "Selbst testen, bevor ich es weitersage", "hinweis": "Die Werkzeuge ändern sich schnell. Was letzten Monat stimmte, prüfen Sie heute nach.", "auflösen": "sofort", "punkte": 1}</script></div>
       <div class="quiz"><script type="application/json">{"id": "haus-regel", "typ": "einfach", "etikett": "Frage 4", "frage": "„Rechnungen über 5.000 Euro immer an die Leitung.“ Wohin gehört diese Regel?", "optionen": ["In den Genehmigungsablauf oder eine Vorlage, als feste Regel", "In den Prompt, als Bitte", "In die Personalisierung"], "richtig": "In den Genehmigungsablauf oder eine Vorlage, als feste Regel", "hinweis": "„Immer“ und teuer: Die Bitte bittet, die Regel im Werkzeug erzwingt.", "auflösen": "sofort", "punkte": 2}</script></div>
         </div>
       </details>
@@ -1352,6 +1352,7 @@ Höchstens eine Seite.
 Am Ende jeder Antwort, in einer Zeile:
 Aussagen gesamt: X · mit Fundstelle und Link: Y · nicht gefunden: Z.
 Hat eine Aussage keine Fundstelle, schreib davor in Großbuchstaben OHNE BELEG.</div>
+      <p><strong>Gut zu wissen:</strong> Der Agent nutzt höchstens fünf Quellen, so steht es unter „Grenzen“. Brauchen Sie mehr, schreiben Sie es in den Auftrag, zum Beispiel: „Du darfst bis zu zehn Quellen nutzen.“</p>
         </div>
       </details>
       <details>
@@ -1374,49 +1375,12 @@ Hat eine Aussage keine Fundstelle, schreib davor in Großbuchstaben OHNE BELEG.<
         </div>
       </details>
       <details>
-        <summary>Schritt 6: Profi, der Gegenprüfer (aufklappen)</summary>
-        <div class="collapsible-content">
-      <p>Zweiter Agent „Gegenprüfer“, Anweisungen:</p>
-      <div class="prompt-block">Du bist Gegenprüfer. Ich füge dir das Ergebnis eines Rechercheagenten ein.
-Öffne jede Fundstelle neu und prüfe, ob die Aussage dort steht.
-Gib je Aussage aus: hält / hält nicht / nicht prüfbar, mit einem wörtlichen Zitat von der Seite.
-Erfinde nichts. Was du nicht prüfen kannst, schreibst du als „nicht prüfbar“.</div>
-      <p>Kopieren Sie das Ergebnis des Rechercheagenten hinein. Den Agenten, der die Arbeit verteilt, spielen Sie selbst.</p>
-        </div>
-      </details>
-      <details>
         <summary>In Cowork: der Rechercheagent als Skill (aufklappen)</summary>
         <div class="collapsible-content">
-      <p>In Cowork legen Sie keinen eigenen Agenten an. Cowork ist selbst der Agent und arbeitet mit Skills. Ihr Rechercheagent wird dort ein Skill. Eine eingebaute Tiefenrecherche („Deep Research“) bringt Cowork schon mit.</p>
-      <ol><li>Laden Sie den fertigen Skill: <a class="dl-knopf" href="/oewd16112026/material/Skill-Rechercheagent.zip" download target="_blank" rel="noopener">Skill Rechercheagent (.zip)</a>. Darin liegt eine SKILL.md mit denselben Anweisungen wie in Schritt 2.</li><li>In Cowork links „Customize“, Reiter „Skills“, Pfeil neben „Add“, „Upload skill“, die ZIP wählen.</li><li>Neue Unterhaltung, dann der Auftrag aus Schritt 1. Rechts in der Seitenleiste sehen Sie unter „Skills“, ob er geladen wurde.</li></ol>
-      <p>Dieselbe ZIP passt auch in einen Copilot-Agenten mit Skills: Agent bearbeiten, „Skills“, Pfeil neben „Add“, „Upload“. Cowork ist bei ÖWD freigegeben und wird nach Nutzung abgerechnet.</p>
+      <p>In Cowork wird Ihr Rechercheagent ein Skill: <a class="dl-knopf" href="/oewd16112026/material/Skill-Rechercheagent.zip" download target="_blank" rel="noopener">Skill Rechercheagent (.zip)</a> laden, dann links „Customize“, Reiter „Skills“, Pfeil neben „Add“, „Upload skill“, die ZIP wählen. Neue Unterhaltung, der Auftrag aus Schritt 1. Rechts unter „Skills“ sehen Sie, ob er geladen wurde. Dieselbe ZIP passt auch in einen Copilot-Agenten mit Skills. Cowork ist bei ÖWD freigegeben und wird nach Nutzung abgerechnet.</p>
         </div>
       </details>
-      <details>
-        <summary>Erst danach: Was ist ein Agent? (aufklappen)</summary>
-        <div class="collapsible-content">
-      <p>Stellen Sie sich eine Leihkraft vor. Hochbegabt, liest schneller als wir alle, aber sie kommt jeden Morgen frisch von der Zeitarbeitsfirma und weiß nichts von gestern und nichts von ÖWD. Das ist das Modell hinter Copilot. Gemietet. Was aus ihr eine gute Kollegin macht, ist der Arbeitsplatz, den Sie einrichten.</p>
-      <table class="compare-table">
-      <tr><th style="width:30%">Am Arbeitsplatz</th><th style="width:28%">Beim Agenten</th><th>Was das heißt</th></tr>
-      <tr><td>Die Leihkraft</td><td>Modell</td><td>gemietet, austauschbar, weiß nichts von gestern</td></tr>
-      <tr><td>Stellenbeschreibung</td><td>Anweisungen</td><td>wer sie ist, was sie tut, was sie nie tut</td></tr>
-      <tr><td>Einarbeitungsmappen</td><td>Wissen und Skills</td><td>sie liest die passende Mappe, morgen wieder dieselbe</td></tr>
-      <tr><td>Schlüssel</td><td>Websuche</td><td>was sie anfassen darf</td></tr>
-      <tr><td>Hausordnung</td><td>Grenzen und Freigaben</td><td>wann sie fragt, wann sie aufhört. Unterschreiben tun immer Sie.</td></tr>
-      </table>
-      <p>Ihr Copilot-Agent hat keinen Schlüssel zum Handeln. Er liest, sucht und schreibt Entwürfe. Agenten, die bei Microsoft selbst handeln, baut Ihre IT mit Copilot Studio und Power Automate.</p>
-        </div>
-      </details>
-      <details>
-        <summary>Häufige Fragen zu diesem Block (aufklappen)</summary>
-        <div class="collapsible-content">
-      <p class="step-label">Helfen Seiten, die Prompts verbessern?</p>
-      <p>Sie sind nur eine Oberfläche über ein Sprachmodell und kennen Ihren Kontext nicht. Besser: Ihren eigenen Agenten mit Ihren Regeln bauen.</p>
-      <p class="step-label">Ist meine Lösung richtig, wenn sie anders aussieht?</p>
-      <p>Es gibt kein Richtig oder Falsch. Wichtig ist, dass sie funktioniert und Sie das Ergebnis prüfen.</p>
-        </div>
-      </details>
-      <p class="profispur"><strong>Profispur:</strong> Geben Sie dem Agenten bis zu vier öffentliche Seiten von learn.microsoft.com als Wissen mit und vergleichen Sie das Ergebnis mit dem ersten Lauf.<br><strong>Profispur, schwer:</strong> Legen Sie einen zweiten Agenten „Gegenprüfer“ an und geben Sie ihm das Ergebnis des ersten von Hand weiter (Anweisung in Schritt 6). Sie sind der Orchestrator.</p>
+      <p class="profispur"><strong>Profispur:</strong> Geben Sie dem Agenten bis zu vier öffentliche Seiten von learn.microsoft.com als Wissen mit und vergleichen Sie das Ergebnis mit dem ersten Lauf.<br><strong>Profispur, schwer:</strong> Legen Sie einen zweiten Agenten „Gegenprüfer“ an, Anweisung: „Du bist Gegenprüfer. Ich füge dir das Ergebnis eines Rechercheagenten ein. Öffne jede Fundstelle neu und prüfe, ob die Aussage dort steht. Gib je Aussage aus: hält / hält nicht / nicht prüfbar, mit einem wörtlichen Zitat von der Seite. Erfinde nichts.“ Geben Sie ihm das Ergebnis des ersten von Hand weiter. Sie sind der Orchestrator.</p>
       <p class="fallback"><strong>Ausweg:</strong> Websuche gesperrt? Öffnen Sie drei offizielle Microsoft-Seiten selbst im Browser, fügen Sie den Text ein und schreiben Sie dazu: „Arbeite nur mit den eingefügten Texten.“</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Unter dem Ergebnis steht die Prüfzeile, und Sie haben drei Zitate selbst auf der Originalseite gefunden.</p>
     </div></section>
@@ -1495,6 +1459,7 @@ Höchstens eine Bildschirmseite.</div>
 4. Protokoll: Schreib „0-protokoll“: Was lief nacheinander, was parallel? Welche Werkzeuge hast du benutzt? Was du nicht weißt, schreibst du als „unbekannt“.
 Sende nichts. Alles bleibt Entwurf.</div>
       <p>Die Dateien sehen Sie rechts in der Seitenleiste und in Ihrem OneDrive. Vergleichen Sie mit Ihrem Ergebnis aus Schritt 4: Wo war es mit Ihnen als Teamleitung besser, wo mit Cowork? Cowork ist bei ÖWD freigegeben und wird nach Nutzung abgerechnet.</p>
+      <p><strong>Zur Einordnung:</strong> Das hier ist eine einfache Aufgabe mit zwei Dateien. Cowork und mehrere Agenten lohnen sich erst, wenn die Aufgabe komplexer wird.</p>
         </div>
       </details>
       <details>
@@ -1977,5 +1942,20 @@ starten();
 <script src="quiz/quiz.js"></script>
 <button class="tema-knopf" id="tema-knopf" type="button" aria-label="Hell / dunkel" title="Hell / dunkel">☀</button>
 <script>(function(){var b=document.getElementById('tema-knopf'),h=document.documentElement;function s(){b.textContent=h.classList.contains('hell')?'☾':'☀'}s();b.onclick=function(){var l=h.classList.toggle('hell');s();try{localStorage.setItem('tema',l?'hell':'dunkel')}catch(e){}}})();</script>
+<!-- popup-nach-training 25.11. -->
+<style>#nachfrage{position:fixed;right:24px;bottom:90px;z-index:9999;max-width:340px;background:var(--charcoal,#141414);color:var(--white,#fff);
+border:1px solid var(--gold,#d4a017);border-radius:12px;padding:18px 20px 16px;box-shadow:0 8px 30px rgba(0,0,0,.35);font-size:.95rem;line-height:1.45}
+#nachfrage[hidden]{display:none}#nachfrage strong{display:block;font-size:1.05rem;margin-bottom:6px}
+#nachfrage a.knopf-mail{display:inline-block;margin-top:12px;padding:9px 14px;border-radius:8px;background:var(--gold,#d4a017);color:#141414;font-weight:700;text-decoration:none}
+#nachfrage button{position:absolute;top:6px;right:10px;background:none;border:0;color:inherit;font-size:1.3rem;cursor:pointer;opacity:.7}</style>
+<div id="nachfrage" role="dialog" aria-label="Fragen nach dem Training" hidden>
+<button type="button" aria-label="Schließen">×</button>
+<strong>Fragen zu Copilot?</strong>Schreiben Sie mir direkt. Ich antworte persönlich.<br>
+<a class="knopf-mail" href="mailto:jakub@popluhar.at?subject=Frage%20zum%20Copilot-Training%20%C3%96WD">E-Mail an Jakub schreiben</a></div>
+<script>(function(){var e=document.getElementById('nachfrage');if(!e)return;
+if(Date.now()<Date.parse('2026-11-17T18:00:00+01:00'))return;            // während des Trainings: nichts, Fragen im Raum
+try{if(sessionStorage.getItem('nachfrage-gezeigt'))return;}catch(x){}
+setTimeout(function(){e.hidden=false;try{sessionStorage.setItem('nachfrage-gezeigt','1');}catch(x){}},180000);
+e.querySelector('button').addEventListener('click',function(){e.hidden=true;});})();</script>
 </body>
 </html>
