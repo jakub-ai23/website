@@ -835,6 +835,18 @@ body{margin:0}
 @media (prefers-reduced-motion:no-preference){.willkommen-karte{animation:wk-rein .5s ease-out}@keyframes wk-rein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}
     .profispur { border-left: 3px solid var(--gold); background: rgba(212,160,23,0.05); padding: 10px 14px; border-radius: 0 8px 8px 0; font-size: 0.88rem; margin: 16px 0 6px; }
     .profispur strong { color: var(--gold); }
+
+    /* CITE(R)-Animation und Kasten „eigene Reise“ (Akademie 11.11., als Baustein seit inloop 25.11.2026; Vorlage bausteine/citer.html) */
+    .reise-frei { background: rgba(212,160,23,0.10); border: 1px solid var(--gold); border-radius: 8px; padding: 12px 16px; margin: 14px 0; }
+    .reise-frei p { margin: 0; }
+    .cite-anim { background: var(--charcoal-lighter); border-radius: 10px; padding: 14px 16px; margin: 14px 0; }
+    .ca-zeile { display: flex; gap: 10px; align-items: center; margin: 6px 0; opacity: 0; transform: translateY(6px); animation: caRein 12s infinite; }
+    .ca-b { flex: 0 0 28px; height: 28px; border-radius: 50%; background: var(--gold); color: var(--charcoal); font-family: var(--font-heading); font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .ca-t { background: rgba(var(--ink),0.06); border-radius: 12px; padding: 5px 12px; font-size: 0.85rem; }
+    .ca2 { animation-delay: 1s; } .ca3 { animation-delay: 2s; } .ca4 { animation-delay: 3s; } .ca5 { animation-delay: 4s; }
+    .ca-ergebnis { margin-top: 10px; color: var(--gold); font-size: 0.85rem; font-weight: 600; opacity: 0; animation: caRein 12s infinite; animation-delay: 5s; }
+    @keyframes caRein { 0% { opacity: 0; transform: translateY(6px); } 6% { opacity: 1; transform: none; } 80% { opacity: 1; transform: none; } 88%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .ca-zeile, .ca-ergebnis { animation: none; opacity: 1; transform: none; } }
   </style>
   <link rel="stylesheet" href="quiz/quiz.css">
   <style>
@@ -934,8 +946,9 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
         <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener"><img src="kicheck-qr.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
         <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht?</strong> Das kommt vor. Scanne den QR-Code mit dem Handy, oder <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p>
       </div>
-      <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was du ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was du ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschickst. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
       <iframe id="Form-FORM_KICHECK-1" data-formular="FORM_KICHECK" src="https://form.jotform.com/263225552531048" title="Dein KI-Check" style="width:100%; height:2600px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+            <div class="schon-fertig" style="border:1px solid var(--gold);border-radius:10px;padding:12px 16px;margin:18px 0;"><p class="step-label" style="margin-top:0;">Schon fertig?</p><p>Dann öffne schon dein KI-Werkzeug und schick diesen Prompt. Wir starten gleich gemeinsam.</p><div class="prompt-block">Stell mir drei kurze Fragen, um herauszufinden, wofür ich dich in meinem Verein am meisten brauche. Eine nach der anderen.</div></div>
       <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
 
@@ -1028,7 +1041,7 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
         <div><b>Abgabe</b>Teams-Chat: „Trainingslager fertig“</div>
       </div>
       <p>Ort, Dauer und Team darfst du frei wählen. Die Prompts sind das Gerüst, du füllst es mit deinem eigenen Trainingslager.</p>
-      <p>| Baustein | Frage | |---|---| | C = Kontext | Wie ist die Ausgangssituation? | | I = Ziel | Was genau will ich erreichen? | | T = Aufgabe | Was soll die KI machen? | | E = Ausführung | Format, Ton, Länge | | R = Realität | Stimmt das Ergebnis? Was muss ich prüfen? |</p>
+      <table class="compare-table"><tr><th>Baustein</th><th>Frage</th></tr><tr><td>C = Kontext</td><td>Wie ist die Ausgangssituation?</td></tr><tr><td>I = Ziel</td><td>Was genau will ich erreichen?</td></tr><tr><td>T = Aufgabe</td><td>Was soll die KI machen?</td></tr><tr><td>E = Ausführung</td><td>Format, Ton, Länge</td></tr><tr><td>R = Realität</td><td>Stimmt das Ergebnis? Was muss ich prüfen?</td></tr></table>
       <p class="step-label">Schritt 1 (T = Aufgabe): nur die Aufgabe, neuer Chat</p>
       <div class="prompt-block">Plane mir ein Trainingslager in [Ort].</div>
       <details>
@@ -1061,7 +1074,16 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
       <p>Du hast nichts wiederholt. Den Kontext trägt das Gespräch, die einzelne Nachricht muss nicht alles enthalten.</p>
         </div>
       </details>
-      <p class="profispur"><strong>Stufe 2:</strong> Lass dir den Plan danach als Einladung ans Team schreiben, höchstens 120 Wörter.<br><strong>Stufe 3:</strong> Lass die KI vor dem Plan zuerst drei bis fünf Rückfragen stellen und beantworte sie.</p>
+      <details>
+        <summary>Der R-Satz für jeden Prompt (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Kopier ihn ans Ende jedes Prompts.</p>
+      <div class="prompt-block">Schreibe realistische und konkrete Inhalte, die in einem echten Verein mit einem echten Team tatsächlich verwendet werden können.
+Verzichte auf leere Floskeln, allgemeine Aussagen oder vage Empfehlungen.
+Was du nicht sicher weißt, markierst du als unsicher.</div>
+        </div>
+      </details>
+      <p class="profispur"><strong>Fortgeschritten:</strong> Lass dir den Plan danach als Einladung ans Team schreiben, höchstens 120 Wörter.<br><strong>Profi:</strong> Lass die KI vor dem Plan zuerst drei bis fünf Rückfragen stellen und beantworte sie.</p>
       <p class="fallback"><strong>Ausweg:</strong> ChatGPT geht nicht? Nimm Gemini: gleiche Prompts, gleiches Ergebnis.</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Ein Plan in deinem Format, mit markierten Stellen zum Nachprüfen.</p>
     </div></section>
@@ -1075,20 +1097,21 @@ html.hell svg text[fill^="rgba(255,255,255"]{fill:rgba(0,0,0,.6)}
         <div><b>Abgabe</b>Teams-Chat: erster Satz deiner Antwort</div>
       </div>
       <p>Ich zeige es zuerst am geteilten Bildschirm. Danach probierst du es selbst.</p>
-      <p>| Werkzeug | Wo das Feld ist | |---|---| | ChatGPT | Profilbild → Einstellungen → Personalisierung → „Benutzerdefinierte Anweisungen“ | | Gemini | Einstellungen → „Anweisungen für Gemini“ | | Claude | Initialen unten links → Einstellungen → Feld „Instructions for Claude“ |</p>
-      <p class="step-label">Schritt 1: einen Stil aussuchen und ins Feld kopieren, speichern</p>
+      <p class="step-label">Schritt 1: das Feld finden</p>
+      <table class="compare-table"><tr><th>Werkzeug</th><th>Wo das Feld ist</th></tr><tr><td>ChatGPT</td><td>Profilbild → Einstellungen → Personalisierung → „Benutzerdefinierte Anweisungen“</td></tr><tr><td>Gemini</td><td>Einstellungen → „Anweisungen für Gemini“</td></tr><tr><td>Claude</td><td>Initialen unten links → Einstellungen → Feld „Instructions for Claude“</td></tr></table>
+      <p class="step-label">Schritt 2: einen Stil aussuchen und ins Feld kopieren, speichern</p>
       <div class="prompt-block">Antworte mir ab jetzt immer im Stil eines österreichischen Amtsschreibens: Beamtendeutsch, Hauptwörter statt Verben, lange Schachtelsätze, Wendungen wie „Bezug nehmend auf Ihr Ansuchen“. Der Inhalt soll sachlich stimmen, nur der Ton ist amtlich.</div>
       <div class="prompt-block">Antworte mir ab jetzt immer wie ein Teenager: Jugendsprache, Wörter wie „Digga“, „Bro“, „lowkey“ und „cringe“, kurze Sätze, Emojis erlaubt. Der Inhalt soll sachlich stimmen, nur der Ton ist jung.</div>
       <div class="prompt-block">Antworte mir ab jetzt immer wie ein guter Freund, mit dem ich nach dem Training im Beisl sitze: per Du, locker, ehrlich, mit ein bisschen Schmäh. Der Inhalt soll sachlich stimmen, nur der Ton ist gemütlich.</div>
       <details>
-        <summary>Schritt 2: testen, in einem neuen Chat (aufklappen)</summary>
+        <summary>Schritt 3: testen, in einem neuen Chat (aufklappen)</summary>
         <div class="collapsible-content">
       <div class="prompt-block">Erklär mir, wie ich am besten neue Mitglieder für unseren Verein gewinne.</div>
       <p>Schreib den ersten Satz der Antwort in den Teams-Chat. Gleiche Frage, drei ganz verschiedene Antworten.</p>
         </div>
       </details>
       <details>
-        <summary>Schritt 3: dein guter System-Prompt (erst aufklappen, wenn ich es sage) (aufklappen)</summary>
+        <summary>Schritt 4: dein guter System-Prompt (erst aufklappen, wenn ich es sage) (aufklappen)</summary>
         <div class="collapsible-content">
       <p>Lösch deinen Stil im Feld ganz und setz das hier ein. Die [Klammern] im letzten Absatz füllst du selbst aus.</p>
       <div class="prompt-block">Sag mir lieber „Das weiß ich nicht“, als zu raten. Trenne klar, was du sicher weißt und was du vermutest. Erfinde keine Zahlen, Namen, Zitate oder Quellen.
@@ -1098,7 +1121,7 @@ Ich bin [Funktion] im Verein [Name, Sportart, Ort] und kümmere mich vor allem u
       <p>Speichern, neuen Chat öffnen, dieselbe Testfrage noch einmal stellen. Jetzt klingt es nach deinem Verein.</p>
         </div>
       </details>
-      <p class="profispur"><strong>Stufe 2:</strong> Schreib in den letzten Absatz zusätzlich, wie euer Verein klingt: locker, sachlich oder herzlich.<br><strong>Stufe 3:</strong> Bitte die KI: „Lies meinen System-Prompt und schlag drei Verbesserungen vor.“</p>
+      <p class="profispur"><strong>Fortgeschritten:</strong> Schreib in den letzten Absatz zusätzlich, wie euer Verein klingt: locker, sachlich oder herzlich.<br><strong>Profi:</strong> Bitte die KI: <span class="prompt-block" style="display:block;margin:6px 0;">Lies meinen System-Prompt und schlag drei Verbesserungen vor.</span></p>
       <p class="fallback"><strong>Ausweg:</strong> Feld nicht gefunden? Schick den Text als erste Nachricht in einen neuen Chat. Dann gilt er nur dort.</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Die Testfrage klingt im neuen Chat erst nach deinem Stil, dann nach deinem Verein, obwohl in der Frage nichts davon steht.</p>
     </div></section>
@@ -1148,7 +1171,14 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       <p>Kopieren und speichern.</p>
         </div>
       </details>
-      <p class="profispur"><strong>Stufe 2:</strong> Frag die KI: „Was fehlt in diesem Dokument, das für eine KI wichtig wäre? Schlage 3 Ergänzungen vor.“<br><strong>Stufe 3:</strong> Bau ein drittes Dokument, zum Beispiel über euren Schreibstil oder über Eltern und Sponsoren.</p>
+      <details>
+        <summary>Für jeden Prompt: die KI zuerst fragen lassen (aufklappen)</summary>
+        <div class="collapsible-content">
+      <p>Häng diesen Satz an jeden Auftrag, bei dem die KI deine Lage kennen muss.</p>
+      <div class="prompt-block">Bevor du antwortest: Stelle mir 3 bis 5 gezielte Fragen, um meine Situation besser zu verstehen. Warte mit dem Entwurf, bis ich geantwortet habe.</div>
+        </div>
+      </details>
+      <p class="profispur"><strong>Fortgeschritten:</strong> Frag die KI: <span class="prompt-block" style="display:block;margin:6px 0;">Was fehlt in diesem Dokument, das für eine KI wichtig wäre? Schlage 3 Ergänzungen vor.</span><br><strong>Profi:</strong> Bau ein drittes Dokument, zum Beispiel über euren Schreibstil oder über Eltern und Sponsoren.</p>
       <p class="fallback"><strong>Ausweg:</strong> Keine Websuche möglich? Schreib fünf Stichworte zu deinem Verein und ersetze den ersten Absatz durch: „Hier sind meine Stichworte zu meinem Verein: [Stichworte].“</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Zwei gespeicherte Dokumente, eines über deinen Verein mit Quellen und einem Teil „offen“, eines über deine Rolle.</p>
     </div></section>
@@ -1163,8 +1193,8 @@ Schreibe hinter jede Angabe in Klammern die Quelle. Was du nicht belegen kannst,
       </div>
       <p class="fallback"><strong>Daten:</strong> Lade nur Dokumente hoch, die keine personenbezogenen Daten von Mitgliedern enthalten.</p>
       <p>Ich zeige es zuerst am geteilten Bildschirm. Schau nur zu, noch nichts kopieren. Der System-Prompt aus Übung 2 gilt in jedem Chat. Der Projekt-Prompt gilt nur in diesem einen Projekt.</p>
-      <p>| Ebene | Was dort gilt | |---|---| | In jedem Chat | System-Prompt („Benutzerdefinierte Anweisungen“) | | Nur in diesem Projekt | Projekt-Prompt und deine Dokumente | | Nur in diesem Chat | das laufende Gespräch und deine aktuelle Nachricht |</p>
-      <p>| Werkzeug | So legst du es an | |---|---| | ChatGPT | Links neben „Projekte“ (Projects) aufs Plus, Namen vergeben. Unter „Quellen“ (Sources) die Dokumente hochladen. Das Feld „Anweisungen“ (Instructions) nur finden. | | Gemini | Links „Gems verwalten“, dann „Neuer Gem“. Unter „Wissen“ die Dokumente hinzufügen. | | Claude | „Projekte“, dann „Neues Projekt“. Dokumente ins Projektwissen hochladen. |</p>
+      <table class="compare-table"><tr><th>Ebene</th><th>Was dort gilt</th></tr><tr><td>In jedem Chat</td><td>System-Prompt („Benutzerdefinierte Anweisungen“)</td></tr><tr><td>Nur in diesem Projekt</td><td>Projekt-Prompt und deine Dokumente</td></tr><tr><td>Nur in diesem Chat</td><td>das laufende Gespräch und deine aktuelle Nachricht</td></tr></table>
+      <table class="compare-table"><tr><th>Werkzeug</th><th>So legst du es an</th></tr><tr><td>ChatGPT</td><td>Links neben „Projekte“ (Projects) aufs Plus, Namen vergeben. Unter „Quellen“ (Sources) die Dokumente hochladen. Das Feld „Anweisungen“ (Instructions) nur finden.</td></tr><tr><td>Gemini</td><td>Links „Gems verwalten“, dann „Neuer Gem“. Unter „Wissen“ die Dokumente hinzufügen.</td></tr><tr><td>Claude</td><td>„Projekte“, dann „Neues Projekt“. Dokumente ins Projektwissen hochladen.</td></tr></table>
       <p class="step-label">Schritt 1: Projekt-Prompt kopieren, [Klammern] umschreiben, ins Feld „Anweisungen“, speichern</p>
       <div class="prompt-block">Du bist mein KI-Assistent für [Verein / Funktion].
 Wissensbasis: Berücksichtige immer meine hochgeladenen Dokumente (Verein, Rolle) als festen Kontext.
@@ -1191,7 +1221,7 @@ Teilnehmende: A, B, C
       <p>Prüfpunkt: Steht beim Zuschuss „offen“ und nicht „bewilligt“?</p>
         </div>
       </details>
-      <p class="profispur"><strong>Stufe 2:</strong> Gib dem Projekt die echte Aufgabe unten: Protokoll aus Stichworten.<br><strong>Stufe 3:</strong> Leg ein zweites Projekt an, zum Beispiel nur für Social Media oder für Elternbriefe.</p>
+      <p class="profispur"><strong>Fortgeschritten:</strong> Gib dem Projekt die echte Aufgabe unten: Protokoll aus Stichworten.<br><strong>Profi:</strong> Leg ein zweites Projekt an, zum Beispiel nur für Social Media oder für Elternbriefe.</p>
       <p class="fallback"><strong>Ausweg:</strong> Keine Dokumente aus Übung 3? Schreib fünf Stichworte zu deinem Verein in einen Chat, lass daraus ein kurzes Dokument machen und lade das hoch.</p>
       <p class="pruef">So sieht es aus, wenn es geklappt hat: Auf die Prüffrage nennt die KI Angaben aus deinen Dokumenten und sagt, wo sie stehen.</p>
     </div></section>
@@ -1204,21 +1234,22 @@ Teilnehmende: A, B, C
         <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener"><img src="kicheck-qr.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
         <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht?</strong> Das kommt vor. Scanne den QR-Code mit dem Handy, oder <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p>
       </div>
-      <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was du ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was du ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschickst. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
       <iframe id="Form-FORM_KICHECK-9" data-formular="FORM_KICHECK" src="https://form.jotform.com/263225552531048" title="Dein KI-Check, zweiter Durchgang" style="width:100%; height:2600px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
+            <div class="schon-fertig" style="border:1px solid var(--gold);border-radius:10px;padding:12px 16px;margin:18px 0;"><p class="step-label" style="margin-top:0;">Schon fertig?</p><p>Dann teste dich selbst: Schick deinem KI-Werkzeug diesen Prompt.</p><div class="prompt-block">Ich hatte heute ein KI-Training für Sportvereine. Stell mir eine knifflige Frage zu dem, was man dort lernt, und sag mir danach, ob ich richtig lag.</div></div>
       <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/263225552531048" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
 
     </div></section>
 <section class="lektion" data-id="feedback" data-teil="nm" data-teil-name="Teil 2: Dein Verein im Projekt" hidden><div class="exercise" data-ex="feedback">
       <div class="exercise-number">Feedback</div>
-      <h3>Ihr Feedback</h3>
+      <h3>Dein Feedback</h3>
       <p class="subtitle">Zwei Minuten. Dein Aha-Moment, deine wichtigste Erkenntnis, was ich beim nächsten Mal besser machen soll, und wie hilfreich diese Kursseite war. Name und Verein sind freiwillig, helfen mir aber sehr. Ehrlich hilft mir mehr als nett.</p>
       <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:14px; padding:14px 16px; border:1px solid rgba(212,160,23,0.25); border-radius:10px;">
         <a href="https://form.jotform.com/263225395789068" target="_blank" rel="noopener"><img src="feedback-qr.png" alt="QR-Code zum Formular" width="140" height="140" style="display:block; width:140px; height:140px; border-radius:8px; background:#fff; padding:6px;"></a>
         <p style="margin:0; flex:1; min-width:200px; font-size:0.88rem;"><strong>Formular lädt nicht?</strong> Das kommt vor. Scanne den QR-Code mit dem Handy, oder <a href="https://form.jotform.com/263225395789068" target="_blank" rel="noopener" style="color:var(--gold);">hier in einem neuen Fenster öffnen</a>.</p>
       </div>
-      <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was du ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschicken. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
+      <div class="form-wichtig"><strong>Wichtig:</strong> Gespeichert ist erst, was du ganz <strong>UNTEN IM FORMULAR</strong> mit „Absenden“ abschickst. Der Knopf unten rechts auf dieser Seite („Formular abgeschickt? Dann weiter“) blättert nur weiter und schickt nichts ab. Also: erst absenden, dann weiter.</div>
       <iframe id="Form-FORM_FEEDBACK-10" data-formular="FORM_FEEDBACK" src="https://form.jotform.com/263225395789068" title="Dein Feedback" style="width:100%; height:2200px; min-height:900px; border:0; border-radius:8px; background:#fff; margin-top:8px;" loading="lazy"></iframe>
       <p class="form-wichtig kurz">Nicht vergessen: unten im Formular auf „Absenden“ klicken.</p>
       <p style="color: var(--white-muted); font-size: 0.82rem; margin-top:10px;">Formular lädt nicht? <a href="https://form.jotform.com/263225395789068" target="_blank" rel="noopener" style="color:var(--gold);">Hier in einem neuen Fenster öffnen</a>.</p>
