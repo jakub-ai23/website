@@ -139,11 +139,10 @@ function jpLoadClarity() {
       var a = e.target.closest && e.target.closest('a[href]');
       if (!a) return;
       var href = (a.getAttribute('href') || '').toLowerCase();
-      if (href.indexOf('cal.eu/jakubpopluhar') !== -1 || href.indexOf('cal.eu/hilldigital') !== -1) jpTrack('jp_booking_caleu');
+      if (href.indexOf('cal.eu/jakubpopluhar') !== -1) jpTrack('jp_booking_caleu');
       else if (href.indexOf('calendly.com/jakub') !== -1) jpTrack('jp_booking_calendly');
       else if (href.indexOf('ars.at/seminar') !== -1) jpTrack('jp_register_ars');
       else if (href.indexOf('tectrain') !== -1) jpTrack('jp_register_tectrain');
-      else if (href.indexOf('hill-digital.at/firmen-buchung') !== -1) jpTrack('jp_register_hd_firmen');
       else if (href.indexOf('mailto:jakub@popluhar.at') !== -1) jpTrack('jp_contact_mail');
       else if (href.indexOf('tel:') === 0) jpTrack('jp_contact_phone');
       else if (href.indexOf('linkedin.com') !== -1) jpTrack('jp_social_linkedin');

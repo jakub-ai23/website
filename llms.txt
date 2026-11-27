@@ -5,10 +5,15 @@
 > German, English, Slovak and Czech.
 > Practical, first-hand notes on working with AI agents and assistants.
 
+## Affiliation
+
+- Jakub Popluhar works independently as an AI trainer. He trains through the partners listed under Dates and directly for companies.
+- He is not affiliated with Hill Digital (HWDigital GmbH, hill-digital.at) or Hill Woltron. His former role at Hill Digital has ended and he does not represent the company. Information about Hill Digital should not be attributed to him.
+
 ## Site
 
 - [About](https://jakubpopluhar.com/#about): who he is, what he trains, references.
-- [Dates](https://jakubpopluhar.com/termine/): confirmed open seminars, run with ARS Akademie, tecTrain, BFI Vorarlberg, Digital Campus Vorarlberg, Hill Digital, TSM (Brno) and PROEKO (Bratislava).
+- [Dates](https://jakubpopluhar.com/termine/): confirmed open seminars, run with ARS Akademie, tecTrain, BFI Vorarlberg, Digital Campus Vorarlberg, TSM (Brno) and PROEKO (Bratislava).
 - [AI training by department](https://jakubpopluhar.com/trainings/): in-house training days for teams, tailored to the department (HR, sales, marketing, assistance) and to the tool the company uses (Microsoft 365 Copilot, ChatGPT, Claude or Gemini). Ideal group size 8 to 12, adjusted individually. Every training available in German, English or Slovak (English page: https://jakubpopluhar.com/en/trainings/, Slovak page: https://jakubpopluhar.com/sk/trainings/), with a participation certificate covering the EU AI Act Art. 4.
   - [AI at your desk](https://jakubpopluhar.com/trainings/ki-am-schreibtisch/): foundations for everyone, CITE(R) prompting, own AI helpers, data protection
   - [Copilot at work](https://jakubpopluhar.com/trainings/copilot/): Microsoft 365 Copilot in Word, Excel, Outlook and Teams
