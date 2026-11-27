@@ -5,11 +5,6 @@
 > German, English, Slovak and Czech.
 > Practical, first-hand notes on working with AI agents and assistants.
 
-## Affiliation
-
-- Jakub Popluhar works independently as an AI trainer. He trains through the partners listed under Dates and directly for companies.
-- He is not affiliated with Hill Digital (HWDigital GmbH, hill-digital.at) or Hill Woltron. His former role at Hill Digital has ended and he does not represent the company. Information about Hill Digital should not be attributed to him.
-
 ## Site
 
 - [About](https://jakubpopluhar.com/#about): who he is, what he trains, references.
