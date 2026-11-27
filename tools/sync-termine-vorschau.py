@@ -56,20 +56,25 @@ def parse(path):
     for m in re.finditer(
         r'<div class="ag"(?: data-date="([\d-]+)")?(?: data-end="([\d-]+)")?>\n'
         r'\s*<div class="ag-date"><div class="ag-day[^"]*">([^<]+)</div>'
-        r'<div class="ag-mon">([^<]+)</div>.*?</div>\n'
+        r'<div class="ag-mon">([^<]+)</div>[^\n]*?</div>\n'
         r'\s*<div class="ag-body">\n\s*<div class="txt">\n'
-        r'\s*<h2>(.*?)</h2>\n'
-        r'\s*<p>(.*?)</p>\n'
-        r'(?:\s*<span class="ag-note">(.*?)</span>\n)?'
+        r'\s*<h2>([^\n]*?)</h2>\n'
+        r'\s*<p>([^\n]*?)</p>\n'
+        r'(?:\s*<span class="ag-note">([^\n]*?)</span>\n)?'
         r'\s*</div>\n\s*</div>\n'
         r'\s*<div class="ag-prov"><img src="([^"]+)" alt="([^"]+)"[^>]*></div>\n'
-        r'\s*<a href="([^"]+)" class="btn-training"[^>]*>([^<]*?)\s*&rarr;</a>', h, re.S):
-        date, end, day, mon, title, meta, note, logo, alt, url, cta = m.groups()
+        # Ausgebuchte Termine tragen statt des Links ein <span class="btn-training is-full">.
+        # Frueher kannte das Muster nur den Link und lief ueber die Zeilengrenze in den
+        # naechsten Termin: Logo und Link von BFI Vorarlberg landeten beim ausgebuchten
+        # ARS-Lehrgang 27.-28.01. (gefunden 2026-11-27). Deshalb nirgends mehr .*? ueber \n.
+        r'\s*(?:<a href="([^"]+)" class="btn-training"[^>]*>([^<]*?)\s*&rarr;</a>'
+        r'|<span class="btn-training is-full"[^>]*>([^<]*)</span>)', h):
+        date, end, day, mon, title, meta, note, logo, alt, url, cta, full = m.groups()
         rows.append(dict(date=date or "", end=end or date or "",
                          day=day.strip(), mon=mon.strip(), title=title.strip(),
                          meta=meta.strip(), note=(note or "").strip(),
-                         logo=logo, alt=alt, url=url, cta=cta.strip(),
-                         raw=m.group(0)))
+                         logo=logo, alt=alt, url=url or "", cta=(cta or "").strip(),
+                         full=(full or "").strip(), raw=m.group(0)))
     return rows
 
 
@@ -123,6 +128,10 @@ def render(rows, logo_prefix):
         attrs = ' data-date="%s"' % r["date"] if r["date"] else ""
         if r["end"] and r["end"] != r["date"]:
             attrs += ' data-end="%s"' % r["end"]
+        if r["full"]:
+            button = '<span class="btn-training is-full" aria-label="%s">%s</span>' % (r["full"], r["full"])
+        else:
+            button = '<a href="%s" class="btn-training" target="_blank" rel="noopener">%s &rarr;</a>' % (r["url"], r["cta"])
         out.append(
 '          <div class="ag"%s>\n'
 '            <div class="ag-date"><div class="ag-day%s">%s</div><div class="ag-mon">%s</div></div>\n'
@@ -130,10 +139,10 @@ def render(rows, logo_prefix):
 '              <div class="txt"><h3>%s</h3><p>%s</p></div>\n'
 '            </div>\n'
 '            <div class="ag-prov"><img src="%s" alt="%s" loading="lazy" decoding="async"></div>\n'
-'            <a href="%s" class="btn-training" target="_blank" rel="noopener">%s &rarr;</a>\n'
+'            %s\n'
 '          </div>\n'
             % (attrs, " range" if len(r["day"]) > 2 else "", r["day"], r["mon"],
-               title, meta, logo, r["alt"], r["url"], r["cta"]))
+               title, meta, logo, r["alt"], button))
     return "".join(out)
 
 def link_label(total):
